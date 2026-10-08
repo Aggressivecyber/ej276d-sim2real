@@ -1,0 +1,75 @@
+{
+  "question": "remaining response discrepancies of full2000 historical SIM, bounded GEN_FIXED, unconstrained historical GEN_W0 vs measured DEV",
+  "start_UTC": "2026-10-08T08:55:53.493977+00:00",
+  "deadline_UTC": "2026-10-08T09:55:53.493977+00:00",
+  "input_npz": {
+    "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+    "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+    "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+  },
+  "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+  "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+  "n": 2000,
+  "sample_ns": 1,
+  "baseline": [
+    0,
+    100
+  ],
+  "Qfast": [
+    100,
+    150
+  ],
+  "Qtotal": [
+    100,
+    400
+  ],
+  "PSD": "1-Qfast/Qtotal signed",
+  "tail_charge": [
+    200,
+    400
+  ],
+  "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+  "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+  "raw_scale": "SIM and GEN normalized arrays times corresponding SIM parent normalization_peak_V; GEN unit-bearing proxy, not independent amplitude calibration; REAL saved physical V",
+  "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+  "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+  "FOM_min_band": 20,
+  "C2ST": {
+    "model": "HistGradientBoostingClassifier",
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008,
+    "views": [
+      "shape_only",
+      "shape_plus_amplitude_proxy"
+    ],
+    "train_cap_each_domain": 600,
+    "test_cap_each_domain": 250,
+    "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+    "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+    "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+    "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+    "bootstrap_cluster_repeats": 1000,
+    "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+    "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+    "no_parameter_search": true
+  },
+  "REAL_repeat_reference": {
+    "count": 64,
+    "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+    "not_physical_equivalence": true
+  },
+  "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+  "no_new_response_training": true,
+  "no_G4": true,
+  "no_SSH": true,
+  "EVAL_waveform_or_feature_read": 0,
+  "numeric_wall_limit_s": 1200,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912
+}

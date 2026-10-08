@@ -1,0 +1,25 @@
+# EJ-276D G4-to-real response research
+
+以 Geant4 沉积及派生波形为输入，学习到 EJ-276D/AmBe 实测响应的变换。当前工作限于同一次采集内的回顾性留出验证；不将分布相似、FoM 接近或 C2ST 接近随机当作物理等效证明。
+
+[GitHub 私有仓库](https://github.com/Aggressivecyber/ej276d-sim2real)，默认分支 `main`。
+
+## 当前入口
+
+- [研究计划](PLAN.md) 与 [当前状态](STATUS.md)
+- [执行约定](AGENTS.md) 与 [机器可读状态](PROGRAM.json)
+- [实测用途分区](CURRENT_ROLE_INDEX.json)：TRAIN/CAL/DEV 分开使用，EVAL 留作方法选择后的最终评价
+- [R1 完整基线报告](work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md)
+- [R2 平滑随机响应任务](tasks/R2_SMOOTH_STOCHASTIC_RESPONSE_001.md)：进行中
+
+R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
+
+[电荷—PSD 图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/charge_psd.png) · [条件波形图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/conditional_waveforms.png) · [噪声与涨落图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/fluctuations.png)
+
+## 版本与数据
+
+本地仓库位于 `E:/GAN/research/sim2real_two_papers_20261008_0305`。Git 保存代码、配置、研究计划、阶段报告、紧凑指标和关键图；原始/派生逐事件数据、模型权重、日志、缓存和备份留在 E/D。输入路径及已有校验值见各阶段的 `INPUT_MANIFEST.json`，克隆仓库不会自动取得这些外部输入。
+
+当前提交历史从 2026-10-08 的已完成 R1 开始。更早的本地材料及负结果继续保留，现行计划已经覆盖旧逐步骤审批流程。每个完成阶段单独提交；提交前按明确路径选择文件，不使用无范围的 `git add .`，不提交仍在写入的运行结果。GitHub 仓库默认保持私有。
+
+R1 的依赖版本见 [ENVIRONMENT.json](work/R1_RESPONSE_SIMILARITY_BASELINE_001/ENVIRONMENT.json)。源代码、当次配置和运行回执已保留。历史配置含原工作站路径、时间预算和独立运行编号；复现时需具备清单中的输入，并在新目录记录运行环境调整，不能覆盖已完成结果。设置临时目录和缓存到 E/D 后再执行。历史数值结果不因建仓而重新计算。
