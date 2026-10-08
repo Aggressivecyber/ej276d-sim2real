@@ -1,0 +1,17 @@
+{
+  "PID": 23776,
+  "UTC": "2026-10-08T16:57:50.936806+00:00",
+  "elapsed_s": 9.274928800005,
+  "error": "TypeError('Object of type Tensor is not JSON serializable')",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\run.py\", line 143, in <module>\n    try:run()\n        ~~~^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\run.py\", line 93, in run\n    target=tr.targets(real[2000:][fit],real[2000:][val],edges,cfg,ROOT)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\training.py\", line 43, in targets\n    (root/'TARGET_STATISTICS.json').write_text(json.dumps(ev.safe(compact),ensure_ascii=False,allow_nan=False,indent=2)+'\\n',encoding='utf-8')\n                                               ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ~~~~~~^^^^^\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\encoder.py\", line 261, in iterencode\n    return _iterencode(o, 0)\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\encoder.py\", line 180, in default\n    raise TypeError(f'Object of type {o.__class__.__name__} '\n                    f'is not JSON serializable')\nTypeError: Object of type Tensor is not JSON serializable\n",
+  "counters": {
+    "HGB_attempts": 0,
+    "density_EM_attempts": 0,
+    "response_updates": {},
+    "generation_rows": 0,
+    "EVAL_read": 0,
+    "SSH": 0,
+    "new_G4": 0
+  },
+  "no_recipe_change_on_engineering_repair": true
+}

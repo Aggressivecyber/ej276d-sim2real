@@ -1,10 +1,13 @@
 # EJ-276D：G4 到实测响应变换
 
-本轮预定实验、保存模型重放与关键结果检查均已完成。结果支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。研究范围为同一次 AmBe 采集内的回顾性验证。
+R1–R6 已完成并封存，支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。用户要求持续推进的新一轮 R7–R9 正在本机执行：R7 残差诊断已完成，R8 配对实验已封存，峰后局部改善但完整shape BA仍0.996；现按用户关于整体域差距的反馈进行R8B只读路线复审，之后按提前固定的 R9 口径做冻结后回顾性验证。研究范围仍为同一次 AmBe 采集，旧 EVAL 已查看。
 
-- [最终研究报告](FINAL_REPORT.md)：数据、方法、留出响应、峰宽、任务效用、区间排除与结论边界。
-- [本机复现入口](REPRODUCTION.md)：固定权重生成、R5 保存估计器预测、R6 配对模型重放。
-- [交付索引](DELIVERY_INDEX.json)：需求对应证据、关键文件摘要与交付回执入口。
+- [R7 残差诊断](work/R7_RESPONSE_RESIDUAL_DIAGNOSIS_001/REPORT.md)、[R8 预登记实验](tasks/R8_LOCAL_JOINT_FLUCTUATION_001.md)、[R9 预登记验证](tasks/R9_FROZEN_RETROSPECTIVE_VALIDATION_001.md)。
+- [本轮方法登记](CONTINUATION_METHOD_PLAN.json)与[实时阶段状态](STATUS.md)。本轮最终候选、验证与交付尚未完成。
+
+- [R1–R6 封存研究报告](FINAL_REPORT.md)：数据、方法、留出响应、峰宽、任务效用、区间排除与结论边界。
+- [R1–R6 本机复现入口](REPRODUCTION.md)：固定权重生成、R5 保存估计器预测、R6 配对模型重放。
+- [R1–R6 封存交付索引](DELIVERY_INDEX.json)：需求对应证据、关键文件摘要与交付回执入口。
 - [计划与开发记录](PLAN.md)、[当前状态](STATUS.md)、[机器可读状态](PROGRAM.json)。
 - [冻结方法和任务](FROZEN_METHOD.json)、[数据角色](CURRENT_ROLE_INDEX.json)：当前首次 EVAL 科学读取前登记。
 
