@@ -1,10 +1,10 @@
 # EJ-276D：G4 到实测响应变换
 
-R1–R6 已完成并封存，支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。持续目标下，R7 残差诊断、R8 配对实验及 R8B 整体路线复审已封存。R8 改善峰后局部，完整 shape BA 仍 0.996；现执行 R8C 整段随机映射及唯一配对消融，之后按已登记的 R9 补充协议统一冻结验证。研究范围仍为同一次 AmBe 采集，旧 EVAL 已查看。
+R1–R6 已完成并封存，支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。持续目标下，R7 残差诊断、R8 配对实验及 R8B 整体路线复审已封存。R8 改善峰后局部，完整 shape BA 仍 0.996；R8C 整段映射两臂已封存，完整 shape/V BA 均 1、条件峰宽更差。五候选现已统一冻结，正在完成 R9 回顾性验证。研究范围仍为同一次 AmBe 采集，旧 EVAL 已查看。
 
 - [R7 残差诊断](work/R7_RESPONSE_RESIDUAL_DIAGNOSIS_001/REPORT.md)、[R8 配对结果](work/R8_LOCAL_JOINT_FLUCTUATION_001/REPORT.md)、[R8B 整体路线依据](work/R8B_FULL_RESPONSE_ROUTE_REVIEW_001/REPORT.md)。
-- [R8C 有界完整映射实验](tasks/R8C_WHOLE_RESPONSE_MAPPING_001.md)、[原 R9 验证口径](tasks/R9_FROZEN_RETROSPECTIVE_VALIDATION_001.md)及[新增候选补充](tasks/R9_CANDIDATE_SCOPE_ADDENDUM_001.md)。
-- [本轮方法登记](CONTINUATION_METHOD_PLAN.json)与[实时阶段状态](STATUS.md)。本轮最终候选、验证与交付尚未完成。
+- [R8C 整体映射结果](work/R8C_WHOLE_RESPONSE_MAPPING_001/REPORT.md)与[任务](tasks/R8C_WHOLE_RESPONSE_MAPPING_001.md)、[原 R9 验证口径](tasks/R9_FROZEN_RETROSPECTIVE_VALIDATION_001.md)及[新增候选补充](tasks/R9_CANDIDATE_SCOPE_ADDENDUM_001.md)。
+- [本轮方法登记](CONTINUATION_METHOD_PLAN.json)与[实时阶段状态](STATUS.md)。[最终候选绑定](CONTINUATION_FROZEN_METHOD.json)已保存，验证与交付尚未完成。
 
 - [R1–R6 封存研究报告](FINAL_REPORT.md)：数据、方法、留出响应、峰宽、任务效用、区间排除与结论边界。
 - [R1–R6 本机复现入口](REPRODUCTION.md)：固定权重生成、R5 保存估计器预测、R6 配对模型重放。

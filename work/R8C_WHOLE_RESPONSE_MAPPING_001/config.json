@@ -1,0 +1,394 @@
+{
+  "start_UTC": "2026-10-08T17:56:24.4099068Z",
+  "deadline_UTC": "2026-10-08T19:56:24.4099068Z",
+  "first_tool": "92b53b",
+  "first_native_PID": 38408,
+  "first_native_exit": 0,
+  "stage": "R8C",
+  "numeric_wall_limit_s": 2400,
+  "training_soft_limit_s": 1600,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "seed": 2026100891,
+  "projection_seed": 2026100892,
+  "source_permutation_seed": 2026100893,
+  "generation_seeds": [
+    2026100894,
+    2026100895,
+    2026100896
+  ],
+  "validation_seed": 2026100897,
+  "validation_n": 384,
+  "arms": [
+    "FULL_WAVE_STOCHASTIC",
+    "PULSE_STOCHASTIC_OFF"
+  ],
+  "max_updates_per_arm": 2000,
+  "training_finalization_reserve_s": 30,
+  "batch_size": 64,
+  "learning_rate": 0.0002,
+  "Adam_betas": [
+    0.5,
+    0.9
+  ],
+  "weight_decay": 0.0001,
+  "gradient_norm_max": 5.0,
+  "generation_chunk": 64,
+  "validation_interval": 100,
+  "encoder": {
+    "channels": 24,
+    "kernel": 5,
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "convolutions_per_residual_block": 2,
+    "activation": "SiLU",
+    "padding": "zero same",
+    "stride": 1
+  },
+  "pulse_branch": {
+    "z_pulse": 16,
+    "z_base": 4,
+    "white_points": 512,
+    "dilations": [
+      1,
+      4,
+      16
+    ],
+    "output_scale_V": 0.1,
+    "output_last_layer_initialization": "zero"
+  },
+  "mean_branch": {
+    "gain": "exp(linear_c4_MLP16), initial intercept TRAIN median Qtotal/source clean Qtotal",
+    "signed_residual_scale_V": 0.1,
+    "output_last_layer_initialization": "zero",
+    "reads_noise": false
+  },
+  "baseline_branch": {
+    "z_base": 4,
+    "white_points": 512,
+    "conditional_FIR_taps": 31,
+    "FIR_normalization": "L2, no zero-sum constraint",
+    "RMS": "exp(MLP(c4,zbase4) plus initial logRMS_sd*zbase0)",
+    "initial_FIR": "centered 31 taps of IFFT sqrt(TRAIN-fit baseline mean spectrum), L2 normalized",
+    "driving_white_mean": "population zero, no per-event centering"
+  },
+  "critic": {
+    "channels": 24,
+    "scales": [
+      1,
+      2,
+      4
+    ],
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "kernel": 5,
+    "spectral_norm": true,
+    "stride": 1,
+    "inputs": "V/.1 and own baseline-subtracted peak-normalized shape"
+  },
+  "loss_coefficients": {
+    "hinge_adv": 1.0,
+    "full_joint_SW": 1.0,
+    "conditional_CDF": 2.0,
+    "occupancy": 0.5,
+    "baseline_joint": 0.5
+  },
+  "joint_features": {
+    "scalar_fields": [
+      "PSD",
+      "log_Qtotal_mVns",
+      "log_peak_V",
+      "rise10_90_ns",
+      "tail_charge_fraction"
+    ],
+    "scalar_IQR_floors": [
+      0.05,
+      0.5,
+      0.5,
+      1.0,
+      0.05
+    ],
+    "blocks": [
+      "scalar5",
+      "V480/.1",
+      "ownshape480",
+      "d1_V479/.1",
+      "d2_V478/.1"
+    ],
+    "coordinate_IQR_floors": [
+      null,
+      0.005,
+      0.02,
+      0.005,
+      0.005
+    ],
+    "balance": "each standardized block divided by sqrt(its dimension)",
+    "projections": 128,
+    "smoothing": false,
+    "dimension": 1922
+  },
+  "baseline_joint": {
+    "fields": [
+      "log_RMS_ddof1",
+      "ACF_lag1_to8_full100_den",
+      "nonDC_normalized_power50",
+      "log_Qtotal_mVns",
+      "log_peak_V"
+    ],
+    "IQR_floors": [
+      0.2,
+      0.02,
+      0.005
+    ],
+    "projections": 128,
+    "den_floor": 1e-12,
+    "log_RMS_floor_V": 1e-07,
+    "block_IQR_floors": [
+      0.2,
+      0.02,
+      0.005,
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "dimension": 61
+  },
+  "CDF": {
+    "PSD_grid_points": 128,
+    "PSD_grid_limits": [
+      -0.1,
+      0.6
+    ],
+    "temperature": 0.0025,
+    "logQ_centers": "fixed8 bin midpoints",
+    "logQ_soft_width": "one fixed narrow-bin width"
+  },
+  "validation": "fixed384 G4 internal-val and REAL internal-val selections/noise; SW batch projection quantiles, full599 validation CDF/occupancy and joint baseline target; no adversarial; strict lowest score incl0",
+  "source_controls": {
+    "fixed_positions": "floor(j*1999/63), j=0..63",
+    "shuffle": "same permutation of x,c,Q on these64",
+    "replacement": "full ID SHA order first allowed G4 TRAIN-fit parent"
+  },
+  "HGB_max_fits": 12,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "C2ST_views": [
+    "full_historical_shape",
+    "full_voltage",
+    "prompt_local",
+    "postpeak_local",
+    "tail_local",
+    "baseline_local"
+  ],
+  "density_EM_limit": 16,
+  "input_files": {
+    "generation_inputs": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\generation_inputs.npz",
+      "bytes": 137260,
+      "sha256": "dfbe5ee5d97dba9d9fbca4888f5a266d144e9e4e69ae2e43e13cfd4a2df4c414"
+    },
+    "generated": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\generated.npz",
+      "bytes": 5003943,
+      "sha256": "df2b9555e91eb29f1b512bef5210d249defb5d67b7cb6420c579ef748a537586"
+    },
+    "REAL_V": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\window_V_f32.bin",
+      "bytes": 13056000,
+      "sha256": "270abe0e61a3dd3e1f466ad756637a2afa2a0b7e4002f634fcb09c3ed672baa0"
+    },
+    "REAL_QC": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\QC_reason_u16.bin",
+      "bytes": 13600,
+      "sha256": "aa7ccedcfd692cbe935bc173e881aba7ba5d7e357e8ae6aed6b9add5accbfa0c"
+    },
+    "REAL_groups": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_group.bin",
+      "bytes": 13600,
+      "sha256": "f42ba59bf8bc6aac5777bb7114c026b06abea90ce9d5c212a45464c934182bdd"
+    },
+    "REAL_original_index": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_original_index.bin",
+      "bytes": 27200,
+      "sha256": "7eefd0a8d44eda367b56e2701907c3b9c5c1dc345c6b6ca73cfb931b84860753"
+    },
+    "REAL_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_role.bin",
+      "bytes": 6800,
+      "sha256": "f5f39c9213b40b5b92188835926ff0ecc14cab2bb111284d4a44045c0133e4f2"
+    },
+    "CAL_reference": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\STATISTICS.json",
+      "bytes": 31464,
+      "sha256": "ff8d6afa294c6736fc55d509a54000d9c14688ebc3ff94262805239112089989"
+    },
+    "TRAIN_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\results\\DATA_ROLES.json",
+      "bytes": 988,
+      "sha256": "90ce22a812b8af429fc3370902a15734f348c98dbbbdc8a0392b9370565b612b"
+    },
+    "SIM_identity": {
+      "path": "E:\\GAN\\baseline_mean_fix_20261004_1125\\inputs\\evaluation_inputs.npz",
+      "bytes": 4599732,
+      "sha256": "29642e32877b6df3b5c1cdb10e33031474d8a95606a1cde0fc011dae61000c83"
+    },
+    "width_definition": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\results\\DIAGNOSTIC_DEFINITION.json",
+      "bytes": 2604,
+      "sha256": "68f915df1cc3e09832713f3206bd608bda72a9fa50ebcdb2c813da6b883519e5"
+    },
+    "G4_TRAIN_cache": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\data\\G4_TRAIN_CACHE.npz",
+      "sha256": "117152db28a16fcfc9a83012cc863e32f2d73bdef77bbf7b5f8e977c3e64818b",
+      "bytes": 11535795
+    },
+    "R7_metrics": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\METRICS_COMPACT.json",
+      "bytes": 1543975,
+      "sha256": "cd96b064c8da45e7d224195150a4adeee521a871001f9a523a8db7cc86fb9c10"
+    },
+    "R7_selections": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\results\\DIAGNOSTIC_SELECTIONS.json",
+      "bytes": 74002,
+      "sha256": "0bb70d31607ea391480739ff7412c7bdcd5cfa98ed7e0c692bfaba0542dabe10"
+    },
+    "R7_predictions": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\results\\C2ST_HOLDOUT_PREDICTIONS.npz",
+      "bytes": 294328,
+      "sha256": "5df23f36a8560f6a994fa33da2067ad5de68bbbcde93970d45b3313706401db3"
+    },
+    "R8_metrics": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\metrics.json",
+      "bytes": 1946665,
+      "sha256": "12683a60571d7b615dac71ea14142f29be896a6aee2767a0d4f4d9e9217c6d99"
+    },
+    "R8_JOINT": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\arms\\JOINT\\generated.npz",
+      "bytes": 7735246,
+      "sha256": "918698b6f35c5ff43ca21fdbb30c1bc1f4d79777279fa240a012c3a37a16bea4"
+    },
+    "R8_JOINT_SIGNAL": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8_LOCAL_JOINT_FLUCTUATION_001\\arms\\JOINT_SIGNAL\\generated.npz",
+      "bytes": 10983126,
+      "sha256": "8617792d5b7533581f36d2be89f90b6becfb417fc04db0937d36b3766ee028ee"
+    },
+    "GEN_W0": {
+      "path": "E:\\GAN\\fullwave_execution_20261004_0930\\artifacts\\evaluation\\control_arrays.npz",
+      "bytes": 8321851,
+      "sha256": "9bbe1b3c4e561258e601db194b16e210ebc92db9e62775be63787fc326de11e3",
+      "read_scope": "whole_existing_DEV2000_container"
+    }
+  },
+  "evaluation": {
+    "question": "R8C complete waveform conditional response, two new arms with frozen retrospective DEV diagnostics",
+    "input_npz": {
+      "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+      "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+      "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+    },
+    "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+    "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+    "n": 2000,
+    "sample_ns": 1,
+    "baseline": [
+      0,
+      100
+    ],
+    "Qfast": [
+      100,
+      150
+    ],
+    "Qtotal": [
+      100,
+      400
+    ],
+    "PSD": "1-Qfast/Qtotal signed",
+    "tail_charge": [
+      200,
+      400
+    ],
+    "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+    "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+    "raw_scale": "SIM and historical W0 use corresponding SIM normalization_peak_V proxy; all R3B/R8/R8C outputs already physical V, no parent-peak rescaling",
+    "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+    "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+    "FOM_min_band": 20,
+    "C2ST": {
+      "model": "HistGradientBoostingClassifier",
+      "max_iter": 100,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "random_state": 20261008,
+      "views": [
+        "full_historical_shape",
+        "full_voltage",
+        "prompt_local",
+        "postpeak_local",
+        "tail_local",
+        "baseline_local"
+      ],
+      "train_cap_each_domain": 600,
+      "test_cap_each_domain": 250,
+      "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+      "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+      "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+      "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+      "bootstrap_cluster_repeats": 1000,
+      "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+      "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+      "no_parameter_search": true
+    },
+    "REAL_repeat_reference": {
+      "count": 64,
+      "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+      "not_physical_equivalence": true
+    },
+    "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+    "no_G4": true,
+    "no_SSH": true,
+    "EVAL_waveform_or_feature_read": 0,
+    "numeric_wall_limit_s": 2400,
+    "threads": 4,
+    "RSS_limit_bytes": 4294967296,
+    "output_limit_bytes": 536870912
+  },
+  "EVAL_read": 0,
+  "SSH": 0,
+  "new_G4": 0,
+  "new_agents": 0,
+  "Git": 0,
+  "full_clean_is_fixed_total_deposition_source_description_not_new_timing": true,
+  "retrospective_same_acquisition_DEV": true,
+  "CAL_q4_fallback": false,
+  "numeric_ledger": "all worker/replay/plot child wall times incl failures in RUN_HISTORY; no reset after repair",
+  "pulse_ablation_interpretation": "whole added nonlinear pulse branch; its conditional mean is not constrained to zero, so OFF removes deterministic as well as stochastic capacity",
+  "validation_quantile_rule": "type7 interpolation when baseline target599/2592 and generated384/64 counts differ",
+  "validation_only_fixed_intervals": "0 and each100; final budget checkpoint saved but not newly validated unless already at interval",
+  "phase_config": "frozen before first scientific array decoding; debugging cannot change scientific definition based on DEV"
+}
