@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "study_id": "SIM2REAL-TWO-PAPERS-20261008-0305",
+  "created_UTC": "2026-10-08T12:49:29.713158+00:00",
+  "local_root": "E:/GAN/research/sim2real_two_papers_20261008_0305",
+  "scientific_work_status": "complete",
+  "response_similarity_success": false,
+  "completion_meaning": "The requested bounded study, reproducible saved outputs, heldout response conclusions, task-utility test and charge-gap test are complete. Completion does not mean detector-response equivalence or external-condition validation.",
+  "entry_points": {
+    "report": "FINAL_REPORT.md",
+    "reproduction": "REPRODUCTION.md",
+    "status": "STATUS.md",
+    "plan": "PLAN.md",
+    "frozen_definitions": "FROZEN_METHOD.json",
+    "roles": "CURRENT_ROLE_INDEX.json"
+  },
+  "requirements": [
+    {
+      "id": "g4_input_and_parent_association",
+      "requirement": "Use existing Geant4 deposits and derived signal inputs; preserve physical parent association.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/model.py",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/generation_inputs.npz",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/generated.npz",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/metrics.json"
+      ],
+      "finding": "Same 2000 G4 DEV parents retained across candidates. Saved conditions, source labels and IDs remain local. Legacy non2112 bucket is not pure PDG22. Energy/charge and composition/PSD associations are reported without claiming event truth."
+    },
+    {
+      "id": "method_and_converted_data",
+      "requirement": "Deliver implemented conversion method, configuration, saved models and converted data.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/model.py",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/config.json",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/model.pt",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/generated.npz",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/FULL/R3B/model.pt",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/GAP/R3B/model.pt",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/FULL_generated.npz",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/GAP_generated.npz"
+      ],
+      "finding": "R3B development candidate and independent FULL/GAP fixed curricula are retained, including negative results. All payloads are on E/D."
+    },
+    {
+      "id": "common_preprocessing_and_full_population",
+      "requirement": "Use common baseline, time axis and signed integrals; include all QC-valid unknown and overlap records.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/metrics.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/EVAL_EXTRACT.npz",
+        "FROZEN_METHOD.json"
+      ],
+      "finding": "480 samples at1ns, own first100 baseline, fast100:150,total100:400,signed PSD. EVAL7583/7600 valid; all invalid identities and unknowns retained. CALq4 failure remains undefined."
+    },
+    {
+      "id": "frozen_heldout_use",
+      "requirement": "Freeze candidates and endpoint protocols before current EVAL scientific decode.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "FROZEN_METHOD.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/READINESS.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/EXTRACTION_RECEIPT.json",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/MODELS_FROZEN_BEFORE_EVAL.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/MODELS_AND_GENERATION_FROZEN_BEFORE_EVAL.json"
+      ],
+      "finding": "All33 frozen bindings unchanged. R4 no response refit; R5 estimators and R6 weights/generation saved before each fixed evaluation. Same-acquisition historical exposure remains unknown."
+    },
+    {
+      "id": "joint_psd_charge_and_conditional_widths",
+      "requirement": "Evaluate joint charge-PSD distribution, regional FoM, peak position and width including energy dependence.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/metrics.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/ENERGY_WIDTH_METRICS.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/charge_psd.png",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/energy_peak_width.png",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/PAIRED_WIDTH_ERROR_SUMMARY.json"
+      ],
+      "finding": "R3B PSD W1 .01372894, joint slicedW1 .199078; local width improvements but low/high boundary failures persist. Failed density fits are not repaired with labels or restarts."
+    },
+    {
+      "id": "conditional_waveforms",
+      "requirement": "Compare conditional waveform shape and per-sample variation.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/conditional_waveforms.png",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/metrics.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/figures/conditional_waveforms.png"
+      ],
+      "finding": "Physical voltage and peak-normalized shape comparisons retained; mean/median or10-90% ranges are descriptive event distributions. Front and post-peak mismatch persists."
+    },
+    {
+      "id": "noise_and_fluctuations",
+      "requirement": "Compare noise RMS, spectrum and autocorrelation.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/fluctuations.png",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/metrics.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/figures/fluctuations.png"
+      ],
+      "finding": "RMS improved but ACF1 and other correlation structure remain mismatched. Plot DC compression is disclosed, not interpreted as exact spectral agreement."
+    },
+    {
+      "id": "independent_c2st",
+      "requirement": "Use independent evaluation C2ST, heldout identity groups, uncertainty and controls.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/metrics.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/C2ST_SPLITS_R3B_vs_REAL.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/C2ST_SPLITS_REAL_vs_REAL.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/METRICS_COMPACT.json"
+      ],
+      "finding": "R4 R3B BA .988 for both views; REAL-REAL .504/.528 and positive control .996/.996. R6 FULL/GAP q3 BA1.0 on fixed limited test sets. Classifiers do not optimize response models."
+    },
+    {
+      "id": "same_n_measured_reference",
+      "requirement": "Report original simulation, transformed simulation and equal-size measured-measured references in parallel.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/results/REAL_REAL_REFERENCE.json",
+        "work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/Q3_REAL_REAL_REFERENCE.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/METRICS_COMPACT.json"
+      ],
+      "finding": "R4 has 64 whole-group half splits with 2000 per side; R6 has 64 q3 references at every candidate output count 585/743/770/840/877. These are within-acquisition sampling references, not physical equivalence margins."
+    },
+    {
+      "id": "task_utility_and_tolerances",
+      "requirement": "Evaluate value for measured tasks and distinguish improvement from task tolerance.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/metrics.json",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/task_models.joblib",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/predictions.npz",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/tolerance_coverage.png",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/cut_margin_flip.png"
+      ],
+      "finding": "44 predeclared fits,2 real budgets,2 estimators,2 targets,5 augmentation arms and full2592 REAL reference. Gains depend on budget/estimator/target. Error/margin/coverage and extreme errors retained; no invented universal success line or acquisition-saving claim."
+    },
+    {
+      "id": "charge_gap_generalization",
+      "requirement": "Test a fully excluded contiguous current-fit charge interval with paired models and report coverage/migration.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/REPORT.md",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/INITIAL_PARAMETER_EQUALITY.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/DATA_ROLES_AND_GAP_EXCLUSIONS.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/METRICS_COMPACT.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/results/figures/charge_migration.png"
+      ],
+      "finding": "Both arms11200 total updates from identical trainable initial parameters. GAP removesREAL698/146 andG4968/220 fit/val events and statistics; zero overlap. Own-outputq3 comparison and all396 fixed-sourceq3 outputs both reported; rankings differ and full response remains distinguishable."
+    },
+    {
+      "id": "saved_result_reproducibility",
+      "requirement": "Provide actual saved-model/output replay evidence and usable replay entry points.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "REPRODUCTION.md",
+        "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPLAY_CHECK.json",
+        "work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPLAY_CHECK.json",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPLAY_CHECK.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/REPLAY_CHECK.json"
+      ],
+      "finding": "R3/R3B each960000 float32 generation values bitwise; R5 2816 predictions bitwise; R6 1920000 values bitwise. R2 original initialization isunknown; fresh full training was not repeated merely to produce documentation."
+    },
+    {
+      "id": "bounded_local_execution_and_preservation",
+      "requirement": "Reuse inputs; avoid duplicate scientific recomputation, preserve originals, obey budgets and local-only user steering.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "AGENTS.md",
+        "PLAN.md",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/RESOURCE_RECEIPT.json",
+        "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/FAILURE.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/RESOURCE_RECEIPT.json",
+        "work/R6_CHARGE_GAP_GENERALIZATION_001/FINAL_RECEIPT.json"
+      ],
+      "finding": "No newSSH after11:41UTC, no newG4,4threads. R6 main and replay native0,536.439s/2400,peak1,052,766,208B. ROOT reviewed key artifacts without duplicating full science. NoR7 scheduled."
+    },
+    {
+      "id": "scientific_synthesis_and_evidence_boundaries",
+      "requirement": "Deliver an explicit conclusion without claiming physical equivalence or cross-condition capability.",
+      "status": "addressed_with_executed_evidence",
+      "evidence": [
+        "FINAL_REPORT.md",
+        "STATUS.md",
+        "PLAN.md"
+      ],
+      "finding": "Single historical acquisition, artificial groups, unknown historical event exposure, uncalibrated charge/energy correspondence, pseudo-label limits, total real-data usage and negative findings are retained."
+    }
+  ],
+  "verification": {
+    "checked_UTC": "2026-10-08T12:49:29.713158+00:00",
+    "all_33_frozen_bindings_unchanged": true,
+    "frozen_method_sha256": "b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186",
+    "checks": {
+      "R4_fixed_heldout_response": true,
+      "R5_44_estimators_and_2816_bitwise_predictions": true,
+      "R6_two_arms_1920000_bitwise_values": true,
+      "R6_main_and_replay_native0": true,
+      "R6_initial_trainable_parameter_equality": true,
+      "R6_gap_exclusion_zero_overlap_and_statistics": true,
+      "R6_final_receipt_bindings_match": true,
+      "new_markdown_local_links_resolve_except_index_being_created": true
+    },
+    "root_R6_figures_actually_viewed": [
+      "charge_migration.png",
+      "energy_peak_width.png",
+      "conditional_waveforms.png",
+      "fluctuations.png"
+    ],
+    "executor_R6_eight_figures_QA": "work/R6_CHARGE_GAP_GENERALIZATION_001/VISUAL_QA.json",
+    "scientific_arrays_recomputed_by_root_during_delivery": 0
+  },
+  "key_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2753,
+      "sha256": "38338671227069d32daaf0f9dc165e7f6bfaba52cdfec9fce624ea7a4b228441"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 17807,
+      "sha256": "498e35d699beacf2ff602284a88c419e660161a7ee8d385a7cf515b1cbd96777"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 2378,
+      "sha256": "0115f6798c35d14b3f900fcacb6de3f3c1c5485e508c8b54b6903e73c2a2fbb1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4332,
+      "sha256": "c3756e35d82fb13474c9a886b9031d8156c89567174fb701a2fd246334dcc8a3"
+    },
+    {
+      "path": "FINAL_REPORT.md",
+      "bytes": 15966,
+      "sha256": "fa11a4593d09c7425ff53142ec5b9e95b5bf3d6c15a427c0ac773eacfca44ec8"
+    },
+    {
+      "path": "REPRODUCTION.md",
+      "bytes": 7440,
+      "sha256": "10949aad32a5bdc92f91de581488aa4fd9eed9558bf118fbf6de6cfda50e15e9"
+    },
+    {
+      "path": "PROGRAM.json",
+      "bytes": 6386,
+      "sha256": "2a67ff4610561096165a97c9e8f67cab646ac8a558f7c81ab4e470307d911a1a"
+    },
+    {
+      "path": "CURRENT_ROLE_INDEX.json",
+      "bytes": 1957,
+      "sha256": "7898376aa517581e92c5f58270e17ffa82b42792cbf97bc06096e85e71acfc25"
+    },
+    {
+      "path": "FROZEN_METHOD.json",
+      "bytes": 10513,
+      "sha256": "b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186"
+    },
+    {
+      "path": "GOAL_REGISTRATION_RECEIPT.json",
+      "bytes": 2198,
+      "sha256": "a65f6624b8d041a4600d3e7a4a40029053a5c2935bdb6a1f013a56f90e4f68fd"
+    },
+    {
+      "path": "work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md",
+      "bytes": 11138,
+      "sha256": "b4cfaa477fe2d076ecaa5922d6abab0bbbeb7caf239ab0ace0fc1b2e0ae42c5e"
+    },
+    {
+      "path": "work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md",
+      "bytes": 10346,
+      "sha256": "c6a82d2f74a6cc68e28faabccece8c05287c94c0f8981f1732a86cc20a07eb74"
+    },
+    {
+      "path": "work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md",
+      "bytes": 10921,
+      "sha256": "5ce3f997ee4f7eb0e7e570f5430c9760951b49ab9341dfa02cf2e96fce475780"
+    },
+    {
+      "path": "work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPLAY_CHECK.json",
+      "bytes": 781,
+      "sha256": "0a9965b8ce205bd7d9e7728abea2d23280e61d1134f237a57e4a047bae4c2aa1"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPORT.md",
+      "bytes": 13509,
+      "sha256": "f6864fdb6d118bafc05409e77158fd80023f9b54420a3a7bfc99a639e7615b45"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/model.py",
+      "bytes": 9784,
+      "sha256": "5b4446ed033ce2018e952f17d516febf930e7f64c7ef5e0ba02770b18f127244"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/model.pt",
+      "bytes": 50812,
+      "sha256": "bb45da6e923088083ee7a3c3491f94909b81a24495c869f4553bf2379e8fbb7b"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/config.json",
+      "bytes": 11339,
+      "sha256": "43eb9fdb2ff0a0e704b25cad8cb9bbf3fd75c66b67ef692a2157d6d1965770bc"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/generation_inputs.npz",
+      "bytes": 137260,
+      "sha256": "dfbe5ee5d97dba9d9fbca4888f5a266d144e9e4e69ae2e43e13cfd4a2df4c414"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/generated.npz",
+      "bytes": 5003943,
+      "sha256": "df2b9555e91eb29f1b512bef5210d249defb5d67b7cb6420c579ef748a537586"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/GENERATION_RANDOM_STATE.pt",
+      "bytes": 6937,
+      "sha256": "84836b17baa51bbe0ad797c32990640b7fe5b9efe3319ca388a87525fdf8e548"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPLAY_CHECK.json",
+      "bytes": 780,
+      "sha256": "547277d0dc54e8127cf80623e1a3a91f3f43c352bf501cb00ddc946df75dd147"
+    },
+    {
+      "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/FINAL_RECEIPT.json",
+      "bytes": 1971,
+      "sha256": "301e804707260d11e2a1f41eccf93462c400813f133a730e6388783b406441cd"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md",
+      "bytes": 7991,
+      "sha256": "af8e173c3410e5025bd352b2141b6f4f462a629d05df8efc4429eb122058bc05"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/METRICS_COMPACT.json",
+      "bytes": 189457,
+      "sha256": "212a1c69413cea544b372a62c4471fc20489cbbad0b68f2d55dc88256d3ce636"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/READINESS.json",
+      "bytes": 10625,
+      "sha256": "6d7161f8bb4f198282651a625dd9b90d24e7284b43b07bc1c928f554668576f8"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/EVAL_EXTRACT.npz",
+      "bytes": 15009255,
+      "sha256": "dc5dfa4e4f0ab3fb419d91a05edf1831e5fc918465f1aa0945c5ac8a23ea91d4"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/EXTRACTION_RECEIPT.json",
+      "bytes": 3213,
+      "sha256": "b1bbc2bbce565513602a9d84b797871e5ab541490c39f5c1a5191306bd0b334c"
+    },
+    {
+      "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/FINAL_RECEIPT.json",
+      "bytes": 664,
+      "sha256": "aeda62772622d0cf284c2ff6f420b66b00d1ecf18df50726ec31d869929c93c8"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md",
+      "bytes": 8574,
+      "sha256": "e11d36f1d7737dca04c06726caf76212174bf5074a4d37d60b13e2d964708339"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/metrics.json",
+      "bytes": 162763,
+      "sha256": "b6ed5c5e95640fa6bde07671bd9e5fcaf76b8dac3992cf8b968bf8de66e8985f"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/task_models.joblib",
+      "bytes": 3755790,
+      "sha256": "1721f10a00cc1328b1b169f6ad4f4276ad7c0e15580b06735a1132a3630adc72"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPLAY_INPUTS.npz",
+      "bytes": 50400,
+      "sha256": "e676aeb020380d8f2d54b2e51a292dcbec5df07e97ae103834ad858b8907effc"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/predictions.npz",
+      "bytes": 2368594,
+      "sha256": "4aa13b47ec9f6ac7306188183f8e8a5b272c8311854e0f58daa48dd6e8b79658"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPLAY_CHECK.json",
+      "bytes": 2734,
+      "sha256": "859a94d0d115a50ceca7ef210dd0dce59d58bb4151455c2240991500425f5d58"
+    },
+    {
+      "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/FINAL_RECEIPT.json",
+      "bytes": 850,
+      "sha256": "94ebe9c74df5d63332e9def071b53e88acd02c26f9cbab24145b993de4d71c81"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/REPORT.md",
+      "bytes": 12342,
+      "sha256": "2ae9e00604c4edcc2397ddd1f945732e458260913cdbb1165c374f4940b88058"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/METRICS_COMPACT.json",
+      "bytes": 563114,
+      "sha256": "4be32b9a7d0e1af7a980310d13ae704ae06f0406a5282fdc151f0dd4ae5ca966"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/FINAL_MANIFEST.json",
+      "bytes": 15347,
+      "sha256": "5aff6544fb45334f4d155375f5151f13ab989836c19f217c4cf5e348c8fe3cae"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/FINAL_RECEIPT.json",
+      "bytes": 773,
+      "sha256": "6782f16c3e4122bcb10697a909b88306447bba982effede920d41e800feca956"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/RESOURCE_RECEIPT.json",
+      "bytes": 1598,
+      "sha256": "2602d28a0d554fb205c37d43a006799f48e28d0a7e609d6d6df03068cf928923"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/REPLAY_CHECK.json",
+      "bytes": 423,
+      "sha256": "d3fe6f4eef8824a65eb87328c5145919270fb2067c2d6035a6ac43adc6185b6b"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/INITIAL_PARAMETER_EQUALITY.json",
+      "bytes": 16179,
+      "sha256": "c775fdcbef45cfd778f92e6f509e32468c7b6c963e7ca693a26c99544b459e7e"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/generation_inputs.npz",
+      "bytes": 3989414,
+      "sha256": "ac079fa0c892e08ca9705ade4d9acf6204f1c8b34d7f50afe5013eaba89b8b98"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/FULL_generated.npz",
+      "bytes": 1935595,
+      "sha256": "5dbaa80f55f4b779dd072a45b7a7e058fb1b88f1e0f5b545c42240bbf8113c54"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/GAP_generated.npz",
+      "bytes": 1929486,
+      "sha256": "851069d14f89bd584f591ca83892bc0669df5bbf330ba47d489a7d18e1ec1aac"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/FULL/R3B/model.pt",
+      "bytes": 39804,
+      "sha256": "0be075b465ccf51a08b206126afef416779a71e617f86c73635d245da6b957b6"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/GAP/R3B/model.pt",
+      "bytes": 39804,
+      "sha256": "69b5854519fdb79367c87e942e95f8acebcebebffa4f60fdd1fd19126ba94422"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/results/DATA_ROLES_AND_GAP_EXCLUSIONS.json",
+      "bytes": 751291,
+      "sha256": "4c9c8f2365e8a3d6feb5762c82c671be6fcd8b024bff59cd46bf1440d739d164"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/results/MODELS_AND_GENERATION_FROZEN_BEFORE_EVAL.json",
+      "bytes": 8663,
+      "sha256": "925e4618bb30b96192c44c7accc88329319827898b8d4b17d568ecdd0d30c834"
+    },
+    {
+      "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/VISUAL_QA.json",
+      "bytes": 389,
+      "sha256": "8ee64a533b35d98cd5b33ab71b6bb9ee386255d2ce03fa08fc66b06ddc1f6093"
+    }
+  ],
+  "versioning": {
+    "repository": "https://github.com/Aggressivecyber/ej276d-sim2real",
+    "branch": "main",
+    "visibility": "PRIVATE",
+    "policy": "Source,config,aggregate results,reports andfigures inGit; per-eventdata,models,caches andlocal deliveryreceipts stay onE/D.",
+    "actual_publication_receipt": "DELIVERY_PUBLICATION_RECEIPT.json",
+    "receipt_timing": "Written after committing and verifying local HEAD equals GitHub main."
+  },
+  "backup": {
+    "directory": "D:/GAN_backups/research/sim2real_two_papers_20261008_0305/response_similarity_final_20261008_124929_UTC",
+    "actual_integrity_receipt": "DELIVERY_BACKUP_RECEIPT.json",
+    "scope": "Local project files excluding.git andruntime caches; Git history is separately bundled. Existing external absolute-path inputs are not implicitly archived; the documented fixed-replay subsets are self-contained.",
+    "receipt_timing": "Written only after copy hashes and Git bundle verification succeed."
+  },
+  "remaining_scientific_work_in_frozen_study": [],
+  "not_established": [
+    "Complete detector-response equivalence",
+    "Cross-acquisition or new physical operating-condition generalization",
+    "Incident neutron energy calibration",
+    "Per-event measured neutron/gamma truth",
+    "Total measured-data acquisition savings",
+    "Cross-environment bitwise retraining of the historical R2 initialization"
+  ]
+}

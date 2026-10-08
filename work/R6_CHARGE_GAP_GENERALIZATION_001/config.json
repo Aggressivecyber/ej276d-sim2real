@@ -1,0 +1,86 @@
+{
+  "start_UTC": "2026-10-08T12:04:36.420613+00:00",
+  "first_native_PID": 50264,
+  "deadline_UTC": "2026-10-08T14:04:36.420613+00:00",
+  "task_SHA256": "2fb563a1deb3099ad37f25ceb8d65e68f1dcd850e4f96e492439fc0ff071abf5",
+  "task_bytes": 5057,
+  "numeric_wall_limit_s": 2400,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 805306368,
+  "SSH": 0,
+  "seed": 202610086,
+  "stage": "R6",
+  "generation_seed": 2026100862,
+  "generation_chunk": 256,
+  "gap_charge_mVns": [
+    3703.7782948464155,
+    6711.804904974998
+  ],
+  "curriculum": {
+    "R2": {
+      "max_updates": 1600,
+      "batch_size": 128,
+      "learning_rate": 0.002,
+      "training_wall_s": 600,
+      "validation_seed": 2026100821
+    },
+    "R3": {
+      "max_updates": 2000,
+      "batch_size": 128,
+      "learning_rate": 0.002,
+      "training_wall_s": 900,
+      "validation_seed": 2026100821
+    },
+    "R3B": {
+      "max_updates": 2000,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "training_wall_s": 900,
+      "validation_seed": 2026100821
+    }
+  },
+  "arms": [
+    "FULL",
+    "GAP"
+  ],
+  "initialization": "master202610086 before any constructor; shared trainable parameters initialized only from allowed GAP-fit statistics; each arm owns its TRAIN-only fixed noise spectrum buffer; all trainable parameters byte equal, no FULL statistics copied to GAP",
+  "TRAIN_STATISTICS": "noise spectrum, feature scales and conditionalCDF targets computed independently using each permitted arm fit; shared init statistics derived from GAP-fit subset only",
+  "G4_exclusion": "nominal clean saved480 CFD-aligned 100:400 signed charge; no learned gain and no full512 integral substitute",
+  "curriculum_seeds": "same master202610086 training generator and constructor reset at each arm/stage; original fixedvalidation2026100821; no EVAL selection",
+  "R3_transition": "own selected R2 checkpoint, strictFalse only temporal_/time_ missing; new zero-output time heads",
+  "R3B_transition": "own selected R3 strictTrue; centers and CDF targets from own allowedREAL fit",
+  "C2ST": {
+    "model": "HistGradientBoostingClassifier",
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008,
+    "views": [
+      "shape_only",
+      "shape_plus_amplitude_proxy"
+    ],
+    "train_cap_each_domain": 600,
+    "test_cap_each_domain": 250,
+    "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+    "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+    "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+    "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+    "bootstrap_cluster_repeats": 1000,
+    "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+    "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+    "no_parameter_search": true
+  },
+  "q3_C2ST_support": "all five candidates and REAL must support fixed200train/100test each under inherited group hash; otherwise whole common comparison undefined, no replacement",
+  "RR": "64 deterministic group-half splits; same-N per candidate output q3 count if both halves can supply at every repeat, otherwise preserve unsupported reference; common feasible minimum-N additionally listed; no physical equivalence",
+  "RR_seed_prefix": "R6-RR-group-v1|repeat|group / R6-RR-event-v1|repeat|source_id",
+  "narrow_width_edges": "exact existing R3B REAL TRAIN development edges; diagnostic EM fixed500/1e-8/no restart; not training arm target centers",
+  "prior_exposure": "CAL thresholds/source analytic constants/history prior and architecture fullDEV development are allowed and remain disclosed; current GAP fit excludes interval",
+  "EVAL_loading": "only after both fitted model/RNG/main generation saved",
+  "new_G4": 0,
+  "EVAL_fit": 0,
+  "FROZEN_METHOD_SHA256": "b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186"
+}

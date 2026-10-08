@@ -1,54 +1,41 @@
-# EJ-276D G4-to-real response research
+# EJ-276D：G4 到实测响应变换
 
-以 Geant4 沉积及派生波形为输入，学习到 EJ-276D/AmBe 实测响应的变换。当前工作限于同一次采集内的回顾性留出验证；不将分布相似、FoM 接近或 C2ST 接近随机当作物理等效证明。
+本轮预定实验、保存模型重放与关键结果检查均已完成。结果支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。研究范围为同一次 AmBe 采集内的回顾性验证。
 
-[GitHub 私有仓库](https://github.com/Aggressivecyber/ej276d-sim2real)，默认分支 `main`。
+- [最终研究报告](FINAL_REPORT.md)：数据、方法、留出响应、峰宽、任务效用、区间排除与结论边界。
+- [本机复现入口](REPRODUCTION.md)：固定权重生成、R5 保存估计器预测、R6 配对模型重放。
+- [交付索引](DELIVERY_INDEX.json)：需求对应证据、关键文件摘要与交付回执入口。
+- [计划与开发记录](PLAN.md)、[当前状态](STATUS.md)、[机器可读状态](PROGRAM.json)。
+- [冻结方法和任务](FROZEN_METHOD.json)、[数据角色](CURRENT_ROLE_INDEX.json)：当前首次 EVAL 科学读取前登记。
 
-## 当前入口
+## 主要结果
 
-- [研究计划](PLAN.md) 与 [当前状态](STATUS.md)
-- [执行约定](AGENTS.md) 与 [机器可读状态](PROGRAM.json)
-- [实测用途分区](CURRENT_ROLE_INDEX.json)：TRAIN/CAL/DEV 分开使用，EVAL 留作方法选择后的最终评价
-- [R1 完整基线报告](work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md)
-- [R2 平滑随机响应报告](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md)：已完成
-- [R3 平滑时间形状报告](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md)：已完成
-- [R3B 能量条件峰宽报告](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPORT.md)：已完成，部分条件改善及边界失败均保留
-- [冻结方法与后续任务](FROZEN_METHOD.json)：EVAL解码前固定
-- [R4 留出响应报告](work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md)：已完成
-- [R5 前缀重建效用报告](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md)：已完成，R6按冻结方案在本机继续
+| 科学问题 | 已执行结果 |
+| --- | --- |
+| 留出响应是否更接近实测 | R3B PSD W1 为 0.013729，原 SIM 为 0.104569；二维距离 0.199078，等样本量 REAL–REAL 中位 0.036285。两视图 C2ST BA 均 0.988，仍有完整响应失配。 |
+| 两峰是否随电荷变窄 | 实测的总体收窄趋势得到支持。R3B 改善了部分中间区间，最低区与高端低 PSD 成分仍偏离，拟合无支持处保留 undefined。 |
+| 合成数据是否有任务价值 | 固定 44 个拟合完成。256 条 Ridge 的 +R3B PSD MAE 从 0.069210 降至 0.061745，但原 SIM 增强为 0.057754；1024 条时 +R3B 与 REAL-only 几乎相同，部分电荷目标恶化。 |
+| 留出连续区间能否推广 | FULL/GAP 各完成 1600→2000→2000 更新。输出 q3 的 PSD W1 为 0.005036/0.008257，上升时间 W1 为 0.934/1.965 ns；两臂 q3 C2ST BA 均 1.000。覆盖与源→输出迁移一起报告，不支持可靠完整响应推广。 |
+| 保存结果能否复现 | R3/R3B 各 2000×480 波形、R5 的 2816 个预测值、R6 两臂合计 1920000 个生成值的独立进程重放均逐位通过；R2 原始初始化记录缺失单独保留。 |
 
-R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
+[留出电荷–PSD](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/charge_psd.png) · [留出峰宽](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/energy_peak_width.png) · [任务误差–容差](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/tolerance_coverage.png) · [区间排除迁移](work/R6_CHARGE_GAP_GENERALIZATION_001/results/figures/charge_migration.png)
 
-[电荷—PSD 图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/charge_psd.png) · [条件波形图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/conditional_waveforms.png) · [噪声与涨落图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/fluctuations.png)
+## 分阶段材料
 
-R2 使用 8192 个 G4 TRAIN 父事件和独立实测 TRAIN，学习平滑随机响应。PSD W1 进一步降到 0.021781，电荷 W1 为 868.8 mV ns，旧固定纹理消失、噪声显著改善；但独立形状 C2ST 仍为 0.992，低电荷覆盖和前沿范围不足，不能声称完整响应已经匹配。1600 次更新后只按 TRAIN 组验证选择第 1200 步，没有 DEV 选点。R2 初始隐藏层 Torch 种子未记录，不能保证从头训练逐位复现；已保存权重的固定输入复载通过。当前权重和输入作为外部文件保存在 E 盘，详见报告和清单。
+| 阶段 | 报告 |
+| --- | --- |
+| R1 共同接口与完整基线 | [REPORT](work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md) |
+| R2 平滑条件随机响应 | [REPORT](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md) |
+| R3 连续时间形状自由度 | [REPORT](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md) |
+| R3B 电荷条件 PSD 峰宽 | [REPORT](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPORT.md) |
+| R4 冻结候选的实测留出评价 | [REPORT](work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md) |
+| R5 固定前缀重建任务 | [REPORT](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md) |
+| R6 连续电荷区间排除 | [REPORT](work/R6_CHARGE_GAP_GENERALIZATION_001/REPORT.md) · [紧凑指标](work/R6_CHARGE_GAP_GENERALIZATION_001/METRICS_COMPACT.json) |
 
-[R2 电荷—PSD 图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/charge_psd.png) · [R2 条件波形图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/conditional_waveforms.png) · [R2 噪声图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/fluctuations.png)
+## 数据与版本
 
-## 留出响应与后续检验
+本地研究根目录为 `E:/GAN/research/sim2real_two_papers_20261008_0305`。GitHub 私有仓库为 [Aggressivecyber/ej276d-sim2real](https://github.com/Aggressivecyber/ej276d-sim2real)，默认分支 `main`。源码、定义、配置、报告、汇总结果及图按阶段提交；逐事件数据、模型、随机状态、日志和缓存保存于 E/D，克隆 GitHub 不会取得这些载荷。
 
-R4使用新留出的实测：7600条中7583条通过既定QC，主比较按身份哈希固定2000条。R3B的PSD W1为0.013729（原SIM为0.104569），二维sliced W1为0.199078；等2000对2000实测参照二维中位0.036285。两视图C2ST平衡准确率均0.988，实测–实测为0.504/0.528，因此仍不能称完整响应已经复现。留出实测继续支持峰宽总体随电荷收窄，但R3B最低区和高端低PSD侧仍有偏差，最高窄区宽度未定义。
+2026-10-08 11:41 UTC 用户要求后续改为本机执行，之后无新 SSH 或服务器依赖。R4 已成功取得的 EVAL 缓存可供本机固定验证使用。输入来源、哈希和完整本地清单保留在阶段文件中；复现时使用新目录，不覆盖封存结果。
 
-[R4 电荷–PSD 图](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/charge_psd.png) · [R4 条件峰宽](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/energy_peak_width.png) · [R4 条件波形](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/conditional_waveforms.png)
-
-R5的44个预定拟合已完成。256条实测时，Ridge的PSD MAE从0.069210降至+R3B的0.061745，原SIM增强为0.057754；1024条时+R3B与纯实测几乎相同，完整2592实测对照为0.055386。HGB的PSD小幅获益同时伴随部分电荷指标退化，不能概括成所有任务共同成功。切点翻侧约31%是对全积分参考的差异，不是粒子真值错误率。生成器及历史噪声先验已使用额外实测，小任务子集不代表总采集成本。
-
-[R5 重建误差](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/prefix_errors.png) · [R5 配对误差区间](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/paired_bootstrap.png) · [R5 容差–覆盖曲线](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/tolerance_coverage.png)
-
-按用户最新要求，后续全部本机运行。R6连续电荷区间排除正在准备，实测与G4所需缓存留在E盘，不再连接服务器。科学方案与资源上限不变，不按留出结果重新调参。
-
-## 开发记录与数据
-
-R3 的总体PSD W1降到0.008904、上升时间W1降到0.35074 ns，但q3/q4条件覆盖变差，完整C2ST BA仍0.994。固定权重与RNG的2000×480输出已在独立进程逐位重放。按用户指出的峰宽随能量变化问题，R3B随后显式检查了窄电荷区间内的峰位和宽度，并增加条件PSD分布约束；不把全局相似视为条件响应成功。
-
-[R3 电荷—PSD 图](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/charge_psd.png) · [R3 条件波形图](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/conditional_waveforms.png) · [R3 固定条件对](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/fixed_latent_condition_pairs.png)
-
-R3B在相同六个可比窄电荷区间内，将低/高PSD成分的宽度MAE降至0.005017/0.004390，实测本身的收窄趋势也已用组bootstrap与去趋势诊断确认。最低区、第7区低侧和最高区仍不匹配，C2ST BA为0.996；不将这些局部改进写成完整响应成功。最终三个响应候选及R4/R5/R6方案已在EVAL科学值解码前固定，继续完成留出验证、合成任务价值和连续电荷区间排除测试。
-
-[峰位与宽度随电荷](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/figures/energy_peak_width.png) · [八个窄区间PSD截面](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/figures/energy_psd_slices.png) · [实测宽度不确定性](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/figures/REAL_width_uncertainty.png)
-
-本地仓库位于 `E:/GAN/research/sim2real_two_papers_20261008_0305`。Git 保存代码、配置、研究计划、阶段报告、紧凑指标和关键图；原始/派生逐事件数据、模型权重、日志、缓存和备份留在 E/D。输入路径及已有校验值见各阶段的 `INPUT_MANIFEST.json`，克隆仓库不会自动取得这些外部输入。
-
-当前提交历史从 2026-10-08 的已完成 R1 开始。更早的本地材料及负结果继续保留，现行计划已经覆盖旧逐步骤审批流程。每个完成阶段单独提交；提交前按明确路径选择文件，不使用无范围的 `git add .`，不提交仍在写入的运行结果。GitHub 仓库默认保持私有。
-
-R1 的依赖版本见 [ENVIRONMENT.json](work/R1_RESPONSE_SIMILARITY_BASELINE_001/ENVIRONMENT.json)。源代码、当次配置和运行回执已保留。历史配置含原工作站路径、时间预算和独立运行编号；复现时需具备清单中的输入，并在新目录记录运行环境调整，不能覆盖已完成结果。设置临时目录和缓存到 E/D 后再执行。历史数值结果不因建仓而重新计算。
+所有完整分布包含 QC 有效的 unknown/重叠事件。电荷代理不等于入射中子能量；人工组不是独立采集批次；CCM 伪标签不是粒子真值；任务小样本预算不是全部实测成本。未建立跨真实采集条件、唯一物理响应映射或总采集节省的证据。
