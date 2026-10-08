@@ -1,0 +1,178 @@
+{
+  "start_UTC": "2026-10-08T10:11:47.102076+00:00",
+  "deadline_UTC": "2026-10-08T11:26:47.102076+00:00",
+  "seed": 202610083,
+  "validation_seed": 2026100821,
+  "generation_seeds": [
+    2026100832,
+    2026100833,
+    2026100834
+  ],
+  "max_updates": 2000,
+  "batch_size": 128,
+  "learning_rate": 0.002,
+  "training_wall_s": 900,
+  "numeric_wall_limit_s": 1200,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "threads": 4,
+  "energy_log_center": -0.5,
+  "G4_CSV_SHA256": "da68b5a55777c60f23c178483ef91707fd69f3ab1d6f1e7fa11044a091e1b0ff",
+  "G4_source": "EJ276D_edep_nt_events_csv_sha256_da68b5a55777c60f23c178483ef91707fd69f3ab1d6f1e7fa11044a091e1b0ff",
+  "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+  "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+  "R1_metrics": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R1_RESPONSE_SIMILARITY_BASELINE_001\\run_001\\results\\metrics.json",
+  "evaluation": {
+    "question": "remaining response discrepancies of full2000 historical SIM, bounded GEN_FIXED, unconstrained historical GEN_W0 vs measured DEV",
+    "start_UTC": "2026-10-08T08:55:53.493977+00:00",
+    "deadline_UTC": "2026-10-08T09:55:53.493977+00:00",
+    "input_npz": {
+      "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+      "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+      "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+    },
+    "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+    "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+    "n": 2000,
+    "sample_ns": 1,
+    "baseline": [
+      0,
+      100
+    ],
+    "Qfast": [
+      100,
+      150
+    ],
+    "Qtotal": [
+      100,
+      400
+    ],
+    "PSD": "1-Qfast/Qtotal signed",
+    "tail_charge": [
+      200,
+      400
+    ],
+    "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+    "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+    "raw_scale": "SIM and GEN normalized arrays times corresponding SIM parent normalization_peak_V; GEN unit-bearing proxy, not independent amplitude calibration; REAL saved physical V",
+    "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+    "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+    "FOM_min_band": 20,
+    "C2ST": {
+      "model": "HistGradientBoostingClassifier",
+      "max_iter": 100,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "random_state": 20261008,
+      "views": [
+        "shape_only",
+        "shape_plus_amplitude_proxy"
+      ],
+      "train_cap_each_domain": 600,
+      "test_cap_each_domain": 250,
+      "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+      "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+      "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+      "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+      "bootstrap_cluster_repeats": 1000,
+      "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+      "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+      "no_parameter_search": true
+    },
+    "REAL_repeat_reference": {
+      "count": 64,
+      "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+      "not_physical_equivalence": true
+    },
+    "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+    "no_new_response_training": true,
+    "no_G4": true,
+    "no_SSH": true,
+    "EVAL_waveform_or_feature_read": 0,
+    "numeric_wall_limit_s": 1200,
+    "threads": 4,
+    "RSS_limit_bytes": 4294967296,
+    "output_limit_bytes": 536870912
+  },
+  "model": {
+    "condition": [
+      "log_visible_energy_centered",
+      "visible_hadron_fraction",
+      "clean_PSD",
+      "clean_tail_charge_fraction"
+    ],
+    "smooth_basis_decay_ns": [
+      8,
+      13,
+      35,
+      59,
+      120,
+      270,
+      460
+    ],
+    "rise_ns": "2+12*sigmoid(condition+z)",
+    "decay_factor": "shared exp(.6*tanh(theta))*eventwidth",
+    "mean_network": [
+      4,
+      32,
+      32,
+      10
+    ],
+    "random_network": [
+      12,
+      32,
+      32,
+      10
+    ],
+    "latent_dim": 8,
+    "noise": "TRAIN baseline periodogram fixed spectrum;learned lognormal RMS;stationary Gaussian realization512 points",
+    "ADC": "14bit nominal[-.5,.5] interface,16383levels;quantization straight-through in training",
+    "CFD": "integer last below .5 main-peak connected branch,crop480 align120",
+    "amplitude": "source-calibrated clean integral Vns*learned gain*energy power*stochastic multiplicative response",
+    "loss": "marginal sorted feature distances +.35 smooth-wave SW +.08 covariance discrepancy +.2 ReLU(.01-compositioncov) +.0001 network mean square",
+    "no_unpaired_point_MSE": true,
+    "source_weighting": "none",
+    "validation": "same R2 roles and fixed384 validation random flow2026100821;fixed checkpointevery100;minvalidation includes predeclared time loss;no DEV scoring",
+    "no_old_FoM_preservation_or_0_15_residual_bound": true,
+    "time_correction": {
+      "type": "normalized continuous Gaussian RBF log-shape multiplier",
+      "centers_ns": "0:32 by2;40:96 by8;112:400 by32",
+      "widths_ns": "3/12/40 respectively",
+      "networks": "condition4->32->35 and(condition4,z8)->32->35",
+      "initial_last_layers": "zero;R2 base weights loaded",
+      "numeric_log_multiplier_clip": [
+        -4,
+        4
+      ],
+      "not_old_residual_bound": true,
+      "phase_ns": ".5*tanh(z5)",
+      "smoothness": "Gaussian basis +.002 second-difference coefficient penalty",
+      "loss_addition": "4*weighted per-time marginal W1 on own-peak normalized shape;regions0:100 .05,100:150 1,150:220 .6,220:400 .25,400:480 .05"
+    },
+    "initialization": "R2 bound checkpoint;Torch/NumPy202610083 before any constructor;save initial state and all random generators"
+  },
+  "R1_reuse": "scalar/shape/preprocessing/C2ST cloned function bodies;historical metrics read, no historic model/classifier refit",
+  "EVAL_read": 0,
+  "R2_checkpoint": {
+    "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\model.pt",
+    "sha256": "a179d819cebfc634f9128093b6b1bec725d79fa22912fdd7fd085eb42450ed6a"
+  },
+  "R2_cache": {
+    "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\data\\G4_TRAIN_CACHE.npz",
+    "sha256": "117152db28a16fcfc9a83012cc863e32f2d73bdef77bbf7b5f8e977c3e64818b"
+  },
+  "R2_generated_input": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\generated.npz",
+  "R2_metrics": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\metrics.json",
+  "R2_roles": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\results\\DATA_ROLES.json",
+  "fixed_condition_pairs": {
+    "energy": "first SHA-ordered nearly hadron-only DEV parent;closest log energy to factor2 in same composition",
+    "composition": "EE-only and hadron-only source parents with minimum absolute log energy ratio;tie by parent SHA;condition-only selection before model fit",
+    "EE_only_r_h_max": 0.05,
+    "hadron_only_r_h_min": 0.95,
+    "shared_latent_seed": 2026100835
+  },
+  "replay_required": "fresh process from saved weights and RNG;all main2000 waveforms exact comparison;no fit/evaluation replay"
+}

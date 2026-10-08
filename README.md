@@ -11,7 +11,8 @@
 - [实测用途分区](CURRENT_ROLE_INDEX.json)：TRAIN/CAL/DEV 分开使用，EVAL 留作方法选择后的最终评价
 - [R1 完整基线报告](work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md)
 - [R2 平滑随机响应报告](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md)：已完成
-- [R3 平滑时间形状任务](tasks/R3_FLEXIBLE_TEMPORAL_RESPONSE_001.md)：进行中
+- [R3 平滑时间形状报告](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md)：已完成
+- [R3B 能量条件峰宽任务](tasks/R3B_ENERGY_CONDITIONAL_WIDTH_001.md)：进行中，EVAL仍未读取
 
 R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
 
@@ -22,6 +23,10 @@ R2 使用 8192 个 G4 TRAIN 父事件和独立实测 TRAIN，学习平滑随机�
 [R2 电荷—PSD 图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/charge_psd.png) · [R2 条件波形图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/conditional_waveforms.png) · [R2 噪声图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/fluctuations.png)
 
 ## 版本与数据
+
+R3 的总体PSD W1降到0.008904、上升时间W1降到0.35074 ns，但q3/q4条件覆盖变差，完整C2ST BA仍0.994。固定权重与RNG的2000×480输出已在独立进程逐位重放。按用户指出的峰宽随能量变化问题，当前R3B将显式检查窄电荷区间内的峰位和宽度，并增加条件PSD分布约束；不把全局相似视为条件响应成功。
+
+[R3 电荷—PSD 图](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/charge_psd.png) · [R3 条件波形图](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/conditional_waveforms.png) · [R3 固定条件对](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/results/figures/fixed_latent_condition_pairs.png)
 
 本地仓库位于 `E:/GAN/research/sim2real_two_papers_20261008_0305`。Git 保存代码、配置、研究计划、阶段报告、紧凑指标和关键图；原始/派生逐事件数据、模型权重、日志、缓存和备份留在 E/D。输入路径及已有校验值见各阶段的 `INPUT_MANIFEST.json`，克隆仓库不会自动取得这些外部输入。
 

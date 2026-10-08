@@ -1,0 +1,110 @@
+{
+  "UTC": "2026-10-08T10:42:39.111776+00:00",
+  "PID": 56500,
+  "start": {
+    "start_UTC": "2026-10-08T10:11:47.102076+00:00",
+    "stage_deadline_UTC": "2026-10-08T11:26:47.102076+00:00",
+    "first_native_PID": 28192,
+    "start_source": "first actual R3 command",
+    "numeric_limit_s": 1200
+  },
+  "one_fixed_recipe": true,
+  "response_training_jobs": 1,
+  "saved_weight_replay_jobs": 1,
+  "concurrent_numeric_jobs": 1,
+  "optimizer_updates": 2000,
+  "CPU_threads": 4,
+  "numeric_wall_s_sum": 163.65763919998426,
+  "supervisor_cumulative_numeric_wall_s": 163.6576403999934,
+  "numeric_limit_s": 1200,
+  "peak_child_RSS_observed_B": 935022592,
+  "peak_child_RSS_observed_limit_B": 4294967296,
+  "RSS_probe_failures": 0,
+  "RSS_is_sampled_observed_peak": true,
+  "output_before_final_inventory_B": 10586502,
+  "remaining_delivery_write_upper_B": 65536,
+  "new_stage_output_limit_B": 536870912,
+  "native_runs": [
+    {
+      "supervisor_PID": 60096,
+      "worker_PID": 53136,
+      "worker_native_exit": 0,
+      "start_UTC": "2026-10-08T10:24:24.923790+00:00",
+      "stop_UTC": "2026-10-08T10:27:03.980410+00:00",
+      "wall_s": 159.05619759997353,
+      "numeric_cumulative_wall_s": 159.05620059999637,
+      "peak_RSS_observed": 935022592,
+      "memory_probe_failures": 0,
+      "RSS_measurement_status": "known",
+      "reason": null,
+      "run": "run_001",
+      "threads": 4,
+      "command": [
+        "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3_FLEXIBLE_TEMPORAL_RESPONSE_001\\run.py"
+      ],
+      "EVAL_read": 0,
+      "SSH": 0,
+      "work_kind": "training_and_evaluation",
+      "response_model_training": 1
+    },
+    {
+      "supervisor_PID": 43752,
+      "worker_PID": 18536,
+      "worker_native_exit": 0,
+      "start_UTC": "2026-10-08T10:28:02.650423+00:00",
+      "stop_UTC": "2026-10-08T10:28:07.251877+00:00",
+      "wall_s": 4.60144160001073,
+      "numeric_cumulative_wall_s": 163.6576403999934,
+      "peak_RSS_observed": 318590976,
+      "memory_probe_failures": 0,
+      "RSS_measurement_status": "known",
+      "reason": null,
+      "run": "run_002",
+      "threads": 4,
+      "command": [
+        "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3_FLEXIBLE_TEMPORAL_RESPONSE_001\\replay.py"
+      ],
+      "EVAL_read": 0,
+      "SSH": 0,
+      "work_kind": "saved_weight_replay",
+      "response_model_training": 0
+    }
+  ],
+  "native_tool_evidence": [
+    {
+      "kind": "training_generation_evaluation",
+      "start_tool": "da15c8",
+      "completed_tool": "3eb502",
+      "session_ID": 21991,
+      "native_exit": 0
+    },
+    {
+      "kind": "fresh_saved_weight_replay",
+      "completed_tool": "e8b443",
+      "native_exit": 0
+    }
+  ],
+  "source_preparation_tool": {
+    "tool": "a8ed2c",
+    "PID": 62160,
+    "native_exit": 0
+  },
+  "failure_or_retry_count": 0,
+  "warning": "Tensor-to-scalar warning preserved in run_001/stderr.log; no scientific rerun.",
+  "EVAL_read": 0,
+  "SSH": 0,
+  "new_G4": 0,
+  "write_locations": [
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001"
+  ],
+  "cache_locations": [
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/.runtime-cache/tmp",
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/runtime_cache"
+  ],
+  "delivery_hashes_are_byte_verification_only": true,
+  "old_stages_modified": false
+}
