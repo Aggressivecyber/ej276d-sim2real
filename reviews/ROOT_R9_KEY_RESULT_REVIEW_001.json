@@ -1,0 +1,635 @@
+{
+  "status": "key_result_review_complete",
+  "UTC": "2026-10-08T19:32:04.588293+00:00",
+  "stage": "R9_FROZEN_RETROSPECTIVE_VALIDATION_001",
+  "stage_sealed": true,
+  "all_prespecified_candidates_accounted": true,
+  "scientific_work_complete": true,
+  "complete_response_similarity_success": false,
+  "adoption": "No new candidate adopted as a validated full measured-response transformer.",
+  "bounded_stop": "Retain R3B as partial baseline, JOINT_SIGNAL as local postpeak evidence, FULL/OFF as negative results for the registered recipe and budget. Stop EVAL-driven correction.",
+  "attribution_boundary": "Reproducible statistical localization and tested interventions; unique physical cause remains unknown. A fixed training seed/budget does not establish impossibility for other methods.",
+  "evaluation_boundary": "Previously viewed same-acquisition EVAL; no new blind or external acquisition test.",
+  "root_read": [
+    "REPORT.md",
+    "METRICS_COMPACT.json key sections",
+    "FINAL_RECEIPT.json",
+    "RESOURCE_RECEIPT.json",
+    "RECEIPT_FIELD_CLARIFICATION.json",
+    "FIGURE_QA.json",
+    "REPRODUCTION.md"
+  ],
+  "key_bindings": [
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/FINAL_MANIFEST.json",
+      "bytes": 8125,
+      "sha256": "3381dddbcfe9d32d3fdb5b8ec3be0d769865f2beafd2b6308bb4fec2114d8682"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/FINAL_RECEIPT.json",
+      "bytes": 1966,
+      "sha256": "59ffebb0b724ff92a6775c95c771061ecc486055fce1879de992ae6a0cb3e927"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/REPORT.md",
+      "bytes": 10536,
+      "sha256": "0bc9e2868bf6615615c6be69c85a9300846e3104bb15f6dd3ad87a1e2cc8f8f6"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/METRICS_COMPACT.json",
+      "bytes": 704457,
+      "sha256": "4fb76d56f6cff1150a8532e63fdf9261f32bed5ffacd6057a7b4977128c60797"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/RECEIPT_FIELD_CLARIFICATION.json",
+      "bytes": 1258,
+      "sha256": "1f1a4deebb4a4acaf1b461b4ab957f731c627f3f8ecad720154c73873120ea84"
+    }
+  ],
+  "sealed_manifest_verification": {
+    "members": 49,
+    "bytes": 15287113,
+    "all_match": true
+  },
+  "root_visual_review": [
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/results/figures/charge_psd.png",
+      "bytes": 448292,
+      "sha256": "88fb6c1568655f915fcbf589548d049ee1a0dba076c304f9fd1da5d8e787eea7"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/results/figures/energy_peak_width.png",
+      "bytes": 419104,
+      "sha256": "c37c472d5c40a9f731691d0c9d79dcda703cf67f5d401555a96bb41479d133d6"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/results/figures/c2st.png",
+      "bytes": 104531,
+      "sha256": "3969643898ec7926c43ad2f208afaaa1c8708ea92193f5defe210c8d994c63d4"
+    },
+    {
+      "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/results/figures/parent_migration.png",
+      "bytes": 125332,
+      "sha256": "f4befbd2c00711a24622881f0a5b33b811ffb1fd2b007f4e1146c0c9dba3d8fa"
+    }
+  ],
+  "root_visual_review_note": "Four existing figures actually viewed during R9 evaluation review; final sealed hashes bound here. Executor viewed all eleven.",
+  "fixed_full_shape_BA": {
+    "R3B": {
+      "balanced_accuracy": 0.988,
+      "AUC": 0.998848,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          0.9778521716826266,
+          0.9961593909794314
+        ],
+        "AUC_95CI": [
+          0.9971629922538913,
+          0.9999144566907057
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 296,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 0.9076485999976285,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "JOINT": {
+      "balanced_accuracy": 0.994,
+      "AUC": 0.999984,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          0.9853168710480935,
+          1.0
+        ],
+        "AUC_95CI": [
+          0.9999058528523174,
+          1.0
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 296,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 1.0095349000184797,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "JOINT_SIGNAL": {
+      "balanced_accuracy": 0.994,
+      "AUC": 0.9996,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          0.9860004195306021,
+          1.0
+        ],
+        "AUC_95CI": [
+          0.9988252180957451,
+          1.0
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 296,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 0.9507897999719717,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "FULL_WAVE_STOCHASTIC": {
+      "balanced_accuracy": 1.0,
+      "AUC": 1.0,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          1.0,
+          1.0
+        ],
+        "AUC_95CI": [
+          1.0,
+          1.0
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 296,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 0.47658090002369136,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "PULSE_STOCHASTIC_OFF": {
+      "balanced_accuracy": 1.0,
+      "AUC": 1.0,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          1.0,
+          1.0
+        ],
+        "AUC_95CI": [
+          1.0,
+          1.0
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 296,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 0.7064709000405855,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "REAL_vs_REAL": {
+      "balanced_accuracy": 0.504,
+      "AUC": 0.510672,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          0.47250229910874647,
+          0.5406985479490831
+        ],
+        "AUC_95CI": [
+          0.46639856746240327,
+          0.5542295019924753
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 46,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 1.7495940999942832,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    },
+    "PERTURBED_REAL": {
+      "balanced_accuracy": 0.996,
+      "AUC": 0.9999199999999999,
+      "train_each_domain": 600,
+      "holdout_each_domain": 250,
+      "features": 493,
+      "heldout_missing_values": 0,
+      "heldout_CI": {
+        "balanced_accuracy_95CI": [
+          0.989773962863834,
+          1.0
+        ],
+        "AUC_95CI": [
+          0.999638799731255,
+          1.0
+        ],
+        "valid_replicates": 500,
+        "requested_replicates": 500,
+        "clusters": 46,
+        "conditional_on_fitted_classifier": true,
+        "training_uncertainty": false
+      },
+      "fit_and_bootstrap_s": 0.5666665999451652,
+      "classification_train_only_imputer_and_standardizer": true,
+      "tuning": false,
+      "region_outside_features": "complete view explicitly global"
+    }
+  },
+  "JOINT_SIGNAL_postpeak_vs_R3B": {
+    "BA_delta_first_minus_second": -0.11199999999999999,
+    "BA_delta_95CI": [
+      -0.14212535360829248,
+      -0.08022326294336858
+    ],
+    "AUC_delta_first_minus_second": -0.08163199999999993,
+    "AUC_delta_95CI": [
+      -0.103358129994079,
+      -0.059635488972282547
+    ],
+    "valid_replicates": 500,
+    "clusters": 296,
+    "paired_test_rows_and_groups": true,
+    "conditional_on_two_fitted_classifiers": true,
+    "response_training_uncertainty": false
+  },
+  "joint_W1": {
+    "SIM": {
+      "W1": 0.9496813600156877,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "GEN_W0": {
+      "W1": 0.75487809081139,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "R3B": {
+      "W1": 0.1990776453965074,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "JOINT": {
+      "W1": 0.18381935902439278,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "JOINT_SIGNAL": {
+      "W1": 0.1857549264860307,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "FULL_WAVE_STOCHASTIC": {
+      "W1": 0.253385867027501,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    },
+    "PULSE_STOCHASTIC_OFF": {
+      "W1": 0.19662627984327047,
+      "counts": [
+        2000,
+        2000
+      ],
+      "angles": 128,
+      "scale": "frozen R4 TRAIN-fit mean/population SD, never refit on EVAL"
+    }
+  },
+  "common_support_paired_errors": {
+    "primary_five_candidates": [
+      {
+        "component": 0,
+        "field": "mean",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.006093740438724371,
+          "JOINT": 0.00889103225941686,
+          "JOINT_SIGNAL": 0.008585597726500799,
+          "FULL_WAVE_STOCHASTIC": 0.03541511991241753,
+          "PULSE_STOCHASTIC_OFF": 0.02400184254054088
+        }
+      },
+      {
+        "component": 0,
+        "field": "sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.004838794612466187,
+          "JOINT": 0.005861810235196405,
+          "JOINT_SIGNAL": 0.006732596114810074,
+          "FULL_WAVE_STOCHASTIC": 0.010745451687825421,
+          "PULSE_STOCHASTIC_OFF": 0.014431895654459093
+        }
+      },
+      {
+        "component": 0,
+        "field": "detrended_sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.00503579335416125,
+          "JOINT": 0.006451329213849754,
+          "JOINT_SIGNAL": 0.007386919729571309,
+          "FULL_WAVE_STOCHASTIC": 0.014571638310280332,
+          "PULSE_STOCHASTIC_OFF": 0.019579361096510046
+        }
+      },
+      {
+        "component": 1,
+        "field": "mean",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.003725830032181965,
+          "JOINT": 0.009510863735350617,
+          "JOINT_SIGNAL": 0.009733453290708082,
+          "FULL_WAVE_STOCHASTIC": 0.050997538364308224,
+          "PULSE_STOCHASTIC_OFF": 0.03901475065509102
+        }
+      },
+      {
+        "component": 1,
+        "field": "sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.003133993812612362,
+          "JOINT": 0.005746319290183411,
+          "JOINT_SIGNAL": 0.006152716602666574,
+          "FULL_WAVE_STOCHASTIC": 0.01851076146551452,
+          "PULSE_STOCHASTIC_OFF": 0.019835863561843574
+        }
+      },
+      {
+        "component": 1,
+        "field": "detrended_sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "R3B": 0.003065727868502005,
+          "JOINT": 0.0058299232701066635,
+          "JOINT_SIGNAL": 0.006304177818414416,
+          "FULL_WAVE_STOCHASTIC": 0.024956943803895647,
+          "PULSE_STOCHASTIC_OFF": 0.028669545025437348
+        }
+      }
+    ],
+    "all_domains_including_source_controls": [
+      {
+        "component": 0,
+        "field": "mean",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.08406156233325202,
+          "GEN_W0": 0.02445160364599495,
+          "R3B": 0.006093740438724371,
+          "JOINT": 0.00889103225941686,
+          "JOINT_SIGNAL": 0.008585597726500799,
+          "FULL_WAVE_STOCHASTIC": 0.03541511991241753,
+          "PULSE_STOCHASTIC_OFF": 0.02400184254054088
+        }
+      },
+      {
+        "component": 0,
+        "field": "sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.012427297096964843,
+          "GEN_W0": 0.019877290532680315,
+          "R3B": 0.004838794612466187,
+          "JOINT": 0.005861810235196405,
+          "JOINT_SIGNAL": 0.006732596114810074,
+          "FULL_WAVE_STOCHASTIC": 0.010745451687825421,
+          "PULSE_STOCHASTIC_OFF": 0.014431895654459093
+        }
+      },
+      {
+        "component": 0,
+        "field": "detrended_sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.012913011926626883,
+          "GEN_W0": 0.019792249504845788,
+          "R3B": 0.00503579335416125,
+          "JOINT": 0.006451329213849754,
+          "JOINT_SIGNAL": 0.007386919729571309,
+          "FULL_WAVE_STOCHASTIC": 0.014571638310280332,
+          "PULSE_STOCHASTIC_OFF": 0.019579361096510046
+        }
+      },
+      {
+        "component": 1,
+        "field": "mean",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.07751950739535414,
+          "GEN_W0": 0.005944859665666491,
+          "R3B": 0.003725830032181965,
+          "JOINT": 0.009510863735350617,
+          "JOINT_SIGNAL": 0.009733453290708082,
+          "FULL_WAVE_STOCHASTIC": 0.050997538364308224,
+          "PULSE_STOCHASTIC_OFF": 0.03901475065509102
+        }
+      },
+      {
+        "component": 1,
+        "field": "sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.03004205496012715,
+          "GEN_W0": 0.026014415230898442,
+          "R3B": 0.003133993812612362,
+          "JOINT": 0.005746319290183411,
+          "JOINT_SIGNAL": 0.006152716602666574,
+          "FULL_WAVE_STOCHASTIC": 0.01851076146551452,
+          "PULSE_STOCHASTIC_OFF": 0.019835863561843574
+        }
+      },
+      {
+        "component": 1,
+        "field": "detrended_sigma_PSD",
+        "common_qualified_bin_ids_1based": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "common_n": 5,
+        "mean_abs_error": {
+          "SIM": 0.029575080165138046,
+          "GEN_W0": 0.02836300938133856,
+          "R3B": 0.003065727868502005,
+          "JOINT": 0.0058299232701066635,
+          "JOINT_SIGNAL": 0.006304177818414416,
+          "FULL_WAVE_STOCHASTIC": 0.024956943803895647,
+          "PULSE_STOCHASTIC_OFF": 0.028669545025437348
+        }
+      }
+    ]
+  },
+  "actual_worker_counters": {
+    "HGB_attempts": 42,
+    "density_EM_attempts": 0,
+    "response_updates": 0,
+    "new_generation": 0,
+    "SSH": 0,
+    "new_G4": 0,
+    "EVAL_records_decoded": 7600
+  },
+  "resource_summary": {
+    "launch_tool_chunk": "0ca54f",
+    "completion_tool_chunk": "e69698",
+    "supervisor_PID": 60844,
+    "worker_PID": 25004,
+    "native_exit": 0,
+    "start_UTC": "2026-10-08T19:14:11.649379+00:00",
+    "stop_UTC": "2026-10-08T19:14:56.786518+00:00",
+    "wall_s": 45.1370370000368,
+    "numeric_cumulative_wall_s": 45.13703790004365,
+    "peak_RSS_observed_bytes": 1349013504,
+    "memory_probe_failures": 0,
+    "threads": 4,
+    "reason": null
+  },
+  "receipt_descriptive_field_correction": {
+    "path": "work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/RECEIPT_FIELD_CLARIFICATION.json",
+    "bytes": 1258,
+    "sha256": "1f1a4deebb4a4acaf1b461b4ab957f731c627f3f8ecad720154c73873120ea84"
+  },
+  "original_native_metadata_preserved": true,
+  "seal_native_completion": {
+    "executor_tool_chunk": "92ee3d",
+    "PID": 52756,
+    "reported_native_exit": 0,
+    "executor_status": "completed_and_stopped_writing"
+  },
+  "new_scientific_array_decodes": 0,
+  "new_fit_or_inference": 0,
+  "SSH": 0
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "preserved_native_receipt_descriptive_field_correction",
+  "UTC": "2026-10-08T19:25:49.689131+00:00",
+  "PID": 52756,
+  "originals_preserved": [
+    "launch.py",
+    "numeric_1/NATIVE_RECEIPT.json",
+    "RUN_HISTORY.json"
+  ],
+  "original_native_receipt_sha256": "e3a63aa19cee68a3bd35a1ff401f3037e3fcb980c56e3ec32d009d4f27af0e95",
+  "original_launcher_sha256": "33e58be0776fca4c440f26948a09ed88673c1eaff24af01112db8df21afc9e99",
+  "affected_fields": {
+    "EVAL_read": {
+      "original_literal": 0,
+      "actual_original_records_decoded": 7600,
+      "actual_QC_valid": 7583,
+      "actual_fixed_main_REAL": 2000
+    },
+    "response_updates": {
+      "original_literal": "see per-arm training receipts",
+      "actual_R9_updates": 0
+    }
+  },
+  "cause": "Reused launcher retained two stale descriptive literals; worker counters and data-role assertions record actual R9 use.",
+  "authoritative_counter_files": [
+    "NUMERIC_RECEIPT.json",
+    "metrics.json"
+  ],
+  "authoritative_worker_receipt_sha256": "1bdc4b31f15e552458d74a029e01636911b4c326eda81ceeca2916e70ca9aedb",
+  "metrics_sha256": "758cba20ae4821320a07ff4405d905e1ff7cc18a240578b0d0c619effa96c300",
+  "not_a_scientific_rerun": true,
+  "native_PID_exit_wall_RSS_unchanged": true
+}
