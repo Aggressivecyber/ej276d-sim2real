@@ -10,11 +10,16 @@
 - [执行约定](AGENTS.md) 与 [机器可读状态](PROGRAM.json)
 - [实测用途分区](CURRENT_ROLE_INDEX.json)：TRAIN/CAL/DEV 分开使用，EVAL 留作方法选择后的最终评价
 - [R1 完整基线报告](work/R1_RESPONSE_SIMILARITY_BASELINE_001/REPORT.md)
-- [R2 平滑随机响应任务](tasks/R2_SMOOTH_STOCHASTIC_RESPONSE_001.md)：进行中
+- [R2 平滑随机响应报告](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md)：已完成
+- [R3 平滑时间形状任务](tasks/R3_FLEXIBLE_TEMPORAL_RESPONSE_001.md)：进行中
 
 R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
 
 [电荷—PSD 图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/charge_psd.png) · [条件波形图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/conditional_waveforms.png) · [噪声与涨落图](work/R1_RESPONSE_SIMILARITY_BASELINE_001/run_001/results/figures/fluctuations.png)
+
+R2 使用 8192 个 G4 TRAIN 父事件和独立实测 TRAIN，学习平滑随机响应。PSD W1 进一步降到 0.021781，电荷 W1 为 868.8 mV ns，旧固定纹理消失、噪声显著改善；但独立形状 C2ST 仍为 0.992，低电荷覆盖和前沿范围不足，不能声称完整响应已经匹配。1600 次更新后只按 TRAIN 组验证选择第 1200 步，没有 DEV 选点。R2 初始隐藏层 Torch 种子未记录，不能保证从头训练逐位复现；已保存权重的固定输入复载通过。当前权重和输入作为外部文件保存在 E 盘，详见报告和清单。
+
+[R2 电荷—PSD 图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/charge_psd.png) · [R2 条件波形图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/conditional_waveforms.png) · [R2 噪声图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/fluctuations.png)
 
 ## 版本与数据
 
