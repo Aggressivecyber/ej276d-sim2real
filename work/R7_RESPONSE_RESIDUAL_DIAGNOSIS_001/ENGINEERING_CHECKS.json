@@ -1,0 +1,87 @@
+{
+  "fixed_engineering_cases": [
+    {
+      "case": "single",
+      "CFD_numpy": 131,
+      "CFD_torch": 131,
+      "edge_padding_same": true
+    },
+    {
+      "case": "precursor",
+      "CFD_numpy": 131,
+      "CFD_torch": 131,
+      "edge_padding_same": true
+    },
+    {
+      "case": "edge",
+      "CFD_numpy": 0,
+      "CFD_torch": 0,
+      "edge_padding_same": true
+    },
+    {
+      "case": "zero",
+      "CFD_numpy": 0,
+      "CFD_torch": 0,
+      "edge_padding_same": true
+    },
+    {
+      "case": "ADC_f64_vs_f32_away_from_half_codes",
+      "maxabs_V": 2.9509447219133733e-08,
+      "within_1e_7": true
+    }
+  ],
+  "regional_feature_invariance": [
+    {
+      "view": "baseline_voltage",
+      "outside_indices_modified": 380,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "baseline_local",
+      "outside_indices_modified": 380,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "prompt_voltage",
+      "outside_indices_modified": 430,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "prompt_local",
+      "outside_indices_modified": 430,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "postpeak_voltage",
+      "outside_indices_modified": 410,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "postpeak_local",
+      "outside_indices_modified": 410,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "tail_voltage",
+      "outside_indices_modified": 300,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "tail_local",
+      "outside_indices_modified": 300,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "no_prompt_voltage",
+      "outside_indices_modified": 50,
+      "bitwise_unchanged": true
+    },
+    {
+      "view": "no_prompt_local",
+      "outside_indices_modified": 50,
+      "bitwise_unchanged": true
+    }
+  ],
+  "scientific_arrays_used_for_fixture": false,
+  "CFD_implementations_identical_for_cases_not_physical_calibration": true
+}

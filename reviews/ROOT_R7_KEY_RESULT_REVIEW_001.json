@@ -1,0 +1,119 @@
+{
+  "reviewed_utc": "2026-10-08T16:32:51.109966+00:00",
+  "stage": "R7_RESPONSE_RESIDUAL_DIAGNOSIS_001",
+  "status": "sealed_key_result_and_delivery_review_complete",
+  "native_receipt": {
+    "kind": "fixed_response_residual_diagnosis",
+    "supervisor_PID": 61504,
+    "worker_PID": 13648,
+    "worker_native_exit": 0,
+    "start_UTC": "2026-10-08T16:19:22.922796+00:00",
+    "stop_UTC": "2026-10-08T16:20:36.660101+00:00",
+    "wall_s": 73.73710890003713,
+    "numeric_cumulative_wall_s": 84.58241140004247,
+    "peak_RSS_observed": 1118969856,
+    "memory_probe_failures": 0,
+    "reason": null,
+    "threads": 4,
+    "response_updates": 0,
+    "SSH": 0,
+    "EVAL_read": 0
+  },
+  "counters": {
+    "HGB_attempts": 52,
+    "fixed_inference_rows": 4000,
+    "response_updates": 0,
+    "EVAL_read": 0,
+    "SSH": 0,
+    "new_G4": 0,
+    "density_EM_attempts": 80
+  },
+  "selection": {
+    "train_each_domain": 600,
+    "holdout_each_domain": 250,
+    "available": {
+      "GEN": {
+        "train_available": 1418,
+        "holdout_available": 582
+      },
+      "REAL": {
+        "train_available": 1385,
+        "holdout_available": 615
+      },
+      "TRAIN_REFERENCE": {
+        "train_available": 1236,
+        "holdout_available": 764
+      },
+      "POSITIVE": {
+        "train_available": 1385,
+        "holdout_available": 615
+      }
+    },
+    "all_views_reuse_native_QC_and_indices": true,
+    "REAL_REAL_is_TRAIN_DEV_not_half_EVAL": true
+  },
+  "root_actions": [
+    "read native failure and success receipts",
+    "read all 52 C2ST BA and conditional intervals",
+    "read existing same-N overall summary",
+    "view conditional_fronts.png, conditional_curvature.png, baseline_noise.png"
+  ],
+  "no_array_or_full_metric_recomputation": true,
+  "key_BA": {
+    "full_historical_shape": 0.996,
+    "prompt_local": 0.992,
+    "postpeak_local": 0.928,
+    "tail_local": 0.938,
+    "baseline_local": 0.652
+  },
+  "processing_interventions": "All preserve marked residual distinguishability; no attribution of complete failure to quantization/alignment alone.",
+  "next_question": "Same local joint objective, with/without a peak-after gated signal-envelope stochastic process.",
+  "limits": [
+    "all scientific evidence TRAIN/DEV",
+    "postpeak curvature is not a clean-residual noise measurement",
+    "same-N REAL TRAIN-DEV negative control is not old R4 split reference",
+    "first failed worker RSS unknown; successful worker monitored",
+    "R7 report/manifest still to finalize; no promotion of a diagnostic transform"
+  ],
+  "sealed_receipt": {
+    "status": "sealed_complete",
+    "PID": 2544,
+    "UTC": "2026-10-08T16:36:59.728873+00:00",
+    "deadline_UTC": "2026-10-08T17:28:03.696578+00:00",
+    "report": {
+      "path": "REPORT.md",
+      "bytes": 13065,
+      "sha256": "bc907ab41c563cdf238d70d695a5e610bfb54bef6c6b09451035c8c3deda383c"
+    },
+    "metrics": {
+      "path": "metrics.json",
+      "bytes": 1546006,
+      "sha256": "c96ae703716ca6e053c1a9292a1a6aa01315f4c8a9094ef332cd264a0fc49865"
+    },
+    "metrics_compact": {
+      "path": "METRICS_COMPACT.json",
+      "bytes": 1543975,
+      "sha256": "cd96b064c8da45e7d224195150a4adeee521a871001f9a523a8db7cc86fb9c10"
+    },
+    "manifest": {
+      "path": "FINAL_MANIFEST.json",
+      "bytes": 9787,
+      "sha256": "0680750c6ddbeb13b68f423c03b2b109ef3c776d8a637f6ea727a23a841d194c"
+    },
+    "numeric_cumulative_wall_s": 84.58241010003258,
+    "HGB_fits": 52,
+    "fixed_inference_rows": 4000,
+    "response_updates": 0,
+    "EVAL_read": 0,
+    "SSH": 0,
+    "native_exit_supplied_by_external_tool": true,
+    "no_more_stage_writes": true
+  },
+  "report_read": true,
+  "read_final_receipt": true,
+  "read_visual_QA": true,
+  "key_output_hashes_verified": true,
+  "review_completed_utc": "2026-10-08T16:39:07.180695+00:00",
+  "finalization_native_tool": "d1d094",
+  "finalization_native_exit": 0
+}
