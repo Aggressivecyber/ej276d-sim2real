@@ -1,0 +1,75 @@
+{
+  "config": {
+    "bins": 8,
+    "axis": "log signed Qtotal in mV ns; not measured true energy",
+    "edges": "Only REAL TRAIN fit2592 type7 quantiles5–95%, equal log widths; final edge included",
+    "EM": {
+      "max_updates": 500,
+      "parameter_atol": 1e-08,
+      "variance_floor": 1e-08,
+      "init": "weights0.5/0.5, type7PSDq25/q75, shared full variance",
+      "component_order": "ascending mean each update",
+      "no_restarts": true,
+      "min_component_N_times_weight": 20,
+      "min_gap_over_pooled_sigma": 1.0,
+      "floor_or_nonconvergence_width_undefined": true
+    },
+    "trend_removal": "Within each narrow interval, final PSD responsibilities weight linear regression PSD~logQ; population residual RMS; no truth assignments",
+    "bootstrap": {
+      "repeats": 200,
+      "seed": 2026100838,
+      "unit": "whole observed original_index//50 artificial groups, within each REAL split",
+      "init": "same fixed initialization at every refit",
+      "CI": "type7 percentile2.5–97.5 among qualified replicates; require>=100/200",
+      "not_independent_physical_runs": true
+    },
+    "global_width_trend": "OLS log(width) versus logQ interval center over>=3 qualified bins; descriptive, no1/sqrt law",
+    "source_views": "R2/R3/mainR3B three existing or prespecified views; within-parent SD separate from density component sigma",
+    "not_CAL_refit_or_particle_truth": true
+  },
+  "EM": {
+    "max_updates": 500,
+    "parameter_atol": 1e-08,
+    "variance_floor": 1e-08,
+    "initial_weights": [
+      0.5,
+      0.5
+    ],
+    "initial_means_quantiles": [
+      0.25,
+      0.75
+    ],
+    "initial_variances": "full population variance, floored",
+    "min_component_effective_count": 20,
+    "min_mean_gap_over_pooled_sigma": 1.0,
+    "bootstrap_repeats": 200,
+    "bootstrap_seed": 2026100838,
+    "min_bootstrap_valid_for_CI": 100,
+    "component_order": "ascending mean at every update",
+    "not_frozen_CAL_reference_refit": true
+  },
+  "edges_logQ": [
+    7.071309847742635,
+    7.354357548030852,
+    7.6374052483190695,
+    7.920452948607288,
+    8.203500648895506,
+    8.486548349183723,
+    8.769596049471941,
+    9.052643749760158,
+    9.335691450048376
+  ],
+  "edges_mVns": [
+    1177.6896184967538,
+    1562.9925251413276,
+    2074.354392939227,
+    2753.0177389154155,
+    3653.718331149693,
+    4849.099755034099,
+    6435.572286403609,
+    8541.088603205038,
+    11335.463464829778
+  ],
+  "derived_only_from_TRAIN_fit2592": true,
+  "frozen_before_any_new_density_fit": true
+}

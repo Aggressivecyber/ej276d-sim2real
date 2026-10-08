@@ -1,0 +1,113 @@
+{
+  "UTC": "2026-10-08T11:15:25.245811+00:00",
+  "PID": 59268,
+  "start": {
+    "start_UTC": "2026-10-08T10:47:21.923033+00:00",
+    "stage_deadline_UTC": "2026-10-08T12:17:21.923033+00:00",
+    "first_native_PID": 61612,
+    "numeric_limit_s": 1800
+  },
+  "main_science_jobs": 1,
+  "fresh_saved_weight_replay_jobs": 1,
+  "maximum_concurrent_scientific_jobs": 1,
+  "numeric_wall_s_science_and_replay": 257.4810793000506,
+  "paired_existing_JSON_summary_tool_wall_s": 0.5053878,
+  "numeric_wall_s_conservative_including_small_summary": 257.9864671000506,
+  "numeric_limit_s": 1800,
+  "optimizer_updates": 2000,
+  "selected_update": 1700,
+  "threads": 4,
+  "science_child_peak_RSS_observed_B": 1036435456,
+  "RSS_limit_B": 4294967296,
+  "RSS_probe_failures": 0,
+  "RSS_scope": "Observed science-child peak; small stdlib report/metadata process RSS not separately measured.",
+  "new_stage_outputs_before_final_inventory_B": 13009208,
+  "final_inventory_write_upper_B": 131072,
+  "new_stage_output_limit_B": 536870912,
+  "native_runs": [
+    {
+      "supervisor_PID": 16924,
+      "worker_PID": 61952,
+      "worker_native_exit": 0,
+      "start_UTC": "2026-10-08T10:57:23.669271+00:00",
+      "stop_UTC": "2026-10-08T11:01:36.804581+00:00",
+      "wall_s": 253.13463510002475,
+      "numeric_cumulative_wall_s": 253.13463950000005,
+      "peak_RSS_observed": 1036435456,
+      "memory_probe_failures": 0,
+      "RSS_measurement_status": "known",
+      "reason": null,
+      "run": "run_001",
+      "threads": 4,
+      "command": [
+        "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\run.py"
+      ],
+      "EVAL_read": 0,
+      "SSH": 0,
+      "work_kind": "training_and_evaluation",
+      "response_model_training": 1
+    },
+    {
+      "supervisor_PID": 61948,
+      "worker_PID": 36468,
+      "worker_native_exit": 0,
+      "start_UTC": "2026-10-08T11:02:13.475030+00:00",
+      "stop_UTC": "2026-10-08T11:02:17.821484+00:00",
+      "wall_s": 4.34644270001445,
+      "numeric_cumulative_wall_s": 257.4810793000506,
+      "peak_RSS_observed": 318803968,
+      "memory_probe_failures": 0,
+      "RSS_measurement_status": "known",
+      "reason": null,
+      "run": "run_002",
+      "threads": 4,
+      "command": [
+        "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-B",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\replay.py"
+      ],
+      "EVAL_read": 0,
+      "SSH": 0,
+      "work_kind": "saved_weight_replay",
+      "response_model_training": 0
+    }
+  ],
+  "native_tool_receipts": [
+    {
+      "kind": "main_diagnosis_training_generation_evaluation",
+      "start_tool": "f7bba7",
+      "session_ID": 71501,
+      "completion_tool": "73496a",
+      "native_exit": 0
+    },
+    {
+      "kind": "saved_weight_replay",
+      "tool": "705a83",
+      "native_exit": 0
+    },
+    {
+      "kind": "small_paired_summary_from_existing_JSON",
+      "tool": "9648f8",
+      "PID": 61776,
+      "native_exit": 0
+    }
+  ],
+  "preparation_tool": {
+    "tool": "b7186b",
+    "PID": 44608,
+    "native_exit": 0
+  },
+  "failures": 0,
+  "scientific_retries": 0,
+  "warning": "Tensor-to-scalar receipt warning retained in run_001/stderr.log.",
+  "density_fits": "Frozen eight slices; three REAL partitions each200 artificial-group bootstrap; nonconvergence not retried.",
+  "EVAL_read": 0,
+  "SSH": 0,
+  "new_G4": 0,
+  "old_stages_modified": false,
+  "output_and_cache_location": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R3B_ENERGY_CONDITIONAL_WIDTH_001",
+  "TEMP_TMP": "E:/GAN/research/sim2real_two_papers_20261008_0305/.runtime-cache/tmp",
+  "final_hash_verification": "Pure byte operation; scientific arrays not decoded."
+}
