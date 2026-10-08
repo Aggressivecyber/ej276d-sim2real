@@ -1,0 +1,103 @@
+{
+  "status": "draft_for_root_next_stage_registration_not_executed",
+  "question": "Can a full-waveform-conditioned stochastic empirical map reduce the complete REAL/SIM gap while retaining source dependence?",
+  "primary_name": "FULL_WAVE_STOCHASTIC",
+  "one_ablation_name": "PULSE_STOCHASTIC_OFF",
+  "not_a_frontend_patch": true,
+  "input": "all8192 existing clean480-point G4 TRAIN waves and c/Q; same R2 masks; no raw step timing claimed",
+  "REAL_targets": "only2592 TRAIN fit;599 grouped TRAIN validation; no pair labels or paired MSE",
+  "initialization": "fresh paired generator/critic initial parameters with seed set before constructors; save actual Torch/NumPy/train RNG states and copied initial bytes; old R3B/R8 weights remain reference inputs only",
+  "representation": {
+    "wave_grid": "input4801ns CFD-aligned in V; pad8 zeros before and24 zeros after to512 source-description slots, with a known-support mask; padding is not observed extra data",
+    "embedding": "x/.1V + support mask + relative grid coordinate, c4 and logQsource broadcast",
+    "encoder_decoder": "stride1 Conv1d kernel5,24channels,seven residual dilated blocks[1,2,4,8,16,32,64],SiLU; no transposed conv/strided upsampling/absolute sinusoid transformer/no batch normalization",
+    "mean": "mu=exp(g(c))*padded_source + .1V*f_mu(encoder,c); learned signed complete residual without .15 tanh bound, fixed exponential kernel, nonnegative clean constraint, RBF multiplicative correction or source FoM preservation",
+    "stochastic_pulse": "one16-D event latent plus independent512-D white into learned stride1 conditional temporal branch; .1V is a unit scale, not an amplitude cap; free throughout recorded domain, no clean-peak gate or sqrt law",
+    "baseline": "separate zero-mean31-tap learned conditional FIR driven by512-D white; condition/event latent may modulate RMS and correlation jointly with pulse; use TRAIN-fit baseline statistics for initialization only, filters remain learnable",
+    "interpretation": "mu is a baseline response branch, not automatically an identifiable physical conditional expectation; learned latent covariance is empirical, not photon statistics",
+    "output": "512 V -> one14bit[-.5,.5] ADC (STE during fit) -> original512 first20% baseline102-point CFD rule ->480 index120 window; padding/clipping/counts and invalid rows retained; no output peak normalization except separately declared shape loss/evaluation"
+  },
+  "loss": {
+    "generator": "1*hinge_adversarial +1*full_joint_SW +2*soft_charge_CDF +.5*charge_occupancy +.5*baseline_joint",
+    "training_critic": "independent small spectral-normalized multiscale1-D CNN,24channels, no REAL source PDG/particle pseudolabel/c input; sees unit-bearing waveform and own-shape jointly; one critic step per generator step, hinge loss; not the heldout C2ST",
+    "full_joint_SW": "TRAIN-fit scaled vector of scalar Qt/PSD/peak/rise/tail plus complete unit-bearing480 curve, own-peak shape, first and second differences;128 fixed unsmoothed projections seed2026100892, blocks balanced by sqrt dimensionality; compare batch distributions only",
+    "soft_charge_CDF": "reuse R3B eight TRAIN-fit logQ windows/grids and unknown-inclusive conditional PSD CDF; do not maximize FoM or force1/sqrtE",
+    "baseline_joint": "joint RMS/lag1..8ACF/nonDC spectral shape with Qt/peak; TRAIN-fit scales; no paired waveform target",
+    "identity_or_source_PSD_preservation": 0,
+    "cycle": 0,
+    "random_event_MSE": 0,
+    "REAL_template_sampling": 0,
+    "validation_selection": "every100 including0, fixed384 TRAIN internal validation sources/REAL/noise; minimize fixed1SW+2CDF+.5occupancy+.5baseline only, no GAN critic loss/DEV C2ST; hold all projections/scales fixed"
+  },
+  "paired_ablation": {
+    "mechanism": "same complete-wave architecture and loss, pulse event latent and pulse white disabled; baseline noise remains; draw then discard the same z/white so all source/REAL orders and RNG streams stay paired",
+    "same_initial_learnable_parameters": true,
+    "same_updates": true,
+    "same_TRAIN_fit_statistics": true,
+    "purpose": "tests incremental conditional pulse variation within this full-wave route; existing R3B/R8 remain descriptive architecture controls, not a controlled proof of architecture causation",
+    "no_architecture_seed_weight_grid": true
+  },
+  "source_dependence_diagnostics": {
+    "fixed_main_positions": "64 evenly spaced prespecified positions floor(j*1999/63),j0..63",
+    "control_1": "shuffle entire source bundle x,c,Q together by fixed permutation seed2026100893; keep z/baseline white/pulse white unchanged",
+    "control_2": "replace entire bundle by first allowed TRAIN-fit source in full-SHA parent ordering, keep noises unchanged; SIM-only control, not a REAL template",
+    "additional_outputs": 128,
+    "report": "paired waveform L2 and signed Qt/PSD/peak changes, source-to-output rank/conditional associations, original/all-donor parent provenance; source-ignoring if both controls leave all64 outputs bitwise invariant, otherwise magnitude is descriptive without invented physical tolerance",
+    "claim_boundary": "sensitivity demonstrates use of source, not unique correct per-event correspondence"
+  },
+  "joint_evaluation": [
+    "complete unweighted QC+unknown distributions",
+    "Qt-PSD2D, width/mean/occupancy/detrended width on fixed supported bins",
+    "unit-bearing and own-shape full waveform plus curve bands",
+    "baseline RMS/ACF/spectra and signal curvature by charge",
+    "source-nominal all parents and output-charge strata/migration separately",
+    "fixed independent HGB fullshape/fullvoltage plus strict local views; train/test split by parent/artificial REAL group",
+    "same-N REAL TRAIN-DEV reference",
+    "all invalid/clipped/padded/support failures",
+    "saved weights/random input independent main replay"
+  ],
+  "references": [
+    "original SIM",
+    "old GEN_W0 with its proxy-scale limitation",
+    "R3B",
+    "R8 JOINT",
+    "R8 JOINT_SIGNAL"
+  ],
+  "source_mixture_policy": "no posthoc reweighting/HC filtering; original G4 label/energy mix and REAL unlabelled mix can differ; complete population and observable-charge comparisons answer different questions; no claim that domain matching calibrates Geant4 particle labels/source spectrum",
+  "budget_proposed": {
+    "stage_s": 7200,
+    "numeric_cumulative_s": 1800,
+    "response_updates_per_arm_max": 2000,
+    "critic_updates_per_arm_max": 2000,
+    "single_seed": 2026100891,
+    "batch": 64,
+    "generator_lr": 0.0002,
+    "critic_lr": 0.0002,
+    "Adam_betas": [
+      0.5,
+      0.9
+    ],
+    "weight_decay": 0.0001,
+    "threads": 4,
+    "RSS_bytes": 4294967296,
+    "new_output_bytes": 536870912,
+    "new_HGB_max": 12,
+    "new_density_diagnostics_max": 16,
+    "new_generation_rows_main_and_extra": 12000,
+    "source_control_generation_rows": 128,
+    "SSH": 0,
+    "new_G4": 0,
+    "EVAL_before_freeze": 0,
+    "GPU_required": false,
+    "performance": "runtime/memory feasibility is an unbenchmarked bounded estimate, not measured here; existing Torch CPU environment suffices to attempt; no install or remote migration"
+  },
+  "stop_rules": [
+    "hard wall/RSS/output/update caps",
+    "nonfinite loss/output or unrecoverable input role mismatch -> preserve failure, no recipe search",
+    "source input-insensitivity -> report failure of mapping requirement even if marginal similarity improves",
+    "source mixture/support conflicts cannot be silently solved by relabelling or reweighting",
+    "after one recipe/pair all scientific outcomes preserved; remaining gap is a negative result, not authorization for another patch/search",
+    "no EVAL for model choice; final frozen retrospective benchmark only after root registration"
+  ],
+  "identifiability": "unpaired marginal agreement allows many source-to-output couplings and stochastic laws; full input being a deterministic source description adds an inductive bias, not missing G4 time information or independent detector calibration"
+}
