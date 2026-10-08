@@ -14,7 +14,8 @@
 - [R3 平滑时间形状报告](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md)：已完成
 - [R3B 能量条件峰宽报告](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPORT.md)：已完成，部分条件改善及边界失败均保留
 - [冻结方法与后续任务](FROZEN_METHOD.json)：EVAL解码前固定
-- [R4 留出响应报告](work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md)：已完成，R5/R6按冻结方案在本机继续
+- [R4 留出响应报告](work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md)：已完成
+- [R5 前缀重建效用报告](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md)：已完成，R6按冻结方案在本机继续
 
 R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
 
@@ -30,7 +31,11 @@ R4使用新留出的实测：7600条中7583条通过既定QC，主比较按身�
 
 [R4 电荷–PSD 图](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/charge_psd.png) · [R4 条件峰宽](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/energy_peak_width.png) · [R4 条件波形](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/conditional_waveforms.png)
 
-按用户最新要求，R5短窗口重建效用与R6连续电荷区间排除都在本机运行；实测与G4所需缓存留在E盘，不再连接服务器。科学方案与资源上限不变，不按留出结果重新调参。
+R5的44个预定拟合已完成。256条实测时，Ridge的PSD MAE从0.069210降至+R3B的0.061745，原SIM增强为0.057754；1024条时+R3B与纯实测几乎相同，完整2592实测对照为0.055386。HGB的PSD小幅获益同时伴随部分电荷指标退化，不能概括成所有任务共同成功。切点翻侧约31%是对全积分参考的差异，不是粒子真值错误率。生成器及历史噪声先验已使用额外实测，小任务子集不代表总采集成本。
+
+[R5 重建误差](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/prefix_errors.png) · [R5 配对误差区间](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/paired_bootstrap.png) · [R5 容差–覆盖曲线](work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/results/figures/tolerance_coverage.png)
+
+按用户最新要求，后续全部本机运行。R6连续电荷区间排除正在准备，实测与G4所需缓存留在E盘，不再连接服务器。科学方案与资源上限不变，不按留出结果重新调参。
 
 ## 开发记录与数据
 

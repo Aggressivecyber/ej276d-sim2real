@@ -1,0 +1,92 @@
+{
+  "PID": 44580,
+  "start_UTC": "2026-10-08T11:41:36.820584+00:00",
+  "deadline_UTC": "2026-10-08T13:11:36.820584+00:00",
+  "numeric_limit_s": 1800,
+  "task_sha256": "c2a3a8c12dacbc4c55b2947faf0efbbe6a025b08005f99f01992603ec557169f",
+  "stage": "R5",
+  "numeric_wall_limit_s": 1800,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "budgets": [
+    256,
+    1024
+  ],
+  "full_REAL": 2592,
+  "arms": [
+    "REAL",
+    "REAL+SIM",
+    "REAL+R2",
+    "REAL+R3",
+    "REAL+R3B"
+  ],
+  "models": [
+    "Ridge",
+    "HGB"
+  ],
+  "targets": [
+    "PSD",
+    "logQ"
+  ],
+  "planned_fits": 44,
+  "synth_N": 2000,
+  "synth_parent_order": "full SHA256 R5-synth-v1|parent_id,first2000 of bound8192 G4 TRAIN cache",
+  "real_order": "full SHA256 source_id UTF8,ascending,nested256/1024 inside REAL TRAIN internal fit2592",
+  "seed": 2026100852,
+  "bootstrap_seed": 2026100853,
+  "bootstrap_repeats": 1000,
+  "generation_chunk": 256,
+  "prefix_range": [
+    0,
+    150
+  ],
+  "baseline_range": [
+    0,
+    100
+  ],
+  "pulse_prefix": [
+    100,
+    150
+  ],
+  "features": "50 baseline-subtracted pulse samples / prefix peak, log prefix peak, log prefix baseline sample RMS",
+  "prefix_peak_floor_V": 1e-08,
+  "prefix_RMS_floor_V": 1e-12,
+  "feature_N": 52,
+  "scaling": "only corresponding REAL subset,mean/population SD;zeroSD->1;shared across all arms at a budget",
+  "sample_weights": {
+    "REAL_only": "each1/n,total1",
+    "mixed_REAL": "each0.5/n,total0.5",
+    "mixed_synth": "each0.5/2000,total0.5"
+  },
+  "Ridge": {
+    "alpha": 0.001
+  },
+  "HGB": {
+    "loss": "squared_error",
+    "max_iter": 150,
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1,
+    "early_stopping": false,
+    "random_state": 202610085
+  },
+  "model_selection": "none;599 internal validation check only;fit all44 and freeze before EVAL input/prediction",
+  "margin_edges_PSD": [
+    0,
+    0.005,
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "response_fits": 0,
+  "SSH": 0,
+  "replay": "fresh process all44 saved estimators,fixed first64 EVAL QC prefix inputs,rtol=atol1e-12;no refit",
+  "task_SHA256": "c2a3a8c12dacbc4c55b2947faf0efbbe6a025b08005f99f01992603ec557169f",
+  "FROZEN_METHOD_SHA256": "b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186",
+  "original_SIM": "source-bound active analytic kernel,0.6258014992938228mV full-window RMS,fixedWelch spectrum,14bit,CFD;seed2026100852 for this new fixed TRAIN-parent realization",
+  "SIM_historical_noise_calibration_REAL_count": 79793,
+  "not_online_trigger_or_FPGA_validation": true
+}

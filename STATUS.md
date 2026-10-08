@@ -1,6 +1,6 @@
 # 当前研究状态
 
-2026-10-08 UTC 修订017。现行目标与简化执行要求以 PLAN.md、AGENTS.md、FROZEN_METHOD.json 为准。GitHub 私有仓库为 https://github.com/Aggressivecyber/ej276d-sim2real，默认 main；完成阶段单独提交，原始/逐事件数据、模型和缓存留 E/D。用户要求后续全部本机执行，停止新的SSH和远端读取，不等待服务器恢复。
+2026-10-08 UTC 修订018。现行目标与简化执行要求以 PLAN.md、AGENTS.md、FROZEN_METHOD.json 为准。GitHub 私有仓库为 https://github.com/Aggressivecyber/ej276d-sim2real，默认 main；完成阶段单独提交，原始/逐事件数据、模型和缓存留 E/D。用户要求后续全部本机执行，停止新的SSH和远端读取，不等待服务器恢复。
 
 R1 已完成完整 2000 父事件共同评价。原 SIM / 历史 GEN_W0 的 PSD W1 为 0.104627 / 0.041618，形状 C2ST 均为 0.996；完整响应分布仍存在明显偏差。
 
@@ -16,4 +16,6 @@ R3B_ENERGY_CONDITIONAL_WIDTH_001已封存。实测TRAIN/DEV支持当前电荷范
 
 R4已封存：预先READINESS通过33项冻结绑定，7600条EVAL中QC有效7583，主REAL2000按固定身份哈希选择。R3B PSD W1=0.013729、二维sliced W1=0.199078，等2000对2000实测参照二维中位0.036285；两视图C2ST BA均0.988，REAL–REAL为0.504/0.528。留出实测仍支持峰宽总体收窄，R3B最低区与高端低PSD侧仍不匹配，最高窄区实测与R3B宽度均undefined。提取及数值累计122.955秒、4线程，本地峰RSS686555136字节，原生退出0；ROOT已检查最终报告、关键指标和三图。报告work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md。
 
-R5已开始本机准备，完成后直接R6。EVAL缓存已在E盘，既有TRAIN/CAL/DEV、G4缓存和模型均本地复用；R4唯一远端作业已正常退出。五臂44个任务小拟合、q3间隔与FULL/GAP相同初始化三阶段课程已预先固定，不依据EVAL改变。完整目标仍未完成，不以局部改善替代任务效用和连续区间留出证据。
+R5已封存：44个预定拟合及7583条EVAL单次预测完成，四合成臂各2000同父事件。256条Ridge的PSD MAE从0.069210改善到+R3B的0.061745，但1024条+R3B与REAL差值的条件组区间跨零；HGB的PSD小幅改善同时伴随电荷误差增大。完整2592实测对照、约31%切点翻侧及历史79793条噪声先验成本均保留。含首次兼容加载失败累计44.191秒，4线程，峰RSS723087360字节；保存后2816个预测值逐位一致。ROOT已读关键结果与报告并查看四图。报告work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/REPORT.md。
+
+R6已开始本机准备，固定q3间隔与FULL/GAP相同初始可学习参数的三阶段课程不依据EVAL改变；各臂数据驱动统计独立遵守本臂TRAIN排除规则。全部输入复用E盘缓存，不再SSH。完整目标仍未完成，尚需连续区间留出结果和最终汇总交付。
