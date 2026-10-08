@@ -1,18 +1,16 @@
 # EJ-276D：G4 到实测响应变换
 
-R1–R6 已完成并封存，支持局部响应改善；完整响应相似性仍未通过，合成数据效用与连续电荷区间推广也有明确限制。持续目标下，R7 残差诊断、R8 配对实验及 R8B 整体路线复审已封存。R8 改善峰后局部，完整 shape BA 仍 0.996；R8C 整段映射两臂已封存，完整 shape/V BA 均 1、条件峰宽更差。五候选现已统一冻结，正在完成 R9 回顾性验证。研究范围仍为同一次 AmBe 采集，旧 EVAL 已查看。
+R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 
-- [R7 残差诊断](work/R7_RESPONSE_RESIDUAL_DIAGNOSIS_001/REPORT.md)、[R8 配对结果](work/R8_LOCAL_JOINT_FLUCTUATION_001/REPORT.md)、[R8B 整体路线依据](work/R8B_FULL_RESPONSE_ROUTE_REVIEW_001/REPORT.md)。
-- [R8C 整体映射结果](work/R8C_WHOLE_RESPONSE_MAPPING_001/REPORT.md)与[任务](tasks/R8C_WHOLE_RESPONSE_MAPPING_001.md)、[原 R9 验证口径](tasks/R9_FROZEN_RETROSPECTIVE_VALIDATION_001.md)及[新增候选补充](tasks/R9_CANDIDATE_SCOPE_ADDENDUM_001.md)。
-- [本轮方法登记](CONTINUATION_METHOD_PLAN.json)与[实时阶段状态](STATUS.md)。[最终候选绑定](CONTINUATION_FROZEN_METHOD.json)已保存，验证与交付尚未完成。
+- [R7–R9最终报告](CONTINUATION_REPORT.md)、[复现说明](CONTINUATION_REPRODUCTION.md)、[交付索引](CONTINUATION_DELIVERY_INDEX.json)。
+- [R9固定评价详情](work/R9_FROZEN_RETROSPECTIVE_VALIDATION_001/REPORT.md)、[五候选冻结绑定](CONTINUATION_FROZEN_METHOD.json)。
+- [R7残差诊断](work/R7_RESPONSE_RESIDUAL_DIAGNOSIS_001/REPORT.md)、[R8局部配对实验](work/R8_LOCAL_JOINT_FLUCTUATION_001/REPORT.md)、[R8B整体路线依据](work/R8B_FULL_RESPONSE_ROUTE_REVIEW_001/REPORT.md)、[R8C整段映射](work/R8C_WHOLE_RESPONSE_MAPPING_001/REPORT.md)。
+- [R1–R6原报告](FINAL_REPORT.md)、[原复现入口](REPRODUCTION.md)、[原交付索引](DELIVERY_INDEX.json)保留。
+- [计划记录](PLAN.md)、[当前状态](STATUS.md)、[机器可读状态](PROGRAM.json)。
 
-- [R1–R6 封存研究报告](FINAL_REPORT.md)：数据、方法、留出响应、峰宽、任务效用、区间排除与结论边界。
-- [R1–R6 本机复现入口](REPRODUCTION.md)：固定权重生成、R5 保存估计器预测、R6 配对模型重放。
-- [R1–R6 封存交付索引](DELIVERY_INDEX.json)：需求对应证据、关键文件摘要与交付回执入口。
-- [计划与开发记录](PLAN.md)、[当前状态](STATUS.md)、[机器可读状态](PROGRAM.json)。
-- [冻结方法和任务](FROZEN_METHOD.json)、[数据角色](CURRENT_ROLE_INDEX.json)：当前首次 EVAL 科学读取前登记。
+结论限于同一次AmBe采集和登记的固定配方、种子及预算。旧EVAL已查看，本轮属于冻结后回顾性验证；完整物理响应、独立采集推广和唯一失配根因仍未建立。
 
-## 主要结果
+## R1–R6已封存结果
 
 | 科学问题 | 已执行结果 |
 | --- | --- |

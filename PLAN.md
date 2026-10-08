@@ -1,3 +1,11 @@
+# 修订028：续轮科学工作完成与有界停止
+
+R7、R8、R8B、R8C、R9均已封存。42个预定R9评价器执行完成，五候选完整shape BA为0.988–1.000，真实对真实0.504；峰后局部改善未使完整响应或共同电荷区间峰宽同时改善。保留R3B局部基线、JOINT_SIGNAL局部证据和FULL/OFF负结果，停止使用本次历史EVAL继续改配方。唯一物理原因仍unknown，结论限于固定方案与预算。
+
+当前科学作业0个，无后续科学任务。总报告、复现入口及关键文件绑定见CONTINUATION_REPORT.md、CONTINUATION_REPRODUCTION.md、CONTINUATION_DELIVERY_INDEX.json。最终Git发布和D盘复制状态分别由CONTINUATION_PUBLICATION_RECEIPT.json与CONTINUATION_BACKUP_RECEIPT.json的执行后记录确定；不为交付重跑科学。以下旧修订为开发历史。
+
+---
+
 # 修订027：五候选冻结与最后回顾性验证
 
 R8C完整随机映射和预定消融已封存；DEV完整shape/V/prompt BA均1，条件峰位及宽度误差恶化。两臂4000主输出独立重放逐位通过，完整负结果保留。全部5候选于2026-10-08 18:57:35 UTC统一冻结，见CONTINUATION_FROZEN_METHOD.json；不按DEV删选。

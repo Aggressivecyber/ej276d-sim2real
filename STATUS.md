@@ -1,6 +1,6 @@
 # 当前研究状态
 
-2026-10-09 本地时间。R7、R8、R8B、R8C、R9均已封存；科学作业0个，当前只完成最终报告、版本发布和备份交付。
+2026-10-09 本地时间。R7、R8、R8B、R8C、R9均已封存；科学作业0个，已形成明确停止结论。最终报告和交付索引已保存；Git发布与D盘复制的最终状态由执行后回执记录。
 
 R9保留全部五个预定候选，在同次采集的旧EVAL上完成42个固定评价器，实际读取7600条、QC有效7583条、固定主REAL2000条。累计数值45.137秒，4线程，峰RSS1349013504字节，原生退出0。无新增响应训练、生成或密度拟合。11图已目检，ROOT检查4张关键图和封存清单49项。
 
@@ -9,3 +9,5 @@ R9保留全部五个预定候选，在同次采集的旧EVAL上完成42个固定
 停止结论：没有新候选可作为已验证的完整实测响应转换器采用。R3B保留为局部改善基线，JOINT_SIGNAL保留为峰后局部统计证据，整段FULL/OFF为固定配方与预算下的负结果。本轮不继续使用历史EVAL改配方；唯一物理原因仍unknown。
 
 五候选冻结文件为CONTINUATION_FROZEN_METHOD.json，SHA256 83ed633a170471ef9013a5e70fda8fcd82a6d34de450bda61793f99a48156114。R9监督回执中陈旧的EVAL_read=0已由单独更正回执解释，原字节保留，实际读取以NUMERIC_RECEIPT及更正记录为准。关键判断见reviews/ROOT_R9_KEY_RESULT_REVIEW_001.json。
+
+总报告：CONTINUATION_REPORT.md；复现入口：CONTINUATION_REPRODUCTION.md；关键绑定：CONTINUATION_DELIVERY_INDEX.json；最终发布：CONTINUATION_PUBLICATION_RECEIPT.json；最终备份：CONTINUATION_BACKUP_RECEIPT.json。
