@@ -1,0 +1,171 @@
+{
+  "question": "R3B fixed conditional-CDF recipe; complete response and narrow charge-conditioned density widths",
+  "input_npz": {
+    "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+    "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+    "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+  },
+  "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+  "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+  "n": 2000,
+  "sample_ns": 1,
+  "baseline": [
+    0,
+    100
+  ],
+  "Qfast": [
+    100,
+    150
+  ],
+  "Qtotal": [
+    100,
+    400
+  ],
+  "PSD": "1-Qfast/Qtotal signed",
+  "tail_charge": [
+    200,
+    400
+  ],
+  "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+  "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+  "raw_scale": "SIM and GEN normalized arrays times corresponding SIM parent normalization_peak_V; GEN unit-bearing proxy, not independent amplitude calibration; REAL saved physical V",
+  "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+  "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+  "FOM_min_band": 20,
+  "C2ST": {
+    "model": "HistGradientBoostingClassifier",
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008,
+    "views": [
+      "shape_only",
+      "shape_plus_amplitude_proxy"
+    ],
+    "train_cap_each_domain": 600,
+    "test_cap_each_domain": 250,
+    "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+    "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+    "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+    "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+    "bootstrap_cluster_repeats": 1000,
+    "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+    "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+    "no_parameter_search": true
+  },
+  "REAL_repeat_reference": {
+    "count": 64,
+    "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+    "not_physical_equivalence": true
+  },
+  "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+  "no_G4": true,
+  "no_SSH": true,
+  "EVAL_waveform_or_feature_read": 0,
+  "numeric_wall_limit_s": 1800,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "stage": "R4_FROZEN_HELDOUT_RESPONSE_001",
+  "start_UTC": "2026-10-08T11:22:42.929665+00:00",
+  "deadline_UTC": "2026-10-08T12:52:42.929665+00:00",
+  "SSH": 1,
+  "EVAL_read": 7600,
+  "response_training": 0,
+  "remote_source": {
+    "container": {
+      "path": "/home/rylan/psd_results/EJ276D_AmBe_neutron_waveforms.npz",
+      "bytes": 2983190168,
+      "sha256": "fddb96180541f05196d85eaa40fae0138fc94432fd062931601f4f47cfded123"
+    },
+    "members": [
+      {
+        "name": "waveforms.npy",
+        "compressed_bytes": 2981607371,
+        "uncompressed_bytes": 8000000128,
+        "crc32": "0x27484134",
+        "dtype": "<f8",
+        "shape": [
+          100000,
+          10000
+        ],
+        "row_bytes": 80000
+      },
+      {
+        "name": "time_ns.npy",
+        "compressed_bytes": 24319,
+        "uncompressed_bytes": 80128,
+        "crc32": "0x3a340bf0",
+        "dtype": "<f8",
+        "shape": [
+          10000
+        ],
+        "row_bytes": 80000
+      },
+      {
+        "name": "amplitude_mV.npy",
+        "compressed_bytes": 565464,
+        "uncompressed_bytes": 800128,
+        "crc32": "0x9196a646",
+        "dtype": "<f8",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 8
+      },
+      {
+        "name": "integral_mV_ns.npy",
+        "compressed_bytes": 753110,
+        "uncompressed_bytes": 800128,
+        "crc32": "0xa7990f7",
+        "dtype": "<f8",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 8
+      },
+      {
+        "name": "file_names.npy",
+        "compressed_bytes": 239114,
+        "uncompressed_bytes": 4800128,
+        "crc32": "0xf1060f26",
+        "dtype": "<U12",
+        "shape": [
+          100000
+        ],
+        "row_bytes": 48
+      }
+    ],
+    "memory_limit_bytes": 1073741824,
+    "io_caps": {
+      "hash": 0,
+      "metadata": 262144,
+      "compressed": 2981631690,
+      "inflate": 8000080258,
+      "source_total": 2981893834
+    }
+  },
+  "remote_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "remote_numpy_version": "1.26.4",
+  "main_REAL_rule": "SHA256 full digest R4-main-real-v1|source_id ascending,QC only,first2000",
+  "RR_group_rule": "SHA256 full digest R4-RR-group-v1|repeat|group ascending,first76 vs last76",
+  "RR_event_rule": "SHA256 full digest R4-RR-event-v1|repeat|source_id ascending,first2000 each half",
+  "sliced_W1": {
+    "angles": 128,
+    "range": "[0,pi)",
+    "standardization": "TRAIN-fit2592 mean and population SD of logQ and PSD only"
+  },
+  "all_candidates": [
+    "SIM",
+    "GEN_W0",
+    "R2",
+    "R3",
+    "R3B"
+  ],
+  "no_EVAL_tuning": true,
+  "source_sha": "inherited full-container SHA; current read validates bound central/local headers and complete selected-member CRC/EOF; no whole-container rehash",
+  "metadata_unselected_arrays_decode": 0
+}

@@ -1,6 +1,6 @@
 # 当前研究状态
 
-2026-10-08 UTC 修订016。现行目标与简化执行要求以 PLAN.md、AGENTS.md、FROZEN_METHOD.json 为准。GitHub 私有仓库为 https://github.com/Aggressivecyber/ej276d-sim2real，默认 main；完成阶段单独提交，原始/逐事件数据、模型和缓存留 E/D。
+2026-10-08 UTC 修订017。现行目标与简化执行要求以 PLAN.md、AGENTS.md、FROZEN_METHOD.json 为准。GitHub 私有仓库为 https://github.com/Aggressivecyber/ej276d-sim2real，默认 main；完成阶段单独提交，原始/逐事件数据、模型和缓存留 E/D。用户要求后续全部本机执行，停止新的SSH和远端读取，不等待服务器恢复。
 
 R1 已完成完整 2000 父事件共同评价。原 SIM / 历史 GEN_W0 的 PSD W1 为 0.104627 / 0.041618，形状 C2ST 均为 0.996；完整响应分布仍存在明显偏差。
 
@@ -14,4 +14,6 @@ R3B_ENERGY_CONDITIONAL_WIDTH_001已封存。实测TRAIN/DEV支持当前电荷范
 
 实测来自同一次历史曝光采集：P1K QC有效DEV2000、TRAIN3191、CAL1594，人工组不是独立采集。CAL电荷边界与参考冻结；unknown/重叠事件保留，q4未收敛和局部双带支持不足不通过补标签解决。11:15:15.7983273 UTC在EVAL科学解码仍0时生成FROZEN_METHOD.json，SHA b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186。
 
-当前已授权R4留出响应→R5前缀重建任务→R6完整电荷区间留出的连续执行；R4需在提取EVAL前保存实现READINESS。模型候选、44个任务小拟合、q3间隔与FULL/GAP相同初始化三阶段课程已预先固定，不依据EVAL改变。完整目标仍未完成，不以开发集局部改善替代后续证据。
+R4已封存：预先READINESS通过33项冻结绑定，7600条EVAL中QC有效7583，主REAL2000按固定身份哈希选择。R3B PSD W1=0.013729、二维sliced W1=0.199078，等2000对2000实测参照二维中位0.036285；两视图C2ST BA均0.988，REAL–REAL为0.504/0.528。留出实测仍支持峰宽总体收窄，R3B最低区与高端低PSD侧仍不匹配，最高窄区实测与R3B宽度均undefined。提取及数值累计122.955秒、4线程，本地峰RSS686555136字节，原生退出0；ROOT已检查最终报告、关键指标和三图。报告work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md。
+
+R5已开始本机准备，完成后直接R6。EVAL缓存已在E盘，既有TRAIN/CAL/DEV、G4缓存和模型均本地复用；R4唯一远端作业已正常退出。五臂44个任务小拟合、q3间隔与FULL/GAP相同初始化三阶段课程已预先固定，不依据EVAL改变。完整目标仍未完成，不以局部改善替代任务效用和连续区间留出证据。

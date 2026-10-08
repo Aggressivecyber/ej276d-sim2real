@@ -13,7 +13,8 @@
 - [R2 平滑随机响应报告](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/REPORT.md)：已完成
 - [R3 平滑时间形状报告](work/R3_FLEXIBLE_TEMPORAL_RESPONSE_001/REPORT.md)：已完成
 - [R3B 能量条件峰宽报告](work/R3B_ENERGY_CONDITIONAL_WIDTH_001/REPORT.md)：已完成，部分条件改善及边界失败均保留
-- [冻结方法与后续任务](FROZEN_METHOD.json)：EVAL解码前固定，R4留出响应验证进行中
+- [冻结方法与后续任务](FROZEN_METHOD.json)：EVAL解码前固定
+- [R4 留出响应报告](work/R4_FROZEN_HELDOUT_RESPONSE_001/REPORT.md)：已完成，R5/R6按冻结方案在本机继续
 
 R1 使用相同的 2000 个 G4 父事件比较原 SIM、历史转换与实测。历史 GEN_W0 的 PSD Wasserstein 距离由 0.104627 降到 0.041618，但形状 C2ST 平衡准确率仍为 0.996，实测子集之间为 0.490；条件带宽、固定时间纹理和噪声相关性仍有明显偏差。该结果支持继续改进响应模型，不能写成已经复现实测。
 
@@ -23,7 +24,15 @@ R2 使用 8192 个 G4 TRAIN 父事件和独立实测 TRAIN，学习平滑随机�
 
 [R2 电荷—PSD 图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/charge_psd.png) · [R2 条件波形图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/conditional_waveforms.png) · [R2 噪声图](work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/figures/fluctuations.png)
 
-## 版本与数据
+## 留出响应与后续检验
+
+R4使用新留出的实测：7600条中7583条通过既定QC，主比较按身份哈希固定2000条。R3B的PSD W1为0.013729（原SIM为0.104569），二维sliced W1为0.199078；等2000对2000实测参照二维中位0.036285。两视图C2ST平衡准确率均0.988，实测–实测为0.504/0.528，因此仍不能称完整响应已经复现。留出实测继续支持峰宽总体随电荷收窄，但R3B最低区和高端低PSD侧仍有偏差，最高窄区宽度未定义。
+
+[R4 电荷–PSD 图](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/charge_psd.png) · [R4 条件峰宽](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/energy_peak_width.png) · [R4 条件波形](work/R4_FROZEN_HELDOUT_RESPONSE_001/results/figures/conditional_waveforms.png)
+
+按用户最新要求，R5短窗口重建效用与R6连续电荷区间排除都在本机运行；实测与G4所需缓存留在E盘，不再连接服务器。科学方案与资源上限不变，不按留出结果重新调参。
+
+## 开发记录与数据
 
 R3 的总体PSD W1降到0.008904、上升时间W1降到0.35074 ns，但q3/q4条件覆盖变差，完整C2ST BA仍0.994。固定权重与RNG的2000×480输出已在独立进程逐位重放。按用户指出的峰宽随能量变化问题，R3B随后显式检查了窄电荷区间内的峰位和宽度，并增加条件PSD分布约束；不把全局相似视为条件响应成功。
 

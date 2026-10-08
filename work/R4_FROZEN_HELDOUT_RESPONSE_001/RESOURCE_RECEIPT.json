@@ -1,0 +1,133 @@
+{
+  "history": [
+    {
+      "kind": "EVAL_extraction",
+      "supervisor_PID": 52288,
+      "SSH_PID": 42460,
+      "SSH_exit": 0,
+      "start_UTC": "2026-10-08T11:33:29.450007+00:00",
+      "stop_UTC": "2026-10-08T11:33:49.504271+00:00",
+      "wall_s": 20.0542090999661,
+      "errors": [],
+      "reason": null,
+      "upload_bytes": 73315,
+      "stdout_bytes": 15009255,
+      "stdout_SHA256": "dc5dfa4e4f0ab3fb419d91a05edf1831e5fc918465f1aa0945c5ac8a23ea91d4",
+      "remote_events": [
+        {
+          "kind": "R4_remote_started",
+          "PID": 214704,
+          "UTC": "2026-10-08T11:33:29.860324+00:00"
+        },
+        {
+          "kind": "R4_remote_result",
+          "receipt": {
+            "PID": 214704,
+            "UTC": "2026-10-08T11:33:46.284251+00:00",
+            "elapsed_before_save_s": 16.423963474997436,
+            "cost": {
+              "reserved": {
+                "hash": 0,
+                "metadata": 592,
+                "compressed": 2981631690,
+                "inflate": 8000080258
+              },
+              "actual_returned": {
+                "hash": 0,
+                "metadata": 592,
+                "compressed": 2981631690,
+                "inflate": 8000080256
+              },
+              "seeks": 7,
+              "members": [
+                {
+                  "name": "time_ns.npy",
+                  "compressed_bytes": 24319,
+                  "uncompressed_bytes": 80128,
+                  "crc32": "0x3a340bf0",
+                  "selected_rows": 1,
+                  "selected_bytes": 80000,
+                  "header_sha256": "bbe3b23fc4dbf041300d6238cbf84a4c763315c4734a1dfc50a681e838ab35dd",
+                  "unselected_numeric_decodes": 0
+                },
+                {
+                  "name": "waveforms.npy",
+                  "compressed_bytes": 2981607371,
+                  "uncompressed_bytes": 8000000128,
+                  "crc32": "0x27484134",
+                  "selected_rows": 7600,
+                  "selected_bytes": 608000000,
+                  "header_sha256": "1b007cc2bd3ac8c8a5c03d6fd47d64aa27fc54f153a335534e90c0200ac0f6dd",
+                  "unselected_numeric_decodes": 0
+                }
+              ],
+              "hash_passes": 0
+            },
+            "selected_records": 7600,
+            "selected_waveform_values": 76000000,
+            "time_values": 10000,
+            "unselected_numeric_decodes": 0,
+            "source_identity_string_decodes": 0,
+            "whole_source_hash_passes": 0,
+            "source_SHA_inherited": "fddb96180541f05196d85eaa40fae0138fc94432fd062931601f4f47cfded123",
+            "source_stat_before": {
+              "st_dev": 66310,
+              "st_ino": 44040196,
+              "st_size": 2983190168,
+              "st_mtime_ns": 1784225433796683305,
+              "st_ctime_ns": 1784271585336909968
+            },
+            "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+            "numpy": "1.26.4",
+            "numpy_source": "/home/rylan/.local/lib/python3.12/site-packages/numpy/__init__.py",
+            "peak_RSS_bytes": 109867008,
+            "response_fits": 0,
+            "QC_valid": 7583,
+            "output_bytes": 15009255,
+            "output_sha256": "dc5dfa4e4f0ab3fb419d91a05edf1831e5fc918465f1aa0945c5ac8a23ea91d4",
+            "elapsed_before_transfer_s": 17.176903849001974
+          }
+        }
+      ],
+      "remote_state": "native success",
+      "retries": 0,
+      "source_hash_repeated": 0
+    },
+    {
+      "kind": "frozen_heldout_evaluation",
+      "supervisor_PID": 7552,
+      "worker_PID": 41800,
+      "worker_native_exit": 0,
+      "start_UTC": "2026-10-08T11:34:47.832266+00:00",
+      "stop_UTC": "2026-10-08T11:36:30.733333+00:00",
+      "wall_s": 102.90079839999089,
+      "numeric_cumulative_wall_s": 122.95500919996994,
+      "peak_RSS_observed": 686555136,
+      "memory_probe_failures": 0,
+      "reason": null,
+      "threads": 4,
+      "response_training": 0,
+      "SSH": 0
+    }
+  ],
+  "numeric_cumulative_wall_s": 122.95500749995699,
+  "numeric_cap_s": 1800,
+  "prepare_native": {
+    "tool": "b70bd0",
+    "PID": 58648,
+    "exit": 0,
+    "wall_s": 0.9926632
+  },
+  "supervisor_runtime_includes_imports_and_graphs": true,
+  "threads": 4,
+  "RSS_cap": 4294967296,
+  "output_cap": 536870912,
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.7.2",
+    "matplotlib": "3.10.3"
+  },
+  "failure_and_retries": 0,
+  "remote_state": "confirmed native0 receipt and matching transfer SHA"
+}
