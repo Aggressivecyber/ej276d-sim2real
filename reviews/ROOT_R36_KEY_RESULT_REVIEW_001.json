@@ -1,0 +1,185 @@
+{
+  "status": "key_results_reviewed",
+  "reviewed_UTC": "2026-10-09T20:41:37.192543+00:00",
+  "stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
+  "decision": "close_this_fixed_diffusion_edit_recipe",
+  "full_response_scientifically_accepted": false,
+  "historical_R28_development_baseline_changed": false,
+  "fixed_recipe_retained": false,
+  "gate_results": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    true
+  ],
+  "gate_evidence": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/GATE_METRICS.json",
+  "complete_metrics_evidence": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/METRICS_COMPACT.json",
+  "same_original_REAL_training_stream": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/TRAINING_ROW_BINDING.json",
+  "key_findings": {
+    "shape493_BA_BASE_source_R35": [
+      0.978,
+      0.958,
+      0.944
+    ],
+    "u480_BA_BASE_source_R35": [
+      0.978,
+      0.954,
+      0.952
+    ],
+    "full_voltage_BA_BASE_source": [
+      0.982,
+      0.96
+    ],
+    "shape493_delta_BA_CI95_vs_BASE": [
+      -0.0395423247721,
+      0.0007733464496
+    ],
+    "u480_delta_BA_CI95_vs_BASE": [
+      -0.0457884181101,
+      -0.0019724779453
+    ],
+    "overall_PSD_W1_BASE_source": [
+      0.0230654613507,
+      0.0187057177424
+    ],
+    "common_observed_Q1_to7_PSD_W1_BASE_source": [
+      0.0347657951745,
+      0.0290104107165
+    ],
+    "density_common_valid_bins": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "new_original_BASE_valid_density_failures": [],
+    "low_peak_raw_width_MAE_BASE_source": [
+      0.0103927218136,
+      0.00579135004659
+    ],
+    "high_peak_raw_width_MAE_BASE_source": [
+      0.0130511743668,
+      0.00798988278874
+    ],
+    "low_peak_center_MAE_BASE_source": [
+      0.005857171506,
+      0.0105807269022
+    ],
+    "high_peak_center_MAE_BASE_source": [
+      0.0026586633582,
+      0.0067995921524
+    ],
+    "baseline_RMS_W1_V_BASE_source": [
+      1.935838569590557e-05,
+      3.086203071599447e-05
+    ],
+    "baseline_ACF1_W1_BASE_source": [
+      0.0642349713874,
+      0.0397535772192
+    ],
+    "actual_source_pure_had_bin3_valley_BASE_source_N213": [
+      0.056338028169,
+      0.145539906103
+    ],
+    "actual_source_pure_had_bin4_valley_BASE_source_N181": [
+      0.005524861878,
+      0.099447513812
+    ],
+    "whole_source_Q_Spearman_BASE_source": [
+      0.999726342556,
+      0.997417761728
+    ],
+    "whole_source_PSD_Spearman_BASE_source": [
+      0.418991708312,
+      0.41754913695
+    ],
+    "fixed_boundary_pass_count": 8,
+    "fixed_boundary_total": 9,
+    "second_center_150_W1_candidate_limit_V": [
+      0.000776689990424,
+      0.000703808882501
+    ],
+    "guide_perturbation_rows": 128,
+    "guide_changed_fraction": 1.0,
+    "guide_preADC_RMS_median_V": 0.0006020991077080489,
+    "REAL_control_shape493_u480_baseline_BA": [
+      0.598,
+      0.598,
+      0.594
+    ],
+    "RAW_RR_shape493_u480_baseline_BA": [
+      0.512,
+      0.51,
+      0.522
+    ],
+    "REAL_control_gate_paired_BA95CI_upper": [
+      0.129943841806,
+      0.141377669593,
+      0.125944256757
+    ],
+    "REAL_control_gate_tolerance": 0.1,
+    "REAL_control_fullV_BA_RAW_RR_edited": [
+      0.546,
+      0.78
+    ],
+    "REAL_control_fullV_delta_BA95CI": [
+      0.178782359339,
+      0.28509046548
+    ],
+    "REAL_control_baseline_RMS_W1_V_RAW_RR_edited": [
+      3.11450147664e-06,
+      1.56968730119e-05
+    ],
+    "REAL_control_Q_PSD_2D_RAW_RR_prediction_reference": "unknown"
+  },
+  "claim_boundary": "Local and PSD/width gains do not satisfy full response, noise, source valleys, boundary and real-guide tolerances. Real control includes seen TRAIN-reference records; fixed classifier resamples are not neural-training or independent-acquisition uncertainty.",
+  "source_Q_definition": "actual unquantized480 source NN input; historical ADC207/182 cohort separate",
+  "independent_full_chain_replay": {
+    "rows": 4000,
+    "source_rows": 2000,
+    "REAL_control_rows": 2000,
+    "pass": true,
+    "evidence": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/REPLAY_RECEIPT.json"
+  },
+  "physical_final_signal_electronic_split": "unknown",
+  "root_final_figures_actually_viewed": [
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/c2st.png",
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/source_preservation.png",
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/noise_curvature.png",
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/charge_psd.png",
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/energy_peak_width.png",
+    "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/results/figures/real_control_and_guide.png"
+  ],
+  "executor_final_figure_QA": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/FIGURE_QA.json",
+  "final_figures": 10,
+  "retained_superseded_layout_figures": 2,
+  "root_layout_issues": [],
+  "science_elapsed_s": 859.9862739679811,
+  "metadata_preflight_and_finalization_separately_recorded": true,
+  "actual_worker_RSS_peak_bytes": 1950699520,
+  "GPU_allocated_peak_bytes": 353069056,
+  "RSS_query_missing_events": [
+    {
+      "UTC": "2026-10-09T19:57:59.124317+00:00",
+      "PID": 50548,
+      "poll": null,
+      "context": "actual_PID_query"
+    }
+  ],
+  "missing_RSS_cause": "unknown",
+  "engineering_failures": [
+    "First server preflight retained an old stage path; failed control, no science.",
+    "First evaluation missing historical Q/PSD2D RAW RR predictions before any HGB/EM; preserved unknown and resumed candidate/control only."
+  ],
+  "native_evidence": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/NATIVE_CHAIN.json",
+  "seal_native_receipt": "reviews/R36_SEAL_NATIVE_RECEIPT.json",
+  "next_task": "tasks/R37_FULL_COVARIANCE_CALIBRATION_001.md",
+  "next_registration": "reviews/R37_REGISTRATION_001/RECEIPT.json",
+  "next_reason": "Single TRAIN-only full joint covariance calibration of frozen neural source G; same original R33 streams, no new neural update or parameter scan.",
+  "new_REAL_EVAL_CAL_G4": 0,
+  "root_scientific_reruns": 0
+}

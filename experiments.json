@@ -1022,7 +1022,7 @@
     },
     {
       "id": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_diffusion_recipe_closed_real_control_source_noise_boundary_failure",
       "task": "tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md",
       "registration": "reviews/R36_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T19:47:11.780575+00:00",
@@ -1032,6 +1032,24 @@
       "science_budget_s": 3000,
       "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
       "motivation_stage": "R35_PSD_ORDERED_FLOW_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R37_FULL_COVARIANCE_CALIBRATION_001.md"
+    },
+    {
+      "id": "R37_FULL_COVARIANCE_CALIBRATION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R37_FULL_COVARIANCE_CALIBRATION_001.md",
+      "registration": "reviews/R37_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T20:41:09.839435+00:00",
+      "scientific_question": "R36 improves local waveform and PSD/width but fails full493 superiority, noise RMS, source-cohort valleys, one fixed boundary and real-guide distortion tolerance. Close its fixed diffusion edit recipe. Test one TRAIN-only full480 Gaussian covariance calibration of the frozen neural source guide, using the same original R33 source/target/noise streams. This tests joint temporal second moments with a deployable source-dependent map, no domain-ID DEV transform, new neural updates or random-target substitution.",
+      "new_neural_fits": 0,
+      "statistics_fit_streams_max": 1,
+      "HGB_fits_max": 10,
+      "science_budget_s": 1800,
+      "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "motivation_stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }

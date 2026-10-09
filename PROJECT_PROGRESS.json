@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T19:49:49.287018+00:00",
+  "updated_UTC": "2026-10-09T20:41:37.192543+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R35_PSD_ORDERED_FLOW_001",
-  "current_stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
-  "current_task": "tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md",
+  "latest_completed_stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
+  "current_stage": "R37_FULL_COVARIANCE_CALIBRATION_001",
+  "current_task": "tasks/R37_FULL_COVARIANCE_CALIBRATION_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,29 +13,29 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R35_fullshape_globalPSD_gain_but_source_noise_density_support_fail",
+      "status": "R36_local_PSD_width_gain_but_fullshape_noise_source_boundary_realcontrol_fail",
       "latest_evidence": [
-        "R35_REPORT.md",
-        "reviews/ROOT_R35_KEY_RESULT_REVIEW_001.json",
-        "work/R35_PSD_ORDERED_FLOW_001/GATE_METRICS.json"
+        "R36_REPORT.md",
+        "reviews/ROOT_R36_KEY_RESULT_REVIEW_001.json",
+        "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R35_fullshape_globalPSD_gain_but_source_noise_density_support_fail",
+      "status": "R36_local_PSD_width_gain_but_fullshape_noise_source_boundary_realcontrol_fail",
       "latest_evidence": [
-        "R35_REPORT.md",
-        "reviews/ROOT_R35_KEY_RESULT_REVIEW_001.json",
-        "work/R35_PSD_ORDERED_FLOW_001/GATE_METRICS.json"
+        "R36_REPORT.md",
+        "reviews/ROOT_R36_KEY_RESULT_REVIEW_001.json",
+        "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R35_fullshape_globalPSD_gain_but_source_noise_density_support_fail",
+      "status": "R36_local_PSD_width_gain_but_fullshape_noise_source_boundary_realcontrol_fail",
       "latest_evidence": [
-        "R35_REPORT.md",
-        "reviews/ROOT_R35_KEY_RESULT_REVIEW_001.json",
-        "work/R35_PSD_ORDERED_FLOW_001/GATE_METRICS.json"
+        "R36_REPORT.md",
+        "reviews/ROOT_R36_KEY_RESULT_REVIEW_001.json",
+        "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/GATE_METRICS.json"
       ]
     },
     {
@@ -48,33 +48,33 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R35_full2000_source_chain_replay_passed_scientific_acceptance_pending",
+      "status": "R36_full4000_CPU_source_and_REAL_replay_passed_scientific_acceptance_pending",
       "latest_evidence": [
-        "work/R35_PSD_ORDERED_FLOW_001/REPLAY_RECEIPT.json"
+        "work/R36_CONDITIONAL_DIFFUSION_EDIT_001/REPLAY_RECEIPT.json"
       ]
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R35_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R36_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R35_REPORT.md",
-        "reviews/ROOT_R35_KEY_RESULT_REVIEW_001.json"
+        "R36_REPORT.md",
+        "reviews/ROOT_R36_KEY_RESULT_REVIEW_001.json"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R35 PSD ordering improves global PSD and full-shape scores versus BASE but fails source-cohort valleys, baseline noise and original density support, with conditional peak centers also worse. Close frozen-BASE MLP-CFM coupling variants. Test one REAL-only conditional denoiser with finite-noise initialization from the full frozen-G source guide, fixed logQ/PSD conditioning, direct real-guide distortion control and same-condition/noise guide perturbations; no random-target substitution or strength scan.",
+  "current_direction": "R36 improves local waveform and PSD/width but fails full493 superiority, noise RMS, source-cohort valleys, one fixed boundary and real-guide distortion tolerance. Close its fixed diffusion edit recipe. Test one TRAIN-only full480 Gaussian covariance calibration of the frozen neural source guide, using the same original R33 source/target/noise streams. This tests joint temporal second moments with a deployable source-dependent map, no domain-ID DEV transform, new neural updates or random-target substitution.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R36_registered_implementation_in_progress",
+  "current_activity": "R37_registered_server_preparation",
   "latest_user_steering": "重写目标 推进",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
-  "execution_location": "same_server_environment_unique_training_directory_then_local_CPU4_generation_evaluation_replay",
+  "execution_location": "same_server_environment_frozen_G_TRAIN_forward_and_statistics_then_local_CPU4_generation_evaluation_replay",
   "current_task_addendum": null,
-  "latest_response_model_stage": "R35_PSD_ORDERED_FLOW_001",
+  "latest_response_model_stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "current_engineering_addendum": null,
   "latest_diagnostic_stage": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
   "latest_diagnostic_conclusion": "close_domain_specific_moment_C2ST_causal_attribution_route",
-  "latest_response_conclusion": "close_frozen_BASE_MLP_CFM_coupling_small_variants"
+  "latest_response_conclusion": "close_this_fixed_diffusion_edit_recipe"
 }
