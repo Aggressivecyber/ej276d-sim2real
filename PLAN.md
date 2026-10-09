@@ -1,3 +1,7 @@
+# 修订066：完整源生成器的全段时间混合层
+
+R39固定联合核配方关闭。R40在原G最终隐藏表示中加入一个零输出初始化的480→128→480共享时间MLP，原初始化函数、原R32 fresh-fine目标和94400更新流保留，全G共同训练2950固定末点；只检验这一结构。复用R39旧BASE_REAL控制，新源与新REAL共20HGB和4000独立重放。科学1800秒、训练900秒、CPU4/RSS与GPU4GiB，完整响应共同门槛不降，项目active。详见tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md。
+
 # 修订065：完整源神经转换的联合核分布训练
 
 R38固定切片配方关闭。R39回到原卷积G，仅将fine训练项替为完整时间特征联合Gaussian-MMD；前64个原TRAIN批只确定一次初始输出梯度尺度，原初始化/94400更新流/NCE与源秩约束不变。2950固定末点，同时生成原BASE与候选的同处理REAL控制。科学1800秒、唯一训练900秒、CPU4/RSS与GPU4GiB。原关闭配方不再调参；完整响应未验收，项目active。详见tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md。

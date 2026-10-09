@@ -1,0 +1,198 @@
+{
+  "stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
+  "recorded_UTC": "2026-10-09T21:57:46.068483+00:00",
+  "status": "recovery_launch_bound_terminal_not_yet_observed",
+  "first_failure": {
+    "PID": 70858,
+    "error": "KeyError('patches_per_layer')",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R39_REMOTE_20261009_214432_UTC/train_server.py\", line 22, in <module>\n    record=train('JOINT_KERNEL_FINAL',data,val,constants,scaler,actual,CFG,ROOT/'JOINT_KERNEL_FINAL',counter,log)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R39_REMOTE_20261009_214432_UTC/online_training.py\", line 66, in train\n    critic.requires_grad_(False);og.zero_grad(set_to_none=True);y,signal,_=model(x,zz,ww,s);gan=(critic(y)-1).square().mean();content=nce(model,x,y,cfg,rngnce);identity=model(real,torch.zeros_like(zz),torch.zeros_like(ww),torch.zeros_like(s))[0];ident=(identity-real).abs().mean()/.1;qrel,qr,pr,positive=rank_losses(x,y,edges);domain=sw((physical(y)-center)/scale,(physical(real)-center)/scale,proj)+sw(pooled_shape(y),pooled_shape(real),waveproj)\n                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R39_REMOTE_20261009_214432_UTC/legacy_model.py\", line 83, in nce\n    idx=torch.as_tensor(rng.choice(range(start,stop),cfg['patches_per_layer'],replace=False),device=x.device)\n                                                     ~~~^^^^^^^^^^^^^^^^^^^^^\nKeyError: 'patches_per_layer'\n",
+    "elapsed_s": 3.2422401690018887,
+    "counter": {
+      "response_fit_attempts": 1,
+      "G_updates": 0,
+      "D_updates": 1,
+      "style_reader_updates": 0,
+      "training_s": 0
+    }
+  },
+  "first_native": {
+    "local_launch_PID": 59924,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T21:53:27.664416+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R39_REMOTE_20261009_214432_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 56004,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 70857,
+      "start_UTC": "2026-10-09T21:53:27.794956+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 70858,
+      "actual_worker_RSS_peak_bytes": 12873728,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 70858,
+      "actual_worker_parent_PID": 70857
+    },
+    "SSH_native_exit": 1,
+    "elapsed_ssh_s": 4.338468100002501,
+    "stop_UTC": "2026-10-09T21:53:32.002901+00:00"
+  },
+  "engineering_recovery": {
+    "PID": 45356,
+    "UTC": "2026-10-09T21:55:42.041616+00:00",
+    "upload_native_exit": 0,
+    "prepare_native_exit": 0,
+    "missing_original_fields_restored": [
+      "noise_latent",
+      "white_points",
+      "patches_per_layer",
+      "NCE_temperature",
+      "validation_source_count",
+      "validation_formula",
+      "source_conditioning",
+      "architecture",
+      "sampling",
+      "PSD_rank_pairs",
+      "mean_residual_range",
+      "PDG_inference",
+      "fine_projection_seed",
+      "fine_projection_columns",
+      "fine_coefficient",
+      "fine_vectors",
+      "style_dim",
+      "new_module_seed",
+      "style_val_seed",
+      "style_main_seed",
+      "style_repeat_seed",
+      "old_reference_training_allowed",
+      "style_zero_identity",
+      "R21_root",
+      "R22_root",
+      "source_REAL_bin_seed",
+      "NCE_seed",
+      "GPU_python",
+      "source_population_preserved",
+      "first_actual_command_UTC",
+      "first_actual_PID",
+      "first_actual_tool",
+      "G_D_update_ratio",
+      "D_updates_limit",
+      "repeated_rows_planned",
+      "R23_root",
+      "critic_intervention",
+      "old_control",
+      "python",
+      "source_rng_seed_and_pairing",
+      "CAL_waveform_decode",
+      "EVAL_read",
+      "SSH",
+      "actual_training_stream",
+      "old_final_G",
+      "fresh_projection_draw_order",
+      "fresh_projection_generation_dtype",
+      "fresh_projection_stream_consumers",
+      "old_reorder_receipt",
+      "primary_intervention_comparison",
+      "mean_loss_condition",
+      "training_device",
+      "evaluation_device",
+      "sole_training_intervention",
+      "endpoint_selection_uses_DEV",
+      "mean_term_not_in_J20",
+      "cross_platform_bitwise_training_claim",
+      "remote_input_sources"
+    ],
+    "source_bindings": {
+      "config.json": {
+        "bytes": 15172,
+        "sha256": "05f488b150d160c3b42352afd3f1df3b2368a3d2f2d152e202e16af1af88b869"
+      },
+      "remote_config.json": {
+        "bytes": 15145,
+        "sha256": "3f03ffa3e3602c55b585839f04f0b5c5e7c11d0fa7415e6c4aee154e0de1d113"
+      },
+      "online_recover.py": {
+        "bytes": 16071,
+        "sha256": "74bae5bdace920ce3e36d5e575c32971ce99ca9fb75ee18396824c92d26d69b3"
+      },
+      "train_recover.py": {
+        "bytes": 3442,
+        "sha256": "7a88da326dfb173801a7dce845178e0a59248b0da29b5ecdcd777c7eb961fb4f"
+      },
+      "linux_supervise.py": {
+        "bytes": 5694,
+        "sha256": "b50de200cec2dd3386d79f5bf96f05e217910e04d8f77dfc0231900b498a5916"
+      }
+    },
+    "remote": {
+      "PID": 71416,
+      "first_failure_counter": {
+        "response_fit_attempts": 1,
+        "G_updates": 0,
+        "D_updates": 1,
+        "style_reader_updates": 0,
+        "training_s": 0
+      },
+      "saved_calibration_reused": true,
+      "known_D_reconstruct_calls": 1
+    },
+    "first_failed_native_science_s": 3.9120370720011124,
+    "zero_G_reader_updates_before_failure": true,
+    "additional_D_state_reconstruction": 1,
+    "calibration_repeat": 0,
+    "recipe_changed": false
+  },
+  "recovery_launch": {
+    "local_launch_PID": 10740,
+    "entry": "train_recover.py",
+    "UTC": "2026-10-09T21:55:42.173135+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R39_REMOTE_20261009_214432_UTC/linux_supervise.py train_recover.py"
+    ],
+    "SSH_PID": 3664,
+    "remote_bound_actual_science": {
+      "entry": "train_recover.py",
+      "supervisor_PID": 71472,
+      "start_UTC": "2026-10-09T21:55:42.212324+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 896,
+      "actual_worker_PID": 71473,
+      "actual_worker_RSS_peak_bytes": 12918784,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 71473,
+      "actual_worker_parent_PID": 71472
+    }
+  },
+  "remaining_training_native_cap_s": 896,
+  "scientific_recipe_or_endpoint_change": false,
+  "unique_G_trajectory_planned_updates": 2950,
+  "known_extra_D_optimizer_calls": 1,
+  "saved_calibration_reused_no_recalibration": true,
+  "extra_initial_J20_validation": "Recovery repeats step0; include actual forward rows in final costs.",
+  "live_state_scope": "Last observed actual launch binding, not a fresh remote live-state probe.",
+  "root_scientific_recomputation": false
+}

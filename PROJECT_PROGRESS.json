@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T21:46:42.868407+00:00",
+  "updated_UTC": "2026-10-09T22:19:44.028551+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R38_SLICED_MONOTONE_TRANSPORT_001",
-  "current_stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
-  "current_task": "tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md",
+  "latest_completed_stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
+  "current_stage": "R40_GLOBAL_TIME_MIXER_TRANSLATION_001",
+  "current_task": "tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,29 +13,29 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R38_PSD_gain_but_noise_peak_source_boundary_failure",
+      "status": "R39_five_scientific_gates_failed",
       "latest_evidence": [
-        "R38_REPORT.md",
-        "reviews/ROOT_R38_KEY_RESULT_REVIEW_001.json",
-        "work/R38_SLICED_MONOTONE_TRANSPORT_001/GATE_METRICS.json"
+        "R39_REPORT.md",
+        "reviews/ROOT_R39_KEY_RESULT_REVIEW_001.json",
+        "work/R39_FULL_JOINT_KERNEL_TRANSLATION_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R38_PSD_gain_but_noise_peak_source_boundary_failure",
+      "status": "R39_five_scientific_gates_failed",
       "latest_evidence": [
-        "R38_REPORT.md",
-        "reviews/ROOT_R38_KEY_RESULT_REVIEW_001.json",
-        "work/R38_SLICED_MONOTONE_TRANSPORT_001/GATE_METRICS.json"
+        "R39_REPORT.md",
+        "reviews/ROOT_R39_KEY_RESULT_REVIEW_001.json",
+        "work/R39_FULL_JOINT_KERNEL_TRANSLATION_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R38_PSD_gain_but_noise_peak_source_boundary_failure",
+      "status": "R39_five_scientific_gates_failed",
       "latest_evidence": [
-        "R38_REPORT.md",
-        "reviews/ROOT_R38_KEY_RESULT_REVIEW_001.json",
-        "work/R38_SLICED_MONOTONE_TRANSPORT_001/GATE_METRICS.json"
+        "R39_REPORT.md",
+        "reviews/ROOT_R39_KEY_RESULT_REVIEW_001.json",
+        "work/R39_FULL_JOINT_KERNEL_TRANSLATION_001/GATE_METRICS.json"
       ]
     },
     {
@@ -48,33 +48,33 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R38_full2000_CPU_replay_passed_scientific_acceptance_pending",
+      "status": "R39_full6000_CPU_replay_passed_scientific_acceptance_pending",
       "latest_evidence": [
-        "work/R38_SLICED_MONOTONE_TRANSPORT_001/REPLAY_RECEIPT.json"
+        "work/R39_FULL_JOINT_KERNEL_TRANSLATION_001/REPLAY_RECEIPT.json"
       ]
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R38_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R39_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R38_REPORT.md",
-        "reviews/ROOT_R38_KEY_RESULT_REVIEW_001.json"
+        "R39_REPORT.md",
+        "reviews/ROOT_R39_KEY_RESULT_REVIEW_001.json"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R38 improves marginal PSD and complete-shape C2ST, but fails high peak center, density support, baseline noise, source-group valleys and five temporal boundaries. Close all variants of its fixed sliced recipe. Return to full source-driven neural training and test one joint Gaussian-kernel discrepancy in place of sliced fine quantile loss, with original content/rank/noise architecture and matched R32 initialization/update stream. One TRAIN-only initial output-gradient scale; original BASE and new G both receive the same REAL-reference control.",
+  "current_direction": "R39 joint-kernel neural training fails full shape, peak centers, source valley, one temporal boundary and REAL controls. Close that fixed kernel recipe. Test one zero-output-initialized shared 480-128-480 temporal MLP residual on the original final decoder hidden features, training all original and new G parameters with the original R32 fresh-fine objective. Same initial input-output function, original update and random streams, fixed2950 endpoint, source fidelity and REAL controls jointly required. This changes time connectivity and parameter count together, not an isolated proof of receptive-field limitation.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R39_registered_server_preparation",
+  "current_activity": "R40_registered_server_preparation",
   "latest_user_steering": "重写目标 推进",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "execution_location": "same_server_unique_neural_training_then_local_CPU4_generation_evaluation_replay",
   "current_task_addendum": null,
-  "latest_response_model_stage": "R38_SLICED_MONOTONE_TRANSPORT_001",
+  "latest_response_model_stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "current_engineering_addendum": null,
   "latest_diagnostic_stage": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
   "latest_diagnostic_conclusion": "close_domain_specific_moment_C2ST_causal_attribution_route",
-  "latest_response_conclusion": "close_this_fixed_sliced_monotone_recipe"
+  "latest_response_conclusion": "close_this_fixed_joint_Gaussian_MMD_recipe"
 }

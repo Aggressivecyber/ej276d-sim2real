@@ -1,0 +1,77 @@
+{
+  "stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
+  "recorded_UTC": "2026-10-09T21:59:21.147182+00:00",
+  "status": "training_terminal_native0_outputs_returned",
+  "actual_start_tool": "ae2dd6",
+  "actual_completion_tool": "b9135c",
+  "native": {
+    "entry": "train_recover.py",
+    "supervisor_PID": 71472,
+    "start_UTC": "2026-10-09T21:55:42.212324+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": 896,
+    "actual_worker_PID": 71473,
+    "actual_worker_RSS_peak_bytes": 2661511168,
+    "memory_probe_failures": 2,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-09T21:57:24.889980+00:00",
+        "PID": 71473,
+        "poll": null,
+        "context": "actual_PID_query"
+      },
+      {
+        "UTC": "2026-10-09T21:57:24.990255+00:00",
+        "PID": 71473,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "handshake_before_imports": true,
+    "launcher_PID": 71473,
+    "actual_worker_parent_PID": 71472,
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 102.87817016599729,
+    "stop_UTC": "2026-10-09T21:57:25.090494+00:00",
+    "worker_self_receipt": {
+      "PID": 71473,
+      "parent_PID": 71472,
+      "nonce": "915973b7db204fc4b71aeba624c41029",
+      "entry": "train_recover.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 102.32162452199918,
+      "self_peak_RSS_bytes": 2660651008,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-09T21:57:24.550841+00:00"
+    }
+  },
+  "counter_successful_attempt": {
+    "response_fit_attempts": 1,
+    "G_updates": 2950,
+    "D_updates": 2950,
+    "style_reader_updates": 2950,
+    "training_s": 100.17535191999923
+  },
+  "matched_update_stream": {
+    "updates": 2950,
+    "all_original_update_stream_fields": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "NCE_positions": true,
+      "noise_stream": true,
+      "style_stream": true
+    },
+    "same_initial_G_reader_D": true,
+    "extra_initial_grad_y_source_forward_rows": 2048,
+    "raw_actual_rows_unique_source": 3752,
+    "raw_actual_rows_unique_REAL": 18739
+  },
+  "known_actual_total_D_updates_including_failed_attempt": 2951,
+  "root_evidence": "Actual captured remote terminal, local native0, returned numeric receipt and stream receipt.",
+  "root_scientific_recomputation": false
+}

@@ -1075,7 +1075,7 @@
     },
     {
       "id": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_joint_kernel_recipe_closed_five_scientific_gates_failed",
       "task": "tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md",
       "registration": "reviews/R39_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T21:44:32.204052+00:00",
@@ -1085,6 +1085,25 @@
       "science_budget_s": 1800,
       "parent_stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
       "motivation_stage": "R38_SLICED_MONOTONE_TRANSPORT_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "task_addendum": "tasks/R39_REAL_CONTROL_SCOPE_ADDENDUM_001.md",
+      "control_scope_registration": "reviews/R39_CONTROL_SCOPE_REGISTRATION_001.json",
+      "receipt": "work/R39_FULL_JOINT_KERNEL_TRANSLATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md"
+    },
+    {
+      "id": "R40_GLOBAL_TIME_MIXER_TRANSLATION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md",
+      "registration": "reviews/R40_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T22:19:22.826524+00:00",
+      "scientific_question": "R39 joint-kernel neural training fails full shape, peak centers, source valley, one temporal boundary and REAL controls. Close that fixed kernel recipe. Test one zero-output-initialized shared 480-128-480 temporal MLP residual on the original final decoder hidden features, training all original and new G parameters with the original R32 fresh-fine objective. Same initial input-output function, original update and random streams, fixed2950 endpoint, source fidelity and REAL controls jointly required. This changes time connectivity and parameter count together, not an isolated proof of receptive-field limitation.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 20,
+      "science_budget_s": 1800,
+      "parent_stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
+      "motivation_stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }
