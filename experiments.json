@@ -824,11 +824,23 @@
     },
     {
       "id": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
-      "status": "registered_for_executor",
+      "status": "sealed_both_critics_discriminate_fixed_pool_standardization_improves_learning_GPU_RSS_unknown",
       "task": "tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md",
       "registration": "reviews/R22_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T10:22:41.881019+00:00",
       "reason": "R21 adds measurable source-conditioned signal variation and restores mid-Q pure-had centers, but complete waveform and noise discrimination remains high. Freeze its selected generator and compare the original critic with the same network using REAL-TRAIN coordinate standardization, under identical fixed TRAIN pools and sampling, with independent HGB controls, before changing the adversarial training recipe.",
+      "execution_location": "local",
+      "project_goal_status": "active",
+      "receipt": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md"
+    },
+    {
+      "id": "R23_ONLINE_STANDARDIZED_CRITIC_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md",
+      "registration": "reviews/R23_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T10:51:36.829269+00:00",
+      "reason": "Both critics separate the frozen R21 response from REAL; RAW already has validation AUC .997843. Coordinate centering and scaling learns faster and improves fixed-threshold BA and MSE. Test that input treatment in paired online G:D=1:1 continuation from the same R21 selected generator and reader, with fresh equal critics and shared streams, judging independent full-response and source-preservation results.",
       "execution_location": "local",
       "project_goal_status": "active"
     }

@@ -1,5 +1,5 @@
 # 当前研究状态
 
-项目active。R21已本机封存并完成2000条独立重放：随机信号变化与中区源条件中心改善，完整波形与条件峰宽仍失败。R22冻结转换器的判别器诊断已登记并由原执行器本机准备；实际状态见PROGRAM.json。所有后续训练按用户要求在本机执行，数据及临时文件仅E/D。
+项目active。R22已封存：原critic固定池AUC .997843，标准化学习更快；没有新响应模型或完整响应成功。R22 GPU实际worker RSS未知的监控缺口保留。R23在线RAW/标准化配对比较已登记，原执行器本机准备，先落实实际PID RSS守护；状态见PROGRAM.json。
 
-R21入口为R21_REPORT.md与R21_DELIVERY_INDEX.json；私有Git和D盘普通复制状态读取实际回执。
+R22入口为R22_REPORT.md与R22_DELIVERY_INDEX.json；私有Git和D盘普通复制状态读取实际回执。

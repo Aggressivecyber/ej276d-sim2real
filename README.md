@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R21本机随机信号转换恢复中区pure-had中心并增加同源随机变化，但完整波形与条件峰宽仍失败。R22冻结转换器，比较原判别器和TRAIN逐坐标标准化，查明固定输出差异能否被当前判别器学到。见[R21结论](R21_REPORT.md)、[R22任务](tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R22表明原判别器已能区分冻结R21输出；固定逐坐标中心化与缩放加快学习并改善分数。R23用配对在线训练检验它能否改善完整响应，先修复GPU实际worker内存监控。见[R22结论](R22_REPORT.md)、[R23任务](tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

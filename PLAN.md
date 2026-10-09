@@ -1,3 +1,7 @@
+# 修订048：配对检验判别器标准化能否改善在线完整响应
+
+R22固定生成池中RAW已强区分，固定逐坐标中心化与缩放进一步加快学习、改善分数。R23在同一R21所选G/reader起点和原初D上，以相同本机环境、采样/随机流和1:1更新比较RAW与STANDARDIZED，以固定J20选点，再检查完整响应与源保真，不以D变强替代生成质量。CUDA开始前修复实际worker PID的RSS监控，无法落实则CPU同预算回退。详见tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md。根完成R22私有Git/D交付，项目active。
+
 # 修订047：固定生成器，先诊断判别器学习剩余差异的能力
 
 R21已在本机完成：随机信号参与PSD扩散、中Q高带中心恢复，完整波形仍高度可分。R22不追加响应训练；固定R21所选转换器，在TRAIN固定池比较原critic与仅输入标准化的同架构critic，以HGB控制确认同池差异，并据结果判断下一对抗训练方向。继续本机顺序执行，复用现成CPU/GPU环境，不安装新包。详见tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md。根完成R21私有Git/D交付，项目active。

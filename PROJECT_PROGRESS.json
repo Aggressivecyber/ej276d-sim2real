@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T10:33:13.272634+00:00",
+  "updated_UTC": "2026-10-09T10:54:12.794094+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R21_GLOBAL_STOCHASTIC_SIGNAL_001",
-  "current_stage": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
-  "current_task": "tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md",
+  "latest_completed_stage": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
+  "current_stage": "R23_ONLINE_STANDARDIZED_CRITIC_001",
+  "current_task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -41,12 +41,13 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R21 adds measurable source-conditioned signal variation and restores mid-Q pure-had centers, but complete waveform and noise discrimination remains high. Freeze its selected generator and compare the original critic with the same network using REAL-TRAIN coordinate standardization, under identical fixed TRAIN pools and sampling, with independent HGB controls, before changing the adversarial training recipe.",
+  "current_direction": "Both critics separate the frozen R21 response from REAL; RAW already has validation AUC .997843. Coordinate centering and scaling learns faster and improves fixed-threshold BA and MSE. Test that input treatment in paired online G:D=1:1 continuation from the same R21 selected generator and reader, with fresh equal critics and shared streams, judging independent full-response and source-preservation results.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R22_registered_fixed_generator_critic_diagnostic",
+  "current_activity": "R23_registered_online_critic_input_comparison",
   "latest_user_steering": "后续你在本机训练 服务器关闭一会儿",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/R21_LOCAL_EXECUTION_001/RECEIPT.json",
   "execution_location": "local_E_D_storage",
-  "current_task_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md"
+  "current_task_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md",
+  "latest_response_model_stage": "R21_GLOBAL_STOCHASTIC_SIGNAL_001"
 }

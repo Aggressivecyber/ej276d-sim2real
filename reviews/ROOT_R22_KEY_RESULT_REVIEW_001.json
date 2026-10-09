@@ -1,0 +1,1210 @@
+{
+  "reviewed_UTC": "2026-10-09T10:54:12.794094+00:00",
+  "status": "key_result_review_complete_project_continues",
+  "scope": "Saved report, aggregate metrics, actual native/resource receipts and seven actually viewed rendered figures; no scientific reruns.",
+  "root_judgment": "The original critic already ranks the frozen generator versus REAL nearly perfectly. Coordinate centering plus scaling learns faster and improves MSE and fixed-threshold BA, including score calibration. ADC pre/post results do not remove the gap. This establishes learnable differences in the fixed pool, not a unique cause of online GAN failure. R23 tests the input treatment in paired online continuation and requires actual-science-PID RSS monitoring before GPU work.",
+  "training": {
+    "PID": 44800,
+    "UTC": "2026-10-09T10:39:03.385099+00:00",
+    "elapsed_s": 45.0,
+    "training_elapsed_s": 39.92099999997299,
+    "actual_D_updates": 8000,
+    "G_updates": 0,
+    "reader_updates": 0,
+    "python": "E:\\GAN\\runtime_envs\\local_cuda_retry_20261007073613_UTC\\venv\\Scripts\\python.exe",
+    "torch": "2.12.0+cu130",
+    "numpy": "1.26.4",
+    "device": "cuda:0",
+    "GPU_peak_allocated_bytes": 307647488,
+    "arms": {
+      "RAW": {
+        "updates": 4000,
+        "selected_step": 4000,
+        "selected_J": 0.06817340772232366,
+        "terminal_J": 0.06817340772232366,
+        "training_elapsed_s": 20.73399999999674,
+        "gradient_loss": 0.955841600894928,
+        "same_index_prefix": true,
+        "completed_shared_stream_prefix": 4000
+      },
+      "STANDARDIZED": {
+        "updates": 4000,
+        "selected_step": 3750,
+        "selected_J": 0.01768565144853127,
+        "terminal_J": 0.02013079449057492,
+        "training_elapsed_s": 19.18699999997625,
+        "gradient_loss": 1.0657925605773926,
+        "same_index_prefix": true,
+        "completed_shared_stream_prefix": 4000
+      }
+    },
+    "environment_cross_version": "frozen G inferenceCPU2.10; critic trainingTorch2.12GPU; not bitwise old-online comparison"
+  },
+  "pool_support_and_scaler": {
+    "PID": 60240,
+    "UTC": "2026-10-09T10:35:33.157674+00:00",
+    "elapsed_s": 13.996985899982974,
+    "python": "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "torch": "2.10.0+cpu",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "G_updated": 0,
+    "D_updated": 0,
+    "generated_n": 4048,
+    "source_train_loaded": 6593,
+    "source_train_common": 3753,
+    "source_val_fixed": 512,
+    "source_val_common": 295,
+    "REAL_fit_loaded": 21047,
+    "REAL_fit_common": 18895,
+    "REAL_internal_val_loaded": 599,
+    "REAL_internal_val_common": 536,
+    "support_counts": {
+      "G4_TRAIN": [
+        639,
+        622,
+        621,
+        581,
+        561,
+        399,
+        214,
+        116
+      ],
+      "G4_val": [
+        40,
+        41,
+        56,
+        68,
+        44,
+        27,
+        15,
+        4
+      ],
+      "REAL_TRAIN": [
+        1670,
+        2286,
+        2533,
+        2604,
+        2689,
+        2624,
+        2526,
+        1963
+      ],
+      "REAL_val": [
+        48,
+        75,
+        72,
+        73,
+        71,
+        70,
+        75,
+        52
+      ]
+    },
+    "scaler": {
+      "population_n": 21047,
+      "floor": [
+        0.0016610199481786646,
+        0.000913315242887856
+      ],
+      "clipped_coordinate_n": [
+        0,
+        0
+      ],
+      "STD_minmax": [
+        [
+          0.006240326468032711,
+          0.005522215099225919
+        ],
+        [
+          0.8084881541597155,
+          0.20421786112977575
+        ]
+      ],
+      "scale_minmax": [
+        [
+          0.006240326468032711,
+          0.005522215099225919
+        ],
+        [
+          0.8084881541597155,
+          0.20421786112977575
+        ]
+      ]
+    },
+    "ADC_train": {
+      "clip_count": 0,
+      "pre_ADC_finite": true,
+      "bits": 14,
+      "Vrange": [
+        -0.5,
+        0.5
+      ]
+    },
+    "ADC_val": {
+      "clip_count": 0,
+      "pre_ADC_finite": true,
+      "bits": 14,
+      "Vrange": [
+        -0.5,
+        0.5
+      ]
+    },
+    "new_generation_seeded_once": true,
+    "EVAL": 0,
+    "DEV": 0,
+    "CAL": 0,
+    "new_G4": 0,
+    "raw_long_decode": 0,
+    "all_parent_ids_saved": true,
+    "unpaired_domains": true,
+    "REAL_groups_are_same_acquisition_artificial50": true,
+    "sampling_algorithm": "pre-draw uniform bins then per-bin source TILT and REAL uniform, single preserved arrays reused by both arms"
+  },
+  "critic_selected_scores": {
+    "RAW": {
+      "pre": {
+        "train": {
+          "unweighted": {
+            "balanced_MSE": 0.07451080495062333,
+            "BA_threshold0.5": 0.9157969134968096,
+            "AUC_REAL1": 0.9965372184919451,
+            "GEN_weighted_score_mean": 0.035868404084967054,
+            "REAL_weighted_score_mean": 0.7302753412318037
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.07592390845981815,
+            "BA_threshold0.5": 0.9171577960904784,
+            "AUC_REAL1": 0.995938336386999,
+            "GEN_weighted_score_mean": 0.05416367754038129,
+            "REAL_weighted_score_mean": 0.7338814581360231
+          }
+        },
+        "val": {
+          "unweighted": {
+            "balanced_MSE": 0.0677571395293113,
+            "BA_threshold0.5": 0.9244402985074625,
+            "AUC_REAL1": 0.9978497343789526,
+            "GEN_weighted_score_mean": 0.02060100437177471,
+            "REAL_weighted_score_mean": 0.7476478455060008
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.06817340772232366,
+            "BA_threshold0.5": 0.9226598590930903,
+            "AUC_REAL1": 0.9978428958099006,
+            "GEN_weighted_score_mean": 0.04578317060754116,
+            "REAL_weighted_score_mean": 0.746767969397818
+          }
+        }
+      },
+      "post": {
+        "train": {
+          "unweighted": {
+            "balanced_MSE": 0.07451261752746695,
+            "BA_threshold0.5": 0.9157969134968096,
+            "AUC_REAL1": 0.9965400388518695,
+            "GEN_weighted_score_mean": 0.036003682833641505,
+            "REAL_weighted_score_mean": 0.7302753412318037
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.07592894438666964,
+            "BA_threshold0.5": 0.9171577960904784,
+            "AUC_REAL1": 0.9959427581982858,
+            "GEN_weighted_score_mean": 0.054247786111085716,
+            "REAL_weighted_score_mean": 0.7338814581360231
+          }
+        },
+        "val": {
+          "unweighted": {
+            "balanced_MSE": 0.06774951224809254,
+            "BA_threshold0.5": 0.9244402985074625,
+            "AUC_REAL1": 0.9978497343789526,
+            "GEN_weighted_score_mean": 0.020667896730335967,
+            "REAL_weighted_score_mean": 0.7476478455060008
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.06818528010947777,
+            "BA_threshold0.5": 0.9226598590930903,
+            "AUC_REAL1": 0.9978573548458208,
+            "GEN_weighted_score_mean": 0.04578727278525878,
+            "REAL_weighted_score_mean": 0.746767969397818
+          }
+        }
+      }
+    },
+    "STANDARDIZED": {
+      "pre": {
+        "train": {
+          "unweighted": {
+            "balanced_MSE": 0.01558273170646309,
+            "BA_threshold0.5": 0.9996295316221202,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.006843492691121486,
+            "REAL_weighted_score_mean": 0.9414484720628833
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.01602370629374643,
+            "BA_threshold0.5": 0.9995996630534301,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": 0.00020825387267373198,
+            "REAL_weighted_score_mean": 0.9410728942711059
+          }
+        },
+        "val": {
+          "unweighted": {
+            "balanced_MSE": 0.01652584985166701,
+            "BA_threshold0.5": 0.9981343283582087,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.01114968247632733,
+            "REAL_weighted_score_mean": 0.9428049735168911
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.01768565144853127,
+            "BA_threshold0.5": 0.9973958333333333,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.003205579512665998,
+            "REAL_weighted_score_mean": 0.9410034267361543
+          }
+        }
+      },
+      "post": {
+        "train": {
+          "unweighted": {
+            "balanced_MSE": 0.015584704407571611,
+            "BA_threshold0.5": 0.9996295316221202,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.006692563414613933,
+            "REAL_weighted_score_mean": 0.9414484720628833
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.016038540807997142,
+            "BA_threshold0.5": 0.9995996630534301,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": 0.0002820977423286359,
+            "REAL_weighted_score_mean": 0.9410728942711059
+          }
+        },
+        "val": {
+          "unweighted": {
+            "balanced_MSE": 0.01653039767621256,
+            "BA_threshold0.5": 0.9981343283582087,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.01083685353485141,
+            "REAL_weighted_score_mean": 0.9428049735168911
+          },
+          "equalbin_TILT_weighted": {
+            "balanced_MSE": 0.017660104676863853,
+            "BA_threshold0.5": 0.9973958333333333,
+            "AUC_REAL1": 1.0,
+            "GEN_weighted_score_mean": -0.0027873536812716075,
+            "REAL_weighted_score_mean": 0.9410034267361543
+          }
+        }
+      }
+    }
+  },
+  "HGB_scores": {
+    "pre": {
+      "train": {
+        "unweighted": {
+          "balanced_MSE": 0.00039458792787762484,
+          "BA_threshold0.5": 0.999814765811059,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.008312330907367285,
+          "REAL_weighted_score_mean": 0.9907339253569464
+        },
+        "equalbin_TILT_weighted": {
+          "balanced_MSE": 0.0003761910606147666,
+          "BA_threshold0.5": 0.9998298517588455,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.008741057739577219,
+          "REAL_weighted_score_mean": 0.9910605534645267
+        }
+      },
+      "val": {
+        "unweighted": {
+          "balanced_MSE": 0.001123200589491055,
+          "BA_threshold0.5": 0.9990671641791042,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.012584147742829272,
+          "REAL_weighted_score_mean": 0.9899066113991742
+        },
+        "equalbin_TILT_weighted": {
+          "balanced_MSE": 0.001354654979387494,
+          "BA_threshold0.5": 0.9991319444444443,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.01695361234866661,
+          "REAL_weighted_score_mean": 0.9902003780642893
+        }
+      }
+    },
+    "post": {
+      "train": {
+        "unweighted": {
+          "balanced_MSE": 0.0003647323007247981,
+          "BA_threshold0.5": 0.9999470759460154,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.008191906849100414,
+          "REAL_weighted_score_mean": 0.9908395530120501
+        },
+        "equalbin_TILT_weighted": {
+          "balanced_MSE": 0.0003500946735152232,
+          "BA_threshold0.5": 0.9999479169913743,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.0086748562828317,
+          "REAL_weighted_score_mean": 0.9911383021062705
+        }
+      },
+      "val": {
+        "unweighted": {
+          "balanced_MSE": 0.0009872493870574702,
+          "BA_threshold0.5": 0.9999999999999998,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.01262472428295701,
+          "REAL_weighted_score_mean": 0.9898002332718732
+        },
+        "equalbin_TILT_weighted": {
+          "balanced_MSE": 0.0012989449486151437,
+          "BA_threshold0.5": 0.9999999999999999,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.016501054865663174,
+          "REAL_weighted_score_mean": 0.9900794416024736
+        }
+      }
+    }
+  },
+  "per_bin_pre_ADC_validation": {
+    "RAW": [
+      {
+        "bin": 1,
+        "GEN_n": 40,
+        "REAL_n": 48,
+        "weighted": {
+          "balanced_MSE": 0.09273980671961804,
+          "BA_threshold0.5": 0.875,
+          "AUC_REAL1": 0.9947703795797608,
+          "GEN_weighted_score_mean": 0.11994259305645004,
+          "REAL_weighted_score_mean": 0.6825536737839382
+        }
+      },
+      {
+        "bin": 2,
+        "GEN_n": 41,
+        "REAL_n": 75,
+        "weighted": {
+          "balanced_MSE": 0.07151715494297904,
+          "BA_threshold0.5": 0.9333333333333332,
+          "AUC_REAL1": 0.996000635675816,
+          "GEN_weighted_score_mean": 0.10393363749629436,
+          "REAL_weighted_score_mean": 0.7846198904514313
+        }
+      },
+      {
+        "bin": 3,
+        "GEN_n": 56,
+        "REAL_n": 72,
+        "weighted": {
+          "balanced_MSE": 0.07782430346723562,
+          "BA_threshold0.5": 0.9374999999999997,
+          "AUC_REAL1": 0.9963596143976032,
+          "GEN_weighted_score_mean": 0.04502840949541712,
+          "REAL_weighted_score_mean": 0.7211097977641554
+        }
+      },
+      {
+        "bin": 4,
+        "GEN_n": 68,
+        "REAL_n": 73,
+        "weighted": {
+          "balanced_MSE": 0.06718493074231767,
+          "BA_threshold0.5": 0.8972602739726029,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.019751653506335533,
+          "REAL_weighted_score_mean": 0.7250598281213683
+        }
+      },
+      {
+        "bin": 5,
+        "GEN_n": 44,
+        "REAL_n": 71,
+        "weighted": {
+          "balanced_MSE": 0.07814965251235305,
+          "BA_threshold0.5": 0.9154929577464788,
+          "AUC_REAL1": 0.9915346040767372,
+          "GEN_weighted_score_mean": 0.06797097558204766,
+          "REAL_weighted_score_mean": 0.7138508969629317
+        }
+      },
+      {
+        "bin": 6,
+        "GEN_n": 27,
+        "REAL_n": 70,
+        "weighted": {
+          "balanced_MSE": 0.057102374679220115,
+          "BA_threshold0.5": 0.95,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.040705654837921226,
+          "REAL_weighted_score_mean": 0.7476002484560014
+        }
+      },
+      {
+        "bin": 7,
+        "GEN_n": 15,
+        "REAL_n": 75,
+        "weighted": {
+          "balanced_MSE": 0.057384671942972226,
+          "BA_threshold0.5": 0.94,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.02708616289252019,
+          "REAL_weighted_score_mean": 0.7869262293974559
+        }
+      },
+      {
+        "bin": 8,
+        "GEN_n": 4,
+        "REAL_n": 52,
+        "weighted": {
+          "balanced_MSE": 0.04348436677189349,
+          "BA_threshold0.5": 0.9326923076923077,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.003981396221616432,
+          "REAL_weighted_score_mean": 0.8124231902452614
+        }
+      }
+    ],
+    "STANDARDIZED": [
+      {
+        "bin": 1,
+        "GEN_n": 40,
+        "REAL_n": 48,
+        "weighted": {
+          "balanced_MSE": 0.02859017126825539,
+          "BA_threshold0.5": 0.9791666666666667,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.013970319149966357,
+          "REAL_weighted_score_mean": 0.8938567203780017
+        }
+      },
+      {
+        "bin": 2,
+        "GEN_n": 41,
+        "REAL_n": 75,
+        "weighted": {
+          "balanced_MSE": 0.023131585760987658,
+          "BA_threshold0.5": 0.9999999999999999,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.04189426522132955,
+          "REAL_weighted_score_mean": 0.9437640666961671
+        }
+      },
+      {
+        "bin": 3,
+        "GEN_n": 56,
+        "REAL_n": 72,
+        "weighted": {
+          "balanced_MSE": 0.018194037446440894,
+          "BA_threshold0.5": 0.9999999999999997,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.01264978102530806,
+          "REAL_weighted_score_mean": 0.9542304807239106
+        }
+      },
+      {
+        "bin": 4,
+        "GEN_n": 68,
+        "REAL_n": 73,
+        "weighted": {
+          "balanced_MSE": 0.01196777198643707,
+          "BA_threshold0.5": 1.0000000000000002,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.032729691679147986,
+          "REAL_weighted_score_mean": 0.9517092957888562
+        }
+      },
+      {
+        "bin": 5,
+        "GEN_n": 44,
+        "REAL_n": 71,
+        "weighted": {
+          "balanced_MSE": 0.01587985654652331,
+          "BA_threshold0.5": 1.0,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.0025466083333947594,
+          "REAL_weighted_score_mean": 0.9301741677270811
+        }
+      },
+      {
+        "bin": 6,
+        "GEN_n": 27,
+        "REAL_n": 70,
+        "weighted": {
+          "balanced_MSE": 0.014937507667172351,
+          "BA_threshold0.5": 1.0,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.04736345072297858,
+          "REAL_weighted_score_mean": 0.9467024479593551
+        }
+      },
+      {
+        "bin": 7,
+        "GEN_n": 15,
+        "REAL_n": 75,
+        "weighted": {
+          "balanced_MSE": 0.012465410715519955,
+          "BA_threshold0.5": 0.9999999999999999,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": 0.02401849729998528,
+          "REAL_weighted_score_mean": 0.9552363284428912
+        }
+      },
+      {
+        "bin": 8,
+        "GEN_n": 4,
+        "REAL_n": 52,
+        "weighted": {
+          "balanced_MSE": 0.016318870196913533,
+          "BA_threshold0.5": 1.0,
+          "AUC_REAL1": 1.0,
+          "GEN_weighted_score_mean": -0.04647611906569396,
+          "REAL_weighted_score_mean": 0.9523539061729723
+        }
+      }
+    ]
+  },
+  "score_definitions": {
+    "AUC_direction": "REAL=1 fixed; no sign inversion",
+    "BA_threshold": 0.5,
+    "MSE": "balanced domains",
+    "HGB_fit_weight_scale": "each domain relativeweights sums1; concatenate and multiply Ntotal/2 giving global mean sample_weight1 for fixedL2=1",
+    "primary": "pre_ADC",
+    "pool": "fixed TRAIN-fit plus original internal_validation; noDEV/EVAL"
+  },
+  "bootstrap": {
+    "attempted": 500,
+    "accepted_all8bins_supported": 489,
+    "missing_bin_draws": 11,
+    "method": "source-parent and REAL50record-group global multiplicities shared acrossbins, re-normalize weights to1/8/bin/domain; conditional on complete8bin support",
+    "intervals": {
+      "RAW_pre": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9113833488805486,
+            0.9961526889336442,
+            0.06281673052806021
+          ],
+          [
+            0.9344809922487047,
+            0.9993547548861847,
+            0.07256598328618362
+          ]
+        ]
+      },
+      "STANDARDIZED_pre": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9948087431693989,
+            0.9999999999999999,
+            0.015126762966783147
+          ],
+          [
+            1.0,
+            1.0,
+            0.020642572929501585
+          ]
+        ]
+      },
+      "RAW_post": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9113833488805486,
+            0.9961649303556998,
+            0.0628236380749767
+          ],
+          [
+            0.9344809922487047,
+            0.9993473322128581,
+            0.07257713141162435
+          ]
+        ]
+      },
+      "STANDARDIZED_post": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9948087431693989,
+            0.9999999999999999,
+            0.015136059120500703
+          ],
+          [
+            1.0,
+            1.0,
+            0.020575237428163556
+          ]
+        ]
+      },
+      "HGB_pre": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9972097234416156,
+            0.9999999999999999,
+            0.0005668284491985393
+          ],
+          [
+            1.0000000000000002,
+            1.0,
+            0.002175082359439025
+          ]
+        ]
+      },
+      "HGB_post": {
+        "levels": [
+          0.025,
+          0.975
+        ],
+        "columns": [
+          "BA",
+          "AUC",
+          "balanced_MSE"
+        ],
+        "CI95": [
+          [
+            0.9999999999999999,
+            0.9999999999999999,
+            0.0004744026925410298
+          ],
+          [
+            1.0000000000000002,
+            1.0,
+            0.0025662309178522977
+          ]
+        ]
+      }
+    },
+    "STANDARDIZED_minus_RAW_pre": {
+      "columns": [
+        "BA",
+        "AUC",
+        "balanced_MSE"
+      ],
+      "CI95": [
+        [
+          0.06357290738084162,
+          0.0006452451138152515,
+          -0.05511530990467163
+        ],
+        [
+          0.086464160026279,
+          0.0038473110663558075,
+          -0.04473357982671639
+        ]
+      ]
+    },
+    "REAL_group_count": 12,
+    "G4_parent_count": 295,
+    "highest_source_val_bin_N": 4,
+    "fixed_fitted_classifier_only": true,
+    "not_physical_independent_runs": true
+  },
+  "input_gradients": {
+    "unit": "V^-1",
+    "objective": "mean over64 fixed val sourceparent rows of (D(gen)-1)^2; hence perrow gradient includes1/64 factor",
+    "indices_private": "INPUT_GRADIENTS_PRIVATE.npz",
+    "finite": {
+      "RAW": true,
+      "STANDARDIZED": true
+    },
+    "arms": {
+      "RAW": {
+        "all": {
+          "mean_RMS": 0.10821269398229547,
+          "median_RMS": 0.10691030341581612,
+          "q05_q95": [
+            0.07305009910034799,
+            0.1539286834916973
+          ],
+          "n": 64
+        },
+        "baseline": {
+          "mean_RMS": 0.08706160424529502,
+          "median_RMS": 0.08271784815748252,
+          "q05_q95": [
+            0.053789265739230104,
+            0.13436973878868916
+          ],
+          "n": 64
+        },
+        "prompt": {
+          "mean_RMS": 0.1183754987000549,
+          "median_RMS": 0.11863526107599466,
+          "q05_q95": [
+            0.08914210927680707,
+            0.14624142255081887
+          ],
+          "n": 64
+        },
+        "postpeak": {
+          "mean_RMS": 0.12445232625963452,
+          "median_RMS": 0.11763885750274956,
+          "q05_q95": [
+            0.08514730606755308,
+            0.1809681290488501
+          ],
+          "n": 64
+        },
+        "tail": {
+          "mean_RMS": 0.11335482836930807,
+          "median_RMS": 0.10821261457568804,
+          "q05_q95": [
+            0.07179876695600129,
+            0.16546778400175755
+          ],
+          "n": 64
+        },
+        "end": {
+          "mean_RMS": 0.09312681183425242,
+          "median_RMS": 0.09066717777840269,
+          "q05_q95": [
+            0.051816978138690364,
+            0.13890503562456394
+          ],
+          "n": 64
+        }
+      },
+      "STANDARDIZED": {
+        "all": {
+          "mean_RMS": 0.3235083413961093,
+          "median_RMS": 0.3135194625280141,
+          "q05_q95": [
+            0.24144641328581423,
+            0.46887278410455746
+          ],
+          "n": 64
+        },
+        "baseline": {
+          "mean_RMS": 0.630005915193599,
+          "median_RMS": 0.6181207388152298,
+          "q05_q95": [
+            0.48095589205252226,
+            0.8673630514294677
+          ],
+          "n": 64
+        },
+        "prompt": {
+          "mean_RMS": 0.2837335753418214,
+          "median_RMS": 0.2726964952399499,
+          "q05_q95": [
+            0.14431146204956877,
+            0.49680183580689574
+          ],
+          "n": 64
+        },
+        "postpeak": {
+          "mean_RMS": 0.05319392970817163,
+          "median_RMS": 0.04913729037469643,
+          "q05_q95": [
+            0.02323070179087475,
+            0.0945278632320148
+          ],
+          "n": 64
+        },
+        "tail": {
+          "mean_RMS": 0.1444963186150499,
+          "median_RMS": 0.13080902355833612,
+          "q05_q95": [
+            0.06360084236910829,
+            0.2572855585021394
+          ],
+          "n": 64
+        },
+        "end": {
+          "mean_RMS": 0.14289513079962768,
+          "median_RMS": 0.1367772104129412,
+          "q05_q95": [
+            0.0700914529186259,
+            0.24566129671191358
+          ],
+          "n": 64
+        }
+      }
+    }
+  },
+  "resources": {
+    "stage": "R22",
+    "UTC": "2026-10-09T10:48:30.896650+00:00",
+    "science_known_native_wall_s": 95.24892669997644,
+    "environment_check_elapsed_s": null,
+    "environment_check_time_unknown_budget_reservation_s": 60,
+    "science_budget_debit_with_check_reservation_s": 155.24892669997644,
+    "science_limit_s": 1200,
+    "D_training_s": 39.92099999997299,
+    "D_training_limit_s": 600,
+    "D_updates": 8000,
+    "D_updates_per_arm": 4000,
+    "G_updates": 0,
+    "reader_updates": 0,
+    "generation_n": 4048,
+    "generation_limit": 4096,
+    "HGB_fits": 2,
+    "HGB_limit": 2,
+    "new_EM_fits": 0,
+    "CPU_threads": 4,
+    "CPU_peak_RSS_bytes": 735461376,
+    "GPU_actual_worker_RSS_bytes": null,
+    "GPU_launcher_RSS_bytes": 4214784,
+    "RSS_budget_verification_status": "CPUverified; actualGPUworker unknown because venv launcher monitoring; no claim overallRSSpass",
+    "GPU_actual_worker_PID": 44800,
+    "GPU_launcher_PID": 57308,
+    "GPU_allocated_peak_bytes": 307647488,
+    "RSS_GPU_limits_bytes": 4294967296,
+    "numeric_failures": [
+      {
+        "entry": "train_critics.py",
+        "native_exit": 1,
+        "elapsed_s": 4.936925899994094,
+        "launcher_PID": 61204,
+        "actual_science_PID": null,
+        "D_updates": 0,
+        "G_updates": 0,
+        "error": "NumPy uint32 seed API rejects fullseed; full SeedSequence mapping repair"
+      }
+    ],
+    "control_failure": {
+      "tool": "f68dc6",
+      "native_exit": 1,
+      "PID": null,
+      "error": "AST SyntaxError else0 before scientific execution",
+      "scientific_fit": 0
+    },
+    "all_native_history": [
+      {
+        "entry": "prepare_pool.py",
+        "supervisor_PID": 39604,
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "start_UTC": "2026-10-09T10:35:19.043400+00:00",
+        "wall_limit_s": 1140,
+        "RSS_peak_bytes": 735461376,
+        "memory_probe_failures": 0,
+        "worker_PID": 60240,
+        "exit_code": 0,
+        "termination_reason": null,
+        "elapsed_s": 14.570946699997876,
+        "stop_UTC": "2026-10-09T10:35:33.614394+00:00"
+      },
+      {
+        "entry": "train_critics.py",
+        "supervisor_PID": 42224,
+        "python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+        "start_UTC": "2026-10-09T10:37:31.244082+00:00",
+        "wall_limit_s": 1125.4290533000021,
+        "RSS_peak_bytes": 4210688,
+        "memory_probe_failures": 0,
+        "worker_PID": 61204,
+        "exit_code": 1,
+        "termination_reason": null,
+        "elapsed_s": 4.936925899994094,
+        "stop_UTC": "2026-10-09T10:37:36.181039+00:00"
+      },
+      {
+        "entry": "train_attempt2.py",
+        "supervisor_PID": 60468,
+        "python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+        "start_UTC": "2026-10-09T10:38:18.250584+00:00",
+        "wall_limit_s": 1120.492127400008,
+        "RSS_peak_bytes": 4214784,
+        "memory_probe_failures": 0,
+        "worker_PID": 57308,
+        "exit_code": 0,
+        "termination_reason": null,
+        "elapsed_s": 45.80254999996396,
+        "stop_UTC": "2026-10-09T10:39:04.053262+00:00"
+      },
+      {
+        "entry": "assess.py",
+        "supervisor_PID": 38216,
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "start_UTC": "2026-10-09T10:42:58.963841+00:00",
+        "wall_limit_s": 1074.689577400044,
+        "RSS_peak_bytes": 456089600,
+        "memory_probe_failures": 0,
+        "worker_PID": 42144,
+        "exit_code": 0,
+        "termination_reason": null,
+        "elapsed_s": 29.93850410002051,
+        "stop_UTC": "2026-10-09T10:43:28.902431+00:00"
+      }
+    ],
+    "GPU_environment": {
+      "PID": 54968,
+      "UTC": "2026-10-09T10:31:03.221495+00:00",
+      "python": "E:\\GAN\\runtime_envs\\local_cuda_retry_20261007073613_UTC\\venv\\Scripts\\python.exe",
+      "torch": "2.12.0+cu130",
+      "numpy": "1.26.4",
+      "CUDA_available": true,
+      "cuda_version": "13.0",
+      "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "free_total_bytes": [
+        7440695296,
+        8585216000
+      ],
+      "allocated_bytes": 0
+    },
+    "CPU_environment": {
+      "python": "C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "torch": "2.10.0+cpu",
+      "numpy": "2.2.6",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "EVAL_numeric": 0,
+    "DEV_numeric": 0,
+    "CAL_numeric": 0,
+    "new_raw_long_decode": 0,
+    "SSH": 0,
+    "installation": 0,
+    "new_G4": 0,
+    "new_agents": 0,
+    "Git": 0,
+    "old_REAL_read": "seek rows2000:5200, no read of DEV/CAL waveform range",
+    "REAL_fit_scaler_population": 21047,
+    "support_excluded_sourcefit": 2840,
+    "support_excluded_REALfit": 2152,
+    "support_excluded_sourceval_fixed": 217,
+    "support_excluded_REALval": 63,
+    "bootstrap_attempted": 500,
+    "bootstrap_complete8bin": 489,
+    "bootstrap_missingbin": 11,
+    "REAL_artificial_val_groups": 12,
+    "output_cap_bytes": 201326592,
+    "current_stage_file_bytes_before_final_controls": 60005899,
+    "time_output_counts_within_limits": true,
+    "resource_monitoring_defect_retained": true,
+    "single_science_process_sequential": true,
+    "no_rerun_to_fill_missing_RSS": true,
+    "stage_output_bytes_before_manifest_and_receipt": 60024360,
+    "seal_PID": 42892,
+    "sealed_science_terminated": true
+  },
+  "root_actually_viewed_figures": [
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/training_trace.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/classifier_comparison.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/validation_scores.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/per_bin_classification.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/scaler_and_gradients.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/fixed_pool_support.png",
+    "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/figures/ADC_sensitivity.png"
+  ],
+  "visual_judgment": "All seven figures readable. RAW leaves an initial MSE plateau near .25 and later separates the fixed pool, with a rebound at step3250. STANDARDIZED descends sooner and remains lower. RAW score histograms and near-unit AUC show substantial ranking information despite lower threshold BA. Per-bin discrimination is high in both; the title explicitly identifies only four source parents in bin8. ADC pre/post traces nearly overlap. Standardized input gradients concentrate more on baseline, which is not causal feature importance.",
+  "seal_native": {
+    "tool": "fa6e3e",
+    "PID": 42892,
+    "exit_code": 0,
+    "executor_confirmed_stopped_writes": true
+  },
+  "version_bindings": [
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/REPORT.md",
+      "bytes": 5412,
+      "sha256": "09ed4887398c338079aa672868edc3906c41acd0b0fb0eb69bab96007107e7b3"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/REPRODUCTION.md",
+      "bytes": 1711,
+      "sha256": "11aee920bb7459b7c5ca56293d7ad4b786b2673fadcfb5d34292771b718cb1ea"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/METRICS_COMPACT.json",
+      "bytes": 420481,
+      "sha256": "02961257bf8d40ad49b9fb1efce7e84551a041d59ca5ffd56243432881b97e0e"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/FINAL_MANIFEST.json",
+      "bytes": 13028,
+      "sha256": "3cedcb62038813dccc685d06fe95d5059fd37c79d480ff2b1663da5bb10ddb8b"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "bytes": 698,
+      "sha256": "b89f70ffc7765ba2afd866b6cf1701acb8310b379f545609613ec42ee68fd358"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/config.json",
+      "bytes": 2970,
+      "sha256": "36e95eb40d23e267c4068b87ba810b877ec8ec8d96cbac0d74d89f923aa57f14"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/PROTOCOL.md",
+      "bytes": 3243,
+      "sha256": "5e53565aa786e488bcddcd60e1166a4b54b02c93f496b25b5c2028432adb7c32"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/POOL_RECEIPT.json",
+      "bytes": 2320,
+      "sha256": "0f7475826b717b6f0ee28a92999c220611d679dfbba0c030a003fec1b9021638"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/TRAINING_RECEIPT.json",
+      "bytes": 1238,
+      "sha256": "6e5fc8f984cef0147bff0aa507555ee66a64d5e66a6c02527985802ccaa903eb"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/TRAINING_TRACE.json",
+      "bytes": 20987,
+      "sha256": "8f2f6c27964ccb5a587f5498748360624d5654b36f17c4aac1a3656a004cb1f2"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/ASSESSMENT_RECEIPT.json",
+      "bytes": 480,
+      "sha256": "b62aa40b5d0bf283cb21075ed7a759728658bbad0f471db0d8b04bb546064ec4"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+      "bytes": 5319,
+      "sha256": "27e57350a74b350870eb71720c0d64e6c1213a49ccb62f5e051bc6ef5810db42"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/RUN_HISTORY.json",
+      "bytes": 1967,
+      "sha256": "b6085b5dd370b34c1f225c636be00ae30758bab1fa962025c71a401fa5ab5fd5"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/FIGURE_QA.json",
+      "bytes": 1325,
+      "sha256": "071c6822a2da7c00295592ab9e60224c8236d461bf925af7dc2438446dc9bdef"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/GPU_RSS_CORRECTION.json",
+      "bytes": 394,
+      "sha256": "5389aa7d19a5a1831e746ecc5e6da20edb0533ac60fef31e5ed026baf1077fca"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/GPU_ENVIRONMENT.json",
+      "bytes": 414,
+      "sha256": "c91f09a113434ccb095b9af39f417200ff94f82a71da8b5c1d09891c5262d1eb"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/SOURCE_BINDINGS.json",
+      "bytes": 572,
+      "sha256": "8cd4f1484e01301aa9f605f79b3f699757b82832f4f3505cb98e2af2a1a30649"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/EXECUTED_SOURCE_BINDINGS.json",
+      "bytes": 1572,
+      "sha256": "00eeace6ef53ad70fd8f8fdec23e5680b29c6d2ebb51c2e56c2b9774f6a7dcc6"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/TOOL_RECEIPTS.json",
+      "bytes": 1067,
+      "sha256": "0720bebf0e6cd507097ea1069a122f2a3420a6d1bdf3eea8e8a2e2ec56fa018d"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/prepare_pool.py.NATIVE_RECEIPT.json",
+      "bytes": 447,
+      "sha256": "92ab2e4f244ed349b06da4d25aa0e118219a665752f313317dd747572ed97298"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/train_critics.py.NATIVE_RECEIPT.json",
+      "bytes": 473,
+      "sha256": "1683e618671e9b7fa39b8ab3a9df7728adf9037f0f3eb46f692ebb3fe4c63682"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/train_attempt2.py.NATIVE_RECEIPT.json",
+      "bytes": 473,
+      "sha256": "cee4459c3fc93a651131d5cb54450ae03cc15d19f16d9809eb1ec4ed85380a04"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/assess.py.NATIVE_RECEIPT.json",
+      "bytes": 453,
+      "sha256": "089e1e1a60f2e82d968d39168d7e2eb6c2c6a966c3bfd3835d5c9fac3ca9eeca"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/failed_001/REPAIR.json",
+      "bytes": 251,
+      "sha256": "61d248f782da344b56542ae9fb75afb6e5fa680ce44651641f3a4cdab5dc57bc"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/PRE_RUN_AST_FAILURE.json",
+      "bytes": 223,
+      "sha256": "bc5b7bdf4c383ca5e1cf7085c0b4d44cef07e2775f8062a197e56d1a3f0f6da9"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/train_critics.py",
+      "bytes": 6567,
+      "sha256": "7373f127dc4ea46d7fc8f127564c2388013c2a797009092c7b9d3edb16c84e8d"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/assess.py",
+      "bytes": 12255,
+      "sha256": "9fdd4d6af71ba81b262a4c7f833546d9dae5e0338317d1df92710fade7ac5a96"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/support.py",
+      "bytes": 1467,
+      "sha256": "eaa238fd9836b12ad56b9389f4943ed0145c09fd9bd7da972ec4e2d12b928a11"
+    },
+    {
+      "path": "work/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001/supervise.py",
+      "bytes": 3585,
+      "sha256": "a01eeb1411ad84e6e3c162da7bedb9cbeed075e59c792e6b003c911ccda82079"
+    }
+  ],
+  "bindings_are_migration_tests": false,
+  "complete_response_similarity_success": false,
+  "physical_event_mapping_validated": false,
+  "overall_RSS_budget_verified": false,
+  "response_model_updates_in_R22": 0,
+  "next_task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md",
+  "project_goal_status": "active",
+  "boundaries": [
+    "One fixed generated realization per source parent differs from online fresh-noise adversarial training.",
+    "BA gains combine optimization and score calibration; RAW AUC was already .997843.",
+    "Centering and coordinate scaling form one intervention; the comparison does not isolate variance scaling.",
+    "Bootstrap intervals condition on fitted classifiers and complete eight-bin support:489 retained,11 missing-bin draws; only12 artificial REAL groups.",
+    "Input derivatives include baseline/peak-normalization coupling and the1/64 mean-objective factor; they are not physical causal importance.",
+    "GPU training actualPID44800 differed from launcher57308; actual GPU-worker RSS and its4GiB guard coverage are unknown. CPU RSS and Torch allocated measurements remain valid.",
+    "GPU import/check exact duration is unknown and charged using60s budget reservation, not reported as measured time.",
+    "No newDEV/EVAL/CAL waveform data, G4, SSH, installation or response-generator update; original single-acquisition exposure boundaries remain."
+  ]
+}
