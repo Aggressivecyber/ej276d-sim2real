@@ -1094,7 +1094,7 @@
     },
     {
       "id": "R40_GLOBAL_TIME_MIXER_TRANSLATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_time_MLP_recipe_closed_four_scientific_gates_failed",
       "task": "tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md",
       "registration": "reviews/R40_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T22:19:22.826524+00:00",
@@ -1104,6 +1104,26 @@
       "science_budget_s": 1800,
       "parent_stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
       "motivation_stage": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R40_GLOBAL_TIME_MIXER_TRANSLATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R41_PATCH_CONTENT_ABLATION_001.md"
+    },
+    {
+      "id": "R41_PATCH_CONTENT_ABLATION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R41_PATCH_CONTENT_ABLATION_001.md",
+      "registration": "reviews/R41_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T22:46:36.130049+00:00",
+      "scientific_question": "R40 time mixing changes all four added parameters and the output, but fails complete response, PSD/width/noise, three temporal boundaries and REAL baseline control. Close its fixed architecture. Return to the original R32 convolutional generator and remove only the patchwise content_NCE term. R25 showed substantial NCE encoder gradient share without proving causation; this direct ablation tests that constraint under unchanged source-fidelity gates. Keep all other losses, original initialization and94400 row/random streams, fresh directions and fixed2950 endpoint. No NCE coefficient sweep or R40 rescue.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 20,
+      "science_budget_s": 1800,
+      "parent_stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
+      "motivation_stages": [
+        "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
+        "R40_GLOBAL_TIME_MIXER_TRANSLATION_001"
+      ],
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }

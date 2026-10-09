@@ -1,3 +1,7 @@
+# 修订067：原完整源生成器的局部内容约束消融
+
+R40固定时间MLP配方关闭。R41恢复原R32生成器，仅移除PatchNCE目标；保留全部其他分布/风格/电荷/PSD/identity约束、原初始化、94400行与随机流、8850fresh方向及2950固定末点。源保真与完整响应六门不降，不扫描中间系数。复用R39 BASE_REAL，新20HGB/16密度槽/4000独立重放；科学1800秒、训练900秒、CPU4/RSS与GPU4GiB。完整项目active。详见tasks/R41_PATCH_CONTENT_ABLATION_001.md。
+
 # 修订066：完整源生成器的全段时间混合层
 
 R39固定联合核配方关闭。R40在原G最终隐藏表示中加入一个零输出初始化的480→128→480共享时间MLP，原初始化函数、原R32 fresh-fine目标和94400更新流保留，全G共同训练2950固定末点；只检验这一结构。复用R39旧BASE_REAL控制，新源与新REAL共20HGB和4000独立重放。科学1800秒、训练900秒、CPU4/RSS与GPU4GiB，完整响应共同门槛不降，项目active。详见tasks/R40_GLOBAL_TIME_MIXER_TRANSLATION_001.md。

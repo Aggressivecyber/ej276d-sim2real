@@ -1,0 +1,175 @@
+{
+  "updates": 2950,
+  "D_updates": 2950,
+  "style_reader_updates": 2950,
+  "training_s": 115.99822811000195,
+  "selected_step": 1250,
+  "validation_generation_rows": 6656,
+  "actually_sampled_unique_source": 3752,
+  "actually_sampled_unique_REAL": 18739,
+  "actually_consumed_rows": 94400,
+  "fresh_projection_calls": 2950,
+  "initial_equivalence": {
+    "extra_model_forward_rows": 256,
+    "selected_before_any_update": true,
+    "first_actual_SOURCE_REAL_64_rows": true,
+    "source_target_ordinals_sha256": {
+      "source": "71e6badafdc3b64241b2632c0033460b87d6f0954567bc555d345e6fd8a122e7",
+      "target": "6eb2de36bb691b75fc14ed731041d28d643edb988681283815b95c85cde0a009",
+      "original_row_ordinal": "5aa204a27f6eba0ee8e62cffe3b3bd5a35889b282d17d3fda8e827a2f9038d08"
+    },
+    "original_torch_CPU_and_CUDA_RNG_preserved": true,
+    "new_parameter_names": [
+      "time_mixer.0.bias",
+      "time_mixer.0.weight",
+      "time_mixer.2.bias",
+      "time_mixer.2.weight"
+    ],
+    "new_parameters": 123488,
+    "rows": {
+      "SOURCE": {
+        "rows": 64,
+        "all_components_bitwise_equal": {
+          "preADC": true,
+          "signal": true,
+          "electronic": true
+        },
+        "mixer_delta_exact_zero": true,
+        "old_and_new_component_SHA256": {
+          "preADC": "313c484bc5c59d314aec99fa5698047361ed31dcf0e81400cd151ceea41b5b39",
+          "signal": "4592f263be6cfc104cf4c6ee18615c2e32d8a8034ce4825815637111fb353a6d",
+          "electronic": "ec66ee6c7144396b6e51ae5bbf213c6b09826cea7092419b3be918dd09d687c8"
+        }
+      },
+      "REAL": {
+        "rows": 64,
+        "all_components_bitwise_equal": {
+          "preADC": true,
+          "signal": true,
+          "electronic": true
+        },
+        "mixer_delta_exact_zero": true,
+        "old_and_new_component_SHA256": {
+          "preADC": "a220fd0db7afde12dcc5fce41f3ca782c3675aaf5ca9dff4abfbbe47934e742c",
+          "signal": "5a62f024f5dfeef3183f6b3e96a2986350bbce8513db501ba6cd3a58dca18ea3",
+          "electronic": "12c6a7f6e55c843c774f970e316e837f7bc6dcd88f85dc424d2221045b2154a8"
+        }
+      }
+    },
+    "initial_W2_exact_zero": true,
+    "old_parameters_exact_equal": true,
+    "initial_J20": 0.6166301965713501
+  },
+  "time_mixer_final": {
+    "0.weight": {
+      "norm": 7.281469821929932,
+      "finite": true,
+      "last_preclip_gradient_norm": 2.22015643119812
+    },
+    "0.bias": {
+      "norm": 0.34230881929397583,
+      "finite": true,
+      "last_preclip_gradient_norm": 0.22765128314495087
+    },
+    "2.weight": {
+      "norm": 3.634787082672119,
+      "finite": true,
+      "last_preclip_gradient_norm": 1.793702483177185
+    },
+    "2.bias": {
+      "norm": 0.21147418022155762,
+      "finite": true,
+      "last_preclip_gradient_norm": 1.3636893033981323
+    }
+  },
+  "step0_J20": 0.6166301965713501,
+  "selected_J20": 0.5569948554039001,
+  "final_J20": 0.6295024156570435,
+  "original_flow_match": {
+    "updates": 2950,
+    "all_original_update_stream_fields": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "NCE_positions": true,
+      "noise_stream": true,
+      "style_stream": true
+    },
+    "same_initial_original_G_reader_D": true,
+    "new_parameters": 123488,
+    "initial_extra_model_forward_rows": 256,
+    "raw_actual_rows_unique_source": 3752,
+    "raw_actual_rows_unique_REAL": 18739,
+    "fresh_direction_groups": 8850,
+    "fresh_directions_all_8850_match_saved_BASE": true,
+    "initial_J20_absolute_difference": 0.0,
+    "initial_J20_tolerance": 1e-06
+  },
+  "first_update_mixer_gradients": {
+    "parameter_order": [
+      "0.weight",
+      "0.bias",
+      "2.weight",
+      "2.bias"
+    ],
+    "preclip_norms": [
+      0.0,
+      0.0,
+      2.111989974975586,
+      0.8829789757728577
+    ]
+  },
+  "module_parameter_change": {
+    "parameters": {
+      "0.weight": {
+        "initial_L2_norm": 6.54951321802476,
+        "final_L2_norm": 7.281470130492365,
+        "delta_L2_norm": 2.999538541645812,
+        "max_abs_delta": 0.08809841051697731,
+        "updated": true,
+        "finite": true,
+        "initial_tensor_sha256": "f18e054ea66c777fd0a6ea11d14332e38ae0c571fc7a35606952e671fd48fc78",
+        "final_tensor_sha256": "b74026b82f4baaa08817a0d3e88237b9452355db435e979916b2aa11c30a8959"
+      },
+      "0.bias": {
+        "initial_L2_norm": 0.3081221914953576,
+        "final_L2_norm": 0.3423088243770931,
+        "delta_L2_norm": 0.21321625880756437,
+        "max_abs_delta": 0.04922231286764145,
+        "updated": true,
+        "finite": true,
+        "initial_tensor_sha256": "5e7ed7a4dac7be264d516dd21c7f84a81d2ca103e389a02f02026629198148a1",
+        "final_tensor_sha256": "10efeb5ccf421789ffae6a7d2f1127b6a7386af841e7ee6f9d49184483443816"
+      },
+      "2.weight": {
+        "initial_L2_norm": 0.0,
+        "final_L2_norm": 3.634787111045481,
+        "delta_L2_norm": 3.634787111045481,
+        "max_abs_delta": 0.15802991390228271,
+        "updated": true,
+        "finite": true,
+        "initial_tensor_sha256": "9eb8fa54d87a9b9775dd55c07b3d164453884695bd1ed83fe2f63259ee9e6afc",
+        "final_tensor_sha256": "16cc4fe41889c5b03a5952a32045036b0b6954fea8ae4ff049e67d13506e1158"
+      },
+      "2.bias": {
+        "initial_L2_norm": 0.0,
+        "final_L2_norm": 0.2114741827299274,
+        "delta_L2_norm": 0.2114741827299274,
+        "max_abs_delta": 0.03931141644716263,
+        "updated": true,
+        "finite": true,
+        "initial_tensor_sha256": "155e437b946ac82ae591ff382b8d19efda9397b2282672dbabd91ec31ce8a651",
+        "final_tensor_sha256": "6d57187538f223ac0c327ea7ca782740bd75edbf3cff9a518a32802cff82c857"
+      }
+    },
+    "new_parameter_count": 123488,
+    "no_extra_fit_or_inference": true,
+    "comparison": "final versus saved initial module, not final norm alone"
+  },
+  "internal_selection_does_not_change_final_endpoint": true,
+  "extra_initial_forward_rows": 256,
+  "initial_J20_check_execution_order": "comparison assertion made at completion; actual initial difference0 and no initial function mismatch",
+  "original_weight_initialization_preserved": true,
+  "mean_or_MMD_extra_loss": false
+}

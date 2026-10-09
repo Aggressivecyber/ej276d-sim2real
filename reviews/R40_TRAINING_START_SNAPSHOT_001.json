@@ -1,0 +1,130 @@
+{
+  "stage": "R40_GLOBAL_TIME_MIXER_TRANSLATION_001",
+  "recorded_UTC": "2026-10-09T22:27:01.536825+00:00",
+  "actual_start_tool": "e3e1b0",
+  "actual_start_session": 14432,
+  "local_launch": {
+    "local_launch_PID": 45344,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T22:25:55.944282+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R40_REMOTE_20261009_221922_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 28588,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 77573,
+      "start_UTC": "2026-10-09T22:25:55.972964+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 77574,
+      "actual_worker_RSS_peak_bytes": 12877824,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 77574,
+      "actual_worker_parent_PID": 77573
+    }
+  },
+  "server_preflight": {
+    "PID": 77020,
+    "UTC": "2026-10-09T22:23:56.820305+00:00",
+    "python_path": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070",
+    "own_project_jobs": [],
+    "CPU_N": 16,
+    "MemAvailable": "60961948 kB",
+    "disk_free_bytes": 26609311744,
+    "gpu_query_exit": 0,
+    "gpu_resource": "NVIDIA GeForce RTX 5070, 12227 MiB, 242 MiB, 1 %",
+    "new_remote_leaf_exists": false,
+    "check_elapsed_s": 0.7896278249972966,
+    "new_response_operations": 0,
+    "R33_environment_exact_fields_match": {
+      "python": true,
+      "numpy": true,
+      "torch": true,
+      "scipy": true,
+      "device": true,
+      "GPU": true
+    }
+  },
+  "training_source_freeze": {
+    "UTC": "2026-10-09T22:25:53.712936+00:00",
+    "source_bindings": {
+      "train_server.py": {
+        "bytes": 4162,
+        "sha256": "b41c4a588d0b5dbe74c38e3889c812f4925148baafdef80a0b2f4e8ded1c1eef"
+      },
+      "online_training.py": {
+        "bytes": 16726,
+        "sha256": "129f64886dbd0997e0bc57e82b7fd26e5e0268eb3f539695243d5bab6b959aea"
+      },
+      "initialization_check.py": {
+        "bytes": 2982,
+        "sha256": "ce8cb0bab80fca08c5f60e1b2325966526cc48f55100bf353b397f8fd14fad74"
+      },
+      "fine_core.py": {
+        "bytes": 6545,
+        "sha256": "ab983b3160c8653f180710ee9644b61bc54e4f62a67f6c606606faf25a014aaf"
+      },
+      "prior.py": {
+        "bytes": 2911,
+        "sha256": "5c752c99fc4eddbf24fc92da18858bb3a7fbc682be9bd5ee45b52bdce252a38b"
+      },
+      "model.py": {
+        "bytes": 2933,
+        "sha256": "4c22d2cca614431eff579da4e7fc27fe768ec2b71462f10b0122741f2f6114fa"
+      },
+      "legacy_model.py": {
+        "bytes": 5808,
+        "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04"
+      },
+      "reorder_core.py": {
+        "bytes": 2643,
+        "sha256": "c47ecc05ad9df12147a5a5a71c23763ef4a8c6ee813cb6d50c622a9042bee232"
+      },
+      "linux_supervise.py": {
+        "bytes": 5694,
+        "sha256": "9b3ab13a3d228952198e4b9066fc306bcd192083f22d4b22ebf61cc9112da686"
+      },
+      "linux_owned_worker.py": {
+        "bytes": 1535,
+        "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a"
+      },
+      "remote_config.json": {
+        "bytes": 15525,
+        "sha256": "be32c2aadfe7612ddbd2f116314372e914e37381729253e16ea0c93c74d4f521"
+      },
+      "PROTOCOL.md": {
+        "bytes": 3155,
+        "sha256": "cfbc457362d7b30906ee64215b4a94b8fd85a70bf5b17d7a2eca3283e0469217"
+      }
+    },
+    "existing_inputs_not_rehashed_for_migration": true,
+    "fixed_recipe": true
+  },
+  "root_source_read_tools": [
+    "907fe0",
+    "f77b16",
+    "50c864",
+    "d0cad3"
+  ],
+  "static_key_review": "Shared time residual is after final style FiLM before both heads; exact four added state keys, scoped CPU/CUDA RNG, original full R32 losses and 64 SOURCE plus64 REAL component equality check. Numeric results pending.",
+  "initial_J20_assertion_order": "Same1e-6 check is after training return; training already started when root spotted ordering. Do not interrupt or repeat; inspect actual saved step0 and equivalence at completion.",
+  "scientific_rerun": false
+}

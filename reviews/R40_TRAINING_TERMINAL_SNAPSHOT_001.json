@@ -1,0 +1,199 @@
+{
+  "stage": "R40_GLOBAL_TIME_MIXER_TRANSLATION_001",
+  "recorded_UTC": "2026-10-09T22:30:04.305224+00:00",
+  "actual_training_start_tool": "e3e1b0",
+  "actual_native_completion_tool": "b4def6",
+  "actual_return_tool": "3638ba",
+  "actual_training_native": {
+    "entry": "train_server.py",
+    "supervisor_PID": 77573,
+    "start_UTC": "2026-10-09T22:25:55.972964+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": 900,
+    "actual_worker_PID": 77574,
+    "actual_worker_RSS_peak_bytes": 2707943424,
+    "memory_probe_failures": 2,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-09T22:27:54.529290+00:00",
+        "PID": 77574,
+        "poll": null,
+        "context": "actual_PID_query"
+      },
+      {
+        "UTC": "2026-10-09T22:27:54.629565+00:00",
+        "PID": 77574,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "handshake_before_imports": true,
+    "launcher_PID": 77574,
+    "actual_worker_parent_PID": 77573,
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 118.7568568179995,
+    "stop_UTC": "2026-10-09T22:27:54.729820+00:00",
+    "worker_self_receipt": {
+      "PID": 77574,
+      "parent_PID": 77573,
+      "nonce": "cc82956883274750bbab1d5f5992356b",
+      "entry": "train_server.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 118.16516187399975,
+      "self_peak_RSS_bytes": 2707943424,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-09T22:27:54.154375+00:00"
+    },
+    "execution_location": "registered Linux server",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R40_REMOTE_20261009_221922_UTC"
+  },
+  "local_native": {
+    "local_launch_PID": 45344,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T22:25:55.944282+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R40_REMOTE_20261009_221922_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 28588,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 77573,
+      "start_UTC": "2026-10-09T22:25:55.972964+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 77574,
+      "actual_worker_RSS_peak_bytes": 12877824,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 77574,
+      "actual_worker_parent_PID": 77573
+    },
+    "SSH_native_exit": 0,
+    "elapsed_ssh_s": 119.07329500000924,
+    "stop_UTC": "2026-10-09T22:27:55.017901+00:00"
+  },
+  "counter": {
+    "response_fit_attempts": 1,
+    "G_updates": 2950,
+    "D_updates": 2950,
+    "style_reader_updates": 2950,
+    "training_s": 115.99822811000195,
+    "initial_equivalence_model_forward_rows": 256
+  },
+  "initial_equivalence": {
+    "extra_model_forward_rows": 256,
+    "selected_before_any_update": true,
+    "first_actual_SOURCE_REAL_64_rows": true,
+    "source_target_ordinals_sha256": {
+      "source": "71e6badafdc3b64241b2632c0033460b87d6f0954567bc555d345e6fd8a122e7",
+      "target": "6eb2de36bb691b75fc14ed731041d28d643edb988681283815b95c85cde0a009",
+      "original_row_ordinal": "5aa204a27f6eba0ee8e62cffe3b3bd5a35889b282d17d3fda8e827a2f9038d08"
+    },
+    "original_torch_CPU_and_CUDA_RNG_preserved": true,
+    "new_parameter_names": [
+      "time_mixer.0.bias",
+      "time_mixer.0.weight",
+      "time_mixer.2.bias",
+      "time_mixer.2.weight"
+    ],
+    "new_parameters": 123488,
+    "rows": {
+      "SOURCE": {
+        "rows": 64,
+        "all_components_bitwise_equal": {
+          "preADC": true,
+          "signal": true,
+          "electronic": true
+        },
+        "mixer_delta_exact_zero": true,
+        "old_and_new_component_SHA256": {
+          "preADC": "313c484bc5c59d314aec99fa5698047361ed31dcf0e81400cd151ceea41b5b39",
+          "signal": "4592f263be6cfc104cf4c6ee18615c2e32d8a8034ce4825815637111fb353a6d",
+          "electronic": "ec66ee6c7144396b6e51ae5bbf213c6b09826cea7092419b3be918dd09d687c8"
+        }
+      },
+      "REAL": {
+        "rows": 64,
+        "all_components_bitwise_equal": {
+          "preADC": true,
+          "signal": true,
+          "electronic": true
+        },
+        "mixer_delta_exact_zero": true,
+        "old_and_new_component_SHA256": {
+          "preADC": "a220fd0db7afde12dcc5fce41f3ca782c3675aaf5ca9dff4abfbbe47934e742c",
+          "signal": "5a62f024f5dfeef3183f6b3e96a2986350bbce8513db501ba6cd3a58dca18ea3",
+          "electronic": "12c6a7f6e55c843c774f970e316e837f7bc6dcd88f85dc424d2221045b2154a8"
+        }
+      }
+    },
+    "initial_W2_exact_zero": true,
+    "old_parameters_exact_equal": true,
+    "initial_J20": 0.6166301965713501
+  },
+  "matched_training_flow": {
+    "updates": 2950,
+    "all_original_update_stream_fields": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "NCE_positions": true,
+      "noise_stream": true,
+      "style_stream": true
+    },
+    "same_initial_original_G_reader_D": true,
+    "new_parameters": 123488,
+    "initial_extra_model_forward_rows": 256,
+    "raw_actual_rows_unique_source": 3752,
+    "raw_actual_rows_unique_REAL": 18739,
+    "fresh_direction_groups": 8850,
+    "fresh_directions_all_8850_match_saved_BASE": true,
+    "initial_J20_absolute_difference": 0.0,
+    "initial_J20_tolerance": 1e-06
+  },
+  "first_update_gradients": {
+    "parameter_order": [
+      "0.weight",
+      "0.bias",
+      "2.weight",
+      "2.bias"
+    ],
+    "preclip_norms": [
+      0.0,
+      0.0,
+      2.111989974975586,
+      0.8829789757728577
+    ]
+  },
+  "current_local_native_snapshot": {
+    "entry": "evaluate_saved.py",
+    "supervisor_PID": 52920,
+    "start_UTC": "2026-10-09T22:29:46.588598+00:00",
+    "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+    "limit_s": 1664.6497604819451,
+    "actual_worker_PID": 55300,
+    "actual_worker_RSS_peak_bytes": 16457728,
+    "launcher_RSS_peak_bytes": 16011264,
+    "memory_probe_failures": 0,
+    "memory_probe_failure_events": [],
+    "handshake_before_imports": true,
+    "launcher_PID": 55300,
+    "actual_worker_parent_PID": 52920
+  },
+  "new_scientific_fit": false,
+  "root_control_failures": "One missing direct native filename read; one snapshot attempt looked for native_exit instead of actual SSH_native_exit and stopped before any write. Actual schema inspected and corrected; zero scientific rerun."
+}
