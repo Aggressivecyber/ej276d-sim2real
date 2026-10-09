@@ -406,6 +406,9 @@ def main(mode):
                 'trained_transform_numerical_inverse':inverse}
         write('REPLAY_RECEIPT.json',result)
         assert result['R3B_exact'] and error<=1e-7 and result['post_ADC_exact'],result
+    elif mode=='plot':
+        from plot_trial import classifier_plot
+        classifier_plot(json.loads((ROOT/'METRICS_COMPACT.json').read_text()),ROOT)
     else:
         from assess_trial import evaluate
         evaluate(CFG,ROOT,COUNTERS)
@@ -422,7 +425,7 @@ def main(mode):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['smoke','train','resume','replay','evaluate'])
+    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['smoke','train','resume','replay','evaluate','plot'])
     mode=parser.parse_args().mode
     try:main(mode)
     except BaseException as exc:

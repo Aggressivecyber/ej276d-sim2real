@@ -9,6 +9,20 @@ import matplotlib.pyplot as plt
 COLORS={'REAL':'#202b38','R3B':'#c17518','NSF':'#137d93','REAL_REAL':'#687487'}
 
 
+def classifier_plot(m,root):
+    """Render aggregate frozen classifier results, with unobscured intervals."""
+    if not m['C2ST']['supported']:return
+    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white'})
+    cs=m['C2ST']['results'];views=list(cs['NSF']);labels=['Whole shape','Whole voltage','Prompt','Post-peak','Tail','Baseline']
+    fig,ax=plt.subplots(figsize=(11,4.4));xs=np.arange(len(views))
+    for i,n in enumerate(['R3B','NSF','REAL_REAL']):
+        y=np.array([cs[n][v]['balanced_accuracy'] for v in views]);ci=np.array([cs[n][v]['heldout_CI']['balanced_accuracy_95CI'] for v in views])
+        ax.errorbar(xs+(i-1)*.18,y,yerr=np.maximum(np.array([y-ci[:,0],ci[:,1]-y]),0),fmt='o',capsize=3,color=COLORS[n],label=n)
+    ax.axhline(.5,color='gray',ls='--');ax.set(xticks=xs,xticklabels=labels,ylim=(.43,1.04),ylabel='Held-out balanced accuracy',title='Frozen DEV classifier comparison: lower is less distinguishable')
+    ax.legend(ncol=3,loc='upper center',bbox_to_anchor=(.5,-.10),frameon=False)
+    fig.tight_layout();fig.savefig(root/'results/figures/02_classifier.png',dpi=155,bbox_inches='tight');plt.close(fig)
+
+
 def plots(domains,m,root):
     out=root/'results/figures';out.mkdir(parents=True,exist_ok=True)
     plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white'})
@@ -22,14 +36,7 @@ def plots(domains,m,root):
         ax.set(title=name.capitalize(),xlabel='Update',ylabel='Validation nats / dimension');ax.legend()
     fig.suptitle('Training selections: TRAIN validation only',y=1.04)
     save(fig,'01_training')
-    if m['C2ST']['supported']:
-        cs=m['C2ST']['results'];views=list(cs['NSF']);labels=['Whole shape','Whole voltage','Prompt','Post-peak','Tail','Baseline']
-        fig,ax=plt.subplots(figsize=(11,4.4));xs=np.arange(len(views))
-        for i,n in enumerate(['R3B','NSF','REAL_REAL']):
-            y=np.array([cs[n][v]['balanced_accuracy'] for v in views]);ci=np.array([cs[n][v]['heldout_CI']['balanced_accuracy_95CI'] for v in views])
-            ax.errorbar(xs+(i-1)*.18,y,yerr=np.maximum(np.array([y-ci[:,0],ci[:,1]-y]),0),fmt='o',capsize=3,color=COLORS[n],label=n)
-        ax.axhline(.5,color='gray',ls='--');ax.set(xticks=xs,xticklabels=labels,ylim=(.43,1.04),ylabel='Held-out balanced accuracy',title='Frozen DEV classifier comparison: lower is less distinguishable')
-        ax.legend(ncol=3,loc='lower right');save(fig,'02_classifier')
+    classifier_plot(m,root)
     valid={n:d['valid'] for n,d in domains.items()}
     q=np.concatenate([d['features']['Qtotal_mVns'][valid[n]] for n,d in domains.items()]);p=np.concatenate([d['features']['PSD'][valid[n]] for n,d in domains.items()])
     xmin,xmax=np.log10(np.quantile(q,[.001,.999]));ymin,ymax=np.quantile(p,[.001,.999]);pad=max(.01,(ymax-ymin)*.05)

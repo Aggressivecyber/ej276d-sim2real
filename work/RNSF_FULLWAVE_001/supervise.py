@@ -31,7 +31,7 @@ def other_jobs():
 
 def main():
     mode=sys.argv[1]
-    assert mode in ['smoke','train','resume','evaluate','replay']
+    assert mode in ['smoke','train','resume','evaluate','replay','plot']
     os.sched_setaffinity(0,sorted(os.sched_getaffinity(0))[:CFG['threads']])
     lock=(ROOT.parent/'.rnfs-science.lock').open('a')
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
