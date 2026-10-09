@@ -1,5 +1,20 @@
 # RNSF-001: frozen R3B plus a full-waveform neural spline transport
 
+Execution addendum, 2026-10-09: the user explicitly authorized parallel work
+after checking free resources. This supersedes the single-job clauses below;
+the per-job CPU/RSS/GPU/output and cumulative time budgets remain unchanged.
+The supervisor reads this authorization from config at launch and at runtime.
+Two checkpoint restarts occurred before DEV evaluation: one unverified conflict
+detector trigger, then a planned restart to adopt parallel supervision. Both
+native exits, logs and checkpoints are retained. Source and REAL fits are
+reused; transport optimizer, weights and minibatch stream resume at checkpoints.
+To cover discarded updates conservatively, reserve100 original update slots
+per interruption, leaving the transport final step cap7800 after two restarts.
+The second restart restores the saved minibatch RNG state directly; the first
+reconstructs its seeded draw stream through the saved step without model updates.
+Post-training fresh-process replay also reports full480 numerical inversion
+error in volts and nominal ADC steps; it does not select a checkpoint.
+
 The user explicitly requested a new Git branch and server computation for the
 previously proposed flow trial. Branch `codex/nsf-fullwave-20261009` starts at
 `9da21785404db7783311fac261d8a67fe555ce24`; its E-drive worktree is isolated from

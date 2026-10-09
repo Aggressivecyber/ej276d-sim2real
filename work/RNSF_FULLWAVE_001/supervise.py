@@ -15,22 +15,28 @@ def other_jobs():
     for p in pathlib.Path('/proc').iterdir():
         if not p.name.isdigit():continue
         try:
-            cmd=(p/'cmdline').read_bytes().replace(b'\x00',b' ').decode(errors='replace')
+            argv=[a.decode(errors='replace') for a in (p/'cmdline').read_bytes().split(b'\x00') if a]
+            if not argv or not pathlib.Path(argv[0]).name.startswith('python'):continue
+            args=argv[1:]
+            if '-c' in args or '-m' in args:continue
+            script=next((a for a in args if not a.startswith('-')),None)
+            if script is None or pathlib.Path(script).name not in ['run.py','numeric_worker.py','supervise.py']:continue
+            cmd=' '.join(argv)
             cwd=str((p/'cwd').resolve())
             if p.stat().st_uid!=os.getuid() or str(ROOT) in cmd or cwd==str(ROOT):continue
-            if (str(ROOT.parent) in cmd or cwd.startswith(str(ROOT.parent)+'/')) and any(x in cmd for x in ['run.py','numeric_worker.py','supervise.py']):
-                if 'python' in cmd:found.append({'PID':int(p.name),'command':cmd})
+            if str(ROOT.parent) in cmd or cwd.startswith(str(ROOT.parent)+'/'):
+                found.append({'PID':int(p.name),'command':cmd,'cwd':cwd})
         except (FileNotFoundError,PermissionError,ProcessLookupError,OSError):pass
     return found
 
 def main():
     mode=sys.argv[1]
-    assert mode in ['smoke','train','evaluate','replay']
+    assert mode in ['smoke','train','resume','evaluate','replay']
     os.sched_setaffinity(0,sorted(os.sched_getaffinity(0))[:CFG['threads']])
     lock=(ROOT.parent/'.rnfs-science.lock').open('a')
     fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     jobs=other_jobs()
-    if jobs:
+    if jobs and not CFG.get('allow_parallel_jobs',False):
         write('LAUNCH_DEFERRED.json',{'UTC':now(),'other_project_jobs':jobs,'submitted':False})
         raise RuntimeError('another project scientific job is active')
     ledgerfile=ROOT/'NATIVE_LEDGER.json'
@@ -56,7 +62,7 @@ def main():
                 'status':'running','cumulative_before_s':spent,'remaining_s':remaining,'root':str(ROOT)}
         write('ACTIVE_JOB.json',record)
         print(json.dumps(record),flush=True)
-        stopped=None;peak=0;check_other=time.monotonic()
+        stopped=None;peak=0;check_other=time.monotonic();conflicting_jobs=[]
         while proc.poll() is None:
             time.sleep(1)
             try:
@@ -68,7 +74,8 @@ def main():
             if time.monotonic()-started>remaining:stopped='cumulative_wall_limit'
             if time.monotonic()-check_other>30:
                 jobs=other_jobs();check_other=time.monotonic()
-                if jobs:stopped='other_project_job_appeared'
+                allow_parallel=json.loads((ROOT/'config.json').read_text()).get('allow_parallel_jobs',False)
+                if jobs and not allow_parallel:stopped='other_project_job_appeared';conflicting_jobs=jobs
                 size=sum(p.stat().st_size for p in ROOT.rglob('*') if p.is_file() and 'deps' not in p.relative_to(ROOT).parts and 'tmp' not in p.relative_to(ROOT).parts)
                 if size>CFG['output_limit_bytes']:stopped='output_limit'
             if stopped:
@@ -78,7 +85,7 @@ def main():
                 break
         code=proc.wait();elapsed=time.monotonic()-started
     record.update(status='complete' if code==0 else 'failed',native_exit=code,stop_UTC=now(),wall_s=elapsed,
-                  stop_reason=stopped,peak_RSS_polled_bytes=peak,cumulative_after_s=spent+elapsed)
+                  stop_reason=stopped,conflicting_jobs=conflicting_jobs,peak_RSS_polled_bytes=peak,cumulative_after_s=spent+elapsed)
     ledger.append(record);write('NATIVE_LEDGER.json',ledger);write('ACTIVE_JOB.json',record)
     print(json.dumps(record),flush=True)
     sys.exit(0 if code==0 else 1)

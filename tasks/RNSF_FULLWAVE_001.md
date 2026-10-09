@@ -1,5 +1,10 @@
 # RNSF-001: frozen R3B plus a full-waveform neural spline transport
 
+2026-10-09 execution update: user now allows parallel jobs when resources are
+available; this overrides the single-job policy below. Scientific settings
+and per-job resource limits stay fixed. See work/RNSF_FULLWAVE_001/PROTOCOL.md
+for checkpoint continuation and conservative accounting of discarded updates.
+
 The user explicitly requested a new Git branch and server computation for the
 previously proposed flow trial. Branch `codex/nsf-fullwave-20261009` starts at
 `9da21785404db7783311fac261d8a67fe555ce24`; its E-drive worktree is isolated from

@@ -151,10 +151,11 @@ def density_validation(model, x):
     return total/len(x)/480
 
 
-def save_fit(name, model, optimizer, records, selected, update, started):
+def save_fit(name, model, optimizer, records, selected, update, started, rng=None):
     torch.save({'state_dict':model.state_dict(),'optimizer':optimizer.state_dict(),
                 'torch_rng':torch.get_rng_state(),'CUDA_rng':torch.cuda.get_rng_state(),
-                'selected_update':selected,'last_update':update,'model_config':CFG['model']},OUT/(name+'_last.pt'))
+                'selected_update':selected,'last_update':update,'model_config':CFG['model'],
+                'minibatch_rng':rng.get_state() if rng is not None else None},OUT/(name+'_last.pt'))
     write('results/'+name+'_training.json',{'name':name,'selected_update':selected,
           'actual_updates':update,'elapsed_s':time.monotonic()-started,'trace':records,
           'selection':'minimum all-record TRAIN-validation nats per dimension only',
@@ -217,18 +218,51 @@ def transfer_validation(transform, source, real, sv, rv):
     return .5*(a/len(sv)+b/len(rv))/480
 
 
-def fit_transfer(source,real,sf,rf,sv,rv,scale):
+def fit_transfer(source,real,sf,rf,sv,rv,scale,resume=False):
     torch.manual_seed(CFG['seed']+30)
     model=make_transform(CFG['model']).to(DEVICE)
     optimizer=torch.optim.Adam(model.parameters(),lr=CFG['learning_rate'])
     rng=torch.Generator(device=DEVICE).manual_seed(CFG['seed']+31)
     scales=torch.as_tensor(scale,device=DEVICE)
-    started=time.monotonic();best=transfer_validation(model,source,real,sv,rv)
-    selected=0;stale=0;update=0
-    records=[{'step':0,'validation_nats_per_dim':best,'elapsed_s':0.}]
-    torch.save(model.state_dict(),OUT/'transport_best.pt')
-    log(f'transport initial validation {best:.6f}')
-    for step in range(1,CFG['transport_max_updates']+1):
+    limit=CFG['transport_max_updates'];started=time.monotonic()
+    if resume:
+        pack=torch.load(OUT/'transport_last.pt',map_location=DEVICE,weights_only=True)
+        previous=json.loads((OUT/'transport_training.json').read_text())
+        model.load_state_dict(pack['state_dict']);optimizer.load_state_dict(pack['optimizer'])
+        update=pack['last_update'];selected=pack['selected_update'];records=previous['trace']
+        best=min(p['validation_nats_per_dim'] for p in records)
+        stale=sum(p['step']>selected for p in records)
+        receiptpath=ROOT/'RESUME_RECEIPT.json'
+        history=json.loads(receiptpath.read_text()) if receiptpath.exists() else []
+        # A killed interval has at most 99 unsaved updates. Charge 100 slots
+        # per interruption conservatively against the original 8000 cap.
+        limit-=100*(len(history)+1)
+        progress=json.loads((ROOT/'PROGRESS.json').read_text())
+        ledger=json.loads((ROOT/'NATIVE_LEDGER.json').read_text())
+        tail=max(0.,ledger[-1]['wall_s']-progress['elapsed_s'])
+        started-=previous['elapsed_s']+tail
+        if pack.get('minibatch_rng') is not None:
+            rng.set_state(pack['minibatch_rng'].cpu())
+        else:
+            # The first checkpoint predates RNG-state serialization. Recreate
+            # the exact seeded per-step draws without model/optimizer updates.
+            for _ in range(update):
+                torch.randint(len(sf),(CFG['batch_size'],),device=DEVICE,generator=rng)
+                torch.randint(len(rf),(CFG['batch_size'],),device=DEVICE,generator=rng)
+                torch.rand((2,CFG['batch_size'],480),device=DEVICE,generator=rng)
+        history.append({'restored_update':update,'restored_selected':selected,
+                        'reserved_discarded_update_upper_bound':100,'new_final_step_cap':limit,
+                        'minibatch_rng':'restored' if pack.get('minibatch_rng') is not None else 'seeded_draws_advanced_to_checkpoint',
+                        'density_refits':0,'no_DEV_seen':True,'UTC':datetime.datetime.now(datetime.timezone.utc).isoformat()})
+        write('RESUME_RECEIPT.json',history)
+        log(f'transport resumes from step={update} selected={selected} cap={limit}')
+    else:
+        best=transfer_validation(model,source,real,sv,rv)
+        selected=0;stale=0;update=0
+        records=[{'step':0,'validation_nats_per_dim':best,'elapsed_s':0.}]
+        torch.save(model.state_dict(),OUT/'transport_best.pt')
+        log(f'transport initial validation {best:.6f}')
+    for step in range(update+1,limit+1):
         guard()
         if time.monotonic()-started>=CFG['transport_stage_s']-20:break
         if time.monotonic()-START>=CFG['numeric_wall_limit_s']-CFG['evaluation_reserve_s']:break
@@ -243,7 +277,7 @@ def fit_transfer(source,real,sf,rf,sv,rv,scale):
         loss.backward()
         norm=torch.nn.utils.clip_grad_norm_(model.parameters(),CFG['gradient_norm'],error_if_nonfinite=True)
         optimizer.step();update=step;COUNTERS['transport_updates']=step
-        if step%CFG['validation_interval']==0 or step==CFG['transport_max_updates']:
+        if step%CFG['validation_interval']==0 or step==limit:
             value=transfer_validation(model,source,real,sv,rv)
             if not np.isfinite(value):raise FloatingPointError('transport nonfinite validation')
             records.append({'step':step,'train_nats_per_dim':float(loss.detach()),
@@ -252,32 +286,44 @@ def fit_transfer(source,real,sf,rf,sv,rv,scale):
             if value<best:
                 best=value;selected=step;stale=0;torch.save(model.state_dict(),OUT/'transport_best.pt')
             else:stale+=1
-            save_fit('transport',model,optimizer,records,selected,update,started)
+            save_fit('transport',model,optimizer,records,selected,update,started,rng)
             write('PROGRESS.json',{'phase':'transport','step':step,'selected':selected,'validation':value,
                                   'elapsed_s':time.monotonic()-START,'counters':COUNTERS})
             log(f'transport step={step} val={value:.6f} best={best:.6f}')
             if stale>=CFG['patience_checks']:break
-    save_fit('transport',model,optimizer,records,selected,update,started)
+    save_fit('transport',model,optimizer,records,selected,update,started,rng)
     model.load_state_dict(torch.load(OUT/'transport_best.pt',map_location=DEVICE,weights_only=True))
     model.eval();model.requires_grad_(False)
     return model
 
 
-def transform_voltage(model, v, center, scale, jitter):
-    output=[]
+def transform_voltage(model, v, center, scale, jitter, check_inverse=False):
+    output=[]; inverse_error_V=0.; inverse_logdet_error=0.
     with torch.no_grad():
         for first in range(0,len(v),CFG['generation_chunk']):
             sl=slice(first,first+CFG['generation_chunk'])
             x=normalize(v[sl]+jitter[sl],center,scale)
-            a,_=model(x)
+            a,ld=model(x)
+            if check_inverse:
+                back,ild=model.inverse(a)
+                error=(back-x).abs()*torch.as_tensor(scale,device=DEVICE)
+                if not torch.isfinite(error).all() or not torch.isfinite(ild).all():
+                    raise FloatingPointError('trained transform inverse nonfinite')
+                inverse_error_V=max(inverse_error_V,float(error.max()))
+                inverse_logdet_error=max(inverse_logdet_error,float((ld+ild).abs().max()))
             output.append(a.cpu().numpy()*scale+center)
     pre=np.concatenate(output).astype('f4')
     if not np.isfinite(pre).all():raise FloatingPointError('nonfinite generated voltage')
     raw=np.rint((pre.astype('f8')+.5)*16383.)
     post=(raw.clip(0,16383)/16383.-.5).astype('f4')
     COUNTERS['transport_rows']+=len(v)
-    return pre,post,{'ADC_clipped_values':int(((raw<0)|(raw>16383)).sum()),
-                    'ADC_clipped_rows':int(((raw<0)|(raw>16383)).any(axis=1).sum()),'draws':len(v)}
+    receipt={'ADC_clipped_values':int(((raw<0)|(raw>16383)).sum()),
+             'ADC_clipped_rows':int(((raw<0)|(raw>16383)).any(axis=1).sum()),'draws':len(v)}
+    if check_inverse:
+        receipt.update(trained_inverse_maxabs_V=inverse_error_V,
+                       trained_inverse_maxabs_nominal_ADC_steps=inverse_error_V*16383.,
+                       trained_logdet_cancellation_maxabs=inverse_logdet_error)
+    return pre,post,receipt
 
 
 def generate(model,center,scale):
@@ -312,15 +358,28 @@ def main(mode):
     log(f'RNSF {mode} pid={os.getpid()} device={torch.cuda.get_device_name(0)}')
     if mode=='smoke':
         write('ENGINEERING_CHECKS.json',engineering_checks(CFG,DEVICE))
-    elif mode=='train':
-        write('ENGINEERING_CHECKS.json',engineering_checks(CFG,DEVICE))
-        sf,sv,rf,rv,center,scale=prepare_training()
+    elif mode in ['train','resume']:
+        if mode=='train':
+            write('ENGINEERING_CHECKS.json',engineering_checks(CFG,DEVICE))
+            sf,sv,rf,rv,center,scale=prepare_training()
+        else:
+            assert not (ROOT/'MODEL_FROZEN.json').exists(),'use evaluate/replay after model freeze'
+            with np.load(OUT/'TRAIN_PRIVATE.npz',allow_pickle=False) as z:
+                sf=z['source'][z['G4_fit']];sv=z['source'][~z['G4_fit']]
+                rf=z['realfit'];rv=z['realval'];center=z['center'];scale=z['scale']
+            COUNTERS.update(json.loads((ROOT/'PROGRESS.json').read_text())['counters'])
         validation_source=fixed_validation(sv,center,scale,CFG['seed']+11)
         validation_real=fixed_validation(rv,center,scale,CFG['seed']+21)
         sf=normalize(sf,center,scale);rf=normalize(rf,center,scale)
-        source=fit_density('source',sf,validation_source,scale,CFG['seed']+10)
-        real=fit_density('real',rf,validation_real,scale,CFG['seed']+20)
-        transport=fit_transfer(source,real,sf,rf,validation_source,validation_real,scale)
+        if mode=='train':
+            source=fit_density('source',sf,validation_source,scale,CFG['seed']+10)
+            real=fit_density('real',rf,validation_real,scale,CFG['seed']+20)
+        else:
+            source=make_density(CFG['model']).to(DEVICE);real=make_density(CFG['model']).to(DEVICE)
+            for name,m in [('source',source),('real',real)]:
+                m.load_state_dict(torch.load(OUT/(name+'_best.pt'),map_location=DEVICE,weights_only=True))
+                m.eval();m.requires_grad_(False)
+        transport=fit_transfer(source,real,sf,rf,validation_source,validation_real,scale,resume=mode=='resume')
         np.savez_compressed(OUT/'standardization.npz',center=center,scale=scale)
         write('MODEL_FROZEN.json',{'UTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'checkpoint':'results/transport_best.pt','DEV_used_for_training_or_selection':False,
@@ -338,12 +397,13 @@ def main(mode):
         m=make_transform(CFG['model']).to(DEVICE)
         m.load_state_dict(torch.load(OUT/'transport_best.pt',map_location=DEVICE,weights_only=True));m.eval()
         source,_=r3b_predict(load_r3b(),inputs['condition'],inputs['qsource'],inputs['z'],inputs['white'])
-        pre,post,_=transform_voltage(m,source,center,scale,inputs['jitter'])
+        pre,post,inverse=transform_voltage(m,source,center,scale,inputs['jitter'],check_inverse=True)
         error=float(np.max(np.abs(pre-expected['pre_ADC_V'])))
         result={'R3B_exact':bool(np.array_equal(source,expected['R3B_V'])),
                 'pre_ADC_maxabs_V':error,'pre_ADC_atol_V':1e-7,
                 'post_ADC_exact':bool(np.array_equal(post,expected['NSF_V'])),
-                'all2000_end_to_end_replayed':True,'values':int(post.size),'metric_refits':0}
+                'all2000_end_to_end_replayed':True,'values':int(post.size),'metric_refits':0,
+                'trained_transform_numerical_inverse':inverse}
         write('REPLAY_RECEIPT.json',result)
         assert result['R3B_exact'] and error<=1e-7 and result['post_ADC_exact'],result
     else:
@@ -362,7 +422,7 @@ def main(mode):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['smoke','train','replay','evaluate'])
+    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['smoke','train','resume','replay','evaluate'])
     mode=parser.parse_args().mode
     try:main(mode)
     except BaseException as exc:
