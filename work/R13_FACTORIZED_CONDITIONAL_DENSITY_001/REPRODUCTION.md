@@ -1,0 +1,9 @@
+# R13 reproduction
+
+Executed server directory: /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R13_REMOTE_20261009_042246. Environment interpreter: /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python. Main entry was remote_supervise.py, which ran numeric_worker.py once and then replay.py once. CPU4, CUDA training, final CPU float64. Native job identity and actual versions are in REMOTE_NATIVE_RECEIPT.json, NUMERIC_RECEIPT.json and metrics.json.
+
+Read-only dependencies are R10_REMOTE_20261009_012338/inputs (TRAIN-fit/internal val/DEV), R11_REMOTE_20261009_020915 (FACTOR representation, K8 GMM and actual innovations) and R12_REMOTE_20261009_034933 (empirical covariance and historical outputs). Exact paths/configuration and recorded input identities are in config.json, READINESS.json and PROTOCOL.md. Transfer used normal copy/scp exit status; no content equality test was performed.
+
+For an authorized new-directory inference reproduction, retain central representation.npz, GMM_8.npz, GENERATION_INPUTS.npz, FLOW.pt, TAIL.pt, conditional_density.py/density.py and replay.py. Adjust ROOT/config only in that new directory, preserve parameters and draw positions. The executed independent replay162395 restored these saved inputs and reproduced all6000 pre-ADC/post-ADC rows bitwise (REPLAY_RECEIPT.json). No current closure command reruns it.
+
+From-scratch training uses saved head/tail initial states, fixed seeds and checkpoint grid, initial/final random states and full training traces. CUDA training selection arithmetic is float32, final inference CPU float64; do not claim bitwise portability across other hardware/library environments. Complete whole-study scientific evaluation requires the recorded read-only datasets/references; old stages must remain untouched.

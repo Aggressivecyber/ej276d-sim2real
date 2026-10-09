@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目持续目标保持active。R12已封存、发布和复制到D盘；当前R13检验主要分布与条件残差密度的2×2对照，详见[当前任务](tasks/R13_FACTORIZED_CONDITIONAL_DENSITY_001.md)、[进度](PROJECT_PROGRESS.json)和[R12结果](R12_REPORT.md)。
+项目目标active。R13条件密度诊断已完成：验证似然与部分条件涨落改善，完整波形仍未匹配。按用户要求，R14正从TRAIN池扩大到21100条原始拟合候选，保留原验证/DEV并比较训练预算。见[R13结论](R13_REPORT.md)、[扩样任务](tasks/R14_TRAIN_POOL_EXPANSION_001.md)、[项目进度](PROJECT_PROGRESS.json)。旧交付保留。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T04:41:29.425185+00:00",
+  "updated_UTC": "2026-10-09T04:48:05.079477+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R12_PAIRED_RESIDUAL_COVARIANCE_001",
-  "current_stage": "R13_FACTORIZED_CONDITIONAL_DENSITY_001",
-  "current_task": "tasks/R13_FACTORIZED_CONDITIONAL_DENSITY_001.md",
+  "latest_completed_stage": "R13_FACTORIZED_CONDITIONAL_DENSITY_001",
+  "current_stage": "R14_TRAIN_POOL_EXPANSION_001",
+  "current_task": "tasks/R14_TRAIN_POOL_EXPANSION_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,7 +13,7 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R12_full_shape_BA_0.924_to_0.948"
+      "status": "unmet_R13_full_shape_BA_0.900_to_0.932"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -21,7 +21,7 @@
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "baseline_amplitude_partly_explained_joint_noise_and_conditional_width_unmet"
+      "status": "conditional_postpeak_curvature_partly_improved_full_noise_and_two_peak_width_unmet"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R12_4000_draws_replay_passed_final_model_not_selected"
+      "status": "R13_6000_draws_replay_passed_final_model_not_selected"
     },
     {
       "id": "final_research_delivery",
@@ -41,10 +41,8 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Keep the FACTOR full representation fixed. Test a flexible head density and a head-conditioned residual location/scale model in one finite 2x2 comparison, using TRAIN internal validation and full-response DEV evaluation. Separate their effects rather than repeating covariance shrinkage sweeps.",
+  "current_direction": "Increase TRAIN from2592 QC-fit to21100 raw fit candidates, keep representation, architecture, initial states and original599val/DEV fixed; distinguish update and exposure budgets.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R13_result_closure_then_user_requested_TRAIN_expansion",
-  "next_registered_stage": "R14_TRAIN_POOL_EXPANSION_001",
-  "next_registered_task": "tasks/R14_TRAIN_POOL_EXPANSION_001.md",
+  "current_activity": "R14_executor_preparing_after_R13_seal",
   "latest_user_steering": "Increase number of training waveforms; unchanged val and DEV."
 }
