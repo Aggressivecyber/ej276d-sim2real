@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R28刷新投影改善部分独立方向与末点宽度，但完整响应仍高度可分，峰位及部分源条件/局部指标退化。4000条独立回放通过。R29检验固定同一轨迹上的fine energy U距离替换。见[R28结论](R28_REPORT.md)、[R29任务](tasks/R29_SLICED_ENERGY_TRANSLATION_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R29 energy U替换改善部分PSD宽度，但完整波形与开发投影距离退化，关闭该单次配方。4000条独立回放通过。R30只读保存输出，诊断全局/条件均值及逐点波动后的剩余可分性。见[R29结论](R29_REPORT.md)、[R30任务](tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

@@ -915,7 +915,7 @@
     },
     {
       "id": "R29_SLICED_ENERGY_TRANSLATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_energy_partial_PSD_gain_full_response_worse",
       "task": "tasks/R29_SLICED_ENERGY_TRANSLATION_001.md",
       "registration": "reviews/R29_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T14:52:30.236280+00:00",
@@ -923,6 +923,20 @@
       "execution_location": "local",
       "new_response_fits": 1,
       "HGB_max": 20,
+      "project_goal_status": "active",
+      "receipt": "work/R29_SLICED_ENERGY_TRANSLATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md"
+    },
+    {
+      "id": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md",
+      "registration": "reviews/R30_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T15:34:14.761843+00:00",
+      "reason": "The equal2950 energy-U endpoint improves some PSD widths and tail charge but worsens full-shape separation and all three independent direction distances; close this recipe without a coefficient sweep. Persistent time-locked conditional mean structure warrants a saved-output diagnostic of global means, observed-Q means and coordinate standard deviations. Fit transformations only on the frozen classifier training rows and retain REAL-REAL controls; transformed features are not deployable waveforms.",
+      "execution_location": "local",
+      "new_response_fits": 0,
+      "HGB_max": 15,
       "project_goal_status": "active"
     }
   ]

@@ -1,0 +1,410 @@
+{
+  "stage": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
+  "registered_UTC": "2026-10-09T15:34:14.761843+00:00",
+  "task": "tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md",
+  "task_sha256": "737e3ca00c2d8b219bbda4594b91c007b680762ac4f47b5491f748849a7152b3",
+  "reason": "The equal2950 energy-U endpoint improves some PSD widths and tail charge but worsens full-shape separation and all three independent direction distances; close this recipe without a coefficient sweep. Persistent time-locked conditional mean structure warrants a saved-output diagnostic of global means, observed-Q means and coordinate standard deviations. Fit transformations only on the frozen classifier training rows and retain REAL-REAL controls; transformed features are not deployable waveforms.",
+  "authorization": "Active project goal and local execution steering; existing executor continues without substep approvals.",
+  "stage_wall_budget_s": 3600,
+  "stage_deadline_UTC": "2026-10-09T16:34:14.761843+00:00",
+  "executor_seal_deadline_UTC": "2026-10-09T16:24:14.761843+00:00",
+  "root_delivery_reserve_s": 600,
+  "scientific_cumulative_budget_s": 600,
+  "response_fit_attempts": 0,
+  "response_updates": 0,
+  "response_inference_or_generation": 0,
+  "density_EM_max": 0,
+  "HGB_fits_max": 15,
+  "classification_bootstrap_repeats": 500,
+  "candidate_endpoints": [
+    "R28 FRESH_SELECTED2250",
+    "R28 FRESH_FINAL2950",
+    "R29 ENERGY_SELECTED2750",
+    "R29 ENERGY_FINAL2950"
+  ],
+  "reference": "Saved REAL TRAIN2000 reference versus REAL DEV2000, same acquisition",
+  "new_views": [
+    "GLOBAL_CENTER",
+    "Q_CENTER",
+    "Q_CENTER_SCALE"
+  ],
+  "reused_baseline": "original normalized_u480 classifier and predictions; no baseline refit",
+  "representation": "float64 full480 u using the existing baseline and peak normalization; no appended scalars",
+  "moment_fitting": "each domain frozen classifier training600 only; same parameters applied to training and holdout250",
+  "common_condition_eligibility": "each of six domains has at least20 classifier training rows in the original observed-Q bin",
+  "unsupported_condition_action": "all domains use their own global training moments; no row deletion or label change",
+  "standard_deviation": "ddof1",
+  "coordinate_SD_floor": "max(0.05 * existing_REAL_TRAIN_shape480_scale[j], 1e-6)",
+  "matrix_statistics": "holdout sample covariance trace, trace(C)^2/trace(C@C), Frobenius discrepancy with REAL; no inverse or whitening",
+  "source_population_reweighting": false,
+  "CPU_threads": 4,
+  "RSS_max_bytes": 4294967296,
+  "GPU_allocated_max_bytes": 4294967296,
+  "output_max_bytes": 134217728,
+  "max_active_scientific_jobs": 1,
+  "execution": "local_guarded_CPU4_saved_output_diagnostic",
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "actual_worker_PID_RSS_guard_required_before_science": true,
+  "repeat_PID_memory_probe_required": false,
+  "new_installation": 0,
+  "SSH_allowed": false,
+  "migration_content_tests": false,
+  "prior_stage_resource_receipt": "work/R29_SLICED_ENERGY_TRANSLATION_001/RESOURCE_RECEIPT.json",
+  "prior_stage_post_exit_report": "reviews/R29_SEAL_NATIVE_RECEIPT.json",
+  "R29_final_BA": {
+    "full_historical_shape": 0.992,
+    "full_voltage": 0.982,
+    "prompt_local": 0.966,
+    "postpeak_local": 0.962,
+    "tail_local": 0.972,
+    "baseline_local": 0.812,
+    "Q_PSD_2D": 0.644,
+    "normalized_u480": 0.992,
+    "seen_reconstruction480": 0.99,
+    "complement_reconstruction480": 0.978
+  },
+  "R29_final_comparison": {
+    "full_historical_shape": {
+      "BA_delta_first_minus_second": 0.02200000000000002,
+      "BA_delta_95CI": [
+        0.010127002190847195,
+        0.036349199191505414
+      ]
+    },
+    "full_voltage": {
+      "BA_delta_first_minus_second": 0.01200000000000001,
+      "BA_delta_95CI": [
+        0.0005119321821473623,
+        0.025017959507996193
+      ]
+    },
+    "prompt_local": {
+      "BA_delta_first_minus_second": 0.018000000000000016,
+      "BA_delta_95CI": [
+        -0.0020334809624536873,
+        0.04205802568524221
+      ]
+    },
+    "postpeak_local": {
+      "BA_delta_first_minus_second": -0.010000000000000009,
+      "BA_delta_95CI": [
+        -0.028280078546353955,
+        0.00776908214343727
+      ]
+    },
+    "tail_local": {
+      "BA_delta_first_minus_second": 0.0,
+      "BA_delta_95CI": [
+        -0.016002592041472682,
+        0.013922823076487149
+      ]
+    },
+    "baseline_local": {
+      "BA_delta_first_minus_second": -0.0040000000000000036,
+      "BA_delta_95CI": [
+        -0.04218086621962427,
+        0.03158570848908123
+      ]
+    },
+    "Q_PSD_2D": {
+      "BA_delta_first_minus_second": -0.02199999999999991,
+      "BA_delta_95CI": [
+        -0.05570553757835068,
+        0.00830090667135891
+      ]
+    },
+    "normalized_u480": {
+      "BA_delta_first_minus_second": 0.014000000000000012,
+      "BA_delta_95CI": [
+        0.0025648547254151404,
+        0.028224406499110826
+      ]
+    },
+    "seen_reconstruction480": {
+      "BA_delta_first_minus_second": 0.0,
+      "BA_delta_95CI": [
+        -0.006611341863736892,
+        0.008867529724655784
+      ]
+    },
+    "complement_reconstruction480": {
+      "BA_delta_first_minus_second": 0.0,
+      "BA_delta_95CI": [
+        -0.011975427167867042,
+        0.011917757341176415
+      ]
+    }
+  },
+  "R29_projection_summary": {
+    "shape480": {
+      "common_qualified_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "domains": {
+        "FRESH_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.37322591785088877,
+            "NEW_20261009271": 0.3653112958030559,
+            "NEW_20261009272": 0.348223309964723,
+            "NEW_20261009273": 0.34716108530125195,
+            "NEW_20261009274": 0.3794697986334284
+          },
+          "new_block_range": [
+            0.34716108530125195,
+            0.3794697986334284
+          ],
+          "new_block_mean": 0.3600413724256148,
+          "new_mean_divided_by_original": 0.9646740893526546
+        },
+        "FRESH_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.37386381127448215,
+            "NEW_20261009271": 0.3509547566418921,
+            "NEW_20261009272": 0.3644835338232116,
+            "NEW_20261009273": 0.34795705871451393,
+            "NEW_20261009274": 0.37442247235082776
+          },
+          "new_block_range": [
+            0.34795705871451393,
+            0.37442247235082776
+          ],
+          "new_block_mean": 0.35945445538261134,
+          "new_mean_divided_by_original": 0.9614582758284358
+        },
+        "ENERGY_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.40064657508727264,
+            "NEW_20261009271": 0.36270914357837636,
+            "NEW_20261009272": 0.3936231241828009,
+            "NEW_20261009273": 0.35638184688390295,
+            "NEW_20261009274": 0.38490934995277204
+          },
+          "new_block_range": [
+            0.35638184688390295,
+            0.3936231241828009
+          ],
+          "new_block_mean": 0.37440586614946303,
+          "new_mean_divided_by_original": 0.9345040977023362
+        },
+        "ENERGY_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.4385150940136646,
+            "NEW_20261009271": 0.39998973014106454,
+            "NEW_20261009272": 0.4550827145624666,
+            "NEW_20261009273": 0.4194368488137756,
+            "NEW_20261009274": 0.44622915405017494
+          },
+          "new_block_range": [
+            0.39998973014106454,
+            0.4550827145624666
+          ],
+          "new_block_mean": 0.4301846118918704,
+          "new_mean_divided_by_original": 0.9810029751871332
+        },
+        "TRAIN_REFERENCE": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.11122767436755969,
+            "NEW_20261009271": 0.11038718675806679,
+            "NEW_20261009272": 0.11034492739124614,
+            "NEW_20261009273": 0.11040814908096486,
+            "NEW_20261009274": 0.11162811200277291
+          },
+          "new_block_range": [
+            0.11034492739124614,
+            0.11162811200277291
+          ],
+          "new_block_mean": 0.11069209380826267,
+          "new_mean_divided_by_original": 0.9951848264171455
+        }
+      }
+    },
+    "diff479": {
+      "common_qualified_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "domains": {
+        "FRESH_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.21344720847545487,
+            "NEW_20261009271": 0.22543900158539484,
+            "NEW_20261009272": 0.21751763814109795,
+            "NEW_20261009273": 0.22199428951103875,
+            "NEW_20261009274": 0.21954906832020912
+          },
+          "new_block_range": [
+            0.21751763814109795,
+            0.22543900158539484
+          ],
+          "new_block_mean": 0.22112499938943517,
+          "new_mean_divided_by_original": 1.0359704442556024
+        },
+        "FRESH_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.24098679969001255,
+            "NEW_20261009271": 0.2445496521227506,
+            "NEW_20261009272": 0.2549224798343254,
+            "NEW_20261009273": 0.24492325705961296,
+            "NEW_20261009274": 0.2475097218957903
+          },
+          "new_block_range": [
+            0.2445496521227506,
+            0.2549224798343254
+          ],
+          "new_block_mean": 0.2479762777281198,
+          "new_mean_divided_by_original": 1.0290035721753141
+        },
+        "ENERGY_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.2519120796695747,
+            "NEW_20261009271": 0.26739590827970006,
+            "NEW_20261009272": 0.2720184425368986,
+            "NEW_20261009273": 0.25607218530456577,
+            "NEW_20261009274": 0.25662059374452173
+          },
+          "new_block_range": [
+            0.25607218530456577,
+            0.2720184425368986
+          ],
+          "new_block_mean": 0.2630267824664215,
+          "new_mean_divided_by_original": 1.0441213569886194
+        },
+        "ENERGY_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.3029706258443312,
+            "NEW_20261009271": 0.3321923627103061,
+            "NEW_20261009272": 0.31854037784436207,
+            "NEW_20261009273": 0.30124008283305825,
+            "NEW_20261009274": 0.303930587666272
+          },
+          "new_block_range": [
+            0.30124008283305825,
+            0.3321923627103061
+          ],
+          "new_block_mean": 0.3139758527634996,
+          "new_mean_divided_by_original": 1.0363244023690368
+        },
+        "TRAIN_REFERENCE": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.11925710016129498,
+            "NEW_20261009271": 0.1191638105025988,
+            "NEW_20261009272": 0.11650454835854587,
+            "NEW_20261009273": 0.11587488053171024,
+            "NEW_20261009274": 0.11668683896671052
+          },
+          "new_block_range": [
+            0.11587488053171024,
+            0.1191638105025988
+          ],
+          "new_block_mean": 0.11705751958989136,
+          "new_mean_divided_by_original": 0.9815559780639584
+        }
+      }
+    },
+    "baseline100_V": {
+      "common_qualified_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "domains": {
+        "FRESH_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.13630148213824125,
+            "NEW_20261009271": 0.13984227685879516,
+            "NEW_20261009272": 0.1396010049834411,
+            "NEW_20261009273": 0.1376650287129597,
+            "NEW_20261009274": 0.13622595569446874
+          },
+          "new_block_range": [
+            0.13622595569446874,
+            0.13984227685879516
+          ],
+          "new_block_mean": 0.13833356656241616,
+          "new_mean_divided_by_original": 1.0149087478162115
+        },
+        "FRESH_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.13649992318105414,
+            "NEW_20261009271": 0.13659204203858138,
+            "NEW_20261009272": 0.1422676880405629,
+            "NEW_20261009273": 0.13585379427655736,
+            "NEW_20261009274": 0.137844070719127
+          },
+          "new_block_range": [
+            0.13585379427655736,
+            0.1422676880405629
+          ],
+          "new_block_mean": 0.13813939876870715,
+          "new_mean_divided_by_original": 1.0120108169253577
+        },
+        "ENERGY_SELECTED": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.15051378210723274,
+            "NEW_20261009271": 0.15940063399030965,
+            "NEW_20261009272": 0.16045866982525792,
+            "NEW_20261009273": 0.16073859481240363,
+            "NEW_20261009274": 0.158104981020268
+          },
+          "new_block_range": [
+            0.158104981020268,
+            0.16073859481240363
+          ],
+          "new_block_mean": 0.1596757199120598,
+          "new_mean_divided_by_original": 1.0608710888568311
+        },
+        "ENERGY_FINAL": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.15734050781780692,
+            "NEW_20261009271": 0.16038108349262528,
+            "NEW_20261009272": 0.16877049075944786,
+            "NEW_20261009273": 0.16002303955103064,
+            "NEW_20261009274": 0.16625570422446717
+          },
+          "new_block_range": [
+            0.16002303955103064,
+            0.16877049075944786
+          ],
+          "new_block_mean": 0.16385757950689273,
+          "new_mean_divided_by_original": 1.0414201770381488
+        },
+        "TRAIN_REFERENCE": {
+          "equal_mean_on_common_bins": {
+            "ORIGINAL": 0.11259095065334102,
+            "NEW_20261009271": 0.11410387866018798,
+            "NEW_20261009272": 0.11494224598297968,
+            "NEW_20261009273": 0.11315274636095422,
+            "NEW_20261009274": 0.1145082744156433
+          },
+          "new_block_range": [
+            0.11315274636095422,
+            0.11494224598297968
+          ],
+          "new_block_mean": 0.1141767863549413,
+          "new_mean_divided_by_original": 1.0140849303820425
+        }
+      }
+    }
+  },
+  "new_EVAL": 0,
+  "new_CAL_waveform_decode": 0,
+  "new_G4": 0,
+  "new_long_waveform_decode": 0,
+  "project_goal_status": "active",
+  "scope_boundary": "Three predeclared feature transformations, no deployment claim or response training."
+}
