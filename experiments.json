@@ -860,13 +860,26 @@
     },
     {
       "id": "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
-      "status": "registered_for_executor",
+      "status": "sealed_loss_diagnostics_no_new_response_model",
       "task": "tasks/R25_LOSS_GEOMETRY_DIAGNOSTIC_001.md",
       "registration": "reviews/R25_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T12:12:24.088820+00:00",
       "reason": "R24 D5 retained the entire2950-step generator stream but again selected step0; its terminal response objective worsened while extra critic updates did not recover full response similarity. Diagnose the existing objective before another response fit: controlled REAL-TRAIN projected contraction under mixed versus homogeneous Q-bin minibatches, and weighted gradient interactions at three immutable saved G/reader/D states. No optimizer updates or coefficient scan.",
       "execution_location": "local",
       "new_response_fit_attempts_max": 0,
+      "project_goal_status": "active",
+      "receipt": "work/R25_LOSS_GEOMETRY_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R26_CONDITIONAL_BATCH_TRANSLATION_001.md"
+    },
+    {
+      "id": "R26_CONDITIONAL_BATCH_TRANSLATION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R26_CONDITIONAL_BATCH_TRANSLATION_001.md",
+      "registration": "reviews/R26_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T12:40:38.792322+00:00",
+      "reason": "R25 did not establish overall contraction preference or universal gradient cancellation. Its mixed-Q physical/coarse preference differs from homogeneous batches, while actual training mixes Q and validation is conditional. Test one fixed-row conditional-batch reorder with the unchanged R23 D1 loss recipe. Predeclare selected and final response endpoints, including the saved D1 final, so worse J20 is not substituted for a missing full-response comparison.",
+      "execution_location": "local",
+      "new_response_fit_attempts_max": 1,
       "project_goal_status": "active"
     }
   ]

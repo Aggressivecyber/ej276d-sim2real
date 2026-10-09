@@ -1,0 +1,114 @@
+{
+  "stage": "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
+  "registered_UTC": "2026-10-09T12:12:24.088820+00:00",
+  "deadline_UTC": "2026-10-09T13:02:24.088820+00:00",
+  "absolute_deadline_UTC": "2026-10-09T13:12:24.088820+00:00",
+  "science_budget": 600,
+  "RSS_limit_bytes": 4294967296,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "output_limit_bytes": 134217728,
+  "CPU_threads": 4,
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "GPU_python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+  "A": {
+    "groups": [
+      "physical",
+      "pooled_shape",
+      "shape480",
+      "diff479",
+      "baseline100_V"
+    ],
+    "c": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "repetitions": 256,
+    "batch": 32,
+    "seeds": {
+      "MIXED": 20261009251,
+      "HOMOGENEOUS": 20261009252
+    },
+    "quantiles": [
+      0.005,
+      0.995,
+      128
+    ],
+    "projection_dtype": "original Torch float32",
+    "means": "per-bin float64 accumulation, cast back float32 for original W1 controlled vectors",
+    "U": "cross- and within-domain diagonals excluded; float64 abs accumulation; negatives retained",
+    "CI": "normal 1.96 MC standard error conditional on fixed empirical TRAIN pool; homogeneous stratified equal8 means"
+  },
+  "B": {
+    "batches": 32,
+    "batch": 32,
+    "losses": [
+      "adversarial",
+      "content_NCE",
+      "identity",
+      "Q_relative",
+      "Q_rank",
+      "PSD_rank",
+      "domain_SW",
+      "positive_charge",
+      "fine",
+      "style_reconstruction"
+    ],
+    "weights": [
+      1.0,
+      1.0,
+      2.0,
+      0.5,
+      2.0,
+      5.0,
+      2.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "model_mode": "original train mode; no BN/Dropout/mutable training state; D frozen",
+    "direct_gradient_check": {
+      "batches_per_state": 1,
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "zero_norm_cosine": null,
+    "gradient_clip_reference": 5.0,
+    "source_forward_rows": 3072,
+    "identity_forward_rows": 3072,
+    "NCE_source_encoding_rows": 3072,
+    "NCE_target_encoding_rows": 3072,
+    "critic_forward_rows": 3072,
+    "reader_forward_rows": 3072
+  },
+  "R23_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001",
+  "R24_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R24_CRITIC_UPDATE_RATIO_001",
+  "G_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\GLOBAL_STYLE\\TRANSLATOR.pt",
+  "reader_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\GLOBAL_STYLE\\STYLE_READER.pt",
+  "D_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R18_UNPAIRED_WAVEFORM_TRANSLATION_001\\INITIAL_CRITIC.pt",
+  "original_loss_config": {
+    "loss_weights": {
+      "adversarial": 1.0,
+      "content_NCE": 1.0,
+      "identity": 2.0,
+      "Q_relative": 0.5,
+      "Q_rank": 2.0,
+      "PSD_rank": 5.0,
+      "domain_SW": 2.0,
+      "positive_charge": 1.0
+    },
+    "style_reconstruction_weight": 1.0,
+    "patches_per_layer": 12,
+    "NCE_temperature": 0.07
+  },
+  "no_optimizer_or_model_updates": true,
+  "DEV_waveforms": 0,
+  "EVAL": 0,
+  "CAL_waveforms": 0,
+  "new_G4": 0,
+  "SSH": 0,
+  "installation": 0,
+  "HGB": 0,
+  "EM": 0
+}
