@@ -1,0 +1,11 @@
+# R42 source-initialized flow, fixed registered recipe
+
+Authoritative immutable task and registration R42. Full480 input drives the ODE initial state; no previous G/reader/D or response checkpoint. New R36-body U-Net25-dimensional continuous-time/bin embedding, zero last layer, fixed seed20261010420; unique MSE2950 updates/newAdam(.9,.999)/clip5. No GAN/NCE/identity/PSD penalty/SW/J20 or checkpoint selection.
+
+q=sum100:400-3sum0:100. Shared REAL TRAIN per-bin unit-q mean (normalized to q=1), pointwise sample SD with max(.05medianSD,1e-6) floor. P(v)=v-mu*q(v); initial unit waveform SOURCE/q+P(.001*originalwhite/q). Actual field P(s*f)/s; arithmetic coordinates, projection and Heun state float64; network/weights float32. Final physical preADC cast float32 then original single14bit ADC. This precision implementation applies the same formulas, no final renormalization. Record float64 and actual float32 charge errors.
+
+Original94400 source/REAL/bin/ordinal/white/t stream reused; PSD stable ordered statistical one-to-one coupling within original Q subgroup (source raw unnoised keys), no particle or physical pair claim. z/style/NCE positions retained as unused audit. Source/target positive finite q mandatory. All2000 including417 outside support receive new flow with nearest-edge constant/bin only, no q/voltage clip/fallback.
+
+Before any DEV, first64 supported TRAIN source+first64 supported TRAIN REAL with original first128 white, fixed32 vs64 Heun; median<=.25LSB/p95<=1LSB and max preADC relativeq<=1e-5. Failure closes fixed solver, no step rescue. Local generation/replay chunk64 identical. Functional decomposition source/projected initial Gaussian/learned flow/cast residues is not physical electronics/signal independence.
+
+20HGB/16slots only for SOURCE2000 and newREAL2000; same frozen600/250/group/bootstrap definitions. Old BASE_REAL R39 and all references reused with0newfits, RAW2D paired unknown. First five common gates unchanged; gate6 new model/flow/formula/solver/q/replay/finite resources (oldG/J20/NCE/fresh checks not applicable). One recipe, no scans. Science2700/train900s,4threads/RSS+GPU4GiB/output512MiB, E/D local cache/temp. Stop00:41:07.309998UTC, root00:51:07. No EVAL/CAL/newREAL/G4/install/agents/Git/migration tests.

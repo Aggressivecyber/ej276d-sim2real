@@ -1,0 +1,204 @@
+{
+  "status": "closed_fixed_recipe_at_TRAIN_solver_prerequisite",
+  "training": {
+    "updates": 2950,
+    "actual_rows": 94400,
+    "training_s": 75.15286375600044,
+    "selection": "fixed final2950 only",
+    "new_model_no_pretrained_weights": true,
+    "white_used_z_style_NCE_unused": true,
+    "actual_unique_source_REAL": [
+      3752,
+      18739
+    ],
+    "loaded_source_REAL": [
+      6593,
+      21047
+    ],
+    "marginal_preservation_checks": 2950,
+    "max_path_q_residual": 9.020562075079397e-17,
+    "max_field_q_residual": 1.7520707107365752e-16,
+    "parameter_count": 1371841,
+    "GPU_peak_allocated_bytes": 341479936,
+    "network_training_forward_rows": 94400,
+    "artificial_zero_check_rows": 4,
+    "old_G_D_reader_forwards_updates": 0
+  },
+  "solver": {
+    "PID": 1592,
+    "UTC": "2026-10-09T23:22:35.150556+00:00",
+    "elapsed_s": 47.61915450001834,
+    "TRAIN_source_REAL_rows": [
+      64,
+      64
+    ],
+    "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+    "DEV_read_or_generated": 0,
+    "RMS_median_V": 0.00011926981802798191,
+    "RMS_p95_V": 0.0002923957342822376,
+    "LSB_V": 6.103888176768602e-05,
+    "RMS_median_LSB": 1.9539974287524278,
+    "RMS_p95_LSB": 4.790319314745899,
+    "median_limit_LSB": 0.25,
+    "p95_limit_LSB": 1.0,
+    "solver32": {
+      "field_calls": 128,
+      "field_forward_rows": 8192,
+      "max_relative_q_error_f64": 3.010957413022553e-16,
+      "max_relative_q_error_f32": 1.3355981774587658e-08,
+      "steps": 32,
+      "chunk": 64
+    },
+    "solver64": {
+      "field_calls": 256,
+      "field_forward_rows": 16384,
+      "max_relative_q_error_f64": 2.698432409130599e-16,
+      "max_relative_q_error_f32": 1.422257547945579e-08,
+      "steps": 64,
+      "chunk": 64
+    },
+    "pass": false,
+    "no_prefix_or_64step_candidate": true
+  },
+  "gate": {
+    "fixed_recipe": "new standalone fullSOURCE unit-charge convolutional neural flow,2950 updates,fixed32Heun",
+    "decision": "close_this_fixed_source_initialized_neural_flow_recipe",
+    "retain": false,
+    "scientific_distribution_effectiveness": "not_evaluated",
+    "thresholds_changed_after_results": false,
+    "no64step_rescue_or_prefix_candidate": true,
+    "no_general_flow_impossibility_claim": true,
+    "gate1_complete_response": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+    },
+    "gate2_PSD_width_centers_noise": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+    },
+    "gate3_source_preservation": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+    },
+    "gate4_boundary_source": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+    },
+    "gate5_same_treated_REAL_control": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+    },
+    "gate6_numerical_replay": {
+      "status": "fail",
+      "pass": false,
+      "TRAIN_fixed32_vs64_pass": false,
+      "TRAIN_check": {
+        "PID": 1592,
+        "UTC": "2026-10-09T23:22:35.150556+00:00",
+        "elapsed_s": 47.61915450001834,
+        "TRAIN_source_REAL_rows": [
+          64,
+          64
+        ],
+        "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+        "DEV_read_or_generated": 0,
+        "RMS_median_V": 0.00011926981802798191,
+        "RMS_p95_V": 0.0002923957342822376,
+        "LSB_V": 6.103888176768602e-05,
+        "RMS_median_LSB": 1.9539974287524278,
+        "RMS_p95_LSB": 4.790319314745899,
+        "median_limit_LSB": 0.25,
+        "p95_limit_LSB": 1.0,
+        "solver32": {
+          "field_calls": 128,
+          "field_forward_rows": 8192,
+          "max_relative_q_error_f64": 3.010957413022553e-16,
+          "max_relative_q_error_f32": 1.3355981774587658e-08,
+          "steps": 32,
+          "chunk": 64
+        },
+        "solver64": {
+          "field_calls": 256,
+          "field_forward_rows": 16384,
+          "max_relative_q_error_f64": 2.698432409130599e-16,
+          "max_relative_q_error_f32": 1.422257547945579e-08,
+          "steps": 64,
+          "chunk": 64
+        },
+        "pass": false,
+        "no_prefix_or_64step_candidate": true
+      },
+      "charge_error_itself_pass": true,
+      "training_complete": true,
+      "seven_audit_streams_match": {
+        "source": true,
+        "target": true,
+        "bin": true,
+        "original_row_ordinal": true,
+        "z_white": true,
+        "style": true,
+        "t": true
+      },
+      "original_target_marginals_preserved": true,
+      "independent_main4000_replay": "not_executed_after_prerequisite_failure",
+      "not_applicable": [
+        "old G initialization equivalence",
+        "D/reader",
+        "J20",
+        "PatchNCE",
+        "fresh projections",
+        "style"
+      ],
+      "actual_QA_and_resource_recorded": true
+    }
+  },
+  "counters": {
+    "velocity_models_fitted": 1,
+    "velocity_updates": 2950,
+    "training_rows_each_domain": 94400,
+    "TRAIN_solver_input_rows": 128,
+    "TRAIN_solver32_solution_rows": 128,
+    "TRAIN_solver64_numeric_reference_rows": 128,
+    "TRAIN_solver_field_forward_rows": 24576,
+    "network_zero_field_artificial_rows": 4,
+    "total_network_forward_rows_including_training_check_and_zero": 118980,
+    "DEV_waveform_scientific_decodes": 0,
+    "DEV_main_generation": 0,
+    "REAL_reference_control_generation": 0,
+    "joint_probe_extra_generation": 0,
+    "HGB": 0,
+    "EM": 0,
+    "density_slots": 0,
+    "main_replay": 0,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4_REAL_longwave_read": 0,
+    "additional_solver_calls_in_figures_or_seal": 0
+  },
+  "figures": {
+    "TRAIN_coordinates_charge.png": {
+      "bytes": 184026,
+      "sha256": "f12be7e76f73c8b9f9a540cfeb5d6675b2fe47cec3273fcb8f90eb89b892d3c8"
+    },
+    "TRAIN_solver32_vs64.png": {
+      "bytes": 92998,
+      "sha256": "f962519c60a4004175430256c419590a125962a608d1b75b4923453efb18535c"
+    },
+    "TRAIN_solver_waveform_examples.png": {
+      "bytes": 277131,
+      "sha256": "ab402e456d82eaa39473d232f051bc21bd1dc31450729975d7621586836ab490"
+    },
+    "training_source_neural_flow.png": {
+      "bytes": 276202,
+      "sha256": "d00ca52a343dff3778d6165d0c3db700827a14e1a235a45b1da78ceaebc0768f"
+    }
+  },
+  "privacy": "aggregate only; exact random streams/TRAIN rows/weights remain in local artifacts",
+  "source_labels_or_distribution_performance_not_inferred": true,
+  "64step_not_a_DEV_candidate": true
+}

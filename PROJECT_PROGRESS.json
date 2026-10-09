@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T23:16:10.708559+00:00",
+  "updated_UTC": "2026-10-09T23:32:56.014942+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R41_PATCH_CONTENT_ABLATION_001",
-  "current_stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
-  "current_task": "tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md",
+  "latest_completed_stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
+  "current_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+  "current_task": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -55,26 +55,25 @@
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R41_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R42_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R41_REPORT.md",
-        "reviews/ROOT_R41_KEY_RESULT_REVIEW_001.json"
+        "R42_REPORT.md"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R41 removes PatchNCE correctly and passes source/REAL-control/numerical gates, but complete shape, conditional peak/width/noise and one temporal boundary fail. Close that fixed ablation without other-loss rescue. Test one standalone source-initialized charge-preserving convolutional neural flow, using full480 SOURCE plus projected original white noise, common REAL-TRAIN unit-charge coordinates and a tangent velocity field. No old generator or pretrained response weights. One fixed2950 recipe with PSD-ordered within-Q statistical coupling and fixed32 Heun endpoint. This is a route-level comparison, not a causal isolation of architecture, representation, initialization and objective. All five scientific gates stay unchanged.",
+  "current_direction": "R42 is closed before DEV because the fixed32/64 TRAIN error is median1.953997/p954.790319 LSB. Source inspection proves periodic time-feature aliasing on j/32 nodes, but does not prove dominant error causation. One bounded intervention uses only scalar t, with16 zero time slots preserving all parameter shapes. Keep the same seed procedure, input/white/t/coupling, common TRAIN constants, loss,2950updates and32Heun. Only if the original TRAIN numeric gate passes, evaluate the original five scientific gates and replay. R42 remains sealed; no frequency, time-scale, solver, step-count or further time-encoding sweep.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R42_executor_implementation_and_server_preflight",
+  "current_activity": "R43_executor_preparing_registered_scalar_time_intervention",
   "latest_user_steering": "重写目标 推进",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "execution_location": "same_server_unique_neural_training_then_local_CPU4_generation_evaluation_replay",
   "current_task_addendum": null,
-  "latest_response_model_stage": "R41_PATCH_CONTENT_ABLATION_001",
+  "latest_response_model_stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "current_engineering_addendum": null,
   "latest_diagnostic_stage": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
   "latest_diagnostic_conclusion": "close_domain_specific_moment_C2ST_causal_attribution_route",
-  "latest_response_conclusion": "close_this_fixed_no_PatchNCE_recipe"
+  "latest_response_conclusion": "close_this_fixed_source_initialized_neural_flow_recipe"
 }

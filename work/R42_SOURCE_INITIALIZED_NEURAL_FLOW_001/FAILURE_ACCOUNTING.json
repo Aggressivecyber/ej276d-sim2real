@@ -1,0 +1,65 @@
+{
+  "scientific_native_failures": 0,
+  "scientific_result_failure": "fixed32 TRAIN solver accuracy",
+  "control_native_failures": [
+    {
+      "tool": "1c7620",
+      "native_exit": 1,
+      "cause": "source-only Get-Content of nonexistent R41 finalize.py; actual filename later found seal_stage.py",
+      "native_PID": "unknown in original tool output",
+      "scientific_computation": 0,
+      "data_mutation": 0,
+      "original_failure_preserved": true
+    }
+  ],
+  "RSS_query_gaps": [
+    {
+      "entry": "train_server.py",
+      "count": 2,
+      "events": [
+        {
+          "UTC": "2026-10-09T23:19:45.054094+00:00",
+          "PID": 86767,
+          "poll": null,
+          "context": "actual_PID_query"
+        },
+        {
+          "UTC": "2026-10-09T23:19:45.154403+00:00",
+          "PID": 86767,
+          "poll": null,
+          "context": "actual_PID_query"
+        }
+      ]
+    }
+  ],
+  "RSS_query_gap_cause": "unknown; temporal proximity to exit is not proof",
+  "no_training_or_check_retries": true,
+  "no_64step_rescue": true,
+  "unused_prepared_pipeline": {
+    "files": [
+      "generate_all.py",
+      "evaluate_saved.py",
+      "replay_all.py",
+      "summarize_and_plot.py"
+    ],
+    "status": "prepared/AST only; not scientifically executed or validated on this model",
+    "budget_cost": "ordinary source/control writes, not scientific generation"
+  },
+  "semantic_corrections": {
+    "frozen_remote_training_sources_preserved": true,
+    "flow_applied": "compatibility field = inside original TRAIN Q support; NOT whether flow was executed",
+    "neural_flow_applied_all_rows": "authoritative execution flag; true for all rows including417 support-outside SOURCE",
+    "white_prefix": "TRAIN32/64 uses first128 consumed-row white via ordinal[:128]; original noise-generation ordinal saved",
+    "formula_check_field_projection_preserves_gradients": "static differentiable Torch construction; not a separately executed autograd verification",
+    "functional_components": {
+      "base_signal": "actual SOURCE",
+      "base_electronic": "projected1mV initial Gaussian, not electronics",
+      "base_sum_rounding": "float32 initial sum residue",
+      "flow_increment_f64": "actual f32 final minus f32 initial, functional only",
+      "learned_flow_increment_f64_V": "float64 ODE change; depends on initial random perturbation",
+      "final_cast_rounding_f64_V": "final float32 minus float64 ODE output"
+    },
+    "physical_signal_electronic_independence": false
+  },
+  "frozen_remote_sources_not_rewritten": true
+}

@@ -1,0 +1,112 @@
+{
+  "stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
+  "recorded_UTC": "2026-10-09T23:19:42.305726+00:00",
+  "actual_start_tool": "fd82fb",
+  "actual_start_session": 20521,
+  "reported_remote_worker_PID": 86767,
+  "observed_local_start": {
+    "local_launch_PID": 52176,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T23:18:29.329466+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R42_REMOTE_20261009_231107_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 37152,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 86766,
+      "start_UTC": "2026-10-09T23:18:29.462931+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 86767,
+      "actual_worker_RSS_peak_bytes": 12869632,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 86767,
+      "actual_worker_parent_PID": 86766
+    }
+  },
+  "preflight": {
+    "PID": 86395,
+    "UTC": "2026-10-09T23:17:46.788799+00:00",
+    "python_path": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070",
+    "own_project_jobs": [],
+    "CPU_N": 16,
+    "MemAvailable": "60964464 kB",
+    "disk_free_bytes": 26522066944,
+    "gpu_query_exit": 0,
+    "gpu_resource": "NVIDIA GeForce RTX 5070, 12227 MiB, 242 MiB, 0 %",
+    "new_remote_leaf_exists": false,
+    "check_elapsed_s": 0.7769177059999492,
+    "new_response_operations": 0,
+    "R33_environment_exact_fields_match": {
+      "python": true,
+      "numpy": true,
+      "torch": true,
+      "scipy": true,
+      "device": true,
+      "GPU": true
+    }
+  },
+  "pretrain_freeze": {
+    "UTC": "2026-10-09T23:18:11.533119+00:00",
+    "source_bindings": {
+      "train_server.py": {
+        "bytes": 11476,
+        "sha256": "1fec73bdd7231eb30596fc36dee8e58c78b309536f50e34b7c68152de48564e6"
+      },
+      "source_flow_core.py": {
+        "bytes": 4549,
+        "sha256": "a840ce52ea19cd7e7e02f7ff1c78d017625001c17c8330244a49ff5be121a7cc"
+      },
+      "network.py": {
+        "bytes": 2943,
+        "sha256": "e890e44a70a36561c75f65f75ee2eec5c142c8443e143f91c78b28a6a5a3f079"
+      },
+      "psd_order_core.py": {
+        "bytes": 3452,
+        "sha256": "7d7948e3bfaa0c6b364f265fd512f7f5bcf8374bb1a1ae57b5d68ad98b31ea20"
+      },
+      "reorder_core.py": {
+        "bytes": 2643,
+        "sha256": "c47ecc05ad9df12147a5a5a71c23763ef4a8c6ee813cb6d50c622a9042bee232"
+      },
+      "linux_supervise.py": {
+        "bytes": 5694,
+        "sha256": "9b3ab13a3d228952198e4b9066fc306bcd192083f22d4b22ebf61cc9112da686"
+      },
+      "linux_owned_worker.py": {
+        "bytes": 1535,
+        "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a"
+      },
+      "remote_config.json": {
+        "bytes": 7062,
+        "sha256": "6d8ab17165eb75c6fa3b208fb14e018df8587b9bf6490b9f8e150c09802440ec"
+      },
+      "PROTOCOL.md": {
+        "bytes": 2278,
+        "sha256": "dc74537aafbe876bfabbad41f6ecc742585ba1c442d5431989d74eefb071cc3e"
+      }
+    },
+    "existing_inputs_not_rehashed_for_migration": true,
+    "fixed_recipe": true
+  },
+  "inference_precision": "float64 coordinates/projection/Heun with float32 NN; registered formula unchanged",
+  "key_static_review": "FullSOURCE initialization, single common TRAIN constants, tangent velocity, same original row/white/t binding, new R36-body U-Net embedding25 and one MSE objective. Compatibility flow_applied is support mask; allrows field carries actual execution."
+}

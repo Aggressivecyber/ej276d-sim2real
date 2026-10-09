@@ -1131,7 +1131,7 @@
     },
     {
       "id": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_numeric_failure_before_DEV",
       "task": "tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md",
       "registration": "reviews/R42_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T23:11:07.309998+00:00",
@@ -1145,6 +1145,23 @@
         "R36_CONDITIONAL_DIFFUSION_EDIT_001"
       ],
       "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R42_KEY_RESULT_REVIEW_001.json",
+      "next_task": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md"
+    },
+    {
+      "id": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md",
+      "registration": "reviews/R43_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T23:31:31.265601+00:00",
+      "scientific_question": "R42 is closed before DEV because the fixed32/64 TRAIN error is median1.953997/p954.790319 LSB. Source inspection proves periodic time-feature aliasing on j/32 nodes, but does not prove dominant error causation. One bounded intervention uses only scalar t, with16 zero time slots preserving all parameter shapes. Keep the same seed procedure, input/white/t/coupling, common TRAIN constants, loss,2950updates and32Heun. Only if the original TRAIN numeric gate passes, evaluate the original five scientific gates and replay. R42 remains sealed; no frequency, time-scale, solver, step-count or further time-encoding sweep.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 20,
+      "science_budget_s": 2700,
+      "parent_stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
+      "DEV_used_for": "only_if_same_TRAIN_numeric_gate_passes; fixed endpoint no tuning",
       "EVAL_access": false
     }
   ]

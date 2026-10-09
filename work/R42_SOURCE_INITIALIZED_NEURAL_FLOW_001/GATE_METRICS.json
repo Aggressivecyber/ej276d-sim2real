@@ -1,0 +1,97 @@
+{
+  "fixed_recipe": "new standalone fullSOURCE unit-charge convolutional neural flow,2950 updates,fixed32Heun",
+  "decision": "close_this_fixed_source_initialized_neural_flow_recipe",
+  "retain": false,
+  "scientific_distribution_effectiveness": "not_evaluated",
+  "thresholds_changed_after_results": false,
+  "no64step_rescue_or_prefix_candidate": true,
+  "no_general_flow_impossibility_claim": true,
+  "gate1_complete_response": {
+    "status": "not_evaluated",
+    "pass": null,
+    "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+  },
+  "gate2_PSD_width_centers_noise": {
+    "status": "not_evaluated",
+    "pass": null,
+    "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+  },
+  "gate3_source_preservation": {
+    "status": "not_evaluated",
+    "pass": null,
+    "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+  },
+  "gate4_boundary_source": {
+    "status": "not_evaluated",
+    "pass": null,
+    "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+  },
+  "gate5_same_treated_REAL_control": {
+    "status": "not_evaluated",
+    "pass": null,
+    "reason": "fixed TRAIN32/64 solver prerequisite failed before DEV"
+  },
+  "gate6_numerical_replay": {
+    "status": "fail",
+    "pass": false,
+    "TRAIN_fixed32_vs64_pass": false,
+    "TRAIN_check": {
+      "PID": 1592,
+      "UTC": "2026-10-09T23:22:35.150556+00:00",
+      "elapsed_s": 47.61915450001834,
+      "TRAIN_source_REAL_rows": [
+        64,
+        64
+      ],
+      "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+      "DEV_read_or_generated": 0,
+      "RMS_median_V": 0.00011926981802798191,
+      "RMS_p95_V": 0.0002923957342822376,
+      "LSB_V": 6.103888176768602e-05,
+      "RMS_median_LSB": 1.9539974287524278,
+      "RMS_p95_LSB": 4.790319314745899,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "solver32": {
+        "field_calls": 128,
+        "field_forward_rows": 8192,
+        "max_relative_q_error_f64": 3.010957413022553e-16,
+        "max_relative_q_error_f32": 1.3355981774587658e-08,
+        "steps": 32,
+        "chunk": 64
+      },
+      "solver64": {
+        "field_calls": 256,
+        "field_forward_rows": 16384,
+        "max_relative_q_error_f64": 2.698432409130599e-16,
+        "max_relative_q_error_f32": 1.422257547945579e-08,
+        "steps": 64,
+        "chunk": 64
+      },
+      "pass": false,
+      "no_prefix_or_64step_candidate": true
+    },
+    "charge_error_itself_pass": true,
+    "training_complete": true,
+    "seven_audit_streams_match": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "z_white": true,
+      "style": true,
+      "t": true
+    },
+    "original_target_marginals_preserved": true,
+    "independent_main4000_replay": "not_executed_after_prerequisite_failure",
+    "not_applicable": [
+      "old G initialization equivalence",
+      "D/reader",
+      "J20",
+      "PatchNCE",
+      "fresh projections",
+      "style"
+    ],
+    "actual_QA_and_resource_recorded": true
+  }
+}
