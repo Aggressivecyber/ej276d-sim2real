@@ -1,0 +1,45 @@
+{
+  "failures": [
+    {
+      "phase": "GMM parameter validation",
+      "worker_PID": 177775,
+      "first_worker_native_exit": 0,
+      "first_supervisor_native_exit": 1,
+      "launch_tool": "f8d4dc",
+      "terminal_tool": "d24951",
+      "error": "InvalidParameterError(\"The 'random_state' parameter of GaussianMixture must be an int in the range [0, 4294967295], an instance of 'numpy.random.mtrand.RandomState' or None. Got 20261009161 instead.\")",
+      "GMM_initialization_or_EM_before_failure": 0,
+      "cost_in_first_remote_receipt": true,
+      "repair": "one registered full-seed SeedSequence to MT19937 RandomState adapter; no scientific GMM retry"
+    },
+    {
+      "phase": "first combined replay",
+      "worker_PID": 178005,
+      "native_exit": 1,
+      "Gaussian2000_passed": true,
+      "GMM_rows": 0,
+      "reason": "GMM unavailable after parameter-validation failure",
+      "elapsed_s": 1.8047978360045818,
+      "original_receipt_preserved": true
+    },
+    {
+      "phase": "local diagnostic plot import",
+      "tool": "26edfc",
+      "terminal_tool": "8c16be",
+      "session_id": 71148,
+      "native_exit": 1,
+      "PID": null,
+      "error": "ModuleNotFoundError: No module named 'psutil'",
+      "scientific_payload_opened": false,
+      "fits": 0,
+      "exact_native_elapsed_s": null,
+      "initial_tool_wait_s": 10.0060492,
+      "conservative_budget_reserve_s": 120.0,
+      "repair": "removed optional unavailable RSS observer; no installation, local graph RSS remains unknown"
+    }
+  ],
+  "all_original_remote_logs_and_failed_receipts_preserved": true,
+  "failed_local_source_before_fix_snapshot_available": false,
+  "current_plot_source_is_repaired_version": true,
+  "additional_fits_due_to_plot_repair": 0
+}

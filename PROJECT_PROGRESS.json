@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T05:43:25.276578+00:00",
+  "updated_UTC": "2026-10-09T06:26:09.281240+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R15_CONDITIONAL_RESIDUAL_FLOW_001",
-  "current_stage": "R16_HEAD_LATENT_BASE_001",
-  "current_task": "tasks/R16_HEAD_LATENT_BASE_001.md",
+  "latest_completed_stage": "R16_HEAD_LATENT_BASE_001",
+  "current_stage": "R17_CONDITIONAL_PSD_HEAD_FINETUNE_001",
+  "current_task": "tasks/R17_CONDITIONAL_PSD_HEAD_FINETUNE_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,7 +13,7 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R15_shape_BA_0.902_voltage0.950_tail0.930"
+      "status": "unmet_R16_all_bases_PSD_conditional_bands_and_full_response"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -21,7 +21,7 @@
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "baseline_improved_time_tail_and_two_band_structure_unmet"
+      "status": "PSD_priority_R16_residual_perturbation_small_head_distribution_unresolved"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R15_2000_draws_replay_passed_final_model_not_selected"
+      "status": "R16_new4000_draws_replay_passed_final_model_not_accepted"
     },
     {
       "id": "final_research_delivery",
@@ -41,8 +41,10 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R15 improves residual likelihood and baseline noise, but time-tail BA stays0.930 and charge-PSD bands remain unresolved. Test the frozen head latent base with one Gaussian and one K8 GMM, adding head and Q-PSD diagnostics while fixing the conditional kernel.",
+  "current_direction": "User prioritizes PSD. R16 latent-base correction does not restore charge-conditioned bands; head-only/full PSD differences are small. Test an explicit conditional CDF/occupancy training loss in two matched head-only fine-tunes, freezing the selected GMM8 base and R15 kernel.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R16_registered_after_R15_seal",
-  "latest_user_steering": "Increase number of training waveforms; unchanged val and DEV."
+  "current_activity": "R17_registered_after_R16_seal",
+  "latest_user_steering": "波形看起来和已经和实测接近了 接下来重点解决psd问题 为什么波形的psd效果变差很多",
+  "current_priority": "PSD_mismatch_cause_and_charge_conditioned_two_band_recovery",
+  "latest_user_steering_receipt": "reviews/PSD_PRIORITY_20261009_001.json"
 }

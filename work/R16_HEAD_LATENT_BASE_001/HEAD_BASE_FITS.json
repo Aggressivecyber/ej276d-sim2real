@@ -1,0 +1,19 @@
+{
+  "GAUSSIAN": {
+    "status": "complete",
+    "eligible": true,
+    "TRAIN_N": 21047,
+    "denominator": 21047,
+    "diagonal_addition": 1e-06,
+    "shrinkage": false,
+    "min_covariance_eigenvalue": 0.8218291292581967,
+    "elapsed_s": 0.0025615909980842844
+  },
+  "GMM8": {
+    "status": "failed",
+    "eligible": false,
+    "error": "InvalidParameterError(\"The 'random_state' parameter of GaussianMixture must be an int in the range [0, 4294967295], an instance of 'numpy.random.mtrand.RandomState' or None. Got 20261009161 instead.\")",
+    "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258/numeric_worker.py\", line 109, in run\n    p,row=hb.fit_gaussian(tz) if name=='GAUSSIAN' else hb.fit_gmm(tz,CFG);params[name]=p;fits[name]=row;np.savez_compressed(ROOT/(name+'_BASE.npz'),**p)\n                                                       ^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258/head_base.py\", line 35, in fit_gmm\n    with warnings.catch_warnings(record=True) as caught:g.fit(z)\n                                                        ^^^^^^^^\n  File \"/home/rylan/.local/lib/python3.12/site-packages/sklearn/mixture/_base.py\", line 199, in fit\n    self.fit_predict(X, y)\n  File \"/home/rylan/.local/lib/python3.12/site-packages/sklearn/base.py\", line 1329, in wrapper\n    estimator._validate_params()\n  File \"/home/rylan/.local/lib/python3.12/site-packages/sklearn/base.py\", line 492, in _validate_params\n    validate_parameter_constraints(\n  File \"/home/rylan/.local/lib/python3.12/site-packages/sklearn/utils/_param_validation.py\", line 98, in validate_parameter_constraints\n    raise InvalidParameterError(\nsklearn.utils._param_validation.InvalidParameterError: The 'random_state' parameter of GaussianMixture must be an int in the range [0, 4294967295], an instance of 'numpy.random.mtrand.RandomState' or None. Got 20261009161 instead.\n",
+    "elapsed_s": 0.0031302139977924526
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "argv": [
+      "ssh",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "test ! -e /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258 && mkdir -p /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258"
+    ],
+    "PID": 37716,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T05:59:59.860051+00:00"
+  },
+  {
+    "argv": [
+      "scp",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R16_HEAD_LATENT_BASE_001\\UPLOAD.tar",
+      "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258/UPLOAD.tar"
+    ],
+    "PID": 23600,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T06:00:00.280003+00:00"
+  },
+  {
+    "argv": [
+      "ssh",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "cd /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R16_REMOTE_20261009_054258 && tar -xf UPLOAD.tar && test -f numeric_worker.py && test -f residual_flow.py && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/TRAIN_ADDITION.npz && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/FLOW_EXPOSURES.pt && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/TAIL_EXPOSURES.pt && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609/RESIDUAL_FLOW.pt"
+    ],
+    "PID": 16312,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T06:00:00.608397+00:00"
+  }
+]
