@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R25完成固定TRAIN收缩与保存模型梯度诊断，未证明整体收缩或全面抵消，没有新响应模型。R26用相同训练行检验电荷条件批次，并补齐预指定末点的完整响应比较。见[R25结论](R25_REPORT.md)、[R26任务](tasks/R26_CONDITIONAL_BATCH_TRANSLATION_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R26同区批次改善部分PSD宽度与局部波形，完整响应仍高度可分，末点基线ACF出现退化。6000独立回放通过，工程恢复的重复费用保留。R27只诊断固定时间投影覆盖和保存分量。见[R26结论](R26_REPORT.md)、[R27任务](tasks/R27_FIXED_PROJECTION_COVERAGE_DIAGNOSTIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

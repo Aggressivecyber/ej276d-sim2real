@@ -1,0 +1,17 @@
+{
+  "PID": 61572,
+  "error": "KeyError('SOURCE_CLEAN')",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\evaluate_endpoints.py\", line 114, in <module>\n    try:run()\n        ~~~^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\evaluate_endpoints.py\", line 103, in run\n    ns,nd=ev.characterize(domains,ref);stats=ns;distance=nd;psd=common.psd_metrics(domains);width=widths(domains,old,alias);selection=json.loads((ROOT/'EVALUATOR_SELECTIONS_PRIVATE.json').read_text('utf8'));cs=c2st(domains,rr,selection,old,alias)\n                                                                                                                                                                                                                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\evaluate_endpoints.py\", line 32, in c2st\n    result={'STANDARDIZED':old['C2ST']['results']['STANDARDIZED'],'SOURCE_CLEAN':old['C2ST']['results']['SOURCE_CLEAN']};pred={};private={};pair={};finalpair={}\n                                                                                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\nKeyError: 'SOURCE_CLEAN'\n",
+  "elapsed_s": 14.597803800017573,
+  "counters": {
+    "HGB_attempts": 0,
+    "density_description_slots": 24,
+    "density_EM_attempts": 22,
+    "main_generation_rows": 6000,
+    "repeat_noise_rows": 3072,
+    "source_probe_rows": 2496,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "response_updates": 0
+  }
+}
