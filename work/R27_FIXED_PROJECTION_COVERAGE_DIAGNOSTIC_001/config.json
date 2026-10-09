@@ -1,0 +1,136 @@
+{
+  "stage": "R27_FIXED_PROJECTION_COVERAGE_DIAGNOSTIC_001",
+  "registered_UTC": "2026-10-09T13:30:26.408171+00:00",
+  "deadline_UTC": "2026-10-09T14:20:26.408171+00:00",
+  "absolute_deadline_UTC": "2026-10-09T14:30:26.408171+00:00",
+  "science_budget": 600,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "output_limit_bytes": 134217728,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "HGB_max_fits": 15,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "C2ST_views": [
+    "normalized_u480",
+    "seen_reconstruction480",
+    "complement_reconstruction480"
+  ],
+  "candidates": [
+    "R23_D1_SELECTED",
+    "HOMO_SELECTED",
+    "HOMO_FINAL",
+    "R23_D1_FINAL2950"
+  ],
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "minimum_classification_support": [
+    150,
+    75
+  ],
+  "condition_support_min": 40,
+  "edges_logQ": [
+    7.071309847742635,
+    7.354357548030852,
+    7.6374052483190695,
+    7.920452948607288,
+    8.203500648895506,
+    8.486548349183723,
+    8.769596049471941,
+    9.052643749760158,
+    9.335691450048376
+  ],
+  "last_edge_inclusive": true,
+  "rank_relative_threshold": 1e-10,
+  "normalization_peak_floor_V": 0.0025,
+  "new_projection_seeds": [
+    20261009271,
+    20261009272,
+    20261009273,
+    20261009274
+  ],
+  "projection_draw_order": [
+    "shape480",
+    "diff479",
+    "baseline100_V"
+  ],
+  "projection_columns": 128,
+  "quantile_levels": {
+    "first": 0.005,
+    "last": 0.995,
+    "count": 128,
+    "method": "linear"
+  },
+  "new_projection_dtype": "float64",
+  "old_projection_dtype": "original saved float32 promoted to float64",
+  "linear_span_columns": [
+    "scaled_shape128",
+    "scaled_diff128",
+    "pooled8_32",
+    "first100_coordinate_basis",
+    "charge_short_indicator",
+    "charge_total_indicator"
+  ],
+  "joint_sample_variance_ddof": 1,
+  "joint_repeats": 8,
+  "branch_gates": {
+    "all": [
+      0,
+      480
+    ],
+    "baseline": [
+      0,
+      100
+    ],
+    "prompt": [
+      100,
+      150
+    ],
+    "postpeak": [
+      150,
+      220
+    ],
+    "tail": [
+      220,
+      400
+    ]
+  },
+  "inputs": {
+    "generated": {
+      "R23_D1_SELECTED": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\generated.npz",
+      "HOMO_SELECTED": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMO_SELECTED\\generated.npz",
+      "HOMO_FINAL": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMO_FINAL\\generated.npz",
+      "R23_D1_FINAL2950": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\R23_D1_FINAL2950\\generated.npz"
+    },
+    "joint": {
+      "R23_D1_SELECTED": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\results\\STANDARDIZED_joint8_REPEAT_PRIVATE.npz",
+      "HOMO_SELECTED": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\results\\HOMO_SELECTED_joint8_REPEAT_PRIVATE.npz",
+      "HOMO_FINAL": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\results\\HOMO_FINAL_joint8_REPEAT_PRIVATE.npz",
+      "R23_D1_FINAL2950": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\results\\R23_D1_FINAL2950_joint8_REPEAT_PRIVATE.npz"
+    },
+    "real": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\REAL_DEV_AND_REFERENCE_PRIVATE.npz",
+    "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\ACTUAL_GENERATION_INPUTS.npz",
+    "source_metadata": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\DEV_SOURCE_METADATA.npz",
+    "fine_constants": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\FINE_CONSTANTS.npz",
+    "pooled_constants": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\VALIDATION_INPUTS.npz",
+    "classification_rows": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\results\\C2ST_PRIVATE.npz",
+    "old_metrics_compact": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\METRICS_COMPACT.json",
+    "R26_manifest": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\FINAL_MANIFEST.json",
+    "R23_manifest": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\FINAL_MANIFEST.json"
+  },
+  "response_fit_updates_generation": 0,
+  "density_EM": 0,
+  "EVAL_read": 0,
+  "CAL_waveform_decode": 0,
+  "SSH": 0,
+  "installations": 0
+}
