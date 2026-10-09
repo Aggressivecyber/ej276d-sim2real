@@ -1057,7 +1057,7 @@
     },
     {
       "id": "R38_SLICED_MONOTONE_TRANSPORT_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_sliced_recipe_closed_noise_peak_source_boundary_failure",
       "task": "tasks/R38_SLICED_MONOTONE_TRANSPORT_001.md",
       "registration": "reviews/R38_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T21:17:06.331729+00:00",
@@ -1068,6 +1068,23 @@
       "science_budget_s": 1800,
       "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
       "motivation_stage": "R37_FULL_COVARIANCE_CALIBRATION_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R38_SLICED_MONOTONE_TRANSPORT_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md"
+    },
+    {
+      "id": "R39_FULL_JOINT_KERNEL_TRANSLATION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md",
+      "registration": "reviews/R39_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T21:44:32.204052+00:00",
+      "scientific_question": "R38 improves marginal PSD and complete-shape C2ST, but fails high peak center, density support, baseline noise, source-group valleys and five temporal boundaries. Close all variants of its fixed sliced recipe. Return to full source-driven neural training and test one joint Gaussian-kernel discrepancy in place of sliced fine quantile loss, with original content/rank/noise architecture and matched R32 initialization/update stream. One TRAIN-only initial output-gradient scale; original BASE and new G both receive the same REAL-reference control.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 30,
+      "science_budget_s": 1800,
+      "parent_stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
+      "motivation_stage": "R38_SLICED_MONOTONE_TRANSPORT_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }

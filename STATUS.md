@@ -1,3 +1,9 @@
+# 当前入口：R38切片配方关闭，R39检验完整源神经训练的联合核损失
+
+R38的PSD与完整分类改善，但噪声、峰位、源组和边界未共同通过。R39保留原源内容约束和数据流，只检验一次联合Gaussian-MMD神经训练，并加入BASE与候选同处理REAL控制。完整项目仍active。
+
+[R38根报告](R38_REPORT.md) · [交付索引](R38_DELIVERY_INDEX.json) · [R39任务](tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md) · [项目目标](PROJECT_OBJECTIVE.md)。以下保留历史入口。
+
 # 当前入口：R37固定协方差配方关闭，R38检验切片单调分布变换
 
 R37完整形状与条件相关结构改善，但峰形、噪声和源组未保住。R38从原冻结源神经G出发，固定预算拟合一次TRAIN非线性切片分布变换。完整响应尚未验收，项目active。
