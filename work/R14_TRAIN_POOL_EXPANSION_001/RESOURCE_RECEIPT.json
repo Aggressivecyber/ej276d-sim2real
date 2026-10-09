@@ -1,0 +1,146 @@
+{
+  "stage": "R14",
+  "UTC": "2026-10-09T05:12:07.331559+00:00",
+  "closure_PID": 61752,
+  "deadline_UTC": "2026-10-09T06:01:29.425185+00:00",
+  "numeric_cumulative_s": 200.64550399299333,
+  "numeric_cap_s": 2400,
+  "history": [
+    {
+      "entry": "extract_train.py",
+      "supervisor_PID": 166198,
+      "worker_PID": 166199,
+      "start_UTC": "2026-10-09T04:58:35.624612+00:00",
+      "allowed_s": 600,
+      "RSS_peak_bytes": 219852800,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T04:58:56.447799+00:00",
+      "elapsed_s": 20.823583904995758
+    },
+    {
+      "entry": "numeric_worker.py",
+      "supervisor_PID": 166198,
+      "worker_PID": 166266,
+      "start_UTC": "2026-10-09T04:58:56.448723+00:00",
+      "allowed_s": 2379.1764160950042,
+      "RSS_peak_bytes": 2913755136,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T05:01:54.466492+00:00",
+      "elapsed_s": 178.01835061699967
+    },
+    {
+      "entry": "replay.py",
+      "supervisor_PID": 166198,
+      "worker_PID": 167065,
+      "start_UTC": "2026-10-09T05:01:54.467476+00:00",
+      "allowed_s": 2201.1580654780046,
+      "RSS_peak_bytes": 727060480,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T05:01:56.270300+00:00",
+      "elapsed_s": 1.8035694709978998
+    }
+  ],
+  "training_cumulative_s": 149.3525178899945,
+  "training_cap_s": 1200,
+  "CPU_threads": 4,
+  "RSS_peak_bytes": 2913755136,
+  "RSS_cap_bytes": 4294967296,
+  "GPU": {
+    "training_device": "cuda:0",
+    "GPU_free_before_bytes": 11970805760,
+    "GPU_name": "NVIDIA GeForce RTX 5070",
+    "final_density_and_generation": "CPU float64",
+    "GPU_allocated_peak_bytes": 116336128,
+    "GPU_reserved_peak_bytes": 130023424,
+    "TF32": false,
+    "deterministic_algorithms": true
+  },
+  "GPU_allocated_cap_bytes": 4294967296,
+  "counters": {
+    "PCA_GMM_ridge_refits": 0,
+    "new_network_fit_attempts": 2,
+    "head_updates": 16300,
+    "tail_updates": 16300,
+    "training_cumulative_s": 149.3525178899945,
+    "HGB_attempts": 42,
+    "density_description_slots": 32,
+    "density_EM_attempts": 32,
+    "main_generation_rows": 8000,
+    "new_random_draws": 0,
+    "EVAL_read": 0,
+    "new_G4": 0
+  },
+  "extraction_cost": {
+    "reserved": {
+      "hash": 0,
+      "metadata": 592,
+      "compressed": 2981631690,
+      "inflate": 8000080258
+    },
+    "actual_returned": {
+      "hash": 0,
+      "metadata": 592,
+      "compressed": 2981631690,
+      "inflate": 8000080256
+    },
+    "seeks": 7,
+    "members": [
+      {
+        "name": "time_ns.npy",
+        "compressed_bytes": 24319,
+        "uncompressed_bytes": 80128,
+        "crc32": "0x3a340bf0",
+        "selected_rows": 1,
+        "selected_bytes": 80000,
+        "header_sha256": "bbe3b23fc4dbf041300d6238cbf84a4c763315c4734a1dfc50a681e838ab35dd",
+        "unselected_numeric_decodes": 0
+      },
+      {
+        "name": "waveforms.npy",
+        "compressed_bytes": 2981607371,
+        "uncompressed_bytes": 8000000128,
+        "crc32": "0x27484134",
+        "selected_rows": 18500,
+        "selected_bytes": 1480000000,
+        "header_sha256": "1b007cc2bd3ac8c8a5c03d6fd47d64aa27fc54f153a335534e90c0200ac0f6dd",
+        "unselected_numeric_decodes": 0
+      }
+    ],
+    "hash_passes": 0
+  },
+  "data_roles": {
+    "REAL_DEV": 2000,
+    "old_fit_candidate": 2600,
+    "old_fit_QC": 2592,
+    "new_raw_candidates": 18500,
+    "new_QC_valid": 18455,
+    "new_QC_invalid": 45,
+    "expanded_fit_QC": 21047,
+    "expanded_fit_candidate": 21100,
+    "fit_groups": 422,
+    "unchanged_val_QC": 599,
+    "same_acquisition_artificial_groups": true,
+    "CAL_waveform_decode": 0,
+    "EVAL_read": 0,
+    "new_G4": 0,
+    "expanded_order": "old2592 exact cached order, then new QC-valid original_index ascending"
+  },
+  "replay_rows": 8000,
+  "normal_upload_tar_bytes": 440320,
+  "normal_return_tar_bytes": 74782720,
+  "migration_content_test": false,
+  "observed_local_files_before_accounting": 97,
+  "observed_local_bytes_before_accounting": 151838636,
+  "output_cap_bytes": 536870912,
+  "exact_all_library_IO_bytes": "unknown; no whole-project per-read ledger",
+  "new_G4": 0,
+  "EVAL_read": 0,
+  "CAL_numeric_decode": 0,
+  "closure_scientific_decode_fit_generate_replay": 0
+}

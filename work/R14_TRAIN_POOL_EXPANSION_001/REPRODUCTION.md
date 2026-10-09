@@ -1,0 +1,7 @@
+# R14 reproduction
+
+Actual remote directory /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129; interpreter /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python; entry remote_supervise.py. It ran extract_train.py, numeric_worker.py, replay.py sequentially. Readonly original raw source and R10/R13 inputs are recorded in config.json. Extraction opened only time_ns and waveforms, decoded18500 selected rows, did not full-hash the3GB source, and saved processed TRAIN_ADDITION.npz/QC/index/group payloads.
+
+For an authorized inference reproduction in a new directory, retain representation.npz/GMM_8.npz/GENERATION_INPUTS.npz, FLOW_UPDATES.pt/TAIL_UPDATES.pt/FLOW_EXPOSURES.pt/TAIL_EXPOSURES.pt and conditional_density.py/density.py/replay.py. Independent replay was already executed once and its native status and8000 outputs are in REMOTE_NATIVE_RECEIPT/REPLAY_RECEIPT. Do not rerun old-stage entries or change saved inputs.
+
+From-scratch training also needs original2592 cached V/QC/roles, unchanged599val, new addition and original R13 initial states. The fixed representation/scale/m0/L must not be re-estimated. Only two continuous Adam paths with recorded seeds/checkpoint grid are used; all traces, actualU, completion flags, selected/final states and random states are retained. GPUfloat32 selection and CPUfloat64 final density differ in arithmetic; portability is not a bitwise guarantee. Migration used normal transfer/copy status without content equality tests.
