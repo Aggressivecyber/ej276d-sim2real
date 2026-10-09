@@ -1,13 +1,9 @@
 # 当前研究状态
 
-2026-10-09 本地时间。R7、R8、R8B、R8C、R9均已封存；科学作业0个，已形成明确停止结论。最终报告和交付索引已保存；Git发布与D盘复制的最终状态由执行后回执记录。
+R1–R9已完成封存。用户于2026-10-09授权推进R10，目前已登记并交由原执行器连续执行。
 
-R9保留全部五个预定候选，在同次采集的旧EVAL上完成42个固定评价器，实际读取7600条、QC有效7583条、固定主REAL2000条。累计数值45.137秒，4线程，峰RSS1349013504字节，原生退出0。无新增响应训练、生成或密度拟合。11图已目检，ROOT检查4张关键图和封存清单49项。
+当前任务：tasks/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001.md。UTC截止：2026-10-09T02:13:58.545151+00:00。服务器cuda:0训练/生成、CPU4线程，TRAIN/DEV only，阶段3600秒/数值1800秒；EVAL、新G4均0；SSH/传输已获新授权。当前科学作业尚未启动；后续实际PID和进度以PROGRAM及阶段原生回执为准。
 
-完整shape分类BA为R3B 0.988、JOINT 0.994、JOINT_SIGNAL 0.994、FULL/OFF均1.000；真实对真实为0.504。JOINT_SIGNAL峰后局部BA由R3B的0.922降至0.810，但共同电荷bins3–7的峰位、原宽度、去趋势宽度误差均未进一步改善。
+本轮只诊断观测组成配平后的波形差距，并检验固定源随机生成的学习能力；不是新增物理映射验收。旧R7–R9报告与D盘核验副本继续保留。
 
-停止结论：没有新候选可作为已验证的完整实测响应转换器采用。R3B保留为局部改善基线，JOINT_SIGNAL保留为峰后局部统计证据，整段FULL/OFF为固定配方与预算下的负结果。本轮不继续使用历史EVAL改配方；唯一物理原因仍unknown。
-
-五候选冻结文件为CONTINUATION_FROZEN_METHOD.json，SHA256 83ed633a170471ef9013a5e70fda8fcd82a6d34de450bda61793f99a48156114。R9监督回执中陈旧的EVAL_read=0已由单独更正回执解释，原字节保留，实际读取以NUMERIC_RECEIPT及更正记录为准。关键判断见reviews/ROOT_R9_KEY_RESULT_REVIEW_001.json。
-
-总报告：CONTINUATION_REPORT.md；复现入口：CONTINUATION_REPRODUCTION.md；关键绑定：CONTINUATION_DELIVERY_INDEX.json；最终发布：CONTINUATION_PUBLICATION_RECEIPT.json；最终备份：CONTINUATION_BACKUP_RECEIPT.json。
+用户已取消迁移一致性测试；当前本机无科学作业，正在迁移准备。服务器入口及执行修订见reviews/R10_SERVER_EXECUTION_001/RECEIPT.json。
