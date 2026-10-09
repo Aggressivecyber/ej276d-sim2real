@@ -1,0 +1,76 @@
+{
+  "release": [
+    "REPORT.md",
+    "REPRODUCTION.md",
+    "METRICS_COMPACT.json",
+    "GATE_METRICS.json",
+    "RESOURCE_RECEIPT.json",
+    "FIGURE_QA.json"
+  ],
+  "full_private_metrics": "metrics.json",
+  "main_outputs": {
+    "INDEPENDENT_PROTECTED": "INDEPENDENT_PROTECTED/generated.npz",
+    "OT_PROTECTED": "OT_PROTECTED/generated.npz"
+  },
+  "main_precision_schema": [
+    "pre_ADC_f64_V",
+    "ADC_input_f32_V",
+    "waveforms_V",
+    "original_pre_ADC_f32_V",
+    "base_pre_ADC_V",
+    "original_increment_f64_V",
+    "kept_increment_f64_V",
+    "removed_increment_f64_V",
+    "source_ids",
+    "flow_applied",
+    "source_Qbin_actual_preADC"
+  ],
+  "auxiliary_outputs": {
+    "INDEPENDENT_PROTECTED": [
+      "results/INDEPENDENT_PROTECTED_joint8_REPEAT_PRIVATE.npz",
+      "results/INDEPENDENT_PROTECTED_SOURCE_PROBES_PRIVATE.npz"
+    ],
+    "OT_PROTECTED": [
+      "results/OT_PROTECTED_joint8_REPEAT_PRIVATE.npz",
+      "results/OT_PROTECTED_SOURCE_PROBES_PRIVATE.npz"
+    ]
+  },
+  "exact_recovery": "AUXILIARY_PRECISION_RECOVERY_RECEIPT.json",
+  "independent_full_chain_replay": "REPLAY_RECEIPT.json",
+  "precision_constraints": "ACTUAL_PROJECTION_CONSTRAINTS.json",
+  "boundary_metrics": "BOUNDARY_METRICS.json",
+  "code": [
+    "projection_core.py",
+    "protected_diagnostics.py",
+    "evaluate_protected.py",
+    "replay_protected.py",
+    "summarize_and_plot.py",
+    "supervise.py",
+    "owned_worker.py"
+  ],
+  "fixed_models_and_actual_inputs": "DEPENDENCY_INDEX.json / config.json / R33 original immutable FINAL_MANIFEST",
+  "final_pngs": [
+    "results/figures/boundary_differences.png",
+    "results/figures/c2st.png",
+    "results/figures/charge_psd.png",
+    "results/figures/conditional_psd_CDF.png",
+    "results/figures/conditional_waveforms.png",
+    "results/figures/energy_peak_width.png",
+    "results/figures/fixed_parent_boundary_examples.png",
+    "results/figures/joint_random_components.png",
+    "results/figures/kept_removed_increments.png",
+    "results/figures/noise_curvature.png",
+    "results/figures/raw_mean_SD.png",
+    "results/figures/source_controls.png",
+    "results/figures/source_preservation.png"
+  ],
+  "private_artifacts_remain_local": [
+    "all NPZ",
+    "complete metrics",
+    "source IDs",
+    "individual predictions",
+    "model weights and inherited inputs"
+  ],
+  "new_model_training": false,
+  "publication_compact_contains_event_lists": false
+}

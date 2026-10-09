@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T18:38:34.016723+00:00",
+  "updated_UTC": "2026-10-09T19:11:09.927535+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R33_RESIDUAL_OT_FLOW_001",
-  "current_stage": "R34_PROTECTED_FLOW_CORRECTION_001",
-  "current_task": "tasks/R34_PROTECTED_FLOW_CORRECTION_001.md",
+  "latest_completed_stage": "R34_PROTECTED_FLOW_CORRECTION_001",
+  "current_stage": "R35_PSD_ORDERED_FLOW_001",
+  "current_task": "tasks/R35_PSD_ORDERED_FLOW_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,29 +13,29 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R33_full_shape_gain_source_conditional_PSD_width_noise_joint_gate_failed",
+      "status": "R34_protection_retains_BASE_proxies_but_fixed_boundary_gate_failed",
       "latest_evidence": [
-        "R33_REPORT.md",
-        "reviews/ROOT_R33_KEY_RESULT_REVIEW_001.json",
-        "work/R33_RESIDUAL_OT_FLOW_001/GATE_METRICS.json"
+        "R34_REPORT.md",
+        "reviews/ROOT_R34_KEY_RESULT_REVIEW_001.json",
+        "work/R34_PROTECTED_FLOW_CORRECTION_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R33_full_shape_gain_source_conditional_PSD_width_noise_joint_gate_failed",
+      "status": "R34_protection_retains_BASE_proxies_but_fixed_boundary_gate_failed",
       "latest_evidence": [
-        "R33_REPORT.md",
-        "reviews/ROOT_R33_KEY_RESULT_REVIEW_001.json",
-        "work/R33_RESIDUAL_OT_FLOW_001/GATE_METRICS.json"
+        "R34_REPORT.md",
+        "reviews/ROOT_R34_KEY_RESULT_REVIEW_001.json",
+        "work/R34_PROTECTED_FLOW_CORRECTION_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R33_full_shape_gain_source_conditional_PSD_width_noise_joint_gate_failed",
+      "status": "R34_protection_retains_BASE_proxies_but_fixed_boundary_gate_failed",
       "latest_evidence": [
-        "R33_REPORT.md",
-        "reviews/ROOT_R33_KEY_RESULT_REVIEW_001.json",
-        "work/R33_RESIDUAL_OT_FLOW_001/GATE_METRICS.json"
+        "R34_REPORT.md",
+        "reviews/ROOT_R34_KEY_RESULT_REVIEW_001.json",
+        "work/R34_PROTECTED_FLOW_CORRECTION_001/GATE_METRICS.json"
       ]
     },
     {
@@ -48,33 +48,33 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R33_two_full_chains_4000_replay_passed_scientific_acceptance_pending",
+      "status": "R34_two_protected_chains_4000_replay_passed_scientific_acceptance_pending",
       "latest_evidence": [
-        "work/R33_RESIDUAL_OT_FLOW_001/REPLAY_RECEIPT.json"
+        "work/R34_PROTECTED_FLOW_CORRECTION_001/REPLAY_RECEIPT.json"
       ]
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R33_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R34_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R33_REPORT.md",
-        "reviews/ROOT_R33_KEY_RESULT_REVIEW_001.json"
+        "R34_REPORT.md",
+        "reviews/ROOT_R34_KEY_RESULT_REVIEW_001.json"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R33 frozen independent and OT flows improve full493/raw480 discrimination versus BASE, but source-PSD/valley, conditional PSD, widths and baseline-noise failures prevent joint acceptance. Apply the same unique Euclidean increment projection to both frozen flows, preserving BASE first100 samples and two charge-window sums; test whether full-shape gains survive without source/noise regression or new boundary artifacts. No response retraining.",
+  "current_direction": "R34 fixed rank378 projection preserves BASE baseline and charge/PSD proxies and independent-flow full-shape gains, but both endpoints introduce fixed-boundary artifacts, so close that projection. Test one new PSD-ordered within-Q CFM coupling with all raw source/REAL marginals, initialization, stream, network and 2950-step budget matched to R33. This is the final coupling trial on the current frozen-BASE MLP-CFM branch; joint failure closes its coupling/cost/seed/network/step variants and requires a materially different next question.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R34_executor_local_preparation",
+  "current_activity": "R35_registered_server_preparation",
   "latest_user_steering": "重写目标 推进",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
-  "execution_location": "local_CPU4_E_D_only",
+  "execution_location": "same_R33_server_environment_unique_remote_training_directory_then_local_CPU4_evaluation",
   "current_task_addendum": null,
   "latest_response_model_stage": "R33_RESIDUAL_OT_FLOW_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "current_engineering_addendum": null,
   "latest_diagnostic_stage": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
   "latest_diagnostic_conclusion": "close_domain_specific_moment_C2ST_causal_attribution_route",
-  "latest_response_conclusion": "close_fixed_OT_CFM_recipe_preserve_both_flow_tradeoffs"
+  "latest_response_conclusion": "close_unique_fixed_protection_projection_recipe"
 }

@@ -1,0 +1,10 @@
+# R34 frozen projection protocol
+
+Both R33 final flow endpoints are retained. No fitting or hyperparameter choice enters P.
+Promote actual original x1 and x0 separately to f64, subtract, and apply rank378 Euclidean P: zero0:100, remove the separate mean100:150 and150:400, retain400:480. Add to f64 x0, then retain the original f32 ADC conversion and one14bit ADC. Store all three precision levels and actual Q/PSD changes.
+
+Main4000 rows use exact saved original preADC. Auxiliary2048+1664 original preADC was not separately stored; the registered precision recovery addendum permits a single frozen-chain recovery. Match every saved base S/E, f32 increment, mask/Qbin and original postADC before P. Never approximate a recovered original x1 from a saved f32 subtraction. The independent main4000 replay plus auxiliary3712 recovery is the7712 new neural-inference maximum; deterministic projected rows are separately7712.
+
+No updates, new affine/scaler fits, changed support/ODE/coupling, new REAL/CAL/EVAL/G4/SSH or installations. Full population and original600/250 classifier rows/groups retained, 500 fixed-classifier paired cluster resamples,20 HGB and16 density slots/EM caps, all fit and slot outputs persisted. Existing BASE/Independent/OT/RR classifier predictions and density fits reused. Conditional CDF support N>=40; density failure for BASE-valid bins2–7 is explicit, with per-protected common comparisons and all-five common support separate. Native raw boundary differences are fixed only at99/100,149/150,399/400. Complete flow bounds and all four task gates remain unchanged.
+
+Joint algebra contains base S/E, f32 base sum-rounding residual, kept and removed flow. Cross terms retained; final physical signal/electronic split unknown. Repeats do not add independent source or acquisition events. All outputs and temporary caches E/D. One CPU4 actual-PID/RSS guarded science process at a time; cumulative600s, RSS4GiB, unique new outputs384MiB, absolute executor stop19:56:09.348003UTC.

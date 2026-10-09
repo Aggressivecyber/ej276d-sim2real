@@ -989,7 +989,7 @@
     },
     {
       "id": "R34_PROTECTED_FLOW_CORRECTION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_protection_projection_closed_boundary_failure",
       "task": "tasks/R34_PROTECTED_FLOW_CORRECTION_001.md",
       "registration": "reviews/R34_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T18:36:09.348003+00:00",
@@ -998,6 +998,23 @@
       "HGB_fits_max": 20,
       "science_budget_s": 600,
       "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R34_PROTECTED_FLOW_CORRECTION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R35_PSD_ORDERED_FLOW_001.md"
+    },
+    {
+      "id": "R35_PSD_ORDERED_FLOW_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R35_PSD_ORDERED_FLOW_001.md",
+      "registration": "reviews/R35_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T19:07:21.312840+00:00",
+      "scientific_question": "R34 fixed rank378 projection preserves BASE baseline and charge/PSD proxies and independent-flow full-shape gains, but both endpoints introduce fixed-boundary artifacts, so close that projection. Test one new PSD-ordered within-Q CFM coupling with all raw source/REAL marginals, initialization, stream, network and 2950-step budget matched to R33. This is the final coupling trial on the current frozen-BASE MLP-CFM branch; joint failure closes its coupling/cost/seed/network/step variants and requires a materially different next question.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 10,
+      "science_budget_s": 1800,
+      "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "motivation_stage": "R34_PROTECTED_FLOW_CORRECTION_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }
