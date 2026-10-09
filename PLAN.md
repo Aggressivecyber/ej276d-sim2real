@@ -1,3 +1,9 @@
+# 修订036：执行R13主要密度与条件残差的2×2比较
+
+R12已完成私有Git与D盘正常复制。下一轮固定FACTOR完整表示，用两个新网络和既存GMM/共享Gaussian组成四组对照，区分主要分布与条件残差的贡献。仅TRAIN内部验证选型，DEV完整评价，EVAL仍关闭。任务、绝对UTC及资源上限见tasks/R13_FACTORIZED_CONDITIONAL_DENSITY_001.md和reviews/R13_REGISTRATION_001/RECEIPT.json。原执行器直接连续执行，root随后判断并推进项目。
+
+---
+
 # 修订035：R12完成，继续有界条件密度比较
 
 共享协方差修正只能解释基线幅度，完整分布和电荷相关波动仍失配。固定FACTOR完整表示，下一轮分别检验灵活head密度和head条件残差，以2×2设计区分贡献。根代理先完成R12交付，再登记下一轮并交既有执行器；项目目标保持active。
