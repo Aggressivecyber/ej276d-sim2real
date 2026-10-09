@@ -1,0 +1,214 @@
+{
+  "stage": "R41_PATCH_CONTENT_ABLATION_001",
+  "observed_UTC": "2026-10-09T23:00:23.154775+00:00",
+  "start_tool": "549c70",
+  "completion_tool": "6e3218",
+  "return_tool": "cd9749",
+  "local_launch": {
+    "local_launch_PID": 35912,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T22:57:39.308558+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R41_REMOTE_20261009_224636_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 48720,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 83026,
+      "start_UTC": "2026-10-09T22:57:39.468974+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 83027,
+      "actual_worker_RSS_peak_bytes": 12926976,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 83027,
+      "actual_worker_parent_PID": 83026
+    },
+    "SSH_native_exit": 0,
+    "elapsed_ssh_s": 88.37836430000607,
+    "stop_UTC": "2026-10-09T22:59:07.687167+00:00"
+  },
+  "remote_native": {
+    "entry": "train_server.py",
+    "supervisor_PID": 83026,
+    "start_UTC": "2026-10-09T22:57:39.468974+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": 900,
+    "actual_worker_PID": 83027,
+    "actual_worker_RSS_peak_bytes": 2649534464,
+    "memory_probe_failures": 1,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-09T22:59:07.311764+00:00",
+        "PID": 83027,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "handshake_before_imports": true,
+    "launcher_PID": 83027,
+    "actual_worker_parent_PID": 83026,
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 87.94293547900088,
+    "stop_UTC": "2026-10-09T22:59:07.411911+00:00",
+    "worker_self_receipt": {
+      "PID": 83027,
+      "parent_PID": 83026,
+      "nonce": "5c6b335f55b4411ba75e072272acc784",
+      "entry": "train_server.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 87.40017082999839,
+      "self_peak_RSS_bytes": 2649534464,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-09T22:59:06.885367+00:00"
+    }
+  },
+  "matched_flows": {
+    "updates": 2950,
+    "all_original_update_stream_fields": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "NCE_positions": true,
+      "noise_stream": true,
+      "style_stream": true
+    },
+    "same_initial_original_G_reader_D": true,
+    "new_parameters": 0,
+    "initial_extra_model_forward_rows": 0,
+    "raw_actual_rows_unique_source": 3752,
+    "raw_actual_rows_unique_REAL": 18739,
+    "fresh_direction_groups": 8850,
+    "fresh_directions_all_8850_match_saved_BASE": true,
+    "initial_J20_absolute_difference": 0.0,
+    "initial_J20_tolerance": 1e-06,
+    "J20_assert_before_first_update": true,
+    "NCE_position_lists_used_in_loss": false,
+    "NCE_participation": {
+      "NCE_evaluated": false,
+      "NCE_loss_value": null,
+      "NCE_objective_weight": 0.0,
+      "NCE_dedicated_forward_calls": 0,
+      "NCE_retained_position_lists": 8850,
+      "unused_NCE_positions_only": true,
+      "project_grad_None_update_checks": 2950,
+      "project_initial_final_bitwise_equal": {
+        "project.0.weight": true,
+        "project.0.bias": true,
+        "project.1.weight": true,
+        "project.1.bias": true,
+        "project.2.weight": true,
+        "project.2.bias": true
+      },
+      "project_parameter_count": 3680,
+      "all_original_G_parameters_requires_grad": true,
+      "total_G_parameters": 221874,
+      "participating_G_parameters": 218194,
+      "participating_G_last_gradient_nonNone_parameters": 218194,
+      "all_other_G_and_reader_parameters_finite": true,
+      "all_other_G_parameter_names_with_None_final_gradient": [],
+      "no_optimizer_freeze_of_original_encoder": true,
+      "dedicated_encoding_calls_avoided": 5900
+    }
+  },
+  "NCE_participation": {
+    "NCE_evaluated": false,
+    "NCE_loss_value": null,
+    "NCE_objective_weight": 0.0,
+    "NCE_dedicated_forward_calls": 0,
+    "NCE_retained_position_lists": 8850,
+    "unused_NCE_positions_only": true,
+    "project_grad_None_update_checks": 2950,
+    "project_initial_final_bitwise_equal": {
+      "project.0.weight": true,
+      "project.0.bias": true,
+      "project.1.weight": true,
+      "project.1.bias": true,
+      "project.2.weight": true,
+      "project.2.bias": true
+    },
+    "project_parameter_count": 3680,
+    "all_original_G_parameters_requires_grad": true,
+    "total_G_parameters": 221874,
+    "participating_G_parameters": 218194,
+    "participating_G_last_gradient_nonNone_parameters": 218194,
+    "all_other_G_and_reader_parameters_finite": true,
+    "all_other_G_parameter_names_with_None_final_gradient": [],
+    "no_optimizer_freeze_of_original_encoder": true,
+    "dedicated_encoding_calls_avoided": 5900
+  },
+  "G_D_reader_updates_each": 2950,
+  "fixed_DEV_endpoint": 2950,
+  "initial_J20": 0.6166301965713501,
+  "record_only_selected_step": 1500,
+  "record_only_selected_J20": 0.5328224301338196,
+  "final_J20": 0.5761487483978271,
+  "global_gradient_norms": {
+    "columns": [
+      "G_reader_preclip",
+      "D_preclip",
+      "G_reader_clip_scale",
+      "D_clip_scale"
+    ],
+    "quantiles": [
+      [
+        6.082407474517822,
+        0.09569820016622543,
+        0.05601039055817805,
+        0.5446211558993734
+      ],
+      [
+        17.82675552368164,
+        0.5381461381912231,
+        0.18100476456868983,
+        1.0
+      ],
+      [
+        22.24195384979248,
+        0.8393368422985077,
+        0.22480040217795516,
+        1.0
+      ],
+      [
+        27.623581409454346,
+        1.2901750802993774,
+        0.2804772747162322,
+        1.0
+      ],
+      [
+        37.49289951324462,
+        2.627471649646759,
+        0.3892840517889829,
+        1.0
+      ],
+      [
+        89.26914978027344,
+        9.180692672729492,
+        0.8220427846875855,
+        1.0
+      ]
+    ],
+    "G_reader_clip_fraction": 1.0,
+    "D_clip_fraction": 0.005423728813559322
+  },
+  "GPU_peak_allocated_bytes": 245770752,
+  "return_pack_and_scp_native_exit": 0,
+  "science_elapsed_s": 87.94293547900088,
+  "RSS_gap_cause": "unknown",
+  "root_scientific_recomputation": 0
+}

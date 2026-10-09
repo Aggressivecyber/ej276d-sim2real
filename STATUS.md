@@ -1,3 +1,9 @@
+# 当前入口：R41固定PatchNCE消融关闭，R42检验完整源初态神经流
+
+R41保留源信息且改善部分局部REAL响应，但完整形状、条件峰位/宽度/噪声和一个时间边界失败。R42直接由完整SOURCE启动新的电荷保持神经流；项目继续。
+
+[R41报告](R41_REPORT.md) · [交付索引](R41_DELIVERY_INDEX.json) · [R42任务](tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md) · [项目目标](PROJECT_OBJECTIVE.md)。以下保留历史入口。
+
 # 当前入口：R40固定时间MLP配方关闭，R41检验局部内容约束
 
 R40新增层生效且源保真门通过，但完整形状、条件统计、时间边界与REAL控制未共同通过。R41恢复原完整卷积G，仅删除PatchNCE实际损失；完整项目继续。

@@ -1,0 +1,133 @@
+{
+  "stage": "R41_PATCH_CONTENT_ABLATION_001",
+  "observed_UTC": "2026-10-09T22:58:26.992710+00:00",
+  "actual_start_tool": "549c70",
+  "actual_tool_session": 76106,
+  "actual_bound_process": {
+    "local_launch_PID": 35912,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T22:57:39.308558+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R41_REMOTE_20261009_224636_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 48720,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 83026,
+      "start_UTC": "2026-10-09T22:57:39.468974+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 83027,
+      "actual_worker_RSS_peak_bytes": 12926976,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 83027,
+      "actual_worker_parent_PID": 83026
+    }
+  },
+  "preflight": {
+    "PID": 82754,
+    "UTC": "2026-10-09T22:57:22.678457+00:00",
+    "python_path": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070",
+    "own_project_jobs": [],
+    "CPU_N": 16,
+    "MemAvailable": "60962664 kB",
+    "disk_free_bytes": 26556252160,
+    "gpu_query_exit": 0,
+    "gpu_resource": "NVIDIA GeForce RTX 5070, 12227 MiB, 242 MiB, 0 %",
+    "new_remote_leaf_exists": false,
+    "check_elapsed_s": 0.7881352969998261,
+    "new_response_operations": 0,
+    "R33_environment_exact_fields_match": {
+      "python": true,
+      "numpy": true,
+      "torch": true,
+      "scipy": true,
+      "device": true,
+      "GPU": true
+    }
+  },
+  "pretrain_freeze": {
+    "UTC": "2026-10-09T22:57:29.562829+00:00",
+    "source_bindings": {
+      "train_server.py": {
+        "bytes": 4599,
+        "sha256": "1364f9061d80ab6db93e6693e1a5333f135b0695b016660e092f47c45950635e"
+      },
+      "online_training.py": {
+        "bytes": 19137,
+        "sha256": "f9908744aa495f9b21164fb549a44c774e92499b31b182920bf1f4dacb0fefc9"
+      },
+      "fine_core.py": {
+        "bytes": 6545,
+        "sha256": "ab983b3160c8653f180710ee9644b61bc54e4f62a67f6c606606faf25a014aaf"
+      },
+      "prior.py": {
+        "bytes": 2911,
+        "sha256": "5c752c99fc4eddbf24fc92da18858bb3a7fbc682be9bd5ee45b52bdce252a38b"
+      },
+      "model.py": {
+        "bytes": 2019,
+        "sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b"
+      },
+      "legacy_model.py": {
+        "bytes": 5808,
+        "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04"
+      },
+      "reorder_core.py": {
+        "bytes": 2643,
+        "sha256": "c47ecc05ad9df12147a5a5a71c23763ef4a8c6ee813cb6d50c622a9042bee232"
+      },
+      "linux_supervise.py": {
+        "bytes": 5694,
+        "sha256": "9b3ab13a3d228952198e4b9066fc306bcd192083f22d4b22ebf61cc9112da686"
+      },
+      "linux_owned_worker.py": {
+        "bytes": 1535,
+        "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a"
+      },
+      "remote_config.json": {
+        "bytes": 15423,
+        "sha256": "f42379a870e763b7e2da9b4d4edceab661ae546a2e5d40895ac3f7143a67a39a"
+      },
+      "PROTOCOL.md": {
+        "bytes": 3155,
+        "sha256": "6d4ece2b61ceb156ef8e624eec4138a7fbaafa12e81d689455263d4d80511f0d"
+      }
+    },
+    "existing_inputs_not_rehashed_for_migration": true,
+    "fixed_recipe": true
+  },
+  "root_static_read_tools": [
+    "d4eb4b",
+    "8c082e",
+    "754623",
+    "d5b25b"
+  ],
+  "root_static_findings": [
+    "Original model restored; no time_mixer parameters",
+    "No nce import/call in training; retained three position lists per update only",
+    "All other active loss formulas/weights preserved; actual NCE weight0 and value null",
+    "Initial G reader D equality and J20 assertion precede D/G updates",
+    "Every backward checks project gradientsNone; initial/final project values compared",
+    "All2000 source parents use new G including417 support-external rows; newREAL2000 plus frozenR39 BASE_REAL reuse"
+  ],
+  "numerical_outcome": "not_yet_available_in_this_start_snapshot",
+  "root_scientific_recomputation": 0
+}

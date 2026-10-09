@@ -1111,7 +1111,7 @@
     },
     {
       "id": "R41_PATCH_CONTENT_ABLATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_no_PatchNCE_recipe_closed_three_scientific_gates_failed",
       "task": "tasks/R41_PATCH_CONTENT_ABLATION_001.md",
       "registration": "reviews/R41_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T22:46:36.130049+00:00",
@@ -1123,6 +1123,26 @@
       "motivation_stages": [
         "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
         "R40_GLOBAL_TIME_MIXER_TRANSLATION_001"
+      ],
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R41_PATCH_CONTENT_ABLATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md"
+    },
+    {
+      "id": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md",
+      "registration": "reviews/R42_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T23:11:07.309998+00:00",
+      "scientific_question": "R41 removes PatchNCE correctly and passes source/REAL-control/numerical gates, but complete shape, conditional peak/width/noise and one temporal boundary fail. Close that fixed ablation without other-loss rescue. Test one standalone source-initialized charge-preserving convolutional neural flow, using full480 SOURCE plus projected original white noise, common REAL-TRAIN unit-charge coordinates and a tangent velocity field. No old generator or pretrained response weights. One fixed2950 recipe with PSD-ordered within-Q statistical coupling and fixed32 Heun endpoint. This is a route-level comparison, not a causal isolation of architecture, representation, initialization and objective. All five scientific gates stay unchanged.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 20,
+      "science_budget_s": 2700,
+      "parent_stage": "R41_PATCH_CONTENT_ABLATION_001",
+      "method_sources": [
+        "R35_PSD_ORDERED_FLOW_001",
+        "R36_CONDITIONAL_DIFFUSION_EDIT_001"
       ],
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false

@@ -1,3 +1,7 @@
+# 修订068：完整源波形启动的电荷保持神经流
+
+R41固定无PatchNCE配方关闭。R42由完整SOURCE加原white启动新的卷积速度场，在共同TRAIN单位电荷空间中回归切向流，不用旧G或预训练响应权重。一次2950步、同94400行、固定32步Heun，先做TRAIN32/64数值检查，原五项科学门不降。新20HGB/16密度槽/4000独立回放；科学2700秒、训练900秒、阶段6000秒、CPU4/RSS与GPU4GiB。完整项目active，路线级比较不冒充单部件因果消融。详见tasks/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001.md。
+
 # 修订067：原完整源生成器的局部内容约束消融
 
 R40固定时间MLP配方关闭。R41恢复原R32生成器，仅移除PatchNCE目标；保留全部其他分布/风格/电荷/PSD/identity约束、原初始化、94400行与随机流、8850fresh方向及2950固定末点。源保真与完整响应六门不降，不扫描中间系数。复用R39 BASE_REAL，新20HGB/16密度槽/4000独立重放；科学1800秒、训练900秒、CPU4/RSS与GPU4GiB。完整项目active。详见tasks/R41_PATCH_CONTENT_ABLATION_001.md。

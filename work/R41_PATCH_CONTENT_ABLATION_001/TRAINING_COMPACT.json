@@ -1,0 +1,178 @@
+{
+  "updates": 2950,
+  "D_updates": 2950,
+  "style_reader_updates": 2950,
+  "training_s": 85.22758441800033,
+  "selected_step": 1500,
+  "validation_generation_rows": 6656,
+  "actually_sampled_unique_source": 3752,
+  "actually_sampled_unique_REAL": 18739,
+  "actually_consumed_rows": 94400,
+  "fresh_projection_calls": 2950,
+  "initial_equivalence": {
+    "state_key_and_value_equal": {
+      "G": true,
+      "reader": true,
+      "D": true
+    },
+    "initial_J20": 0.6166301965713501,
+    "reference_J20": 0.6166301965713501,
+    "absolute_difference": 0.0,
+    "tolerance": 1e-06,
+    "checks_before_first_D_G_reader_update": true,
+    "G_updates_before_check": 0,
+    "D_updates_before_check": 0,
+    "reader_updates_before_check": 0
+  },
+  "global_gradient_norms": {
+    "columns": [
+      "G_reader_preclip",
+      "D_preclip",
+      "G_reader_clip_scale",
+      "D_clip_scale"
+    ],
+    "quantiles": [
+      [
+        6.082407474517822,
+        0.09569820016622543,
+        0.05601039055817805,
+        0.5446211558993734
+      ],
+      [
+        17.82675552368164,
+        0.5381461381912231,
+        0.18100476456868983,
+        1.0
+      ],
+      [
+        22.24195384979248,
+        0.8393368422985077,
+        0.22480040217795516,
+        1.0
+      ],
+      [
+        27.623581409454346,
+        1.2901750802993774,
+        0.2804772747162322,
+        1.0
+      ],
+      [
+        37.49289951324462,
+        2.627471649646759,
+        0.3892840517889829,
+        1.0
+      ],
+      [
+        89.26914978027344,
+        9.180692672729492,
+        0.8220427846875855,
+        1.0
+      ]
+    ],
+    "G_reader_clip_fraction": 1.0,
+    "D_clip_fraction": 0.005423728813559322
+  },
+  "step0_J20": 0.6166301965713501,
+  "selected_J20": 0.5328224301338196,
+  "final_J20": 0.5761487483978271,
+  "original_flow_match": {
+    "updates": 2950,
+    "all_original_update_stream_fields": {
+      "source": true,
+      "target": true,
+      "bin": true,
+      "original_row_ordinal": true,
+      "NCE_positions": true,
+      "noise_stream": true,
+      "style_stream": true
+    },
+    "same_initial_original_G_reader_D": true,
+    "new_parameters": 0,
+    "initial_extra_model_forward_rows": 0,
+    "raw_actual_rows_unique_source": 3752,
+    "raw_actual_rows_unique_REAL": 18739,
+    "fresh_direction_groups": 8850,
+    "fresh_directions_all_8850_match_saved_BASE": true,
+    "initial_J20_absolute_difference": 0.0,
+    "initial_J20_tolerance": 1e-06,
+    "J20_assert_before_first_update": true,
+    "NCE_position_lists_used_in_loss": false,
+    "NCE_participation": {
+      "NCE_evaluated": false,
+      "NCE_loss_value": null,
+      "NCE_objective_weight": 0.0,
+      "NCE_dedicated_forward_calls": 0,
+      "NCE_retained_position_lists": 8850,
+      "unused_NCE_positions_only": true,
+      "project_grad_None_update_checks": 2950,
+      "project_initial_final_bitwise_equal": {
+        "project.0.weight": true,
+        "project.0.bias": true,
+        "project.1.weight": true,
+        "project.1.bias": true,
+        "project.2.weight": true,
+        "project.2.bias": true
+      },
+      "project_parameter_count": 3680,
+      "all_original_G_parameters_requires_grad": true,
+      "total_G_parameters": 221874,
+      "participating_G_parameters": 218194,
+      "participating_G_last_gradient_nonNone_parameters": 218194,
+      "all_other_G_and_reader_parameters_finite": true,
+      "all_other_G_parameter_names_with_None_final_gradient": [],
+      "no_optimizer_freeze_of_original_encoder": true,
+      "dedicated_encoding_calls_avoided": 5900
+    }
+  },
+  "NCE_participation": {
+    "NCE_evaluated": false,
+    "NCE_loss_value": null,
+    "NCE_objective_weight": 0.0,
+    "NCE_dedicated_forward_calls": 0,
+    "NCE_retained_position_lists": 8850,
+    "unused_NCE_positions_only": true,
+    "project_grad_None_update_checks": 2950,
+    "project_initial_final_bitwise_equal": {
+      "project.0.weight": true,
+      "project.0.bias": true,
+      "project.1.weight": true,
+      "project.1.bias": true,
+      "project.2.weight": true,
+      "project.2.bias": true
+    },
+    "project_parameter_count": 3680,
+    "all_original_G_parameters_requires_grad": true,
+    "total_G_parameters": 221874,
+    "participating_G_parameters": 218194,
+    "participating_G_last_gradient_nonNone_parameters": 218194,
+    "all_other_G_and_reader_parameters_finite": true,
+    "all_other_G_parameter_names_with_None_final_gradient": [],
+    "no_optimizer_freeze_of_original_encoder": true,
+    "dedicated_encoding_calls_avoided": 5900
+  },
+  "internal_selection_does_not_change_final_endpoint": true,
+  "extra_initial_forward_rows": 0,
+  "initial_J20_check_execution_order": "strict original state plus J20 assertion immediately after validate0 and before first D/G/reader update",
+  "original_weight_initialization_preserved": true,
+  "mean_or_MMD_extra_loss": false,
+  "new_parameters": 0,
+  "objective_component_definition": {
+    "computed_basic_components": {
+      "adversarial": 1.0,
+      "identity": 2.0,
+      "Q_relative": 0.5,
+      "Q_rank": 2.0,
+      "PSD_rank": 5.0,
+      "domain_SW": 2.0,
+      "positive_charge": 1.0
+    },
+    "content_NCE": {
+      "evaluated": false,
+      "measured_loss": null,
+      "objective_weight": 0.0,
+      "dedicated_forward_calls": 0
+    },
+    "fresh_fine_weight": 1.0,
+    "style_L1_weight": 1.0
+  }
+}
