@@ -1,0 +1,491 @@
+{
+  "reviewed_UTC": "2026-10-09T08:52:08.378987+00:00",
+  "status": "key_result_review_complete_project_continues",
+  "scope": "Saved report, key aggregates, native/resource/replay receipts and eight actually viewed rendered figures; no scientific reruns.",
+  "root_judgment": "R19 source sampling tilt moves the prespecified mid-Q pure-had outputs out of the valley and improves the high-band center, but worsens original-population PSD distance and leaves narrow bands, coherent temporal texture and baseline correlation. Continue a bounded fine-time loss intervention with the full source-waveform interface and frozen TILT sampler retained.",
+  "training_summary": {
+    "CONT": {
+      "updates": 4000,
+      "D_updates": 4000,
+      "selected_step": 2500,
+      "training_s": 115.94997719200182,
+      "selected_using_DEV": false,
+      "source_target_unpaired": true
+    },
+    "TILT": {
+      "updates": 4000,
+      "D_updates": 4000,
+      "selected_step": 3000,
+      "training_s": 116.18019940600061,
+      "selected_using_DEV": false,
+      "source_target_unpaired": true
+    }
+  },
+  "TRAIN_coverage": {
+    "source_loaded": 6593,
+    "source_common_Q": 3753,
+    "source_outside": 2840,
+    "REAL_loaded": 21047,
+    "REAL_common_Q": 18895,
+    "REAL_outside": 2152
+  },
+  "prespecified_pure_had_source_bins3_4": {
+    "parent_counts": [
+      207,
+      182
+    ],
+    "CONT_valley_fractions": [
+      1.0,
+      0.7417582417582418
+    ],
+    "TILT_valley_fractions": [
+      0.0,
+      0.0
+    ]
+  },
+  "original_population_8bin_mean_PSD_W1": {
+    "R18": 0.0410195403,
+    "CONT": 0.0400923,
+    "TILT": 0.0458352
+  },
+  "common_support_width_errors": [
+    {
+      "component": 0,
+      "field": "mean",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.12786767673920368,
+        "R18": 0.01552197424421034,
+        "CONT": 0.008742162831053106,
+        "TILT": 0.025727551921162155
+      }
+    },
+    {
+      "component": 0,
+      "field": "sigma_PSD",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.0036151936068710127,
+        "R18": 0.014680591649090408,
+        "CONT": 0.018970209938613668,
+        "TILT": 0.01248047427993753
+      }
+    },
+    {
+      "component": 0,
+      "field": "detrended_sigma_PSD",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.003480909067652831,
+        "R18": 0.015029494204611882,
+        "CONT": 0.02023767212948145,
+        "TILT": 0.01278176142367329
+      }
+    },
+    {
+      "component": 1,
+      "field": "mean",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.09447975513285682,
+        "R18": 0.035376319361315176,
+        "CONT": 0.049694754556653176,
+        "TILT": 0.008296946892492219
+      }
+    },
+    {
+      "component": 1,
+      "field": "sigma_PSD",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.04743447431105114,
+        "R18": 0.04373869452128202,
+        "CONT": 0.04240198193745199,
+        "TILT": 0.04453469128635385
+      }
+    },
+    {
+      "component": 1,
+      "field": "detrended_sigma_PSD",
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "MAE": {
+        "SOURCE_CLEAN": 0.04735334570253085,
+        "R18": 0.044890694003617226,
+        "CONT": 0.044038184781755016,
+        "TILT": 0.04505223757265587
+      }
+    }
+  ],
+  "fullshape_BA": {
+    "R18": 0.996,
+    "CONT": 0.994,
+    "TILT": 0.998
+  },
+  "full_voltage_BA": {
+    "R18": 0.996,
+    "CONT": 0.984,
+    "TILT": 0.996
+  },
+  "baseline_ACF1_W1": {
+    "R18": 0.226209,
+    "CONT": 0.329512,
+    "TILT": 0.279615
+  },
+  "source_prior_boundary": {
+    "first_bin_target_h": 0.361607,
+    "first_bin_achieved_h": 0.397942,
+    "lambda_bound": "[-ln10,ln10]",
+    "max_source_sampling_weight_ratio": 10,
+    "all_common_support_source_probabilities_positive": true,
+    "sampling_changes_all_source_related_loss_exposure": true,
+    "h_is_particle_posterior": false,
+    "primary_2000_source_population_reweighted": false
+  },
+  "counters": {
+    "response_fit_attempts": 2,
+    "G_updates": 8000,
+    "D_updates": 8000,
+    "training_s": 232.13017659800244,
+    "HGB_attempts": 14,
+    "density_description_slots": 16,
+    "density_EM_attempts": 15,
+    "main_generation_rows": 4000,
+    "repeat_noise_rows": 2048,
+    "source_probe_rows": 1664,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4": 0,
+    "raw_long_waveform_decode": 0
+  },
+  "resources": {
+    "stage": "R19",
+    "seal_deadline_UTC": "2026-10-09T09:24:33.361272+00:00",
+    "source_only_first_native": {
+      "PID": 23480,
+      "UTC": "2026-10-09T08:05:35.879616+00:00",
+      "source_only_preparation": true,
+      "science_started": false
+    },
+    "science_cumulative_s": 250.1391287709921,
+    "scientific_history": [
+      {
+        "entry": "numeric_worker.py",
+        "supervisor_PID": 205292,
+        "worker_PID": 205293,
+        "start_UTC": "2026-10-09T08:23:32.060420+00:00",
+        "allowed_s": 1800,
+        "RSS_peak_bytes": 3026350080,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T08:27:39.594360+00:00",
+        "elapsed_s": 247.5343826399985
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 205292,
+        "worker_PID": 206128,
+        "start_UTC": "2026-10-09T08:27:39.595313+00:00",
+        "allowed_s": 1552.4656173600015,
+        "RSS_peak_bytes": 785395712,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T08:27:42.199455+00:00",
+        "elapsed_s": 2.6047461309935898
+      }
+    ],
+    "counters": {
+      "response_fit_attempts": 2,
+      "G_updates": 8000,
+      "D_updates": 8000,
+      "training_s": 232.13017659800244,
+      "HGB_attempts": 14,
+      "density_description_slots": 16,
+      "density_EM_attempts": 15,
+      "main_generation_rows": 4000,
+      "repeat_noise_rows": 2048,
+      "source_probe_rows": 1664,
+      "EVAL_read": 0,
+      "CAL_waveform_decode": 0,
+      "new_G4": 0,
+      "raw_long_waveform_decode": 0
+    },
+    "GPU_allocated_peak_bytes": 264854528,
+    "GPU_reserved_peak_bytes": 322961408,
+    "RSS_peak_bytes": 3026350080,
+    "CPU_threads": 4,
+    "numeric_limit_s": 1800,
+    "training_each_limit_s": 600,
+    "training_total_limit_s": 1200,
+    "G_D_each_arm_max": 4000,
+    "HGB_plan": 14,
+    "HGB_limit": 24,
+    "width_EM_limit": 16,
+    "output_limit_bytes": 268435456,
+    "new_source_hash_audit": false,
+    "migration_equality_test": false,
+    "new_G4": 0,
+    "EVAL_scientific_decode": 0,
+    "CAL_waveform_decode": 0,
+    "raw_long_waveform_decode": 0,
+    "fresh_replay": {
+      "PID": 206128,
+      "UTC": "2026-10-09T08:27:41.800934+00:00",
+      "elapsed_s": 2.189389660001325,
+      "arms": {
+        "CONT": {
+          "pre_ADC_bitwise": true,
+          "post_ADC_bitwise": true,
+          "source_ids_equal": true,
+          "pre_ADC_maxabs_V": 0.0,
+          "post_ADC_maxabs_V": 0.0,
+          "rows": 2000
+        },
+        "TILT": {
+          "pre_ADC_bitwise": true,
+          "post_ADC_bitwise": true,
+          "source_ids_equal": true,
+          "pre_ADC_maxabs_V": 0.0,
+          "post_ADC_maxabs_V": 0.0,
+          "rows": 2000
+        }
+      },
+      "rows": 4000,
+      "points": 1920000,
+      "pass": true,
+      "TRAIN_target_or_REAL_used": false,
+      "training_updates": 0
+    },
+    "normal_transfer": {
+      "PID": 21900,
+      "start_UTC": "2026-10-09T08:28:33.522854+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "migration_content_validation": false,
+      "normal_transfer_only": true,
+      "return_tar_bytes": 57149440,
+      "returned_file_count": 55,
+      "stop_UTC": "2026-10-09T08:28:42.531325+00:00"
+    },
+    "failed_science_history": [],
+    "output_existing_bytes_before_seal": 129577784,
+    "final_control_reserved_bytes": 65536,
+    "output_upper_bound_at_seal": 129643320,
+    "final_hash_is_pure_bytes_no_array_decode": true,
+    "science_new_after_terminal": 0,
+    "stage_stop_rule": "immutable after FINAL_RECEIPT; next task only by ROOT",
+    "science_status": "implemented/replay_passed; overall_response_not_matched",
+    "final_seal_PID": 22648,
+    "final_seal_UTC": "2026-10-09T08:39:10.110950+00:00"
+  },
+  "replay": {
+    "PID": 206128,
+    "UTC": "2026-10-09T08:27:41.800934+00:00",
+    "elapsed_s": 2.189389660001325,
+    "arms": {
+      "CONT": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      },
+      "TILT": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      }
+    },
+    "rows": 4000,
+    "points": 1920000,
+    "pass": true,
+    "TRAIN_target_or_REAL_used": false,
+    "training_updates": 0
+  },
+  "root_actually_viewed_figures": [
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/charge_psd_source_composition.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/conditional_psd_by_composition.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/conditional_psd_CDF.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/conditional_waveforms.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/energy_peak_width.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/noise_source_controls.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/sampling_prior.png",
+    "work/R19_SOURCE_PRIOR_TILT_001/results/figures/training_c2st.png"
+  ],
+  "visual_judgment": "All eight figures readable. TILT removes central pure-had valley pile-up, but bands remain too thin; full CDF has large steps. Conditional medians retain structured postpeak spikes and low-Q shape differences. Baseline RMS is close while ACF is not. Source/noise controls use corrected parent mapping; finite same-parent noise does not establish physical truth.",
+  "seal_native": {
+    "tool": "78f270",
+    "PID": 22648,
+    "exit_code": 0,
+    "executor_confirmed_stopped_writes": true
+  },
+  "version_bindings": [
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/REPORT.md",
+      "bytes": 8554,
+      "sha256": "5860145edec6c156a09e037c18c6fb3a98e4722dad4912c72894e38c7d88cd7e"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/REPRODUCTION.md",
+      "bytes": 3449,
+      "sha256": "45c225d29704682643bd80178c97df2d303501b80f795a87fb53bcdf9eeed77d"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/METRICS_COMPACT.json",
+      "bytes": 1501984,
+      "sha256": "21ea5e9c6537c6f385871710440ec8be70e65df28b750a8b8aa7f83fca97c0dd"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/FINAL_MANIFEST.json",
+      "bytes": 15716,
+      "sha256": "daa3cb10c9435cec74c2b2ba487e74af5a624d7305f45223349d2d98318fde57"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/FINAL_RECEIPT.json",
+      "bytes": 1291,
+      "sha256": "e7614ead606595f165a8f9c85fa9f120a5dccc3b0101a57f708b7386be84f6ad"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/config.json",
+      "bytes": 6996,
+      "sha256": "475e9382f58c77763c13402aee73b79949851f33c824c0fdf2cd2210f07b974f"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/PROTOCOL.md",
+      "bytes": 4447,
+      "sha256": "bd1220173b503fb0f9c860e9ddc8ddb628fc10864492bd88271881c9780bf383"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/DATA_ROLES.json",
+      "bytes": 957,
+      "sha256": "04bdee3c4a90e8a2cd6e6b1cf4b7a7193960ee7b6a89a21cdec04eafa669d4d8"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/NUMERIC_RECEIPT.json",
+      "bytes": 607,
+      "sha256": "dcef8fe06ee9f2be18b67709b49a53143919118aa7e3da91b571b0b43e79cc01"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/REMOTE_NATIVE_RECEIPT.json",
+      "bytes": 1241,
+      "sha256": "0108e3ff5241f39ca0d1864f3870b6a2f0fd6ee21800224e4b3d2d6d4a9d3e8c"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/RESOURCE_RECEIPT.json",
+      "bytes": 3629,
+      "sha256": "ff41b4ca6c4ed3990dbcd0b52ed8c02c123a9214a282c67dbfb252d6c881f2ff"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/REPLAY_RECEIPT.json",
+      "bytes": 627,
+      "sha256": "1b3682a378f8b46a6b8434e4a122d111d57de80e96b987a3076b0fd8b3e5717a"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/FIGURE_QA.json",
+      "bytes": 1840,
+      "sha256": "4f2bb03bb64b58a06df49d8f409661950db94d4c0d2760e704be20884f0048e7"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/INPUT_BINDINGS.json",
+      "bytes": 3367,
+      "sha256": "01bdf19c1176114894f3aab009f7cc3ffebb09d6bb70ee67a19135dfbc1a4927"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/VALLEY_DEFINITION.json",
+      "bytes": 2134,
+      "sha256": "11f581dd8ea7ca6dc04a711b106fe5f427df68fb5e02f431e729823e53dd4ab5"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/SOURCE_TILT_TABLE.json",
+      "bytes": 7271,
+      "sha256": "3e2768f6e69e6d604d8271f1cb9fbc6403b158d0ace1252c0d4b0814fbe2a8df"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/TRAIN_BAND_REFERENCE.json",
+      "bytes": 3424,
+      "sha256": "2d95a254111c179248e83b1b0b75e05675f4f0a7c59a739725479a85816dba96"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/PAIRING_RECEIPT.json",
+      "bytes": 917,
+      "sha256": "88f5e6c3ec71a04905d3e3442041e4821644e3c882ff23538040cee156f8ef80"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/CONT/TRAINING_RECEIPT.json",
+      "bytes": 87241,
+      "sha256": "4a64aeb3a809e859d89900cd9e7e0c528c171e832c3e2d15c0f8e6ac7a1d326a"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/TILT/TRAINING_RECEIPT.json",
+      "bytes": 87184,
+      "sha256": "6086a08c858ff4039a921ca165ae7257086215734e0f51f30851cf193cde6bc5"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/model.py",
+      "bytes": 5808,
+      "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/training.py",
+      "bytes": 10967,
+      "sha256": "d064a1f12ea830642bcbd8ef9b90b94488a5c11344af35c243e0dbae24c4805e"
+    },
+    {
+      "path": "work/R19_SOURCE_PRIOR_TILT_001/prior.py",
+      "bytes": 2911,
+      "sha256": "5c752c99fc4eddbf24fc92da18858bb3a7fbc682be9bd5ee45b52bdce252a38b"
+    }
+  ],
+  "bindings_are_migration_tests": false,
+  "complete_response_similarity_success": false,
+  "source_dependence_demonstrated": true,
+  "physical_event_mapping_validated": false,
+  "next_task": "tasks/R20_FINE_TIME_DISTRIBUTION_001.md",
+  "project_goal_status": "active",
+  "boundaries": [
+    "Source h versus REAL high-density band is an explicit soft-correspondence hypothesis, not a particle label.",
+    "The intervention changes exposure to all source losses, not only adversarial class-prior pressure.",
+    "Source derived from total EE/had deposits through existing analytic kernels; microscopic timing is absent.",
+    "All main results preserve original source population; TRAIN reweighted results are auxiliary.",
+    "Shared five-domain width support is only bins1-4; highest source internal-val bin has four records.",
+    "Cross-event REAL width is not a known same-event repeated response width.",
+    "Same historically exposed acquisition; no new EVAL, calibration or external-generalization claim.",
+    "Finite random-branch amplitude bound alone does not prove inability to vary integrated tail charge."
+  ]
+}

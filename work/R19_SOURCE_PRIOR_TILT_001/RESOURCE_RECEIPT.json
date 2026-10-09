@@ -1,0 +1,123 @@
+{
+  "stage": "R19",
+  "seal_deadline_UTC": "2026-10-09T09:24:33.361272+00:00",
+  "source_only_first_native": {
+    "PID": 23480,
+    "UTC": "2026-10-09T08:05:35.879616+00:00",
+    "source_only_preparation": true,
+    "science_started": false
+  },
+  "science_cumulative_s": 250.1391287709921,
+  "scientific_history": [
+    {
+      "entry": "numeric_worker.py",
+      "supervisor_PID": 205292,
+      "worker_PID": 205293,
+      "start_UTC": "2026-10-09T08:23:32.060420+00:00",
+      "allowed_s": 1800,
+      "RSS_peak_bytes": 3026350080,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T08:27:39.594360+00:00",
+      "elapsed_s": 247.5343826399985
+    },
+    {
+      "entry": "replay.py",
+      "supervisor_PID": 205292,
+      "worker_PID": 206128,
+      "start_UTC": "2026-10-09T08:27:39.595313+00:00",
+      "allowed_s": 1552.4656173600015,
+      "RSS_peak_bytes": 785395712,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T08:27:42.199455+00:00",
+      "elapsed_s": 2.6047461309935898
+    }
+  ],
+  "counters": {
+    "response_fit_attempts": 2,
+    "G_updates": 8000,
+    "D_updates": 8000,
+    "training_s": 232.13017659800244,
+    "HGB_attempts": 14,
+    "density_description_slots": 16,
+    "density_EM_attempts": 15,
+    "main_generation_rows": 4000,
+    "repeat_noise_rows": 2048,
+    "source_probe_rows": 1664,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4": 0,
+    "raw_long_waveform_decode": 0
+  },
+  "GPU_allocated_peak_bytes": 264854528,
+  "GPU_reserved_peak_bytes": 322961408,
+  "RSS_peak_bytes": 3026350080,
+  "CPU_threads": 4,
+  "numeric_limit_s": 1800,
+  "training_each_limit_s": 600,
+  "training_total_limit_s": 1200,
+  "G_D_each_arm_max": 4000,
+  "HGB_plan": 14,
+  "HGB_limit": 24,
+  "width_EM_limit": 16,
+  "output_limit_bytes": 268435456,
+  "new_source_hash_audit": false,
+  "migration_equality_test": false,
+  "new_G4": 0,
+  "EVAL_scientific_decode": 0,
+  "CAL_waveform_decode": 0,
+  "raw_long_waveform_decode": 0,
+  "fresh_replay": {
+    "PID": 206128,
+    "UTC": "2026-10-09T08:27:41.800934+00:00",
+    "elapsed_s": 2.189389660001325,
+    "arms": {
+      "CONT": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      },
+      "TILT": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      }
+    },
+    "rows": 4000,
+    "points": 1920000,
+    "pass": true,
+    "TRAIN_target_or_REAL_used": false,
+    "training_updates": 0
+  },
+  "normal_transfer": {
+    "PID": 21900,
+    "start_UTC": "2026-10-09T08:28:33.522854+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "migration_content_validation": false,
+    "normal_transfer_only": true,
+    "return_tar_bytes": 57149440,
+    "returned_file_count": 55,
+    "stop_UTC": "2026-10-09T08:28:42.531325+00:00"
+  },
+  "failed_science_history": [],
+  "output_existing_bytes_before_seal": 129577784,
+  "final_control_reserved_bytes": 65536,
+  "output_upper_bound_at_seal": 129643320,
+  "final_hash_is_pure_bytes_no_array_decode": true,
+  "science_new_after_terminal": 0,
+  "stage_stop_rule": "immutable after FINAL_RECEIPT; next task only by ROOT",
+  "science_status": "implemented/replay_passed; overall_response_not_matched",
+  "final_seal_PID": 22648,
+  "final_seal_UTC": "2026-10-09T08:39:10.110950+00:00"
+}
