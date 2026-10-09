@@ -27,4 +27,4 @@ TRAIN内部验证用于模型选择；DEV用于开发判断；已查看EVAL只�
 
 科学计算、绘图和报告的合理实现细节由执行器直接处理。根代理统一Git提交；原始数据和旧R1–R10交付不可覆盖。旧索引对可变根控制文件的绑定，在其原Git提交/D盘版本中读取。
 
-当前第一步：R11非对抗目标分布基线，分开量化表示重建误差与生成分布误差；见tasks/R11_TARGET_DENSITY_REPRESENTATION_001.md。项目进展以PROJECT_PROGRESS.json及PROGRAM.json记录。
+R11已完成表示与密度诊断，目标分布仍未通过；下一轮固定主模型和随机输入，先检验剩余坐标协方差规则，再据结果继续。项目进展以PROJECT_PROGRESS.json及PROGRAM.json记录。

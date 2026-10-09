@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T02:09:15.050225+00:00",
+  "updated_UTC": "2026-10-09T03:41:36.577713+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001",
-  "current_stage": "R11_TARGET_DENSITY_REPRESENTATION_001",
-  "current_task": "tasks/R11_TARGET_DENSITY_REPRESENTATION_001.md",
+  "latest_completed_stage": "R11_TARGET_DENSITY_REPRESENTATION_001",
+  "current_stage": null,
+  "current_task": null,
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,7 +13,7 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R10_contraction"
+      "status": "unmet_R11_full_shape_BA_about_0.946_baseline_inflation"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -21,7 +21,7 @@
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "partial_R3B_local_improvements_only"
+      "status": "partial_local_waveform_improvement_R11_shared_width_support_empty"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "previous_stage_replay_passed_final_model_not_selected"
+      "status": "R11_4000_draws_replay_passed_final_model_not_selected"
     },
     {
       "id": "final_research_delivery",
@@ -41,6 +41,7 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Compare two invertible target representations and likelihood-based density fits; quantify reconstruction versus generative residuals without GAN.",
-  "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result."
+  "current_direction": "Freeze R11 head models, coordinates, conditional means and actual random draws. Compare the current shrunk residual covariance with recovered empirical covariance plus the same numerical diagonal floor. Quantify regional variance contributions and paired changes before adding a richer conditional residual model.",
+  "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
+  "current_activity": "R11_delivery_then_register_next_bounded_round"
 }
