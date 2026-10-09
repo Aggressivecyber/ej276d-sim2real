@@ -1,5 +1,5 @@
 # 当前研究状态
 
-项目active。R22已封存：原critic固定池AUC .997843，标准化学习更快；没有新响应模型或完整响应成功。R22 GPU实际worker RSS未知的监控缺口保留。R23在线RAW/标准化配对比较已登记，原执行器本机准备，先落实实际PID RSS守护；状态见PROGRAM.json。
+项目active。R23已封存：RAW/标准化所选1000/0，完整shape BA .994/.992，PSD条件窄带与基线ACF仍失败；4000独立主回放通过，实际worker内存均已守护。R24单个D5臂已登记给既有执行器，在本机复用1:1对照与相同G流。实际运行状态见PROGRAM.json。
 
-R22入口为R22_REPORT.md与R22_DELIVERY_INDEX.json；私有Git和D盘普通复制状态读取实际回执。
+R23入口为R23_REPORT.md与R23_DELIVERY_INDEX.json，私有Git/D普通副本读取真实交付回执。

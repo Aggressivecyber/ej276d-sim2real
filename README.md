@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R22表明原判别器已能区分冻结R21输出；固定逐坐标中心化与缩放加快学习并改善分数。R23用配对在线训练检验它能否改善完整响应，先修复GPU实际worker内存监控。见[R22结论](R22_REPORT.md)、[R23任务](tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R23在线标准化选择起点，RAW内部指标改善但完整响应仍失败；4000独立回放和实际worker内存监控通过。R24仅新增D5臂检验在线跟踪，复用已保存1:1对照。见[R23结论](R23_REPORT.md)、[R24任务](tasks/R24_CRITIC_UPDATE_RATIO_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

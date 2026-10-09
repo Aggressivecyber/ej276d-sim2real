@@ -836,11 +836,23 @@
     },
     {
       "id": "R23_ONLINE_STANDARDIZED_CRITIC_001",
-      "status": "registered_for_executor",
+      "status": "sealed_standardized_selected_start_full_response_failed_guarded_replay_passed",
       "task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md",
       "registration": "reviews/R23_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T10:51:36.829269+00:00",
       "reason": "Both critics separate the frozen R21 response from REAL; RAW already has validation AUC .997843. Coordinate centering and scaling learns faster and improves fixed-threshold BA and MSE. Test that input treatment in paired online G:D=1:1 continuation from the same R21 selected generator and reader, with fresh equal critics and shared streams, judging independent full-response and source-preservation results.",
+      "execution_location": "local",
+      "project_goal_status": "active",
+      "receipt": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R24_CRITIC_UPDATE_RATIO_001.md"
+    },
+    {
+      "id": "R24_CRITIC_UPDATE_RATIO_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R24_CRITIC_UPDATE_RATIO_001.md",
+      "registration": "reviews/R24_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T11:33:56.674282+00:00",
+      "reason": "R23 standardized input did not improve the frozen response objective: step0 was selected, while the online critic remained far less discriminating than in the R22 frozen-pool diagnostic. Test one D5 arm against the saved same-platform R23 STANDARDIZED D1 control, retaining identical generator streams and selection but adding four independent critic-only batches per generator update. Judge full response and source preservation, not critic scores alone; no ratio sweep follows within this task.",
       "execution_location": "local",
       "project_goal_status": "active"
     }

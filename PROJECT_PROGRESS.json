@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T10:54:12.794094+00:00",
+  "updated_UTC": "2026-10-09T11:36:41.174708+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
-  "current_stage": "R23_ONLINE_STANDARDIZED_CRITIC_001",
-  "current_task": "tasks/R23_ONLINE_STANDARDIZED_CRITIC_001.md",
+  "latest_completed_stage": "R23_ONLINE_STANDARDIZED_CRITIC_001",
+  "current_stage": "R24_CRITIC_UPDATE_RATIO_001",
+  "current_task": "tasks/R24_CRITIC_UPDATE_RATIO_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,15 +13,15 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R21_stochastic_signal_and_centers_improved_full_response_failed"
+      "status": "R23_full_response_failed_standardized_selected_start_RAW_partial_changes_only"
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R21_source_signal_variation_increased_and_centers_recovered_complete_response_unmet"
+      "status": "R23_full_response_failed_standardized_selected_start_RAW_partial_changes_only"
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R21_partial_width_and_ACF_improvements_complete_waveform_and_width_unmet"
+      "status": "R23_conditional_width_and_baseline_correlation_unmet"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R21_selected_model_2000_main_replay_passed_scientific_acceptance_pending"
+      "status": "R23_4000_main_replay_passed_final_scientific_acceptance_pending"
     },
     {
       "id": "final_research_delivery",
@@ -41,13 +41,13 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Both critics separate the frozen R21 response from REAL; RAW already has validation AUC .997843. Coordinate centering and scaling learns faster and improves fixed-threshold BA and MSE. Test that input treatment in paired online G:D=1:1 continuation from the same R21 selected generator and reader, with fresh equal critics and shared streams, judging independent full-response and source-preservation results.",
+  "current_direction": "R23 standardized input did not improve the frozen response objective: step0 was selected, while the online critic remained far less discriminating than in the R22 frozen-pool diagnostic. Test one D5 arm against the saved same-platform R23 STANDARDIZED D1 control, retaining identical generator streams and selection but adding four independent critic-only batches per generator update. Judge full response and source preservation, not critic scores alone; no ratio sweep follows within this task.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R23_registered_online_critic_input_comparison",
+  "current_activity": "R24_registered_one_D5_arm",
   "latest_user_steering": "后续你在本机训练 服务器关闭一会儿",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/R21_LOCAL_EXECUTION_001/RECEIPT.json",
   "execution_location": "local_E_D_storage",
   "current_task_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md",
-  "latest_response_model_stage": "R21_GLOBAL_STOCHASTIC_SIGNAL_001"
+  "latest_response_model_stage": "R23_ONLINE_STANDARDIZED_CRITIC_001"
 }
