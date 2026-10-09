@@ -961,7 +961,7 @@
     },
     {
       "id": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_mean_recipe_closed_negative",
       "task": "tasks/R32_CONDITIONAL_MEAN_TRANSLATION_001.md",
       "registration": "reviews/R32_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T17:02:01.024475+00:00",
@@ -969,6 +969,20 @@
       "execution_location": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R32_REMOTE_20261009_170201_UTC",
       "new_response_fits_max": 2,
       "HGB_max": 40,
+      "project_goal_status": "active",
+      "receipt": "work/R32_CONDITIONAL_MEAN_TRANSLATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R33_RESIDUAL_OT_FLOW_001.md"
+    },
+    {
+      "id": "R33_RESIDUAL_OT_FLOW_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R33_RESIDUAL_OT_FLOW_001.md",
+      "registration": "reviews/R33_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T17:52:39.460916+00:00",
+      "reason": "R32 fixed mean coefficient reduces conditional full480 mean MSE48.07% but full493/raw480 paired intervals cross0, PSD distances regress17.6%/21.6% and upper raw width MAE29.6%. Close that recipe. Test a full480 continuous residual distribution map starting from frozen source-driven R32 CONTROL_FINAL, with equal-stream/equal-update independent-CFM versus within-Q minibatch-OT-CFM controls, source preservation and full-response endpoints together.",
+      "execution_location": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
+      "new_response_fits_max": 2,
+      "HGB_max": 20,
       "project_goal_status": "active"
     }
   ]

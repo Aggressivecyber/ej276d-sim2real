@@ -1,0 +1,849 @@
+{
+  "actual_network_input": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\ACTUAL_GENERATION_INPUTS.npz::source_waveforms_V",
+  "historical_reference_paths": {
+    "R26_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\results\\PLOT_WAVEFORMS_PRIVATE.npz::SOURCE_CLEAN",
+    "R28_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001\\results\\PLOT_WAVEFORMS_PRIVATE.npz::SOURCE_CLEAN"
+  },
+  "parent_ID_order_checks": {
+    "R26_root": true,
+    "R28_root": true
+  },
+  "source_metadata_ID_equal": true,
+  "rows": 2000,
+  "composition_counts": {
+    "mixed": 65,
+    "pure_EE": 417,
+    "pure_had": 1518
+  },
+  "reference_reconstruction_check": {
+    "R26_root": {
+      "same_ADC_values": true,
+      "maxabs_ADC_vs_reference_V": 0.0
+    },
+    "R28_root": {
+      "same_ADC_values": true,
+      "maxabs_ADC_vs_reference_V": 0.0
+    }
+  },
+  "ADC": {
+    "clip_count": 0,
+    "pre_ADC_finite": true,
+    "bits": 14,
+    "Vrange": [
+      -0.5,
+      0.5
+    ]
+  },
+  "source_ADC_clipped_parent_count": 0,
+  "source_waveform_difference": {
+    "maxabs_V": 3.0587310902774334e-05,
+    "row_RMS_V": {
+      "n": 2000,
+      "defined_n": 2000,
+      "undefined_n": 0,
+      "mean": 2.1555805948151383e-05,
+      "sample_sd": 1.566256395201504e-07,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        2.1097259099826184e-05,
+        2.1301252088000365e-05,
+        2.1450222293123067e-05,
+        2.1553895275993072e-05,
+        2.165946665749525e-05,
+        2.1810720972517208e-05,
+        2.221570259351729e-05
+      ]
+    }
+  },
+  "charge_difference_post_ADC_minus_actual_input_mVns": {
+    "n": 2000,
+    "defined_n": 2000,
+    "undefined_n": 0,
+    "mean": -8.574088019558985,
+    "sample_sd": 0.20701078824767435,
+    "quantile_levels": [
+      0,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      1
+    ],
+    "quantiles": [
+      -9.283421793952584,
+      -8.911272918339819,
+      -8.712962968274951,
+      -8.576076506869867,
+      -8.427352964645252,
+      -8.236879667674657,
+      -7.781557738780975
+    ]
+  },
+  "charge_difference_gate_input_minus_metadata_full512_target_mVns": {
+    "n": 2000,
+    "defined_n": 2000,
+    "undefined_n": 0,
+    "mean": -127.60766894417087,
+    "sample_sd": 93.41895042180073,
+    "quantile_levels": [
+      0,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      1
+    ],
+    "quantiles": [
+      -599.3374510109425,
+      -316.4043385415338,
+      -176.76861348189414,
+      -99.63287441199645,
+      -56.33401724265423,
+      -28.552338342810984,
+      -10.902232025982812
+    ]
+  },
+  "PSD_difference_post_ADC_minus_actual_input": {
+    "n": 2000,
+    "defined_n": 2000,
+    "undefined_n": 0,
+    "mean": -0.0026280154600549464,
+    "sample_sd": 0.0017927881352155387,
+    "quantile_levels": [
+      0,
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95,
+      1
+    ],
+    "quantiles": [
+      -0.008654332635359085,
+      -0.0064844780578622195,
+      -0.0035155428017932533,
+      -0.002095631412919019,
+      -0.001212057223757279,
+      -0.0006685982841330652,
+      -0.0004212231832416702
+    ]
+  },
+  "source_Q_bin_changed_parent_count": 23,
+  "pure_had_actual_preADC_counts_8bins": [
+    213,
+    213,
+    213,
+    181,
+    175,
+    125,
+    46,
+    3
+  ],
+  "pure_had_reference_postADC_counts_8bins": [
+    210,
+    218,
+    207,
+    182,
+    175,
+    123,
+    47,
+    2
+  ],
+  "verified_processing_difference": "SOURCE_CLEAN is the existing 14bit ADC [-.5,.5] clipping/rounding of the actual clean network input, not its unquantized input. This exactly reconstructs both saved references for all 2000 rows.",
+  "construction_sources": {
+    "clean": "R18/numeric_worker.py clean_expectation: G4 EE+.15had, fixed exponential components, linear full512 charge target, CFD cropped480; R32 inherits actual clean input unchanged.",
+    "network_and_reference": "R18/numeric_worker.py run: save source in ACTUAL_GENERATION_INPUTS, infer(source), then source_adc=adc(source) for SOURCE_CLEAN evaluation. R28 explicitly reuses the R26 saved SOURCE_CLEAN reference.",
+    "Qsource_Vns": "analytic calibrated full512 target; not identical to the saved baseline-subtracted 100:400 gate integral"
+  },
+  "no_new_micro_timing_information": true,
+  "not_a_migration_test": true,
+  "no_response_inference_fits_or_generation": 0,
+  "actual_NN_input_source_Q_endpoints": {
+    "CONTROL_FINAL": {
+      "conditioning": "actual unquantized NN-input source-Q, not ADC-reference source-Q",
+      "all_8bins": [
+        {
+          "bin_id_1based": 1,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2697778430221421,
+            "sample_sd": 0.03145824085192458,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.18181450612337902,
+              0.2222534478362093,
+              0.24911879136588055,
+              0.2701541025631745,
+              0.2870362906901941,
+              0.3194915117614885,
+              0.35933820459271326
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.2112676056338028
+        },
+        {
+          "bin_id_1based": 2,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2791654402805708,
+            "sample_sd": 0.028270277118455516,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.19496692055601372,
+              0.2315331254663933,
+              0.26056061982012957,
+              0.28083281066135324,
+              0.29727390355245153,
+              0.32498653660161725,
+              0.35354676765439197
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.11267605633802817
+        },
+        {
+          "bin_id_1based": 3,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2814020928854927,
+            "sample_sd": 0.026703316477131266,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2076419089300714,
+              0.23881712534789593,
+              0.2626141545612859,
+              0.2818031558756099,
+              0.30125941809151824,
+              0.32229197631715883,
+              0.34733105008305865
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.056338028169014086
+        },
+        {
+          "bin_id_1based": 4,
+          "source_count": 181,
+          "QC_n": 181,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 181,
+            "defined_n": 181,
+            "undefined_n": 0,
+            "mean": 0.28055961219454273,
+            "sample_sd": 0.01981816272084234,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2412777155255903,
+              0.24785421545785358,
+              0.2673583021025552,
+              0.2784440562411413,
+              0.2911519005727776,
+              0.31710612555617335,
+              0.3466564169592081
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0055248618784530384
+        },
+        {
+          "bin_id_1based": 5,
+          "source_count": 175,
+          "QC_n": 175,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 175,
+            "defined_n": 175,
+            "undefined_n": 0,
+            "mean": 0.2880170301865972,
+            "sample_sd": 0.016812447975384805,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2358183435324923,
+              0.25969076399024066,
+              0.27823333097202735,
+              0.28713120260543,
+              0.2990472148067675,
+              0.31473656092520635,
+              0.3337084719013509
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.011428571428571429
+        },
+        {
+          "bin_id_1based": 6,
+          "source_count": 125,
+          "QC_n": 125,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 125,
+            "defined_n": 125,
+            "undefined_n": 0,
+            "mean": 0.3097566897344195,
+            "sample_sd": 0.018092055060913343,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.264293220777584,
+              0.28165049480649956,
+              0.29683696150812633,
+              0.30861085234862917,
+              0.32031086585326407,
+              0.33986666683598943,
+              0.35730392535101474
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.024
+        },
+        {
+          "bin_id_1based": 7,
+          "source_count": 46,
+          "QC_n": 46,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 46,
+            "defined_n": 46,
+            "undefined_n": 0,
+            "mean": 0.33714354838204136,
+            "sample_sd": 0.018426449837966787,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2990110978676537,
+              0.31410629391173994,
+              0.32338736710283206,
+              0.33680254387138814,
+              0.34946302149166797,
+              0.36731862704359164,
+              0.37326946910205105
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.021739130434782608
+        },
+        {
+          "bin_id_1based": 8,
+          "source_count": 3,
+          "QC_n": 3,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 3,
+            "defined_n": 3,
+            "undefined_n": 0,
+            "mean": 0.37401051075074426,
+            "sample_sd": 0.006853113243648311,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.36677167008418154,
+              0.367580646938486,
+              0.3708165543557038,
+              0.3748614386272261,
+              0.37762993108402565,
+              0.3798447250494653,
+              0.3803984235408252
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        }
+      ],
+      "primary_actual_source_bins3_4": [
+        {
+          "bin_id_1based": 3,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2814020928854927,
+            "sample_sd": 0.026703316477131266,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2076419089300714,
+              0.23881712534789593,
+              0.2626141545612859,
+              0.2818031558756099,
+              0.30125941809151824,
+              0.32229197631715883,
+              0.34733105008305865
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.056338028169014086
+        },
+        {
+          "bin_id_1based": 4,
+          "source_count": 181,
+          "QC_n": 181,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 181,
+            "defined_n": 181,
+            "undefined_n": 0,
+            "mean": 0.28055961219454273,
+            "sample_sd": 0.01981816272084234,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2412777155255903,
+              0.24785421545785358,
+              0.2673583021025552,
+              0.2784440562411413,
+              0.2911519005727776,
+              0.31710612555617335,
+              0.3466564169592081
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0055248618784530384
+        }
+      ],
+      "all_parent_ids_preserved": true
+    },
+    "MEAN_FINAL": {
+      "conditioning": "actual unquantized NN-input source-Q, not ADC-reference source-Q",
+      "all_8bins": [
+        {
+          "bin_id_1based": 1,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2778974524904509,
+            "sample_sd": 0.025814548798990287,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.21311259818436623,
+              0.235977809640457,
+              0.25772711574613916,
+              0.2774678139629825,
+              0.29583406107469123,
+              0.32065475588815817,
+              0.3350335123126915
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.09859154929577464
+        },
+        {
+          "bin_id_1based": 2,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.2858790352919461,
+            "sample_sd": 0.022480345300450538,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.1867241088674375,
+              0.2548958291825847,
+              0.2710206197409162,
+              0.2845312342792007,
+              0.3021812397090512,
+              0.3216947622461044,
+              0.3327409188349235
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.018779342723004695
+        },
+        {
+          "bin_id_1based": 3,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.28970708839233583,
+            "sample_sd": 0.018990759470929226,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.23930197259215213,
+              0.259316045441053,
+              0.2754424429591168,
+              0.29009809030846845,
+              0.30525760149554615,
+              0.31659239440279413,
+              0.33327115437619914
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.004694835680751174
+        },
+        {
+          "bin_id_1based": 4,
+          "source_count": 181,
+          "QC_n": 181,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 181,
+            "defined_n": 181,
+            "undefined_n": 0,
+            "mean": 0.29308668937529836,
+            "sample_sd": 0.014082133842100865,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2569855719495199,
+              0.27071735363726146,
+              0.28208459479319525,
+              0.2914562417654405,
+              0.3056407481944382,
+              0.3147653148380246,
+              0.3264468428859445
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        },
+        {
+          "bin_id_1based": 5,
+          "source_count": 175,
+          "QC_n": 175,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 175,
+            "defined_n": 175,
+            "undefined_n": 0,
+            "mean": 0.2999373808738948,
+            "sample_sd": 0.014556673823249325,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.24716569365130747,
+              0.27779244769412986,
+              0.29034800401464556,
+              0.2990015701899419,
+              0.3116655126166937,
+              0.3219591787738322,
+              0.3306126733835889
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.005714285714285714
+        },
+        {
+          "bin_id_1based": 6,
+          "source_count": 125,
+          "QC_n": 125,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 125,
+            "defined_n": 125,
+            "undefined_n": 0,
+            "mean": 0.3190559689286025,
+            "sample_sd": 0.01773941322563923,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2845595352164849,
+              0.29131480898728895,
+              0.3055244971263965,
+              0.31914765322425365,
+              0.3335841416457913,
+              0.34561664962710986,
+              0.35244670139219836
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        },
+        {
+          "bin_id_1based": 7,
+          "source_count": 46,
+          "QC_n": 46,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 46,
+            "defined_n": 46,
+            "undefined_n": 0,
+            "mean": 0.3470558769858068,
+            "sample_sd": 0.017492498629010787,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.3093609709623507,
+              0.3195400661390166,
+              0.3342457386586688,
+              0.3499149935994816,
+              0.3636930032137544,
+              0.36822062490820184,
+              0.37071151440782013
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        },
+        {
+          "bin_id_1based": 8,
+          "source_count": 3,
+          "QC_n": 3,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 3,
+            "defined_n": 3,
+            "undefined_n": 0,
+            "mean": 0.3898425755668333,
+            "sample_sd": 0.007420783949623824,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.38263656760034515,
+              0.3833159327282313,
+              0.38603339323977587,
+              0.3894302188792066,
+              0.3934455795500774,
+              0.39665786808677406,
+              0.39746094022094824
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        }
+      ],
+      "primary_actual_source_bins3_4": [
+        {
+          "bin_id_1based": 3,
+          "source_count": 213,
+          "QC_n": 213,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 213,
+            "defined_n": 213,
+            "undefined_n": 0,
+            "mean": 0.28970708839233583,
+            "sample_sd": 0.018990759470929226,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.23930197259215213,
+              0.259316045441053,
+              0.2754424429591168,
+              0.29009809030846845,
+              0.30525760149554615,
+              0.31659239440279413,
+              0.33327115437619914
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.004694835680751174
+        },
+        {
+          "bin_id_1based": 4,
+          "source_count": 181,
+          "QC_n": 181,
+          "invalid_n": 0,
+          "output_PSD": {
+            "n": 181,
+            "defined_n": 181,
+            "undefined_n": 0,
+            "mean": 0.29308668937529836,
+            "sample_sd": 0.014082133842100865,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.2569855719495199,
+              0.27071735363726146,
+              0.28208459479319525,
+              0.2914562417654405,
+              0.3056407481944382,
+              0.3147653148380246,
+              0.3264468428859445
+            ]
+          },
+          "empirical_width_is_sample_SD_not_density_fit": true,
+          "valley_fraction": 0.0
+        }
+      ],
+      "all_parent_ids_preserved": true
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "fixed_recipe_retained": false,
+  "gate": {
+    "full_historical_shape_paired_BA": {
+      "delta": -0.0020000000000000018,
+      "CI95": [
+        -0.020018337779928858,
+        0.016421962389415828
+      ],
+      "pass": false
+    },
+    "normalized_u480_paired_BA": {
+      "delta": 0.0,
+      "CI95": [
+        -0.01792888852946625,
+        0.017955532978024245
+      ],
+      "pass": false
+    },
+    "conditional_mean_MSE": {
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "CONTROL_FINAL": 0.00016876881138760155,
+      "MEAN_FINAL": 8.764091367435451e-05,
+      "relative_reduction": 0.48070432591318846,
+      "required_reduction": 0.2,
+      "pass": true
+    },
+    "overall_PSD_W1": {
+      "CONTROL_FINAL": 0.023065461350718693,
+      "MEAN_FINAL": 0.0271265665202553,
+      "relative_change": 0.1760686728865306,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": false,
+      "undefined_is_not_pass": true
+    },
+    "baseline_RMS_W1": {
+      "CONTROL_FINAL": 1.935838569590557e-05,
+      "MEAN_FINAL": 1.844537074008061e-05,
+      "relative_change": -0.04716379610196875,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": true,
+      "undefined_is_not_pass": true
+    },
+    "ACF1_W1": {
+      "CONTROL_FINAL": 0.0642349713874355,
+      "MEAN_FINAL": 0.04776064986397846,
+      "relative_change": -0.25646966391705206,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": true,
+      "undefined_is_not_pass": true
+    },
+    "common_bin_PSD_W1": {
+      "CONTROL_FINAL": 0.03476579517454605,
+      "MEAN_FINAL": 0.04228885690209957,
+      "relative_change": 0.21639262642442203,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": false,
+      "undefined_is_not_pass": true,
+      "common_bin_ids_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "component0_raw_width_MAE": {
+      "CONTROL_FINAL": 0.010392721813624134,
+      "MEAN_FINAL": 0.009053812888532818,
+      "relative_change": -0.12883140231234702,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": true,
+      "undefined_is_not_pass": true,
+      "common_bin_ids_1based": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "component1_raw_width_MAE": {
+      "CONTROL_FINAL": 0.013051174366838758,
+      "MEAN_FINAL": 0.01691472565544699,
+      "relative_change": 0.2960309302452495,
+      "allowed_increase_fraction": 0.10000000000000009,
+      "pass": false,
+      "undefined_is_not_pass": true,
+      "common_bin_ids_1based": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "postADC_reference_pure_had_bin3_valley": {
+      "CONTROL_FINAL": 0.057971014492753624,
+      "MEAN_FINAL": 0.004830917874396135,
+      "difference_fraction": -0.05314009661835749,
+      "max_increase_fraction": 0.02,
+      "source_count": 207,
+      "pass": true,
+      "condition_is_frozen_post_ADC_reference_not_actual_input_Q": true
+    },
+    "postADC_reference_pure_had_bin4_valley": {
+      "CONTROL_FINAL": 0.005494505494505495,
+      "MEAN_FINAL": 0.0,
+      "difference_fraction": -0.005494505494505495,
+      "max_increase_fraction": 0.02,
+      "source_count": 182,
+      "pass": true,
+      "condition_is_frozen_post_ADC_reference_not_actual_input_Q": true
+    },
+    "equal2950_and_original_flow": {
+      "pass": true
+    },
+    "new_output_ADC_and_QC": {
+      "ADC": {
+        "CONTROL_SELECTED": {
+          "clip_count": 0,
+          "pre_ADC_finite": true,
+          "bits": 14,
+          "Vrange": [
+            -0.5,
+            0.5
+          ]
+        },
+        "CONTROL_FINAL": {
+          "clip_count": 0,
+          "pre_ADC_finite": true,
+          "bits": 14,
+          "Vrange": [
+            -0.5,
+            0.5
+          ]
+        },
+        "MEAN_SELECTED": {
+          "clip_count": 0,
+          "pre_ADC_finite": true,
+          "bits": 14,
+          "Vrange": [
+            -0.5,
+            0.5
+          ]
+        },
+        "MEAN_FINAL": {
+          "clip_count": 0,
+          "pre_ADC_finite": true,
+          "bits": 14,
+          "Vrange": [
+            -0.5,
+            0.5
+          ]
+        }
+      },
+      "QC": {
+        "CONTROL_SELECTED": 2000,
+        "CONTROL_FINAL": 2000,
+        "MEAN_SELECTED": 2000,
+        "MEAN_FINAL": 2000
+      },
+      "pass": true
+    }
+  },
+  "same_platform_final_comparison": true,
+  "unknown_not_automatically_pass": true,
+  "operational_thresholds_not_physical_equivalence": true,
+  "close_fixed_coefficient_recipe_if_fail": true
+}

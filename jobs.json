@@ -216,13 +216,210 @@
     {
       "stage": "R32_CONDITIONAL_MEAN_TRANSLATION_001",
       "kind": "same_server_control_and_conditional_mean_intervention",
-      "status": "registered_not_started",
+      "status": "sealed_fixed_mean_recipe_closed_negative",
       "registered_UTC": "2026-10-09T17:02:01.024475+00:00",
       "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R32_REMOTE_20261009_170201_UTC",
       "registration": "reviews/R32_REGISTRATION_001/RECEIPT.json",
       "max_concurrent_scientific_jobs": 1,
+      "actual_native_jobs": [
+        {
+          "scope": "Linux zero-response PID/RSS guard and runtime probe",
+          "actual_worker_PID": 22976,
+          "supervisor_PID": 22975,
+          "native_exit": 0,
+          "elapsed_s": 3.510881,
+          "actual_worker_RSS_peak_bytes": 585977856,
+          "CUDA_live": true,
+          "Torch": "2.12.0+cu130",
+          "NumPy": "1.26.4",
+          "GPU": "RTX5070",
+          "source": "executor native terminal report; local SSH terminal receipt also native0"
+        },
+        {
+          "local_launch_PID": 30516,
+          "entry": "train_server.py",
+          "UTC": "2026-10-09T17:14:10.716903+00:00",
+          "command": [
+            "C:/Windows/System32/OpenSSH/ssh.exe",
+            "-T",
+            "-o",
+            "ForwardX11=no",
+            "-o",
+            "BatchMode=yes",
+            "-o",
+            "ConnectTimeout=8",
+            "rylan@100.82.231.102",
+            "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R32_REMOTE_20261009_170201_UTC/linux_supervise.py train_server.py"
+          ],
+          "SSH_PID": 57180,
+          "remote_bound_actual_science": {
+            "entry": "train_server.py",
+            "supervisor_PID": 23245,
+            "start_UTC": "2026-10-09T17:14:10.831828+00:00",
+            "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+            "limit_s": 1850,
+            "actual_worker_PID": 23246,
+            "actual_worker_RSS_peak_bytes": 12894208,
+            "memory_probe_failures": 0,
+            "handshake_before_imports": true,
+            "launcher_PID": 23246,
+            "actual_worker_parent_PID": 23245
+          }
+        }
+      ],
+      "native_receipt_policy": "Record actual worker/supervisor identity, terminal status, and resource receipts before any retry.",
+      "first_actual_command": {
+        "tool": "dcc907",
+        "PID": 59048,
+        "native_exit": 0,
+        "UTC": "2026-10-09T17:02:35.687235+00:00",
+        "scope": "control read and preparation; no scientific job started"
+      },
+      "active_scientific_jobs": 0,
+      "launch_tool": "1604dc",
+      "launch_session": 61821,
+      "terminal_state": "native0",
+      "last_observed_UTC": "2026-10-09T17:28:25.205161+00:00",
+      "remote_training_native": {
+        "entry": "train_server.py",
+        "supervisor_PID": 23245,
+        "start_UTC": "2026-10-09T17:14:10.831828+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 1850,
+        "actual_worker_PID": 23246,
+        "actual_worker_RSS_peak_bytes": 2710675456,
+        "memory_probe_failures": 2,
+        "handshake_before_imports": true,
+        "launcher_PID": 23246,
+        "actual_worker_parent_PID": 23245,
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 227.94456193899987,
+        "stop_UTC": "2026-10-09T17:17:58.776393+00:00",
+        "worker_self_receipt": {
+          "PID": 23246,
+          "parent_PID": 23245,
+          "nonce": "47ad99db28f746d39ed1f464f43af02a",
+          "entry": "train_server.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 227.28063207800005,
+          "self_peak_RSS_bytes": 2710675456,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-09T17:17:58.128764+00:00"
+        }
+      },
+      "training_summary": {
+        "SERVER_FRESH_CONTROL": {
+          "updates": 2950,
+          "selected_step": 750,
+          "J_selected": 0.5610488653182983,
+          "J_final": 0.5795796513557434,
+          "training_s": 114.0337705639995
+        },
+        "CONDITIONAL_MEAN": {
+          "updates": 2950,
+          "selected_step": 1750,
+          "J_selected": 0.5375945568084717,
+          "J_final": 0.5773797035217285,
+          "training_s": 110.31420070699915
+        }
+      },
+      "training_counter": {
+        "response_fit_attempts": 2,
+        "G_updates": 5900,
+        "D_updates": 5900,
+        "style_reader_updates": 5900,
+        "training_s": 224.34797127099864
+      },
+      "training_terminal_tool": "61d017",
+      "RSS_query_gap_timing": "unknown_not_logged",
+      "evaluation_native": {
+        "entry": "evaluate_endpoints.py",
+        "supervisor_PID": 30812,
+        "start_UTC": "2026-10-09T17:24:20.487936+00:00",
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "limit_s": 2167.4147995270005,
+        "actual_worker_PID": 40116,
+        "actual_worker_RSS_peak_bytes": 995717120,
+        "launcher_RSS_peak_bytes": 995717120,
+        "memory_probe_failures": 0,
+        "handshake_before_imports": true,
+        "launcher_PID": 40116,
+        "actual_worker_parent_PID": 30812,
+        "actual_worker_native_exit": 1,
+        "launcher_native_exit": 1,
+        "termination_reason": null,
+        "elapsed_s": 73.82232009997824,
+        "stop_UTC": "2026-10-09T17:25:34.310498+00:00",
+        "worker_self_receipt": {
+          "PID": 40116,
+          "parent_PID": 30812,
+          "entry": "evaluate_endpoints.py",
+          "nonce": "1c178bd32ede4f06a7ffe15cbed6f52d",
+          "native_exit": 1,
+          "error": "AssertionError(('SOURCE_CLEAN', 'purehad source population changed'))",
+          "elapsed_s": 72.9622306000092,
+          "self_peak_RSS_bytes": 995717120,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-09T17:25:33.557537+00:00"
+        }
+      },
+      "updated_UTC": "2026-10-09T17:47:36.733682+00:00",
+      "latest_native_snapshot": {
+        "entry": "replay_endpoints.py",
+        "supervisor_PID": 48796,
+        "start_UTC": "2026-10-09T17:37:12.179207+00:00",
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "limit_s": 2071.3167809270935,
+        "actual_worker_PID": 37712,
+        "actual_worker_RSS_peak_bytes": 468111360,
+        "launcher_RSS_peak_bytes": 468111360,
+        "memory_probe_failures": 0,
+        "handshake_before_imports": true,
+        "launcher_PID": 37712,
+        "actual_worker_parent_PID": 48796,
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 9.174643200007267,
+        "stop_UTC": "2026-10-09T17:37:21.353892+00:00",
+        "worker_self_receipt": {
+          "PID": 37712,
+          "parent_PID": 48796,
+          "entry": "replay_endpoints.py",
+          "nonce": "748d30dedb374bacbc29158cc1dd8697",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 8.56535609997809,
+          "self_peak_RSS_bytes": 468111360,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-09T17:37:20.864579+00:00"
+        }
+      },
+      "recovered_without_new_fits": true,
+      "source_reference_difference": "14bit_ADC_quantization_same_parent_order",
+      "independent_replay_passed": true,
+      "gate_passed": false,
+      "final_receipt": "work/R32_CONDITIONAL_MEAN_TRANSLATION_001/FINAL_RECEIPT.json"
+    },
+    {
+      "stage": "R33_RESIDUAL_OT_FLOW_001",
+      "kind": "fixed_base_response_independent_and_OT_residual_flows",
+      "status": "executor_preparing_server",
+      "registered_UTC": "2026-10-09T17:52:39.460916+00:00",
+      "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
+      "registration": "reviews/R33_REGISTRATION_001/RECEIPT.json",
+      "max_concurrent_scientific_jobs": 1,
       "actual_native_jobs": [],
-      "native_receipt_policy": "Record actual worker/supervisor identity, terminal status, and resource receipts before any retry."
+      "first_actual_command": {
+        "tool": "63fd7e",
+        "PID": 51776,
+        "native_exit": 0,
+        "UTC": "2026-10-09T17:53:14.399903+00:00",
+        "scope": "control reads/preparation; scientific execution not yet reported"
+      }
     }
   ]
 }
