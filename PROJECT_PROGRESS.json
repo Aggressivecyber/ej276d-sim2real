@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T09:25:54.886723+00:00",
+  "updated_UTC": "2026-10-09T10:33:13.272634+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R20_FINE_TIME_DISTRIBUTION_001",
-  "current_stage": "R21_GLOBAL_STOCHASTIC_SIGNAL_001",
-  "current_task": "tasks/R21_GLOBAL_STOCHASTIC_SIGNAL_001.md",
+  "latest_completed_stage": "R21_GLOBAL_STOCHASTIC_SIGNAL_001",
+  "current_stage": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
+  "current_task": "tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,15 +13,15 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R20_fine_objective_reduction_full_response_failed_source_centers_regressed"
+      "status": "R21_stochastic_signal_and_centers_improved_full_response_failed"
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R20_source_input_retained_full_response_and_conditional_centers_unmet"
+      "status": "R21_source_signal_variation_increased_and_centers_recovered_complete_response_unmet"
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R20_fine_loss_lower_fullshape_failed_conditional_centers_regressed_width_narrow"
+      "status": "R21_partial_width_and_ACF_improvements_complete_waveform_and_width_unmet"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R20_two_models_4000_replay_passed_scientific_acceptance_pending"
+      "status": "R21_selected_model_2000_main_replay_passed_scientific_acceptance_pending"
     },
     {
       "id": "final_research_delivery",
@@ -41,10 +41,12 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Test independent global style modulation in the complete source-conditioned signal decoder together with coarse-signal latent reconstruction, reusing the sealed R20/FINE matched-stream reference; separate signal-style variation from electronic noise and judge source content and full response jointly.",
+  "current_direction": "R21 adds measurable source-conditioned signal variation and restores mid-Q pure-had centers, but complete waveform and noise discrimination remains high. Freeze its selected generator and compare the original critic with the same network using REAL-TRAIN coordinate standardization, under identical fixed TRAIN pools and sampling, with independent HGB controls, before changing the adversarial training recipe.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R21_registered_global_stochastic_signal",
-  "latest_user_steering": "无配对学习仿真波形到实测波形；不得忽略具体源事件",
+  "current_activity": "R22_registered_fixed_generator_critic_diagnostic",
+  "latest_user_steering": "后续你在本机训练 服务器关闭一会儿",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
-  "latest_user_steering_receipt": "reviews/UNPAIRED_SOURCE_CORRECTION_20261009_001.json"
+  "latest_user_steering_receipt": "reviews/R21_LOCAL_EXECUTION_001/RECEIPT.json",
+  "execution_location": "local_E_D_storage",
+  "current_task_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md"
 }

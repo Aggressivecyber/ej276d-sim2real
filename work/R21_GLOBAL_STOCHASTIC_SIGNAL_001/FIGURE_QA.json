@@ -1,0 +1,20 @@
+{
+  "inspection": "Actual view_image calls; all eight final figures viewed, plus the original and clarified source-Q repeat plot.",
+  "all_inspected": true,
+  "final_figure_count": 8,
+  "figures": [
+    {"path": "results/figures/charge_psd_source_composition.png", "status": "readable", "observations": "Common Q/log scale and complete PSD scale; original 2000/QC2000 in all domains, pure-source composition remains explicit. GLOBAL_STYLE spreads bands but remains far narrower than REAL."},
+    {"path": "results/figures/conditional_psd_CDF.png", "status": "readable", "observations": "Eight bins with separate counts; CDF plateaus/width mismatch visible; no title overlap or deleted failures."},
+    {"path": "results/figures/energy_peak_width.png", "status": "readable", "observations": "Qualified mean/sigma points only; highest translated bin gap visible. Upper-component widths too small and lower widths not uniformly improved."},
+    {"path": "results/figures/conditional_waveforms.png", "status": "readable", "observations": "Eight source-conditioned groups, REAL own-Q group; mean/bands remain textured after the peak despite broadly similar peak shape."},
+    {"path": "results/figures/training_c2st.png", "status": "readable", "observations": "Actual local trajectory stops at2699 and selection at2000; latent reduction does not coincide with best J; all local C2ST failures visible."},
+    {"path": "results/figures/noise_source_controls.png", "status": "readable", "observations": "Baseline ACF remains negative, reference distributions and corrected source parents explicit; style-only PSD spread larger than electronic-only."},
+    {"path": "results/figures/random_component_variation.png", "status": "readable", "observations": "Signal/electronic labels are functional components; electronic-only signal variance zero; source groups and mV units legible."},
+    {"path": "results/figures/style_only_parent_PSD.png", "status": "readable_after_caption_precision", "observations": "Actual32 parents x32 saved values; gray frozen valley explicitly source-Q, not current output-Q. Original figure remains under figures_pre_label_qa."}
+  ],
+  "new_model_updates_for_QA": 0,
+  "new_response_generation_for_QA": 0,
+  "new_density_or_classifier_fits_for_QA": 0,
+  "label_replot_native_exit_code": 1,
+  "label_replot_note": "Saved-data figure completed; subsequent RSS instrumentation assertion failed, receipt preserved and no rerender performed."
+}

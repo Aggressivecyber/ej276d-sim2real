@@ -1,0 +1,24 @@
+{
+  "PID": 14520,
+  "error": "IndexError('tensors used as indices must be long, int, byte or bool tensors')",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\numeric_worker.py\", line 161, in <module>\n    try:run()\n        ~~~^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\numeric_worker.py\", line 135, in run\n    model,tr,counts=train('GLOBAL_STYLE',xs,xt,vs,vt,h,hv,sb,tb,lambdas,edges,fine_constants,CFG,ROOT/'GLOBAL_STYLE',COUNTER,log)\n                    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\training.py\", line 107, in train\n    critic.requires_grad_(False);og.zero_grad(set_to_none=True);y,signal,_=model(x,zz,ww,sty);gan=(critic(y)-1).square().mean();content=nce(model,x,y,cfg,rngnce)\n                                                                                                                                        ~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\legacy_model.py\", line 84, in nce\n    key=F.normalize(model.project[k](s)[:,:,idx].transpose(1,2).detach(),dim=2)\n                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^\nIndexError: tensors used as indices must be long, int, byte or bool tensors\n",
+  "elapsed_s": 10.078067300026305,
+  "counters": {
+    "response_fit_attempts": 1,
+    "G_updates": 0,
+    "D_updates": 1,
+    "training_s": 0.0,
+    "HGB_attempts": 0,
+    "density_description_slots": 0,
+    "density_EM_attempts": 0,
+    "main_generation_rows": 0,
+    "repeat_noise_rows": 0,
+    "source_probe_rows": 0,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4": 0,
+    "raw_long_waveform_decode": 0,
+    "structural_check_rows": 96,
+    "style_reader_updates": 0
+  }
+}

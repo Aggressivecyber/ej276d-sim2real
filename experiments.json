@@ -810,11 +810,26 @@
     },
     {
       "id": "R21_GLOBAL_STOCHASTIC_SIGNAL_001",
-      "status": "registered_for_executor",
+      "status": "sealed_stochastic_signal_used_partial_improvement_complete_response_failed",
       "task": "tasks/R21_GLOBAL_STOCHASTIC_SIGNAL_001.md",
       "registration": "reviews/R21_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T09:21:48.905481+00:00",
       "reason": "Test independent global style modulation in the complete source-conditioned signal decoder together with coarse-signal latent reconstruction, reusing the sealed R20/FINE matched-stream reference; separate signal-style variation from electronic noise and judge source content and full response jointly.",
+      "project_goal_status": "active",
+      "execution_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md",
+      "local_execution_registration": "reviews/R21_LOCAL_EXECUTION_001/RECEIPT.json",
+      "execution_location": "local",
+      "receipt": "work/R21_GLOBAL_STOCHASTIC_SIGNAL_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md"
+    },
+    {
+      "id": "R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md",
+      "registration": "reviews/R22_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T10:22:41.881019+00:00",
+      "reason": "R21 adds measurable source-conditioned signal variation and restores mid-Q pure-had centers, but complete waveform and noise discrimination remains high. Freeze its selected generator and compare the original critic with the same network using REAL-TRAIN coordinate standardization, under identical fixed TRAIN pools and sampling, with independent HGB controls, before changing the adversarial training recipe.",
+      "execution_location": "local",
       "project_goal_status": "active"
     }
   ]

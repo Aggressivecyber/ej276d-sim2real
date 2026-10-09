@@ -1,0 +1,9 @@
+# R21 local reproduction
+
+Actual interpreter: `C:\Users\10629\AppData\Local\Programs\Python\Python313\python.exe`. Torch/NumPy/sklearn versions are in RESOURCE_RECEIPT. The owned numerical entry was `local_supervise.py`, cwd this stage, with E-drive TEMP/TMP and bytecode disabled; it launches numeric_worker then replay sequentially. Existing server preparation helpers were never deployed or run.
+
+For saved-weight inference in a **new E/D directory**, copy model.py/legacy_model.py, replay.py, config.json, GLOBAL_STYLE/TRANSLATOR.pt, GLOBAL_STYLE/generated.npz and ACTUAL_GENERATION_INPUTS.npz preserving paths. Set TEMP/TMP/TMPDIR and library caches to that new E/D directory; set OMP/MKL/OPENBLAS/NUMEXPR/BLIS threads=4, PYTHONDONTWRITEBYTECODE=1 and PYTHONUTF8=1. Run this existing Python with `-B replay.py`. This exact standalone replay was already executed: PID 57648, rows 2000/points 960000, pre/post ADC bitwise pass=True. Inference needs neither StyleReader nor REAL/TRAIN.
+
+Full retraining also needs the readonly local R2 G4 cache, R14 TRAIN addition/index map, P1K first5200 waveform/metadata payload, R3B generation metadata, frozen R18 initial critic/validation tensors, R19 TILT checkpoint and R20 actual training/fine constants. Exact paths are retained in config.json and LOCAL_PREPARATION_RECEIPT. No EVAL or SSH is needed. The current admission token belongs to a completed job; do not rerun it in the closed directory. Preserve and adapt token/failed-cost handling in a new stage if a future registered task authorizes training.
+
+This is not a strict CPU/GPU equal-update comparison with R20/FINE. Actual completed prefixes and platform/update limitations are in TRAINING_RECEIPT and PAIRING_RECEIPT. The original science and both engineering failures remain unchanged.

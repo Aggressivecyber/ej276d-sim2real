@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R20细时间分布损失降低内部目标，但完整波形与基线相关仍失败，中区纯had中心退化。R21保留完整源输入和R20损失，检验独立随机变量进入信号解码与潜变量恢复的组合；复用已完成R20/FINE对照。见[R20结论](R20_REPORT.md)、[R21任务](tasks/R21_GLOBAL_STOCHASTIC_SIGNAL_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R21本机随机信号转换恢复中区pure-had中心并增加同源随机变化，但完整波形与条件峰宽仍失败。R22冻结转换器，比较原判别器和TRAIN逐坐标标准化，查明固定输出差异能否被当前判别器学到。见[R21结论](R21_REPORT.md)、[R22任务](tasks/R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 
