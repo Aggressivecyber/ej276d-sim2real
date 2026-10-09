@@ -1,0 +1,58 @@
+[
+  {
+    "argv": [
+      "ssh",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "test ! -e /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609 && mkdir -p /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609"
+    ],
+    "PID": 57512,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T05:26:25.303445+00:00"
+  },
+  {
+    "argv": [
+      "scp",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R15_CONDITIONAL_RESIDUAL_FLOW_001\\UPLOAD.tar",
+      "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609/UPLOAD.tar"
+    ],
+    "PID": 55040,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T05:26:25.734833+00:00"
+  },
+  {
+    "argv": [
+      "ssh",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "cd /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609 && tar -xf UPLOAD.tar && test -f numeric_worker.py && test -f residual_flow.py && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/TRAIN_ADDITION.npz && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/FLOW_EXPOSURES.pt && test -f /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129/TAIL_EXPOSURES.pt"
+    ],
+    "PID": 55428,
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "UTC": "2026-10-09T05:26:26.050424+00:00"
+  }
+]

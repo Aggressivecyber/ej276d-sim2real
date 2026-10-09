@@ -1,0 +1,234 @@
+{
+  "input_files": {
+    "REAL_V": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\window_V_f32.bin",
+      "bytes": 13056000,
+      "sha256": "270abe0e61a3dd3e1f466ad756637a2afa2a0b7e4002f634fcb09c3ed672baa0"
+    },
+    "REAL_QC": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\QC_reason_u16.bin",
+      "bytes": 13600,
+      "sha256": "aa7ccedcfd692cbe935bc173e881aba7ba5d7e357e8ae6aed6b9add5accbfa0c"
+    },
+    "REAL_groups": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_group.bin",
+      "bytes": 13600,
+      "sha256": "f42ba59bf8bc6aac5777bb7114c026b06abea90ce9d5c212a45464c934182bdd"
+    },
+    "REAL_original_index": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_original_index.bin",
+      "bytes": 27200,
+      "sha256": "7eefd0a8d44eda367b56e2701907c3b9c5c1dc345c6b6ca73cfb931b84860753"
+    },
+    "REAL_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_role.bin",
+      "bytes": 6800,
+      "sha256": "f5f39c9213b40b5b92188835926ff0ecc14cab2bb111284d4a44045c0133e4f2"
+    },
+    "CAL_reference": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\STATISTICS.json",
+      "bytes": 31464,
+      "sha256": "ff8d6afa294c6736fc55d509a54000d9c14688ebc3ff94262805239112089989"
+    },
+    "TRAIN_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\results\\DATA_ROLES.json",
+      "bytes": 988,
+      "sha256": "90ce22a812b8af429fc3370902a15734f348c98dbbbdc8a0392b9370565b612b"
+    },
+    "SIM_identity": {
+      "path": "E:\\GAN\\baseline_mean_fix_20261004_1125\\inputs\\evaluation_inputs.npz",
+      "bytes": 4599732,
+      "sha256": "29642e32877b6df3b5c1cdb10e33031474d8a95606a1cde0fc011dae61000c83"
+    },
+    "width_definition": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\results\\DIAGNOSTIC_DEFINITION.json",
+      "bytes": 2604,
+      "sha256": "68f915df1cc3e09832713f3206bd608bda72a9fa50ebcdb2c813da6b883519e5"
+    },
+    "R7_selections": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\results\\DIAGNOSTIC_SELECTIONS.json",
+      "bytes": 74002,
+      "sha256": "0bb70d31607ea391480739ff7412c7bdcd5cfa98ed7e0c692bfaba0542dabe10"
+    },
+    "generated": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\generated.npz",
+      "bytes": 5003943,
+      "sha256": "df2b9555e91eb29f1b512bef5210d249defb5d67b7cb6420c579ef748a537586"
+    }
+  },
+  "remote_input_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R10_REMOTE_20261009_012338/inputs",
+  "remote_R13_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R13_REMOTE_20261009_042246",
+  "head_seed": 20261009131,
+  "tail_seed": 20261009132,
+  "generation_chunk": 128,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "C2ST_views": [
+    "full_historical_shape",
+    "full_voltage",
+    "prompt_local",
+    "postpeak_local",
+    "tail_local",
+    "baseline_local"
+  ],
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "C2ST_min_train": 150,
+  "C2ST_min_holdout": 75,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "threads": 4,
+  "old_evaluation": {
+    "question": "R10 A matching and B fixed source under server location addendum",
+    "input_npz": {
+      "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+      "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+      "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+    },
+    "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+    "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+    "n": 2000,
+    "sample_ns": 1,
+    "baseline": [
+      0,
+      100
+    ],
+    "Qfast": [
+      100,
+      150
+    ],
+    "Qtotal": [
+      100,
+      400
+    ],
+    "PSD": "1-Qfast/Qtotal signed",
+    "tail_charge": [
+      200,
+      400
+    ],
+    "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+    "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+    "raw_scale": "SIM and historical W0 use corresponding SIM normalization_peak_V proxy; all R3B/R8/R8C outputs already physical V, no parent-peak rescaling",
+    "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+    "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+    "FOM_min_band": 20,
+    "C2ST": {
+      "model": "HistGradientBoostingClassifier",
+      "max_iter": 100,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "random_state": 20261008,
+      "views": [
+        "full_historical_shape",
+        "full_voltage",
+        "prompt_local",
+        "postpeak_local",
+        "tail_local",
+        "baseline_local"
+      ],
+      "train_cap_each_domain": 600,
+      "test_cap_each_domain": 250,
+      "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+      "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+      "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+      "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+      "bootstrap_cluster_repeats": 1000,
+      "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+      "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+      "no_parameter_search": true
+    },
+    "REAL_repeat_reference": {
+      "count": 64,
+      "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+      "not_physical_equivalence": true
+    },
+    "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+    "no_G4": true,
+    "no_SSH": "obsolete R1 inherited field; server execution explicitly authorized",
+    "EVAL_waveform_or_feature_read": 0,
+    "numeric_wall_limit_s": 2400,
+    "threads": 4,
+    "RSS_limit_bytes": 4294967296,
+    "output_limit_bytes": 268435456
+  },
+  "stage": "R15",
+  "registered_UTC": "2026-10-09T05:16:09.320524+00:00",
+  "deadline_UTC": "2026-10-09T06:36:09.320524+00:00",
+  "absolute_deadline_UTC": "2026-10-09T06:46:09.320524+00:00",
+  "first_native_PID": 51988,
+  "first_native_UTC": "2026-10-09T05:16:38.023619+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609",
+  "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "remote_R14_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R14_REMOTE_20261009_044129",
+  "numeric_wall_limit_s": 2400,
+  "training_limit_s": 900,
+  "maximum_updates": 16300,
+  "RSS_limit_bytes": 4294967296,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "output_limit_bytes": 268435456,
+  "models": [
+    "RESIDUAL_FLOW"
+  ],
+  "all_comparison_names": [
+    "GAUSSIAN_BASE",
+    "RESIDUAL_FLOW"
+  ],
+  "contrasts": [
+    [
+      "RESIDUAL_FLOW",
+      "GAUSSIAN_BASE"
+    ]
+  ],
+  "HGB_max_fits": 18,
+  "density_description_slots_max": 8,
+  "seed": 20261009151,
+  "permutation_seed": 20261009151,
+  "batch_seed": 20261009151,
+  "train_batch": 128,
+  "train_lr": 0.0003,
+  "train_weight_decay": 1e-05,
+  "train_gradient_clip": 5,
+  "train_validation_every": 100,
+  "training_dtype": "float32",
+  "final_dtype": "CPUfloat64",
+  "residual_dim": 446,
+  "head_condition_dim": 34,
+  "flow_layers": 8,
+  "flow_hidden": 128,
+  "affine_logscale_bound": 3,
+  "split": 223,
+  "complete_density": "head_logdensity+flow_std_logdensity-sum(ell)-logdetL-head_standardization_scale-33logQ-constant_FACTOR_logdet",
+  "EVAL_read": 0,
+  "new_G4": 0,
+  "raw_waveform_read": 0,
+  "migration_content_tests": false,
+  "initialization": "all affine final layers zero; each layer unpermutes output to original coordinate order",
+  "frozen_models": [
+    "R14 FLOW_EXPOSURES.pt step15700",
+    "R14 TAIL_EXPOSURES.pt step15900"
+  ],
+  "execution": {
+    "location": "rylan@100.82.231.102",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R15_REMOTE_20261009_051609",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "device": "cuda:0 if4GiB free else CPU4"
+  },
+  "preparation_failures": [
+    {
+      "tool": "1b962f",
+      "native_exit": 1,
+      "cause": "source-only read requested nonexistent plots.py; correct source is plotting.py",
+      "scientific_started": false
+    }
+  ]
+}

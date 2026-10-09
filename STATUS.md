@@ -1,5 +1,5 @@
 # 当前研究状态
 
-项目目标active。R14扩样已封存：21047有效TRAIN，完整shape BA仍0.910–0.928，尚无最终响应模型。R15已交原执行器准备，固定R14主分布和高斯基线，训练一个条件残差flow；当前尚无R15科学PID。
+项目目标active。R15已封存：验证似然与基线噪声改善，完整响应仍未匹配。R16已登记并交原执行器，固定已学网络，检验head潜空间分布及主要特征/电荷–PSD差距；实际作业状态见PROGRAM.json。
 
-R14交付入口为R14_REPORT.md与R14_DELIVERY_INDEX.json，Git/D盘实际状态读取对应回执。
+R15交付入口为R15_REPORT.md及R15_DELIVERY_INDEX.json，Git/D盘状态读取对应实际回执。

@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T05:19:28.346971+00:00",
+  "updated_UTC": "2026-10-09T05:43:25.276578+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R14_TRAIN_POOL_EXPANSION_001",
-  "current_stage": "R15_CONDITIONAL_RESIDUAL_FLOW_001",
-  "current_task": "tasks/R15_CONDITIONAL_RESIDUAL_FLOW_001.md",
+  "latest_completed_stage": "R15_CONDITIONAL_RESIDUAL_FLOW_001",
+  "current_stage": "R16_HEAD_LATENT_BASE_001",
+  "current_task": "tasks/R16_HEAD_LATENT_BASE_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,7 +13,7 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R14_expanded_TRAIN_shape_BA_0.910_to_0.928"
+      "status": "unmet_R15_shape_BA_0.902_voltage0.950_tail0.930"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -21,7 +21,7 @@
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "prompt_and_baseline_partial_improvement_time_tail_and_two_band_structure_unmet"
+      "status": "baseline_improved_time_tail_and_two_band_structure_unmet"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R14_8000_draws_replay_passed_final_model_not_selected"
+      "status": "R15_2000_draws_replay_passed_final_model_not_selected"
     },
     {
       "id": "final_research_delivery",
@@ -41,8 +41,8 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Keep expanded21047 TRAIN and frozen R14 exposure head/base; test one flexible joint conditional residual density against identical Gaussian-base draws.",
+  "current_direction": "R15 improves residual likelihood and baseline noise, but time-tail BA stays0.930 and charge-PSD bands remain unresolved. Test the frozen head latent base with one Gaussian and one K8 GMM, adding head and Q-PSD diagnostics while fixing the conditional kernel.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R15_executor_preparing_after_R14_seal",
+  "current_activity": "R16_registered_after_R15_seal",
   "latest_user_steering": "Increase number of training waveforms; unchanged val and DEV."
 }

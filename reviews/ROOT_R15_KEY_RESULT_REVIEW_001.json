@@ -1,0 +1,664 @@
+{
+  "status": "key_result_review_complete_project_continues",
+  "reviewed_UTC": "2026-10-09T05:43:25.276578+00:00",
+  "scope": "Key saved metrics, trace, native/replay/resources, six rendered figures; no duplicated scientific calculation.",
+  "data_roles": {
+    "TRAIN_fit": 21047,
+    "TRAIN_val": 599,
+    "REAL_DEV": 2000,
+    "old_fit_reference": 2592,
+    "TRAIN_REFERENCE": 2000,
+    "groups": 422,
+    "unchanged_R14_order": true,
+    "same_acquisition_artificial_groups": true,
+    "EVAL_read": 0,
+    "CAL_waveform_numeric_decode": 0,
+    "raw_long_waveform_decode": 0,
+    "new_G4": 0,
+    "frozen_representation_fit_N": 2592
+  },
+  "training": {
+    "kind": "conditional_residual_flow",
+    "seed": 20261009151,
+    "training_N": 21047,
+    "actual_updates": 16300,
+    "planned_updates": 16300,
+    "budget_complete": true,
+    "selected_step": 1400,
+    "selected_conditional_NLL": -2322.4052734375,
+    "elapsed_s": 100.50136848499824,
+    "stop_reason": "max_updates",
+    "optimizer": "Adam",
+    "batch": 128,
+    "lr": 0.0003,
+    "weight_decay": 1e-05,
+    "gradient_clip": 5,
+    "scheduler_or_restart": false,
+    "frozen_upstream_no_optimizer_gradients": true,
+    "selection": "minimum all599 conditional NLL step0/every100, exact tie earliest",
+    "validation_arithmetic": "float32 cuda:0",
+    "coordinate_precomputation": "float32 frozen Gaussian tail(x), no gradients",
+    "new_random_generation_draws": 0,
+    "initial": {
+      "step": 0,
+      "all_validation_n": 599,
+      "conditional_NLL_nat_event": -2306.726318359375,
+      "flow_base_NLL_nat_event": 641.4345703125,
+      "train_loss_per_dimension_last": null,
+      "elapsed_s": 0.1773947629990289,
+      "validation_z_maxabs": 6.515721321105957
+    },
+    "final": {
+      "step": 16300,
+      "all_validation_n": 599,
+      "conditional_NLL_nat_event": -2071.197998046875,
+      "flow_base_NLL_nat_event": 876.9628295898438,
+      "train_loss_per_dimension_last": 1.2669450044631958,
+      "elapsed_s": 100.48119953200512,
+      "validation_z_maxabs": 176.29043579101562
+    }
+  },
+  "validation": {
+    "GAUSSIAN_BASE": {
+      "all_rows": 599,
+      "legal_rows": 599,
+      "illegal_rows": 0,
+      "complete_NLL": -2420.6149984709223,
+      "mean_head_std_logdensity": -31.109236295048742,
+      "mean_tail_logdensity": 2306.7265187168036,
+      "mean_logJacobian": -144.99771604916742,
+      "arithmetic": "CPU float64 saved selected weights",
+      "not_new_model_selection": true
+    },
+    "RESIDUAL_FLOW": {
+      "all_rows": 599,
+      "legal_rows": 599,
+      "illegal_rows": 0,
+      "complete_NLL": -2436.293911156506,
+      "mean_head_std_logdensity": -31.109236295048742,
+      "mean_tail_logdensity": 2322.405431402388,
+      "mean_flow_std_logdensity": -625.7556122518677,
+      "mean_sum_ell": 5.440838627158862,
+      "logdet_L": -2953.601882281414,
+      "mean_logJacobian": -144.99771604916742,
+      "arithmetic": "CPU float64; selected checkpoint not reselected",
+      "tail_density_formula": "logp_flow - sum(ell) - logdetL"
+    }
+  },
+  "training_scores": {
+    "GAUSSIAN_BASE": {
+      "all_rows": 21047,
+      "legal_rows": 21047,
+      "illegal_rows": 0,
+      "complete_NLL": -2428.8073483934986,
+      "mean_head_std_logdensity": -29.20772608969372,
+      "mean_tail_logdensity": 2313.498818689692,
+      "mean_logJacobian": -144.51625579349977,
+      "arithmetic": "CPU float64 saved selected weights",
+      "not_new_model_selection": true
+    },
+    "RESIDUAL_FLOW": {
+      "all_rows": 21047,
+      "legal_rows": 21047,
+      "illegal_rows": 0,
+      "complete_NLL": -2456.3367438376185,
+      "mean_head_std_logdensity": -29.20772608969372,
+      "mean_tail_logdensity": 2341.028214133812,
+      "mean_flow_std_logdensity": -605.9303127202332,
+      "mean_sum_ell": 6.64335542736832,
+      "logdet_L": -2953.601882281414,
+      "mean_logJacobian": -144.51625579349977,
+      "arithmetic": "CPU float64; selected checkpoint not reselected",
+      "tail_density_formula": "logp_flow - sum(ell) - logdetL"
+    }
+  },
+  "train_validation_gap": {
+    "GAUSSIAN_BASE": {
+      "TRAIN_N": 21047,
+      "val_N": 599,
+      "TRAIN_NLL": -2428.8073483934986,
+      "val_NLL": -2420.6149984709223,
+      "val_minus_TRAIN_NLL": 8.19234992257634
+    },
+    "RESIDUAL_FLOW": {
+      "TRAIN_N": 21047,
+      "val_N": 599,
+      "TRAIN_NLL": -2456.3367438376185,
+      "val_NLL": -2436.293911156506,
+      "val_minus_TRAIN_NLL": 20.042832681112486
+    }
+  },
+  "C2ST": {
+    "counts": {
+      "train": {
+        "N_each": 600,
+        "candidate_common_valid": 600,
+        "REAL": 600,
+        "TRAIN_REFERENCE": 600
+      },
+      "holdout": {
+        "N_each": 250,
+        "candidate_common_valid": 250,
+        "REAL": 250,
+        "TRAIN_REFERENCE": 250
+      }
+    },
+    "results": {
+      "GAUSSIAN_BASE": {
+        "full_historical_shape": {
+          "BA": 0.9099999999999999,
+          "AUC": 0.979408
+        },
+        "full_voltage": {
+          "BA": 0.97,
+          "AUC": 0.9896
+        },
+        "prompt_local": {
+          "BA": 0.5780000000000001,
+          "AUC": 0.60016
+        },
+        "postpeak_local": {
+          "BA": 0.726,
+          "AUC": 0.808832
+        },
+        "tail_local": {
+          "BA": 0.9299999999999999,
+          "AUC": 0.975504
+        },
+        "baseline_local": {
+          "BA": 0.6859999999999999,
+          "AUC": 0.7464
+        }
+      },
+      "RESIDUAL_FLOW": {
+        "full_historical_shape": {
+          "BA": 0.902,
+          "AUC": 0.970032
+        },
+        "full_voltage": {
+          "BA": 0.95,
+          "AUC": 0.985936
+        },
+        "prompt_local": {
+          "BA": 0.562,
+          "AUC": 0.5924639999999999
+        },
+        "postpeak_local": {
+          "BA": 0.728,
+          "AUC": 0.8056800000000001
+        },
+        "tail_local": {
+          "BA": 0.9299999999999999,
+          "AUC": 0.97376
+        },
+        "baseline_local": {
+          "BA": 0.604,
+          "AUC": 0.6741119999999999
+        }
+      },
+      "REAL_REAL": {
+        "full_historical_shape": {
+          "BA": 0.512,
+          "AUC": 0.5301279999999999
+        },
+        "full_voltage": {
+          "BA": 0.546,
+          "AUC": 0.53864
+        },
+        "prompt_local": {
+          "BA": 0.49,
+          "AUC": 0.48508799999999996
+        },
+        "postpeak_local": {
+          "BA": 0.47,
+          "AUC": 0.490112
+        },
+        "tail_local": {
+          "BA": 0.49,
+          "AUC": 0.482592
+        },
+        "baseline_local": {
+          "BA": 0.522,
+          "AUC": 0.501776
+        }
+      }
+    },
+    "paired": {
+      "RESIDUAL_FLOW_minus_GAUSSIAN_BASE": {
+        "full_historical_shape": {
+          "BA_delta_first_minus_second": -0.007999999999999896,
+          "BA_delta_95CI": [
+            -0.03402687953056866,
+            0.015233788274809907
+          ],
+          "AUC_delta_first_minus_second": -0.00937599999999994,
+          "AUC_delta_95CI": [
+            -0.02029512028374748,
+            0.001228435691658242
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        },
+        "full_voltage": {
+          "BA_delta_first_minus_second": -0.020000000000000018,
+          "BA_delta_95CI": [
+            -0.03619726595035821,
+            -0.0009328890444446421
+          ],
+          "AUC_delta_first_minus_second": -0.0036640000000000006,
+          "AUC_delta_95CI": [
+            -0.009993970193428934,
+            0.0011324128886922135
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        },
+        "prompt_local": {
+          "BA_delta_first_minus_second": -0.016000000000000014,
+          "BA_delta_95CI": [
+            -0.05594562872056017,
+            0.02455927978173747
+          ],
+          "AUC_delta_first_minus_second": -0.007696000000000036,
+          "AUC_delta_95CI": [
+            -0.044214095400000944,
+            0.024658723429969418
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        },
+        "postpeak_local": {
+          "BA_delta_first_minus_second": 0.0020000000000000018,
+          "BA_delta_95CI": [
+            -0.031034067448382177,
+            0.04013935670113281
+          ],
+          "AUC_delta_first_minus_second": -0.0031520000000000437,
+          "AUC_delta_95CI": [
+            -0.02747270704027794,
+            0.024552764834537874
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        },
+        "tail_local": {
+          "BA_delta_first_minus_second": 0.0,
+          "BA_delta_95CI": [
+            -0.021925875701044227,
+            0.021593539384580793
+          ],
+          "AUC_delta_first_minus_second": -0.0017440000000000788,
+          "AUC_delta_95CI": [
+            -0.010002742449791902,
+            0.007148338743790238
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        },
+        "baseline_local": {
+          "BA_delta_first_minus_second": -0.08199999999999996,
+          "BA_delta_95CI": [
+            -0.1250153939456982,
+            -0.03889059429757812
+          ],
+          "AUC_delta_first_minus_second": -0.07228799999999991,
+          "AUC_delta_95CI": [
+            -0.1177105848358237,
+            -0.02960210064380692
+          ],
+          "valid_replicates": 500,
+          "clusters": 460,
+          "paired_test_rows_and_groups": true,
+          "conditional_on_two_fitted_classifiers": true,
+          "response_training_uncertainty": false
+        }
+      }
+    }
+  },
+  "step0": {
+    "validation_rows": 599,
+    "density_maxabs_nat_event": 0.0,
+    "density_pass": true,
+    "draw_rows": 2000,
+    "pre_ADC_maxabs_V": 0.0,
+    "pre_ADC_pass": true,
+    "post_ADC_array_equal": true,
+    "pointwise_coordinate_identity": true,
+    "pass": true
+  },
+  "mathematical_checks": {
+    "validation_positions": [
+      0,
+      199,
+      399,
+      598
+    ],
+    "inverse_maxabs": 1.3322676295501878e-15,
+    "inverse_logdet_cancel_maxabs": 7.105427357601002e-15,
+    "Jacobian_position": 0,
+    "Jacobian_shape": [
+      446,
+      446
+    ],
+    "Jacobian_fixed_head": true,
+    "Jacobian_sign": 1.0,
+    "Jacobian_logabsdet_error": 3.552713678800501e-15,
+    "analytic_logabsdet": 25.128222128357134,
+    "autodiff_logabsdet": 25.12822212835713,
+    "arithmetic": "CPU float64",
+    "pass": true
+  },
+  "counters": {
+    "new_network_fit_attempts": 1,
+    "residual_updates": 16300,
+    "training_cumulative_s": 100.50440010199964,
+    "HGB_attempts": 18,
+    "density_description_slots": 8,
+    "density_EM_attempts": 8,
+    "main_generation_rows": 2000,
+    "identity_check_rows": 2000,
+    "new_random_draws": 0,
+    "head_PCA_GMM_ridge_fits": 0,
+    "EVAL_read": 0,
+    "new_G4": 0,
+    "raw_waveform_decode": 0
+  },
+  "native_science": {
+    "supervisor_PID": 171460,
+    "status": "complete",
+    "error": null,
+    "UTC": "2026-10-09T05:28:31.944821+00:00",
+    "elapsed_s": 117.42371967099461,
+    "numeric_cumulative_s": 117.42209349800396,
+    "history": [
+      {
+        "entry": "numeric_worker.py",
+        "supervisor_PID": 171460,
+        "worker_PID": 171461,
+        "start_UTC": "2026-10-09T05:26:34.521782+00:00",
+        "allowed_s": 2400,
+        "RSS_peak_bytes": 2809225216,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T05:28:30.339509+00:00",
+        "elapsed_s": 115.81815316000575
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 171460,
+        "worker_PID": 171999,
+        "start_UTC": "2026-10-09T05:28:30.341051+00:00",
+        "allowed_s": 2284.1818468399943,
+        "RSS_peak_bytes": 723574784,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T05:28:31.944152+00:00",
+        "elapsed_s": 1.6039403379982105
+      }
+    ],
+    "environment": {
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "host": "rylan-GTi15",
+      "CPU_threads": 4
+    },
+    "migration_integrity_test": false,
+    "EVAL_read": 0
+  },
+  "replay": {
+    "PID": 171999,
+    "UTC": "2026-10-09T05:28:31.506025+00:00",
+    "elapsed_s": 0.2042192779990728,
+    "status": "pass",
+    "result": {
+      "rows": 2000,
+      "values": 960000,
+      "draw_ids_equal": true,
+      "pre_ADC_maxabs_V": 0.0,
+      "pre_ADC_tolerance_pass": true,
+      "pre_ADC_bitwise": true,
+      "post_ADC_array_equal": true,
+      "post_ADC_payload_sha256": "c526e510f38070292a2fbb45c487193d5e0b17213991362d18f99113ebc22084"
+    },
+    "fit_attempts": 0,
+    "new_random_draws": 0,
+    "full_evaluation_rerun": 0,
+    "migration_test": false,
+    "threads": 4,
+    "EVAL_read": 0,
+    "arithmetic": "fresh-process CPUfloat64 saved actual head, innovations and selected weights"
+  },
+  "resources": {
+    "stage": "R15",
+    "UTC": "2026-10-09T05:39:56.014864+00:00",
+    "closure_PID": 45852,
+    "executor_deadline_UTC": "2026-10-09T06:36:09.320524+00:00",
+    "remote_numeric_cumulative_s": 117.42209349800396,
+    "graphics_receipt_elapsed_s": 6.0373074999661185,
+    "graphics_conservative_native_wall_s": 6.6250923,
+    "numeric_cumulative_conservative_s": 124.04718579800397,
+    "numeric_cap_s": 2400,
+    "history": [
+      {
+        "entry": "numeric_worker.py",
+        "supervisor_PID": 171460,
+        "worker_PID": 171461,
+        "start_UTC": "2026-10-09T05:26:34.521782+00:00",
+        "allowed_s": 2400,
+        "RSS_peak_bytes": 2809225216,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T05:28:30.339509+00:00",
+        "elapsed_s": 115.81815316000575
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 171460,
+        "worker_PID": 171999,
+        "start_UTC": "2026-10-09T05:28:30.341051+00:00",
+        "allowed_s": 2284.1818468399943,
+        "RSS_peak_bytes": 723574784,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T05:28:31.944152+00:00",
+        "elapsed_s": 1.6039403379982105
+      }
+    ],
+    "training_cumulative_s": 100.50440010199964,
+    "training_cap_s": 900,
+    "updates": 16300,
+    "updates_cap": 16300,
+    "CPU_threads": 4,
+    "remote_RSS_peak_bytes": 2809225216,
+    "local_graphics_RSS_peak": "unknown/not sampled",
+    "RSS_cap_bytes": 4294967296,
+    "GPU": {
+      "training_device": "cuda:0",
+      "GPU_free_before_bytes": 11970805760,
+      "GPU_name": "NVIDIA GeForce RTX 5070",
+      "final_density_and_generation": "CPUfloat64",
+      "GPU_allocated_peak_bytes": 308759552,
+      "GPU_reserved_peak_bytes": 339738624,
+      "TF32": false,
+      "deterministic_algorithms": true
+    },
+    "GPU_allocated_cap_bytes": 4294967296,
+    "counters": {
+      "new_network_fit_attempts": 1,
+      "residual_updates": 16300,
+      "training_cumulative_s": 100.50440010199964,
+      "HGB_attempts": 18,
+      "density_description_slots": 8,
+      "density_EM_attempts": 8,
+      "main_generation_rows": 2000,
+      "identity_check_rows": 2000,
+      "new_random_draws": 0,
+      "head_PCA_GMM_ridge_fits": 0,
+      "EVAL_read": 0,
+      "new_G4": 0,
+      "raw_waveform_decode": 0
+    },
+    "replay": {
+      "rows": 2000,
+      "values": 960000,
+      "draw_ids_equal": true,
+      "pre_ADC_maxabs_V": 0.0,
+      "pre_ADC_tolerance_pass": true,
+      "pre_ADC_bitwise": true,
+      "post_ADC_array_equal": true,
+      "post_ADC_payload_sha256": "c526e510f38070292a2fbb45c487193d5e0b17213991362d18f99113ebc22084"
+    },
+    "data_roles": {
+      "TRAIN_fit": 21047,
+      "TRAIN_val": 599,
+      "REAL_DEV": 2000,
+      "old_fit_reference": 2592,
+      "TRAIN_REFERENCE": 2000,
+      "groups": 422,
+      "unchanged_R14_order": true,
+      "same_acquisition_artificial_groups": true,
+      "EVAL_read": 0,
+      "CAL_waveform_numeric_decode": 0,
+      "raw_long_waveform_decode": 0,
+      "new_G4": 0,
+      "frozen_representation_fit_N": 2592
+    },
+    "new_raw_long_waveform_read": 0,
+    "normal_upload_tar_bytes": 184320,
+    "normal_return_tar_bytes": 45506560,
+    "migration_content_test": false,
+    "source_input_rehash": 0,
+    "observed_local_files_before_accounting": 81,
+    "observed_local_bytes_before_accounting": 92171370,
+    "output_cap_bytes": 268435456,
+    "control_sources_added_after_science": [
+      "unpack_return.py",
+      "plot_label_fix.py",
+      "finalize.py"
+    ],
+    "exact_system_dependency_IO": "unknown/not per-read audited",
+    "closure_scientific_decode_fit_generate_replay": 0,
+    "EVAL_read": 0,
+    "new_G4": 0,
+    "failure_costs_preserved": true
+  },
+  "root_actually_viewed_figures": [
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/training_likelihood.png",
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/c2st_paired_corrected.png",
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/charge_psd_main_body.png",
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/noise_and_curvature.png",
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/energy_peak_width.png",
+    "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/results/figures/conditional_waveforms.png"
+  ],
+  "figure_judgment": "Readable; original C2ST legend was corrected from saved metrics and retained with a correction receipt. Baseline improves, high-charge prompt curvature remains excessive, two-band structure remains unresolved.",
+  "judgment": "The conditional residual flow improves validation likelihood and baseline noise but does not establish complete waveform similarity. Time-tail BA remains0.930 and the charge-PSD bands and qualified width support remain unresolved. Keep this selected conditional kernel, test the frozen head latent base, and add head/Q-PSD diagnostics; no final response model is accepted.",
+  "next_task": "tasks/R16_HEAD_LATENT_BASE_001.md",
+  "complete_response_similarity_success": false,
+  "project_goal_status": "active",
+  "scientific_stage_complete": true,
+  "version_bindings": [
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/REPORT.md",
+      "bytes": 10435,
+      "sha256": "d349d502e6efb73599207f2ace65cbc6c04c403e9a3680955f88ed40287bb162"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/METRICS_COMPACT.json",
+      "bytes": 601367,
+      "sha256": "12776bb5702175101b54241bb5016ee4f4bcf0f347e21ebd175b03f11e18df4b"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/FINAL_MANIFEST.json",
+      "bytes": 13638,
+      "sha256": "1945ec8811e088813f43c34d8d3d1bfade28512edea3e624e254c230fc3aaf83"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/FINAL_RECEIPT.json",
+      "bytes": 514,
+      "sha256": "f7243558ccce3fd595b4ccf7be3c1e11b92a5c6390e3665dc5f15bf565a25bb6"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/config.json",
+      "bytes": 10086,
+      "sha256": "62f44bfd494bd457cad08af8397ad832018dea9a983f116e192fd90a7c69f0b0"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/NUMERIC_RECEIPT.json",
+      "bytes": 893,
+      "sha256": "08034690f4dfaba0b4272cacdbd02cf6da819ff879015b79bbe8fa84076277e3"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/RESOURCE_RECEIPT.json",
+      "bytes": 3710,
+      "sha256": "910d3c96a127683297281733bbe4e1b6dc2a317afc7e93be6cc87fa5fe426da9"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/REMOTE_NATIVE_RECEIPT.json",
+      "bytes": 1243,
+      "sha256": "44d74be98b9fa9011c2cec90f4d27264ab0bd5a276c4795d025c91236ea14934"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/REPLAY_RECEIPT.json",
+      "bytes": 666,
+      "sha256": "1def5c95580f65fcf858add6c0248ea3946e90c4798fb4ff402bc91fe2c06397"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/FIGURE_QA.json",
+      "bytes": 1889,
+      "sha256": "f623a884ab66e1906fa7e493b9baf50f34f2dc37e40e6192c89722e9fd1042ab"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/REPRODUCTION.md",
+      "bytes": 2560,
+      "sha256": "6272b1f781d6a9deafca308dc579b2d915ed3370cbc85bc364dec4a1c977ca78"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/FAILURE_RECEIPT.json",
+      "bytes": 2359,
+      "sha256": "16d12ae39b80f80f3dfa1e459655f76106e9e8e54f3640ba812a78cb434e63f8"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/TRAINING.json",
+      "bytes": 52234,
+      "sha256": "685bbf071746414a3c95ad9a6f261d539a42b4f9f31204f8be22b9eb80fac0b6"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/MATHEMATICAL_CHECKS.json",
+      "bytes": 482,
+      "sha256": "fe8a913649406190e90ee896fa22d0513695c66cb9b8d428858e477018deb304"
+    },
+    {
+      "path": "work/R15_CONDITIONAL_RESIDUAL_FLOW_001/STEP0_IDENTITY_CHECK.json",
+      "bytes": 249,
+      "sha256": "f1f33a7b672c1d07d0ce2e9e823e4a6dbd4293cc052d154e8cef9dd0b5d70fe8"
+    }
+  ],
+  "bindings_are_migration_tests": false,
+  "boundaries": [
+    "Same historical acquisition and artificial groups, no independent acquisition inference.",
+    "Residual flow also changes conditional mean and covariance, so gains are not a pure higher-order/non-Gaussian attribution.",
+    "TRAIN-val gap grows and later checkpoints degrade; selected step1400 is retained.",
+    "Fixed head is a plausible remaining limitation, not a proven unique cause; residual coordinates also affect PSD.",
+    "Conditional bootstrap does not include response retraining or multiplicity correction.",
+    "Target density is not a verified G4-parent conditional response.",
+    "No exact nearest copy is not proof of no memory."
+  ]
+}
