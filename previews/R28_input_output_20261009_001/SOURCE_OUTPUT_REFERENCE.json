@@ -1,0 +1,104 @@
+{
+  "preview": "R28_input_output_20261009_001",
+  "PID": 23900,
+  "source_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001\\ACTUAL_GENERATION_INPUTS.npz",
+  "source_keys": [
+    "source_waveforms_V",
+    "source_ids"
+  ],
+  "output_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001\\FRESH_FINAL\\generated.npz",
+  "output_keys": [
+    "waveforms_V",
+    "source_ids"
+  ],
+  "metadata_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001\\DEV_SOURCE_METADATA.npz",
+  "checkpoint_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001\\FRESH_FINE\\FINAL_TRANSLATOR.pt",
+  "checkpoint_existing_binding": {
+    "path": "FRESH_FINE/FINAL_TRANSLATOR.pt",
+    "bytes": 906049,
+    "sha256": "fae0c11f2a238fcccfc8882ba11e0939bac74f2034d06f99fc2ee9b798522bd4"
+  },
+  "input_existing_binding": {
+    "path": "ACTUAL_GENERATION_INPUTS.npz",
+    "bytes": 6413537,
+    "sha256": "3aa788085a98b7379913018879dbcfcde1eccd19f6906b6a59e8a4ef25d98671"
+  },
+  "output_existing_binding": {
+    "path": "FRESH_FINAL/generated.npz",
+    "bytes": 12254171,
+    "sha256": "c337b3d4cd35d068ff53a1cf4341ddd354dfb8f3fff90207a539a809876bb2cb"
+  },
+  "ID_order_equal": true,
+  "unique_source_count": 2000,
+  "selected_rows": [
+    {
+      "composition": "pure_EE",
+      "population_count": 417,
+      "source_Q_median_mVns": 2753.130285826046,
+      "index_0based": 1648,
+      "source_id": "sim:source:a65afa373446f1a81baf55f32f5ce0f3a4662bfcade1d028f3032f5243298b10",
+      "edep_ee_MeV": 0.33219,
+      "edep_hadron_MeV": 0.0,
+      "input_Q_mVns": 2753.130285826046,
+      "input_signed_PSD": 0.2678827585933721,
+      "output_Q_mVns": 2909.906268119812,
+      "output_signed_PSD": 0.15453186765638416
+    },
+    {
+      "composition": "pure_had",
+      "population_count": 1518,
+      "source_Q_median_mVns": 2029.1751062613912,
+      "index_0based": 1231,
+      "source_id": "sim:source:330a4d9b5076cdfc564dea4ec0295b44dc85fa64ee5c2dd0f55eccca0a4b0d44",
+      "edep_ee_MeV": 0.0,
+      "edep_hadron_MeV": 1.63414,
+      "input_Q_mVns": 2029.9516041995957,
+      "input_signed_PSD": 0.3759197939594894,
+      "output_Q_mVns": 2114.3250465393066,
+      "output_signed_PSD": 0.29016411253701746
+    },
+    {
+      "composition": "mixed",
+      "population_count": 65,
+      "source_Q_median_mVns": 3070.123220793903,
+      "index_0based": 1175,
+      "source_id": "sim:source:2bd45ae125f2bc1e94146e2aaabda32686d3f899885f6a090ee5b8b6ad79f858",
+      "edep_ee_MeV": 0.122468,
+      "edep_hadron_MeV": 1.7507,
+      "input_Q_mVns": 3070.123220793903,
+      "input_signed_PSD": 0.33688418141162957,
+      "output_Q_mVns": 3185.3137612342825,
+      "output_signed_PSD": 0.24538654033647778
+    }
+  ],
+  "selection_rule": "pure_EE/pure_had/mixed: nearest to source Q median, tie original index ascending; no output selection",
+  "selection_Q_definition": "first100 baseline subtraction, signed sum100:400 ×1000 mV ns",
+  "method_choice": "lowest saved complete DEV shape493 BA among the reviewed full-source R18-R29 route: R28 FRESH_FINAL BA0.970",
+  "choice_is_development_display_not_final_success": true,
+  "old_J20_selected_step_kept": 2250,
+  "display_checkpoint_step": 2950,
+  "time_grid": {
+    "sample_interval_ns": 1,
+    "full_points": 480,
+    "sample_index120_reference": 0,
+    "absolute_acquisition_time_known": false,
+    "evidence": [
+      "P1F PROTOCOL.json dt_ns=1",
+      "R18 PROTOCOL.md first100/Qfast100:150/Qtotal100:400/1ns",
+      "R28 data_support.py clean_expectation ix=tp-120+arange480"
+    ]
+  },
+  "signed_PSD_definition": "1-Qfast/Qtotal with signed baseline-subtracted charge, no rectification",
+  "waveform_plot_transform": "V to mV only; no smoothing/baseline subtraction/rescaling of plotted data",
+  "source_semantics": "G4 deposit-derived analytic clean source input; not noisy source and not a measured waveform",
+  "compositions_are_deposit_buckets_not_particle_truth": true,
+  "new_REAL_read": 0,
+  "model_inference": 0,
+  "training": 0,
+  "new_fits": 0,
+  "selected_using_output": false,
+  "fresh_migration_hash_test": false,
+  "font": "C:/Windows/Fonts/msyh.ttc",
+  "elapsed_s": 1.0312224000226706,
+  "UTC": "2026-10-09T15:55:19.480485+00:00"
+}
