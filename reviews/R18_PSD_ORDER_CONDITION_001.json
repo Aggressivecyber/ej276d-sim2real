@@ -1,0 +1,12 @@
+{
+  "stage": "R18_UNPAIRED_WAVEFORM_TRANSLATION_001",
+  "kind": "pretraining_implementation_clarification",
+  "basis": "The registered task permits charge-dependent PSD domain shifts; saved R17 real conditional component locations vary with charge.",
+  "clarification": "PSD ordering applies within a fixed narrow charge condition. Do not enforce global cross-charge ordering of source PSD. Use same frozen charge-bin source pairs, exclude effectively tied source PSD, normalize by valid pair count. Charge ordering is a separate term.",
+  "validation_consistency": "Compute internal-validation domain feature and pooled-waveform distances within common fixed charge bins and aggregate with equal bin weights, matching independent conditional training. Report full-population charge/mixture discrepancies separately so source/target prior differences do not silently drive checkpoint selection. Preserve Q-relative and within-charge PSD content terms.",
+  "scope_or_budget_changed": false,
+  "new_training_arms": 0,
+  "requires_new_approval": false,
+  "delivery": "Sent to the existing executor before any reported R18 scientific launch; concrete implementation recorded in its frozen configuration/protocol.",
+  "next_action": "Continue the registered experiment without a preparation gate."
+}

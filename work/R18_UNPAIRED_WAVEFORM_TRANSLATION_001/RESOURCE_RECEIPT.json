@@ -1,0 +1,311 @@
+{
+  "UTC": "2026-10-09T07:54:41.108481+00:00",
+  "first_native_PID": 14124,
+  "first_native_UTC": "2026-10-09T07:12:21.779219+00:00",
+  "registered_UTC": "2026-10-09T07:11:26.541622+00:00",
+  "executor_deadline_UTC": "2026-10-09T08:31:26.541622+00:00",
+  "stage_absolute_deadline_UTC": "2026-10-09T08:41:26.541622+00:00",
+  "main_science_tool": "6038de -> d277d5, native0",
+  "main_native": {
+    "supervisor_PID": 197233,
+    "status": "complete",
+    "error": null,
+    "UTC": "2026-10-09T07:43:17.502717+00:00",
+    "elapsed_s": 130.58425356600492,
+    "numeric_cumulative_s": 130.58326121099526,
+    "history": [
+      {
+        "entry": "numeric_worker.py",
+        "supervisor_PID": 197233,
+        "worker_PID": 197234,
+        "start_UTC": "2026-10-09T07:41:06.919139+00:00",
+        "allowed_s": 1791.7869637299955,
+        "RSS_peak_bytes": 2888953856,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T07:43:15.497926+00:00",
+        "elapsed_s": 128.57920980799827
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 197233,
+        "worker_PID": 197894,
+        "start_UTC": "2026-10-09T07:43:15.498904+00:00",
+        "allowed_s": 1663.2077539219972,
+        "RSS_peak_bytes": 785879040,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T07:43:17.502336+00:00",
+        "elapsed_s": 2.0040514029969927
+      }
+    ],
+    "environment": {
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "host": "rylan-GTi15",
+      "CPU_threads": 4
+    },
+    "migration_integrity_test": false,
+    "EVAL_read": 0
+  },
+  "local_native": {
+    "local_bridge_PID": 53520,
+    "SSH_PID": 58988,
+    "start_UTC": "2026-10-09T07:41:06.598052+00:00",
+    "argv": [
+      "ssh",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "cd /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/attempt_03 && /home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B remote_supervise.py"
+    ],
+    "exit_code": 0,
+    "unknown_remote_state": false,
+    "stop_UTC": "2026-10-09T07:43:17.579417+00:00",
+    "elapsed_s": 130.99375740002142
+  },
+  "ordinary_transfer": {
+    "PID": 23232,
+    "start_UTC": "2026-10-09T07:44:05.985131+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "migration_content_validation": false,
+    "normal_transfer_only": true,
+    "return_tar_bytes": 37570560,
+    "returned_file_count": 41,
+    "stop_UTC": "2026-10-09T07:44:12.298661+00:00"
+  },
+  "failures": [
+    {
+      "attempt": "attempt_01",
+      "native": {
+        "supervisor_PID": 196020,
+        "status": "failed",
+        "error": null,
+        "UTC": "2026-10-09T07:37:44.859841+00:00",
+        "elapsed_s": 3.806885723002779,
+        "numeric_cumulative_s": 3.805837808002252,
+        "history": [
+          {
+            "entry": "numeric_worker.py",
+            "supervisor_PID": 196020,
+            "worker_PID": 196021,
+            "start_UTC": "2026-10-09T07:37:41.053928+00:00",
+            "allowed_s": 1800,
+            "RSS_peak_bytes": 1327079424,
+            "RSS_probe_failures": 0,
+            "exit_code": 1,
+            "termination_reason": null,
+            "stop_UTC": "2026-10-09T07:37:44.859361+00:00",
+            "elapsed_s": 3.805837808002252
+          }
+        ],
+        "environment": {
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "host": "rylan-GTi15",
+          "CPU_threads": 4
+        },
+        "migration_integrity_test": false,
+        "EVAL_read": 0
+      },
+      "failure": {
+        "PID": 196021,
+        "error": "RuntimeError(\"median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\")",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/numeric_worker.py\", line 148, in <module>\n    try:run()\n        ^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/numeric_worker.py\", line 133, in run\n    model,training=train(xs,xt,vs,vt,edges,CFG,ROOT,COUNTER,log)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/training.py\", line 16, in train\n    ft=physical(xt);center=ft.median(0).values;scale=ft.std(0).clamp_min(.05)\n                           ^^^^^^^^^^^^\nRuntimeError: median CUDA with indices output does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+        "elapsed_s": 3.0457673560013063,
+        "counters": {
+          "response_fit_attempts": 0,
+          "G_updates": 0,
+          "D_updates": 0,
+          "training_s": 0.0,
+          "HGB_attempts": 0,
+          "density_description_slots": 0,
+          "density_EM_attempts": 0,
+          "main_generation_rows": 0,
+          "repeat_noise_rows": 0,
+          "source_probe_rows": 0,
+          "EVAL_read": 0,
+          "CAL_waveform_decode": 0,
+          "new_G4": 0,
+          "raw_long_waveform_decode": 0
+        }
+      }
+    },
+    {
+      "attempt": "attempt_02",
+      "native": {
+        "supervisor_PID": 196584,
+        "status": "failed",
+        "error": null,
+        "UTC": "2026-10-09T07:39:11.792610+00:00",
+        "elapsed_s": 4.407828857001732,
+        "numeric_cumulative_s": 4.40719846200227,
+        "history": [
+          {
+            "entry": "numeric_worker.py",
+            "supervisor_PID": 196584,
+            "worker_PID": 196585,
+            "start_UTC": "2026-10-09T07:39:07.385475+00:00",
+            "allowed_s": 1796.1941621919977,
+            "RSS_peak_bytes": 2678042624,
+            "RSS_probe_failures": 0,
+            "exit_code": 1,
+            "termination_reason": null,
+            "stop_UTC": "2026-10-09T07:39:11.792242+00:00",
+            "elapsed_s": 4.40719846200227
+          }
+        ],
+        "environment": {
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "host": "rylan-GTi15",
+          "CPU_threads": 4
+        },
+        "migration_integrity_test": false,
+        "EVAL_read": 0
+      },
+      "failure": {
+        "PID": 196585,
+        "error": "RuntimeError(\"upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\")",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/attempt_02/numeric_worker.py\", line 148, in <module>\n    try:run()\n        ^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/attempt_02/numeric_worker.py\", line 133, in run\n    model,training=train(xs,xt,vs,vt,edges,CFG,ROOT,COUNTER,log)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R18_REMOTE_20261009_071126/attempt_02/training.py\", line 65, in train\n    loss.backward();torch.nn.utils.clip_grad_norm_(model.parameters(),cfg['gradient_clip']);og.step();updates=step;counter['G_updates']=step\n    ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py\", line 379, in backward\n    _engine_run_backward(\n  File \"/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py\", line 882, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: upsample_linear1d_backward_out_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.\n",
+        "elapsed_s": 3.6773430989996996,
+        "counters": {
+          "response_fit_attempts": 1,
+          "G_updates": 0,
+          "D_updates": 1,
+          "training_s": 0.0,
+          "HGB_attempts": 0,
+          "density_description_slots": 0,
+          "density_EM_attempts": 0,
+          "main_generation_rows": 0,
+          "repeat_noise_rows": 0,
+          "source_probe_rows": 0,
+          "EVAL_read": 0,
+          "CAL_waveform_decode": 0,
+          "new_G4": 0,
+          "raw_long_waveform_decode": 0
+        }
+      }
+    }
+  ],
+  "preparation_failure": [
+    {
+      "tool_chunk": "e09b79",
+      "native_exit": 1,
+      "PID": "unknown",
+      "error": "ValueError looking for def run in R2 main source; source-only; no numeric arrays or fits",
+      "elapsed_s": 0.374749
+    }
+  ],
+  "science_cumulative_s": 146.6241474809998,
+  "science_limit_s": 1800,
+  "main_training_s": 114.7670326860025,
+  "training_plus_all_failed_process_wall_upper_bound_s": 122.98006895600702,
+  "training_limit_s": 1200,
+  "G_updates_cumulative": 3999,
+  "D_updates_cumulative_including_failed_step": 4000,
+  "one_recipe_one_scientific_arm": true,
+  "training_invocations_with_nonzero_updates": 2,
+  "failed_first_D_step_not_saved": "unknown; known failedG0/D1, original receipts preserved",
+  "main_GPU_allocated_peak_bytes": 265882112,
+  "main_GPU_reserved_peak_bytes": 339738624,
+  "failed_process_GPU_allocated_peak_bytes": "unknown; no completed worker environment receipt",
+  "RSS_peak_observed_bytes": 2888953856,
+  "RSS_probe_failures": 0,
+  "threads": 4,
+  "HGB_fits": 21,
+  "width_EM_attempts": 16,
+  "width_description_slots": 16,
+  "main_new_rows": 2000,
+  "probe_new_rows": 832,
+  "repeated_noise_new_rows": 1024,
+  "fresh_replay_rows": 2000,
+  "EVAL_read": 0,
+  "CAL_waveform_numeric_decode": 0,
+  "new_G4": 0,
+  "raw_long_waveform_decode": 0,
+  "migration_equality_tests": 0,
+  "new_dependency_install": 0,
+  "new_agents": 0,
+  "Git_operations_by_executor": 0,
+  "source_root": "R10_REMOTE inputs and R14 existing expanded REAL",
+  "local_data_write_drive": "E",
+  "versions": {
+    "Python": "3.12.3",
+    "torch": "2.12.0+cu130",
+    "NumPy": "1.26.4",
+    "sklearn": "1.8.0"
+  },
+  "numeric_replay": {
+    "pre_ADC_bitwise": true,
+    "post_ADC_bitwise": true,
+    "source_ids_equal": true,
+    "pre_ADC_maxabs_V": 0.0,
+    "post_ADC_maxabs_V": 0.0,
+    "PID": 197894,
+    "UTC": "2026-10-09T07:43:17.120758+00:00",
+    "elapsed_s": 1.6056631739993463,
+    "rows": 2000,
+    "points": 960000,
+    "source_required": true,
+    "target_or_TRAIN_required": false,
+    "training_updates": 0,
+    "pass": true
+  },
+  "GPU_limit_bytes": 4294967296,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 268435456,
+  "scientific_negative_result_not_engineering_failure": true,
+  "science_training_evaluation_replay_and_failures_s": 138.79629748099978,
+  "saved_output_source_control_correction": {
+    "PID": 60800,
+    "UTC": "2026-10-09T07:53:13.164659+00:00",
+    "elapsed_s": 6.818458300025668,
+    "fits": 0,
+    "response_updates": 0,
+    "new_generation": 0,
+    "source_source_id_check": true,
+    "noise_origin_z_white_check": true,
+    "changed_main2000_metrics": false,
+    "fixed_source_noise_RMS_reference_corrected_V": {
+      "n": 128,
+      "defined_n": 128,
+      "undefined_n": 0,
+      "mean": 0.0012530679814517498,
+      "sample_sd": 0.00012843096919823438,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.0,
+        0.0011480466171633452,
+        0.001219031837536022,
+        0.0012649931013584137,
+        0.0013002982013858855,
+        0.0013688371167518197,
+        0.0014497720403596759
+      ]
+    },
+    "fixed_source_first_row_reference_maxabs_V": 0.0,
+    "source_roll_reference_rule": "source=roll(pick),noise=pick,reference=pick",
+    "stage_arrays_read_for_existing_statistic_correction_only": true,
+    "original_payload_preserved": true,
+    "native_tool": "3eb10a",
+    "native_exit": 0,
+    "native_tool_wall_upper_s": 7.82785,
+    "local_RSS_peak_bytes": "unknown; not sampled for short already-terminated postprocessing process"
+  },
+  "science_cumulative_s_includes_conservative_correction_tool_wall": true
+}
