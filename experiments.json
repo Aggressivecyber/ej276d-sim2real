@@ -975,7 +975,7 @@
     },
     {
       "id": "R33_RESIDUAL_OT_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_OT_CFM_recipe_closed_negative",
       "task": "tasks/R33_RESIDUAL_OT_FLOW_001.md",
       "registration": "reviews/R33_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T17:52:39.460916+00:00",
@@ -983,7 +983,23 @@
       "execution_location": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
       "new_response_fits_max": 2,
       "HGB_max": 20,
-      "project_goal_status": "active"
+      "project_goal_status": "active",
+      "receipt": "work/R33_RESIDUAL_OT_FLOW_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R34_PROTECTED_FLOW_CORRECTION_001.md"
+    },
+    {
+      "id": "R34_PROTECTED_FLOW_CORRECTION_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R34_PROTECTED_FLOW_CORRECTION_001.md",
+      "registration": "reviews/R34_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T18:36:09.348003+00:00",
+      "scientific_question": "R33 frozen independent and OT flows improve full493/raw480 discrimination versus BASE, but source-PSD/valley, conditional PSD, widths and baseline-noise failures prevent joint acceptance. Apply the same unique Euclidean increment projection to both frozen flows, preserving BASE first100 samples and two charge-window sums; test whether full-shape gains survive without source/noise regression or new boundary artifacts. No response retraining.",
+      "response_fits_max": 0,
+      "HGB_fits_max": 20,
+      "science_budget_s": 600,
+      "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false
     }
   ]
 }

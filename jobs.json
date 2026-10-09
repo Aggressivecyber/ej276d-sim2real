@@ -407,7 +407,7 @@
     {
       "stage": "R33_RESIDUAL_OT_FLOW_001",
       "kind": "fixed_base_response_independent_and_OT_residual_flows",
-      "status": "executor_preparing_server",
+      "status": "sealed_no_live_stage_job",
       "registered_UTC": "2026-10-09T17:52:39.460916+00:00",
       "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
       "registration": "reviews/R33_REGISTRATION_001/RECEIPT.json",
@@ -419,6 +419,66 @@
         "native_exit": 0,
         "UTC": "2026-10-09T17:53:14.399903+00:00",
         "scope": "control reads/preparation; scientific execution not yet reported"
+      },
+      "latest_native_snapshot": {
+        "entry": "replay_endpoints.py",
+        "supervisor_PID": 43484,
+        "start_UTC": "2026-10-09T18:16:02.923239+00:00",
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "limit_s": 2314.1991723400024,
+        "actual_worker_PID": 21608,
+        "actual_worker_RSS_peak_bytes": 435412992,
+        "launcher_RSS_peak_bytes": 435412992,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "launcher_PID": 21608,
+        "actual_worker_parent_PID": 43484,
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 9.36612800002331,
+        "stop_UTC": "2026-10-09T18:16:12.289408+00:00",
+        "worker_self_receipt": {
+          "PID": 21608,
+          "parent_PID": 43484,
+          "entry": "replay_endpoints.py",
+          "nonce": "6cd1d353d55a4fdd846e80065426e085",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 8.761446100019384,
+          "self_peak_RSS_bytes": 435412992,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-09T18:16:11.792602+00:00"
+        }
+      },
+      "actual_training_started_UTC": "2026-10-09T18:03:52.191161+00:00",
+      "training_terminal_tool": "c7793e",
+      "training_counters": {
+        "flow_fit_attempts": 2,
+        "flow_updates": 5900,
+        "fixed_G_forward_training_rows": 188800,
+        "training_body_s": 20.20497121600056
+      },
+      "evaluation_terminal_tool": "e4524b",
+      "replay_terminal_tool": "d76b1c",
+      "latest_native_observed_UTC": "2026-10-09T18:26:55.391627+00:00",
+      "seal_native_receipt": "reviews/R33_SEAL_NATIVE_RECEIPT.json"
+    },
+    {
+      "stage": "R34_PROTECTED_FLOW_CORRECTION_001",
+      "kind": "fixed_frozen_flow_increment_projection_and_full_response_evaluation",
+      "status": "executor_local_preparation",
+      "registered_UTC": "2026-10-09T18:36:09.348003+00:00",
+      "registration": "reviews/R34_REGISTRATION_001/RECEIPT.json",
+      "max_concurrent_scientific_jobs": 1,
+      "actual_native_jobs": [],
+      "first_actual_command": {
+        "tool": "035cba",
+        "PID": 11680,
+        "native_exit": 0,
+        "UTC": "2026-10-09T18:37:11.329999+00:00",
+        "scope": "task and registration control read; no scientific work yet reported"
       }
     }
   ]
