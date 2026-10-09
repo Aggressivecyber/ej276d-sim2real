@@ -1,0 +1,138 @@
+{
+  "stage": "R12_PAIRED_RESIDUAL_COVARIANCE_001",
+  "registration_UTC": "2026-10-09T03:49:33.504970+00:00",
+  "first_native": {
+    "tool": "bdba53",
+    "PID": 25704,
+    "exit_code": 0,
+    "UTC": "2026-10-09T03:50:43.894096+00:00"
+  },
+  "executor_seal_stop_UTC": "2026-10-09T04:44:33.504970+00:00",
+  "absolute_deadline_UTC": "2026-10-09T04:49:33.504970+00:00",
+  "science_native_tools": [
+    "91da6a",
+    "c7e4e0"
+  ],
+  "local_bridge_PID": 60704,
+  "SSH_PID": 59616,
+  "remote": {
+    "supervisor_PID": 153462,
+    "status": "complete",
+    "error": null,
+    "UTC": "2026-10-09T04:03:37.349451+00:00",
+    "elapsed_s": 18.43165974200383,
+    "numeric_cumulative_s": 18.430372226001055,
+    "history": [
+      {
+        "entry": "numeric_worker.py",
+        "supervisor_PID": 153462,
+        "worker_PID": 153463,
+        "start_UTC": "2026-10-09T04:03:18.918640+00:00",
+        "allowed_s": 900,
+        "RSS_peak_bytes": 1058848768,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T04:03:36.546560+00:00",
+        "elapsed_s": 17.628519409001456
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 153462,
+        "worker_PID": 153727,
+        "start_UTC": "2026-10-09T04:03:36.547865+00:00",
+        "allowed_s": 882.3714805909985,
+        "RSS_peak_bytes": 240836608,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T04:03:37.349073+00:00",
+        "elapsed_s": 0.8018528169995989
+      }
+    ],
+    "environment": {
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "host": "rylan-GTi15",
+      "device": "CPU4",
+      "CPU_threads": 4
+    },
+    "migration_integrity_test": false,
+    "EVAL_read": 0
+  },
+  "counters": {
+    "PCA_GMM_ridge_refits": 0,
+    "HGB_attempts": 30,
+    "density_description_slots": 16,
+    "density_EM_attempts": 16,
+    "main_generation_rows": 4000,
+    "new_random_draws": 0,
+    "response_updates": 0,
+    "EVAL_read": 0,
+    "new_G4": 0
+  },
+  "replay_rows": 4000,
+  "replay_values": 1920000,
+  "replay_pass": true,
+  "numeric_limit_s": 900,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "CPU_threads": 4,
+  "numeric_cumulative_s": 18.430372226001055,
+  "numeric_limit_pass": true,
+  "RSS_peak_bytes": 1058848768,
+  "RSS_probe_failures": 0,
+  "only_one_science_process_at_a_time": true,
+  "main_and_replay_sequential": true,
+  "transfer_tool": "5a8e62",
+  "transfer": {
+    "PID": 49416,
+    "start_UTC": "2026-10-09T04:03:53.883498+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "migration_content_validation": false,
+    "normal_transfer_only": true,
+    "return_tar_bytes": 47902720,
+    "returned_file_count": 41,
+    "stop_UTC": "2026-10-09T04:04:01.386956+00:00"
+  },
+  "upload_bytes": 163840,
+  "download_bytes": 47902720,
+  "migration_equality_or_hash_test": false,
+  "data_IO_byte_total": null,
+  "data_IO_total_reason": "Simplified task has no per-read byte ledger; explicit source payloads/normal transfer sizes and fixed decoded roles retained.",
+  "system_dependency_load_IO_not_measured": true,
+  "control_summary_failures": [
+    {
+      "tool": "cc7059",
+      "native_exit_code": 1,
+      "wall_s": 1.1522104,
+      "reason": "report-only JSON summary treated width-table object as list; AttributeError",
+      "numeric_retry": false
+    },
+    {
+      "tool": "367caa",
+      "native_exit_code": 1,
+      "wall_s": 0.6867751,
+      "reason": "report-only JSON summary requested bins rather than actual slices key; KeyError",
+      "numeric_retry": false
+    }
+  ],
+  "control_only_failures_are_not_numeric_retries": true,
+  "extra_numeric_after_replay": 0,
+  "GPU_allocated_bytes": 0,
+  "EVAL_read": 0,
+  "new_G4": 0,
+  "new_training": 0,
+  "output_bytes_before_final_manifest": 96718244,
+  "source_binding_receipt": "READINESS.json",
+  "versions": {
+    "Python": "3.12.3",
+    "NumPy": "1.26.4",
+    "sklearn": "1.8.0",
+    "scipy": "1.11.4"
+  },
+  "METRICS_COMPACT_sha256": "7097e1a0376a5abe209ffabd6320dd55e2a73b4c1deca65f4813e54e0d21b988",
+  "seal_process_PID": 28716,
+  "seal_native_exit_proof": "Use actual tools.exec_command return; this in-process receipt does not certify its own native exit."
+}

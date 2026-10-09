@@ -1,5 +1,5 @@
 # 当前研究状态
 
-项目持续目标active，R1–R11为已完成阶段。R11表示可逆，但生成完整响应仍失败；噪声幅度偏大，条件峰宽共同支持为空。R12已登记并交既有执行器：固定主模型与实际随机输入，只改变剩余坐标协方差，检验收缩规则的影响。实际作业PID和预算见PROGRAM.json及reviews/R12_REGISTRATION_001/RECEIPT.json。
+项目目标active。R12已完成并按时封存：协方差收缩解释了基线均方偏大，去除后完整shape BA仍0.924–0.948，验证NLL变差，条件双峰支持不足。下一轮固定完整表示，分开检验主要分布与条件残差密度；本轮不作为最终模型。
 
-R11主计算/科学重放正常退出，输出可逐位重放；报告整理超过墙钟截止，已记录。根代理已阅读关键统计与实际图表，未独立重跑科学。阶段交付入口R11_REPORT.md、R11_DELIVERY_INDEX.json；私有Git main为82bc4cba6e9518ade6023d8dcc2d54c68f1a117d，D盘复制正常完成，见R11_PUBLICATION_RECEIPT.json和R11_BACKUP_RECEIPT.json。项目目标继续。
+交付入口R12_REPORT.md、R12_DELIVERY_INDEX.json。服务器主计算与独立重放正常退出，4000条输出逐位一致；八图已目检，根代理无重复科学计算。Git/D盘实际状态见对应回执。

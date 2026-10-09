@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T03:49:33.504970+00:00",
+  "updated_UTC": "2026-10-09T04:14:37.865892+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R11_TARGET_DENSITY_REPRESENTATION_001",
-  "current_stage": "R12_PAIRED_RESIDUAL_COVARIANCE_001",
-  "current_task": "tasks/R12_PAIRED_RESIDUAL_COVARIANCE_001.md",
+  "latest_completed_stage": "R12_PAIRED_RESIDUAL_COVARIANCE_001",
+  "current_stage": null,
+  "current_task": null,
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,7 +13,7 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R11_full_shape_BA_about_0.946_baseline_inflation"
+      "status": "unmet_R12_full_shape_BA_0.924_to_0.948"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -21,7 +21,7 @@
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "partial_local_waveform_improvement_R11_shared_width_support_empty"
+      "status": "baseline_amplitude_partly_explained_joint_noise_and_conditional_width_unmet"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R11_4000_draws_replay_passed_final_model_not_selected"
+      "status": "R12_4000_draws_replay_passed_final_model_not_selected"
     },
     {
       "id": "final_research_delivery",
@@ -41,7 +41,7 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Freeze R11 head models, coordinates, conditional means and actual random draws. Compare the current shrunk residual covariance with recovered empirical covariance plus the same numerical diagonal floor. Quantify regional variance contributions and paired changes before adding a richer conditional residual model.",
+  "current_direction": "Keep the FACTOR full representation fixed. Test a flexible head density and a head-conditioned residual location/scale model in one finite 2x2 comparison, using TRAIN internal validation and full-response DEV evaluation. Separate their effects rather than repeating covariance shrinkage sweeps.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R12_registered_paired_covariance_diagnostic"
+  "current_activity": "R12_delivery_then_register_next_bounded_round"
 }
