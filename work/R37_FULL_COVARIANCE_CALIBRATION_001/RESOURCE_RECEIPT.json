@@ -1,0 +1,140 @@
+{
+  "stage": "R37_FULL_COVARIANCE_CALIBRATION_001",
+  "UTC": "2026-10-09T21:11:19.248249+00:00",
+  "first_actual_command": {
+    "tool": "5dc2b1",
+    "PID": 48248,
+    "native_exit": 0,
+    "UTC": "2026-10-09T20:41:42.185129+00:00"
+  },
+  "registered_UTC": "2026-10-09T20:41:09.839435+00:00",
+  "executor_deadline_UTC": "2026-10-09T22:01:09.839435+00:00",
+  "science_elapsed_s_including_plots_and_repairs": 88.16910542197365,
+  "science_budget_s": 1800,
+  "science_process_count": 7,
+  "scientific_failed_process_count": 0,
+  "statistics_fit_actual_supervised_s": 14.347015221999754,
+  "statistics_fit_budget_s": 900,
+  "counts": {
+    "HGB_attempts": 10,
+    "density_description_slots": 8,
+    "density_EM_attempts": 7,
+    "main_generation_rows": 2000,
+    "repeat_noise_rows": 1024,
+    "source_probe_rows": 832,
+    "extra_guide_probe_rows": 128,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "response_updates": 0,
+    "completed_projection_group_blocks": 15,
+    "unique_statistics_fit": 1,
+    "two_domain_bin_covariance_estimates": 16,
+    "maps": 8,
+    "fixed_G_forward_training_rows": 94400,
+    "fixed_REAL_statistics_draws": 94400,
+    "actual_distinct_source_TRAIN_row_indices": 3752,
+    "actual_distinct_REAL_TRAIN_row_indices": 18739,
+    "complete_CPU_replay_rows": 2000,
+    "old_reference_HGB_or_density_refits": 0,
+    "new_neural_updates": 0,
+    "new_G4": 0,
+    "new_long_raw_decode": 0,
+    "new_REAL_acquisition_read": 0,
+    "installation": 0,
+    "migration_content_consistency_tests": 0
+  },
+  "draw_counts_not_independent_collection_counts": true,
+  "threads": 4,
+  "actual_worker_RSS_max_observed_bytes": 1709957120,
+  "RSS_limit_bytes": 4294967296,
+  "GPU_peak_allocated_bytes": 57150976,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "memory_probe_failures": 2,
+  "memory_probe_failure_events": [
+    {
+      "UTC": "2026-10-09T20:51:37.699380+00:00",
+      "PID": 59540,
+      "poll": null,
+      "context": "actual_PID_query"
+    },
+    {
+      "UTC": "2026-10-09T20:51:37.799651+00:00",
+      "PID": 59540,
+      "poll": null,
+      "context": "actual_PID_query"
+    }
+  ],
+  "RSS_failure_cause": "unknown; near termination timestamps alone do not establish cause",
+  "continuous_RSS_during_two_query_gaps": "unknown",
+  "remote_worker_self_peak_RSS_bytes": 1709371392,
+  "input_copy_payload_bytes": 15215506,
+  "upload_tar_payload_bytes": 61440,
+  "returned_tar_payload_bytes": 141291520,
+  "duplicated_return_package_and_extracted_payload_retained": true,
+  "source_control_lookup_errors": [
+    {
+      "tool": "b56192",
+      "actual_tool_exit": 0,
+      "missing_source_lookup": "R35/generate_all.py",
+      "science_started": false,
+      "resolution": "used R36 compatible generation entry; PREPARATION_RECEIPT preserved"
+    },
+    {
+      "tool": "1ec311",
+      "actual_tool_exit": 0,
+      "missing_source_lookup": "R36/summarize.py",
+      "science_started": false,
+      "resolution": "located existing summarize_and_plot.py; nonterminating shell error retained in original tool"
+    },
+    {
+      "tool": "7d65bd",
+      "actual_tool_exit": 0,
+      "missing_own_control_lookup": "RETRIEVAL_RECEIPT.json",
+      "science_started": false,
+      "resolution": "actual returned receipt is RETURN_TRANSFER_RECEIPT.json; original tool error retained"
+    }
+  ],
+  "local_stage_bytes_before_final_resource_and_seal": 521264628,
+  "local_stage_files_before_final_resource_and_seal": 269,
+  "local_stage_total_cap_bytes": 536870912,
+  "final_stage_exact_size": "FINAL_RECEIPT.json sealing stdout; all copies/packages included",
+  "general_system_dependency_loading_IO": "not measured as project data IO; actual RSS independently monitored",
+  "no_per_file_read_write_framework_introduced": true,
+  "all_science_native_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "new_science_started_in_report_or_seal": false,
+  "scientific_gate_result": {
+    "gate1_complete_response": true,
+    "gate2_PSD_width_centers_noise": false,
+    "gate3_source_preservation": false,
+    "gate4_boundary_guide": true,
+    "gate5_numerical_replay": true
+  },
+  "decision": "close_this_fixed_covariance_calibration_recipe",
+  "project_goal_closed": false,
+  "delivery_assembly_native": {
+    "tool": "30176f",
+    "actual_PID": 24280,
+    "observed_native_exit": 0,
+    "UTC": "2026-10-09T21:11:19.270238+00:00",
+    "control_only": true
+  },
+  "seal_control": {
+    "PID": 57828,
+    "begin_UTC": "2026-10-09T21:13:54.710248+00:00",
+    "pure_byte_file_hashing": true,
+    "scientific_array_decodes_or_fits_or_generation": 0,
+    "member_file_count_before_two_self_reference_exclusions": 272,
+    "stage_bytes_before_final_resource_replacement": 521276281,
+    "additional_final_control_reserved_bytes": 524288,
+    "final_exact_sizes_and_hash_cost": "FINAL_RECEIPT.json and original seal stdout",
+    "actual_native_exit_source": "external exec tool result returned after child completion"
+  }
+}

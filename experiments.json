@@ -1039,7 +1039,7 @@
     },
     {
       "id": "R37_FULL_COVARIANCE_CALIBRATION_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_covariance_recipe_closed_peak_noise_source_failure",
       "task": "tasks/R37_FULL_COVARIANCE_CALIBRATION_001.md",
       "registration": "reviews/R37_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T20:41:09.839435+00:00",
@@ -1050,6 +1050,24 @@
       "science_budget_s": 1800,
       "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
       "motivation_stage": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R37_FULL_COVARIANCE_CALIBRATION_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R38_SLICED_MONOTONE_TRANSPORT_001.md"
+    },
+    {
+      "id": "R38_SLICED_MONOTONE_TRANSPORT_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R38_SLICED_MONOTONE_TRANSPORT_001.md",
+      "registration": "reviews/R38_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T21:17:06.331729+00:00",
+      "scientific_question": "R37 improves complete-shape classifiers and conditional temporal covariance but fails PSD peak centers/low width, noise RMS and actual-source pure-had valleys. Close its fixed Gaussian covariance recipe. Test one source-driven nonlinear sliced monotone distribution transform starting from the original frozen G, using the same R33 TRAIN streams. Learned orthogonal directions and full marginal quantile maps address non-Gaussian structure; no R37 matrix reuse, covariance tuning, post-protection or target-event substitution.",
+      "new_neural_fits": 0,
+      "sliced_transform_fits_max": 1,
+      "HGB_fits_max": 10,
+      "science_budget_s": 1800,
+      "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "motivation_stage": "R37_FULL_COVARIANCE_CALIBRATION_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }

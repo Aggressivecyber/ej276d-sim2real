@@ -1,0 +1,105 @@
+{
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "seed": 20261009230,
+  "C2ST_views": [
+    "full_historical_shape",
+    "full_voltage",
+    "prompt_local",
+    "postpeak_local",
+    "tail_local",
+    "baseline_local",
+    "Q_PSD_2D"
+  ],
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "RSS_limit_bytes": 4294967296,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "local_input_paths": {
+    "width_definition": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\results\\DIAGNOSTIC_DEFINITION.json"
+  },
+  "local_training_input_paths": {
+    "TRAIN_PRIVATE.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+    "VALIDATION_INPUTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\VALIDATION_INPUTS.npz",
+    "FINE_CONSTANTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\FINE_CONSTANTS.npz",
+    "CRITIC_SCALER.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\CRITIC_SCALER.npz"
+  },
+  "R26_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001",
+  "R27_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R27_FIXED_PROJECTION_COVERAGE_DIAGNOSTIC_001",
+  "R28_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001",
+  "R32_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001",
+  "R33_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001",
+  "R35_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R35_PSD_ORDERED_FLOW_001",
+  "base_G": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\SERVER_FRESH_CONTROL\\FINAL_TRANSLATOR.pt",
+  "stage": "R37_FULL_COVARIANCE_CALIBRATION_001",
+  "registered_UTC": "2026-10-09T20:41:09.839435+00:00",
+  "deadline_UTC": "2026-10-09T22:01:09.839435+00:00",
+  "absolute_deadline_UTC": "2026-10-09T22:11:09.839435+00:00",
+  "science_budget": 1800,
+  "numeric_wall_limit_s": 1800,
+  "training_wall_s": 900,
+  "statistics_fit_wall_s": 900,
+  "updates": 2950,
+  "batch": 32,
+  "threads": 4,
+  "generation_chunk": 128,
+  "arms": [
+    "FULL_COVARIANCE_CALIBRATION"
+  ],
+  "endpoints": [
+    "FULL_COVARIANCE_CALIBRATION"
+  ],
+  "HGB_cap": 10,
+  "HGB_max_fits": 10,
+  "density_EM_max": 8,
+  "width_slots": 8,
+  "main_generation_rows": 2000,
+  "repeated_rows_cap": 1024,
+  "source_probe_rows": 832,
+  "extra_guide_probe_rows": 128,
+  "replay_rows": 2000,
+  "output_limit_bytes": 536870912,
+  "eigenfloor_trace_fraction": 1e-06,
+  "covariance_ddof": 1,
+  "original_covariance_negative_relative_limit": 1e-08,
+  "closure_relative_Frobenius_limit": 1e-06,
+  "full_dimension": 480,
+  "selection": "unique complete statistical fit; no checkpoint selection",
+  "R36_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R36_CONDITIONAL_DIFFUSION_EDIT_001",
+  "remote_R33_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R37_REMOTE_20261009_204109_UTC",
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "affine_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R37_FULL_COVARIANCE_CALIBRATION_001\\AFFINE_CONSTANTS.npz",
+  "endpoint_weight_paths": {
+    "FULL_COVARIANCE_CALIBRATION": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R37_FULL_COVARIANCE_CALIBRATION_001\\FULL_COVARIANCE_CALIBRATION\\CALIBRATION_MAPS.npz"
+  },
+  "execution": {
+    "statistics_fit": "same R33 Linux environment, CUDA frozen G batch32 then CPU4 float64 moments/maps",
+    "generation_evaluation_replay": "local CPU4; G chunk128; calibration float64",
+    "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+    "actual_PID_nonce_RSS_before_imports": true
+  },
+  "first_actual_command": {
+    "tool": "5dc2b1",
+    "PID": 48248,
+    "native_exit": 0,
+    "UTC": "2026-10-09T20:41:42.185129+00:00"
+  },
+  "new_neural_fit_or_updates": 0,
+  "new_EVAL": 0,
+  "new_CAL": 0,
+  "new_G4": 0,
+  "new_REAL": 0,
+  "installation": 0,
+  "migration_content_tests": 0
+}
