@@ -1,5 +1,5 @@
 # 当前研究状态
 
-项目目标active，PSD优先。R16已封存：三种head基分布均未恢复电荷条件双带；总体PSD边际与固定HGB近机会水平不能作为匹配证据。R17已登记并交原执行器，固定残差核比较两个配对head训练损失；实际作业状态见PROGRAM.json。
+项目active。R17已封存，只是无源输入的目标密度诊断：条件PSD部分改善，完整响应与源保真未验证。已按用户纠正登记R18完整源波形的无配对神经转换，原执行器连续实施；实际作业状态见PROGRAM.json。
 
-R16入口为R16_REPORT.md和R16_DELIVERY_INDEX.json，Git/D盘状态读取实际回执。
+R17入口为R17_REPORT.md与R17_DELIVERY_INDEX.json；私有Git和D盘普通复制状态读取实际回执。

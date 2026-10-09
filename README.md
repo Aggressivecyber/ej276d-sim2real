@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active，当前优先解决PSD。R16显示改变潜空间基分布未恢复电荷条件双带，随机残差对PSD的贡献较小；R17配对检验显式条件CDF训练约束。见[R16结论](R16_REPORT.md)、[R17任务](tasks/R17_CONDITIONAL_PSD_HEAD_FINETUNE_001.md)、[项目进度](PROJECT_PROGRESS.json)。旧交付保留。
+项目目标active，核心恢复为完整仿真波形驱动的无配对神经转换。R17改善部分条件PSD，但没有源波形输入，只作辅助密度诊断；R18直接学习两域信号差距并验证源内容保真。见[R17结论](R17_REPORT.md)、[R18任务](tasks/R18_UNPAIRED_WAVEFORM_TRANSLATION_001.md)、[项目进度](PROJECT_PROGRESS.json)。旧结果保留。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

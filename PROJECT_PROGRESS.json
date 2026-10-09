@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T06:26:09.281240+00:00",
+  "updated_UTC": "2026-10-09T07:16:02.576173+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R16_HEAD_LATENT_BASE_001",
-  "current_stage": "R17_CONDITIONAL_PSD_HEAD_FINETUNE_001",
-  "current_task": "tasks/R17_CONDITIONAL_PSD_HEAD_FINETUNE_001.md",
+  "latest_completed_stage": "R17_CONDITIONAL_PSD_HEAD_FINETUNE_001",
+  "current_stage": "R18_UNPAIRED_WAVEFORM_TRANSLATION_001",
+  "current_task": "tasks/R18_UNPAIRED_WAVEFORM_TRANSLATION_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,15 +13,15 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "unmet_R16_all_bases_PSD_conditional_bands_and_full_response"
+      "status": "auxiliary_R17_partial_PSD_improvement_not_a_source_converter"
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "unmet_full_shape_BA_0.9938_after_matching"
+      "status": "unmet_restore_full_source_waveform_unpaired_neural_translation"
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "PSD_priority_R16_residual_perturbation_small_head_distribution_unresolved"
+      "status": "R17_auxiliary_conditional_PSD_partially_improved_source_preservation_unverified"
     },
     {
       "id": "task_utility",
@@ -33,7 +33,7 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R16_new4000_draws_replay_passed_final_model_not_accepted"
+      "status": "R17_auxiliary4000_replay_passed_source_converter_pending_R18"
     },
     {
       "id": "final_research_delivery",
@@ -41,10 +41,10 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "User prioritizes PSD. R16 latent-base correction does not restore charge-conditioned bands; head-only/full PSD differences are small. Test an explicit conditional CDF/occupancy training loss in two matched head-only fine-tunes, freezing the selected GMM8 base and R15 kernel.",
+  "current_direction": "Restore the actual scientific task: a full source waveform drives an unpaired neural response translator. Stop unconditional target-density continuation and evaluate source dependence, deposition-conditioned PSD and response changes together.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R17_registered_after_R16_seal",
-  "latest_user_steering": "波形看起来和已经和实测接近了 接下来重点解决psd问题 为什么波形的psd效果变差很多",
-  "current_priority": "PSD_mismatch_cause_and_charge_conditioned_two_band_recovery",
-  "latest_user_steering_receipt": "reviews/PSD_PRIORITY_20261009_001.json"
+  "current_activity": "R18_registered_unpaired_source_correction",
+  "latest_user_steering": "无配对学习仿真波形到实测波形；不得忽略具体源事件",
+  "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
+  "latest_user_steering_receipt": "reviews/UNPAIRED_SOURCE_CORRECTION_20261009_001.json"
 }
