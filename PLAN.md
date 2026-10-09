@@ -1,3 +1,9 @@
+# 修订037：按用户要求扩大TRAIN波形数量
+
+R13小样本数值已完成，当前封存结果；下一轮R14已经登记。仅从TRAIN池追加18500条原始候选，与原2600条组成21100条候选，实际有效数经同QC确定；保留原599内部val与DEV2000。相同网络、初态和固定表示下，同时报告相同更新数与接近相同平均抽样次数的训练预算，区分样本量和计算量。R13封存后既有执行器直接继续，根代理维护Git和交付。见tasks/R14_TRAIN_POOL_EXPANSION_001.md。
+
+---
+
 # 修订036：执行R13主要密度与条件残差的2×2比较
 
 R12已完成私有Git与D盘正常复制。下一轮固定FACTOR完整表示，用两个新网络和既存GMM/共享Gaussian组成四组对照，区分主要分布与条件残差的贡献。仅TRAIN内部验证选型，DEV完整评价，EVAL仍关闭。任务、绝对UTC及资源上限见tasks/R13_FACTORIZED_CONDITIONAL_DENSITY_001.md和reviews/R13_REGISTRATION_001/RECEIPT.json。原执行器直接连续执行，root随后判断并推进项目。

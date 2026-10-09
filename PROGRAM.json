@@ -45,18 +45,18 @@
   "status": "project_goal_active",
   "current_stage": "R13_FACTORIZED_CONDITIONAL_DENSITY_001",
   "current_task": "tasks/R13_FACTORIZED_CONDITIONAL_DENSITY_001.md",
-  "next_prepared_task": null,
+  "next_prepared_task": "tasks/R14_TRAIN_POOL_EXPANSION_001.md",
   "current_stage_scope": "fixed_FACTOR_2x2_head_flow_and_conditional_residual_density",
   "latest_permission_status": "User explicitly requested set goal and continue; stage scope and budget authorize continuous work.",
-  "next_action": "Execute R13 finite 2x2 density comparison, review all arms and remaining gaps, then continue project direction.",
+  "next_action": "Seal and deliver R13; then execute user-requested expansion to 21100 TRAIN candidates with unchanged val and DEV and fixed architecture.",
   "current_model_fit_role": "TRAIN_fit_only_validation_checkpoint_DEV_reporting_EVAL_closed",
   "latest_scientific_decision": "Isotropic covariance shrinkage explains much of the inflated baseline variance. Removing it repairs mean amplitude but not joint noise, charge-dependent postpeak fluctuations, conditional two-peak structure or full response; validation NLL worsens. This is a controlled partial explanation, not an accepted response model.",
   "latest_completed_stage": "R12_PAIRED_RESIDUAL_COVARIANCE_001",
   "latest_completed_report": "work/R12_PAIRED_RESIDUAL_COVARIANCE_001/REPORT.md",
   "active_scientific_jobs": 0,
-  "current_stage_progress": "registered",
+  "current_stage_progress": "R13_science_complete_report_closure_R14_data_expansion_queued",
   "evaluation_access_receipt": "work/R4_FROZEN_HELDOUT_RESPONSE_001/EXTRACTION_RECEIPT.json",
-  "updated_at_utc": "2026-10-09T04:22:46.629848+00:00",
+  "updated_at_utc": "2026-10-09T04:41:29.425185+00:00",
   "git": {
     "provider": "GitHub",
     "repository": "Aggressivecyber/ej276d-sim2real",
@@ -70,9 +70,16 @@
   "frozen_method": "FROZEN_METHOD.json",
   "frozen_method_sha256": "b4e1f86807dba40f6004bda48a40d0644fe5039535a3c3eb2e402fc213065186",
   "current_job": {
-    "status": "registered_not_started",
     "stage": "R13_FACTORIZED_CONDITIONAL_DENSITY_001",
-    "scientific_jobs": 0
+    "status": "science_complete_reporting",
+    "scientific_jobs": 0,
+    "supervisor_PID": 161997,
+    "worker_PID": 161998,
+    "numeric_exit_code": 0,
+    "replay_PID": 162395,
+    "replay_exit_code": 0,
+    "numeric_cumulative_s": 42.65889714899822,
+    "receipt": "work/R13_FACTORIZED_CONDITIONAL_DENSITY_001/REMOTE_NATIVE_RECEIPT.json"
   },
   "latest_numeric_receipt": "work/R12_PAIRED_RESIDUAL_COVARIANCE_001/NUMERIC_RECEIPT.json",
   "execution_location": {
@@ -130,5 +137,6 @@
     "reproduction_guide": "work/R11_TARGET_DENSITY_REPRESENTATION_001/REPRODUCTION.md",
     "publication_receipt": "R11_PUBLICATION_RECEIPT.json",
     "backup_receipt": "R11_BACKUP_RECEIPT.json"
-  }
+  },
+  "queued_stage_registration": "reviews/R14_REGISTRATION_001/RECEIPT.json"
 }
