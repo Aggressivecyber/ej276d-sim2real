@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-项目目标active。R27固定输出诊断发现两时间子空间均高度可分，原训练方向的改善未同幅出现在独立方向。R28沿用R26同区行流，仅检验每步刷新fine投影。见[R27结论](R27_REPORT.md)、[R28任务](tasks/R28_FRESH_PROJECTION_TRANSLATION_001.md)、[项目进度](PROJECT_PROGRESS.json)。
+项目目标active。R28刷新投影改善部分独立方向与末点宽度，但完整响应仍高度可分，峰位及部分源条件/局部指标退化。4000条独立回放通过。R29检验固定同一轨迹上的fine energy U距离替换。见[R28结论](R28_REPORT.md)、[R29任务](tasks/R29_SLICED_ENERGY_TRANSLATION_001.md)、[项目进度](PROJECT_PROGRESS.json)。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 
