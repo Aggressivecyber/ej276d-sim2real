@@ -1,0 +1,110 @@
+{
+  "stage": "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
+  "registered_UTC": "2026-10-09T12:12:24.088820+00:00",
+  "task": "tasks/R25_LOSS_GEOMETRY_DIAGNOSTIC_001.md",
+  "task_sha256": "28baa7863c3bfbca92b910ce981495edb91ee325c387b3ac6167a93f7934a8f0",
+  "reason": "R24 D5 retained the entire2950-step generator stream but again selected step0; its terminal response objective worsened while extra critic updates did not recover full response similarity. Diagnose the existing objective before another response fit: controlled REAL-TRAIN projected contraction under mixed versus homogeneous Q-bin minibatches, and weighted gradient interactions at three immutable saved G/reader/D states. No optimizer updates or coefficient scan.",
+  "authorization": "Active whole-project goal and explicit local steering; existing executor proceeds without substep approvals.",
+  "stage_wall_budget_s": 3600,
+  "stage_deadline_UTC": "2026-10-09T13:12:24.088820+00:00",
+  "executor_seal_deadline_UTC": "2026-10-09T13:02:24.088820+00:00",
+  "root_delivery_reserve_s": 600,
+  "scientific_cumulative_budget_s": 600,
+  "new_response_fit_attempts_max": 0,
+  "G_updates_max": 0,
+  "D_updates_max": 0,
+  "reader_updates_max": 0,
+  "HGB_fits_max": 0,
+  "density_EM_max": 0,
+  "new_DEV_generation_rows": 0,
+  "A": {
+    "REAL_TRAIN_fit_available": 21047,
+    "REAL_common_TRAIN_fit": 18895,
+    "frozen_projection_groups": [
+      "physical",
+      "pooled_shape",
+      "shape480",
+      "diff479",
+      "baseline100_V"
+    ],
+    "contraction_coefficients": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "batch": 32,
+    "sampling_regimes": [
+      "MIXED",
+      "HOMOGENEOUS"
+    ],
+    "repetitions_per_regime": 256,
+    "homogeneous_repetitions_per_bin": 32,
+    "sampling_seeds": [
+      20261009251,
+      20261009252
+    ],
+    "new_means": "Per-Q-bin REAL TRAIN projected means for controlled diagnostic only.",
+    "energy_U_cross_diagonal_excluded": true,
+    "U_negative_values_retained": true,
+    "uncertainty": "Paired Monte Carlo error conditional on fixed TRAIN pool; homogeneous equal8-bin stratified variance.",
+    "candidate_is_physical_waveform": false
+  },
+  "B": {
+    "immutable_states": [
+      "common_R21_G_reader_and_R18_initial_D",
+      "R23_STANDARDIZED_final2950",
+      "R24_D5_final2950"
+    ],
+    "batches_per_state": 32,
+    "batch": 32,
+    "actual_stream": "First32 original R23 G batches including source/REAL/z/white/style/NCE.",
+    "main_source_forward_rows_planned": 3072,
+    "identity_forward_rows_planned": 3072,
+    "weighted_components": 10,
+    "coefficient_changes": false,
+    "optimizer_step_allowed": false,
+    "gradient_sum_check": "One first-batch check per saved state; report float32 tolerance and finite values.",
+    "comparison_is_actual_Adam_update": false
+  },
+  "CPU_threads": 4,
+  "RSS_max_bytes": 4294967296,
+  "GPU_allocated_max_bytes": 4294967296,
+  "output_max_bytes": 134217728,
+  "max_active_scientific_jobs": 1,
+  "execution": "local_sequential_CPU_loss_controls_CUDA_frozen_gradient_diagnostic",
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "GPU_python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+  "actual_worker_PID_RSS_guard_required_before_science": true,
+  "R23_guard_implementation_reused": true,
+  "repeat_PID_memory_probe_required": false,
+  "new_installation": 0,
+  "SSH_allowed": false,
+  "migration_content_tests": false,
+  "source_provenance_reaudit": false,
+  "local_execution_steering": "reviews/R21_LOCAL_EXECUTION_001/RECEIPT.json",
+  "prior_stage_native_science_s": 680.50731669995,
+  "prior_stage_seal_receipt_sha256": "a616c75e18bc9cefd4a70a00f7de3f5640afac766689d11ca2555e423996e0c6",
+  "prior_stage_selected_step": 0,
+  "prior_stage_final_J20": 0.7267599105834961,
+  "prior_stage_final_online_AUC": {
+    "step": 2950,
+    "REAL_label_is1": true,
+    "weighted_AUC": 0.7879121534845327,
+    "unweighted_AUC": 0.7337522172370619,
+    "scores_used_in_selection": false
+  },
+  "prior_stage_fullshape_BA": 0.992,
+  "new_EVAL": 0,
+  "new_CAL_waveform_decode": 0,
+  "new_G4": 0,
+  "new_long_waveform_decode": 0,
+  "physical_mapping_validated": false,
+  "project_goal_status": "active",
+  "followup_response_fitting_within_task": false,
+  "method_references": [
+    "https://proceedings.mlr.press/v108/fatras20a.html",
+    "https://arxiv.org/abs/1705.10743"
+  ],
+  "reference_boundary": "Minibatch objective and unbiased-gradient references motivate a diagnostic, not a proven explanation of this dataset."
+}

@@ -848,12 +848,25 @@
     },
     {
       "id": "R24_CRITIC_UPDATE_RATIO_001",
-      "status": "registered_for_executor",
+      "status": "sealed_D5_selected_start_no_full_response_improvement",
       "task": "tasks/R24_CRITIC_UPDATE_RATIO_001.md",
       "registration": "reviews/R24_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T11:33:56.674282+00:00",
       "reason": "R23 standardized input did not improve the frozen response objective: step0 was selected, while the online critic remained far less discriminating than in the R22 frozen-pool diagnostic. Test one D5 arm against the saved same-platform R23 STANDARDIZED D1 control, retaining identical generator streams and selection but adding four independent critic-only batches per generator update. Judge full response and source preservation, not critic scores alone; no ratio sweep follows within this task.",
       "execution_location": "local",
+      "project_goal_status": "active",
+      "receipt": "work/R24_CRITIC_UPDATE_RATIO_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R25_LOSS_GEOMETRY_DIAGNOSTIC_001.md"
+    },
+    {
+      "id": "R25_LOSS_GEOMETRY_DIAGNOSTIC_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R25_LOSS_GEOMETRY_DIAGNOSTIC_001.md",
+      "registration": "reviews/R25_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T12:12:24.088820+00:00",
+      "reason": "R24 D5 retained the entire2950-step generator stream but again selected step0; its terminal response objective worsened while extra critic updates did not recover full response similarity. Diagnose the existing objective before another response fit: controlled REAL-TRAIN projected contraction under mixed versus homogeneous Q-bin minibatches, and weighted gradient interactions at three immutable saved G/reader/D states. No optimizer updates or coefficient scan.",
+      "execution_location": "local",
+      "new_response_fit_attempts_max": 0,
       "project_goal_status": "active"
     }
   ]
