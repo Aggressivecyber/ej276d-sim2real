@@ -1,7 +1,7 @@
 # 当前研究状态
 
-R1–R10均已完成本轮登记范围。R10在服务器使用GPU训练/生成、CPU4线程评价，主计算与科学重放正常退出；关键结果与图表已检查，科学作业0。
+整个项目持续目标active，尚未完成。R1–R10阶段已封存，但完整响应分布、可靠条件峰宽和泛化仍未解决；本次授权不再按单轮任务结束关闭项目。
 
-完整响应相似性尚未成立。R10组成配平后shape BA为0.99376，仍有坐标失配；固定源对照shape BA为1且覆盖收缩。保留原R3B局部基线与全部负结果，不自动启动R11。
+当前R11已登记：非对抗目标分布基线与可逆表示诊断，服务器执行，科学作业尚未启动；实际PID以PROGRAM和阶段原生回执为准。范围与预算见tasks/R11_TARGET_DENSITY_REPRESENTATION_001.md及reviews/R11_REGISTRATION_001/RECEIPT.json。
 
-报告：R10_REPORT.md；阶段：work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPORT.md；复现与交付：该阶段REPRODUCTION.md、R10_DELIVERY_INDEX.json。最终Git提交状态和D盘复制状态分别以R10_PUBLICATION_RECEIPT.json、R10_BACKUP_RECEIPT.json为准。直接迁移，不作文件内容一致性测试。
+根代理每轮判断方向后让既有执行器实现运行，关键结果检查后继续下一轮。进展与项目完成标准见PROJECT_PROGRESS.json、PROJECT_OBJECTIVE.md。无新的逐步审批。旧报告和备份为历史独立版本。
