@@ -1,0 +1,504 @@
+{
+  "start_UTC": "2026-10-09T01:14:38.436228+00:00",
+  "deadline_UTC": "2026-10-09T02:10:58.545151+00:00",
+  "first_tool": "99657b",
+  "first_native_PID": 30296,
+  "first_native_exit": 0,
+  "stage": "R10",
+  "numeric_wall_limit_s": 1800,
+  "training_soft_limit_s": 1100,
+  "threads": 4,
+  "RSS_limit_bytes": 4294967296,
+  "output_limit_bytes": 536870912,
+  "seed": 2026100891,
+  "projection_seed": 2026100892,
+  "source_permutation_seed": 2026100893,
+  "generation_seeds": [
+    2026100894
+  ],
+  "validation_seed": 2026100897,
+  "validation_n": 384,
+  "arms": [
+    "FIXED_SOURCE_STOCHASTIC"
+  ],
+  "max_updates_per_arm": 2000,
+  "training_finalization_reserve_s": 30,
+  "batch_size": 64,
+  "learning_rate": 0.0002,
+  "Adam_betas": [
+    0.5,
+    0.9
+  ],
+  "weight_decay": 0.0001,
+  "gradient_norm_max": 5.0,
+  "generation_chunk": 64,
+  "validation_interval": 100,
+  "encoder": {
+    "channels": 24,
+    "kernel": 5,
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "convolutions_per_residual_block": 2,
+    "activation": "SiLU",
+    "padding": "zero same",
+    "stride": 1
+  },
+  "pulse_branch": {
+    "z_pulse": 16,
+    "z_base": 4,
+    "white_points": 512,
+    "dilations": [
+      1,
+      4,
+      16
+    ],
+    "output_scale_V": 0.1,
+    "output_last_layer_initialization": "zero"
+  },
+  "mean_branch": {
+    "gain": "exp(linear_c4_MLP16), initial intercept TRAIN median Qtotal/source clean Qtotal",
+    "signed_residual_scale_V": 0.1,
+    "output_last_layer_initialization": "zero",
+    "reads_noise": false
+  },
+  "baseline_branch": {
+    "z_base": 4,
+    "white_points": 512,
+    "conditional_FIR_taps": 31,
+    "FIR_normalization": "L2, no zero-sum constraint",
+    "RMS": "exp(MLP(c4,zbase4) plus initial logRMS_sd*zbase0)",
+    "initial_FIR": "centered 31 taps of IFFT sqrt(TRAIN-fit baseline mean spectrum), L2 normalized",
+    "driving_white_mean": "population zero, no per-event centering"
+  },
+  "critic": {
+    "channels": 24,
+    "scales": [
+      1,
+      2,
+      4
+    ],
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "kernel": 5,
+    "spectral_norm": true,
+    "stride": 1,
+    "inputs": "V/.1 and own baseline-subtracted peak-normalized shape"
+  },
+  "loss_coefficients": {
+    "hinge_adv": 1.0,
+    "full_joint_SW": 1.0,
+    "conditional_CDF": 2.0,
+    "occupancy": 0.5,
+    "baseline_joint": 0.5
+  },
+  "joint_features": {
+    "scalar_fields": [
+      "PSD",
+      "log_Qtotal_mVns",
+      "log_peak_V",
+      "rise10_90_ns",
+      "tail_charge_fraction"
+    ],
+    "scalar_IQR_floors": [
+      0.05,
+      0.5,
+      0.5,
+      1.0,
+      0.05
+    ],
+    "blocks": [
+      "scalar5",
+      "V480/.1",
+      "ownshape480",
+      "d1_V479/.1",
+      "d2_V478/.1"
+    ],
+    "coordinate_IQR_floors": [
+      null,
+      0.005,
+      0.02,
+      0.005,
+      0.005
+    ],
+    "balance": "each standardized block divided by sqrt(its dimension)",
+    "projections": 128,
+    "smoothing": false,
+    "dimension": 1922
+  },
+  "baseline_joint": {
+    "fields": [
+      "log_RMS_ddof1",
+      "ACF_lag1_to8_full100_den",
+      "nonDC_normalized_power50",
+      "log_Qtotal_mVns",
+      "log_peak_V"
+    ],
+    "IQR_floors": [
+      0.2,
+      0.02,
+      0.005
+    ],
+    "projections": 128,
+    "den_floor": 1e-12,
+    "log_RMS_floor_V": 1e-07,
+    "block_IQR_floors": [
+      0.2,
+      0.02,
+      0.005,
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "dimension": 61
+  },
+  "CDF": {
+    "PSD_grid_points": 128,
+    "PSD_grid_limits": [
+      -0.1,
+      0.6
+    ],
+    "temperature": 0.0025,
+    "logQ_centers": "fixed8 bin midpoints",
+    "logQ_soft_width": "one fixed narrow-bin width"
+  },
+  "validation": "original384 R8C inputs/noise; fixed donor replaces only full source package; same TRAIN-only target; strict lowest at0/every100",
+  "source_controls": {
+    "fixed_positions": "floor(j*1999/63), j=0..63",
+    "shuffle": "same permutation of x,c,Q on these64",
+    "replacement": "full ID SHA order first allowed G4 TRAIN-fit parent"
+  },
+  "HGB_max_fits": 26,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "C2ST_views": [
+    "full_historical_shape",
+    "full_voltage",
+    "prompt_local",
+    "postpeak_local",
+    "tail_local",
+    "baseline_local"
+  ],
+  "density_EM_limit": 8,
+  "input_files": {
+    "generation_inputs": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\generation_inputs.npz",
+      "bytes": 137260,
+      "sha256": "dfbe5ee5d97dba9d9fbca4888f5a266d144e9e4e69ae2e43e13cfd4a2df4c414"
+    },
+    "generated": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\generated.npz",
+      "bytes": 5003943,
+      "sha256": "df2b9555e91eb29f1b512bef5210d249defb5d67b7cb6420c579ef748a537586"
+    },
+    "REAL_V": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\window_V_f32.bin",
+      "bytes": 13056000,
+      "sha256": "270abe0e61a3dd3e1f466ad756637a2afa2a0b7e4002f634fcb09c3ed672baa0"
+    },
+    "REAL_QC": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\QC_reason_u16.bin",
+      "bytes": 13600,
+      "sha256": "aa7ccedcfd692cbe935bc173e881aba7ba5d7e357e8ae6aed6b9add5accbfa0c"
+    },
+    "REAL_groups": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_group.bin",
+      "bytes": 13600,
+      "sha256": "f42ba59bf8bc6aac5777bb7114c026b06abea90ce9d5c212a45464c934182bdd"
+    },
+    "REAL_original_index": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_original_index.bin",
+      "bytes": 27200,
+      "sha256": "7eefd0a8d44eda367b56e2701907c3b9c5c1dc345c6b6ca73cfb931b84860753"
+    },
+    "REAL_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\selection_role.bin",
+      "bytes": 6800,
+      "sha256": "f5f39c9213b40b5b92188835926ff0ecc14cab2bb111284d4a44045c0133e4f2"
+    },
+    "CAL_reference": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001\\STATISTICS.json",
+      "bytes": 31464,
+      "sha256": "ff8d6afa294c6736fc55d509a54000d9c14688ebc3ff94262805239112089989"
+    },
+    "TRAIN_roles": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\results\\DATA_ROLES.json",
+      "bytes": 988,
+      "sha256": "90ce22a812b8af429fc3370902a15734f348c98dbbbdc8a0392b9370565b612b"
+    },
+    "SIM_identity": {
+      "path": "E:\\GAN\\baseline_mean_fix_20261004_1125\\inputs\\evaluation_inputs.npz",
+      "bytes": 4599732,
+      "sha256": "29642e32877b6df3b5c1cdb10e33031474d8a95606a1cde0fc011dae61000c83"
+    },
+    "width_definition": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\results\\DIAGNOSTIC_DEFINITION.json",
+      "bytes": 2604,
+      "sha256": "68f915df1cc3e09832713f3206bd608bda72a9fa50ebcdb2c813da6b883519e5"
+    },
+    "G4_TRAIN_cache": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R2_SMOOTH_STOCHASTIC_RESPONSE_001\\data\\G4_TRAIN_CACHE.npz",
+      "sha256": "117152db28a16fcfc9a83012cc863e32f2d73bdef77bbf7b5f8e977c3e64818b",
+      "bytes": 11535795
+    },
+    "R7_metrics": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\METRICS_COMPACT.json",
+      "bytes": 1543975,
+      "sha256": "cd96b064c8da45e7d224195150a4adeee521a871001f9a523a8db7cc86fb9c10"
+    },
+    "R7_selections": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R7_RESPONSE_RESIDUAL_DIAGNOSIS_001\\results\\DIAGNOSTIC_SELECTIONS.json",
+      "bytes": 74002,
+      "sha256": "0bb70d31607ea391480739ff7412c7bdcd5cfa98ed7e0c692bfaba0542dabe10"
+    },
+    "R5_TRAIN_waveforms": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R5_PREFIX_RECONSTRUCTION_UTILITY_001\\synthetic_waveforms.npz",
+      "bytes": 6062437,
+      "sha256": "4fe9171337364b039ce4f38c836e02025567d1d6ef7fabe798d90d068565182c"
+    },
+    "R5_TRAIN_inputs": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R5_PREFIX_RECONSTRUCTION_UTILITY_001\\generation_inputs.npz",
+      "bytes": 3991653,
+      "sha256": "1ea7bfb7c7d2c77f7d47381da894977342099369f87ec0dea24e6895c76c7429"
+    },
+    "initial_state": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\COMMON_INITIAL_STATE.pt",
+      "bytes": 401995,
+      "sha256": "28af4d78bac5f4e77582a34970b3532dfb0d9a3a31d64278528ae9ec03f62519"
+    },
+    "initial_rng": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\INITIAL_RANDOM_STATES.pt",
+      "bytes": 16085,
+      "sha256": "0e3a5c33425615a796f26e87c304527450b7f0d984250c0777fd53e98bef6cca"
+    },
+    "training_rng": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\TRAINING_RANDOM_STATES.pt",
+      "bytes": 17512,
+      "sha256": "0afff5fb21993ed16c52e616d41c55e7139f309c79f3eb17045ac01a8ffa857e"
+    },
+    "saved_validation": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\VALIDATION_INPUTS.pt",
+      "bytes": 1625177,
+      "sha256": "0d46e25fff5cf36d0f1011573a54c8110927fc3de8844d91ccfb9bca1fe564b5"
+    },
+    "saved_targets": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\TRAIN_TARGETS.pt",
+      "bytes": 1840404,
+      "sha256": "8a1c0e77449c67734721a61973a7bf6805e68a5c3b32f011159a20249bb3c8df"
+    },
+    "old_sample_digests": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\TRAINING_SAMPLE_DIGESTS.json",
+      "bytes": 258898,
+      "sha256": "47b32c5c799697e86bb6e15422120dccf05f04549b6a583c6ddac80febe2a054"
+    },
+    "old_receipt": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\PAIRED_TRAINING_RECEIPT.json",
+      "bytes": 897,
+      "sha256": "340465df107648c77a323c6e389d5a5d60b62d8bd46240d63b184a366826ada3"
+    },
+    "old_metrics": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\METRICS_COMPACT.json",
+      "bytes": 3932753,
+      "sha256": "01c7eef1497e6efbbcf9692fd771d7a04e40b63d82665bb90e1533315261ca37"
+    },
+    "old_FULL_waveforms": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\arms\\FULL_WAVE_STOCHASTIC\\generated.npz",
+      "bytes": 21634070,
+      "sha256": "59fb943c0da59ce126b94a168c2fdb127104033990eb66f76109d784e8a765f5"
+    },
+    "old_OFF_waveforms": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\arms\\PULSE_STOCHASTIC_OFF\\generated.npz",
+      "bytes": 18063227,
+      "sha256": "e43558c996db1e088b2168e244a234dbbd1833a3592584f122522d18a7d693a5"
+    }
+  },
+  "evaluation": {
+    "question": "R10 A matching and B fixed source under server location addendum",
+    "input_npz": {
+      "SIM_METADATA": "E:/GAN/baseline_mean_fix_20261004_1125/inputs/evaluation_inputs.npz",
+      "GEN_FIXED": "E:/GAN/baseline_mean_fix_20261004_1125/artifacts/evaluation/fixed_arrays.npz",
+      "GEN_W0": "E:/GAN/fullwave_execution_20261004_0930/artifacts/evaluation/control_arrays.npz"
+    },
+    "REAL_prefix_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001\\A2_ENGINEERING_001\\run_001",
+    "REAL_identity_dir": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\P1K_REAL_REFERENCE_AND_REPEATABILITY_001",
+    "n": 2000,
+    "sample_ns": 1,
+    "baseline": [
+      0,
+      100
+    ],
+    "Qfast": [
+      100,
+      150
+    ],
+    "Qtotal": [
+      100,
+      400
+    ],
+    "PSD": "1-Qfast/Qtotal signed",
+    "tail_charge": [
+      200,
+      400
+    ],
+    "rise": "last upward interpolated10% and90% crossings from index100 to first peak",
+    "wave_QC": "allfinite positive baseline-subtracted peak, positive total and finitePSD; source REAL QC additionally preserved; no HC filtering",
+    "raw_scale": "SIM and historical W0 use corresponding SIM normalization_peak_V proxy; all R3B/R8/R8C outputs already physical V, no parent-peak rescaling",
+    "shape_scale": "subtract own first100 mean,divide by own saved-window positive max",
+    "CAL_reference": "P1K slots and fixed charge quartiles;global cut diagnostics only;q4invalid staysunknown/FoMundefined",
+    "FOM_min_band": 20,
+    "C2ST": {
+      "model": "HistGradientBoostingClassifier",
+      "max_iter": 100,
+      "learning_rate": 0.06,
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20,
+      "l2_regularization": 1.0,
+      "early_stopping": false,
+      "random_state": 20261008,
+      "views": [
+        "full_historical_shape",
+        "full_voltage",
+        "prompt_local",
+        "postpeak_local",
+        "tail_local",
+        "baseline_local"
+      ],
+      "train_cap_each_domain": 600,
+      "test_cap_each_domain": 250,
+      "split": "first8 SHA256 big endian mod10<7 TRAIN elseHOLDOUT;SIM by unique parentID and REAL by original_index//50;allviews share split",
+      "RR_domain": "separate SHA group bucketmod2;groupsneverstraddleclasses",
+      "balancing": "fixed SHA event order, common feasible train/test per-domain counts across allcomparisons",
+      "imputer": "train-only median,keepemptyfeatures; no fit onholdout",
+      "bootstrap_cluster_repeats": 1000,
+      "CI": "conditional ontrainedclassifier;group bootstrap balancedaccuracy andAUC;not responsemodel traininguncertainty",
+      "positive_control": "REAL base+2%ownpeak tail exp(-(t-120)/80) t>=120 andindependent1.5%ownpeak Gaussian noise,one fixedseed202610081;allparentviews sharegroup split",
+      "no_parameter_search": true
+    },
+    "REAL_repeat_reference": {
+      "count": 64,
+      "split": "whole artificial groups SHA half per repetition;balancewithin eachregion by fixed eventhash order",
+      "not_physical_equivalence": true
+    },
+    "permutation_importance": "single heldout blockperm seed20261008;descriptivecorrelatedblocks notcausal",
+    "no_G4": true,
+    "no_SSH": "obsolete R1 inherited field; server execution explicitly authorized",
+    "EVAL_waveform_or_feature_read": 0,
+    "numeric_wall_limit_s": 2400,
+    "threads": 4,
+    "RSS_limit_bytes": 4294967296,
+    "output_limit_bytes": 536870912
+  },
+  "EVAL_read": 0,
+  "SSH": "authorized server execution only",
+  "new_G4": 0,
+  "new_agents": 0,
+  "Git": 0,
+  "full_clean_is_fixed_total_deposition_source_description_not_new_timing": true,
+  "retrospective_same_acquisition_DEV": true,
+  "CAL_q4_fallback": false,
+  "numeric_ledger": "remote supervised child wall times including failures and replay, cumulative <=1800s",
+  "pulse_ablation_interpretation": "whole added nonlinear pulse branch; its conditional mean is not constrained to zero, so OFF removes deterministic as well as stochastic capacity",
+  "validation_quantile_rule": "type7 interpolation when baseline target599/2592 and generated384/64 counts differ",
+  "validation_only_fixed_intervals": "0 and each100; final budget checkpoint saved but not newly validated unless already at interval",
+  "phase_config": "frozen before first scientific array decoding; debugging cannot change scientific definition based on DEV",
+  "absolute_deadline_UTC": "2026-10-09T02:13:58.545151+00:00",
+  "question": "TRAIN-frozen observed-composition overlap weighting and fixed-whole-source stochastic capacity control",
+  "matching": {
+    "bins_each_coordinate": 6,
+    "quantiles": "REAL TRAIN-fit type7, external edges infinity, exact repeated boundaries merged",
+    "min_each_TRAIN_cell": 20,
+    "target": "min(p_G,p_R) normalized on qualifying cells",
+    "train_ESS_min": 150,
+    "holdout_ESS_min": 75,
+    "DEV_selection": "filter frozen R7 train/holdout lists; shared feasible cap, no expanding selections",
+    "A_max_HGB": 20,
+    "baseline": "R7 original unweighted full-population results directly cited",
+    "weights_are_observation_diagnostic_not_physical_source_correction": true
+  },
+  "fixed_source": {
+    "donor": "first full SHA256 digest of allowed G4 TRAIN-fit parent ID",
+    "all_inputs": "clean_V,c4,Qsource fixed together",
+    "initial_state": "R8C COMMON_INITIAL_STATE, new optimizers",
+    "noise": "R8C private training RNG before_first_draw, source indices still drawn; saved validation inputs/target tensors reused",
+    "new_G_D_updates_max": 2000,
+    "main_draws": 2000,
+    "fresh_process_replay_draws": 2000,
+    "NN": "2000 draws and2000 REAL DEV to same2592 REAL TRAIN-fit, RMS V and own-shape; all reference rows; fixed hash near examples",
+    "B_max_HGB": 6,
+    "new_density_fits_max": 8,
+    "draws_are_not_independent_G4_parents": true
+  },
+  "old_source_bindings": [
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\model.py",
+      "bytes": 5833,
+      "sha256": "e76a44264436012aac7c6a82a1fec0b7a7f903aadcba77d7fb8e8a723d7900bb"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\training.py",
+      "bytes": 13379,
+      "sha256": "3d7ab557ebe8e0408136be7e0281c1abe1d18bca6c229a5afc9052c154349325"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\observable_source.py",
+      "bytes": 1235,
+      "sha256": "dc3d296243e7ffb912fccdb9af8ac267dc2d763b00ee929c4d7a15fe80a7ca0f"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\evaluation.py",
+      "bytes": 18085,
+      "sha256": "124e529687bbc86ac3f3f1369436d4e45ebeed589826a1346f7e636ccd7361fe"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\diagnostic_core.py",
+      "bytes": 9718,
+      "sha256": "e3b41284ff6e468323c6a813ea01a82e5f0a93f0d4424501b1d677960f96ed21"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\assessment.py",
+      "bytes": 7354,
+      "sha256": "c2442213bc59f9a8e8d97fc4454c0abdec8486440138594fe18d7e0085709da3"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\common_math.py",
+      "bytes": 1968,
+      "sha256": "d0b42564ef356831140115be24e60496dd045e5fe2bf1ae4bff44e901ad0bcad"
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R8C_WHOLE_RESPONSE_MAPPING_001\\energy_width.py",
+      "bytes": 15287,
+      "sha256": "69c54c7203d566e9adb85c7dfc87f8b77e7a4bb5193a1f59301da41f9be7b086"
+    }
+  ],
+  "execution": {
+    "location": "rylan@100.82.231.102",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R10_REMOTE_20261009_012338",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "device": "cuda:0",
+    "GPU_allocated_limit_bytes": 4294967296,
+    "original_private_CPU_random_stream_retained": true,
+    "same_backend_replay": true,
+    "migration_validation": "normal transfer exit + actual loading, no source-destination SHA tests"
+  }
+}

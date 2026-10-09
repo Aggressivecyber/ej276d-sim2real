@@ -1,6 +1,6 @@
 # EJ-276D：G4 到实测响应变换
 
-R10观测组成配平与固定源生成对照已获用户授权，当前执行中；范围见[登记任务](tasks/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001.md)，进度见[当前状态](STATUS.md)。旧R7–R9报告及交付保留为独立封存版本。
+R10已在服务器完成：TRAIN冻结组成配平后完整shape BA仍0.99376；固定源随机对照仍未学到完整实测分布。保留负结果，本轮停止，不自动启动R11。见[R10结论](R10_REPORT.md)、[阶段详情](work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPORT.md)、[复现说明](work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPRODUCTION.md)和[交付索引](R10_DELIVERY_INDEX.json)。旧R1–R9交付保留。
 
 R1–R9已完成有界研究。R7定位总体波形残差，R8局部修正及R8C整段随机映射均已执行，R9保留五个冻结候选完成回顾性验证。JOINT_SIGNAL的峰后局部BA由0.922降至0.810，但完整shape BA仍0.994；全部候选为0.988–1.000，真实对真实为0.504。条件峰宽也未进一步改善，本轮不采用新模型作为已验证的完整响应转换器。
 

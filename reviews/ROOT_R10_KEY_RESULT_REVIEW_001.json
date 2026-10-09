@@ -1,0 +1,746 @@
+{
+  "status": "key_result_review_complete_bounded_negative",
+  "reviewed_UTC": "2026-10-09T01:45:20.126627+00:00",
+  "reviewer_role": "root_scientific_direction_and_key_results",
+  "scope": "Read sealed key outputs and actual key figures; no independent scientific recomputation and no migration equality test.",
+  "A": {
+    "TRAIN_overlap_mass": 0.8414174416284942,
+    "DEV_support": {
+      "GEN": {
+        "source_n": 2000,
+        "QC_n": 2000,
+        "common_support_n": 1857,
+        "retained_fraction_of_QC": 0.9285,
+        "ESS": 1797.13309518112
+      },
+      "REAL": {
+        "source_n": 2000,
+        "QC_n": 2000,
+        "common_support_n": 1879,
+        "retained_fraction_of_QC": 0.9395,
+        "ESS": 1851.3033917455105
+      }
+    },
+    "evaluation_support": {
+      "train_each_domain": 553,
+      "holdout_each_domain": 237,
+      "GEN_ESS_train": 536.7506806922618,
+      "GEN_ESS_holdout": 229.05647364250953,
+      "REAL_ESS_train": 544.8096917654927,
+      "REAL_ESS_holdout": 233.5603356272344,
+      "groups": {
+        "first": {
+          "train": 553,
+          "holdout": 237
+        },
+        "second": {
+          "train": 457,
+          "holdout": 201
+        }
+      },
+      "weighted_supported": true
+    },
+    "full_shape_unweighted": {
+      "supported": true,
+      "BA": 0.9957805907172996,
+      "AUC": 0.9995905214620164,
+      "train_each_domain": 553,
+      "holdout_each_domain": 237,
+      "features": 493,
+      "sample_weight_applied_train_and_holdout": true,
+      "elapsed_s": 0.32166807999965386,
+      "CI": {
+        "valid_repeats": 500,
+        "clusters": 438,
+        "conditional_on_weights_and_fitted_classifiers": true,
+        "includes_weight_estimation_or_training_or_acquisition_uncertainty": false,
+        "BA_95CI": [
+          0.9897295075054815,
+          1.0
+        ],
+        "AUC_95CI": [
+          0.9985250675546993,
+          1.0
+        ]
+      }
+    },
+    "full_shape_weighted": {
+      "supported": true,
+      "BA": 0.9937630072592758,
+      "AUC": 0.9996442752718276,
+      "train_each_domain": 553,
+      "holdout_each_domain": 237,
+      "features": 493,
+      "sample_weight_applied_train_and_holdout": true,
+      "elapsed_s": 0.2803117719995498,
+      "CI": {
+        "valid_repeats": 500,
+        "clusters": 438,
+        "conditional_on_weights_and_fitted_classifiers": true,
+        "includes_weight_estimation_or_training_or_acquisition_uncertainty": false,
+        "BA_95CI": [
+          0.9861100011526359,
+          1.0
+        ],
+        "AUC_95CI": [
+          0.9987957721531153,
+          1.0
+        ]
+      }
+    },
+    "full_shape_paired_change": {
+      "BA": -0.0020175834580238305,
+      "BA_95CI": [
+        -0.005940542914834695,
+        0.0
+      ],
+      "AUC_95CI": [
+        -0.00013008471442763623,
+        0.00033514508004666685
+      ]
+    },
+    "full_voltage_weighted": {
+      "supported": true,
+      "BA": 0.9872429225875063,
+      "AUC": 0.9986872689106687,
+      "train_each_domain": 553,
+      "holdout_each_domain": 237,
+      "features": 480,
+      "sample_weight_applied_train_and_holdout": true,
+      "elapsed_s": 0.274934569002653,
+      "CI": {
+        "valid_repeats": 500,
+        "clusters": 438,
+        "conditional_on_weights_and_fitted_classifiers": true,
+        "includes_weight_estimation_or_training_or_acquisition_uncertainty": false,
+        "BA_95CI": [
+          0.9761143084197181,
+          0.9975356198906451
+        ],
+        "AUC_95CI": [
+          0.996096457043465,
+          1.0
+        ]
+      }
+    },
+    "REAL_REAL_shape_weighted": {
+      "supported": true,
+      "BA": 0.5260781261369928,
+      "AUC": 0.5318002281882767,
+      "train_each_domain": 563,
+      "holdout_each_domain": 237,
+      "features": 493,
+      "sample_weight_applied_train_and_holdout": true,
+      "elapsed_s": 0.4748668860011094,
+      "CI": {
+        "valid_repeats": 500,
+        "clusters": 221,
+        "conditional_on_weights_and_fitted_classifiers": true,
+        "includes_weight_estimation_or_training_or_acquisition_uncertainty": false,
+        "BA_95CI": [
+          0.4834202878401674,
+          0.5691652056043748
+        ],
+        "AUC_95CI": [
+          0.4805660204969662,
+          0.5816833419233933
+        ]
+      }
+    },
+    "coordinate_weighted": {
+      "supported": true,
+      "BA": 0.5879187693137155,
+      "AUC": 0.6028605306668858,
+      "train_each_domain": 553,
+      "holdout_each_domain": 237,
+      "features": 2,
+      "sample_weight_applied_train_and_holdout": true,
+      "elapsed_s": 0.047739996000018436,
+      "CI": {
+        "valid_repeats": 500,
+        "clusters": 438,
+        "conditional_on_weights_and_fitted_classifiers": true,
+        "includes_weight_estimation_or_training_or_acquisition_uncertainty": false,
+        "BA_95CI": [
+          0.5462505673511643,
+          0.6305244974537196
+        ],
+        "AUC_95CI": [
+          0.5528355489836244,
+          0.6525799175253748
+        ]
+      }
+    },
+    "coordinate_balance": {
+      "logQ": {
+        "original": {
+          "W1": 0.15330327819746742,
+          "KS": 0.121,
+          "N": [
+            2000,
+            2000
+          ]
+        },
+        "common_support_unweighted": {
+          "W1": 0.15777929809418556,
+          "KS": 0.12478795908523854,
+          "N": [
+            1857,
+            1879
+          ]
+        },
+        "common_support_weighted": {
+          "W1": 0.1573236378107571,
+          "KS": 0.10635096790576315,
+          "N": [
+            1857,
+            1879
+          ]
+        }
+      },
+      "PSD": {
+        "original": {
+          "W1": 0.00958347601661819,
+          "KS": 0.05249999999999999,
+          "N": [
+            2000,
+            2000
+          ]
+        },
+        "common_support_unweighted": {
+          "W1": 0.010133002259177057,
+          "KS": 0.059885025748695364,
+          "N": [
+            1857,
+            1879
+          ]
+        },
+        "common_support_weighted": {
+          "W1": 0.00802143848247795,
+          "KS": 0.05147603525860245,
+          "N": [
+            1857,
+            1879
+          ]
+        }
+      }
+    },
+    "judgment": "This TRAIN-frozen matching did not materially remove the observed waveform gap. Coordinate imbalance persists on DEV, so this is not an exclusion of all composition effects or proof that all remaining separation is higher-order response."
+  },
+  "B": {
+    "updates_G": 2000,
+    "updates_D": 2000,
+    "selected_TRAIN_val_step": 1500,
+    "selected_TRAIN_val_score": 0.2226632833480835,
+    "sample_digest_available": 2000,
+    "sample_digest_matches": 0,
+    "strict_historical_training_pairing_established": false,
+    "C2ST": {
+      "full_historical_shape": {
+        "balanced_accuracy": 1.0,
+        "AUC": 1.0,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 493,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            1.0,
+            1.0
+          ],
+          "AUC_95CI": [
+            1.0,
+            1.0
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.26831709100224543,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": "complete view explicitly global"
+      },
+      "full_voltage": {
+        "balanced_accuracy": 0.998,
+        "AUC": 1.0,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 480,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            0.993760806044469,
+            1.0
+          ],
+          "AUC_95CI": [
+            1.0,
+            1.0
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.30890110800100956,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": "complete view explicitly global"
+      },
+      "prompt_local": {
+        "balanced_accuracy": 1.0,
+        "AUC": 1.0,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 50,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            1.0,
+            1.0
+          ],
+          "AUC_95CI": [
+            1.0,
+            1.0
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.054058660000009695,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": false
+      },
+      "postpeak_local": {
+        "balanced_accuracy": 1.0,
+        "AUC": 1.0,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 70,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            1.0,
+            1.0
+          ],
+          "AUC_95CI": [
+            1.0,
+            1.0
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.07354099599979236,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": false
+      },
+      "tail_local": {
+        "balanced_accuracy": 0.966,
+        "AUC": 0.9954400000000001,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 180,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            0.9478834396465781,
+            0.9802593295643784
+          ],
+          "AUC_95CI": [
+            0.9914023031348171,
+            0.9981667150048621
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.19093836699903477,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": false
+      },
+      "baseline_local": {
+        "balanced_accuracy": 0.744,
+        "AUC": 0.8458399999999999,
+        "train_each_domain": 600,
+        "holdout_each_domain": 250,
+        "features": 158,
+        "heldout_missing_values": 0,
+        "heldout_CI": {
+          "balanced_accuracy_95CI": [
+            0.7033328012250568,
+            0.7822325034998892
+          ],
+          "AUC_95CI": [
+            0.8112818823175448,
+            0.8767163460454978
+          ],
+          "valid_replicates": 500,
+          "requested_replicates": 500,
+          "clusters": 460,
+          "conditional_on_fitted_classifier": true,
+          "training_uncertainty": false
+        },
+        "fit_and_bootstrap_s": 0.18649077999725705,
+        "classification_train_only_imputer_and_standardizer": true,
+        "tuning": false,
+        "region_outside_features": false
+      }
+    },
+    "overall_against_REAL": {
+      "PSD": {
+        "W1": 0.021587007111504488,
+        "KS": 0.1895,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "Qtotal_mVns": {
+        "W1": 2141.373681254685,
+        "KS": 0.503,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "peak_V": {
+        "W1": 0.06114495657237246,
+        "KS": 0.6030000000000001,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "baseline_RMS_V": {
+        "W1": 2.54233257561143e-05,
+        "KS": 0.139,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "baseline_RMS_over_peak": {
+        "W1": 0.0017714961447295213,
+        "KS": 0.4545,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "rise_10_90_ns": {
+        "W1": 1.9880967758273205,
+        "KS": 0.916,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "tail_charge_fraction": {
+        "W1": 0.0075542063968750805,
+        "KS": 0.07599999999999996,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "tail_mean_over_peak": {
+        "W1": 0.0036743607635653995,
+        "KS": 0.17200000000000004,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "ACF1": {
+        "W1": 0.03249141287614323,
+        "KS": 0.10999999999999999,
+        "counts": [
+          2000,
+          2000
+        ]
+      },
+      "baseline_mean_V": {
+        "W1": 0.001797466449867934,
+        "KS": 0.6095,
+        "counts": [
+          2000,
+          2000
+        ]
+      }
+    },
+    "width_common_errors": [
+      {
+        "component": 0,
+        "field": "mean",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.003728535415068457,
+          "FULL_WAVE_STOCHASTIC": 0.022815526220803684,
+          "PULSE_STOCHASTIC_OFF": 0.014242060075700308,
+          "FIXED_SOURCE_STOCHASTIC": 0.013265589273029399
+        }
+      },
+      {
+        "component": 0,
+        "field": "sigma_PSD",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.005028643606006116,
+          "FULL_WAVE_STOCHASTIC": 0.011208093485368284,
+          "PULSE_STOCHASTIC_OFF": 0.01409825331774365,
+          "FIXED_SOURCE_STOCHASTIC": 0.01223165279001535
+        }
+      },
+      {
+        "component": 0,
+        "field": "detrended_sigma_PSD",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.005539546364265343,
+          "FULL_WAVE_STOCHASTIC": 0.016417096714862425,
+          "PULSE_STOCHASTIC_OFF": 0.019557237116281483,
+          "FIXED_SOURCE_STOCHASTIC": 0.00626188647922726
+        }
+      },
+      {
+        "component": 1,
+        "field": "mean",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.005501789110293809,
+          "FULL_WAVE_STOCHASTIC": 0.029048070418418726,
+          "PULSE_STOCHASTIC_OFF": 0.014195340427442915,
+          "FIXED_SOURCE_STOCHASTIC": 0.047989732152789566
+        }
+      },
+      {
+        "component": 1,
+        "field": "sigma_PSD",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.00933554619116542,
+          "FULL_WAVE_STOCHASTIC": 0.014880028669933357,
+          "PULSE_STOCHASTIC_OFF": 0.015548066818304068,
+          "FIXED_SOURCE_STOCHASTIC": 0.0066052703495744665
+        }
+      },
+      {
+        "component": 1,
+        "field": "detrended_sigma_PSD",
+        "common_bin_ids_1based": [
+          5
+        ],
+        "MAE": {
+          "R3B": 0.009175837522455068,
+          "FULL_WAVE_STOCHASTIC": 0.02289574313439179,
+          "PULSE_STOCHASTIC_OFF": 0.026241824129154344,
+          "FIXED_SOURCE_STOCHASTIC": 0.011862183659094461
+        }
+      }
+    ],
+    "nearest_neighbour_summary": {
+      "query_N_each": 2000,
+      "TRAIN_reference_N": 2592,
+      "exact_V_copies": 0,
+      "median_V_RMS_FIXED": 0.0036224761497028416,
+      "median_V_RMS_REAL_DEV": 0.003902421421677381,
+      "median_shape_RMS_FIXED": 0.019232097307967426,
+      "median_shape_RMS_REAL_DEV": 0.02552005762678308,
+      "not_proof_of_no_memory": true
+    },
+    "judgment": "The fixed-source control did not learn the complete real distribution under this architecture, objective and update budget. It removes source variation and transfers the burden to random branches, and the historical training streams are not strictly paired; it does not identify G4, source conditioning, capacity or optimization as a unique cause."
+  },
+  "root_figures_actually_viewed": [
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/matching_c2st.png",
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/matching_support.png",
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/charge_psd.png",
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/charge_psd_uniform.png",
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/training_validation.png",
+    "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/results/figures/nearest_neighbours.png"
+  ],
+  "figure_judgment": "Key plots readable. Original charge plot retained; shared-axis replacement used for comparison after actual root inspection.",
+  "native_main_and_replay": {
+    "supervisor_PID": 124821,
+    "status": "complete",
+    "error": null,
+    "UTC": "2026-10-09T01:32:18.010529+00:00",
+    "elapsed_s": 97.3367109130013,
+    "numeric_cumulative_s": 97.33549001700158,
+    "history": [
+      {
+        "entry": "run.py",
+        "supervisor_PID": 124821,
+        "worker_PID": 124822,
+        "start_UTC": "2026-10-09T01:30:40.674507+00:00",
+        "allowed_s": 1800,
+        "RSS_peak_bytes": 3063787520,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T01:32:16.406108+00:00",
+        "elapsed_s": 95.73204423000061
+      },
+      {
+        "entry": "replay.py",
+        "supervisor_PID": 124821,
+        "worker_PID": 125361,
+        "start_UTC": "2026-10-09T01:32:16.407476+00:00",
+        "allowed_s": 1704.2679557699994,
+        "RSS_peak_bytes": 1433198592,
+        "RSS_probe_failures": 0,
+        "exit_code": 0,
+        "termination_reason": null,
+        "stop_UTC": "2026-10-09T01:32:18.010146+00:00",
+        "elapsed_s": 1.6034457870009646
+      }
+    ],
+    "environment": {
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "host": "rylan-GTi15",
+      "device": "cuda:0",
+      "CPU_threads": 4
+    },
+    "migration_integrity_test": false,
+    "EVAL_read": 0
+  },
+  "resource_receipt": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/RESOURCE_RECEIPT.json",
+  "replay": {
+    "PID": 125361,
+    "UTC": "2026-10-09T01:32:17.628136+00:00",
+    "elapsed_s": 0.42658339500121656,
+    "status": "passed",
+    "rows": 2000,
+    "values": 960000,
+    "bitwise_equal": true,
+    "maxabs": 0.0,
+    "draw_order_equal": true,
+    "donor_equal": true,
+    "actual_output_array_sha256": "15e3773068b12bb2d6b6aecd8495992e3d400c172cc07bb5601d87a1064f721d",
+    "saved_output_array_sha256": "15e3773068b12bb2d6b6aecd8495992e3d400c172cc07bb5601d87a1064f721d",
+    "fresh_process": true,
+    "training_updates": 0,
+    "metric_rerun": 0,
+    "EVAL_read": 0,
+    "threads": 4,
+    "GPU": {
+      "device": "cuda:0",
+      "name": "NVIDIA GeForce RTX 5070",
+      "Torch": "2.12.0+cu130",
+      "CUDA": "13.0",
+      "peak_allocated_bytes": 51254272,
+      "peak_reserved_bytes": 60817408,
+      "allocated_limit_bytes": 4294967296,
+      "TF32": false,
+      "cudnn_deterministic": true
+    }
+  },
+  "complete_response_similarity_success": false,
+  "scientific_work_for_registered_R10_complete": true,
+  "active_scientific_jobs": 0,
+  "next_direction": "Before another G4 mapping change, a separately authorized bounded task should establish distribution learning on REAL TRAIN itself and diagnose representation, training objective and optimization. No R11 is launched here.",
+  "evidence_boundaries": [
+    "Previously viewed same-acquisition DEV; no new independent acquisition or blind EVAL.",
+    "A intervals condition on fitted matching weights and evaluators; no training or acquisition uncertainty.",
+    "Coarse TRAIN matching does not equal exact DEV coordinate balance or a physical source correction.",
+    "B rows are random draws from one donor, not independent G4 parents.",
+    "B has only bin5 in the shared two-component comparison; no averaging over unsupported bins.",
+    "Smaller nearest-neighbour distances can arise from contraction; no exact copy does not prove no memorization.",
+    "Initial state and validation reuse plus different CPU/GPU libraries do not establish matched training streams."
+  ],
+  "version_bindings": [
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPORT.md",
+      "bytes": 8213,
+      "sha256": "76bd97d95ce85dcd2b205acfdeaae3aec9080da7f81e7de2527b1c79b4f07b26"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/METRICS_COMPACT.json",
+      "bytes": 875028,
+      "sha256": "72eb695acd48f5167a3b4b17c1cf29576e060ad194984a9bc4dccba197345df8"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/FINAL_MANIFEST.json",
+      "bytes": 26544,
+      "sha256": "61c957fc6511e7050c3229d933bfa03c909c2ab43f619e9bb6aee8927dc8c556"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/FINAL_RECEIPT.json",
+      "bytes": 990,
+      "sha256": "636f611e7151c63554dffdead5f1c6c9b969032a80284c48ff3dec8c876c158a"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/config.json",
+      "bytes": 20594,
+      "sha256": "ac0fcaebb15c996047446f5b094bc686693bcf4e09f1794e8c863eea33423a74"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/NUMERIC_RECEIPT.json",
+      "bytes": 796,
+      "sha256": "1a74d767797445e666e04db79990951eb22fc0c7f20f4ceadbf6e9628874bbcf"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/RESOURCE_RECEIPT.json",
+      "bytes": 3634,
+      "sha256": "42d49c849f3823c50927d9b59f9296406038414cab50f119baaff8b99a54ca4e"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPLAY_RECEIPT.json",
+      "bytes": 851,
+      "sha256": "b813b3ebeede5278d738c4cc72375fdf4ef9c8cfb49de8e3d81704e43efafa21"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/FIGURE_QA.json",
+      "bytes": 2846,
+      "sha256": "4e7f7157645831ac32d16dce995aca6df28b63a02d02929e8f2f0eeca59c1875"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPRODUCTION.md",
+      "bytes": 3863,
+      "sha256": "9f9712700e9f0cc2a3a16af546e1013dd984380c9d6aa2e17af9505aee2ea5c4"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REMOTE_NATIVE_RECEIPT.json",
+      "bytes": 1253,
+      "sha256": "57a2b3057ac231f1e24126b9cda88c2cc233160f65dd399c4f30700d6cb977c8"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/LAYOUT_REPAIR_RECEIPT.json",
+      "bytes": 659,
+      "sha256": "ffc2173d46929b07830dd73842fe1868c22009f6201e9b29d95ec97e77fea5e4"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/LAYOUT_NATIVE_RECEIPT.json",
+      "bytes": 492,
+      "sha256": "bad5bfdb1f2bc32cb0a3cc7ccff9f5a377991100bc42c229f7e40ff946c33bd6"
+    },
+    {
+      "path": "work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/METADATA_INTERPRETATION.json",
+      "bytes": 955,
+      "sha256": "67cb26fc838ef570d84cc4887fa64ccf804563917cca9635d5619d3d7303b230"
+    }
+  ],
+  "version_bindings_are_migration_tests": false
+}

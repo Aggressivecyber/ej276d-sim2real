@@ -1,0 +1,65 @@
+from __future__ import annotations
+import pathlib,json,hashlib,os,datetime
+ROOT=pathlib.Path(__file__).resolve().parent
+m=json.loads((ROOT/'metrics.json').read_text());a=m['A'];b=m['B'];t=b['training'];native=json.loads((ROOT/'REMOTE_NATIVE_RECEIPT.json').read_text());replay=json.loads((ROOT/'REPLAY_RECEIPT.json').read_text());cfg=json.loads((ROOT/'config.json').read_text());layout=json.loads((ROOT/'LAYOUT_NATIVE_RECEIPT.json').read_text())
+def write(name,value):
+    (ROOT/name).write_text(json.dumps(value,ensure_ascii=False,allow_nan=False,indent=2)+'\n')
+def sha(name):return hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+slots=b['width_tables']['FIXED_SOURCE_STOCHASTIC']['slices'];actual_em=sum(int(r.get('fit_attempts',0)) for r in slots)
+widths={n:{'bin_support':[{'bin_1based':r['bin']+1,'N':r['N'],'valid':r['valid'],'converged':r.get('converged'),'failure_reasons':r.get('failure_reasons'),'components':r['components']} for r in v['slices']]} for n,v in b['width_tables'].items()}
+train={k:v for k,v in t.items() if k not in ['validation_trace','loss_trace','fixed_source_donor_id','fixed_source_donor_index']}
+train['validation_summary']={'initial_score':t['validation_trace'][0]['score'],'selected_step':t['selected_step'],'selected_score':t['selected_score'],'final_score':t['validation_trace'][-1]['score'],'max_score':max(x['score'] for x in t['validation_trace']),'checkpoints':len(t['validation_trace']),'rule':'fixed0/every100 TRAIN-only, strict minimum'}
+compact={'stage':'R10','status':'complete_negative_result','A':a,'B':{'training_summary':train,'generation':b['generation'],'domains':b['domains'],'domain_vs_REAL':b['domain_vs_REAL'],'local':b['local'],'C2ST':b['C2ST'],'width_support_and_components':widths,'width_common_errors':b['width_common_errors'],'width_edges_logQ':b['width_edges_logQ'],'nearest_neighbours':b['nearest_neighbours'],'historical_R8C_not_strictly_paired':True},'resource_counters':m['counters'],'new_density_description_slots':8,'actual_new_EM_attempts':actual_em,'GPU':m['GPU'],'EVAL_read':0,'interpretation':{'composition_not_excluded_in_general':True,'current_matching_not_response_equivalence':True,'fixed_source_failure_not_G4_physics_failure':True,'NN_not_nonmemorization_proof':True,'same_acquisition_retrospective_DEV':True},'private_payloads_not_published':['source IDs, per-step sample digests, query/neighbour indices, classifier predictions, per-event waveforms/model weights'],'full_local_metrics_sha256':sha('metrics.json')}
+write('METRICS_COMPACT.json',compact)
+correction={'original_files_immutable':True,'density_EM_attempts_field':{'raw_counter':m['counters']['density_EM_attempts'],'meaning':'8 single-attempt description slots requested; insufficient-support slots need no EM','actual_EM_attempts_from_saved_fit_attempts':actual_em},'training_pairing':{'saved_CPU_RNG_state_reused':True,'saved_initial_parameters_reused':True,'validation_actual_input_SHA_matches':t['old_validation_input_sha256']==t['expected_old_validation_input_sha256'],'actual_composite_training_sample_hash_matches':t['sample_digest_matches'],'checked_updates':t['sample_digest_available'],'strict_training_sample_pairing':False,'cause':'not localized; runtime/library/device difference documented, no additional numerical investigation or training','historical_R8C_comparison':'same-design historical contrast only'},'config_inherited_evaluation_subblock':'R1/R8C historical description fields; R10 top-level execution and server addendum take precedence; unlisted historical file pointers never loaded'}
+write('METADATA_INTERPRETATION.json',correction)
+write('LOCAL_CONTROL_FAILURES.json',{'failures':[{'tool':'07dd16','native_exit':1,'native_PID':'unknown','elapsed_tool_s':0.477101,'operation':'small result-JSON summary','reason':"KeyError n: density table uses N","science_fit_or_array_decode":0,'retained_tool_output':True,'repair':'only summary key lookup corrected; no scientific rerun'}],'scientific_failures':0,'transfer_failures':0,'warning':'existing Matplotlib Axes3D import warning; all requested 2D figures rendered successfully'})
+qa={'UTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'actually_viewed':[],'metric_recompute':0,'layout_only_repair':{'old':'results/figures/charge_psd.png','retained':True,'final':'results/figures/charge_psd_uniform.png','reason':'common logQ/PSD axes and sparse ticks remove misleading independent ranges/overlap','remote_PID':126360,'native_exit':0,'tool':'b73d90'}}
+for f in sorted((ROOT/'results/figures').glob('*.png')):
+    qa['actually_viewed'].append({'path':f.relative_to(ROOT).as_posix(),'status':'superseded_original' if f.name=='charge_psd.png' else 'passed','comment':'axes/legends complete and no clipped text; unsupported width gaps and negative comparisons retained' if f.name!='charge_psd.png' else 'original separate ranges and tick overlap preserved; use charge_psd_uniform instead'})
+write('FIGURE_QA.json',qa)
+resource={'stage_registered_UTC':'2026-10-09T01:13:58.545151+00:00','executor_first_UTC':'2026-10-09T01:14:38.436228+00:00','executor_first_PID':30296,'executor_first_tool':'99657b','absolute_stage_deadline':cfg['absolute_deadline_UTC'],'executor_seal_deadline':cfg['deadline_UTC'],'numeric_main_plus_replay_s':native['numeric_cumulative_s'],'layout_full_command_charged_upper_s':layout['remote_tool_elapsed_upper_s'],'numeric_total_charged_s':native['numeric_cumulative_s']+layout['remote_tool_elapsed_upper_s'],'numeric_limit_s':1800,'training_s':t['training_elapsed_s'],'training_soft_limit_s':1100,'training_updates_G':t['G_updates'],'training_updates_D':t['D_updates'],'HGB_fits':m['counters']['HGB_attempts'],'HGB_limit':26,'density_description_slots':8,'actual_EM_attempts':actual_em,'main_draws':2000,'replay_draws':2000,'independent_G4_donors':1,'threads':4,'RSS_peak_bytes':max(x['RSS_peak_bytes'] for x in native['history']),'RSS_probe_failures':sum(x['RSS_probe_failures'] for x in native['history']),'RSS_limit_bytes':4*1024**3,'GPU':m['GPU'],'GPU_driver_whole_device_peak':'not measured; allocated/reserved are this PyTorch process','output_limit_bytes':512*1024**2,'stored_bytes_at_accounting':sum(f.stat().st_size for f in ROOT.rglob('*') if f.is_file()),'final_actual_bytes_location':'FINAL_RECEIPT.json','local_scientific_processes':0,'server_scientific_processes':[124822,125361],'server_layout_process':126360,'new_G4':0,'EVAL_read':0,'new_install':0,'response_candidate_count':1,'migration_version_comparison_tests':0,'private_inputs_transferred':26,'input_version_bindings':'original saved SHA in config, not revalidated as migration integrity','failures':'LOCAL_CONTROL_FAILURES.json; no numeric/transfer failure','environment':{'host':'rylan-GTi15','python':native['environment']['python'],'Torch':m['versions']['Torch'],'NumPy':m['versions']['NumPy'],'CUDA':m['GPU']['CUDA'],'HGB':'server sklearn 1.8.0 per ROOT live environment receipt; CPU4','old_R8C':'historical local Torch2.10.0+cpu; neither environment nor actual sample digests strictly paired'},'native_history':native['history'],'tools':{'launch':'55cfaf -> 9e019a native0','transfer':'f6cb21 -> 38edde native0','retrieve':'3af8fa native0 PID60720','layout':'b73d90 native0 PID126360','control_summary_failure':'07dd16 native1 PIDunknown'},'source_read_decode_boundary':'REAL_V full byte file loaded but only DEV2000+TRAIN3200 floats decoded; no CAL waveforms or EVAL; R5 run never invoked'}
+write('RESOURCE_RECEIPT.json',resource)
+lines=['# R10：组成配平与固定源随机容量对照','',
+'本轮完成全部预定试验，结果继续不支持已实现的完整响应相似性。TRAIN 冻结的粗粒度电荷/PSD 配平没有实质缩小 R3B 波形差距；一个固定 G4 源输入的随机模型也未重建实测总体。后者只限定当前架构、损失、初始化和2000更新预算，不能据此判定 G4 物理错误。','',
+'用户要求改为服务器后，本机只整理源码、传输及报告。使用 rylan-GTi15 的现有 Python3.12.3/NumPy1.26.4/Torch2.12.0+cu130、RTX5070 cuda:0；HGB为服务器 CPU4。没有安装、迁移一致性测试、EVAL读取、新G4或新的候选配方。原01:13:58注册时钟和02:10:58执行器截止未重置。','',
+'## A：冻结组成权重后的残差','',
+f"R5已保存2000条R3B TRAIN生成样本中，保留其父记录属于G4 TRAIN-fit的1609条，父记录唯一；REAL TRAIN-fit2592条。REAL TRAIN-fit type7分位数定义6×6 logQ/PSD格，{sum(a['plan']['qualified_cells'])}/36格满足两个域各≥20记录，冻结overlap mass={a['plan']['overlap_mass']:.6f}。权重为归一化min(pG,pR)/各域概率，不按DEV修改格、剪权、补齐或重抽。",'',
+'| DEV总体 | QC有效 | 共同支持 | 排除支持外 | ESS | 加权格质量L1对TRAIN p* |','|---|---:|---:|---:|---:|---:|']
+for n in ['GEN','REAL','RR_TRAIN_reference']:
+    z=a['DEV'][n];lines.append(f"| {n} | {z['QC_n']} | {z['common_support_n']} | {z['unsupported_QC_n']} | {z['ESS']:.2f} | {z['L1_cell_mass_vs_TRAIN_pstar']:.4f} |")
+lines+=['',f"未加权/加权主比较共用固定R7列表筛选后的每域553训练、237留出，分组不交叠。REAL–REAL为同N训练参考–DEV，563/237记录，每域合法分组隔离；它是采样参照，不是物理等效门槛。权重/模型训练不确定性和采集间变化不包含在500次条件分组bootstrap区间内。",'',
+'| 视图 | 支持内未加权BA | 支持内加权BA | weighted−unweighted 95%CI | 加权REAL–REAL BA |','|---|---:|---:|---|---:|']
+for v in cfg['C2ST_views']:
+    u=a['C2ST']['support_unweighted|'+v];w=a['C2ST']['support_weighted|'+v];r=a['C2ST']['RR_weighted|'+v];delta=a['paired_weighted_minus_unweighted'][v]['first_minus_second'];ci=delta['BA_95CI'];lines.append(f"| {v} | {u['BA']:.6f} | {w['BA']:.6f} | [{ci[0]:.6f}, {ci[1]:.6f}] | {r['BA']:.6f} |")
+coord=a['C2ST']['support_weighted|coordinates'];ci=coord['CI']['BA_95CI']
+lines+=['',f"完整形状ΔBA={a['paired_weighted_minus_unweighted']['full_historical_shape']['first_minus_second']['BA']:.6f}；加权完整形状BA={a['C2ST']['support_weighted|full_historical_shape']['BA']:.6f}、prompt={a['C2ST']['support_weighted|prompt_local']['BA']:.6f}。仅logQ/PSD坐标的加权BA={coord['BA']:.6f}，95%CI[{ci[0]:.6f},{ci[1]:.6f}]，仍高于随机。",'',
+'| 坐标 | 原总体W1 / KS | 共同支持未加权W1 / KS | 共同支持加权W1 / KS |','|---|---|---|---|']
+for k,v in a['coordinate_balance'].items():
+    vals=[v[z] for z in ['original','common_support_unweighted','common_support_weighted']];lines.append('| '+k+' | '+' | '.join(f"{r['W1']:.6f} / {r['KS']:.6f}" for r in vals)+' |')
+lines+=['',
+'因此，本次配平未消除可辨认差距；不能声称排除了所有组成效应，也不能将剩余BA完全归因为坐标已平衡后的高阶响应。格内分布、DEV格质量与TRAIN目标不同仍保留。权重是观测诊断，不是有独立粒子真值的源谱修正。原总体R7数值只作明确历史参照；本轮支持内U/W/RR均在同一服务器环境计算。','',
+'## B：固定完整源包的随机容量对照','',
+f"固定合法G4 TRAIN-fit父ID全SHA排序第一条的clean480/c4/Q完整源包，不取REAL模板。原索引继续抽取后才替换全部源变量。完成2000G/2000D，TRAIN-val固定0和每100步严格选最低，选中step{t['selected_step']}（score={t['selected_score']:.6f}），训练71.647秒。step1700/2000验证恶化也保留；没有DEV选择或追加优化。",'',
+'保留原COMMON_INITIAL_STATE参数、原TRAIN目标与384固定验证实际张量；验证输入摘要一致。保存的CPU随机状态虽复用，但实际原索引/目标/噪声合并摘要与旧R8C为0/2000匹配，原因未定位。Torch2.10 CPU与Torch2.12 CUDA及平台差异存在，故旧FULL/OFF仅为同设计历史参照，不是严格采样配对或设备逐位等价。没有为定位差异重训或新增迁移测试。','',
+'2000条主输出是一个G4 donor的独立随机抽样，不是2000个独立G4父。全2000条QC有效，ADC裁剪/填充/非有限为0。新进程从保存权重与实际输入重放960000个值逐位相同；该结果只证明同一新后端推理可复现。','',
+'| 新固定源 vs REAL | 值 |','|---|---:|']
+for key in ['PSD','Qtotal_mVns','peak_V','rise_10_90_ns','baseline_RMS_V','ACF1']:
+    z=b['domain_vs_REAL']['FIXED_SOURCE_STOCHASTIC']['overall'][key];lines.append(f"| {key} W1 / KS | {z['W1']:.8g} / {z['KS']:.6f} |")
+lines+=['',
+'| 视图 | 固定源BA | 500次分组bootstrap 95%CI |','|---|---:|---|']
+for key,v in b['C2ST'].items():
+    ci=v['heldout_CI']['balanced_accuracy_95CI'];lines.append(f"| {key} | {v['balanced_accuracy']:.6f} | [{ci[0]:.6f}, {ci[1]:.6f}] |")
+lines+=['',
+'固定源输出q1/q2/q3/q4为0/5/1989/6；REAL为467/514/539/480。固定源Q标准差523.0mV·ns，REAL3018.9；峰值SD0.00345V vs0.07067V；纯峰前rise SD0.06795ns vs1.80021ns。共同坐标二维图显示固定源电荷覆盖明显收缩，均值曲线接近不能代表总体分布成功。','',
+f"8个固定电荷区描述槽位保留全部支持失败，实际EM{actual_em}次；仅1-based bin5合格，bin6虽然有1024条仍未通过其原定义资格。五域共同合格只有bin5，所以配对峰位/原宽度/去趋势宽度误差仅报告该同一bin；不把单区局部指标改善外推成能量收窄趋势或完整覆盖。CAL q4原失败、q1无HC neutron等边界仍不修改；两密度成分和高置信参考都不是独立粒子真值。",'',
+'最近邻用同2592条REAL TRAIN-fit全参考和各2000个query，固定源/REAL DEV原电压NN RMS中位数分别0.003622/0.003902V，own-shape分别0.019232/0.025520。均无精确复制或1e-4内的近重合，但更小的shape距离也可来自分布收缩，不能证明无记忆。固定SHA顺序三个例子保留，未按漂亮程度挑选。','',
+'这一单配方仍失败，不说明源输入必定有害，也不说明整个随机容量已被充分识别：输入多样性、架构/损失、训练环境/实际抽样及训练动态未被完全隔离。OFF旧对照移除整个新增脉冲分支，包括其条件均值容量，不能称纯方差消融。','',
+'## 资源、原生退出与交付','',
+f"服务器主worker124822 native0，95.732044秒；replay125361 native0，1.603446秒。累计97.335490秒。共同横轴图布局修复另保守计完整SSH绘图命令1.228499秒，总计98.563989<1800秒；仅重新显示保存图表数据，无指标/拟合/推理重算。峰RSS3063787520B<4GiB；Torch GPU allocated峰267777024B，reserved304087040B，allocated cap4GiB，未冒称全GPU驱动峰值。HGB26/26，2000G/D各完成。",'',
+'主作业、重放和传输无失败。保留07dd16一次纯JSON汇总KeyError(n/N)及真实native1，未产生科学拟合或数组重算；只修摘要读取字段。既有Matplotlib3D导入警告不影响本轮2D图。图表11张实际查看，原charge_psd独立范围和刻度重叠作为被替代原件保留，最终使用charge_psd_uniform.png。','',
+'本次没有访问EVAL科学值，没有调用R5 run，没有新增G4/安装/代理/Git或旧阶段写入。输入26项保留其原版本绑定；上传、下载与解包按正常退出及实际加载推进，没有做迁移一致性验证。数据、缓存、模型及完整私有身份/预测/摘要留E/D和本次远端新目录；紧凑发布版不含这些逐事件载荷。','',
+'关键文件：metrics.json（完整本地）、METRICS_COMPACT.json、arm/model.pt、generated.npz、GENERATION_INPUTS.npz、REPLAY_RECEIPT.json、RESOURCE_RECEIPT.json、LOCAL_CONTROL_FAILURES.json、FIGURE_QA.json。执行入口remote_supervise.py→run.py→replay.py，config/PROTOCOL/READINESS保留已执行定义。','',
+'下一科学判断应保持“观测组成”和“响应条件分布”分开，且源物理正确性需独立物理证据；本轮结果不支持修改G4物理来追逐波形相似。此处只封存既定结果，不自动开始R11。','']
+(ROOT/'REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
+print(json.dumps({'PID':os.getpid(),'assembled_UTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'report_sha256':sha('REPORT.md'),'compact_sha256':sha('METRICS_COMPACT.json'),'resource_sha256':sha('RESOURCE_RECEIPT.json'),'new_EM_attempts':actual_em,'qualified_overlap_cells':sum(a['plan']['qualified_cells']),'scientific_rerun':False},ensure_ascii=False),flush=True)

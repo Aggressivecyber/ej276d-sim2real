@@ -1,9 +1,7 @@
 # 当前研究状态
 
-R1–R9已完成封存。用户于2026-10-09授权推进R10，目前已登记并交由原执行器连续执行。
+R1–R10均已完成本轮登记范围。R10在服务器使用GPU训练/生成、CPU4线程评价，主计算与科学重放正常退出；关键结果与图表已检查，科学作业0。
 
-当前任务：tasks/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001.md。UTC截止：2026-10-09T02:13:58.545151+00:00。服务器cuda:0训练/生成、CPU4线程，TRAIN/DEV only，阶段3600秒/数值1800秒；EVAL、新G4均0；SSH/传输已获新授权。当前科学作业尚未启动；后续实际PID和进度以PROGRAM及阶段原生回执为准。
+完整响应相似性尚未成立。R10组成配平后shape BA为0.99376，仍有坐标失配；固定源对照shape BA为1且覆盖收缩。保留原R3B局部基线与全部负结果，不自动启动R11。
 
-本轮只诊断观测组成配平后的波形差距，并检验固定源随机生成的学习能力；不是新增物理映射验收。旧R7–R9报告与D盘核验副本继续保留。
-
-用户已取消迁移一致性测试；当前本机无科学作业，正在迁移准备。服务器入口及执行修订见reviews/R10_SERVER_EXECUTION_001/RECEIPT.json。
+报告：R10_REPORT.md；阶段：work/R10_MATCHED_COMPOSITION_AND_TARGET_ONLY_001/REPORT.md；复现与交付：该阶段REPRODUCTION.md、R10_DELIVERY_INDEX.json。最终Git提交状态和D盘复制状态分别以R10_PUBLICATION_RECEIPT.json、R10_BACKUP_RECEIPT.json为准。直接迁移，不作文件内容一致性测试。
