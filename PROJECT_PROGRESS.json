@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-09T16:09:11.291876+00:00",
+  "updated_UTC": "2026-10-09T16:42:50.740805+00:00",
   "project_status": "active_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R29_SLICED_ENERGY_TRANSLATION_001",
-  "current_stage": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
-  "current_task": "tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md",
+  "latest_completed_stage": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
+  "current_stage": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
+  "current_task": "tasks/R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -57,18 +57,17 @@
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R29_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R30_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R29_REPORT.md",
-        "reviews/ROOT_R29_KEY_RESULT_REVIEW_001.json",
-        "work/R29_SLICED_ENERGY_TRANSLATION_001/REPLAY_RECEIPT.json"
+        "R30_REPORT.md",
+        "reviews/ROOT_R30_KEY_RESULT_REVIEW_001.json"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R28 baseline; complete R30 mean/scale diagnostic, then register one evidence-directed change under a matched comparison and joint full-response acceptance.",
+  "current_direction": "R30 domain-specific centering/scaling strongly changes the REAL-REAL negative control: raw BA .510 becomes .954/.772/.814. Full-waveform mismatch remains, but transformed residual BA cannot identify a unique mean/variance/covariance cause. Test the known max(u)=1 normalization constraint with a fixed no-fit inverse-mean decoder and one predeclared prompt100:150 exclusion; retain all480 results. Do not proceed from this contaminated control directly to a covariance-training claim.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R30_resumed_saved_output_moment_diagnostic",
+  "current_activity": "R31_registered_normalization_anchor_negative_control",
   "latest_user_steering": "重写目标 推进",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
@@ -76,5 +75,7 @@
   "current_task_addendum": "tasks/R21_LOCAL_EXECUTION_ADDENDUM_001.md",
   "latest_response_model_stage": "R29_SLICED_ENERGY_TRANSLATION_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
-  "current_engineering_addendum": "tasks/R30_RESUME_ADDENDUM_20261010_001.md"
+  "current_engineering_addendum": null,
+  "latest_diagnostic_stage": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
+  "latest_diagnostic_conclusion": "retain_diagnostic_control_failure_no_unique_physical_attribution"
 }

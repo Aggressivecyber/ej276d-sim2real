@@ -1,3 +1,9 @@
+# 当前入口：R30矩诊断及R31固定负对照
+
+R30显示域别中心/尺度处理会使REAL–REAL也变得可分，故不能据高残余BA定位唯一物理原因。R28仍是开发比较基线，完整响应未通过。当前推进R31峰归一化约束负对照，方案见tasks/R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001.md。
+
+[R30根报告](R30_REPORT.md) · [交付索引](R30_DELIVERY_INDEX.json) · [项目目标](PROJECT_OBJECTIVE.md)。以下保留历史入口。
+
 # EJ-276D：G4 到实测响应变换
 
 项目目标active。R29 energy U替换改善部分PSD宽度，但完整波形与开发投影距离退化，关闭该单次配方。4000条独立回放通过。R30只读保存输出，诊断全局/条件均值及逐点波动后的剩余可分性。见[R29结论](R29_REPORT.md)、[R30任务](tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md)、[项目进度](PROJECT_PROGRESS.json)。

@@ -929,7 +929,7 @@
     },
     {
       "id": "R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001",
-      "status": "resumed_registered_for_executor",
+      "status": "sealed_moment_diagnostic_REAL_REAL_control_shifted",
       "task": "tasks/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001.md",
       "registration": "reviews/R30_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T15:34:14.761843+00:00",
@@ -941,7 +941,21 @@
       "resume_registration": "reviews/R30_RESUME_20261010_001/RECEIPT.json",
       "resumed_UTC": "2026-10-09T16:09:11.291876+00:00",
       "resume_reason": "Explicit user goal rewrite after status/preview; zero prior R30 science.",
-      "task_addendum": "tasks/R30_RESUME_ADDENDUM_20261010_001.md"
+      "task_addendum": "tasks/R30_RESUME_ADDENDUM_20261010_001.md",
+      "receipt": "work/R30_CONDITIONAL_MOMENT_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001.md"
+    },
+    {
+      "id": "R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R31_NORMALIZATION_ANCHOR_DIAGNOSTIC_001.md",
+      "registration": "reviews/R31_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T16:41:45.842690+00:00",
+      "reason": "R30 domain-specific centering/scaling strongly changes the REAL-REAL negative control: raw BA .510 becomes .954/.772/.814. Full-waveform mismatch remains, but transformed residual BA cannot identify a unique mean/variance/covariance cause. Test the known max(u)=1 normalization constraint with a fixed no-fit inverse-mean decoder and one predeclared prompt100:150 exclusion; retain all480 results. Do not proceed from this contaminated control directly to a covariance-training claim.",
+      "execution_location": "local",
+      "new_response_fits": 0,
+      "HGB_max": 12,
+      "project_goal_status": "active"
     }
   ]
 }

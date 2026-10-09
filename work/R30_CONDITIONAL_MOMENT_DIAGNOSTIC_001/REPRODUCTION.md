@@ -1,0 +1,11 @@
+# R30 reproduction
+
+Existing local CPU environment: C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe. The immutable old saved inputs and exact phase0/phase1 rows are listed in config.json. R28/R29 phase arrays matched R27, and all four source ID orders matched the existing R28 input. No SSH or full source audit was performed.
+
+In a new E/D directory, copy this stage's source files/config/protocol and retain the configured read-only input paths. Set PYTHONUTF8=1, PYTHONDONTWRITEBYTECODE=1 and TEMP/TMP to E:/GAN/research/sim2real_two_papers_20261008_0305/.runtime-cache/tmp. Set a fresh explicitly authorized deadline and budget for a future rerun; the original 2026-10-09 deadline and used markers are expired/consumed, so do not execute this sealed directory.
+
+Commands actually executed once were python -B supervise.py numeric_worker.py <CPU_python>, then python -B supervise.py render_figures.py <CPU_python>. The supervisor sets four CPU threads and E-stage caches, binds os.getpid() and nonce before scientific imports, queries that actual PID's RSS, and owns termination. RUN_HISTORY.json and each .NATIVE_RECEIPT.json contain the authentic PID/exit/time chain. Numeric worker15 fits and plot8 images both native0. This stage has no response model, generation or fit replay requirement.
+
+To rebuild moment features without storing all transformed arrays: read the fixed saved V and INPUT_ROWS_PRIVATE, calculate the frozen u representation, then apply MOMENT_PARAMETERS_PRIVATE. Unsupported/outside bins use domain global parameters; Q_CENTER_SCALE clips SD with the stored floor. Original Q is used for all conditioning. Raw probabilities remain in the configured old prediction files. New prediction/preprocessing vectors and curve arrays are saved locally; the published compact JSON does not include event identities or predictions.
+
+The method is a domain-identity diagnostic, not an input-to-output model. The large REAL–REAL shift after transformation is preserved and blocks interpreting residual BA as a unique physical cause. No new PSD or deployment claim follows from these transformed features. Exact tool exits and resource costs, including the optional absent-file control query, are in RESOURCE_RECEIPT.json.
