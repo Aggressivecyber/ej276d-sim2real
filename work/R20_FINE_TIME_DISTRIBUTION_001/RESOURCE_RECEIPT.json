@@ -1,0 +1,210 @@
+{
+  "stage": "R20",
+  "seal_deadline_UTC": "2026-10-09T10:07:53.627396+00:00",
+  "source_only_first_native": {
+    "PID": 17888,
+    "UTC": "2026-10-09T08:48:47.839005+00:00",
+    "source_only_preparation": true,
+    "science_started": false
+  },
+  "science_cumulative_s": 270.3892602830019,
+  "scientific_history": [
+    {
+      "entry": "numeric_worker.py",
+      "supervisor_PID": 211442,
+      "worker_PID": 211443,
+      "start_UTC": "2026-10-09T08:56:07.003907+00:00",
+      "allowed_s": 1800,
+      "RSS_peak_bytes": 3045179392,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T09:00:29.971296+00:00",
+      "elapsed_s": 262.96777657500206
+    },
+    {
+      "entry": "replay.py",
+      "supervisor_PID": 211442,
+      "worker_PID": 212360,
+      "start_UTC": "2026-10-09T09:00:29.972961+00:00",
+      "allowed_s": 1537.032223424998,
+      "RSS_peak_bytes": 782921728,
+      "RSS_probe_failures": 0,
+      "exit_code": 0,
+      "termination_reason": null,
+      "stop_UTC": "2026-10-09T09:00:32.409768+00:00",
+      "elapsed_s": 2.4375576080055907
+    }
+  ],
+  "counters": {
+    "response_fit_attempts": 2,
+    "G_updates": 8000,
+    "D_updates": 8000,
+    "training_s": 247.33364698500372,
+    "HGB_attempts": 14,
+    "density_description_slots": 16,
+    "density_EM_attempts": 14,
+    "main_generation_rows": 4000,
+    "repeat_noise_rows": 2048,
+    "source_probe_rows": 1664,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4": 0,
+    "raw_long_waveform_decode": 0
+  },
+  "GPU_allocated_peak_bytes": 267176448,
+  "GPU_reserved_peak_bytes": 322961408,
+  "RSS_peak_bytes": 3045179392,
+  "CPU_threads": 4,
+  "limits": {
+    "numeric_s": 1800,
+    "training_each_s": 600,
+    "training_total_s": 1200,
+    "G_D_each_arm": 4000,
+    "RSS_bytes": 4294967296,
+    "GPU_allocated_bytes": 4294967296,
+    "HGB_plan": 14,
+    "HGB_max": 24,
+    "width_EM_max": 16,
+    "output_bytes": 268435456
+  },
+  "no_new_source_hash_or_migration_test": true,
+  "new_G4": 0,
+  "EVAL_scientific_decode": 0,
+  "CAL_waveform_decode": 0,
+  "raw_long_waveform_decode": 0,
+  "fresh_replay": {
+    "PID": 212360,
+    "UTC": "2026-10-09T09:00:32.062694+00:00",
+    "elapsed_s": 2.073600684001576,
+    "arms": {
+      "CONT": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      },
+      "FINE": {
+        "pre_ADC_bitwise": true,
+        "post_ADC_bitwise": true,
+        "source_ids_equal": true,
+        "pre_ADC_maxabs_V": 0.0,
+        "post_ADC_maxabs_V": 0.0,
+        "rows": 2000
+      }
+    },
+    "rows": 4000,
+    "points": 1920000,
+    "pass": true,
+    "TRAIN_target_or_REAL_used": false,
+    "training_updates": 0
+  },
+  "normal_transfer": {
+    "PID": 36040,
+    "start_UTC": "2026-10-09T09:02:14.288863+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "migration_content_validation": false,
+    "normal_transfer_only": true,
+    "return_tar_bytes": 57815040,
+    "returned_file_count": 59,
+    "stop_UTC": "2026-10-09T09:02:23.541896+00:00"
+  },
+  "failed_science_history": [
+    {
+      "supervisor_PID": 10700,
+      "start_UTC": "2026-10-09T09:11:52.771047+00:00",
+      "purpose": "Only existing-result waveform variation summary and validation-trace plot; no new inference or fit.",
+      "allowed_s": 40,
+      "RSS_limit_bytes": 4294967296,
+      "RSS_peak_bytes": 72196096,
+      "RSS_probe_failures": 0,
+      "worker_PID": 38260,
+      "stop_UTC": "2026-10-09T09:11:55.198214+00:00",
+      "elapsed_s": 2.427184499974828,
+      "exit_code": 1,
+      "termination_reason": null
+    },
+    {
+      "tool_chunk_id": "8bcef5",
+      "native_exit": 1,
+      "PID": "unknown",
+      "elapsed_s_upper_including_shell": 0.4821916,
+      "exception": "ModuleNotFoundError: psutil; no scientific worker started; replaced local monitor with Windows GetProcessMemoryInfo, no install."
+    }
+  ],
+  "remote_main_and_replay_s": 265.40533418300765,
+  "existing_result_summary_history": [
+    {
+      "supervisor_PID": 10700,
+      "start_UTC": "2026-10-09T09:11:52.771047+00:00",
+      "purpose": "Only existing-result waveform variation summary and validation-trace plot; no new inference or fit.",
+      "allowed_s": 40,
+      "RSS_limit_bytes": 4294967296,
+      "RSS_peak_bytes": 72196096,
+      "RSS_probe_failures": 0,
+      "worker_PID": 38260,
+      "stop_UTC": "2026-10-09T09:11:55.198214+00:00",
+      "elapsed_s": 2.427184499974828,
+      "exit_code": 1,
+      "termination_reason": null
+    },
+    {
+      "supervisor_PID": 35996,
+      "start_UTC": "2026-10-09T09:12:59.761589+00:00",
+      "purpose": "Only existing-result waveform variation summary and validation-trace plot; no new inference or fit.",
+      "allowed_s": 40,
+      "RSS_limit_bytes": 4294967296,
+      "RSS_peak_bytes": 89108480,
+      "RSS_probe_failures": 0,
+      "worker_PID": 36420,
+      "stop_UTC": "2026-10-09T09:13:01.836122+00:00",
+      "elapsed_s": 2.0745500000193715,
+      "exit_code": 0,
+      "termination_reason": null
+    }
+  ],
+  "engineering_startup_failure": {
+    "tool_chunk_id": "8bcef5",
+    "native_exit": 1,
+    "PID": "unknown",
+    "elapsed_s_upper_including_shell": 0.4821916,
+    "exception": "ModuleNotFoundError: psutil; no scientific worker started; replaced local monitor with Windows GetProcessMemoryInfo, no install."
+  },
+  "control_inventory_failure": {
+    "tool_chunk_id": "8c55a7",
+    "native_exit": 1,
+    "PID": "unknown",
+    "elapsed_s": 0.6614258,
+    "exception": "requested nonexistent plots path; actual outputs in results/figures; no scientific work."
+  },
+  "science_after_remote_terminal": "Existing-result repeat waveform summary and trace plotting only, 0 inference/fit/generation; failed and successful helper time counted.",
+  "post_result_scope_note": "The frozen PROTOCOL short closure sentence says small-JSON summary. The task explicitly also requires same-parent waveform variation, omitted by original main summary. This was completed using its saved repeat outputs (983040 values each attempt), no new source/model/fit, failed and successful helper time counted. Primary metrics.json remains unchanged.",
+  "report_assembly_native": {
+    "tool_chunk_id": "8f83b2",
+    "PID": 29816,
+    "native_exit": 0,
+    "elapsed_s": 0.5521434
+  },
+  "independent_replay_output_rows": 4000,
+  "pure_byte_manifest_is_not_a_transfer_test": true,
+  "output_existing_bytes_before_seal": 133369112,
+  "final_control_reserved_bytes": 65536,
+  "output_upper_bound_at_seal": 133434648,
+  "final_hash_is_pure_bytes_no_array_decode": true,
+  "model_inference_after_remote_terminal": 0,
+  "fit_after_remote_terminal": 0,
+  "final_seal_PID": 17528,
+  "final_seal_UTC": "2026-10-09T09:19:12.844520+00:00",
+  "science_status": "implemented/replay_passed; overall_response_not_matched",
+  "no_more_stage_writes_after_FINAL_RECEIPT": true,
+  "closure_preparation_native": {
+    "tool_chunk_id": "2080b5",
+    "PID": 7268,
+    "native_exit": 0,
+    "elapsed_s": 0.498558
+  }
+}
