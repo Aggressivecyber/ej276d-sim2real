@@ -1,0 +1,123 @@
+{
+  "scientific_failure": {
+    "entry": "evaluate_endpoints.py",
+    "supervisor_PID": 56476,
+    "start_UTC": "2026-10-09T19:20:41.171471+00:00",
+    "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+    "limit_s": 1787.8661385689993,
+    "actual_worker_PID": 37968,
+    "actual_worker_RSS_peak_bytes": 1122185216,
+    "launcher_RSS_peak_bytes": 1122185216,
+    "memory_probe_failures": 0,
+    "memory_probe_failure_events": [],
+    "handshake_before_imports": true,
+    "launcher_PID": 37968,
+    "actual_worker_parent_PID": 56476,
+    "actual_worker_native_exit": 1,
+    "launcher_native_exit": 1,
+    "termination_reason": null,
+    "elapsed_s": 31.46035320003284,
+    "stop_UTC": "2026-10-09T19:21:12.631938+00:00",
+    "worker_self_receipt": {
+      "PID": 37968,
+      "parent_PID": 56476,
+      "entry": "evaluate_endpoints.py",
+      "nonce": "af9334e8c0ab47348a6fcc197bdabfa9",
+      "native_exit": 1,
+      "error": "KeyError('INDEPENDENT_CFM')",
+      "elapsed_s": 30.517604399996344,
+      "self_peak_RSS_bytes": 1122185216,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-09T19:21:11.816436+00:00"
+    }
+  },
+  "original_error": "KeyError INDEPENDENT_CFM in fine_distances after all new fits/generation slots were saved",
+  "original_entry_and_logs_retained": true,
+  "resume": "resume_evaluation.py",
+  "resume_source_receipt": {
+    "PID": 25488,
+    "UTC": "2026-10-09T19:22:59.524443+00:00",
+    "original_entry": "evaluate_endpoints.py",
+    "original_worker": 37968,
+    "original_native_exit": 1,
+    "original_native_tool": "cc645f",
+    "original_elapsed_s": 31.46035320003284,
+    "failure": "temporal.fine_distances expected INDEPENDENT_CFM but summary tdomains had only BASE and new arm",
+    "repair": "include all existing control domains in the pure saved-output descriptions",
+    "immutable_original_source_sha256": "6c3a8ee68a3ae92f9f09c4f08b88f1e326aa82817e7c1c153d8456d55cd0dbdc",
+    "resume_entry": "resume_evaluation.py",
+    "resume_source_sha256": "35ab1fdc05506fb1cd7ea4a7aa5667e2c42a528781fb07fd041174b58d1e6743",
+    "already_consumed": {
+      "HGB_attempts": 10,
+      "density_description_slots": 8,
+      "density_EM_attempts": 8,
+      "main_generation_rows": 2000,
+      "repeat_noise_rows": 1024,
+      "source_probe_rows": 832,
+      "EVAL_read": 0,
+      "CAL_waveform_decode": 0,
+      "response_updates": 0,
+      "completed_projection_group_blocks": 0
+    },
+    "resume_allowed_blocks": [
+      "saved waveform statistics",
+      "saved density table aggregation",
+      "existing prediction paired bootstrap",
+      "projection/mean descriptions",
+      "source/boundary summaries"
+    ],
+    "new_response_training_generation_HGB_EM_solver_checks": 0,
+    "original_receipts_overwritten": false
+  },
+  "repeat_HGB_EM_generation_solver": 0,
+  "metadata_only_failures": [
+    {
+      "tool": "5daed8",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4800585,
+      "error": "KeyError: ROC_AUC; actual metric key is AUC",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "8f8bd1",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4301261,
+      "error": "FileNotFoundError: results/metrics.json; actual aggregate is stage-root metrics.json",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "428ebc",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.0093321,
+      "error": "KeyError: INDEPENDENT_CFM in new actual-source association aggregate; immutable R33 control aggregate is reused for its two controls",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "0a532e",
+      "PID": 62060,
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4632438,
+      "error": "overbroad compact-key guard rejected original_row_ordinal boolean stream-match flag, not an identity payload",
+      "scientific_array_decode_fit_inference": 0,
+      "original_partial_files_preserved": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R35_PSD_ORDERED_FLOW_001\\control_failures\\assembly_001"
+    }
+  ],
+  "layout": "legend moved outside PSD CDF panels; original PNG retained",
+  "layout_receipt": {
+    "PID": 60552,
+    "UTC": "2026-10-09T19:34:26.054421+00:00",
+    "elapsed_s": 0.6200824999832548,
+    "only_layout_changed": true,
+    "new_fit_generation": 0,
+    "old_plot_retained": "conditional_psd_CDF_layout_initial.png",
+    "plot": "conditional_psd_CDF.png",
+    "sha256": "71a423f6f1f5a9748b60c8866e73992023c106094e53e187ea852a7a818b8d76",
+    "old_sha256": "65e022d1ed2cf12bedbc3651299bf1963da2a68eb13356956f164496736f4038",
+    "reason": "move legend outside panels to expose first-panel counts"
+  },
+  "RSS_missing_event_count": 1,
+  "RSS_missing_exact_cause": "unknown; timestamp after worker-finally receipt and before supervisor terminal; no rerun"
+}

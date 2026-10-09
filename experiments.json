@@ -1005,7 +1005,7 @@
     },
     {
       "id": "R35_PSD_ORDERED_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_coupling_branch_closed_PSD_noise_source_failure",
       "task": "tasks/R35_PSD_ORDERED_FLOW_001.md",
       "registration": "reviews/R35_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T19:07:21.312840+00:00",
@@ -1015,6 +1015,23 @@
       "science_budget_s": 1800,
       "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
       "motivation_stage": "R34_PROTECTED_FLOW_CORRECTION_001",
+      "DEV_used_for": "fixed_development_comparison_no_tuning",
+      "EVAL_access": false,
+      "receipt": "work/R35_PSD_ORDERED_FLOW_001/FINAL_RECEIPT.json",
+      "next_task": "tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md"
+    },
+    {
+      "id": "R36_CONDITIONAL_DIFFUSION_EDIT_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md",
+      "registration": "reviews/R36_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-09T19:47:11.780575+00:00",
+      "scientific_question": "R35 PSD ordering improves global PSD and full-shape scores versus BASE but fails source-cohort valleys, baseline noise and original density support, with conditional peak centers also worse. Close frozen-BASE MLP-CFM coupling variants. Test one REAL-only conditional denoiser with finite-noise initialization from the full frozen-G source guide, fixed logQ/PSD conditioning, direct real-guide distortion control and same-condition/noise guide perturbations; no random-target substitution or strength scan.",
+      "response_fits_max": 1,
+      "HGB_fits_max": 20,
+      "science_budget_s": 3000,
+      "parent_stage": "R33_RESIDUAL_OT_FLOW_001",
+      "motivation_stage": "R35_PSD_ORDERED_FLOW_001",
       "DEV_used_for": "fixed_development_comparison_no_tuning",
       "EVAL_access": false
     }

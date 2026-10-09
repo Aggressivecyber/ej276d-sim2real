@@ -1,0 +1,137 @@
+{
+  "status": "key_results_reviewed",
+  "reviewed_UTC": "2026-10-09T19:49:41.365775+00:00",
+  "stage": "R35_PSD_ORDERED_FLOW_001",
+  "decision": "close_frozen_BASE_MLP_CFM_coupling_small_variants",
+  "full_response_scientifically_accepted": false,
+  "historical_R28_development_baseline_changed": false,
+  "fixed_recipe_retained": false,
+  "gate_results": [
+    true,
+    false,
+    false,
+    true
+  ],
+  "gate_evidence": "work/R35_PSD_ORDERED_FLOW_001/GATE_METRICS.json",
+  "complete_metrics_evidence": "work/R35_PSD_ORDERED_FLOW_001/METRICS_COMPACT.json",
+  "same_original_training_stream": "work/R35_PSD_ORDERED_FLOW_001/PAIRED_FLOW_RECEIPT.json",
+  "key_findings": {
+    "shape493_BA_BASE_new": [
+      0.978,
+      0.944
+    ],
+    "u480_BA_BASE_new": [
+      0.978,
+      0.952
+    ],
+    "shape493_delta_BA_CI95": [
+      -0.05892922158,
+      -0.008685990027
+    ],
+    "u480_delta_BA_CI95": [
+      -0.05229206126,
+      -0.001736772215
+    ],
+    "superiority_to_original_independent_flow_established": false,
+    "overall_PSD_W1_BASE_new": [
+      0.0230654613507,
+      0.0153081345251
+    ],
+    "common_observed_Q1_to7_PSD_W1_BASE_new": [
+      0.0347657951745,
+      0.0371295385313
+    ],
+    "density_primary_valid_common_bins": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "BASE_originally_valid_bin7_new_status": "EM_not_converged_after500",
+    "low_peak_raw_width_MAE_BASE_new": [
+      0.0116414068876,
+      0.0116184559094
+    ],
+    "high_peak_raw_width_MAE_BASE_new": [
+      0.0153322346753,
+      0.00795154744637
+    ],
+    "low_peak_center_MAE_BASE_new": [
+      0.004416052496,
+      0.02210026039
+    ],
+    "high_peak_center_MAE_BASE_new": [
+      0.002450038937,
+      0.01494057553
+    ],
+    "baseline_RMS_W1_V_BASE_new": [
+      1.93583857e-05,
+      2.23910558e-05
+    ],
+    "baseline_ACF1_W1_BASE_new": [
+      0.0642349713874,
+      0.0836376457263
+    ],
+    "actual_source_pure_had_bin3_valley_BASE_new_N213": [
+      0.05633802817,
+      0.11737089202
+    ],
+    "actual_source_pure_had_bin4_valley_BASE_new_N181": [
+      0.005524861878,
+      0.10497237569
+    ],
+    "whole_source_Q_Spearman_BASE_new": [
+      0.99972634256,
+      0.99853492676
+    ],
+    "whole_source_PSD_Spearman_BASE_new": [
+      0.41899170831,
+      0.42003850382
+    ],
+    "fixed_boundary_gates_all_pass": true,
+    "32_vs64_Heun_max_preADC_V": 1.735240221e-05,
+    "solver_limit_V": 6.103888176768602e-05
+  },
+  "claim_boundary": "Global PSD gain and full-shape improvement do not establish joint response success; source cohort valleys, peak centers, noise and density support still fail. No paired physical truth or independent acquisition evidence.",
+  "source_Q_definition": "actual unquantized480 NN input; historical ADC207/182 cohort separate",
+  "independent_full_chain_replay": {
+    "rows": 2000,
+    "pass": true,
+    "evidence": "work/R35_PSD_ORDERED_FLOW_001/REPLAY_RECEIPT.json"
+  },
+  "physical_final_signal_electronic_split": "unknown",
+  "root_final_figures_actually_viewed": [
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/c2st.png",
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/source_preservation.png",
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/noise_curvature.png",
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/charge_psd.png",
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/energy_peak_width.png",
+    "work/R35_PSD_ORDERED_FLOW_001/results/figures/fixed_parent_boundary_examples.png"
+  ],
+  "executor_final_figure_QA": "work/R35_PSD_ORDERED_FLOW_001/FIGURE_QA.json",
+  "final_figures": 13,
+  "retained_superseded_layout_figures": 1,
+  "root_layout_issues": [],
+  "science_elapsed_s": 82.38089423104975,
+  "conservative_including_metadata_s": 83.97747333105508,
+  "actual_worker_RSS_peak_bytes": 2016718848,
+  "GPU_allocated_peak_bytes": 148003840,
+  "RSS_query_missing_events": [
+    {
+      "UTC": "2026-10-09T19:16:28.772734+00:00",
+      "PID": 43603,
+      "poll": null,
+      "context": "actual_PID_query"
+    }
+  ],
+  "missing_RSS_cause": "unknown",
+  "engineering_failure": "Original evaluation native1 after all fit and generated outputs were saved; aggregate-only resume,0 repeated fit or generation.",
+  "native_evidence": "work/R35_PSD_ORDERED_FLOW_001/NATIVE_EXECUTION_CHAIN.json",
+  "seal_native_receipt": "reviews/R35_SEAL_NATIVE_RECEIPT.json",
+  "next_task": "tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md",
+  "next_registration": "reviews/R36_REGISTRATION_001/RECEIPT.json",
+  "next_reason": "Test REAL-only conditional denoising with full-source finite-noise guide and direct real-guide/guide-perturbation controls; existing coupling branch stays closed.",
+  "new_REAL_EVAL_CAL_G4": 0,
+  "root_scientific_reruns": 0
+}

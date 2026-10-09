@@ -1,3 +1,9 @@
+# 当前入口：R35配对调整分支关闭，R36检验完整源引导的条件去噪
+
+R35总体PSD与部分完整形状改善，但源组谷比例、噪声和原有效密度支持失败。R36以完整源驱动BASE作为有限加噪guide，检验固定条件扩散修正及实测guide控制。完整响应仍未通过，项目active。
+
+[R35根报告](R35_REPORT.md) · [交付索引](R35_DELIVERY_INDEX.json) · [R36任务](tasks/R36_CONDITIONAL_DIFFUSION_EDIT_001.md) · [项目目标](PROJECT_OBJECTIVE.md)。以下保留历史入口。
+
 # 当前入口：R34保护方案因边界失败关闭，R35检验训练中的PSD顺序
 
 R34恢复BASE基线和电荷/PSD代理，Independent仍有完整波形局部收益，但两个保护端点均出现固定边界跳变。R35只训练一个Q内PSD同序配对CFM端点；这是当前冻结BASE流分支最后一次配对检验。完整响应仍未通过，项目active。

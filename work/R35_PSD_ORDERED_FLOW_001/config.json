@@ -1,0 +1,243 @@
+{
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "seed": 20261009230,
+  "threads": 4,
+  "numeric_wall_limit_s": 1800,
+  "RSS_limit_bytes": 4294967296,
+  "GPU_allocated_limit_bytes": 4294967296,
+  "output_limit_bytes": 402653184,
+  "C2ST_views": [
+    "full_historical_shape",
+    "full_voltage",
+    "prompt_local",
+    "postpeak_local",
+    "tail_local",
+    "baseline_local",
+    "Q_PSD_2D"
+  ],
+  "validation_every": 250,
+  "batch": 32,
+  "lr": 0.0002,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "gradient_clip": 5.0,
+  "generation_chunk": 128,
+  "noise_latent": 8,
+  "white_points": 480,
+  "loss_weights": {
+    "adversarial": 1.0,
+    "content_NCE": 1.0,
+    "identity": 2.0,
+    "Q_relative": 0.5,
+    "Q_rank": 2.0,
+    "PSD_rank": 5.0,
+    "domain_SW": 2.0,
+    "positive_charge": 1.0
+  },
+  "patches_per_layer": 12,
+  "NCE_temperature": 0.07,
+  "validation_source_count": 512,
+  "validation_formula": "J20=J19 weighted+fine_val; also retain original unweighted R18 J",
+  "source_conditioning": "full480physical+ownpeaknormalizedwave; no four-condition bottleneck",
+  "architecture": "497->512 SiLU->512 SiLU->512 SiLU->480; zero last layer",
+  "sampling": "independent source and target within uniformly selected common frozen8 logQ bins; support outside retained in full evaluation",
+  "execution": {
+    "training": "R33 same server Python/CUDA; one PSD-ordered flow fit",
+    "evaluation_replay": "local CPU4",
+    "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+    "actual_PID_nonce_RSS_before_imports": true
+  },
+  "PSD_rank_pairs": "same frozen narrow source logQ bin only, sourcePSD difference>.005, normalize eligible pairs",
+  "mean_residual_range": "no old .15 cap; final physicalADC[-.5,.5]",
+  "PDG_inference": "DEV non2112=22 inferred from already-bound R2 CSV only22/2112, explicitTRAINpdg",
+  "fine_projection_seed": 20261009201,
+  "fine_projection_columns": 128,
+  "fine_coefficient": 1.0,
+  "fine_vectors": [
+    "shape480",
+    "diff479",
+    "baseline100_V"
+  ],
+  "style_dim": 8,
+  "style_reconstruction_weight": 1.0,
+  "new_module_seed": 20261009210,
+  "style_train_seed": 20261009233,
+  "style_val_seed": 20261009212,
+  "style_main_seed": 20261009213,
+  "style_repeat_seed": 20261009214,
+  "old_reference_training_allowed": false,
+  "selection": "actual final only",
+  "style_zero_identity": true,
+  "G_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\GLOBAL_STYLE\\TRANSLATOR.pt",
+  "reader_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001\\GLOBAL_STYLE\\STYLE_READER.pt",
+  "R21_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R21_GLOBAL_STOCHASTIC_SIGNAL_001",
+  "R22_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R22_FROZEN_GENERATOR_CRITIC_DIAGNOSTIC_001",
+  "source_REAL_bin_seed": 20261009231,
+  "old_noise_seed": 20261009232,
+  "NCE_seed": 20261009234,
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "GPU_python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+  "source_population_preserved": true,
+  "science_budget": 1800,
+  "stage": "R35_PSD_ORDERED_FLOW_001",
+  "deadline_UTC": "2026-10-09T20:27:21.312840+00:00",
+  "absolute_deadline_UTC": "2026-10-09T20:37:21.312840+00:00",
+  "registered_UTC": "2026-10-09T19:07:21.312840+00:00",
+  "first_actual_command_UTC": "2026-10-09T14:11:50.633161+00:00",
+  "first_actual_PID": 22864,
+  "first_actual_tool": "312724",
+  "arms": [
+    "PSD_ORDERED_CFM"
+  ],
+  "updates": 2950,
+  "training_wall_s": 900,
+  "G_D_update_ratio": "1:1",
+  "D_updates_limit": 2950,
+  "HGB_max_fits": 10,
+  "HGB_plan": 10,
+  "HGB_cap": 10,
+  "width_slots": 8,
+  "repeated_rows_planned": 2048,
+  "repeated_rows_cap": 1024,
+  "source_probe_rows": 832,
+  "main_generation_rows": 2000,
+  "replay_rows": 2000,
+  "R23_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001",
+  "D_initial": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R18_UNPAIRED_WAVEFORM_TRANSLATION_001\\INITIAL_CRITIC.pt",
+  "local_input_paths": {
+    "width_definition": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R3B_ENERGY_CONDITIONAL_WIDTH_001\\results\\DIAGNOSTIC_DEFINITION.json"
+  },
+  "critic_intervention": "both named arms explicitly STANDARDIZED; otherwise original D1",
+  "old_control": "saved R26 HOMO_SELECTED/HOMO_FINAL and corresponding R27 evaluator results, no old refit/generation",
+  "python": "E:/GAN/runtime_envs/local_cuda_retry_20261007073613_UTC/venv/Scripts/python.exe",
+  "scientific_package": "only fresh independent fine training projections; row bindings/network/loss weights/optimizer/critic unchanged",
+  "source_rng_seed_and_pairing": "read actual R26 reordered rows and original ordinal; reconstruct old noise and style from original recorded PCG64 states; NCE unchanged",
+  "CAL_waveform_decode": 0,
+  "EVAL_read": 0,
+  "SSH": "necessary own-stage transfer/training only",
+  "installation": 0,
+  "new_G4": 0,
+  "reorder_seed": 20261009261,
+  "endpoints": [
+    "PSD_ORDERED_CFM"
+  ],
+  "training_input_paths": {
+    "TRAIN_PRIVATE.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+    "VALIDATION_INPUTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\VALIDATION_INPUTS.npz",
+    "FINE_CONSTANTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\FINE_CONSTANTS.npz",
+    "CRITIC_SCALER.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\CRITIC_SCALER.npz"
+  },
+  "actual_training_stream": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\TRAINING_STREAMS_PRIVATE.npz",
+  "actual_training_random_states": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\TRAINING_RANDOM_STATES.json",
+  "actual_training_receipt": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\TRAINING_RECEIPT.json",
+  "old_final_G": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\FINAL_TRANSLATOR.pt",
+  "endpoint_weight_paths": {
+    "PSD_ORDERED_CFM": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R35_PSD_ORDERED_FLOW_001\\PSD_ORDERED_CFM\\FINAL_FLOW.pt"
+  },
+  "density_EM_max": 8,
+  "R26_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001",
+  "R27_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R27_FIXED_PROJECTION_COVERAGE_DIAGNOSTIC_001",
+  "fresh_projection_seed": 20261009281,
+  "fresh_projection_draw_order": [
+    "shape480",
+    "diff479",
+    "baseline100_V"
+  ],
+  "fresh_projection_generation_dtype": "float64 Gaussian and unit normalization, cast float32 for Torch calculation",
+  "fresh_projection_stream_consumers": "fine.training exactly once per actual G update; no validation/D/identity/evaluation",
+  "consumed_R26_stream": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMOGENEOUS_REORDER\\TRAINING_STREAMS_PRIVATE.npz",
+  "consumed_R26_receipt": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMOGENEOUS_REORDER\\TRAINING_RECEIPT.json",
+  "old_reorder_receipt": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\REORDER_CONSTRUCTION_RECEIPT.json",
+  "primary_intervention_comparison": "MEAN_FINAL2950 minus same-server CONTROL_FINAL2950",
+  "training_total_limit_s": 900,
+  "mean_coefficient": 1.0,
+  "mean_loss_condition": "frozen actual source-Q bin",
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R35_REMOTE_20261009_190721_UTC",
+  "training_device": "cuda:0 if existing CUDA is available, else cpu",
+  "evaluation_device": "cpu",
+  "first_actual_command": {
+    "tool": "944ece",
+    "PID": 61832,
+    "native_exit": 0,
+    "UTC": "2026-10-09T19:08:10.958070+00:00"
+  },
+  "sole_training_intervention": "stable same-order raw BASE preADC PSD and REAL PSD pairing within each original Q subbatch",
+  "endpoint_selection_uses_DEV": false,
+  "mean_term_not_in_J20": true,
+  "cross_platform_bitwise_training_claim": false,
+  "local_training_input_paths": {
+    "TRAIN_PRIVATE.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+    "VALIDATION_INPUTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\VALIDATION_INPUTS.npz",
+    "FINE_CONSTANTS.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\FINE_CONSTANTS.npz",
+    "CRITIC_SCALER.npz": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\CRITIC_SCALER.npz"
+  },
+  "remote_input_sources": {
+    "TRAIN_PRIVATE.npz": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+      "bytes": 26858280
+    },
+    "R26_TRAINING_STREAMS_PRIVATE.npz": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMOGENEOUS_REORDER\\TRAINING_STREAMS_PRIVATE.npz",
+      "bytes": 2266749
+    },
+    "R23_TRAINING_RANDOM_STATES.json": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\TRAINING_RANDOM_STATES.json",
+      "bytes": 961
+    },
+    "R23_TRAINING_RECEIPT.json": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\STANDARDIZED\\TRAINING_RECEIPT.json",
+      "bytes": 117221
+    },
+    "R26_TRAINING_RECEIPT.json": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R26_CONDITIONAL_BATCH_TRANSLATION_001\\HOMOGENEOUS_REORDER\\TRAINING_RECEIPT.json",
+      "bytes": 120461
+    },
+    "BASE_TRANSLATOR.pt": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\SERVER_FRESH_CONTROL\\FINAL_TRANSLATOR.pt",
+      "bytes": 906049
+    }
+  },
+  "R28_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R28_FRESH_PROJECTION_TRANSLATION_001",
+  "R32_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001",
+  "base_G": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\SERVER_FRESH_CONTROL\\FINAL_TRANSLATOR.pt",
+  "model_seed": 20261010330,
+  "t_seed": 20261010331,
+  "coupling_seed": 20261010332,
+  "flow_lr": 0.0002,
+  "flow_betas": [
+    0.9,
+    0.999
+  ],
+  "flow_eps": 1e-08,
+  "flow_weight_decay": 0,
+  "solver_steps": 32,
+  "solver_check_steps": 64,
+  "solver_check_rows_each": 32,
+  "solver_error_limit_V": 6.103888176768602e-05,
+  "sigma": 0.0,
+  "R33_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001",
+  "remote_R33_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC",
+  "projection_applied": false,
+  "source_PSD_key": "raw frozen G preADC x0, each f32 waveform promoted to f64, baseline100, fast100:150/total100:400",
+  "invalid_sort_key_policy": "persist exact step/subbatch and stop; no dropping, fallback, resampling or clamp",
+  "response_fit_attempts_max": 1,
+  "initial_flow_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001\\INITIAL_FLOW.pt",
+  "affine_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001\\AFFINE_CONSTANTS.npz",
+  "original_training_receipt_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001\\TRAINING_NUMERIC_RECEIPT.json",
+  "original_base_hashes_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R33_RESIDUAL_OT_FLOW_001\\INDEPENDENT_CFM\\BASE_FORWARD_HASHES.json"
+}

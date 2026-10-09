@@ -1,0 +1,99 @@
+{
+  "UTC": "2026-10-09T19:41:12.289602+00:00",
+  "PID": 41220,
+  "native_tools_observed_by_executor": [
+    {
+      "entry": "resource_check.py",
+      "tool": "049881",
+      "PID": 57140,
+      "native_exit": 0,
+      "kind": "metadata-only SSH preflight"
+    },
+    {
+      "entry": "train_server.py",
+      "tool_start": "94e35a",
+      "tool_terminal": "643e9b",
+      "local_launcher_PID": 60800,
+      "SSH_PID": 62032,
+      "actual_worker_PID": 43603,
+      "supervisor_PID": 43602,
+      "native_exit": 0
+    },
+    {
+      "entry": "evaluate_endpoints.py",
+      "tool_start": "4944a8",
+      "tool_terminal": "cc645f",
+      "actual_worker_PID": 37968,
+      "supervisor_PID": 56476,
+      "native_exit": 1
+    },
+    {
+      "entry": "resume_evaluation.py",
+      "tool_start": "c5bf7d",
+      "tool_terminal": "2458e0",
+      "actual_worker_PID": 61036,
+      "supervisor_PID": 56004,
+      "native_exit": 0
+    },
+    {
+      "entry": "replay_endpoints.py",
+      "tool_terminal": "f33108",
+      "actual_worker_PID": 19328,
+      "supervisor_PID": 21916,
+      "native_exit": 0
+    },
+    {
+      "entry": "summarize_and_plot.py",
+      "tool_start": "10a8df",
+      "tool_terminal": "1bc5c5",
+      "actual_worker_PID": 44600,
+      "supervisor_PID": 45428,
+      "native_exit": 0
+    },
+    {
+      "entry": "fix_CDF_layout.py",
+      "tool_terminal": "c38733",
+      "actual_worker_PID": 60552,
+      "supervisor_PID": 11508,
+      "native_exit": 0
+    }
+  ],
+  "RUN_HISTORY_original_measurements_preserved": true,
+  "native_receipt_not_inferred_from_script_claims": true,
+  "control_read_failures": [
+    {
+      "tool": "5daed8",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4800585,
+      "error": "KeyError: ROC_AUC; actual metric key is AUC",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "8f8bd1",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4301261,
+      "error": "FileNotFoundError: results/metrics.json; actual aggregate is stage-root metrics.json",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "428ebc",
+      "PID": "unknown",
+      "native_exit": 1,
+      "elapsed_tool_s": 0.0093321,
+      "error": "KeyError: INDEPENDENT_CFM in new actual-source association aggregate; immutable R33 control aggregate is reused for its two controls",
+      "scientific_array_decode_fit_inference": 0
+    },
+    {
+      "tool": "0a532e",
+      "PID": 62060,
+      "native_exit": 1,
+      "elapsed_tool_s": 0.4632438,
+      "error": "overbroad compact-key guard rejected original_row_ordinal boolean stream-match flag, not an identity payload",
+      "scientific_array_decode_fit_inference": 0,
+      "original_partial_files_preserved": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R35_PSD_ORDERED_FLOW_001\\control_failures\\assembly_001"
+    }
+  ],
+  "seal_native_tool_reported_separately_after_return": true
+}
