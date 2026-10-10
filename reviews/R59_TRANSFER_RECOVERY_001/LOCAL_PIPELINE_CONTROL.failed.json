@@ -1,0 +1,90 @@
+{
+  "UTC": "2026-10-10T21:08:53.257683+00:00",
+  "control_PID": 64976,
+  "current_entry": "summarize_and_plot.py",
+  "control_only_no_scientific_imports": true,
+  "status": "control_failed_no_remote_restart",
+  "elapsed_s": 3074.281448599999,
+  "events": [
+    {
+      "UTC": "2026-10-10T21:06:29.526056+00:00",
+      "kind": "verified_native_completion",
+      "entry": "train_final.py",
+      "PID": 101278,
+      "native_exit": 0
+    },
+    {
+      "UTC": "2026-10-10T21:06:31.451716+00:00",
+      "kind": "launched_once",
+      "entry": "numerical_check.py",
+      "supervisor_PID": 127118,
+      "actual_worker_PID": 127123
+    },
+    {
+      "UTC": "2026-10-10T21:06:33.943910+00:00",
+      "kind": "verified_native_completion",
+      "entry": "numerical_check.py",
+      "PID": 127123,
+      "native_exit": 0
+    },
+    {
+      "UTC": "2026-10-10T21:06:36.028067+00:00",
+      "kind": "launched_once",
+      "entry": "generate_all.py",
+      "supervisor_PID": 127312,
+      "actual_worker_PID": 127339
+    },
+    {
+      "UTC": "2026-10-10T21:07:09.183513+00:00",
+      "kind": "verified_native_completion",
+      "entry": "generate_all.py",
+      "PID": 127339,
+      "native_exit": 0
+    },
+    {
+      "UTC": "2026-10-10T21:07:11.094380+00:00",
+      "kind": "launched_once",
+      "entry": "evaluate_saved.py",
+      "supervisor_PID": 127665,
+      "actual_worker_PID": 127666
+    },
+    {
+      "UTC": "2026-10-10T21:07:44.208456+00:00",
+      "kind": "verified_native_completion",
+      "entry": "evaluate_saved.py",
+      "PID": 127666,
+      "native_exit": 0
+    },
+    {
+      "UTC": "2026-10-10T21:07:46.210935+00:00",
+      "kind": "launched_once",
+      "entry": "replay_all.py",
+      "supervisor_PID": 128133,
+      "actual_worker_PID": 128138
+    },
+    {
+      "UTC": "2026-10-10T21:07:48.711674+00:00",
+      "kind": "verified_native_completion",
+      "entry": "replay_all.py",
+      "PID": 128138,
+      "native_exit": 0
+    },
+    {
+      "UTC": "2026-10-10T21:07:50.616076+00:00",
+      "kind": "launched_once",
+      "entry": "summarize_and_plot.py",
+      "supervisor_PID": 128317,
+      "actual_worker_PID": 128318
+    },
+    {
+      "UTC": "2026-10-10T21:07:53.194526+00:00",
+      "kind": "verified_native_completion",
+      "entry": "summarize_and_plot.py",
+      "PID": 128318,
+      "native_exit": 0
+    }
+  ],
+  "error": "TimeoutExpired(['C:\\\\Users\\\\10629\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe', '-B', 'E:\\\\GAN\\\\research\\\\sim2real_two_papers_20261008_0305\\\\reviews\\\\fetch_R59_root.py', 'summarize_and_plot.py'], 60)",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\watch_R59_pipeline_root.py\", line 50, in <module>\n    transfer=call('fetch_R59_root.py',current)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\watch_R59_pipeline_root.py\", line 19, in call\n    p=subprocess.run([sys.executable,'-B',str(R/'reviews'/script),*args],cwd=R,capture_output=True,text=True,encoding='utf8',errors='replace',timeout=60)\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 556, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 1222, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\subprocess.py\", line 1643, in _communicate\n    raise TimeoutExpired(self.args, orig_timeout)\nsubprocess.TimeoutExpired: Command '['C:\\\\Users\\\\10629\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe', '-B', 'E:\\\\GAN\\\\research\\\\sim2real_two_papers_20261008_0305\\\\reviews\\\\fetch_R59_root.py', 'summarize_and_plot.py']' timed out after 60 seconds\n",
+  "remote_job_not_terminated": true
+}

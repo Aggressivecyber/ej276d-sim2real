@@ -1,0 +1,2943 @@
+{
+  "recipe": "R59 direct unpaired full480 distribution network, original-parent global weights, explicit box-charge constraint and same-REAL identity",
+  "models": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "gate1_complete_response": {
+        "paired_minus_BASE": {
+          "full_historical_shape": {
+            "BA_delta_first_minus_second": -0.03600000000000003,
+            "BA_delta_95CI": [
+              -0.06008370737589606,
+              -0.009862021406608362
+            ],
+            "AUC_delta_first_minus_second": -0.013408000000000087,
+            "AUC_delta_95CI": [
+              -0.020872429573096755,
+              -0.005365775207950999
+            ],
+            "valid_replicates": 500,
+            "clusters": 460,
+            "paired_test_rows_and_groups": true,
+            "conditional_on_two_fitted_classifiers": true,
+            "response_training_uncertainty": false,
+            "reference": "BASE"
+          },
+          "normalized_u480": {
+            "BA_delta_first_minus_second": -0.02200000000000002,
+            "BA_delta_95CI": [
+              -0.04747908931209329,
+              0.0019106646470393978
+            ],
+            "AUC_delta_first_minus_second": -0.011792000000000025,
+            "AUC_delta_95CI": [
+              -0.024650109374719065,
+              -0.002926799989179105
+            ],
+            "valid_replicates": 500,
+            "clusters": 460,
+            "paired_test_rows_and_groups": true,
+            "conditional_on_two_fitted_classifiers": true,
+            "response_training_uncertainty": false,
+            "reference": "BASE"
+          }
+        },
+        "fixed_point_limits": {
+          "full_historical_shape": 0.934,
+          "normalized_u480": 0.928
+        },
+        "candidate_BA": {
+          "full_historical_shape": 0.942,
+          "normalized_u480": 0.956
+        },
+        "both_BASE_CI_upper_negative": false,
+        "both_fixed_R37_point_limits": false,
+        "pass": false
+      },
+      "gate2_PSD_width_centers_noise": {
+        "measures": {
+          "PSD_overall_W1": {
+            "candidate": 0.014454696846196503,
+            "BASE": 0.023065444462216398,
+            "relative_change": -0.37331808758878227,
+            "pass": true
+          },
+          "baseline_RMS_V_overall_W1": {
+            "candidate": 2.1162292144906477e-05,
+            "BASE": 1.9358299282445028e-05,
+            "relative_change": 0.09318963593549712,
+            "pass": true
+          },
+          "ACF1_overall_W1": {
+            "candidate": 0.05242071026564922,
+            "BASE": 0.06423493440619173,
+            "relative_change": -0.18392210173104362,
+            "pass": true
+          },
+          "PSD_common_Q_equal_mean_W1": {
+            "candidate": 0.026478402154467333,
+            "BASE": 0.034765762178941145,
+            "relative_change": -0.23837705561633737,
+            "pass": true,
+            "common_bins_1based": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "N_each_domain_ge": 40,
+            "fixed_required_bins": true,
+            "unsupported_required_bins_by_domain": {
+              "REAL": [],
+              "BASE": [],
+              "DIRECT_DISTRIBUTION_RESPONSE": []
+            }
+          },
+          "component0_peak_position_MAE": {
+            "candidate": 0.01599027204810764,
+            "BASE": 0.005857171505995962,
+            "relative_change": 1.7300330939154618,
+            "pass": false,
+            "common_bins_1based": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "density_failure_not_hidden_by_intersection": true
+          },
+          "component0_raw_width_MAE": {
+            "candidate": 0.010935413292526916,
+            "BASE": 0.010392721813624134,
+            "relative_change": 0.0522184167569415,
+            "pass": true,
+            "common_bins_1based": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "density_failure_not_hidden_by_intersection": true
+          },
+          "component1_peak_position_MAE": {
+            "candidate": 0.03823346289764563,
+            "BASE": 0.002658663358240563,
+            "relative_change": 13.380708553845485,
+            "pass": false,
+            "common_bins_1based": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "density_failure_not_hidden_by_intersection": true
+          },
+          "component1_raw_width_MAE": {
+            "candidate": 0.014830932985907116,
+            "BASE": 0.013051174366838758,
+            "relative_change": 0.13636769910840219,
+            "pass": false,
+            "common_bins_1based": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "density_failure_not_hidden_by_intersection": true
+          }
+        },
+        "BASE_valid_required_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "new_required_density_failures": [],
+        "all_density_support_gaps": {
+          "REAL": [],
+          "SOURCE_CLEAN": [
+            {
+              "bin_id_1based": 5,
+              "N": 226.0,
+              "failure_reasons": [
+                "variance_floor_touched"
+              ]
+            },
+            {
+              "bin_id_1based": 6,
+              "N": 166.0,
+              "failure_reasons": [
+                "variance_floor_touched"
+              ]
+            },
+            {
+              "bin_id_1based": 7,
+              "N": 82.0,
+              "failure_reasons": [
+                "variance_floor_touched"
+              ]
+            },
+            {
+              "bin_id_1based": 8,
+              "N": 43.0,
+              "failure_reasons": [
+                "variance_floor_touched",
+                "component1_support_below20"
+              ]
+            }
+          ],
+          "BASE_REAL_CONTROL": [
+            {
+              "bin_id_1based": 8,
+              "N": 187.0,
+              "failure_reasons": [
+                "not_converged500"
+              ]
+            }
+          ],
+          "BASE": [
+            {
+              "bin_id_1based": 1,
+              "N": 257.0,
+              "failure_reasons": [
+                "density_components_not_separated"
+              ]
+            },
+            {
+              "bin_id_1based": 8,
+              "N": 37.0,
+              "failure_reasons": [
+                "total_support_below40"
+              ]
+            }
+          ],
+          "INDEPENDENT_CFM": [
+            {
+              "bin_id_1based": 4,
+              "N": 249.0,
+              "failure_reasons": [
+                "not_converged500"
+              ]
+            },
+            {
+              "bin_id_1based": 5,
+              "N": 228.0,
+              "failure_reasons": [
+                "not_converged500"
+              ]
+            },
+            {
+              "bin_id_1based": 7,
+              "N": 86.0,
+              "failure_reasons": [
+                "component1_support_below20"
+              ]
+            },
+            {
+              "bin_id_1based": 8,
+              "N": 36.0,
+              "failure_reasons": [
+                "total_support_below40"
+              ]
+            }
+          ],
+          "DIRECT_DISTRIBUTION_RESPONSE": [
+            {
+              "bin_id_1based": 8,
+              "N": 44.0,
+              "failure_reasons": [
+                "density_components_not_separated",
+                "component0_support_below20"
+              ]
+            }
+          ],
+          "DIRECT_DISTRIBUTION_REAL_CONTROL": []
+        },
+        "zero_baseline_counts": {
+          "BASE": 0,
+          "DIRECT_DISTRIBUTION_RESPONSE": 0
+        },
+        "zero_baseline_not_increased": true,
+        "pass": false
+      },
+      "gate3_source_preservation": {
+        "actual_source_pure_had_valleys": [
+          {
+            "actual_source_bin": "bin3",
+            "N": 213,
+            "candidate": 0.0,
+            "BASE": 0.056338028169014086,
+            "delta": -0.056338028169014086,
+            "pass": true
+          },
+          {
+            "actual_source_bin": "bin4",
+            "N": 181,
+            "candidate": 0.0,
+            "BASE": 0.0055248618784530384,
+            "delta": -0.0055248618784530384,
+            "pass": true
+          }
+        ],
+        "whole_population_source_ranks": [
+          {
+            "measure": "source_Q_to_output_Q",
+            "candidate": 0.9999993921248469,
+            "BASE": 0.9997260080563992,
+            "BASE_minus_candidate": -0.0002733840684476796,
+            "pass": true
+          },
+          {
+            "measure": "source_PSD_to_output_PSD",
+            "candidate": 0.4972703716905456,
+            "BASE": 0.4189898393117022,
+            "BASE_minus_candidate": -0.07828053237884341,
+            "pass": true
+          }
+        ],
+        "source_ID_order_composition_weights_preserved": true,
+        "internal_constraint_projection": {
+          "N": 2000,
+          "range_active_events": 0,
+          "rail_sample_total": 0,
+          "fields": {
+            "pre_constraint_out_of_range_sample_count": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_RMS_V": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_maxabs_V": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_rail_sample_count": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "pre_constraint_charge_relative_error": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 6.074199587980027e-16,
+              "sample_sd": 4.769421447196764e-16,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                2.262611651290168e-16,
+                5.227592009576862e-16,
+                8.663027861612232e-16,
+                1.5507915688685206e-15,
+                2.8823882901651565e-15
+              ]
+            }
+          },
+          "internal_model_operation": "Euclidean box-charge projection after constant-field Heun",
+          "zero_ADC_clip_count_does_not_mean_zero_model_projection": true,
+          "equal_original_parent_weights": true,
+          "pass_claim": false,
+          "inside_TRAIN_support": {
+            "N": 1583,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 1583,
+                "defined_n": 1583,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 1583,
+                "defined_n": 1583,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 1583,
+                "defined_n": 1583,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 1583,
+                "defined_n": 1583,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 1583,
+                "defined_n": 1583,
+                "undefined_n": 0,
+                "mean": 6.033462101573265e-16,
+                "sample_sd": 4.805158772188735e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  2.1427426589315174e-16,
+                  5.093909956350151e-16,
+                  8.683305158750881e-16,
+                  1.5411542928492295e-15,
+                  2.8823882901651565e-15
+                ]
+              }
+            }
+          },
+          "outside_TRAIN_support": {
+            "N": 417,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 417,
+                "defined_n": 417,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 417,
+                "defined_n": 417,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 417,
+                "defined_n": 417,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 417,
+                "defined_n": 417,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 417,
+                "defined_n": 417,
+                "undefined_n": 0,
+                "mean": 6.228845729423439e-16,
+                "sample_sd": 4.633631577570351e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  2.7111917538051604e-16,
+                  5.678058491803061e-16,
+                  8.478889174964288e-16,
+                  1.5626610169755657e-15,
+                  2.5643692918920506e-15
+                ]
+              }
+            }
+          },
+          "by_original_charge_region": [
+            {
+              "region": -1,
+              "N": 412,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 412,
+                  "defined_n": 412,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 412,
+                  "defined_n": 412,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 412,
+                  "defined_n": 412,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 412,
+                  "defined_n": 412,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 412,
+                  "defined_n": 412,
+                  "undefined_n": 0,
+                  "mean": 6.172836884341007e-16,
+                  "sample_sd": 4.599169419917944e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.646888992467285e-16,
+                    5.565801908425958e-16,
+                    8.426732651913366e-16,
+                    1.5305038300924068e-15,
+                    2.5643692918920506e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 0,
+              "N": 259,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 259,
+                  "defined_n": 259,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 259,
+                  "defined_n": 259,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 259,
+                  "defined_n": 259,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 259,
+                  "defined_n": 259,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 259,
+                  "defined_n": 259,
+                  "undefined_n": 0,
+                  "mean": 5.596249559083064e-16,
+                  "sample_sd": 4.45660552311637e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    1.7606312211880686e-16,
+                    4.661535233118605e-16,
+                    8.68454973985093e-16,
+                    1.462486348128998e-15,
+                    1.9739577219552378e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 1,
+              "N": 265,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 265,
+                  "defined_n": 265,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 265,
+                  "defined_n": 265,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 265,
+                  "defined_n": 265,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 265,
+                  "defined_n": 265,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 265,
+                  "defined_n": 265,
+                  "undefined_n": 0,
+                  "mean": 5.753874006852837e-16,
+                  "sample_sd": 4.309608726861271e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.354105928990269e-16,
+                    5.127056639420408e-16,
+                    8.486892066924171e-16,
+                    1.372708752841706e-15,
+                    2.677287410547046e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 2,
+              "N": 288,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 288,
+                  "defined_n": 288,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 288,
+                  "defined_n": 288,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 288,
+                  "defined_n": 288,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 288,
+                  "defined_n": 288,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 288,
+                  "defined_n": 288,
+                  "undefined_n": 0,
+                  "mean": 6.503489779013111e-16,
+                  "sample_sd": 5.205730179337268e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.9718105520775395e-16,
+                    5.577778542613179e-16,
+                    8.990022663584893e-16,
+                    1.6872435816377763e-15,
+                    2.8823882901651565e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 3,
+              "N": 252,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 252,
+                  "defined_n": 252,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 252,
+                  "defined_n": 252,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 252,
+                  "defined_n": 252,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 252,
+                  "defined_n": 252,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 252,
+                  "defined_n": 252,
+                  "undefined_n": 0,
+                  "mean": 5.883375528088129e-16,
+                  "sample_sd": 4.489953317599265e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.23109226850892e-16,
+                    5.086593610651233e-16,
+                    8.887487733974193e-16,
+                    1.3974763016585582e-15,
+                    2.2315378235637335e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 4,
+              "N": 226,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 226,
+                  "defined_n": 226,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 226,
+                  "defined_n": 226,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 226,
+                  "defined_n": 226,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 226,
+                  "defined_n": 226,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 226,
+                  "defined_n": 226,
+                  "undefined_n": 0,
+                  "mean": 5.972777664438893e-16,
+                  "sample_sd": 5.087778376536609e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.1262220298293995e-16,
+                    4.56210657074988e-16,
+                    8.084903091456678e-16,
+                    1.6974465605418297e-15,
+                    2.808281414894673e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 5,
+              "N": 168,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 168,
+                  "defined_n": 168,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 168,
+                  "defined_n": 168,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 168,
+                  "defined_n": 168,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 168,
+                  "defined_n": 168,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 168,
+                  "defined_n": 168,
+                  "undefined_n": 0,
+                  "mean": 6.678581016094339e-16,
+                  "sample_sd": 5.324498275574986e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.8471745784812184e-16,
+                    5.260546646883651e-16,
+                    9.9482685067121e-16,
+                    1.6052176016546507e-15,
+                    2.4873665252289068e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 6,
+              "N": 81,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 81,
+                  "defined_n": 81,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 81,
+                  "defined_n": 81,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 81,
+                  "defined_n": 81,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 81,
+                  "defined_n": 81,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 81,
+                  "defined_n": 81,
+                  "undefined_n": 0,
+                  "mean": 5.209104560176886e-16,
+                  "sample_sd": 4.261012873307031e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    2.169688292714642e-16,
+                    4.0386636453052467e-16,
+                    7.81931535149194e-16,
+                    1.4173275054599942e-15,
+                    1.7824365093912503e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 7,
+              "N": 44,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 44,
+                  "defined_n": 44,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 44,
+                  "defined_n": 44,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 44,
+                  "defined_n": 44,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 44,
+                  "defined_n": 44,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 44,
+                  "defined_n": 44,
+                  "undefined_n": 0,
+                  "mean": 7.440062215832056e-16,
+                  "sample_sd": 5.496224759739621e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    1.6127757709689708e-16,
+                    3.566431314157453e-16,
+                    5.972604232348167e-16,
+                    9.883383903447526e-16,
+                    1.962771186549502e-15,
+                    2.1523086749233285e-15
+                  ]
+                }
+              }
+            },
+            {
+              "region": 8,
+              "N": 5,
+              "range_active_events": 0,
+              "rail_sample_total": 0,
+              "fields": {
+                "pre_constraint_out_of_range_sample_count": {
+                  "n": 5,
+                  "defined_n": 5,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_RMS_V": {
+                  "n": 5,
+                  "defined_n": 5,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_maxabs_V": {
+                  "n": 5,
+                  "defined_n": 5,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "constraint_projection_rail_sample_count": {
+                  "n": 5,
+                  "defined_n": 5,
+                  "undefined_n": 0,
+                  "mean": 0.0,
+                  "sample_sd": 0.0,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                "pre_constraint_charge_relative_error": {
+                  "n": 5,
+                  "defined_n": 5,
+                  "undefined_n": 0,
+                  "mean": 1.0843974564215842e-15,
+                  "sample_sd": 5.708241828563321e-16,
+                  "quantile_levels": [
+                    0,
+                    0.05,
+                    0.25,
+                    0.5,
+                    0.75,
+                    0.95,
+                    1
+                  ],
+                  "quantiles": [
+                    2.9393688452882706e-16,
+                    4.2169130407222795e-16,
+                    9.327089822458315e-16,
+                    1.0723625406468455e-15,
+                    1.245146801659636e-15,
+                    1.7512950187533526e-15,
+                    1.877832073026782e-15
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "no_new_invalid_nonfinite_ADC_clip": true,
+        "outside_TRAIN_support_rows": 417,
+        "all_outside_rows_use_new_flow": true,
+        "source_roll_RMS_V": 0.017549842718025472,
+        "sensitivity_not_correct_physical_mapping": true,
+        "pass": true
+      },
+      "gate4_boundary_source": {
+        "boundaries": [
+          {
+            "location": "first_99_100",
+            "candidate_W1_V": 3.152658243300921e-05,
+            "BASE_W1_V": 2.4385033266190276e-05,
+            "INDEPENDENT_W1_V": 2.0478544833058778e-05,
+            "limit_V": 8.542391503387629e-05,
+            "pass": true
+          },
+          {
+            "location": "first_149_150",
+            "candidate_W1_V": 0.0023803027528535663,
+            "BASE_W1_V": 0.0014943233839956056,
+            "INDEPENDENT_W1_V": 0.0019123786852224874,
+            "limit_V": 0.0019734175669901734,
+            "pass": false
+          },
+          {
+            "location": "first_399_400",
+            "candidate_W1_V": 0.00020313739852285853,
+            "BASE_W1_V": 0.0005641213452969547,
+            "INDEPENDENT_W1_V": 0.0004249526948666292,
+            "limit_V": 0.0006251602270646407,
+            "pass": true
+          },
+          {
+            "location": "second_center_99",
+            "candidate_W1_V": 4.2330464505885765e-05,
+            "BASE_W1_V": 4.5229811389858076e-05,
+            "INDEPENDENT_W1_V": 3.2747360068366985e-05,
+            "limit_V": 0.00010626869315754409,
+            "pass": true
+          },
+          {
+            "location": "second_center_100",
+            "candidate_W1_V": 8.3745345785267e-05,
+            "BASE_W1_V": 8.84453396813799e-05,
+            "INDEPENDENT_W1_V": 6.515900628700698e-05,
+            "limit_V": 0.00014948422144906592,
+            "pass": true
+          },
+          {
+            "location": "second_center_149",
+            "candidate_W1_V": 0.0019701214673747175,
+            "BASE_W1_V": 0.0006816517121406352,
+            "INDEPENDENT_W1_V": 0.000600225843862536,
+            "limit_V": 0.0007426905939083212,
+            "pass": false
+          },
+          {
+            "location": "second_center_150",
+            "candidate_W1_V": 0.0020092473905878087,
+            "BASE_W1_V": 0.0006427699444546163,
+            "INDEPENDENT_W1_V": 0.0006097479094183008,
+            "limit_V": 0.0007038088262223023,
+            "pass": false
+          },
+          {
+            "location": "second_center_399",
+            "candidate_W1_V": 0.0002823353476164293,
+            "BASE_W1_V": 0.0004750045779161337,
+            "INDEPENDENT_W1_V": 0.0003842702801684646,
+            "limit_V": 0.0005360434596838197,
+            "pass": true
+          },
+          {
+            "location": "second_center_400",
+            "candidate_W1_V": 0.00037920405298175127,
+            "BASE_W1_V": 0.0004935603979735091,
+            "INDEPENDENT_W1_V": 0.0005042422022828552,
+            "limit_V": 0.0005652810840505412,
+            "pass": true
+          }
+        ],
+        "full_SOURCE_perturbation": {
+          "rows": 128,
+          "probe_kind": "fullSOURCE input to standalone flow, not postG guide",
+          "selection": "first128 original TRAIN-supported source order",
+          "source_original_bin_fixed_for_description": true,
+          "z_white_style_original_rows": true,
+          "actual_perturbed_bin_change_N": 0,
+          "designed_segment_mean_V": 0.0,
+          "designed_segment_RMS_V": 0.001,
+          "actual_f32_Qfast_mVns_change": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "actual_f32_Qtotal_mVns_change": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 8.325101674699908e-07,
+            "sample_sd": 2.962904332559361e-06,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              -1.30385160446167e-05,
+              -3.226159606128931e-06,
+              -1.1806378097389825e-07,
+              1.0096314326801803e-06,
+              1.942908056662418e-06,
+              5.1513779908418605e-06,
+              6.734808266628534e-06
+            ]
+          },
+          "actual_f32_PSD_change": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 2.1005087773307007e-10,
+            "sample_sd": 3.946236891066505e-10,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              -1.0438245823252146e-09,
+              -4.18503359744804e-10,
+              -4.941055897766944e-11,
+              2.602920101679729e-10,
+              4.782713391993099e-10,
+              7.873673490976784e-10,
+              1.1192873294874062e-09
+            ]
+          },
+          "Qfast_exact_unchanged": true,
+          "preADC_output_RMS_V": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.002933835657022887,
+            "sample_sd": 0.0023354604076611073,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0006485844652136875,
+              0.0007217575683647217,
+              0.0010578038869983142,
+              0.002128918939704205,
+              0.004742065480585445,
+              0.006875144100019571,
+              0.011202872176455476
+            ]
+          },
+          "output_nonidentical_fraction": 1.0,
+          "ADC_LSB_V": 6.103888176768602e-05,
+          "pass": true,
+          "effect_not_physical_truth": true
+        },
+        "pass": false
+      },
+      "gate5_same_treated_REAL_control": {
+        "pre_registered_same_treated_scope": true,
+        "comparison": "new SOURCE flow on REAL minus frozen BASE G on REAL",
+        "three_views": {
+          "full_historical_shape": {
+            "BASE_G_REAL_BA": 0.966,
+            "new_G_REAL_BA": 0.516,
+            "BA_delta_first_minus_second": -0.44999999999999996,
+            "BA_delta_95CI": [
+              -0.5019068879210787,
+              -0.402825839525139
+            ],
+            "AUC_delta_first_minus_second": -0.47563200000000005,
+            "AUC_delta_95CI": [
+              -0.5310895818073262,
+              -0.4263487635086283
+            ],
+            "valid_replicates": 500,
+            "clusters": 230,
+            "paired_test_rows_and_groups": true,
+            "conditional_on_two_fitted_classifiers": true,
+            "response_training_uncertainty": false,
+            "reference": "BASE_REAL_CONTROL",
+            "point_delta_le0_01": true,
+            "CI_upper_le0_10": true,
+            "pass": true
+          },
+          "normalized_u480": {
+            "BASE_G_REAL_BA": 0.96,
+            "new_G_REAL_BA": 0.542,
+            "BA_delta_first_minus_second": -0.4179999999999999,
+            "BA_delta_95CI": [
+              -0.4633669353618721,
+              -0.3788940938051333
+            ],
+            "AUC_delta_first_minus_second": -0.43843200000000004,
+            "AUC_delta_95CI": [
+              -0.4857297598370705,
+              -0.38994136959514025
+            ],
+            "valid_replicates": 500,
+            "clusters": 230,
+            "paired_test_rows_and_groups": true,
+            "conditional_on_two_fitted_classifiers": true,
+            "response_training_uncertainty": false,
+            "reference": "BASE_REAL_CONTROL",
+            "point_delta_le0_01": true,
+            "CI_upper_le0_10": true,
+            "pass": true
+          },
+          "baseline_local": {
+            "BASE_G_REAL_BA": 0.664,
+            "new_G_REAL_BA": 0.524,
+            "BA_delta_first_minus_second": -0.14,
+            "BA_delta_95CI": [
+              -0.19779841335498885,
+              -0.06969128986133923
+            ],
+            "AUC_delta_first_minus_second": -0.176288,
+            "AUC_delta_95CI": [
+              -0.23758704777741727,
+              -0.10136024717542186
+            ],
+            "valid_replicates": 500,
+            "clusters": 230,
+            "paired_test_rows_and_groups": true,
+            "conditional_on_two_fitted_classifiers": true,
+            "response_training_uncertainty": false,
+            "reference": "BASE_REAL_CONTROL",
+            "point_delta_le0_01": true,
+            "CI_upper_le0_10": true,
+            "pass": true
+          }
+        },
+        "RAW_RR_absolute_effects_descriptive": {
+          "BASE_REAL_CONTROL": {
+            "full_historical_shape": {
+              "BA_delta_first_minus_second": 0.45399999999999996,
+              "BA_delta_95CI": [
+                0.4107116734367477,
+                0.4976883919743273
+              ],
+              "AUC_delta_first_minus_second": 0.463152,
+              "AUC_delta_95CI": [
+                0.4126697565833245,
+                0.518237713253755
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "normalized_u480": {
+              "BA_delta_first_minus_second": 0.44999999999999996,
+              "BA_delta_95CI": [
+                0.3976923262622098,
+                0.4960801501957162
+              ],
+              "AUC_delta_first_minus_second": 0.46448,
+              "AUC_delta_95CI": [
+                0.4133881810817583,
+                0.5126568918461952
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "full_voltage": {
+              "BA_delta_first_minus_second": 0.43199999999999994,
+              "BA_delta_95CI": [
+                0.3887741635003102,
+                0.47778131738238117
+              ],
+              "AUC_delta_first_minus_second": 0.45999999999999996,
+              "AUC_delta_95CI": [
+                0.4002638396611487,
+                0.5130952080084091
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "Q_PSD_2D": {
+              "BA_delta_first_minus_second": 0.15600000000000003,
+              "BA_delta_95CI": [
+                0.1035465070304199,
+                0.2152567657285837
+              ],
+              "AUC_delta_first_minus_second": 0.22616800000000004,
+              "AUC_delta_95CI": [
+                0.1703885026277518,
+                0.28636958229021675
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "baseline_local": {
+              "BA_delta_first_minus_second": 0.17600000000000005,
+              "BA_delta_95CI": [
+                0.11926457972455859,
+                0.22360729746877606
+              ],
+              "AUC_delta_first_minus_second": 0.21412800000000004,
+              "AUC_delta_95CI": [
+                0.14293507930828733,
+                0.26945904639466106
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            }
+          },
+          "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+            "full_historical_shape": {
+              "BA_delta_first_minus_second": 0.0040000000000000036,
+              "BA_delta_95CI": [
+                -0.03669196812246577,
+                0.04222540528993721
+              ],
+              "AUC_delta_first_minus_second": -0.012480000000000047,
+              "AUC_delta_95CI": [
+                -0.048966912413259,
+                0.023966873672581893
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "normalized_u480": {
+              "BA_delta_first_minus_second": 0.03200000000000003,
+              "BA_delta_95CI": [
+                -0.011811689772216047,
+                0.0692933101589138
+              ],
+              "AUC_delta_first_minus_second": 0.02604799999999996,
+              "AUC_delta_95CI": [
+                -0.012458790488954099,
+                0.06322357900126636
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "full_voltage": {
+              "BA_delta_first_minus_second": -0.026000000000000023,
+              "BA_delta_95CI": [
+                -0.05927358033102341,
+                0.00921129656504795
+              ],
+              "AUC_delta_first_minus_second": -0.00926400000000005,
+              "AUC_delta_95CI": [
+                -0.047039870548023104,
+                0.02281825229793862
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "Q_PSD_2D": {
+              "BA_delta_first_minus_second": 0.0,
+              "BA_delta_95CI": [
+                -0.028509781825664725,
+                0.03221077343612942
+              ],
+              "AUC_delta_first_minus_second": -0.0024319999999999897,
+              "AUC_delta_95CI": [
+                -0.02255655166169769,
+                0.019813179912140995
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            },
+            "baseline_local": {
+              "BA_delta_first_minus_second": 0.03600000000000003,
+              "BA_delta_95CI": [
+                -0.0056141932024087364,
+                0.07735730047901744
+              ],
+              "AUC_delta_first_minus_second": 0.03784000000000004,
+              "AUC_delta_95CI": [
+                0.006174273884372567,
+                0.06957487425832248
+              ],
+              "valid_replicates": 500,
+              "clusters": 230,
+              "paired_test_rows_and_groups": true,
+              "conditional_on_two_fitted_classifiers": true,
+              "response_training_uncertainty": false,
+              "reference": "RAW_REAL_REAL"
+            }
+          }
+        },
+        "RAW_identity_not_required": true,
+        "pass": true
+      },
+      "gate6_numerical_replay": {
+        "fixed_final50000_models_loaded": true,
+        "new_R59_updates_per_arm": 50000,
+        "new_training_updates_per_arm": 50000,
+        "old_TRAIN_coordinate_constants_refit": false,
+        "noise_calibration_unique_matched_REAL": true,
+        "TRAIN_fixed128_vs256_pass": true,
+        "both_models_pass_before_DEV": true,
+        "TRAIN_check_DEV_read": 0,
+        "all_preADC_f32_charge_error_le1e_5": true,
+        "all_main_rows_processed": true,
+        "charge_error_summaries": {
+          "DIRECT_DISTRIBUTION_RESPONSE": {
+            "rows": 2000,
+            "f64_max_relative_error": 2.8823882901651565e-15,
+            "actual_f32_preADC_max_relative_error": 1.2643161015396878e-08,
+            "postADC_relative_charge_error": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": -1.140408108752159e-06,
+              "sample_sd": 0.00043740598605969037,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                -0.0029342396139260523,
+                -0.0006670657538981895,
+                -0.00017378178862585887,
+                -3.6869804840870186e-06,
+                0.00016630921993857344,
+                0.0006495625546507779,
+                0.002595209978608579
+              ]
+            },
+            "postADC_not_claimed_exact": true,
+            "all_rows_neural_flow": true,
+            "inside_TRAIN_support_rows": 1583
+          },
+          "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+            "rows": 2000,
+            "f64_max_relative_error": 3.652366163157506e-15,
+            "actual_f32_preADC_max_relative_error": 2.3756951251378137e-08,
+            "postADC_relative_charge_error": {
+              "n": 2000,
+              "defined_n": 2000,
+              "undefined_n": 0,
+              "mean": 5.3140033327338084e-05,
+              "sample_sd": 0.000439199390464848,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                -0.0047696653384766245,
+                -0.00046158226757312467,
+                -0.00012168359762784877,
+                1.7543251240473575e-07,
+                0.00017457428048342575,
+                0.000773790135370847,
+                0.004643477972331528
+              ]
+            },
+            "postADC_not_claimed_exact": true,
+            "all_rows_neural_flow": true,
+            "inside_TRAIN_support_rows": 1787
+          }
+        },
+        "independent_GPU_full_chain_replay_rows": 4000,
+        "bitwise_pass": true,
+        "CPU_threads": 12,
+        "chunk": 64,
+        "functional_components_not_independent_physical_noise": true,
+        "solver256_reference_not_exact_truth": true,
+        "frozen_final_training_stream_pass": true,
+        "training_receipt_audit": {
+          "pass": true,
+          "checks": {
+            "sole_50000": true,
+            "one_fresh_fit_no_teacher": true,
+            "all_eligible_parents_seen": true,
+            "new_seed_matches": true,
+            "no_validation_decode": true,
+            "loss_records_complete_finite": true,
+            "counter_totals": true,
+            "positive_exposures_and_totals": true,
+            "exact_stratified_draw_totals": true,
+            "initial_state_hash_matches": true,
+            "six_consumed_stream_hashes": true,
+            "all_RNG_states_saved": true,
+            "initial_PCG64_states_match_seeds": true,
+            "q_error_within_original_tolerance": true,
+            "GPU_within_cap": true,
+            "no_network_h_or_PDG": true,
+            "seven_losses_sum": true
+          },
+          "weight_file_SHA256": "408e405481966c566111e5f8751dce43efade10a62aa956d8f20db08062ac002",
+          "loss_columns": [
+            "total_loss",
+            "full_window",
+            "PSD",
+            "source_order",
+            "source_valley",
+            "noise",
+            "REAL_identity",
+            "box_correction",
+            "learning_rate",
+            "gradient_norm",
+            "max_relative_q_f64",
+            "max_relative_q_f32",
+            "SOURCE_global_range_projection_fraction",
+            "REAL_range_projection_fraction",
+            "SOURCE_global_projection_RMS_V",
+            "REAL_projection_RMS_V",
+            "overall_PSD_W1",
+            "Q1_Q7_mean_PSD_W1",
+            "Q3_h_one_soft_valley",
+            "Q4_h_one_soft_valley"
+          ],
+          "all_updates_recorded": 50000,
+          "constraint_loss_trace_summary": {
+            "SOURCE_global_range_projection_fraction": {
+              "n": 50000,
+              "defined_n": 50000,
+              "undefined_n": 0,
+              "mean": 0.12091955539966631,
+              "sample_sd": 0.008564332480002882,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.07832170483846504,
+                0.10442893978462006,
+                0.11748255725769756,
+                0.12183376308205673,
+                0.1261849689064159,
+                0.13488738055513422,
+                0.1414378886698013
+              ]
+            },
+            "REAL_range_projection_fraction": {
+              "n": 50000,
+              "defined_n": 50000,
+              "undefined_n": 0,
+              "mean": 3.125e-07,
+              "sample_sd": 6.987712429686843e-05,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.015625
+              ]
+            },
+            "SOURCE_global_projection_RMS_V": {
+              "n": 50000,
+              "defined_n": 50000,
+              "undefined_n": 0,
+              "mean": 0.0461419396051591,
+              "sample_sd": 0.008039588195854201,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.017511600580428822,
+                0.032319546520723545,
+                0.04181935196861697,
+                0.04599729062280562,
+                0.05059963547085663,
+                0.06002935799076424,
+                0.07520499311251753
+              ]
+            },
+            "REAL_projection_RMS_V": {
+              "n": 50000,
+              "defined_n": 50000,
+              "undefined_n": 0,
+              "mean": 2.8503020435822983e-08,
+              "sample_sd": 6.3734691258565915e-06,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0014251510217911491
+              ]
+            }
+          },
+          "TRAIN_summary_measure": "per-update minibatch estimates, SOURCE weighted by original region mass; not exhaustive frozen TRAIN inference",
+          "stream_reconstruction_executed": false,
+          "realized_exposures_uniform": false,
+          "equal_parent_global_measure_in_expectation": true,
+          "comparison_with_R54_is_single_factor_ablation": false
+        },
+        "direct_distribution_no_teacher": true,
+        "pass": true
+      },
+      "retain": false,
+      "role": "primary"
+    }
+  },
+  "primary": "DIRECT_DISTRIBUTION_RESPONSE",
+  "primary_retain": false,
+  "control_not_fallback": true,
+  "decision": "close_fixed_R59_direct_distribution_recipe",
+  "prespecified_rules_changed_after_data": false,
+  "paired_R59_minus_historical_R49_completion": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "full_historical_shape": {
+        "BA_delta_first_minus_second": 0.16199999999999992,
+        "BA_delta_95CI": [
+          0.12224896161427702,
+          0.19752367464833484
+        ],
+        "AUC_delta_first_minus_second": 0.12636799999999992,
+        "AUC_delta_95CI": [
+          0.09670099896092409,
+          0.15663677037550794
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_SOURCE"
+      },
+      "normalized_u480": {
+        "BA_delta_first_minus_second": 0.21199999999999997,
+        "BA_delta_95CI": [
+          0.17118494804252807,
+          0.24880823735045812
+        ],
+        "AUC_delta_first_minus_second": 0.15048000000000006,
+        "AUC_delta_95CI": [
+          0.11926778238276846,
+          0.18323185531508726
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_SOURCE"
+      },
+      "full_voltage": {
+        "BA_delta_first_minus_second": 0.1319999999999999,
+        "BA_delta_95CI": [
+          0.0941553318937765,
+          0.16569990846063803
+        ],
+        "AUC_delta_first_minus_second": 0.10424,
+        "AUC_delta_95CI": [
+          0.0765240949964034,
+          0.12932187623697056
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_SOURCE"
+      },
+      "Q_PSD_2D": {
+        "BA_delta_first_minus_second": 0.06000000000000005,
+        "BA_delta_95CI": [
+          0.02571189792188844,
+          0.10224437680339837
+        ],
+        "AUC_delta_first_minus_second": 0.07645599999999997,
+        "AUC_delta_95CI": [
+          0.04390457468812286,
+          0.11256627999549786
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_SOURCE"
+      },
+      "baseline_local": {
+        "BA_delta_first_minus_second": 0.30400000000000005,
+        "BA_delta_95CI": [
+          0.2534298395483583,
+          0.35173675580690555
+        ],
+        "AUC_delta_first_minus_second": 0.348576,
+        "AUC_delta_95CI": [
+          0.2967157919566448,
+          0.4002288168268026
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_SOURCE"
+      }
+    },
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+      "full_historical_shape": {
+        "BA_delta_first_minus_second": 0.014000000000000012,
+        "BA_delta_95CI": [
+          -0.025873253187832086,
+          0.05482843137254892
+        ],
+        "AUC_delta_first_minus_second": 0.01030399999999998,
+        "AUC_delta_95CI": [
+          -0.02972371170562845,
+          0.054249816431426935
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_REAL"
+      },
+      "normalized_u480": {
+        "BA_delta_first_minus_second": 0.050000000000000044,
+        "BA_delta_95CI": [
+          0.009069712348594813,
+          0.09093479317104701
+        ],
+        "AUC_delta_first_minus_second": 0.03689599999999993,
+        "AUC_delta_95CI": [
+          0.0013291196469907502,
+          0.07191279638888083
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_REAL"
+      },
+      "full_voltage": {
+        "BA_delta_first_minus_second": -0.006000000000000005,
+        "BA_delta_95CI": [
+          -0.056449758316447114,
+          0.0376273441393199
+        ],
+        "AUC_delta_first_minus_second": -0.005472000000000032,
+        "AUC_delta_95CI": [
+          -0.04829652861316377,
+          0.02977352125681533
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_REAL"
+      },
+      "Q_PSD_2D": {
+        "BA_delta_first_minus_second": 0.006000000000000005,
+        "BA_delta_95CI": [
+          -0.021239711486300956,
+          0.03417053837038577
+        ],
+        "AUC_delta_first_minus_second": 0.008487999999999996,
+        "AUC_delta_95CI": [
+          -0.010575221671881652,
+          0.02626892899835602
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_REAL"
+      },
+      "baseline_local": {
+        "BA_delta_first_minus_second": 0.016000000000000014,
+        "BA_delta_95CI": [
+          -0.027324596774193556,
+          0.0667557138741054
+        ],
+        "AUC_delta_first_minus_second": 0.038239999999999996,
+        "AUC_delta_95CI": [
+          -0.00083036899950214,
+          0.08071220432402113
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R49_COMPLETION_REAL"
+      }
+    }
+  },
+  "primary_A_C_pass": false
+}

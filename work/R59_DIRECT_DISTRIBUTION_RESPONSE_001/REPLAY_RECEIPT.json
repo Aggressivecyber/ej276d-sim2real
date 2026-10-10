@@ -1,0 +1,103 @@
+{
+  "PID": 128138,
+  "UTC": "2026-10-10T21:07:47.120226+00:00",
+  "elapsed_s": 1.7031533400004264,
+  "rows": 4000,
+  "pass": true,
+  "endpoints": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "rows": 2000,
+      "checks": {
+        "pre_ADC_V": true,
+        "waveforms_V": true,
+        "conditioning_Qbin": true,
+        "source_Qbin_actual_preADC": true,
+        "source_q_Vns": true,
+        "input_variance100_V2": true,
+        "innovation_amplitude_squared_V2": true,
+        "inside_TRAIN_support": true,
+        "noise_completion_triggered": true,
+        "continuous_logq_condition": true,
+        "preADC_charge_relative_error_f64": true,
+        "preADC_charge_relative_error_f32": true,
+        "initial_variance100_actual_V2": true,
+        "innovation_variance100_actual_V2": true,
+        "initial_q_relative_error": true,
+        "guide_q_unit_residual": true,
+        "neural_flow_applied_all_rows": true,
+        "pre_constraint_out_of_range_sample_count": true,
+        "constraint_projection_range_active": true,
+        "constraint_projection_RMS_V": true,
+        "constraint_projection_maxabs_V": true,
+        "constraint_projection_rail_sample_count": true,
+        "pre_constraint_charge_relative_error": true,
+        "source_ids": true
+      },
+      "bitwise_pass": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "pre_ADC_sha256": "bc9c91719d89d7e0d02ce0bfc8cac5ec0b8b8deedd8ccec66013d81c68082146",
+      "post_ADC_sha256": "bdb4540e3ae6f5c7b2aea3b408e07e0cd1b05099c124eb850f2e83bf562ee4bb"
+    },
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+      "rows": 2000,
+      "checks": {
+        "pre_ADC_V": true,
+        "waveforms_V": true,
+        "conditioning_Qbin": true,
+        "source_Qbin_actual_preADC": true,
+        "source_q_Vns": true,
+        "input_variance100_V2": true,
+        "innovation_amplitude_squared_V2": true,
+        "inside_TRAIN_support": true,
+        "noise_completion_triggered": true,
+        "continuous_logq_condition": true,
+        "preADC_charge_relative_error_f64": true,
+        "preADC_charge_relative_error_f32": true,
+        "initial_variance100_actual_V2": true,
+        "innovation_variance100_actual_V2": true,
+        "initial_q_relative_error": true,
+        "guide_q_unit_residual": true,
+        "neural_flow_applied_all_rows": true,
+        "pre_constraint_out_of_range_sample_count": true,
+        "constraint_projection_range_active": true,
+        "constraint_projection_RMS_V": true,
+        "constraint_projection_maxabs_V": true,
+        "constraint_projection_rail_sample_count": true,
+        "pre_constraint_charge_relative_error": true,
+        "reference_ids": true,
+        "reference_groups": true
+      },
+      "bitwise_pass": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "pre_ADC_sha256": "aa6553dd37accabd3542d087cee55e37fb9cddce066d26eb4be5a90e41c84ca9",
+      "post_ADC_sha256": "e7387f78091e4cb122ff90730861993d889a14ebd41e49cb17c0bed6975ef68e"
+    }
+  },
+  "independent_process": true,
+  "complete_source_to_standalone_flow_to_oneADC_replayed": true,
+  "source_support_outside_edge_conditioning_no_fallback_replayed": true,
+  "controls_same_REAL_random_binding": true,
+  "fit_or_update": 0,
+  "reader_or_evaluator_read_for_inference": false,
+  "device": "cuda:0",
+  "NumPy": "1.26.4",
+  "torch": "2.12.0+cu130",
+  "portable_loader_executed": true,
+  "portable_model_uses_only_packaged_weights_and_constants": true
+}

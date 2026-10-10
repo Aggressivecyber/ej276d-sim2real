@@ -1,0 +1,117 @@
+{
+  "domains": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "rows": 2000,
+      "all_source_ID_order_weights_and_composition_preserved": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "standalone_flow_applied_N": 2000,
+      "G_applied_N": 2000,
+      "G_applied_N_compatibility_means_new_standalone_flow": true,
+      "TRAIN_support_N": 1583,
+      "TRAIN_support_outside_N": 417,
+      "BASE_fallback_N": 0,
+      "pre_ADC_sha256": "bc9c91719d89d7e0d02ce0bfc8cac5ec0b8b8deedd8ccec66013d81c68082146",
+      "post_ADC_sha256": "bdb4540e3ae6f5c7b2aea3b408e07e0cd1b05099c124eb850f2e83bf562ee4bb",
+      "flow_file": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R59_ROOT_20261010_192814_UTC/DIRECT_DISTRIBUTION_RESPONSE/FINAL_FLOW.pt",
+      "source_clean_full480_input": true,
+      "old_G_used": false,
+      "charge_tangent_projection_inside_velocity": true,
+      "component_labels_functional_not_physical_truth": true,
+      "solver_steps": 128,
+      "chunk": 64
+    },
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+      "rows": 2000,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "flow_file": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R59_ROOT_20261010_192814_UTC/DIRECT_DISTRIBUTION_RESPONSE/FINAL_FLOW.pt",
+      "reference_ID_order_groups_preserved": true,
+      "same_exact_main_random_arrays": true,
+      "no_G4_composition_or_PDG_assignment": true,
+      "stochastic_control_not_identity_claim": true,
+      "pre_ADC_sha256": "aa6553dd37accabd3542d087cee55e37fb9cddce066d26eb4be5a90e41c84ca9",
+      "post_ADC_sha256": "e7387f78091e4cb122ff90730861993d889a14ebd41e49cb17c0bed6975ef68e",
+      "solver_steps": 128,
+      "chunk": 64
+    },
+    "BASE_REAL_CONTROL": {
+      "rows": 2000,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "G_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\SERVER_FRESH_CONTROL\\FINAL_TRANSLATOR.pt",
+      "reference_ID_order_groups_preserved": true,
+      "same_exact_main_random_arrays": true,
+      "no_G4_composition_or_PDG_assignment": true,
+      "stochastic_control_not_identity_claim": true,
+      "pre_ADC_sha256": "fd3df65ba8fc6e81cb522880af40938f10a324680be51bf957f48fa66979ac57",
+      "post_ADC_sha256": "e7cbe6b6f2f31cb4ab373468bf05582a8a27a17f16de00cb203565e33e9be2f0",
+      "reused_from": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/BASE_REAL_CONTROL/generated.npz",
+      "new_inference_rows": 0,
+      "new_fits": 0,
+      "old_independent_replay_from": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/REPLAY_RECEIPT.json"
+    }
+  },
+  "counter": {
+    "source_main_rows": 2000,
+    "REAL_control_rows": 2000,
+    "main_generation_rows": 4000,
+    "repeat_noise_rows": 1024,
+    "source_probe_rows": 832,
+    "extra_guide_probe_rows": 128,
+    "response_fit_or_update": 0,
+    "HGB_attempts": 0,
+    "density_EM_attempts": 0,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0
+  },
+  "elapsed_s": 3.047850725997705,
+  "NumPy": "1.26.4",
+  "torch": "2.12.0+cu130",
+  "exact_main_and_auxiliary_preADC_saved": true,
+  "functional_component_semantics": {
+    "source_input": "fixed complete guide",
+    "innovation": "projected colored seed, not physical electronics",
+    "flow_and_constraint_plus_final_cast": "total learned and explicit constraint correction, not independent physical noise"
+  },
+  "unused_random_inputs": [
+    "z",
+    "style"
+  ],
+  "field_forward_rows_by_arm": {
+    "DIRECT_DISTRIBUTION_RESPONSE": 1019904,
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": 512000
+  },
+  "actual_network_rows_by_arm": {
+    "DIRECT_DISTRIBUTION_RESPONSE": 3984,
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": 2000
+  },
+  "actual_network_calls_by_arm": {
+    "DIRECT_DISTRIBUTION_RESPONSE": 63,
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": 32
+  },
+  "time_state_constant_displacement_cached": true,
+  "explicit_internal_box_charge_projection": true,
+  "all_generation_rows": 5984
+}

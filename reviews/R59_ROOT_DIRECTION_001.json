@@ -1,0 +1,373 @@
+{
+  "UTC": "2026-10-10T21:14:03.465809+00:00",
+  "owner": "/root",
+  "scientific_decision": "close_fixed_R59_direct_distribution_recipe",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "conclusion_zh": "R59完成唯一50000步直接无配对训练和全部原检查。SOURCE五视图BA为0.942/0.956/0.944/0.748/0.882，全部未通过；同处理REAL全部通过。总体/共同Q1–7 PSD W1为0.01445470/0.02647840，必需低/高峰位MAE为0.01599027/0.03823346，峰宽平均相对误差约39.95%/38.97%，均未达原阈值。源保持、数值和4000条独立重放通过，150点附近三项边界失败。原A/B/C全部失败，关闭该固定方法，完整模型目标未完成。",
+  "A_B_C_pass": {
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  "frozen_views": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "full_historical_shape": {
+        "BA": 0.942,
+        "BA_95CI": [
+          0.9221347003410751,
+          0.9626445600070436
+        ],
+        "pass": false
+      },
+      "normalized_u480": {
+        "BA": 0.956,
+        "BA_95CI": [
+          0.9375473560636225,
+          0.9736772768155776
+        ],
+        "pass": false
+      },
+      "full_voltage": {
+        "BA": 0.944,
+        "BA_95CI": [
+          0.9230010139760779,
+          0.9624622142254207
+        ],
+        "pass": false
+      },
+      "Q_PSD_2D": {
+        "BA": 0.748,
+        "BA_95CI": [
+          0.7106335068175266,
+          0.7837030817445083
+        ],
+        "pass": false
+      },
+      "baseline_local": {
+        "BA": 0.882,
+        "BA_95CI": [
+          0.8554158746727002,
+          0.90829826089307
+        ],
+        "pass": false
+      }
+    },
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+      "full_historical_shape": {
+        "BA": 0.516,
+        "BA_95CI": [
+          0.46901147239856916,
+          0.5585968342030174
+        ],
+        "pass": true
+      },
+      "normalized_u480": {
+        "BA": 0.542,
+        "BA_95CI": [
+          0.5046025301093156,
+          0.5758211925399367
+        ],
+        "pass": true
+      },
+      "full_voltage": {
+        "BA": 0.52,
+        "BA_95CI": [
+          0.4794760601430628,
+          0.562358324492686
+        ],
+        "pass": true
+      },
+      "Q_PSD_2D": {
+        "BA": 0.496,
+        "BA_95CI": [
+          0.45492243046455344,
+          0.5396806121640978
+        ],
+        "pass": true
+      },
+      "baseline_local": {
+        "BA": 0.524,
+        "BA_95CI": [
+          0.4874465854250531,
+          0.574271422784875
+        ],
+        "pass": true
+      }
+    }
+  },
+  "PSD_and_density": {
+    "overall_PSD_W1": 0.014454696846196503,
+    "common_Q1_7_PSD_W1": 0.026478402154467333,
+    "peak_MAE_required_Q2_7": {
+      "0": 0.01599027204810764,
+      "1": 0.03823346289764563
+    },
+    "raw_width_relative_errors": {
+      "0": {
+        "required_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "failed_required_bins": [],
+        "mean_absolute_relative_rawSD_error": 0.39949416905468943,
+        "pass": false
+      },
+      "1": {
+        "required_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "failed_required_bins": [],
+        "mean_absolute_relative_rawSD_error": 0.38973084857035684,
+        "pass": false
+      }
+    },
+    "original_noise_side_effects_required": true,
+    "pass": false
+  },
+  "original_six_gates": {
+    "gate1_complete_response": false,
+    "gate2_PSD_width_centers_noise": false,
+    "gate3_source_preservation": true,
+    "gate4_boundary_source": false,
+    "gate5_same_treated_REAL_control": true,
+    "gate6_numerical_replay": true
+  },
+  "boundary_failures": [
+    {
+      "location": "first_149_150",
+      "candidate_W1_V": 0.0023803027528535663,
+      "BASE_W1_V": 0.0014943233839956056,
+      "INDEPENDENT_W1_V": 0.0019123786852224874,
+      "limit_V": 0.0019734175669901734,
+      "pass": false
+    },
+    {
+      "location": "second_center_149",
+      "candidate_W1_V": 0.0019701214673747175,
+      "BASE_W1_V": 0.0006816517121406352,
+      "INDEPENDENT_W1_V": 0.000600225843862536,
+      "limit_V": 0.0007426905939083212,
+      "pass": false
+    },
+    {
+      "location": "second_center_150",
+      "candidate_W1_V": 0.0020092473905878087,
+      "BASE_W1_V": 0.0006427699444546163,
+      "INDEPENDENT_W1_V": 0.0006097479094183008,
+      "limit_V": 0.0007038088262223023,
+      "pass": false
+    }
+  ],
+  "source_valley_counts": [
+    {
+      "actual_source_bin": "bin3",
+      "N": 213,
+      "candidate": 0.0,
+      "BASE": 0.056338028169014086,
+      "delta": -0.056338028169014086,
+      "pass": true
+    },
+    {
+      "actual_source_bin": "bin4",
+      "N": 181,
+      "candidate": 0.0,
+      "BASE": 0.0055248618784530384,
+      "delta": -0.0055248618784530384,
+      "pass": true
+    }
+  ],
+  "source_associations": [
+    {
+      "measure": "source_Q_to_output_Q",
+      "candidate": 0.9999993921248469,
+      "BASE": 0.9997260080563992,
+      "BASE_minus_candidate": -0.0002733840684476796,
+      "pass": true
+    },
+    {
+      "measure": "source_PSD_to_output_PSD",
+      "candidate": 0.4972703716905456,
+      "BASE": 0.4189898393117022,
+      "BASE_minus_candidate": -0.07828053237884341,
+      "pass": true
+    }
+  ],
+  "SOURCE_paired_BA_delta_vs_R54": {
+    "full_historical_shape": {
+      "delta": 0.15999999999999992,
+      "CI": [
+        0.12320756836185155,
+        0.20228517996994128
+      ]
+    },
+    "normalized_u480": {
+      "delta": 0.19199999999999995,
+      "CI": [
+        0.16061233788048526,
+        0.23274771209573034
+      ]
+    },
+    "full_voltage": {
+      "delta": 0.1259999999999999,
+      "CI": [
+        0.0945705383990781,
+        0.16272001990996984
+      ]
+    },
+    "Q_PSD_2D": {
+      "delta": 0.06600000000000006,
+      "CI": [
+        0.030251679364554154,
+        0.10395146220390791
+      ]
+    },
+    "baseline_local": {
+      "delta": 0.32799999999999996,
+      "CI": [
+        0.2758452267905713,
+        0.3818071150569186
+      ]
+    }
+  },
+  "projection_main": {
+    "DIRECT_DISTRIBUTION_RESPONSE": {
+      "events": 2000,
+      "range_active_events": 0,
+      "rail_sample_total": 0,
+      "max_RMS_V": 0.0
+    },
+    "DIRECT_DISTRIBUTION_REAL_CONTROL": {
+      "events": 2000,
+      "range_active_events": 0,
+      "rail_sample_total": 0,
+      "max_RMS_V": 0.0
+    }
+  },
+  "TRAIN_trace_projection": {
+    "SOURCE_global_range_projection_fraction": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.12091955539966631,
+      "sample_sd": 0.008564332480002882,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.07832170483846504,
+        0.10442893978462006,
+        0.11748255725769756,
+        0.12183376308205673,
+        0.1261849689064159,
+        0.13488738055513422,
+        0.1414378886698013
+      ]
+    },
+    "REAL_range_projection_fraction": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 3.125e-07,
+      "sample_sd": 6.987712429686843e-05,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.015625
+      ]
+    },
+    "SOURCE_global_projection_RMS_V": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.0461419396051591,
+      "sample_sd": 0.008039588195854201,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.017511600580428822,
+        0.032319546520723545,
+        0.04181935196861697,
+        0.04599729062280562,
+        0.05059963547085663,
+        0.06002935799076424,
+        0.07520499311251753
+      ]
+    },
+    "REAL_projection_RMS_V": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 2.8503020435822983e-08,
+      "sample_sd": 6.3734691258565915e-06,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0014251510217911491
+      ]
+    }
+  },
+  "all_eight_figures_opened": true,
+  "final_artifact_load_review": "work/R59_DIRECT_DISTRIBUTION_RESPONSE_001/FROZEN_ARTIFACT_REVIEW.json",
+  "transfer_recovery": "reviews/R59_TRANSFER_RECOVERY_001/RECEIPT.json",
+  "scientific_restarts_due_to_transfer": 0,
+  "D_E_evaluated": false,
+  "original_A_F_changed": false,
+  "evaluation_population_changed": false,
+  "next_action": "封存R59固定末点，不续训或选择其他检查点。下一轮先登记仅用合法TRAIN的冻结R59损失与梯度诊断：按原父事件权重完成一次全TRAIN固定前向，并在预先固定的小批量上分解七项损失及全窗四个视图的参数梯度，区分条件分布不足、源顺序/谷约束竞争、支持外投影和数值实现问题。保留全部源父事件及同处理REAL，据TRAIN证据决定下一项直接无配对机制；原A–F、最终源人口和阈值不变，不因本轮负结果启动D/E或宣称目标不可能。",
+  "interpretation_limits": [
+    "Passing numerical stability, source association and same-treated REAL does not imply joint response acceptance.",
+    "All five SOURCE BA differences versus R54 are positive; this is one frozen classifier comparison, not a single-factor architecture ablation.",
+    "Zero projection corrections on the 4000 saved main outputs do not establish zero projection during TRAIN or on every possible input.",
+    "Loss plateaus and output spikes motivate TRAIN diagnosis but do not establish which loss or implementation caused the failure.",
+    "This negative fixed method neither disproves feasibility of the full goal nor validates D/E or independent acquisitions."
+  ]
+}

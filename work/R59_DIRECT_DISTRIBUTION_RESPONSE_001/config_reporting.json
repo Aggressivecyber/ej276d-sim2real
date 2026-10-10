@@ -1,0 +1,121 @@
+{
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+  "source_local_TRAIN": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+  "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+  "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+  "train_solver_input": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+  "expected_R33_environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "stage": "R59_DIRECT_DISTRIBUTION_RESPONSE_001",
+  "owner": "/root",
+  "subagents_allowed": false,
+  "registered_UTC": "2026-10-10T19:28:14.857058+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R59_ROOT_20261010_192814_UTC",
+  "protocol": "tasks/R59_DIRECT_DISTRIBUTION_RESPONSE_001.md",
+  "arm": "DIRECT_DISTRIBUTION_RESPONSE",
+  "arms": [
+    "DIRECT_DISTRIBUTION_RESPONSE"
+  ],
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "model_seed": 20261010590,
+  "PCG64_seeds": {
+    "source_rows": 20261010591,
+    "REAL_reference_rows": 20261010592,
+    "REAL_identity_rows": 20261010593,
+    "source_epsilon": 20261010594,
+    "identity_epsilon": 20261010595,
+    "projection_directions": 20261010596
+  },
+  "updates": 50000,
+  "batch_per_region": 32,
+  "identity_batch": 64,
+  "region_categories": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "lr": 0.0002,
+  "lr_initial": 1e-06,
+  "lr_final": 2e-05,
+  "warmup_updates": 500,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "gradient_clip": 5.0,
+  "projection_directions": 64,
+  "box_projection_iterations": 64,
+  "solver_steps": 128,
+  "solver_check_steps": 256,
+  "generation_chunk": 64,
+  "inference_device": "cuda:0",
+  "input_paths": {
+    "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+    "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+    "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+    "train_solver_input": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+    "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json"
+  },
+  "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json",
+  "SOURCE_N": 6593,
+  "REAL_N": 21047,
+  "PSD_loss_scale": 0.01,
+  "valley_delta": 0.02,
+  "valley_smoothing": 0.002,
+  "feature_names": [
+    "V480",
+    "U480",
+    "DU479",
+    "D2U478"
+  ],
+  "feature_scale_floor": {
+    "V480": 6.103888176768602e-05,
+    "U480": 0.001,
+    "DU479": 0.001,
+    "D2U478": 0.001
+  },
+  "noise_scale_floor": [
+    6.1038881767686015e-06,
+    0.01
+  ],
+  "loss_weights": {
+    "full_window": 1.0,
+    "PSD": 1.0,
+    "source_order": 1.0,
+    "source_valley": 1.0,
+    "noise": 1.0,
+    "REAL_identity": 1.0,
+    "box_correction": 1.0
+  },
+  "allowed_scientific_entries": [
+    "summarize_and_plot.py"
+  ],
+  "GPU_scientific_entries": [],
+  "historical_R54_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC",
+  "historical_R54_report": "R54_REPORT.md",
+  "prior_joint_law_used_as_teacher": false,
+  "training_source_global_measure": "original equal parent weights via explicit region importance correction",
+  "reporting_only": true,
+  "new_fit_or_inference_authorized": false
+}
