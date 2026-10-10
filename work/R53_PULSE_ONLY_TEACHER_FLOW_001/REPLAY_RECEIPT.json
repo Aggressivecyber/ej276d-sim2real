@@ -1,0 +1,89 @@
+{
+  "PID": 35372,
+  "UTC": "2026-10-10T16:54:46.582312+00:00",
+  "elapsed_s": 54.73194071999933,
+  "rows": 4000,
+  "pass": true,
+  "endpoints": {
+    "JOINT_PULSE_RESPONSE": {
+      "rows": 2000,
+      "checks": {
+        "pre_ADC_V": true,
+        "waveforms_V": true,
+        "conditioning_Qbin": true,
+        "source_Qbin_actual_preADC": true,
+        "source_q_Vns": true,
+        "input_variance100_V2": true,
+        "innovation_amplitude_squared_V2": true,
+        "inside_TRAIN_support": true,
+        "noise_completion_triggered": true,
+        "preADC_charge_relative_error_f64": true,
+        "preADC_charge_relative_error_f32": true,
+        "initial_variance100_actual_V2": true,
+        "innovation_variance100_actual_V2": true,
+        "initial_q_relative_error": true,
+        "guide_q_unit_residual": true,
+        "neural_flow_applied_all_rows": true,
+        "source_ids": true
+      },
+      "bitwise_pass": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "pre_ADC_sha256": "fe12bb604e2631be6c6d172e8f8c2af9e9bf104ade0d76820ddd2bd821d68164",
+      "post_ADC_sha256": "b36c7d69697c12890d2777c92414e82fcda09fc79e2bda9ee341624b4ddbf5a9"
+    },
+    "JOINT_PULSE_REAL_CONTROL": {
+      "rows": 2000,
+      "checks": {
+        "pre_ADC_V": true,
+        "waveforms_V": true,
+        "conditioning_Qbin": true,
+        "source_Qbin_actual_preADC": true,
+        "source_q_Vns": true,
+        "input_variance100_V2": true,
+        "innovation_amplitude_squared_V2": true,
+        "inside_TRAIN_support": true,
+        "noise_completion_triggered": true,
+        "preADC_charge_relative_error_f64": true,
+        "preADC_charge_relative_error_f32": true,
+        "initial_variance100_actual_V2": true,
+        "innovation_variance100_actual_V2": true,
+        "initial_q_relative_error": true,
+        "guide_q_unit_residual": true,
+        "neural_flow_applied_all_rows": true,
+        "reference_ids": true,
+        "reference_groups": true
+      },
+      "bitwise_pass": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "pre_ADC_sha256": "eb1b11524cd987b907024f59c041e116e5cc4b3d05966bcd5ec1cc8ff54c13c0",
+      "post_ADC_sha256": "65533be8074ea0e14ef0d64fd158be662152b8304206a462c5616f9d7f0ac9b9"
+    }
+  },
+  "independent_process": true,
+  "complete_source_to_standalone_flow_to_oneADC_replayed": true,
+  "source_support_outside_edge_conditioning_no_fallback_replayed": true,
+  "controls_same_REAL_random_binding": true,
+  "fit_or_update": 0,
+  "reader_or_evaluator_read_for_inference": false,
+  "device": "cuda:0",
+  "NumPy": "1.26.4",
+  "torch": "2.12.0+cu130",
+  "portable_loader_executed": true,
+  "portable_model_uses_only_packaged_weights_and_constants": true
+}

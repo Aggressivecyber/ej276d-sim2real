@@ -1,0 +1,53 @@
+{
+  "UTC": "2026-10-10T17:06:49.359814+00:00",
+  "owner": "/root",
+  "scientific_decision": "close_fixed_R53_joint_pulse_teacher_recipe",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "A_B_C_pass": {
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  "source_five_view_BA": {
+    "full_historical_shape": 0.802,
+    "normalized_u480": 0.778,
+    "full_voltage": 0.8180000000000001,
+    "Q_PSD_2D": 0.7,
+    "baseline_local": 0.574
+  },
+  "same_treated_REAL_five_views_pass": true,
+  "overall_PSD_W1": 0.025631654366897978,
+  "common_Q1_7_PSD_W1": 0.035658606820879964,
+  "required_density_fit_failed_bins": [
+    2
+  ],
+  "edge_density_fit_failed_bins": [
+    1,
+    8
+  ],
+  "source_purehad_valley_failed_original_bins": [
+    3,
+    4
+  ],
+  "source_baseline_RMS_W1_relative_to_BASE": 0.21604767019202398,
+  "replay_rows": 4000,
+  "independent_portable_replay_pass": true,
+  "scientific_limits": [
+    "Joint coupling and endpoint changed together in R53; their individual effect is not established.",
+    "R53 GPU generation and historical R49 CPU comparison are not a matched-platform causal test.",
+    "Source Q marginal differs from REAL and remains preserved; continuous Q conditioning cannot repair that marginal.",
+    "Existing Q-only classifier evidence is inconclusive; no impossibility claim is established.",
+    "All DEV evidence is historically exposed; no independent acquisition or final EVAL opened."
+  ],
+  "next_mechanism_evidence": {
+    "files": [
+      "network.py",
+      "source_flow_core.py",
+      "train_final.py"
+    ],
+    "fact": "The network receives normalized waveform guide, scalar time and eight-bin code. Absolute source Q scales external coordinates and noise, but exact continuous Q is not supplied directly to the learned field.",
+    "hypothesis": "Within-bin charge dependence of normalized target pulse/noise may be incompletely represented. This is a testable hypothesis, not an established cause of the R53 failures."
+  },
+  "next_action": "封存 R53 固定方案。下一轮预登记单一连续电荷条件消融：保持同一教师、数据、噪声、初始权重和 50000 次更新，只在神经场中显式加入由原 TRAIN 电荷边界定义的连续 logQ 坐标；不按 DEV 选尺度或检查点。训练后沿用原数值门与 A–F 联合验收；失败即关闭该固定方案。"
+}

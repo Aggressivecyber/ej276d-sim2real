@@ -1,0 +1,63 @@
+{
+  "PID": 30957,
+  "UTC": "2026-10-10T16:49:52.580534+00:00",
+  "models": {
+    "JOINT_PULSE_RESPONSE": {
+      "PID": 30957,
+      "arm": "JOINT_PULSE_RESPONSE",
+      "UTC": "2026-10-10T16:49:52.580289+00:00",
+      "RMS_median_LSB": 0.04066891331939057,
+      "RMS_p95_LSB": 0.3230703922192868,
+      "RMS_median_V": 2.482384991722552e-06,
+      "RMS_p95_V": 1.9719855473312996e-05,
+      "LSB_V": 6.103888176768602e-05,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "preADC_relative_q_max": 1.1775842782681204e-08,
+      "relative_q_limit": 1e-05,
+      "pass": true,
+      "solver128": {
+        "field_calls": 512,
+        "field_forward_rows": 32768,
+        "max_relative_q_error_f64": 2.251376160920748e-16,
+        "max_relative_q_error_f32": 1.0317429415639497e-08,
+        "steps": 128,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true
+      },
+      "solver256": {
+        "field_calls": 1024,
+        "field_forward_rows": 65536,
+        "max_relative_q_error_f64": 2.2135552626399528e-16,
+        "max_relative_q_error_f32": 1.1775842782681204e-08,
+        "steps": 256,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true
+      },
+      "TRAIN_SOURCE_REAL_rows": [
+        64,
+        64
+      ],
+      "white_reference": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "white_prefix": "first128 consumed-row white; original noise-generation ordinal retained",
+      "DEV_read_or_generated": 0,
+      "candidate_steps": 128,
+      "reference_only_steps": 256,
+      "no_step_search": true
+    }
+  },
+  "both_pass": true,
+  "historical_control_pass_reused": true,
+  "new_models": 1,
+  "device": "cuda:0",
+  "elapsed_s": 6.61038032200031,
+  "DEV_read_or_generated": 0,
+  "new_response_updates": 0,
+  "both_required_before_DEV": true,
+  "CPU_threads": 12,
+  "chunk": 64
+}
