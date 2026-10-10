@@ -26,3 +26,9 @@ R46新增响应训练为0。历史SHORT/LONG分别2950/50000次更新；LONG的�
 最终封存377文件、1,358,692,408B，根与执行器实际打开全部13张图。阶段只关闭当前固定长训练/64步方案；当前总预算仍有余量，不把预算余量当作继续盲扫的理由。下一机制判断与总体目标范围澄清分开记录，未答复的范围选择不视为同意修改验收。
 
 [完整报告](work/R46_FIXED_INTEGRATION_BUDGET_001/REPORT.md) · [长短预算图](work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/long_short_budget_comparison.png) · [联合Q–PSD](work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/charge_psd_full_range.png) · [源保真](work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/source_preservation.png) · [重放](work/R46_FIXED_INTEGRATION_BUDGET_001/REPLAY_RECEIPT.json) · [验收观察](reviews/R46_ACCEPTANCE_OBSERVATION_001.json) · [复现入口](work/R46_FIXED_INTEGRATION_BUDGET_001/REPRODUCTION.md)。私有Git与D盘副本只以实际R46_PUBLICATION_RECEIPT.json及R46_BACKUP_RECEIPT.json为准。
+
+## 实际阶段交付
+
+私有Git科学产物提交`b2edef50ba8ff21023b862c07f43ef08cb5a1978`已推送并核对远端一致。D盘新增复制1707文件、1,386,827,072B，加完整Git bundle 120,062,374B，正常复制完成；路径`D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r46_fixed_integration_final_20261010_024218_UTC`。该增量依赖原R44/R45副本，单独此目录不是完整快照。当前收尾状态和收据另作为小型metadata overlay保留在该目录的delivery_completion，不重复复制科学数组。最终元数据提交与overlay完成以R46_DELIVERY_COMPLETION_RECEIPT.json为准。
+
+[当前家族关闭与下一方向所需证据](reviews/R46_ROUTE_DECISION_001.md)。模型目标未完成，没有新的科学作业。
