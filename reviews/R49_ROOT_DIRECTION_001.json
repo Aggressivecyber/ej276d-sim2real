@@ -1,0 +1,61 @@
+{
+  "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+  "decision_basis": "Completed saved DEV evaluation; final native replay and stage delivery remain required before final closeout.",
+  "actual_root_read_tools": [
+    "a4f992",
+    "2852c1",
+    "afa2db",
+    "214bed"
+  ],
+  "primary_A_C_pass": false,
+  "primary_A_pass": false,
+  "primary_B_pass": false,
+  "original_A_F_unchanged": true,
+  "compute_budget_enforced": false,
+  "time_or_output_budget_stop": false,
+  "current_family_status": "fixed_R49_recipe_unaccepted_on_completed_A_B_evidence_unbudgeted_project_policy_continues",
+  "scientific_decision": "close_fixed_R49_Heun128_recipe",
+  "whole_noise_completion_family_declared_ineffective": false,
+  "higher_solver_step_search_is_a_supported_remedy": false,
+  "source_main_population_changed": false,
+  "fixed_control_used_as_fallback_winner": false,
+  "facts": {
+    "SOURCE_primary_shape_BA": 0.78,
+    "SOURCE_primary_shape_BA_95CI": [
+      0.7448859442890982,
+      0.8173167513553423
+    ],
+    "SOURCE_primary_voltage_BA": 0.8160000000000001,
+    "same_treated_REAL_primary_voltage_BA": 0.828,
+    "same_treated_REAL_primary_voltage_BA_95CI": [
+      0.7956319413681074,
+      0.8579962343681498
+    ],
+    "primary_overall_PSD_W1": 0.028896130528591538,
+    "control_overall_PSD_W1": 0.041838218242278936,
+    "BASE_overall_PSD_W1": 0.023065461350718693,
+    "primary_fixed_Q1_7_PSD_W1": 0.03932074863894671,
+    "required_PSD_W1_max": 0.01,
+    "both_SOURCE_required_density_failed_bins_1based": [
+      3
+    ],
+    "density_failure_reason": "not_converged500_under_original_frozen_fit_definition",
+    "failed_density_bins_not_removed_or_reinterpreted_as_physical_peak_absence": true,
+    "primary_source_had_valley_bin3": 0.26291079812206575,
+    "BASE_source_had_valley_bin3": 0.056338028169014086,
+    "primary_source_had_valley_bin4": 0.1878453038674033,
+    "BASE_source_had_valley_bin4": 0.0055248618784530384,
+    "primary_SOURCE_shape_BA_minus_control": 0.018000000000000016,
+    "paired_SOURCE_shape_BA_delta_95CI": [
+      -0.008065767081534161,
+      0.04451395740356954
+    ],
+    "all_five_original_SOURCE_and_REAL_BA_pair_CIs_include_zero": true,
+    "BASE_SOURCE_shape_BA": 0.978
+  },
+  "interpretation": "The 128-step numerical prerequisite is satisfied, allowing actual response evaluation. The fixed noise-completion candidate improves descriptive PSD distance relative to its fixed-noise control, but does not pass absolute PSD, full SOURCE response, same-treated REAL voltage, or required density criteria. Source IDs and charge ranks alone do not establish preserved source-conditional PSD. All five original-view paired BA intervals for both SOURCE and REAL include zero, so these comparisons do not establish a uniform full-response advantage of noise completion. The REAL voltage discrepancy remains unexplained by these saved aggregates; baseline restoration, amplitude structure and quantization are hypotheses, not established causes.",
+  "next_direction": "Treat R49 as a closed fixed recipe, retaining its useful numerical and REAL-identity findings. A distinct next protocol should first isolate the same-treated REAL full-voltage discrepancy from baseline, amplitude and quantization using saved outputs, then specify a response change that preserves source-conditional PSD and controls noise. Keep all original populations and A-F thresholds. Do not use more integration steps, a selected control winner, dropped density bins or marginal reweighting to claim this recipe accepted.",
+  "next_action": "Finish all 8000 independent main replay rows, rendered figure checks, native sealing, private Git publication and D normal-copy delivery. Preserve the resulting negative evidence. Any next scientific stage is a separately registered substantive protocol under the existing no-compute-budget authorization; no A-C-qualified model exists for D/E validation.",
+  "Chinese_current_state": "两臂128/256步数值检查通过，11968条输出及40个判别器/32个密度槽评价完成；固定主候选A/B失败，独立重放与最终C结果见封存回执。PSD相对固定噪声对照有所改善，但完整SOURCE响应、同处理REAL电压、源条件PSD和必需Q3密度仍存在失败。",
+  "Chinese_result_summary": "R49解决了上一轮的数值前提失败，并完成固定两臂的完整响应评价；主候选仍不满足原A–C联合验收。相对旧BASE，SOURCE形状BA从0.978降至0.780，但仍未达到要求。主候选SOURCE形状BA为0.780（95%区间0.745–0.817），同处理REAL电压BA为0.828（0.796–0.858）；总体/固定Q1–7 PSD W1为0.02890/0.03932，均超过0.01。相对固定噪声对照，总体PSD距离下降，但原五视图的SOURCE及REAL配对BA差区间均包含0，不能宣称全面优势。两臂必需Q3密度均未在原固定定义内收敛，Q2–7峰位/宽度联合结果保持未定义，不删除失败区，也不推断物理粒子峰消失。两处源pure-had谷比例和一处时间边界不满足原约束。该固定配方关闭，整个噪声补全方法家族是否可行仍不能据此否定；同处理REAL的电压差异原因仍待定位。D/E没有合格候选可进入，模型目标未完成。"
+}

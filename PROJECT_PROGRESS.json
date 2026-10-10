@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-10T09:34:11.601732+00:00",
+  "updated_UTC": "2026-10-10T10:32:45.755475+00:00",
   "project_status": "next_round_authorized_model_goal_unmet",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": null,
   "latest_completed_stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
-  "current_stage": "R49_FROZEN_HEUN128_RESPONSE_001",
-  "current_task": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+  "current_stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+  "current_task": "tasks/R49_LOCAL_HEUN128_RECOVERY_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -65,22 +65,25 @@
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Only common numerical integration changes to Heun128; retain the frozen R48 primary/control and all scientific gates.",
+  "current_direction": "Continue the same fixed method locally after user-authorized failover; preserve remote unknown state.",
   "next_round_policy": "Continue the newly authorized round with fixed scientific design and no compute quota.",
-  "current_activity": "R49_executor_implementation_and_preflight",
+  "current_activity": "local_dependency_mapping_and_preflight",
   "latest_user_steering": "推进下一轮 不设置预算",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
-  "latest_user_steering_receipt": "reviews/NO_COMPUTE_BUDGET_20261010_001/RECEIPT.json",
+  "latest_user_steering_receipt": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
   "execution_location": {
-    "mode": "server_CUDA_training_CPU12_generation_evaluation_replay_local_auxiliary",
-    "server": "rylan@100.82.231.102",
-    "CPU_threads": 12,
-    "GPU_count": 1,
-    "job_tree_RSS_bytes": 51539607552,
-    "GPU_allocated_and_reserved_max_bytes": 10737418240,
+    "mode": "local_CPU_frozen_numerical_generation_evaluation_replay",
+    "CPU_threads": 4,
+    "job_tree_RSS_bytes": 4294967296,
+    "GPU_count": 0,
+    "current_stage_GPU_used": false,
+    "current_stage_response_training": false,
+    "local_files": "E/D only",
     "preflight_required": true,
-    "local_auxiliary_CPU_threads": 4,
-    "local_files": "E/D only"
+    "remote_previous_attempt_terminal": "unknown",
+    "server_user_reported_state": "maintenance",
+    "single_local_scientific_job": true,
+    "global_single_physical_job_confirmed": false
   },
   "current_task_addendum": null,
   "latest_response_model_stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
@@ -103,7 +106,7 @@
   "stage_deadline_UTC": null,
   "executor_seal_deadline_UTC": null,
   "current_stage_progress": "registered_not_started",
-  "status": "R49_registered_unbudgeted_science_not_started_model_goal_unmet",
+  "status": "R49_local_recovery_registered_model_goal_unmet",
   "goal_status_note": "Current get_goal returned null; no automatic goal creation. Human request authorizes this round.",
   "latest_delivered_stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
   "latest_stage_publication": "R48_PUBLICATION_RECEIPT.json",
@@ -112,7 +115,7 @@
   "latest_backup_mode": "incremental_with_explicit_R44_R45_R46_R47_dependencies",
   "latest_backup_base_dependency": "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r44_psd_velocity_final_20261010_005904_UTC",
   "model_goal_complete": false,
-  "current_route_decision": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+  "current_route_decision": "tasks/R49_LOCAL_HEUN128_RECOVERY_001.md",
   "latest_backup_base_dependencies": [
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r44_psd_velocity_final_20261010_005904_UTC",
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r45_extended_budget_final_20261010_014746_UTC",
@@ -120,21 +123,21 @@
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r47_population_noise_final_20261010_060645_UTC"
   ],
   "execution_plan": "PROJECT_EXECUTION_PLAN_20261010_002.md",
-  "current_stage_scope": "frozen_R48_pair_common_Heun128_numerical_and_conditional_full_response",
-  "current_executor_ack": "work/R49_FROZEN_HEUN128_RESPONSE_001/EXECUTOR_ACK.json",
+  "current_stage_scope": "same_R49_fixed_protocol_local_recovery_with_separate_actual_evidence",
+  "current_executor_ack": "work/R49_LOCAL_HEUN128_RECOVERY_001/EXECUTOR_ACK.json",
   "original_fixed_charge_flow_family_closed": true,
   "current_route_research_closed": false,
-  "active_scientific_jobs": 0,
+  "active_scientific_jobs": null,
   "delivery_completion_receipt": "R48_DELIVERY_COMPLETION_RECEIPT.json",
   "goal_activation_receipt": "reviews/PROJECT_GOAL_ACTIVATION_20261010_001/RECEIPT.json",
-  "next_action": "Existing executor continuously implements and completes the registered R49 protocol without compute quotas.",
-  "current_stage_registration": "reviews/R49_REGISTRATION_001/RECEIPT.json",
+  "next_action": "Existing executor continuously completes local fixed checks, own-output generation/evaluation/replay and delivery.",
+  "current_stage_registration": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
   "next_prepared_task": null,
-  "executor_start_observation": "reviews/R48_EXECUTOR_START_OBSERVATION.json",
-  "last_native_observation": "reviews/R48_LIVE_OBSERVATION.json",
+  "executor_start_observation": "work/R49_FROZEN_HEUN128_RESPONSE_001/EXECUTOR_ACK.json",
+  "last_native_observation": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
   "current_job": {
-    "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
-    "status": "registered_not_started"
+    "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+    "status": "registered_local_preflight_pending"
   },
   "latest_training_progress": [
     {
@@ -166,7 +169,7 @@
       "final_training_evidence": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAINING_COMPACT.json"
     }
   ],
-  "updated_at_utc": "2026-10-10T09:34:11.601732+00:00",
+  "updated_at_utc": "2026-10-10T10:32:45.755475+00:00",
   "latest_scientific_decision": "close_fixed_R48_Heun64_recipe_numerical_failure_before_DEV",
   "improvement_block_closed": false,
   "further_scientific_execution_authorized": true,
@@ -174,5 +177,16 @@
   "latest_permission_status": "Next round explicitly authorized without compute quotas; scientific gates preserved.",
   "latest_acceptance_observation": "reviews/R48_ACCEPTANCE_OBSERVATION_001.json",
   "delivery_status": "R48_scientific_stage_delivered",
-  "compute_budget_enforced": false
+  "compute_budget_enforced": false,
+  "deadlines_enforced": false,
+  "execution_policy": "registered_scientific_design_continuous_execution_without_compute_quota",
+  "current_stage_response_training_runs_started": 0,
+  "latest_training_progress_stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+  "latest_training_progress_role": "historical_frozen_weights_no_R49_training",
+  "current_policy_reconciliation": "reviews/R49_CURRENT_POLICY_RECONCILIATION_001/RECEIPT.json",
+  "active_local_scientific_jobs": 0,
+  "active_remote_scientific_jobs": null,
+  "remote_job_state": "unknown_user_reports_maintenance",
+  "unknown_remote_job_receipt": "reviews/R49_REMOTE_INTERRUPTION_001.json",
+  "numeric_execution_released": true
 }

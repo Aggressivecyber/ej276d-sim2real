@@ -1,0 +1,254 @@
+{
+  "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+  "observed_UTC": "2026-10-10T10:25:34.539064+00:00",
+  "actual_root_control_PID": 55300,
+  "completed_native_science_s": 2107.3375221949973,
+  "started_native_jobs": [
+    {
+      "entry": "check_models.py",
+      "actual_worker_PID": 208979,
+      "start_UTC": "2026-10-10T09:42:04.445479+00:00",
+      "handshake_before_imports": true,
+      "limit_s": null,
+      "local_status_receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/check_models.py.LOCAL_ACTIVE_JOB.json"
+    },
+    {
+      "entry": "evaluate_saved.py",
+      "actual_worker_PID": 217385,
+      "start_UTC": "2026-10-10T10:19:56.910369+00:00",
+      "handshake_before_imports": true,
+      "limit_s": null,
+      "local_status_receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/evaluate_saved.py.LOCAL_ACTIVE_JOB.json"
+    },
+    {
+      "entry": "generate_all.py",
+      "actual_worker_PID": 210656,
+      "start_UTC": "2026-10-10T09:47:16.148556+00:00",
+      "handshake_before_imports": true,
+      "limit_s": null,
+      "local_status_receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/generate_all.py.LOCAL_ACTIVE_JOB.json"
+    },
+    {
+      "entry": "replay_all.py",
+      "actual_worker_PID": 218727,
+      "start_UTC": "2026-10-10T10:20:22.573807+00:00",
+      "handshake_before_imports": true,
+      "limit_s": null,
+      "local_status_receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/replay_all.py.LOCAL_ACTIVE_JOB.json"
+    }
+  ],
+  "last_observed_running_jobs": [],
+  "awaiting_native_receipt_jobs": [
+    {
+      "entry": "replay_all.py",
+      "actual_worker_PID": 218727,
+      "start_UTC": "2026-10-10T10:20:22.573807+00:00",
+      "handshake_before_imports": true,
+      "limit_s": null,
+      "local_status_receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/replay_all.py.LOCAL_ACTIVE_JOB.json",
+      "status": "awaiting_native_receipt_remote_state_not_inferred_from_SSH_exit",
+      "SSH_native_exit": 4294967295
+    }
+  ],
+  "native_completed_jobs": [
+    {
+      "entry": "check_models.py",
+      "supervisor_PID": 208978,
+      "start_UTC": "2026-10-10T09:42:04.445479+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": null,
+      "compute_budget_enforced": false,
+      "wall_deadline_UTC": null,
+      "stage_output_limit_bytes": null,
+      "actual_worker_PID": 208979,
+      "actual_worker_RSS_peak_bytes": 764493824,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "job_tree_RSS_peak_bytes": 762155008,
+      "execution_device": "cpu",
+      "GPU_admission_applied": false,
+      "GPU_process_memory_peak_bytes": null,
+      "RSS_limit_bytes": 51539607552,
+      "start_resource": {
+        "UTC": "2026-10-10T09:42:04.445370+00:00",
+        "MemAvailable_bytes": 62137217024,
+        "RSS_quota_bytes": 51539607552,
+        "CPU_threads": 12,
+        "disk_free_bytes": 24275308544,
+        "other_own_project_jobs": [],
+        "execution_device": "cpu",
+        "GPU_admission_applied": false,
+        "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+        "compute_budget_enforced": false,
+        "limit_s": null,
+        "stage_output_limit_bytes": null
+      },
+      "launcher_PID": 208979,
+      "last_disk_free_bytes": 24274763776,
+      "actual_worker_parent_PID": 208978,
+      "last_job_tree_PIDs": [
+        208979
+      ],
+      "actual_worker_native_exit": 0,
+      "launcher_native_exit": 0,
+      "termination_reason": null,
+      "elapsed_s": 130.3838773269963,
+      "stop_UTC": "2026-10-10T09:44:14.829360+00:00",
+      "worker_self_receipt": {
+        "PID": 208979,
+        "parent_PID": 208978,
+        "nonce": "c43d82c4001f4e09b75afabd0102744c",
+        "entry": "check_models.py",
+        "native_exit": 0,
+        "error": null,
+        "elapsed_s": 129.96382570500282,
+        "self_peak_RSS_bytes": 764493824,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-10T09:44:14.425454+00:00"
+      },
+      "receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/check_models.py.NATIVE_RECEIPT.json"
+    },
+    {
+      "entry": "evaluate_saved.py",
+      "supervisor_PID": 217384,
+      "start_UTC": "2026-10-10T10:19:56.910369+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": null,
+      "compute_budget_enforced": false,
+      "wall_deadline_UTC": null,
+      "stage_output_limit_bytes": null,
+      "actual_worker_PID": 217385,
+      "actual_worker_RSS_peak_bytes": 1532125184,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "job_tree_RSS_peak_bytes": 1520091136,
+      "execution_device": "cpu",
+      "GPU_admission_applied": false,
+      "GPU_process_memory_peak_bytes": null,
+      "RSS_limit_bytes": 51539607552,
+      "start_resource": {
+        "UTC": "2026-10-10T10:19:56.910234+00:00",
+        "MemAvailable_bytes": 61915213824,
+        "RSS_quota_bytes": 51539607552,
+        "CPU_threads": 12,
+        "disk_free_bytes": 24239542272,
+        "other_own_project_jobs": [],
+        "execution_device": "cpu",
+        "GPU_admission_applied": false,
+        "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+        "compute_budget_enforced": false,
+        "limit_s": null,
+        "stage_output_limit_bytes": null
+      },
+      "launcher_PID": 217385,
+      "last_disk_free_bytes": 24233586688,
+      "actual_worker_parent_PID": 217384,
+      "last_job_tree_PIDs": [
+        217385
+      ],
+      "actual_worker_native_exit": 0,
+      "launcher_native_exit": 0,
+      "termination_reason": null,
+      "elapsed_s": 20.69967682400602,
+      "stop_UTC": "2026-10-10T10:20:17.610051+00:00",
+      "worker_self_receipt": {
+        "PID": 217385,
+        "parent_PID": 217384,
+        "nonce": "678c9255279f4da8a88dcebd359bfbce",
+        "entry": "evaluate_saved.py",
+        "native_exit": 0,
+        "error": null,
+        "elapsed_s": 20.162935547996312,
+        "self_peak_RSS_bytes": 1532125184,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-10T10:20:17.089722+00:00"
+      },
+      "receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/evaluate_saved.py.NATIVE_RECEIPT.json"
+    },
+    {
+      "entry": "generate_all.py",
+      "supervisor_PID": 210655,
+      "start_UTC": "2026-10-10T09:47:16.148556+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": null,
+      "compute_budget_enforced": false,
+      "wall_deadline_UTC": null,
+      "stage_output_limit_bytes": null,
+      "actual_worker_PID": 210656,
+      "actual_worker_RSS_peak_bytes": 1014882304,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "job_tree_RSS_peak_bytes": 1014882304,
+      "execution_device": "cpu",
+      "GPU_admission_applied": false,
+      "GPU_process_memory_peak_bytes": null,
+      "RSS_limit_bytes": 51539607552,
+      "start_resource": {
+        "UTC": "2026-10-10T09:47:16.148432+00:00",
+        "MemAvailable_bytes": 62126514176,
+        "RSS_quota_bytes": 51539607552,
+        "CPU_threads": 12,
+        "disk_free_bytes": 24274145280,
+        "other_own_project_jobs": [],
+        "execution_device": "cpu",
+        "GPU_admission_applied": false,
+        "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+        "compute_budget_enforced": false,
+        "limit_s": null,
+        "stage_output_limit_bytes": null
+      },
+      "launcher_PID": 210656,
+      "last_disk_free_bytes": 24244883456,
+      "actual_worker_parent_PID": 210655,
+      "last_job_tree_PIDs": [
+        210656
+      ],
+      "actual_worker_native_exit": 0,
+      "launcher_native_exit": 0,
+      "termination_reason": null,
+      "elapsed_s": 1956.253968043995,
+      "stop_UTC": "2026-10-10T10:19:52.402531+00:00",
+      "worker_self_receipt": {
+        "PID": 210656,
+        "parent_PID": 210655,
+        "nonce": "e659ffe9df15495ab2dec643334175d4",
+        "entry": "generate_all.py",
+        "native_exit": 0,
+        "error": null,
+        "elapsed_s": 1955.7036873300021,
+        "self_peak_RSS_bytes": 1013702656,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-10T10:19:51.868606+00:00"
+      },
+      "receipt": "work/R49_FROZEN_HEUN128_RESPONSE_001/generate_all.py.NATIVE_RECEIPT.json"
+    }
+  ],
+  "response_training_runs_started": 0,
+  "inflight_elapsed_not_added_until_native_completion": true,
+  "remote_fresh_process_query_by_root": false,
+  "evidence_basis": "Executor-owned native receipts and actual worker handshake; no duplicate remote polling.",
+  "numerical_check": {
+    "both_pass": true,
+    "models": {
+      "GUIDED_FIXED_NOISE_CONTROL": {
+        "RMS_median_LSB": 0.03844283006525421,
+        "RMS_p95_LSB": 0.3571260427655688,
+        "preADC_relative_q_max": 1.081764608865057e-08,
+        "pass": true,
+        "candidate_steps": 128,
+        "reference_only_steps": 256
+      },
+      "GUIDED_NOISE_COMPLETION": {
+        "RMS_median_LSB": 0.028838364213350794,
+        "RMS_p95_LSB": 0.3754441726708883,
+        "preADC_relative_q_max": 1.0414924509142265e-08,
+        "pass": true,
+        "candidate_steps": 128,
+        "reference_only_steps": 256
+      }
+    }
+  }
+}
