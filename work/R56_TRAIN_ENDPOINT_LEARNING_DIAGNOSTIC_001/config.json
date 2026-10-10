@@ -1,0 +1,77 @@
+{
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "stage": "R56_TRAIN_ENDPOINT_LEARNING_DIAGNOSTIC_001",
+  "owner": "/root",
+  "subagents_allowed": false,
+  "registered_UTC": "2026-10-10T18:15:50.026496+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R56_ROOT_20261010_181550_UTC",
+  "protocol": "tasks/R56_TRAIN_ENDPOINT_LEARNING_DIAGNOSTIC_001.md",
+  "input_paths": {
+    "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+    "original_stream": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/SCALAR_TIME_FLOW_FINAL/ACTUAL_CFM_STREAM_PRIVATE.npz",
+    "full_coupling_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R52_ROOT_20261010_160954_UTC/full_cycle_COUPLING_PRIVATE.npz",
+    "partial_coupling_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R52_ROOT_20261010_160954_UTC/final_partial_cycle_COUPLING_PRIVATE.npz",
+    "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+    "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+    "weights": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/FINAL_FLOW.pt",
+    "basis": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/PULSE_BASIS.npz",
+    "original_training_receipt": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/TRAINING_RECEIPT.json",
+    "random_initial": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/INITIAL_RANDOM_STATES.json",
+    "teacher_validation": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/TEACHER_VALIDATION.json"
+  },
+  "PCG64_seeds": {
+    "source_t": 20261010481,
+    "source_epsilon": 20261010482,
+    "identity_t": 20261010483,
+    "identity_epsilon": 20261010484
+  },
+  "expected_environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "allowed_scientific_entries": [
+    "diagnose_train.py"
+  ],
+  "GPU_scientific_entries": [
+    "diagnose_train.py"
+  ],
+  "full_rows": 94400,
+  "partial_rows": 89600,
+  "full_cycle_repeats": 16,
+  "SOURCE_N": 6593,
+  "REAL_N": 21047,
+  "path_batch": 32,
+  "path_batches": 2950,
+  "endpoint_seed": 20261010561,
+  "solver_steps": 128,
+  "generation_chunk": 64,
+  "learning_W1_threshold": 0.01,
+  "learning_residual_ratio": 0.2,
+  "learning_required_bins": 4,
+  "required_bins_onebased": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "response_training_runs": 0,
+  "HGB_fits": 0,
+  "density_fits": 0,
+  "DEV_read": 0,
+  "EVAL_read": 0,
+  "CAL_decode": 0
+}

@@ -1,0 +1,11 @@
+# Reproduce the fixed TRAIN diagnostic
+
+The registered protocol is PROTOCOL.md and config.json. This is a frozen R54 diagnostic, not a new trained model or A–F acceptance run.
+
+Restore the existing R54/R55 backup chain, including the R23 TRAIN package, R43 constants/original stream, R48 noise constants, R52 full/partial coupling, and the unique R54 model, basis, initial PCG states and training receipt. INPUT_BINDING.json identifies all source files and scientific SHA256 bindings. This stage references them rather than duplicating the model or raw TRAIN arrays. It reads no source_val/target_val fields, DEV, EVAL or CAL waveforms.
+
+Use the registered Linux Python/CUDA environment and update only input path locations if restoring elsewhere, keeping scientific file bindings. To make an independent reproduction, create a new output directory and retain this directory unchanged; submit linux_supervise.py diagnose_train.py after the original job is verified terminal. The supervisor checks the single project job, memory/GPU availability, captures an actual-process handshake, and enforces CPU12/RSS48GiB/GPU10GiB. All cache and temporary paths are inside that output directory. There is no time or computation quota.
+
+One execution creates frozen TRAIN teacher descriptions, 94400 SOURCE plus 94400 REAL identity path rows, and a single Heun128 realization for each of the 6593 SOURCE parents using seed 20261010561. It does no optimization. PATH_ROWS_PRIVATE.npz holds path statistics, TRAIN_ENDPOINT_PRIVATE.npz holds the actual preADC realization and original source IDs, and FEATURES_PRIVATE.npz holds the teacher/REAL/output descriptions and waveform moments. Original input weights and exposure counts remain explicit. Repeated appearances of one generated parent use the same realization and are not independent samples.
+
+RESULT.json includes all six predefined direction markers and reports preADC and canonical 14-bit ADC descriptions separately. Undefined statistics return null and retain their counts. These descriptive comparisons cannot replace the fixed project acceptance, downstream utility, support-gap experiment, source-valley requirement or an independent acquisition. NUMERIC_RECEIPT.json and the native worker/supervisor receipts distinguish scientific execution from mere preparation; every figure must also be opened for visual QA.

@@ -1,0 +1,37 @@
+{
+  "UTC": "2026-10-10T18:26:05.808219+00:00",
+  "owner": "/root",
+  "scientific_decision": "fixed_direction_rule_inconclusive_review_full_evidence",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "conclusion_zh": "R56的预登记学习残差标记为0/6，教师偏差标记也是0/6，不能据此启动显式PSD切向机制。教师Q2–Q7的PSD W1为0.000374–0.001770；按旧训练曝光统计，冻结R54在Q2–Q6的W1为0.00385–0.00976。相同源端点按原父事件等权统计后，Q2–Q6为0.01665–0.04285，显示原训练采样测度与等权源人口之间的明显差异。2840个支持外TRAIN源从未参加训练，且本轮其中647个preADC输出越过ADC电压范围。模型目标仍未完成。",
+  "learning_markers": 0,
+  "teacher_bias_markers": 0,
+  "unweighted_Q2_Q7_W1": [
+    0.04285282000060823,
+    0.040810148055006726,
+    0.027360633803468933,
+    0.019851904629940187,
+    0.016645073260399715,
+    0.015503652352825721
+  ],
+  "weighted_Q2_Q7_W1": [
+    0.008083281642801195,
+    0.0038464310149463076,
+    0.009764868644063528,
+    0.007110105574256354,
+    0.007459966852534756,
+    0.017811480087592153
+  ],
+  "original_A_F_changed": false,
+  "original_evaluation_population_changed": false,
+  "new_response_training": 0,
+  "next_action": "封存R56，不把0/6学习标记解释为通过，也不延长R54或直接加强PSD损失。下一轮只用合法TRAIN，预登记原TRAIN父事件等权的教师/耦合预检，去除旧exp(lambda*h)训练采样倾斜，并明确支持内外覆盖、源电荷/PSD关联、谷比例、完整波形与ADC/噪声约束。原验收2000个SOURCE的身份、顺序、组成和权重全部保持；训练采样政策的改变必须单列。先完成教师科学终点，有可用端点证据后再另行登记神经训练；不读取DEV/EVAL选参。",
+  "interpretation_limits": [
+    "Repeated occurrences share one fixed output realization and are not independent samples.",
+    "Changing descriptive parent weights exposes a distribution sensitivity; it is not a new accepted response or unique causal proof.",
+    "TRAIN path residuals do not equal integrated-trajectory residuals.",
+    "Support-outside parents lack a teacher in the original training stream; no teacher accuracy can be invented for them.",
+    "Full-wave moments and PSD descriptions do not establish fixed-HGB, source-valley, density, downstream-utility or independent-acquisition acceptance."
+  ]
+}

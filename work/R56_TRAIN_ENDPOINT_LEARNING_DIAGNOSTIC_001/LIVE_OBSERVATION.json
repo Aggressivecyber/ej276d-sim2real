@@ -1,0 +1,349 @@
+{
+  "UTC": "2026-10-10T18:23:01.157267+00:00",
+  "REMOTE_ACTIVE_JOB.json": {
+    "entry": "diagnose_train.py",
+    "supervisor_PID": 79777,
+    "start_UTC": "2026-10-10T18:20:31.272618+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": null,
+    "compute_budget_enforced": false,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 79782,
+    "actual_worker_RSS_peak_bytes": 2063818752,
+    "memory_probe_failures": 1,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-10T18:22:47.224803+00:00",
+        "PID": 79782,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 2051162112,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 541065216,
+    "GPU_query_failures": [],
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-10T18:20:31.236986+00:00",
+      "MemAvailable_bytes": 62277668864,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 24286998528,
+      "other_own_project_jobs": [],
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": false,
+      "limit_s": null,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12167675904,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 79782,
+    "last_disk_free_bytes": 24275886080,
+    "actual_worker_parent_PID": 79777,
+    "last_job_tree_PIDs": [
+      79782
+    ],
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 136.0524675680008,
+    "stop_UTC": "2026-10-10T18:22:47.325088+00:00",
+    "worker_self_receipt": {
+      "PID": 79782,
+      "parent_PID": 79777,
+      "nonce": "4d2638b112b845c0a20b8ba8d0d8d3f6",
+      "entry": "diagnose_train.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 135.48740635499962,
+      "self_peak_RSS_bytes": 2063818752,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-10T18:22:46.776185+00:00"
+    }
+  },
+  "PROGRESS.json": {
+    "UTC": "2026-10-10T18:22:46.774481+00:00",
+    "PID": 79782,
+    "phase": "complete",
+    "counter": {
+      "updates": 0,
+      "SOURCE_path_rows": 94400,
+      "REAL_identity_path_rows": 94400,
+      "SOURCE_ODE_rows": 6593,
+      "field_forward_rows": 1876608,
+      "teacher_rows": 184000
+    },
+    "elapsed_s": 135.3841507670004
+  },
+  "COVERAGE.json": {
+    "SOURCE_total": 6593,
+    "REAL_total": 21047,
+    "SOURCE_seen": 3752,
+    "REAL_seen": 18739,
+    "SOURCE_total_occurrences": 1600000,
+    "REAL_total_occurrences": 1600000,
+    "source_rawbin_vs_saved_mismatch": 0,
+    "REAL_rawbin_vs_saved_mismatch": 0,
+    "frozen_lambdas": [
+      -2.302585092994046,
+      -1.4970906155119628,
+      -1.3624075160570803,
+      -1.0922252071981262,
+      -1.1555811853792677,
+      -0.915544199740115,
+      -0.43249677741603887,
+      1.2947171782182667
+    ],
+    "source_sampler": "R23 equal bin probability; within source bin exp(lambda*h); REAL uniform within bin; all later streams reused",
+    "source_composition_proxy": "h=0, h=1, 0<h<1 only; not particle truth",
+    "groups": [
+      {
+        "group": "all",
+        "parents": 6593,
+        "seen": 3752,
+        "unseen": 2841,
+        "occurrences": 1600000
+      },
+      {
+        "group": "seen",
+        "parents": 3752,
+        "seen": 3752,
+        "unseen": 0,
+        "occurrences": 1600000
+      },
+      {
+        "group": "unseen",
+        "parents": 2841,
+        "seen": 0,
+        "unseen": 2841,
+        "occurrences": 0
+      },
+      {
+        "group": "inside",
+        "parents": 3753,
+        "seen": 3752,
+        "unseen": 1,
+        "occurrences": 1600000
+      },
+      {
+        "group": "outside",
+        "parents": 2840,
+        "seen": 0,
+        "unseen": 2840,
+        "occurrences": 0
+      },
+      {
+        "group": "h_between",
+        "parents": 213,
+        "seen": 114,
+        "unseen": 99,
+        "occurrences": 56641
+      },
+      {
+        "group": "h_one",
+        "parents": 4475,
+        "seen": 2826,
+        "unseen": 1649,
+        "occurrences": 774689
+      },
+      {
+        "group": "h_zero",
+        "parents": 1905,
+        "seen": 812,
+        "unseen": 1093,
+        "occurrences": 768670
+      }
+    ],
+    "by_raw_bin": [
+      {
+        "raw_bin0": -1,
+        "SOURCE_parents": 1922,
+        "SOURCE_seen": 0,
+        "SOURCE_occurrences": 0,
+        "REAL_parents": 1120,
+        "REAL_seen": 0,
+        "REAL_occurrences": 0
+      },
+      {
+        "raw_bin0": 0,
+        "SOURCE_parents": 639,
+        "SOURCE_seen": 638,
+        "SOURCE_occurrences": 198947,
+        "REAL_parents": 1670,
+        "REAL_seen": 1667,
+        "REAL_occurrences": 198947
+      },
+      {
+        "raw_bin0": 1,
+        "SOURCE_parents": 622,
+        "SOURCE_seen": 622,
+        "SOURCE_occurrences": 200653,
+        "REAL_parents": 2286,
+        "REAL_seen": 2271,
+        "REAL_occurrences": 200653
+      },
+      {
+        "raw_bin0": 2,
+        "SOURCE_parents": 621,
+        "SOURCE_seen": 621,
+        "SOURCE_occurrences": 198341,
+        "REAL_parents": 2533,
+        "REAL_seen": 2508,
+        "REAL_occurrences": 198341
+      },
+      {
+        "raw_bin0": 3,
+        "SOURCE_parents": 581,
+        "SOURCE_seen": 581,
+        "SOURCE_occurrences": 199509,
+        "REAL_parents": 2604,
+        "REAL_seen": 2571,
+        "REAL_occurrences": 199509
+      },
+      {
+        "raw_bin0": 4,
+        "SOURCE_parents": 561,
+        "SOURCE_seen": 561,
+        "SOURCE_occurrences": 199750,
+        "REAL_parents": 2689,
+        "REAL_seen": 2661,
+        "REAL_occurrences": 199750
+      },
+      {
+        "raw_bin0": 5,
+        "SOURCE_parents": 399,
+        "SOURCE_seen": 399,
+        "SOURCE_occurrences": 202015,
+        "REAL_parents": 2624,
+        "REAL_seen": 2602,
+        "REAL_occurrences": 202015
+      },
+      {
+        "raw_bin0": 6,
+        "SOURCE_parents": 214,
+        "SOURCE_seen": 214,
+        "SOURCE_occurrences": 199781,
+        "REAL_parents": 2526,
+        "REAL_seen": 2500,
+        "REAL_occurrences": 199781
+      },
+      {
+        "raw_bin0": 7,
+        "SOURCE_parents": 116,
+        "SOURCE_seen": 116,
+        "SOURCE_occurrences": 201004,
+        "REAL_parents": 1963,
+        "REAL_seen": 1959,
+        "REAL_occurrences": 201004
+      },
+      {
+        "raw_bin0": 8,
+        "SOURCE_parents": 918,
+        "SOURCE_seen": 0,
+        "SOURCE_occurrences": 0,
+        "REAL_parents": 1032,
+        "REAL_seen": 0,
+        "REAL_occurrences": 0
+      }
+    ]
+  },
+  "NUMERIC_RECEIPT.json": {
+    "UTC": "2026-10-10T18:22:46.774641+00:00",
+    "status": "complete",
+    "PID": 79782,
+    "elapsed_s": 135.38430450100168,
+    "counter": {
+      "updates": 0,
+      "SOURCE_path_rows": 94400,
+      "REAL_identity_path_rows": 94400,
+      "SOURCE_ODE_rows": 6593,
+      "field_forward_rows": 1876608,
+      "teacher_rows": 184000
+    },
+    "GPU_allocated_peak_bytes": 270261248,
+    "GPU_reserved_peak_bytes": 299892736,
+    "decision": "fixed_direction_rule_inconclusive_review_full_evidence",
+    "model_goal_complete": false
+  },
+  "diagnose_train.py.NATIVE_RECEIPT.json": {
+    "entry": "diagnose_train.py",
+    "supervisor_PID": 79777,
+    "start_UTC": "2026-10-10T18:20:31.272618+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": null,
+    "compute_budget_enforced": false,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 79782,
+    "actual_worker_RSS_peak_bytes": 2063818752,
+    "memory_probe_failures": 1,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-10T18:22:47.224803+00:00",
+        "PID": 79782,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 2051162112,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 541065216,
+    "GPU_query_failures": [],
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-10T18:20:31.236986+00:00",
+      "MemAvailable_bytes": 62277668864,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 24286998528,
+      "other_own_project_jobs": [],
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": false,
+      "limit_s": null,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12167675904,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 79782,
+    "last_disk_free_bytes": 24275886080,
+    "actual_worker_parent_PID": 79777,
+    "last_job_tree_PIDs": [
+      79782
+    ],
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 136.0524675680008,
+    "stop_UTC": "2026-10-10T18:22:47.325088+00:00",
+    "worker_self_receipt": {
+      "PID": 79782,
+      "parent_PID": 79777,
+      "nonce": "4d2638b112b845c0a20b8ba8d0d8d3f6",
+      "entry": "diagnose_train.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 135.48740635499962,
+      "self_peak_RSS_bytes": 2063818752,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-10T18:22:46.776185+00:00"
+    }
+  },
+  "actual_process": {
+    "PID": 79782,
+    "exists": false
+  }
+}
