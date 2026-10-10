@@ -1,0 +1,321 @@
+{
+  "UTC": "2026-10-10T17:46:57.022347+00:00",
+  "owner": "/root",
+  "scientific_decision": "close_fixed_R54_continuous_charge_recipe",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "A_B_C_pass": {
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  "source_five_views": {
+    "full_historical_shape": {
+      "BA": 0.782,
+      "BA_95CI": [
+        0.7426376517702077,
+        0.8144069458923172
+      ],
+      "pass": false
+    },
+    "normalized_u480": {
+      "BA": 0.764,
+      "BA_95CI": [
+        0.7262145583696598,
+        0.7973238578381324
+      ],
+      "pass": false
+    },
+    "full_voltage": {
+      "BA": 0.8180000000000001,
+      "BA_95CI": [
+        0.7828186504585055,
+        0.8478167471097396
+      ],
+      "pass": false
+    },
+    "Q_PSD_2D": {
+      "BA": 0.6819999999999999,
+      "BA_95CI": [
+        0.6395417116693491,
+        0.7188228158713913
+      ],
+      "pass": false
+    },
+    "baseline_local": {
+      "BA": 0.554,
+      "BA_95CI": [
+        0.512193325129047,
+        0.6000918180468247
+      ],
+      "pass": false
+    }
+  },
+  "same_treated_REAL_five_views_pass": true,
+  "overall_PSD_W1": 0.01809836320486461,
+  "common_Q1_7_PSD_W1": 0.03320543444035617,
+  "required_density_fit_failed_bins": [
+    2
+  ],
+  "all_candidate_density_failures": [
+    {
+      "bin_id_1based": 2,
+      "N": 265.0,
+      "failure_reasons": [
+        "not_converged500"
+      ]
+    },
+    {
+      "bin_id_1based": 8,
+      "N": 44.0,
+      "failure_reasons": [
+        "component0_support_below20"
+      ]
+    }
+  ],
+  "source_purehad_valley_checks": [
+    {
+      "actual_source_bin": "bin3",
+      "N": 213,
+      "candidate": 0.1267605633802817,
+      "BASE": 0.056338028169014086,
+      "delta": 0.0704225352112676,
+      "pass": false
+    },
+    {
+      "actual_source_bin": "bin4",
+      "N": 181,
+      "candidate": 0.15469613259668508,
+      "BASE": 0.0055248618784530384,
+      "delta": 0.14917127071823205,
+      "pass": false
+    }
+  ],
+  "source_ranks": [
+    {
+      "measure": "source_Q_to_output_Q",
+      "candidate": 0.9999994746248682,
+      "BASE": 0.9997260080563992,
+      "BASE_minus_candidate": -0.0002734665684689386,
+      "pass": true
+    },
+    {
+      "measure": "source_PSD_to_output_PSD",
+      "candidate": 0.42418357636403176,
+      "BASE": 0.4189898393117022,
+      "BASE_minus_candidate": -0.005193737052329561,
+      "pass": true
+    }
+  ],
+  "noise_relative_to_BASE": {
+    "baseline_RMS_V_overall_W1": {
+      "candidate": 1.0726605142070887e-05,
+      "BASE": 1.9358299282445028e-05,
+      "relative_change": -0.4458911402512383,
+      "pass": true
+    },
+    "ACF1_overall_W1": {
+      "candidate": 0.014475902319702921,
+      "BASE": 0.06423493440619173,
+      "relative_change": -0.774641284317906,
+      "pass": true
+    }
+  },
+  "paired_R54_minus_R53": {
+    "CONTINUOUS_Q_RESPONSE": {
+      "full_historical_shape": {
+        "BA_delta_first_minus_second": -0.020000000000000018,
+        "BA_delta_95CI": [
+          -0.04554495947680433,
+          0.006016900064981878
+        ],
+        "AUC_delta_first_minus_second": -0.01659200000000005,
+        "AUC_delta_95CI": [
+          -0.03327068722896384,
+          0.0005246348311334097
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_SOURCE"
+      },
+      "normalized_u480": {
+        "BA_delta_first_minus_second": -0.014000000000000012,
+        "BA_delta_95CI": [
+          -0.042277771065007616,
+          0.011764387884954361
+        ],
+        "AUC_delta_first_minus_second": -0.014847999999999972,
+        "AUC_delta_95CI": [
+          -0.03384810690641284,
+          0.0020898299554287193
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_SOURCE"
+      },
+      "full_voltage": {
+        "BA_delta_first_minus_second": 0.0,
+        "BA_delta_95CI": [
+          -0.02087452031889278,
+          0.02171790443115158
+        ],
+        "AUC_delta_first_minus_second": -0.02014399999999994,
+        "AUC_delta_95CI": [
+          -0.034114736068119364,
+          -0.005385457945347702
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_SOURCE"
+      },
+      "Q_PSD_2D": {
+        "BA_delta_first_minus_second": -0.018000000000000016,
+        "BA_delta_95CI": [
+          -0.04493683107571387,
+          0.011747459264256759
+        ],
+        "AUC_delta_first_minus_second": -0.005175999999999958,
+        "AUC_delta_95CI": [
+          -0.02166406042204497,
+          0.01157732582394655
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_SOURCE"
+      },
+      "baseline_local": {
+        "BA_delta_first_minus_second": -0.019999999999999907,
+        "BA_delta_95CI": [
+          -0.06740921764846673,
+          0.022460872952630148
+        ],
+        "AUC_delta_first_minus_second": 0.012527999999999984,
+        "AUC_delta_95CI": [
+          -0.02942154584812124,
+          0.04551657314417188
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_SOURCE"
+      }
+    },
+    "CONTINUOUS_Q_REAL_CONTROL": {
+      "full_historical_shape": {
+        "BA_delta_first_minus_second": -0.014000000000000012,
+        "BA_delta_95CI": [
+          -0.04975123953812888,
+          0.0265652652219831
+        ],
+        "AUC_delta_first_minus_second": -0.0032959999999999656,
+        "AUC_delta_95CI": [
+          -0.03708199844400755,
+          0.03363916458256857
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_REAL_CONTROL"
+      },
+      "normalized_u480": {
+        "BA_delta_first_minus_second": 0.0020000000000000018,
+        "BA_delta_95CI": [
+          -0.04275028921237824,
+          0.05154380040811917
+        ],
+        "AUC_delta_first_minus_second": 0.005375999999999936,
+        "AUC_delta_95CI": [
+          -0.034505909243991745,
+          0.046965357077910275
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_REAL_CONTROL"
+      },
+      "full_voltage": {
+        "BA_delta_first_minus_second": -0.030000000000000027,
+        "BA_delta_95CI": [
+          -0.0631674049009631,
+          0.004099097464188883
+        ],
+        "AUC_delta_first_minus_second": -0.027135999999999938,
+        "AUC_delta_95CI": [
+          -0.061256769461944076,
+          0.004414686391263941
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_REAL_CONTROL"
+      },
+      "Q_PSD_2D": {
+        "BA_delta_first_minus_second": -0.0040000000000000036,
+        "BA_delta_95CI": [
+          -0.030157128237047467,
+          0.02390263785072036
+        ],
+        "AUC_delta_first_minus_second": -0.002856000000000025,
+        "AUC_delta_95CI": [
+          -0.013416652242167605,
+          0.007437388839067458
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_REAL_CONTROL"
+      },
+      "baseline_local": {
+        "BA_delta_first_minus_second": -0.02400000000000002,
+        "BA_delta_95CI": [
+          -0.0679737534705798,
+          0.01886848902985317
+        ],
+        "AUC_delta_first_minus_second": -0.006240000000000023,
+        "AUC_delta_95CI": [
+          -0.043589128101036656,
+          0.03267580703844749
+        ],
+        "valid_replicates": 500,
+        "clusters": 230,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "reference": "R53_REAL_CONTROL"
+      }
+    }
+  },
+  "replay_rows": 4000,
+  "independent_portable_replay_pass": true,
+  "scientific_limits": [
+    "SOURCE shape and u480 BA point estimates decrease, but their paired 95 percent intervals include zero.",
+    "Overall PSD and baseline noise improve; required PSD accuracy, density validity and source-valley checks remain failures.",
+    "SOURCE baseline CI upper bound 0.6000918180468247 exceeds 0.60; display rounding cannot turn it into a pass.",
+    "One common initialization and random stream do not quantify response-retraining uncertainty.",
+    "Preserved SOURCE Q marginal differs from REAL; existing finite HGB evidence is not an impossibility proof.",
+    "DEV is historically exposed. Final EVAL and independent acquisitions were not opened."
+  ],
+  "next_action": "封存 R54 固定方案。下一轮先登记总体/条件 PSD 与原始源谷比例的必要条件兼容性诊断：保持固定 SOURCE 电荷、身份和权重，允许原数值容差及 ADC 引起的分箱迁移，求一个明确放宽的分布距离下界；不训练或选新模型，不改变原 A–F。只有经核验的下界越过原阈值才可报告目标冲突；否则该诊断仅说明尚不能排除可行性，随后据 TRAIN 端点与学习误差证据决定新机制。"
+}

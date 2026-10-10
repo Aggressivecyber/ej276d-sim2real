@@ -1,0 +1,107 @@
+{
+  "domains": {
+    "CONTINUOUS_Q_RESPONSE": {
+      "rows": 2000,
+      "all_source_ID_order_weights_and_composition_preserved": true,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "standalone_flow_applied_N": 2000,
+      "G_applied_N": 2000,
+      "G_applied_N_compatibility_means_new_standalone_flow": true,
+      "TRAIN_support_N": 1583,
+      "TRAIN_support_outside_N": 417,
+      "BASE_fallback_N": 0,
+      "pre_ADC_sha256": "50801d2b05fea9bb6c41fe87c00f76b2c1a1c895f293b77ca49f2e662fe3465d",
+      "post_ADC_sha256": "e77a2a6960b7c3440b8e2a018cbb2721e14269bd1713b352f57f873fbe57ca3b",
+      "flow_file": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/FINAL_FLOW.pt",
+      "source_clean_full480_input": true,
+      "old_G_used": false,
+      "charge_tangent_projection_inside_velocity": true,
+      "component_labels_functional_not_physical_truth": true,
+      "solver_steps": 128,
+      "chunk": 64
+    },
+    "CONTINUOUS_Q_REAL_CONTROL": {
+      "rows": 2000,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "flow_file": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/FINAL_FLOW.pt",
+      "reference_ID_order_groups_preserved": true,
+      "same_exact_main_random_arrays": true,
+      "no_G4_composition_or_PDG_assignment": true,
+      "stochastic_control_not_identity_claim": true,
+      "pre_ADC_sha256": "ba26a55f92506b66439f8dc7ac5154f0f577f480179d7a343afd7b44e9b3becc",
+      "post_ADC_sha256": "7f8bd76e61062db2ebffd575cd6b7d381e6d7c0c3dd4af82b6d413bb271a8754",
+      "solver_steps": 128,
+      "chunk": 64
+    },
+    "BASE_REAL_CONTROL": {
+      "rows": 2000,
+      "ADC": {
+        "clip_count": 0,
+        "pre_ADC_finite": true,
+        "bits": 14,
+        "Vrange": [
+          -0.5,
+          0.5
+        ]
+      },
+      "G_file": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R32_CONDITIONAL_MEAN_TRANSLATION_001\\SERVER_FRESH_CONTROL\\FINAL_TRANSLATOR.pt",
+      "reference_ID_order_groups_preserved": true,
+      "same_exact_main_random_arrays": true,
+      "no_G4_composition_or_PDG_assignment": true,
+      "stochastic_control_not_identity_claim": true,
+      "pre_ADC_sha256": "fd3df65ba8fc6e81cb522880af40938f10a324680be51bf957f48fa66979ac57",
+      "post_ADC_sha256": "e7cbe6b6f2f31cb4ab373468bf05582a8a27a17f16de00cb203565e33e9be2f0",
+      "reused_from": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/BASE_REAL_CONTROL/generated.npz",
+      "new_inference_rows": 0,
+      "new_fits": 0,
+      "old_independent_replay_from": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/REPLAY_RECEIPT.json"
+    }
+  },
+  "counter": {
+    "source_main_rows": 2000,
+    "REAL_control_rows": 2000,
+    "main_generation_rows": 4000,
+    "repeat_noise_rows": 1024,
+    "source_probe_rows": 832,
+    "extra_guide_probe_rows": 128,
+    "response_fit_or_update": 0,
+    "HGB_attempts": 0,
+    "density_EM_attempts": 0,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0
+  },
+  "elapsed_s": 82.13340459400024,
+  "NumPy": "1.26.4",
+  "torch": "2.12.0+cu130",
+  "exact_main_and_auxiliary_preADC_saved": true,
+  "functional_component_semantics": {
+    "source_input": "fixed complete guide",
+    "innovation": "projected colored seed, not physical electronics",
+    "flow_plus_final_cast": "total learned correction not independent noise"
+  },
+  "unused_random_inputs": [
+    "z",
+    "style"
+  ],
+  "field_forward_rows_by_arm": {
+    "CONTINUOUS_Q_RESPONSE": 1019904,
+    "CONTINUOUS_Q_REAL_CONTROL": 512000
+  },
+  "all_generation_rows": 5984
+}

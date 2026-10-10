@@ -1,0 +1,470 @@
+{
+  "resource_version": 3,
+  "registered_UTC": "2026-10-10T00:39:27.880232+00:00",
+  "reason": "User explicitly requests the next round without a compute budget.",
+  "server": "rylan@100.82.231.102",
+  "snapshot": "reviews/SERVER_RESOURCE_SNAPSHOT_20261010_002.json",
+  "policy": "SERVER_RESOURCE_POLICY.md",
+  "policy_sha256": "8f8453018f7c4a31f9eaa37efe0ae75c6125b422dbdfbb713f2efb9623b0bf6e",
+  "server_limits": {
+    "CPU_threads": 12,
+    "job_tree_RSS_bytes": 51539607552,
+    "MemAvailable_start_min_bytes": 60129542144,
+    "GPU_count": 1,
+    "GPU_allocated_and_reserved_max_bytes": 10737418240,
+    "GPU_free_start_min_bytes": 11811160064,
+    "other_GPU_compute_jobs_allowed": false,
+    "concurrent_project_scientific_jobs_max": 1,
+    "stage_output_bytes_max": null,
+    "disk_free_reserve_bytes": null,
+    "storage_policy": "Actual available capacity and required bytes; avoid duplicate storage and preserve history."
+  },
+  "local_auxiliary_limits": {
+    "CPU_threads": 4,
+    "RSS_bytes": 4294967296
+  },
+  "response_training": {
+    "updates_max": null,
+    "training_science_seconds_max": null,
+    "stage_science_seconds_max": null,
+    "stage_wall_seconds_max": null,
+    "same_budget_control_required_for_method_comparison": true,
+    "comparison_note": "Matched exposure, optimization and hardware remain part of scientific design, not a quota."
+  },
+  "improvement_block": {
+    "diagnostic_science_seconds_max": null,
+    "method_plans_max": null,
+    "all_response_training_runs_max": null,
+    "controls_and_repeats_count_towards_run_limit": true,
+    "total_science_seconds_max": null,
+    "actual_science_seconds_recorded": 23283.258003296007,
+    "response_training_runs_started": 4,
+    "actual_stage_receipts": [
+      {
+        "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+        "receipt": "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+        "science_s": 28.91346864001389,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed"
+      },
+      {
+        "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+        "receipt": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 1463.1585634110088,
+        "response_training_runs_started": 1,
+        "new_response_updates": 47050,
+        "status": "sealed_numerical_failure_before_DEV",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+        "receipt": "work/R46_FIXED_INTEGRATION_BUDGET_001/RESOURCE_RECEIPT.json",
+        "science_s": 1696.4277243200486,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_joint_scientific_failure",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+        "receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+        "science_s": 9.997500972051057,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_diagnostic_no_response_candidate",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+        "receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "new_response_updates": 100000,
+        "status": "sealed_numerical_failure_before_DEV",
+        "stage_science_complete": true,
+        "inflight_science_not_yet_in_total": false
+      },
+      {
+        "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+        "receipt": "reviews/R49_REMOTE_INTERRUPTION_001.json",
+        "science_s": 2107.3375221949973,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "incomplete_remote_replay_terminal_unknown",
+        "stage_science_complete": false,
+        "inflight_science_not_yet_in_total": true,
+        "unfinished_replay_science_s": null
+      },
+      {
+        "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+        "receipt": "work/R49_LOCAL_HEUN128_RECOVERY_001/RESOURCE_RECEIPT.json",
+        "science_s": 13053.69792779989,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_full_response_evaluated",
+        "stage_science_complete": true,
+        "inflight_science_not_yet_in_total": false
+      },
+      {
+        "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+        "receipt": "work/R50_FROZEN_VOLTAGE_ATTRIBUTION_001/RESOURCE_RECEIPT.json",
+        "science_s": 10.909500782999885,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_diagnostic",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001",
+        "receipt": "work/R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+        "science_s": 12.810744777999844,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_diagnostic",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R52_JOINT_CHARGE_PSD_COUPLING_001",
+        "receipt": "work/R52_JOINT_CHARGE_PSD_COUPLING_001/RESOURCE_RECEIPT.json",
+        "science_s": 2.317410174000088,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "closed_negative_diagnostic",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R53_PULSE_ONLY_TEACHER_FLOW_001",
+        "receipt": "work/R53_PULSE_ONLY_TEACHER_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 1715.869626806999,
+        "response_training_runs_started": 1,
+        "new_response_updates": 50000,
+        "status": "fixed_recipe_science_complete",
+        "stage_science_complete": true
+      }
+    ],
+    "no_automatic_extension_at_limit": false,
+    "method_plans_registered": 4,
+    "response_training_runs_registered": 4,
+    "registered_stages": [
+      {
+        "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+        "method_plan_index": 1,
+        "response_runs_reserved": 1,
+        "science_budget_s": 14400,
+        "status": "sealed_numerical_failure_before_DEV",
+        "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
+        "actual_start_UTC": "2026-10-10T01:10:30.983895+00:00",
+        "actual_worker_PID": 107155,
+        "actual_new_updates_observed": 47050,
+        "actual_science_seconds": 1463.1585634110088,
+        "stage_science_complete": true,
+        "training_stop_UTC": "2026-10-10T01:34:34.348301+00:00"
+      },
+      {
+        "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+        "method_plan_index": 2,
+        "response_runs_reserved": 0,
+        "science_budget_s": 14400,
+        "status": "sealed_joint_scientific_failure",
+        "registration": "reviews/R46_REGISTRATION_001/RECEIPT.json",
+        "actual_new_updates_observed": 0,
+        "actual_science_seconds": 1696.4277243200486,
+        "stage_science_complete": true,
+        "numerical_stop_UTC": "2026-10-10T01:56:36.410849+00:00"
+      },
+      {
+        "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+        "method_plan_index": 3,
+        "response_runs_reserved": 2,
+        "science_budget_s": 14400,
+        "status": "sealed_numerical_failure_before_DEV",
+        "registration": "reviews/R48_REGISTRATION_001/RECEIPT.json",
+        "actual_completed_native_science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "actual_science_seconds": 3181.8180134159993,
+        "new_response_updates": 100000,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json"
+      },
+      {
+        "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+        "method_plan_index": 4,
+        "response_runs_reserved": 0,
+        "science_budget_s": null,
+        "status": "remote_incomplete_local_failover_authorized",
+        "registration": "reviews/R49_REGISTRATION_001/RECEIPT.json",
+        "scientific_design": "Frozen R48 pair, common128/reference256; no fresh response fit.",
+        "user_authorization": "推进下一轮 不设置预算",
+        "actual_completed_native_science_s": 2107.3375221949973,
+        "response_training_runs_started": 0,
+        "unknown_remote_replay": true,
+        "recovery_stage": "R49_LOCAL_HEUN128_RECOVERY_001"
+      },
+      {
+        "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+        "parent_stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+        "method_plan_index": 4,
+        "counts_as_new_method": false,
+        "response_runs_reserved": 0,
+        "science_budget_s": null,
+        "status": "sealed_full_response_evaluated",
+        "registration": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
+        "scientific_design": "Same fixed R49 protocol; distinct local recovery attempt and own-output evaluation/replay.",
+        "user_authorization": "换本地继续运行",
+        "actual_completed_native_science_s": 13053.69792779989,
+        "response_training_runs_started": 0,
+        "actual_science_seconds": 13053.69792779989,
+        "new_response_updates": 0,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R49_LOCAL_HEUN128_RECOVERY_001/RESOURCE_RECEIPT.json"
+      },
+      {
+        "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+        "kind": "diagnostic_not_response_method",
+        "registered_UTC": "2026-10-10T15:38:27.288953+00:00",
+        "science_budget": null,
+        "planned_HGB_fits": 24,
+        "new_training_runs": 0,
+        "status": "sealed_diagnostic"
+      },
+      {
+        "stage": "R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001",
+        "kind": "diagnostic_not_response_method",
+        "registered_UTC": "2026-10-10T15:56:35.225159+00:00",
+        "science_budget": null,
+        "new_training_runs": 0,
+        "new_HGB_fits": 32,
+        "reused_HGB_results": 3,
+        "status": "sealed_diagnostic"
+      },
+      {
+        "stage": "R52_JOINT_CHARGE_PSD_COUPLING_001",
+        "kind": "diagnostic_not_response_method",
+        "registered_UTC": "2026-10-10T16:09:54.934181+00:00",
+        "science_budget": null,
+        "new_training_runs": 0,
+        "new_HGB_fits": 0,
+        "status": "closed_negative_diagnostic"
+      },
+      {
+        "stage": "R53_PULSE_ONLY_TEACHER_FLOW_001",
+        "kind": "new_joint_pulse_endpoint_neural_method",
+        "registered_UTC": "2026-10-10T16:18:48.108614+00:00",
+        "science_budget": null,
+        "planned_new_training_runs": 1,
+        "fixed_updates": 50000,
+        "status": "fixed_recipe_science_complete",
+        "response_training_runs_started": 1,
+        "actual_updates_observed": 50000,
+        "last_observed_UTC": "2026-10-10T17:05:41.918185+00:00",
+        "active_scientific_jobs": 0,
+        "actual_science_seconds": 1715.869626806999,
+        "new_response_updates": 50000,
+        "stage_science_complete": true
+      }
+    ],
+    "current_family_status": "fixed_R49_local_recipe_unaccepted_unbudgeted_project_policy_continues",
+    "latest_direction_decision": "reviews/R49_LOCAL_ROOT_DIRECTION_001.json",
+    "diagnostic_stages_registered": [
+      {
+        "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+        "science_budget_s": 900,
+        "method_plan_slots_consumed": 0,
+        "status": "sealed_diagnostic_no_response_candidate",
+        "registration": "reviews/R47_REGISTRATION_001/RECEIPT.json",
+        "actual_science_seconds": 9.997500972051057,
+        "HGB_completed": 5,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json"
+      }
+    ],
+    "diagnostic_science_seconds_recorded": 38.910969612064946,
+    "exhausted_limit": null,
+    "further_scientific_execution_authorized": true,
+    "prior_bounded_block_scientific_conclusions_preserved": true,
+    "user_override_receipt": "reviews/NO_COMPUTE_BUDGET_20261010_001/RECEIPT.json"
+  },
+  "frozen_validation": {
+    "utility_science_seconds_max": null,
+    "scope_science_seconds_max": null,
+    "total_science_seconds_max": null,
+    "planned_utility_studies_per_frozen_candidate": 1,
+    "planned_FULL_GAP_studies_per_frozen_candidate": 1
+  },
+  "R44": {
+    "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+    "execution": "server_CUDA_frozen_forward_local_plot",
+    "forward_rows": 94400,
+    "forward_chunk": 32,
+    "new_training_updates": 0,
+    "new_ODE_generation": 0,
+    "science_seconds_max": 3600,
+    "output_bytes_max": 2147483648,
+    "executor_wall_seconds_max": 10800,
+    "stage_wall_seconds_max": 14400,
+    "executor_deadline_UTC": "2026-10-10T03:39:27.880232+00:00",
+    "stage_deadline_UTC": "2026-10-10T04:39:27.880232+00:00",
+    "CPU_comparison_claim": false,
+    "previous_numeric_forward_rows_at_change": 0,
+    "status": "sealed",
+    "actual_science_s": 28.91346864001389,
+    "decision": "close_mean_TRAIN_PSD_velocity_residual_explanation"
+  },
+  "scientific_thresholds_lowered": false,
+  "sealed_scientific_stages_modified": false,
+  "new_server_job_submitted_by_root": false,
+  "updated_UTC": "2026-10-10T14:30:52.917424+00:00",
+  "previous_budgeted_block_at_user_override": {
+    "diagnostic_science_seconds_max": 3600,
+    "method_plans_max": 3,
+    "all_response_training_runs_max": 6,
+    "controls_and_repeats_count_towards_run_limit": true,
+    "total_science_seconds_max": 90000,
+    "actual_science_seconds_recorded": 6380.315270759122,
+    "response_training_runs_started": 3,
+    "actual_stage_receipts": [
+      {
+        "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+        "receipt": "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+        "science_s": 28.91346864001389,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed"
+      },
+      {
+        "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+        "receipt": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 1463.1585634110088,
+        "response_training_runs_started": 1,
+        "new_response_updates": 47050,
+        "status": "sealed_numerical_failure_before_DEV",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+        "receipt": "work/R46_FIXED_INTEGRATION_BUDGET_001/RESOURCE_RECEIPT.json",
+        "science_s": 1696.4277243200486,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_joint_scientific_failure",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+        "receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+        "science_s": 9.997500972051057,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_diagnostic_no_response_candidate",
+        "stage_science_complete": true
+      },
+      {
+        "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+        "receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "new_response_updates": 100000,
+        "status": "sealed_numerical_failure_before_DEV",
+        "stage_science_complete": true,
+        "inflight_science_not_yet_in_total": false
+      }
+    ],
+    "no_automatic_extension_at_limit": true,
+    "method_plans_registered": 3,
+    "response_training_runs_registered": 3,
+    "registered_stages": [
+      {
+        "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+        "method_plan_index": 1,
+        "response_runs_reserved": 1,
+        "science_budget_s": 14400,
+        "status": "sealed_numerical_failure_before_DEV",
+        "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
+        "actual_start_UTC": "2026-10-10T01:10:30.983895+00:00",
+        "actual_worker_PID": 107155,
+        "actual_new_updates_observed": 47050,
+        "actual_science_seconds": 1463.1585634110088,
+        "stage_science_complete": true,
+        "training_stop_UTC": "2026-10-10T01:34:34.348301+00:00"
+      },
+      {
+        "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+        "method_plan_index": 2,
+        "response_runs_reserved": 0,
+        "science_budget_s": 14400,
+        "status": "sealed_joint_scientific_failure",
+        "registration": "reviews/R46_REGISTRATION_001/RECEIPT.json",
+        "actual_new_updates_observed": 0,
+        "actual_science_seconds": 1696.4277243200486,
+        "stage_science_complete": true,
+        "numerical_stop_UTC": "2026-10-10T01:56:36.410849+00:00"
+      },
+      {
+        "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+        "method_plan_index": 3,
+        "response_runs_reserved": 2,
+        "science_budget_s": 14400,
+        "status": "sealed_numerical_failure_before_DEV",
+        "registration": "reviews/R48_REGISTRATION_001/RECEIPT.json",
+        "actual_completed_native_science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "actual_science_seconds": 3181.8180134159993,
+        "new_response_updates": 100000,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json"
+      }
+    ],
+    "current_family_status": "three_method_block_closed_no_A_C_accepted_candidate",
+    "latest_direction_decision": "reviews/ROOT_R48_KEY_RESULT_REVIEW_001.json",
+    "diagnostic_stages_registered": [
+      {
+        "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+        "science_budget_s": 900,
+        "method_plan_slots_consumed": 0,
+        "status": "sealed_diagnostic_no_response_candidate",
+        "registration": "reviews/R47_REGISTRATION_001/RECEIPT.json",
+        "actual_science_seconds": 9.997500972051057,
+        "HGB_completed": 5,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json"
+      }
+    ],
+    "diagnostic_science_seconds_recorded": 38.910969612064946,
+    "exhausted_limit": "method_plans",
+    "further_scientific_execution_authorized": false
+  },
+  "previous_response_training_budget_at_user_override": {
+    "updates_max": 50000,
+    "training_science_seconds_max": 10800,
+    "stage_science_seconds_max": 14400,
+    "stage_wall_seconds_max": 21600,
+    "same_budget_control_required_for_method_comparison": true
+  },
+  "previous_frozen_validation_budget_at_user_override": {
+    "utility_runs_max": 1,
+    "utility_science_seconds_max": 7200,
+    "FULL_GAP_studies_max": 1,
+    "scope_science_seconds_max": 36000,
+    "total_science_seconds_max": 43200
+  },
+  "user_override_receipt": "reviews/NO_COMPUTE_BUDGET_20261010_001/RECEIPT.json",
+  "compute_budget_enforced": false,
+  "deadlines_enforced": false,
+  "current_scientific_execution_location": "local_CPU",
+  "local_scientific_limits": {
+    "CPU_threads": 4,
+    "job_tree_RSS_bytes": 4294967296,
+    "max_concurrent_local_scientific_jobs": 1,
+    "compute_budget_enforced": false,
+    "science_budget_s": null,
+    "wall_budget_s": null,
+    "deadline_UTC": null,
+    "stage_output_budget_bytes": null,
+    "local_files": "E/D only"
+  },
+  "unknown_remote_job_observation": "reviews/R49_REMOTE_INTERRUPTION_001.json",
+  "current_execution_owner": "/root",
+  "current_registered_stage": "R53_PULSE_ONLY_TEACHER_FLOW_001",
+  "last_observed_UTC": "2026-10-10T17:05:41.918185+00:00"
+}
