@@ -1,0 +1,74 @@
+{
+  "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+  "observed_UTC": "2026-10-10T09:01:39.863712+00:00",
+  "actual_control_PID": 45232,
+  "metadata_only_no_scientific_recomputation": true,
+  "decision": "close_fixed_R48_recipe_at_registered_numerical_gate_before_DEV",
+  "primary": "GUIDED_NOISE_COMPLETION",
+  "fixed_control": "GUIDED_FIXED_NOISE_CONTROL",
+  "numerical_results": {
+    "GUIDED_FIXED_NOISE_CONTROL": {
+      "RMS_median_LSB": 0.15888027783145434,
+      "RMS_p95_LSB": 1.332798833932804,
+      "preADC_relative_q_max": 1.0402128762008045e-08,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "relative_q_limit": 1e-05,
+      "pass": false
+    },
+    "GUIDED_NOISE_COMPLETION": {
+      "RMS_median_LSB": 0.11619697182867625,
+      "RMS_p95_LSB": 1.4498243210356359,
+      "preADC_relative_q_max": 9.337949057111096e-09,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "relative_q_limit": 1e-05,
+      "pass": false
+    }
+  },
+  "same_initial_state_and_all_seven_streams": true,
+  "new_response_updates_per_arm": 50000,
+  "new_response_training_runs_completed": 2,
+  "A_pass": null,
+  "A_status": "not_evaluated_no_DEV_outputs",
+  "B_pass": null,
+  "B_status": "not_evaluated_no_DEV_outputs",
+  "C_pass": false,
+  "C_status": "registered_64_128_p95_numerical_requirement_failed",
+  "remaining_C_requirements": "not_evaluated_in_R48",
+  "D_E_status": "not_executed_no_A_C_accepted_candidate",
+  "F_status": "stage_evidence_delivery_pending; no_accepted_final_model_or_main_replay",
+  "DEV_generated_rows": 0,
+  "HGB_attempts": 0,
+  "density_EM_attempts": 0,
+  "main_replay_rows": 0,
+  "counter_basis": "Registered stop branch and numerical receipt; reconcile against sealed resource receipt before publication.",
+  "original_scientific_acceptance_A_F_changed": false,
+  "higher_step_search_performed": false,
+  "project_model_goal_complete": false,
+  "interpretation": "Both fixed 64-step endpoints fail the prespecified p95 integration comparison. This does not establish that guided noise completion is ineffective or identify physical noise.",
+  "loss_interpretation": "The arms have different identity velocity targets; lower identity training loss alone is not an equal-task output-quality comparison.",
+  "method_budget": {
+    "registered_plans": 3,
+    "maximum_plans": 3,
+    "automatic_extension_allowed": false
+  },
+  "next_action": "Finish registered negative-result figures, seal, private Git publication and D backup; start no new scientific method or step search.",
+  "bindings": [
+    {
+      "path": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
+      "bytes": 12153,
+      "sha256": "901517e92b400f65a7206ad01e2fff8e7fbb6625ae2b0f995c1af91bd874bb8f"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAIN_SOLVER_CHECK.json",
+      "bytes": 3613,
+      "sha256": "76306f33b5d42429b64cb2b5cd4ac3faea69bca1b8932d1b77b61ce707a4ceb3"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAINING_COMPACT.json",
+      "bytes": 7879,
+      "sha256": "3c8bce927f97d188d46b408f62860e66623a1ed534619f033118835a29b7c7b7"
+    }
+  ]
+}

@@ -35,8 +35,8 @@
     "all_response_training_runs_max": 6,
     "controls_and_repeats_count_towards_run_limit": true,
     "total_science_seconds_max": 90000,
-    "actual_science_seconds_recorded": 3198.4972573431223,
-    "response_training_runs_started": 1,
+    "actual_science_seconds_recorded": 6380.315270759122,
+    "response_training_runs_started": 3,
     "actual_stage_receipts": [
       {
         "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
@@ -72,6 +72,16 @@
         "new_response_updates": 0,
         "status": "sealed_diagnostic_no_response_candidate",
         "stage_science_complete": true
+      },
+      {
+        "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
+        "receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json",
+        "science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "new_response_updates": 100000,
+        "status": "sealed_numerical_failure_before_DEV",
+        "stage_science_complete": true,
+        "inflight_science_not_yet_in_total": false
       }
     ],
     "no_automatic_extension_at_limit": true,
@@ -109,12 +119,18 @@
         "method_plan_index": 3,
         "response_runs_reserved": 2,
         "science_budget_s": 14400,
-        "status": "registered_not_started",
-        "registration": "reviews/R48_REGISTRATION_001/RECEIPT.json"
+        "status": "sealed_numerical_failure_before_DEV",
+        "registration": "reviews/R48_REGISTRATION_001/RECEIPT.json",
+        "actual_completed_native_science_s": 3181.8180134159993,
+        "response_training_runs_started": 2,
+        "actual_science_seconds": 3181.8180134159993,
+        "new_response_updates": 100000,
+        "stage_science_complete": true,
+        "resource_receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json"
       }
     ],
-    "current_family_status": "new_fixed_guide_identity_noise_comparison_registered_old_recipes_closed",
-    "latest_direction_decision": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
+    "current_family_status": "three_method_block_closed_no_A_C_accepted_candidate",
+    "latest_direction_decision": "reviews/ROOT_R48_KEY_RESULT_REVIEW_001.json",
     "diagnostic_stages_registered": [
       {
         "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
@@ -128,7 +144,9 @@
         "resource_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json"
       }
     ],
-    "diagnostic_science_seconds_recorded": 38.910969612064946
+    "diagnostic_science_seconds_recorded": 38.910969612064946,
+    "exhausted_limit": "method_plans",
+    "further_scientific_execution_authorized": false
   },
   "frozen_validation": {
     "utility_runs_max": 1,
@@ -159,5 +177,5 @@
   "scientific_thresholds_lowered": false,
   "sealed_scientific_stages_modified": false,
   "new_server_job_submitted_by_root": false,
-  "updated_UTC": "2026-10-10T07:34:06.929385+00:00"
+  "updated_UTC": "2026-10-10T09:01:39.975718+00:00"
 }

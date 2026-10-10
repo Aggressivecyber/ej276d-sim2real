@@ -1291,7 +1291,7 @@
     },
     {
       "id": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_numerical_failure_root_delivery_in_progress",
       "task": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
       "registered_UTC": "2026-10-10T07:34:06.929385+00:00",
       "registration": "reviews/R48_REGISTRATION_001/RECEIPT.json",
@@ -1301,7 +1301,261 @@
       "science_budget_s": 14400,
       "scientific_question": "Only initial innovation variance differs: tau2 versus max(tau2-v(input),0).",
       "DEV_used_for": "One fixed endpoint per arm only after both TRAIN numerical gates pass.",
-      "EVAL_access": false
+      "EVAL_access": false,
+      "actual_completed_native_science_s": 3181.8180134159993,
+      "response_training_runs_started": 2,
+      "last_observed_UTC": "2026-10-10T09:01:39.975718+00:00",
+      "active_scientific_jobs": 0,
+      "actual_native_jobs": [
+        {
+          "entry": "calibrate.py",
+          "supervisor_PID": 179688,
+          "start_UTC": "2026-10-10T07:45:30.600446+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 14400,
+          "actual_worker_PID": 179693,
+          "actual_worker_RSS_peak_bytes": 691990528,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 641175552,
+          "GPU_process_memory_peak_bytes": 0,
+          "GPU_query_failures": [],
+          "launcher_PID": 179693,
+          "actual_worker_parent_PID": 179688,
+          "last_job_tree_PIDs": [
+            179693
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 1.3461846650025109,
+          "stop_UTC": "2026-10-10T07:45:31.946634+00:00",
+          "worker_self_receipt": {
+            "PID": 179693,
+            "parent_PID": 179688,
+            "nonce": "76ed67838d9b4a2f90b365fac4adf948",
+            "entry": "calibrate.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1.1004239429967129,
+            "self_peak_RSS_bytes": 691523584,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T07:45:31.716796+00:00"
+          }
+        },
+        {
+          "entry": "train_control.py",
+          "supervisor_PID": 180443,
+          "start_UTC": "2026-10-10T07:46:17.600761+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 5400,
+          "actual_worker_PID": 180448,
+          "actual_worker_RSS_peak_bytes": 1991344128,
+          "memory_probe_failures": 1,
+          "memory_probe_failure_events": [
+            {
+              "UTC": "2026-10-10T08:12:08.582555+00:00",
+              "PID": 180448,
+              "poll": null,
+              "context": "actual_PID_query"
+            }
+          ],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 1989279744,
+          "GPU_process_memory_peak_bytes": 1019215872,
+          "GPU_query_failures": [],
+          "launcher_PID": 180448,
+          "actual_worker_parent_PID": 180443,
+          "last_job_tree_PIDs": [
+            180448
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 1551.0820003949993,
+          "stop_UTC": "2026-10-10T08:12:08.682764+00:00",
+          "worker_self_receipt": {
+            "PID": 180448,
+            "parent_PID": 180443,
+            "nonce": "708bb12ddd57458a94925a5016e4b12e",
+            "entry": "train_control.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1550.5933072339976,
+            "self_peak_RSS_bytes": 1991344128,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T08:12:08.210570+00:00"
+          }
+        },
+        {
+          "entry": "train_completion.py",
+          "supervisor_PID": 187508,
+          "start_UTC": "2026-10-10T08:13:19.584628+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 5400,
+          "actual_worker_PID": 187513,
+          "actual_worker_RSS_peak_bytes": 1973755904,
+          "memory_probe_failures": 1,
+          "memory_probe_failure_events": [
+            {
+              "UTC": "2026-10-10T08:39:11.664081+00:00",
+              "PID": 187513,
+              "poll": null,
+              "context": "actual_PID_query"
+            }
+          ],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 1971843072,
+          "GPU_process_memory_peak_bytes": 1019215872,
+          "GPU_query_failures": [],
+          "launcher_PID": 187513,
+          "actual_worker_parent_PID": 187508,
+          "last_job_tree_PIDs": [
+            187513
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 1552.1796505189996,
+          "stop_UTC": "2026-10-10T08:39:11.764281+00:00",
+          "worker_self_receipt": {
+            "PID": 187513,
+            "parent_PID": 187508,
+            "nonce": "d55cd995c33b48f7af73a682eeb88dba",
+            "entry": "train_completion.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1551.7037321489988,
+            "self_peak_RSS_bytes": 1973755904,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T08:39:11.304308+00:00"
+          }
+        },
+        {
+          "entry": "check_models.py",
+          "supervisor_PID": 194714,
+          "start_UTC": "2026-10-10T08:40:49.628268+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 11295.392164420999,
+          "actual_worker_PID": 194719,
+          "actual_worker_RSS_peak_bytes": 760377344,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 754429952,
+          "GPU_process_memory_peak_bytes": 0,
+          "GPU_query_failures": [],
+          "launcher_PID": 194719,
+          "actual_worker_parent_PID": 194714,
+          "last_job_tree_PIDs": [
+            194719
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 72.87873154099361,
+          "stop_UTC": "2026-10-10T08:42:02.507006+00:00",
+          "worker_self_receipt": {
+            "PID": 194719,
+            "parent_PID": 194714,
+            "nonce": "3a58d04bb79c4f89aaad65c32fe067f1",
+            "entry": "check_models.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 72.463393404003,
+            "self_peak_RSS_bytes": 760377344,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T08:42:02.108476+00:00"
+          }
+        },
+        {
+          "entry": "render_train.py",
+          "supervisor_PID": 196411,
+          "start_UTC": "2026-10-10T08:45:18.994008+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 11222.513432880005,
+          "actual_worker_PID": 196416,
+          "actual_worker_RSS_peak_bytes": 117923840,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 118390784,
+          "GPU_process_memory_peak_bytes": 0,
+          "GPU_query_failures": [],
+          "launcher_PID": 196416,
+          "actual_worker_parent_PID": 196411,
+          "last_job_tree_PIDs": [
+            196416
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 1.8915984959967318,
+          "stop_UTC": "2026-10-10T08:45:20.885610+00:00",
+          "worker_self_receipt": {
+            "PID": 196416,
+            "parent_PID": 196411,
+            "nonce": "249b00d709a5491a9607dac5c5b15c56",
+            "entry": "render_train.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1.799080333999882,
+            "self_peak_RSS_bytes": 117923840,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T08:45:20.809491+00:00"
+          }
+        },
+        {
+          "entry": "render_noise_display.py",
+          "supervisor_PID": 58560,
+          "start_UTC": "2026-10-10T08:52:07.847379+00:00",
+          "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+          "limit_s": 120,
+          "actual_worker_PID": 39256,
+          "actual_worker_RSS_peak_bytes": 75419648,
+          "launcher_RSS_peak_bytes": 75419648,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "launcher_PID": 39256,
+          "actual_worker_parent_PID": 58560,
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 2.4398478000075556,
+          "stop_UTC": "2026-10-10T08:52:10.287248+00:00",
+          "worker_self_receipt": {
+            "PID": 39256,
+            "parent_PID": 58560,
+            "entry": "render_noise_display.py",
+            "nonce": "302cea742324429b9cb4347768b9049b",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 2.1999333999701776,
+            "self_peak_RSS_bytes": 75419648,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T08:52:10.179826+00:00"
+          }
+        }
+      ],
+      "scientific_elapsed_s": 3181.8180134159993,
+      "scientific_counts": {
+        "completed_training_updates": 100000,
+        "TRAIN_solver_field_rows": 98304,
+        "DEV_neural_inference": 0,
+        "new_HGB": 0,
+        "new_EM": 0,
+        "main_replay": 0
+      },
+      "response_training_runs_completed": 2,
+      "last_observed_running_jobs": [],
+      "resource_receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json",
+      "final_receipt": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R48_KEY_RESULT_REVIEW_001.json",
+      "project_model_goal_complete": false,
+      "scientific_decision": "close_fixed_R48_Heun64_recipe_numerical_failure_before_DEV",
+      "stage_science_complete": true
     }
   ]
 }
