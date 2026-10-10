@@ -1,0 +1,284 @@
+{
+  "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+  "recorded_UTC": "2026-10-10T02:28:12.102111+00:00",
+  "status": "saved_aggregate_A_B_failure_observed_before_final_stage_seal",
+  "primary_candidate": "LONG_50000_HEUN64",
+  "scientific_threshold_version": 1,
+  "acceptance_document_sha256": "b17b7b79ad7d561bafd287ae5899f82396248e6922ebafbf57158337ed70def6",
+  "source": "work/R46_FIXED_INTEGRATION_BUDGET_001/metrics.json",
+  "A_pass": false,
+  "A_five_views_each_domain": {
+    "LONG_50000_HEUN64": {
+      "full_historical_shape": {
+        "BA": 0.78,
+        "BA_95CI": [
+          0.7435258940569365,
+          0.8134725427721721
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "normalized_u480": {
+        "BA": 0.738,
+        "BA_95CI": [
+          0.699940575650535,
+          0.7763745900278051
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "full_voltage": {
+        "BA": 0.8240000000000001,
+        "BA_95CI": [
+          0.7927242852290219,
+          0.8603018941157805
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "Q_PSD_2D": {
+        "BA": 0.704,
+        "BA_95CI": [
+          0.6673316676761559,
+          0.740829113466035
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "baseline_local": {
+        "BA": 0.5700000000000001,
+        "BA_95CI": [
+          0.5268924391658063,
+          0.6125758063294973
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      }
+    },
+    "LONG_50000_REAL_CONTROL": {
+      "full_historical_shape": {
+        "BA": 0.978,
+        "BA_95CI": [
+          0.9651609919474459,
+          0.9899305342899551
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "normalized_u480": {
+        "BA": 0.992,
+        "BA_95CI": [
+          0.9828367718590701,
+          0.9980916030534351
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "full_voltage": {
+        "BA": 0.994,
+        "BA_95CI": [
+          0.9860820606463037,
+          1.0
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "Q_PSD_2D": {
+        "BA": 0.8300000000000001,
+        "BA_95CI": [
+          0.798975672382735,
+          0.8533455695384521
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      },
+      "baseline_local": {
+        "BA": 0.9219999999999999,
+        "BA_95CI": [
+          0.8955205197149828,
+          0.9448908173857546
+        ],
+        "required_CI_containment": [
+          0.4,
+          0.6
+        ],
+        "pass": false
+      }
+    }
+  },
+  "RAW_REAL_REAL_Q_PSD_2D": {
+    "balanced_accuracy": null,
+    "AUC": null,
+    "reason": "historical_RAW_REAL_REAL_Q_PSD_2D_not_fitted; no new reference fit allowed"
+  },
+  "B_pass": false,
+  "B_PSD": {
+    "PSD_overall_W1": {
+      "value": 0.02418820849269167,
+      "maximum": 0.01,
+      "pass": false
+    },
+    "PSD_common_Q_equal_mean_W1": {
+      "value": 0.024782308554574927,
+      "maximum": 0.01,
+      "pass": false
+    }
+  },
+  "B_noise": {
+    "baseline_RMS_V": {
+      "value": 5.129550236240824e-05,
+      "BASE": 1.935838569590557e-05,
+      "maximum": 2.1294224265496127e-05,
+      "pass": false
+    },
+    "ACF1": {
+      "value": 0.05451456260452009,
+      "BASE": 0.0642349713874355,
+      "maximum": 0.07065846852617906,
+      "pass": true
+    }
+  },
+  "B_required_density_failures": {
+    "REAL": [],
+    "LONG_50000_HEUN64": [
+      2,
+      4
+    ]
+  },
+  "B_peak_width_fixed_bins2_7": [
+    {
+      "component": 0,
+      "rows": [
+        {
+          "bin_1based": 2,
+          "valid": false,
+          "peak_abs_error": null,
+          "raw_SD_relative_abs_error": null
+        },
+        {
+          "bin_1based": 3,
+          "valid": true,
+          "peak_abs_error": 0.030548292245601336,
+          "raw_SD_relative_abs_error": 0.37890490619064776
+        },
+        {
+          "bin_1based": 4,
+          "valid": false,
+          "peak_abs_error": null,
+          "raw_SD_relative_abs_error": null
+        },
+        {
+          "bin_1based": 5,
+          "valid": true,
+          "peak_abs_error": 0.0313697055233319,
+          "raw_SD_relative_abs_error": 0.49342864035276346
+        },
+        {
+          "bin_1based": 6,
+          "valid": true,
+          "peak_abs_error": 0.0012021745216407864,
+          "raw_SD_relative_abs_error": 0.030953676436642107
+        },
+        {
+          "bin_1based": 7,
+          "valid": true,
+          "peak_abs_error": 0.014953585495442873,
+          "raw_SD_relative_abs_error": 0.23559877734411028
+        }
+      ],
+      "all_required_bins_valid": false,
+      "peak_MAE": null,
+      "peak_MAE_limit": 0.01,
+      "peak_pass": false,
+      "raw_SD_mean_relative_abs_error": null,
+      "raw_SD_relative_limit": 0.1,
+      "raw_SD_pass": false,
+      "failed_bins_not_dropped": true
+    },
+    {
+      "component": 1,
+      "rows": [
+        {
+          "bin_1based": 2,
+          "valid": false,
+          "peak_abs_error": null,
+          "raw_SD_relative_abs_error": null
+        },
+        {
+          "bin_1based": 3,
+          "valid": true,
+          "peak_abs_error": 0.06603893408595052,
+          "raw_SD_relative_abs_error": 0.0006758996442434772
+        },
+        {
+          "bin_1based": 4,
+          "valid": false,
+          "peak_abs_error": null,
+          "raw_SD_relative_abs_error": null
+        },
+        {
+          "bin_1based": 5,
+          "valid": true,
+          "peak_abs_error": 0.05139351779749121,
+          "raw_SD_relative_abs_error": 0.06611010086564909
+        },
+        {
+          "bin_1based": 6,
+          "valid": true,
+          "peak_abs_error": 0.03133475468240621,
+          "raw_SD_relative_abs_error": 0.08266733363027254
+        },
+        {
+          "bin_1based": 7,
+          "valid": true,
+          "peak_abs_error": 0.03241230078256668,
+          "raw_SD_relative_abs_error": 0.0634508898454256
+        }
+      ],
+      "all_required_bins_valid": false,
+      "peak_MAE": null,
+      "peak_MAE_limit": 0.01,
+      "peak_pass": false,
+      "raw_SD_mean_relative_abs_error": null,
+      "raw_SD_relative_limit": 0.1,
+      "raw_SD_pass": false,
+      "failed_bins_not_dropped": true
+    }
+  ],
+  "C_six_stage_gates_and_replay": "pending_final_stage_receipts",
+  "D_utility": "not_executed_no_A_C_accepted_candidate",
+  "E_FULL_GAP": "not_executed_no_A_C_accepted_candidate",
+  "F_final_delivery": "pending_replay_figures_seal_Git_D",
+  "new_response_fits": 0,
+  "new_classifier_fits": 0,
+  "new_density_fits": 0,
+  "no_population_or_threshold_changes": true,
+  "root_read_limitations": "An initial source-association JSON read was overbroad and truncated (940307); bounded key reads followed (2802c9)."
+}

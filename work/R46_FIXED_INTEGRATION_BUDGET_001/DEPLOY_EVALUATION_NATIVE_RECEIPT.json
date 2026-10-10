@@ -1,0 +1,42 @@
+{
+  "PID": 47560,
+  "UTC": "2026-10-10T02:04:39.982048+00:00",
+  "mode": "deploy_evaluation",
+  "commands": [
+    {
+      "kind": "upload",
+      "native_exit": 0,
+      "argv": [
+        "scp",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R46_FIXED_INTEGRATION_BUDGET_001\\UPLOAD_CPU_EVALUATION.tar",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/UPLOAD_CPU_EVALUATION.tar"
+      ]
+    },
+    {
+      "kind": "extract",
+      "native_exit": 0,
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "cd /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC && tar -xf UPLOAD_CPU_EVALUATION.tar --no-same-owner --no-same-permissions"
+      ]
+    }
+  ],
+  "elapsed_s": 36.25352870003553,
+  "scientific_compute_s": 0,
+  "normal_transfer_only": true,
+  "migration_content_consistency_test": false
+}

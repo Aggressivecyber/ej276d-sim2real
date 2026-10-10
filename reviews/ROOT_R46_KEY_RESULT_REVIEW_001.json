@@ -1,0 +1,675 @@
+{
+  "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+  "reviewed_UTC": "2026-10-10T02:42:18.547356+00:00",
+  "status": "key_results_reviewed",
+  "decision": "close_fixed_LONG50000_HEUN64_recipe",
+  "project_complete": false,
+  "gates": {
+    "SHORT_2950_HEUN64": {
+      "gate1_complete_response": true,
+      "gate2_PSD_width_centers_noise": false,
+      "gate3_source_preservation": true,
+      "gate4_boundary_source": false,
+      "gate5_same_treated_REAL_control": false,
+      "gate6_numerical_replay": true
+    },
+    "LONG_50000_HEUN64": {
+      "gate1_complete_response": true,
+      "gate2_PSD_width_centers_noise": false,
+      "gate3_source_preservation": false,
+      "gate4_boundary_source": false,
+      "gate5_same_treated_REAL_control": false,
+      "gate6_numerical_replay": true
+    }
+  },
+  "A_complete_response_pass": false,
+  "B_PSD_width_noise_pass": false,
+  "C_all_six_stage_gates_pass": false,
+  "D_E": "not_executed_no_A_C_accepted_candidate",
+  "F": "stage_replay_and_artifacts_verified_private_Git_D_delivery_pending",
+  "acceptance_observation": "reviews/R46_ACCEPTANCE_OBSERVATION_001.json",
+  "long_short_comparison": {
+    "paired_BA_long_minus_short": {
+      "full_historical_shape": {
+        "BA_delta_first_minus_second": -0.09999999999999998,
+        "BA_delta_95CI": [
+          -0.1410066346902598,
+          -0.0620136357408576
+        ],
+        "AUC_delta_first_minus_second": -0.10184000000000004,
+        "AUC_delta_95CI": [
+          -0.1336782758398354,
+          -0.07283221610907648
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "first": "LONG_50000_HEUN64",
+        "second": "SHORT_2950_HEUN64",
+        "defined": true,
+        "new_classifier_fits": 0
+      },
+      "normalized_u480": {
+        "BA_delta_first_minus_second": -0.15399999999999991,
+        "BA_delta_95CI": [
+          -0.19639203616938308,
+          -0.1128604900714128
+        ],
+        "AUC_delta_first_minus_second": -0.14948799999999995,
+        "AUC_delta_95CI": [
+          -0.1852625038406837,
+          -0.11039032751638428
+        ],
+        "valid_replicates": 500,
+        "clusters": 460,
+        "paired_test_rows_and_groups": true,
+        "conditional_on_two_fitted_classifiers": true,
+        "response_training_uncertainty": false,
+        "first": "LONG_50000_HEUN64",
+        "second": "SHORT_2950_HEUN64",
+        "defined": true,
+        "new_classifier_fits": 0
+      }
+    },
+    "eight_prespecified_distance_differences": {
+      "PSD_overall_W1": {
+        "long": 0.02418820849269167,
+        "short": 0.04618358438045902,
+        "absolute_delta_long_minus_short": -0.021995375887767347,
+        "relative_change_long_minus_short_over_short": -0.4762596100504041,
+        "not_more_than10pct_worse": true
+      },
+      "baseline_RMS_V_overall_W1": {
+        "long": 5.129550236240824e-05,
+        "short": 4.3768507773969964e-05,
+        "absolute_delta_long_minus_short": 7.5269945884382755e-06,
+        "relative_change_long_minus_short_over_short": 0.17197284009108335,
+        "not_more_than10pct_worse": false
+      },
+      "ACF1_overall_W1": {
+        "long": 0.05451456260452009,
+        "short": 0.07183777552634868,
+        "absolute_delta_long_minus_short": -0.01732321292182859,
+        "relative_change_long_minus_short_over_short": -0.2411435041648078,
+        "not_more_than10pct_worse": true
+      },
+      "PSD_common_Q_equal_mean_W1": {
+        "long": 0.024782308554574927,
+        "short": 0.059427154666578684,
+        "absolute_delta_long_minus_short": -0.03464484611200376,
+        "relative_change_long_minus_short_over_short": -0.5829800586345036,
+        "not_more_than10pct_worse": true,
+        "common_bins_1based": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixed_bins_not_candidate_intersection": true,
+        "unsupported_required_bins_by_domain": {
+          "REAL": [],
+          "SHORT_2950_HEUN64": [],
+          "LONG_50000_HEUN64": []
+        }
+      },
+      "component0_peak_position_MAE": {
+        "long": null,
+        "short": 0.04313513344632619,
+        "absolute_delta_long_minus_short": null,
+        "relative_change_long_minus_short_over_short": null,
+        "not_more_than10pct_worse": false,
+        "common_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixed_bins_not_candidate_intersection": true,
+        "failed_required_bins_by_domain": {
+          "REAL": [],
+          "SHORT_2950_HEUN64": [],
+          "LONG_50000_HEUN64": [
+            2,
+            4
+          ]
+        }
+      },
+      "component0_raw_width_MAE": {
+        "long": null,
+        "short": 0.012306774761166817,
+        "absolute_delta_long_minus_short": null,
+        "relative_change_long_minus_short_over_short": null,
+        "not_more_than10pct_worse": false,
+        "common_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixed_bins_not_candidate_intersection": true,
+        "failed_required_bins_by_domain": {
+          "REAL": [],
+          "SHORT_2950_HEUN64": [],
+          "LONG_50000_HEUN64": [
+            2,
+            4
+          ]
+        }
+      },
+      "component1_peak_position_MAE": {
+        "long": null,
+        "short": 0.026235235830131598,
+        "absolute_delta_long_minus_short": null,
+        "relative_change_long_minus_short_over_short": null,
+        "not_more_than10pct_worse": false,
+        "common_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixed_bins_not_candidate_intersection": true,
+        "failed_required_bins_by_domain": {
+          "REAL": [],
+          "SHORT_2950_HEUN64": [],
+          "LONG_50000_HEUN64": [
+            2,
+            4
+          ]
+        }
+      },
+      "component1_raw_width_MAE": {
+        "long": null,
+        "short": 0.01095356459638278,
+        "absolute_delta_long_minus_short": null,
+        "relative_change_long_minus_short_over_short": null,
+        "not_more_than10pct_worse": false,
+        "common_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "fixed_bins_not_candidate_intersection": true,
+        "failed_required_bins_by_domain": {
+          "REAL": [],
+          "SHORT_2950_HEUN64": [],
+          "LONG_50000_HEUN64": [
+            2,
+            4
+          ]
+        }
+      }
+    },
+    "both_paired_BA_CI_upper_below0": true,
+    "all_eight_no_more_than10pct_worse": false,
+    "complete_response_improvement_description_supported": false,
+    "same64_steps_CPU12_chunk64": true,
+    "equal_inference_unequal_historical_training_budget": true,
+    "LONG_only_primary_candidate_no_SHORT_fallback": true,
+    "no_DEV_checkpoint_selection": true
+  },
+  "numerical_check": {
+    "PID": 117044,
+    "UTC": "2026-10-10T01:56:36.066819+00:00",
+    "elapsed_s": 60.86245290700026,
+    "models": {
+      "SHORT_2950_HEUN64": {
+        "arm": "SHORT_2950_HEUN64",
+        "PID": 117044,
+        "UTC": "2026-10-10T01:56:05.251631+00:00",
+        "RMS_median_V": 2.9254560079873863e-06,
+        "RMS_p95_V": 8.609534403819365e-06,
+        "RMS_median_LSB": 0.04792774577885735,
+        "RMS_p95_LSB": 0.14105000213777266,
+        "LSB_V": 6.103888176768602e-05,
+        "median_limit_LSB": 0.25,
+        "p95_limit_LSB": 1.0,
+        "preADC_relative_q_max": 1.8269904255809777e-08,
+        "relative_q_limit": 1e-05,
+        "solver64": {
+          "field_calls": 256,
+          "field_forward_rows": 16384,
+          "max_relative_q_error_f64": 3.4142379692044587e-16,
+          "max_relative_q_error_f32": 1.8269904255809777e-08,
+          "steps": 64,
+          "chunk": 64
+        },
+        "solver128": {
+          "field_calls": 512,
+          "field_forward_rows": 32768,
+          "max_relative_q_error_f64": 3.1098111486684947e-16,
+          "max_relative_q_error_f32": 1.6682641639483888e-08,
+          "steps": 128,
+          "chunk": 64
+        },
+        "pass": true,
+        "TRAIN_source_REAL_rows": [
+          64,
+          64
+        ],
+        "CPU_threads": 12,
+        "chunk": 64,
+        "DEV_read_or_generated": 0,
+        "additional_step_search": false,
+        "128step_candidate": false
+      },
+      "LONG_50000_HEUN64": {
+        "arm": "LONG_50000_HEUN64",
+        "PID": 117044,
+        "UTC": "2026-10-10T01:56:36.065936+00:00",
+        "RMS_median_V": 6.458732152919038e-06,
+        "RMS_p95_V": 1.3003864749590247e-05,
+        "RMS_median_LSB": 0.10581340886127259,
+        "RMS_p95_LSB": 0.21304231619253702,
+        "LSB_V": 6.103888176768602e-05,
+        "median_limit_LSB": 0.25,
+        "p95_limit_LSB": 1.0,
+        "preADC_relative_q_max": 1.9178960769982916e-08,
+        "relative_q_limit": 1e-05,
+        "solver64": {
+          "field_calls": 256,
+          "field_forward_rows": 16384,
+          "max_relative_q_error_f64": 2.5921022303310578e-16,
+          "max_relative_q_error_f32": 1.6224138346522212e-08,
+          "steps": 64,
+          "chunk": 64
+        },
+        "solver128": {
+          "field_calls": 512,
+          "field_forward_rows": 32768,
+          "max_relative_q_error_f64": 3.079165672703164e-16,
+          "max_relative_q_error_f32": 1.9178960769982916e-08,
+          "steps": 128,
+          "chunk": 64
+        },
+        "pass": true,
+        "TRAIN_source_REAL_rows": [
+          64,
+          64
+        ],
+        "CPU_threads": 12,
+        "chunk": 64,
+        "DEV_read_or_generated": 0,
+        "additional_step_search": false,
+        "128step_candidate": false
+      }
+    },
+    "both_pass": true,
+    "order": [
+      "SHORT_2950_HEUN64",
+      "LONG_50000_HEUN64"
+    ],
+    "new_response_training_updates": 0,
+    "new_TRAIN_random_states": 0,
+    "DEV_read_or_generated": 0,
+    "fixed_candidate_reference_steps": [
+      64,
+      128
+    ],
+    "CPU_threads": 12,
+    "chunk": 64
+  },
+  "replay_rows": 8000,
+  "replay_bitwise_pass": true,
+  "actual_resource": {
+    "PID": 49792,
+    "UTC": "2026-10-10T02:41:02.772932+00:00",
+    "science_cumulative_s": 1696.4277243200486,
+    "science_limit_s": 14400,
+    "remote_scientific_jobs": [
+      {
+        "entry": "check_models.py",
+        "supervisor_PID": 117039,
+        "start_UTC": "2026-10-10T01:55:34.459816+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 14400,
+        "actual_worker_PID": 117044,
+        "actual_worker_RSS_peak_bytes": 783220736,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "job_tree_RSS_peak_bytes": 768626688,
+        "GPU_process_memory_peak_bytes": 0,
+        "GPU_query_failures": [],
+        "launcher_PID": 117044,
+        "actual_worker_parent_PID": 117039,
+        "last_job_tree_PIDs": [
+          117044
+        ],
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 61.95102944900282,
+        "stop_UTC": "2026-10-10T01:56:36.410849+00:00",
+        "worker_self_receipt": {
+          "PID": 117044,
+          "parent_PID": 117039,
+          "nonce": "99c57691e6c54f80a65f2c1d75238fb7",
+          "entry": "check_models.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 61.5907418420029,
+          "self_peak_RSS_bytes": 783220736,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T01:56:36.067086+00:00"
+        }
+      },
+      {
+        "entry": "generate_all.py",
+        "supervisor_PID": 118909,
+        "start_UTC": "2026-10-10T02:04:40.245028+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 14338.048970550997,
+        "actual_worker_PID": 118914,
+        "actual_worker_RSS_peak_bytes": 1235218432,
+        "memory_probe_failures": 1,
+        "memory_probe_failure_events": [
+          {
+            "UTC": "2026-10-10T02:20:25.253375+00:00",
+            "PID": 118914,
+            "poll": null,
+            "context": "actual_PID_query"
+          }
+        ],
+        "handshake_before_imports": true,
+        "job_tree_RSS_peak_bytes": 1235218432,
+        "GPU_process_memory_peak_bytes": 0,
+        "GPU_query_failures": [],
+        "launcher_PID": 118914,
+        "actual_worker_parent_PID": 118909,
+        "last_job_tree_PIDs": [
+          118914
+        ],
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 945.1086254669935,
+        "stop_UTC": "2026-10-10T02:20:25.353660+00:00",
+        "worker_self_receipt": {
+          "PID": 118914,
+          "parent_PID": 118909,
+          "nonce": "a1764785ced0434fbd4d25bc0698dfa2",
+          "entry": "generate_all.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 944.4159306580041,
+          "self_peak_RSS_bytes": 1235140608,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T02:20:24.677038+00:00"
+        }
+      },
+      {
+        "entry": "evaluate_saved.py",
+        "supervisor_PID": 122852,
+        "start_UTC": "2026-10-10T02:20:34.173043+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 13392.940345084004,
+        "actual_worker_PID": 122857,
+        "actual_worker_RSS_peak_bytes": 1933824000,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "job_tree_RSS_peak_bytes": 1933824000,
+        "GPU_process_memory_peak_bytes": 0,
+        "GPU_query_failures": [],
+        "launcher_PID": 122857,
+        "actual_worker_parent_PID": 122852,
+        "last_job_tree_PIDs": [
+          122857
+        ],
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 49.569002483003715,
+        "stop_UTC": "2026-10-10T02:21:23.742055+00:00",
+        "worker_self_receipt": {
+          "PID": 122857,
+          "parent_PID": 122852,
+          "nonce": "190f979593f04ceab78765254ddbe56a",
+          "entry": "evaluate_saved.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 49.00250234499981,
+          "self_peak_RSS_bytes": 1932689408,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T02:21:23.191662+00:00"
+        }
+      },
+      {
+        "entry": "replay_all.py",
+        "supervisor_PID": 123785,
+        "start_UTC": "2026-10-10T02:21:40.048582+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 13343.371342601,
+        "actual_worker_PID": 123790,
+        "actual_worker_RSS_peak_bytes": 1041203200,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "job_tree_RSS_peak_bytes": 1041203200,
+        "GPU_process_memory_peak_bytes": 0,
+        "GPU_query_failures": [],
+        "launcher_PID": 123790,
+        "actual_worker_parent_PID": 123785,
+        "last_job_tree_PIDs": [
+          123790
+        ],
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 613.3316791210018,
+        "stop_UTC": "2026-10-10T02:31:53.380269+00:00",
+        "worker_self_receipt": {
+          "PID": 123790,
+          "parent_PID": 123785,
+          "nonce": "e228343c83594a8492502268bb91b159",
+          "entry": "replay_all.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 612.9675565049984,
+          "self_peak_RSS_bytes": 1040019456,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T02:31:53.032151+00:00"
+        }
+      }
+    ],
+    "local_scientific_jobs": [
+      {
+        "entry": "summarize_and_plot.py",
+        "supervisor_PID": 60412,
+        "start_UTC": "2026-10-10T02:32:22.521087+00:00",
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "limit_s": 12730.039663479998,
+        "actual_worker_PID": 35676,
+        "actual_worker_RSS_peak_bytes": 396857344,
+        "launcher_RSS_peak_bytes": 396857344,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "launcher_PID": 35676,
+        "actual_worker_parent_PID": 60412,
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 25.23710010002833,
+        "stop_UTC": "2026-10-10T02:32:47.758272+00:00",
+        "worker_self_receipt": {
+          "PID": 35676,
+          "parent_PID": 60412,
+          "entry": "summarize_and_plot.py",
+          "nonce": "1892a59173104bb9919723db66be9b4f",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 24.67216489999555,
+          "self_peak_RSS_bytes": 396857344,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T02:32:47.360470+00:00"
+        }
+      },
+      {
+        "entry": "plot_display_fix.py",
+        "supervisor_PID": 31712,
+        "start_UTC": "2026-10-10T02:36:13.298616+00:00",
+        "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+        "limit_s": 12704.80256337997,
+        "actual_worker_PID": 28336,
+        "actual_worker_RSS_peak_bytes": 77606912,
+        "launcher_RSS_peak_bytes": 77606912,
+        "memory_probe_failures": 0,
+        "memory_probe_failure_events": [],
+        "handshake_before_imports": true,
+        "launcher_PID": 28336,
+        "actual_worker_parent_PID": 31712,
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 1.2302877000183798,
+        "stop_UTC": "2026-10-10T02:36:14.528920+00:00",
+        "worker_self_receipt": {
+          "PID": 28336,
+          "parent_PID": 31712,
+          "entry": "plot_display_fix.py",
+          "nonce": "1657919caf674df5a283407d5e714f23",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 1.0068250999902375,
+          "self_peak_RSS_bytes": 77606912,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-10T02:36:14.433425+00:00"
+        }
+      }
+    ],
+    "actual_worker_RSS_peak_bytes": 1933824000,
+    "remote_job_tree_RSS_peak_bytes": 1933824000,
+    "memory_probe_failures": 1,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-10T02:20:25.253375+00:00",
+        "PID": 118914,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "unknown_gap_reason_not_fabricated": true,
+    "server_CPU_threads": 12,
+    "server_RSS_limit_bytes": 51539607552,
+    "GPU_science_jobs": 0,
+    "local_CPU_threads": 4,
+    "local_RSS_limit_bytes": 4294967296,
+    "output_limit_bytes": 4294967296,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_response_training_runs_updates_optimizer_steps": 0,
+    "new_TRAIN_const_or_random_fits": 0,
+    "HGB_attempts": 40,
+    "density_slots": 32,
+    "actual_density_EM_attempts": 32,
+    "main_generation_rows": 8000,
+    "repeat_noise_rows": 2048,
+    "source_probe_rows": 1664,
+    "source_perturbation_rows": 256,
+    "independent_replay_rows": 8000,
+    "normal_copy_only_no_migration_consistency_test": true,
+    "failures": {
+      "scientific_failures": [],
+      "control_failures": [
+        {
+          "tool_chunk_id": "a236bd",
+          "native_exit": 1,
+          "PID": null,
+          "reason": "PowerShell rg received a literal brace path instead of shell-expanded file paths",
+          "original_error": "rg: ../R45_EXTENDED_BUDGET_NEURAL_FLOW_001/{diagnostic_core.py,evaluation.py,assessment.py}: IO error for operation on ../R45_EXTENDED_BUDGET_NEURAL_FLOW_001/{diagnostic_core.py,evaluation.py,assessment.py}: The system cannot find the file specified. (os error 2)",
+          "previous_source_reads_in_same_command_completed": true,
+          "scientific_compute_added": 0,
+          "repair": "used explicit individual paths"
+        },
+        {
+          "tool_chunk_id": "676a68",
+          "native_exit": 1,
+          "PID": null,
+          "reason": "prepare_complete.py line54 used unsupported encoding alias utf8-sig",
+          "original_error": "LookupError: unknown encoding: utf8-sig",
+          "script": "prepare_complete.py",
+          "partial_control_writes_retained": true,
+          "scientific_arrays_decoded": 0,
+          "HGB_EM_or_response_updates_added": 0,
+          "repair": "standard encoding name utf-8-sig; successful preparation PID50196 tool84cf56"
+        },
+        {
+          "tool_chunk_id": "e1bb7a",
+          "native_exit": 1,
+          "PID": null,
+          "reason": "optional control read requested absent RESOURCE_CHECK_NATIVE_RECEIPT.json; source rg completed",
+          "scientific_compute_added": 0,
+          "elapsed_tool_wall_s": 1.2663838,
+          "stage_writes_added": 0,
+          "repair": "optional display removed; existing actual preflight/native receipts retained"
+        },
+        {
+          "tool_chunk_id": "bb07a6",
+          "native_exit": 1,
+          "PID": null,
+          "reason": "Optional source rg included absent local_supervise.py; config_cpu and summarize source matches were returned",
+          "scientific_compute_added": 0,
+          "elapsed_tool_wall_s": 0.3125794,
+          "stage_writes_added": 0,
+          "repair": "Used already recorded CPU_python and native history; no repeated lookup"
+        }
+      ],
+      "pre_evaluation_definition_correction": "FIXED_SUPPORT_CORRECTION_RECEIPT.json; original source and freeze retained in engineering_evaluation_definition_001",
+      "unknown_PID_is_not_inferred": true
+    },
+    "sealed_stage_originals_modified": false
+  },
+  "root_actual_key_read_tools": [
+    "d7fe77",
+    "4d2c22",
+    "6ab566",
+    "2802c9",
+    "29a351",
+    "10826c",
+    "3ccb45",
+    "8827e9",
+    "1f1883"
+  ],
+  "root_actual_key_PNGs": [
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/long_short_budget_comparison.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/c2st.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/numeric_integration_budget.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/charge_psd_main_body.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/charge_psd_full_range.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/conditional_psd_CDF.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/energy_peak_width.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/noise_curvature.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/source_preservation.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/same_treated_REAL_controls.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/boundary_differences.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/source_and_random_decomposition.png",
+    "work/R46_FIXED_INTEGRATION_BUDGET_001/results/figures/source_output_REAL_examples.png"
+  ],
+  "root_actual_key_PNG_count": 13,
+  "root_visual_evidence": "All thirteen final PNGs were actually displayed and inspected; the title-corrected long_short_budget_comparison.png was opened again after the display correction.",
+  "root_final_layout_issues": [],
+  "root_scientific_recomputation": false,
+  "fixed_support_correction": "work/R46_FIXED_INTEGRATION_BUDGET_001/FIXED_SUPPORT_CORRECTION_RECEIPT.json",
+  "fixed_support_correction_timing": "Before first HGB/EM. Restored registered PSD Q1-7 and peak/width Q2-7; missing bins stay undefined, no refit.",
+  "source_interpretation": "Valley occupancy is a preservation proxy, not particle misclassification. Density convergence/separation failure does not prove physical peaks disappeared.",
+  "same_treated_REAL_interpretation": "Gate compares against frozen BASE_REAL; absolute project A comparisons are reported separately. No RAW identity assumption is added.",
+  "goal_compatibility_note": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+  "next_action": "Assess whether evidence supports one genuinely different mechanism before using the last method slot; do not extend this fixed training/integration family blindly.",
+  "root_control_limitations": "Earlier wide JSON reads were truncated; bounded reads followed. No threshold, source population or scientific result changed."
+}

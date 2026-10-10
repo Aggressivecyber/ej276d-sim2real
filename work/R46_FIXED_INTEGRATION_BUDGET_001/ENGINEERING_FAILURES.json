@@ -1,0 +1,49 @@
+{
+  "scientific_failures": [],
+  "control_failures": [
+    {
+      "tool_chunk_id": "a236bd",
+      "native_exit": 1,
+      "PID": null,
+      "reason": "PowerShell rg received a literal brace path instead of shell-expanded file paths",
+      "original_error": "rg: ../R45_EXTENDED_BUDGET_NEURAL_FLOW_001/{diagnostic_core.py,evaluation.py,assessment.py}: IO error for operation on ../R45_EXTENDED_BUDGET_NEURAL_FLOW_001/{diagnostic_core.py,evaluation.py,assessment.py}: The system cannot find the file specified. (os error 2)",
+      "previous_source_reads_in_same_command_completed": true,
+      "scientific_compute_added": 0,
+      "repair": "used explicit individual paths"
+    },
+    {
+      "tool_chunk_id": "676a68",
+      "native_exit": 1,
+      "PID": null,
+      "reason": "prepare_complete.py line54 used unsupported encoding alias utf8-sig",
+      "original_error": "LookupError: unknown encoding: utf8-sig",
+      "script": "prepare_complete.py",
+      "partial_control_writes_retained": true,
+      "scientific_arrays_decoded": 0,
+      "HGB_EM_or_response_updates_added": 0,
+      "repair": "standard encoding name utf-8-sig; successful preparation PID50196 tool84cf56"
+    },
+    {
+      "tool_chunk_id": "e1bb7a",
+      "native_exit": 1,
+      "PID": null,
+      "reason": "optional control read requested absent RESOURCE_CHECK_NATIVE_RECEIPT.json; source rg completed",
+      "scientific_compute_added": 0,
+      "elapsed_tool_wall_s": 1.2663838,
+      "stage_writes_added": 0,
+      "repair": "optional display removed; existing actual preflight/native receipts retained"
+    },
+    {
+      "tool_chunk_id": "bb07a6",
+      "native_exit": 1,
+      "PID": null,
+      "reason": "Optional source rg included absent local_supervise.py; config_cpu and summarize source matches were returned",
+      "scientific_compute_added": 0,
+      "elapsed_tool_wall_s": 0.3125794,
+      "stage_writes_added": 0,
+      "repair": "Used already recorded CPU_python and native history; no repeated lookup"
+    }
+  ],
+  "pre_evaluation_definition_correction": "FIXED_SUPPORT_CORRECTION_RECEIPT.json; original source and freeze retained in engineering_evaluation_definition_001",
+  "unknown_PID_is_not_inferred": true
+}

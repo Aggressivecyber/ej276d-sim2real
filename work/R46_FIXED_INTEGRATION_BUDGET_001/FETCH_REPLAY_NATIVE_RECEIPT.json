@@ -1,0 +1,42 @@
+{
+  "PID": 39452,
+  "UTC": "2026-10-10T02:32:21.301243+00:00",
+  "mode": "fetch_replay",
+  "commands": [
+    {
+      "kind": "archive",
+      "native_exit": 0,
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -"
+      ]
+    },
+    {
+      "kind": "download",
+      "native_exit": 0,
+      "argv": [
+        "scp",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/RETURN_REPLAY.tar",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R46_FIXED_INTEGRATION_BUDGET_001\\RETURN_REPLAY.tar"
+      ]
+    }
+  ],
+  "elapsed_s": 0.7262862999923527,
+  "scientific_compute_s": 0,
+  "normal_transfer_only": true,
+  "migration_content_consistency_test": false
+}
