@@ -1,0 +1,30 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import json,ast,os,hashlib
+r=Path(__file__).resolve().parent;s=(r/'diagnose_frozen_pre_resource_unused.py').read_text('utf8')
+s=s.replace("torch.set_num_threads(CFG['CPU_threads']);torch.set_num_interop_threads(CFG['CPU_threads'])","THREADS=int(os.environ.get('R44_THREADS',CFG['CPU_threads']));torch.set_num_threads(THREADS);torch.set_num_interop_threads(1)")
+s=s.replace("'CPU_threads':CFG['CPU_threads']","'CPU_threads':THREADS")
+s=s.replace("mt=torch.from_numpy(mu).to(torch.float64);st=torch.from_numpy(scale).to(torch.float64)","device=torch.device(CFG['execution_device']);assert device.type=='cuda' and torch.cuda.is_available();torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False;torch.backends.cudnn.benchmark=False;torch.backends.cudnn.deterministic=True;torch.cuda.set_per_process_memory_fraction(min(1.,CFG['GPU_limit_bytes']/torch.cuda.get_device_properties(0).total_memory));mt=torch.from_numpy(mu).to(device=device,dtype=torch.float64);st=torch.from_numpy(scale).to(device=device,dtype=torch.float64);env.update(device=str(device),GPU=torch.cuda.get_device_name(0));put('ENVIRONMENT.json',env)")
+s=s.replace("net.eval();net.requires_grad_(False)","net.to(device);net.eval();net.requires_grad_(False)")
+s=s.replace("v.detach().numpy().tobytes()","v.detach().cpu().numpy().tobytes()")
+s=s.replace("b=torch.from_numpy(bn).to(torch.int64);a,qs,_=initial(torch.from_numpy(source[si]),torch.from_numpy(white[ord0]),mt[b],st[b]);target=torch.from_numpy(real[ti]).to(torch.float64)","b=torch.from_numpy(bn).to(device=device,dtype=torch.int64);a,qs,_=initial(torch.from_numpy(source[si]).to(device),torch.from_numpy(white[ord0]).to(device),mt[b],st[b]);target=torch.from_numpy(real[ti]).to(device=device,dtype=torch.float64)")
+s=s.replace("ts=torch.from_numpy(stream['t'][sl]).to(torch.float64)","ts=torch.from_numpy(stream['t'][sl]).to(device=device,dtype=torch.float64)")
+for v in ['(pred-v)','v','pred','qs','qt','ts','targetunit']:s=s.replace(v+'.numpy()',v+'.cpu().numpy()')
+s=s.replace("f_torch(mt[b]+st[b]*a).numpy()","f_torch(mt[b]+st[b]*a).cpu().numpy()")
+s=s.replace("assert all(binding.values())","assert all(binding.values());assert np.array_equal(np.take_along_axis(stream['target'].reshape(-1,32),stream['within_batch_target_position'].reshape(-1,32).astype('i8'),axis=1).reshape(-1),stream['matched_target'])")
+s=s.replace("rows.flush();committed+=32;checkpoint()","rows.flush();committed+=32;checkpoint();assert torch.cuda.max_memory_allocated()<=CFG['GPU_limit_bytes'] and torch.cuda.max_memory_reserved()<=CFG['GPU_limit_bytes']")
+s=s.replace("pops,markers=population(source,real,stream,rows,edges);hits=sum(a['hit']for a in markers)","pops=markers=None;hits=None\n    if not CFG.get('forward_only_server'):\n        pops,markers=population(source,real,stream,rows,edges);hits=sum(a['hit']for a in markers)")
+s=s.replace("    put('DIRECTION_MARKERS.json',{'bins':markers,","    if markers is not None:put('DIRECTION_MARKERS.json',{'bins':markers,")
+s=s.replace("\n    plot(rows,groups,pops,markers)","\n    if markers is not None:plot(rows,groups,pops,markers)")
+s=s.replace("'formula_pass':True}","'formula_pass':True,'GPU_peak_allocated_bytes':torch.cuda.max_memory_allocated(),'GPU_peak_reserved_bytes':torch.cuda.max_memory_reserved()}")
+pos=s.index('\ntry:\n    env=');header=s[:pos];body=s[pos+1:]
+s=header+'\ndef forward():\n    global attempted,committed,calls\n'+''.join('    '+line+'\n'for line in body.splitlines())+"\nif __name__=='__main__':forward()\n"
+ast.parse(s);(r/'diagnose_frozen.py').write_text(s,'utf8')
+c=json.loads((r/'config.json').read_text('utf8'))
+if not(r/'config_original_registered_pre_resource.json').exists():(r/'config_original_registered_pre_resource.json').write_text((r/'config.json').read_text('utf8'),'utf8')
+c.update(science_budget=3600,deadline_UTC='2026-10-10T03:39:27.880232+00:00',CPU_threads=12,RSS_limit_bytes=51539607552,GPU_limit_bytes=10737418240,output_limit_bytes=2147483648,execution_device='cuda:0',forward_only_server=True,execution='server CUDA unique forward, local CPU4 population/plot',remote_root='/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R44_REMOTE_20261010_003927_UTC',server_python='/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python')
+(r/'config.json').write_text(json.dumps(c,indent=2)+'\n','utf8')
+with(r/'PROTOCOL.md').open('a',encoding='utf8')as f:f.write('\n## Resource addendum before any actual forward\n\nR44_SERVER_RESOURCE_ADDENDUM_001 and SERVER_RESOURCE_POLICY v2 override local-only/caps/deadlines: unique server CUDA chunk32 forward, CPU12, treeRSS48GiB, GPU allocated/reserved/process10GiB, science3600s, outputs2GiB; executor2026-10-10T03:39:27.880232Z. Saved scalar rows return to E for sequential CPU4/RSS4GiB population and plotting. Device change is disclosed, no cross-device bitwise assertion; all mathematics and direction markers unchanged. Original6300-second resource block is superseded by RESOURCE_BUDGET v2; scientific acceptance unchanged.\n')
+f=json.loads((r/'CONTROL_FAILURES.json').read_text('utf8'));f.append({'tool':'983c4e','wrapper_native_exit':0,'inner_python_exit':1,'PID':'unknown; inner command did not print it','reason':'unused-source rewrite replaced a function declaration; AST SyntaxError before current source/config write','science_s':0,'existing_draft_and_normal_scp_code_copies_retained':True})
+(r/'CONTROL_FAILURES.json').write_text(json.dumps(f,indent=2)+'\n','utf8')
+print(json.dumps({'PID':os.getpid(),'UTC':datetime.now(timezone.utc).isoformat(),'AST_pass':True,'worker_sha256':hashlib.sha256(s.encode()).hexdigest(),'forward_started':False}))

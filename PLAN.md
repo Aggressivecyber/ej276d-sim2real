@@ -1,3 +1,7 @@
+# 修订072：固定模型的服务器长预算训练
+
+R44冻结诊断只命中1/6方向标记，关闭平均PSD残差解释。R45固定模型、目标、人口及耦合，从原2950步模型和Adam继续47050更新至累计50000，新增同分布时间/white状态，固定TRAIN探针。CPU12/RSS48GiB/GPU10GiB，训练3科学小时、阶段4科学小时/6小时墙钟；数值门通过后完整评价，失败则保留负结果。只检验训练预算，不宣称等预算结构优势。详见tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md。完整模型目标仍未完成。
+
 # 最新资源修订：使用服务器较大计算配额
 
 用户明确要求扩大服务器计算资源。以 [SERVER_RESOURCE_POLICY.md](SERVER_RESOURCE_POLICY.md) 与 RESOURCE_BUDGET.json 为准：服务器 CPU12、RAM48GiB、单GPU10GiB；新训练最多50000更新/3小时，最多3个方法方案、6次含对照训练，改进块科学最多25小时。科学验收线不降低，封存结果不改。R44迁至服务器作一次冻结前向，执行补充见 tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md。下文旧资源限制仅作历史。

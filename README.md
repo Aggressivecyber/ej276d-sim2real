@@ -1,3 +1,9 @@
+# 当前入口：R44平均PSD残差解释未获支持
+
+冻结诊断方向规则仅1/6区命中，关闭这一解释；下一登记问题为固定模型训练预算。完整模型目标仍未达到。
+
+[R44报告](R44_REPORT.md) · [项目验收](PROJECT_ACCEPTANCE.md) · [服务器资源](SERVER_RESOURCE_POLICY.md) · [R45协议](tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md)。以下保留历史入口。
+
 # 最新资源修订：使用服务器较大计算配额
 
 用户明确要求扩大服务器计算资源。以 [SERVER_RESOURCE_POLICY.md](SERVER_RESOURCE_POLICY.md) 与 RESOURCE_BUDGET.json 为准：服务器 CPU12、RAM48GiB、单GPU10GiB；新训练最多50000更新/3小时，最多3个方法方案、6次含对照训练，改进块科学最多25小时。科学验收线不降低，封存结果不改。R44迁至服务器作一次冻结前向，执行补充见 tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md。下文旧资源限制仅作历史。

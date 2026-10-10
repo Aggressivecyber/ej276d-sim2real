@@ -1,0 +1,51 @@
+{
+  "scientific_failures": [],
+  "control_failures": [
+    {
+      "tool": "832963",
+      "native_exit": 1,
+      "PID": "unknown; command did not print it",
+      "reason": "rg explicitly named missing source files; relevant existing excerpt and config values returned",
+      "science_s": 0,
+      "writes": 0
+    },
+    {
+      "tool": "983c4e",
+      "wrapper_native_exit": 0,
+      "inner_python_exit": 1,
+      "PID": "unknown; inner command did not print it",
+      "reason": "unused-source rewrite replaced a function declaration; AST SyntaxError before current source/config write",
+      "science_s": 0,
+      "existing_draft_and_normal_scp_code_copies_retained": true
+    },
+    {
+      "tool": "000946",
+      "native_exit": 1,
+      "PID": "unknown; PowerShell command did not print its PID",
+      "reason": "control read used results/POPULATION_BACKGROUND.json; saved JSON is at the stage root",
+      "science_s": 0,
+      "stage_writes": 0,
+      "recovery": "control tool77981c/PID56468/native0 read the existing stage-root JSON; no scientific block repeated"
+    }
+  ],
+  "two_remote_RSS_query_gaps": {
+    "count": 2,
+    "events": [
+      {
+        "UTC": "2026-10-10T00:46:14.310985+00:00",
+        "PID": 102441,
+        "poll": null,
+        "context": "actual_PID_query"
+      },
+      {
+        "UTC": "2026-10-10T00:46:14.411286+00:00",
+        "PID": 102441,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "cause": "unknown",
+    "near_stop_timing_not_proof_of_cause": true
+  },
+  "no_retry_of_94400_forward": true
+}

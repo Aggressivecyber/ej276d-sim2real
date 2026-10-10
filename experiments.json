@@ -1169,7 +1169,7 @@
     },
     {
       "id": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
-      "status": "registered_server_addendum_before_numeric",
+      "status": "sealed_negative_diagnostic",
       "task": "tasks/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001.md",
       "registration": "reviews/R44_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-10T00:34:08.074311+00:00",
@@ -1182,7 +1182,27 @@
       "EVAL_access": false,
       "resource_addendum": "tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md",
       "resource_registry": "RESOURCE_BUDGET.json",
-      "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00"
+      "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00",
+      "receipt": "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R44_KEY_RESULT_REVIEW_001.json",
+      "next_task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md"
+    },
+    {
+      "id": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md",
+      "registered_UTC": "2026-10-10T01:00:04.557894+00:00",
+      "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
+      "scientific_question": "R44 mean TRAIN PSD-velocity residual explanation failed1/6 versus4/6. Preserve closure. Test training budget itself by continuing the same scalar-time model and Adam from2950 to50000 total updates, with unchanged empirical pairs and objective but fresh same-distribution t/white draws. Fixed TRAIN probe and original solver gate precede complete DEV evaluation.",
+      "parent_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+      "inherited_response_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+      "response_fits_max": 1,
+      "new_updates_max": 47050,
+      "total_updates": 50000,
+      "science_budget_s": 14400,
+      "training_science_budget_s": 10800,
+      "DEV_used_for": "fixed final only after TRAIN numeric gate",
+      "EVAL_access": false
     }
   ]
 }

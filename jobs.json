@@ -2836,15 +2836,109 @@
     {
       "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
       "kind": "one_frozen_PSD_velocity_fit_diagnostic",
-      "status": "registered_server_addendum_before_numeric",
+      "status": "sealed_no_live_stage_job",
       "registered_UTC": "2026-10-10T00:34:08.074311+00:00",
       "registration": "reviews/R44_REGISTRATION_001/RECEIPT.json",
       "max_concurrent_scientific_jobs": 1,
-      "actual_native_jobs": [],
+      "actual_native_jobs": [
+        {
+          "entry": "diagnose_frozen.py",
+          "supervisor_PID": 102436,
+          "start_UTC": "2026-10-10T00:45:58.278166+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 3600,
+          "actual_worker_PID": 102441,
+          "actual_worker_RSS_peak_bytes": 1656750080,
+          "memory_probe_failures": 2,
+          "memory_probe_failure_events": [
+            {
+              "UTC": "2026-10-10T00:46:14.310985+00:00",
+              "PID": 102441,
+              "poll": null,
+              "context": "actual_PID_query"
+            },
+            {
+              "UTC": "2026-10-10T00:46:14.411286+00:00",
+              "PID": 102441,
+              "poll": null,
+              "context": "actual_PID_query"
+            }
+          ],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 1641566208,
+          "GPU_process_memory_peak_bytes": 308281344,
+          "GPU_query_failures": [],
+          "launcher_PID": 102441,
+          "actual_worker_parent_PID": 102436,
+          "last_job_tree_PIDs": [
+            102441
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 16.233382140002504,
+          "stop_UTC": "2026-10-10T00:46:14.511549+00:00",
+          "worker_self_receipt": {
+            "PID": 102441,
+            "parent_PID": 102436,
+            "nonce": "9c30469e8ea04bc7b7800764cd9aa675",
+            "entry": "diagnose_frozen.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 15.703784239995002,
+            "self_peak_RSS_bytes": 1656750080,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T00:46:13.998384+00:00"
+          }
+        },
+        {
+          "entry": "populations_and_plot.py",
+          "supervisor_PID": 52944,
+          "start_UTC": "2026-10-10T00:48:00.825760+00:00",
+          "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+          "limit_s": 3583.7666178599975,
+          "actual_worker_PID": 29392,
+          "actual_worker_RSS_peak_bytes": 1287458816,
+          "launcher_RSS_peak_bytes": 1287458816,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "launcher_PID": 29392,
+          "actual_worker_parent_PID": 52944,
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 12.680086500011384,
+          "stop_UTC": "2026-10-10T00:48:13.505909+00:00",
+          "worker_self_receipt": {
+            "PID": 29392,
+            "parent_PID": 52944,
+            "entry": "populations_and_plot.py",
+            "nonce": "9d0b3efb6e8a46f78ca6673346bee00e",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 11.883049800002482,
+            "self_peak_RSS_bytes": 1287458816,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T00:48:12.859301+00:00"
+          }
+        }
+      ],
       "resource_addendum": "tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md",
       "resource_registry": "RESOURCE_BUDGET.json",
       "science_budget_s": 3600,
-      "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00"
+      "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00",
+      "active_scientific_jobs": 0,
+      "seal_native_receipt": "reviews/R44_SEAL_NATIVE_RECEIPT.json"
+    },
+    {
+      "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+      "kind": "one_fixed_extended_training_trajectory",
+      "status": "registered_for_executor",
+      "registered_UTC": "2026-10-10T01:00:04.557894+00:00",
+      "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
+      "max_concurrent_scientific_jobs": 1,
+      "actual_native_jobs": []
     }
   ]
 }

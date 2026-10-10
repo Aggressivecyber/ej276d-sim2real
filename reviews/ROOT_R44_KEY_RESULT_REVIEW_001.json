@@ -1,0 +1,228 @@
+{
+  "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+  "reviewed_UTC": "2026-10-10T00:59:04.120881+00:00",
+  "status": "key_results_reviewed",
+  "decision": "close_mean_TRAIN_PSD_velocity_residual_explanation",
+  "direction_markers": {
+    "bins": [
+      {
+        "bin_id": 2,
+        "path_N": 11838,
+        "endpoint_N": 265,
+        "consumed_target_N": 11838,
+        "B_signed_velocity_residual": 0.005468946669627383,
+        "D_mean_abs_target_velocity": 0.10606193619380785,
+        "G_endpoint_minus_consumed_PSD_mean": 0.05352147367484203,
+        "abs_B_over_D": 0.05156370763997681,
+        "same_sign": true,
+        "hit": false
+      },
+      {
+        "bin_id": 3,
+        "path_N": 11700,
+        "endpoint_N": 288,
+        "consumed_target_N": 11700,
+        "B_signed_velocity_residual": 0.012285186755428114,
+        "D_mean_abs_target_velocity": 0.105722015060076,
+        "G_endpoint_minus_consumed_PSD_mean": 0.07612411799228294,
+        "abs_B_over_D": 0.11620272985193404,
+        "same_sign": true,
+        "hit": false
+      },
+      {
+        "bin_id": 4,
+        "path_N": 11781,
+        "endpoint_N": 252,
+        "consumed_target_N": 11781,
+        "B_signed_velocity_residual": 0.011790000783527602,
+        "D_mean_abs_target_velocity": 0.10181464892846033,
+        "G_endpoint_minus_consumed_PSD_mean": 0.06050819771060917,
+        "abs_B_over_D": 0.11579866853748914,
+        "same_sign": true,
+        "hit": false
+      },
+      {
+        "bin_id": 5,
+        "path_N": 11782,
+        "endpoint_N": 226,
+        "consumed_target_N": 11782,
+        "B_signed_velocity_residual": 0.011949643573558445,
+        "D_mean_abs_target_velocity": 0.08789841308445882,
+        "G_endpoint_minus_consumed_PSD_mean": 0.06076999297463098,
+        "abs_B_over_D": 0.13594834257219648,
+        "same_sign": true,
+        "hit": false
+      },
+      {
+        "bin_id": 6,
+        "path_N": 11919,
+        "endpoint_N": 168,
+        "consumed_target_N": 11919,
+        "B_signed_velocity_residual": 0.011427084045334972,
+        "D_mean_abs_target_velocity": 0.06690369320149986,
+        "G_endpoint_minus_consumed_PSD_mean": 0.04473723328886775,
+        "abs_B_over_D": 0.1707990022451974,
+        "same_sign": true,
+        "hit": false
+      },
+      {
+        "bin_id": 7,
+        "path_N": 11797,
+        "endpoint_N": 81,
+        "consumed_target_N": 11797,
+        "B_signed_velocity_residual": 0.01027192186418585,
+        "D_mean_abs_target_velocity": 0.03903663321415817,
+        "G_endpoint_minus_consumed_PSD_mean": 0.03172125247456753,
+        "abs_B_over_D": 0.2631354453093648,
+        "same_sign": true,
+        "hit": true
+      }
+    ],
+    "hits": 1,
+    "required_hits": 4,
+    "supported": false,
+    "decision": "close_mean_TRAIN_PSD_velocity_residual_explanation",
+    "causal_claim": false,
+    "new_training_authorized": false
+  },
+  "velocity_overall": {
+    "N": 94400,
+    "signed_mean": 0.009768810009651598,
+    "PSD_RMSE": 0.02941674283367107,
+    "target_velocity_mean": -0.07484340825186128,
+    "target_velocity_abs_mean": 0.08012382662228527,
+    "predicted_velocity_mean": -0.06507459824220968,
+    "MSE480_mean": 0.8690044797152355,
+    "total_energy_sum": 39376330.984856755,
+    "PSD_mode_energy_sum": 539456.9968591505,
+    "complement_energy_sum": 38836873.98799761,
+    "PSD_mode_energy_fraction": 0.013700032059020772,
+    "energy_sum_closure_absolute": 0.0
+  },
+  "formula_checks": {
+    "PSD_velocity_endpoint_identity_maxabs": 4.163336342344337e-16,
+    "path_charge_tangent_maxabs": 1.1102230246251565e-16,
+    "predicted_charge_tangent_maxabs": 2.220446049250313e-16,
+    "gT_dot_residual_vs_L_residual_maxabs": 1.942890293094024e-16,
+    "row_energy_closure_maxabs": 9.094947017729282e-13,
+    "pass": true,
+    "threshold_identity_charge": 1e-10,
+    "no_extra_network_forward_for_formula_check": true
+  },
+  "counts": {
+    "forward_rows": 94400,
+    "forward_calls": 2950,
+    "loaded_SOURCE_REAL": [
+      6593,
+      21047
+    ],
+    "unique_consumed_SOURCE_REAL": [
+      3752,
+      18739
+    ],
+    "response_updates": 0,
+    "ODE": 0,
+    "new_HGB_EM": 0
+  },
+  "actual_resource": {
+    "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+    "effective_resource_addendum": "tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md",
+    "first_actual_control": {
+      "tool": "f7ee9d",
+      "PID": 59836,
+      "native_exit": 0,
+      "UTC": "2026-10-10T00:34:45.693280+00:00"
+    },
+    "executor_deadline_UTC": "2026-10-10T03:39:27.880232+00:00",
+    "science_budget_s": 3600,
+    "science_elapsed_s": 28.91346864001389,
+    "accounting": "Sum full supervised GPU-forward and CPU-population/plot elapsed; worker-inner and SSH transport times are nested, not added twice. Pure control read/write/seal has no scientific operations.",
+    "GPU_forward_elapsed_s": 16.233382140002504,
+    "CPU_background_plot_elapsed_s": 12.680086500011384,
+    "server_environment": {
+      "PID": 102441,
+      "UTC": "2026-10-10T00:45:59.437324+00:00",
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "numpy": "1.26.4",
+      "torch": "2.12.0+cu130",
+      "device": "cuda:0",
+      "CPU_threads": 12,
+      "GPU": "NVIDIA GeForce RTX 5070"
+    },
+    "server_CPU_threads": 12,
+    "local_CPU_threads": 4,
+    "server_job_tree_RSS_limit_bytes": 51539607552,
+    "local_RSS_limit_bytes": 4294967296,
+    "GPU_limit_bytes": 10737418240,
+    "server_worker_RSS_high_water_bytes": 1656750080,
+    "server_job_tree_sampled_RSS_peak_bytes": 1641566208,
+    "RSS_basis": "worker self high-water and monitored actual-PID/tree samples; sampled tree maximum need not equal self high-water",
+    "GPU_peak_allocated_bytes": 59164672,
+    "GPU_peak_reserved_bytes": 67108864,
+    "GPU_process_sampled_peak_bytes": 308281344,
+    "local_actual_worker_RSS_peak_bytes": 1287458816,
+    "RSS_gaps": [
+      {
+        "UTC": "2026-10-10T00:46:14.310985+00:00",
+        "PID": 102441,
+        "poll": null,
+        "context": "actual_PID_query"
+      },
+      {
+        "UTC": "2026-10-10T00:46:14.411286+00:00",
+        "PID": 102441,
+        "poll": null,
+        "context": "actual_PID_query"
+      }
+    ],
+    "RSS_gap_cause": "unknown",
+    "GPU_query_failures": [],
+    "forward_rows": 94400,
+    "forward_calls": 2950,
+    "forward_repetitions": 0,
+    "training_updates_ODE_generation_new_HGB_EM_bootstrap": 0,
+    "new_EVAL_CAL_original_long_waveform_G4_reads": 0,
+    "normal_upload_archive_bytes": 61440,
+    "normal_return_archive_bytes": 17541120,
+    "migration_consistency_tests": 0,
+    "new_installations": 0,
+    "control_failures_count": 4,
+    "scientific_failures_count": 0,
+    "failure_receipts": [
+      "FAILURE_ACCOUNTING.json",
+      "SEAL_RECOVERY_RECORD.json"
+    ],
+    "output_limit_bytes": 2147483648,
+    "final_output_accounting": "FINAL_MANIFEST manifested bytes plus FINAL_MANIFEST and FINAL_RECEIPT bytes; no unknown source I/O claimed zero",
+    "control_read_write_exact_byte_ledger": "not required by simplified stage; no new complete data-I/O claim",
+    "seal_PID": 25704,
+    "seal_start_UTC": "2026-10-10T00:57:22.233656+00:00"
+  },
+  "root_actual_key_PNGs": [
+    "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/results/figures/PSD_MSE_geometry.png",
+    "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/results/figures/PSD_velocity_Q_time.png",
+    "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/results/figures/population_PSD_CDF.png",
+    "work/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001/results/figures/population_means_direction_markers.png"
+  ],
+  "root_actual_key_PNG_count": 4,
+  "root_final_layout_issues": [],
+  "root_actual_key_read_tools": [
+    "9dc15e",
+    "26b192",
+    "d30006",
+    "b7950f"
+  ],
+  "root_visual_evidence": "All four final PNGs were actually displayed and reviewed before seal; final paths unchanged.",
+  "seal_native_receipt": "reviews/R44_SEAL_NATIVE_RECEIPT.json",
+  "scientific_recomputation": false,
+  "new_candidate": false,
+  "project_complete": false,
+  "limitations": [
+    "TRAIN interpolation states are not integrated ODE trajectories.",
+    "One-dimensional MSE energy fraction is not physical importance or causal proof.",
+    "Repeated rows and one historically exposed acquisition are not independent validation.",
+    "Two end-of-worker RSS query gaps remain unknown."
+  ],
+  "next_question": "Extend the same fixed model/optimizer trajectory to total50000 updates under the larger server budget; compare fixed TRAIN probes and joint response.",
+  "next_task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md"
+}

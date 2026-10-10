@@ -1,0 +1,144 @@
+{
+  "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "registered_UTC": "2026-10-10T01:00:04.557894+00:00",
+  "task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md",
+  "task_sha256": "e504b4f9f51a45608f583859c7ec899a47bc92bcf12e45982d3974fa0469c815",
+  "reason": "R44 mean TRAIN PSD-velocity residual explanation failed1/6 versus4/6. Preserve closure. Test training budget itself by continuing the same scalar-time model and Adam from2950 to50000 total updates, with unchanged empirical pairs and objective but fresh same-distribution t/white draws. Fixed TRAIN probe and original solver gate precede complete DEV evaluation.",
+  "parent_diagnostic_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+  "inherited_response_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+  "resource_policy": "SERVER_RESOURCE_POLICY.md",
+  "resource_version": 2,
+  "project_acceptance": "PROJECT_ACCEPTANCE.json",
+  "scientific_acceptance_thresholds_changed": false,
+  "execution": "server_GPU_training_CPU12_solver_generation_evaluation_replay_local_auxiliary",
+  "server": "rylan@100.82.231.102",
+  "server_limits": {
+    "CPU_threads": 12,
+    "job_tree_RSS_bytes": 51539607552,
+    "MemAvailable_start_min_bytes": 60129542144,
+    "GPU_count": 1,
+    "GPU_allocated_and_reserved_max_bytes": 10737418240,
+    "GPU_free_start_min_bytes": 11811160064,
+    "other_GPU_compute_jobs_allowed": false,
+    "concurrent_project_scientific_jobs_max": 1,
+    "stage_output_bytes_max": 4294967296,
+    "disk_free_reserve_bytes": 8589934592
+  },
+  "local_auxiliary_limits": {
+    "CPU_threads": 4,
+    "RSS_bytes": 4294967296
+  },
+  "science_budget_s": 14400,
+  "training_science_budget_s": 10800,
+  "stage_wall_budget_s": 21600,
+  "executor_wall_budget_s": 18000,
+  "output_limit_bytes": 4294967296,
+  "executor_seal_deadline_UTC": "2026-10-10T06:00:04.557894+00:00",
+  "stage_deadline_UTC": "2026-10-10T07:00:04.557894+00:00",
+  "inherited_updates": 2950,
+  "new_response_updates_max": 47050,
+  "total_response_updates": 50000,
+  "batch_size": 32,
+  "new_consumed_rows_per_domain": 1505600,
+  "total_consumed_rows_per_domain": 1600000,
+  "response_training_runs_max": 1,
+  "method_plan_index_in_current_block": 1,
+  "fixed_endpoint": "EXTENDED_FLOW_FINAL",
+  "checkpoint_selection": "total50000 only; intermediates engineering recovery only",
+  "pair_order": "original batch (global_update-1)%2950; no new parents or target coupling",
+  "training_t": "continue original PCG64 final_t_RNG; uniform32 castfloat32 each update",
+  "new_training_white_seed": 20261010452,
+  "white_draw": "PCG64.standard_normal((32,480)).astype(float32) per new update",
+  "probe": {
+    "rows": 4096,
+    "rows_per_bin": 512,
+    "selection_seed": 20261010453,
+    "t_seed": 20261010454,
+    "white_seed": 20261010455,
+    "total_updates": [
+      2950,
+      5000,
+      10000,
+      15000,
+      20000,
+      25000,
+      30000,
+      35000,
+      40000,
+      45000,
+      50000
+    ],
+    "fixed_states_reused": true,
+    "new_parents": false,
+    "fit_improvement_marker_final_over_initial_MSE_max": 0.9
+  },
+  "solver": {
+    "steps": 32,
+    "reference_steps": 64,
+    "TRAIN_rows": 128,
+    "chunk": 64,
+    "median_LSB_max": 0.25,
+    "p95_LSB_max": 1.0,
+    "preADC_relative_q_max": 1e-05,
+    "numeric_failure_stops_before_DEV": true
+  },
+  "if_solver_pass": {
+    "source_rows": 2000,
+    "REAL_control_rows": 2000,
+    "repeated_rows": 1024,
+    "source_probe_rows": 832,
+    "source_perturb_rows": 128,
+    "HGB_fits_max": 20,
+    "EM_fits_max": 16,
+    "independent_CPU_replay_rows": 4000
+  },
+  "new_CAL_EVAL_G4_decode": 0,
+  "max_concurrent_scientific_jobs": 1,
+  "input_bindings": [
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/SCALAR_TIME_FLOW_FINAL/FINAL_FLOW.pt",
+      "bytes": 5541441,
+      "sha256": "9cfae149ab2f7a85e057cac9a8a715904e54bb550d1ee8d21ddb62d757ea6c51"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/SCALAR_TIME_FLOW_FINAL/FINAL_OPTIMIZER.pt",
+      "bytes": 11122987,
+      "sha256": "ef950e40a1b40eacaca7a4072474e472db5be723aba6d982163e96796bb520d7"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/SCALAR_TIME_FLOW_FINAL/ACTUAL_CFM_STREAM_PRIVATE.npz",
+      "bytes": 2403076,
+      "sha256": "53c582e155f0545440d8f858afd2c4860cc1fe92b20d6223ec65cf42eca84f6f"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/SCALAR_TIME_FLOW_FINAL/TRAINING_RECEIPT.json",
+      "bytes": 2151,
+      "sha256": "3c24ab6660364f3968ff1a3527c0952c1452f513afb1454eba47ac21bc377036"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/UNIT_CHARGE_CONSTANTS.npz",
+      "bytes": 87984,
+      "sha256": "d7a47ec7c4b7e11ea753d1d7b70a780df8b7d097f26507ad4c120467677994bc"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/UNIT_CHARGE_CONSTANTS.json",
+      "bytes": 2583,
+      "sha256": "75dc361daa74c284c9f239e75454e167e3c2a00698c4ab0253fcb59ecce45dc5"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/network.py",
+      "bytes": 2953,
+      "sha256": "91c8dc1d3888f7fe6e0876882d203cef6158d407780ad5b81b2d8c2c629971f8"
+    },
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/source_flow_core.py",
+      "bytes": 4678,
+      "sha256": "6624886b26b68fdf1ad8519b51f07d258fcae691bf00b2514d7a2d95590f9926"
+    }
+  ],
+  "historical_training_cost_not_zero": true,
+  "migration_consistency_tests": false,
+  "method_comparison_equal_budget_claim": false,
+  "intervention_is_training_budget": true,
+  "limitations": "Single fixed inherited initialization and exposed acquisition; unchanged empirical pairs with additional Monte Carlo time/noise states; no independent acquisition or arbitrary discriminator equivalence claim."
+}

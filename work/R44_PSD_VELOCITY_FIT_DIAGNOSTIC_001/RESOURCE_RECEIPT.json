@@ -1,0 +1,74 @@
+{
+  "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+  "effective_resource_addendum": "tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md",
+  "first_actual_control": {
+    "tool": "f7ee9d",
+    "PID": 59836,
+    "native_exit": 0,
+    "UTC": "2026-10-10T00:34:45.693280+00:00"
+  },
+  "executor_deadline_UTC": "2026-10-10T03:39:27.880232+00:00",
+  "science_budget_s": 3600,
+  "science_elapsed_s": 28.91346864001389,
+  "accounting": "Sum full supervised GPU-forward and CPU-population/plot elapsed; worker-inner and SSH transport times are nested, not added twice. Pure control read/write/seal has no scientific operations.",
+  "GPU_forward_elapsed_s": 16.233382140002504,
+  "CPU_background_plot_elapsed_s": 12.680086500011384,
+  "server_environment": {
+    "PID": 102441,
+    "UTC": "2026-10-10T00:45:59.437324+00:00",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "device": "cuda:0",
+    "CPU_threads": 12,
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "server_CPU_threads": 12,
+  "local_CPU_threads": 4,
+  "server_job_tree_RSS_limit_bytes": 51539607552,
+  "local_RSS_limit_bytes": 4294967296,
+  "GPU_limit_bytes": 10737418240,
+  "server_worker_RSS_high_water_bytes": 1656750080,
+  "server_job_tree_sampled_RSS_peak_bytes": 1641566208,
+  "RSS_basis": "worker self high-water and monitored actual-PID/tree samples; sampled tree maximum need not equal self high-water",
+  "GPU_peak_allocated_bytes": 59164672,
+  "GPU_peak_reserved_bytes": 67108864,
+  "GPU_process_sampled_peak_bytes": 308281344,
+  "local_actual_worker_RSS_peak_bytes": 1287458816,
+  "RSS_gaps": [
+    {
+      "UTC": "2026-10-10T00:46:14.310985+00:00",
+      "PID": 102441,
+      "poll": null,
+      "context": "actual_PID_query"
+    },
+    {
+      "UTC": "2026-10-10T00:46:14.411286+00:00",
+      "PID": 102441,
+      "poll": null,
+      "context": "actual_PID_query"
+    }
+  ],
+  "RSS_gap_cause": "unknown",
+  "GPU_query_failures": [],
+  "forward_rows": 94400,
+  "forward_calls": 2950,
+  "forward_repetitions": 0,
+  "training_updates_ODE_generation_new_HGB_EM_bootstrap": 0,
+  "new_EVAL_CAL_original_long_waveform_G4_reads": 0,
+  "normal_upload_archive_bytes": 61440,
+  "normal_return_archive_bytes": 17541120,
+  "migration_consistency_tests": 0,
+  "new_installations": 0,
+  "control_failures_count": 4,
+  "scientific_failures_count": 0,
+  "failure_receipts": [
+    "FAILURE_ACCOUNTING.json",
+    "SEAL_RECOVERY_RECORD.json"
+  ],
+  "output_limit_bytes": 2147483648,
+  "final_output_accounting": "FINAL_MANIFEST manifested bytes plus FINAL_MANIFEST and FINAL_RECEIPT bytes; no unknown source I/O claimed zero",
+  "control_read_write_exact_byte_ledger": "not required by simplified stage; no new complete data-I/O claim",
+  "seal_PID": 25704,
+  "seal_start_UTC": "2026-10-10T00:57:22.233656+00:00"
+}
