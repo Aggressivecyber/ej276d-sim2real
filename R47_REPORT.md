@@ -34,3 +34,11 @@ REAL 初态的 baseline-local BA 为 0.572；相对复用的 RAW REAL–REAL 0.5
 累计科学时间、封存文件数、实际私有 Git 与 D 盘增量副本以最终资源和交付回执为准。六张最终图已实际打开；两张图例遮挡修复前的图片和代码保留，修复没有新增拟合或统计。根读取关键结果时一次只读摘要脚本因 REAL_DEV 使用不同嵌套结构而退出 1，修正读取后退出 0，未产生或改变科学结果。
 
 [完整执行报告](work/R47_POPULATION_NOISE_DIAGNOSTIC_001/REPORT.md) · [电荷人口图](work/R47_POPULATION_NOISE_DIAGNOSTIC_001/results/figures/charge_population.png) · [噪声路径图](work/R47_POPULATION_NOISE_DIAGNOSTIC_001/results/figures/baseline_paths.png) · [方差与交叉项](work/R47_POPULATION_NOISE_DIAGNOSTIC_001/results/figures/baseline_variance_components.png) · [复现说明](work/R47_POPULATION_NOISE_DIAGNOSTIC_001/REPRODUCTION.md)
+
+## 实际阶段交付
+
+R47 科学作业累计 9.997501 秒；封存 112 文件、6,553,416 B，3 个科学进程均以原生退出码 0 完成。改进块累计科学 3198.497257 秒，方法名额仍使用 2/3，响应训练仍使用 1/6。
+
+私有 Git 科学产物提交 `fbc87d5a2cd549d2d29a544b551962f49a665188` 已推送且远端一致。D 盘新增正常复制 1469 文件、34,909,422 B，Git 增量 bundle 1,129,255 B；目录 `D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r47_population_noise_final_20261010_060645_UTC`。恢复需要 BACKUP_FILE_LIST.json 列出的 R44/R45/R46 副本和 Git 依赖，单独此目录不是完整快照；既有副本未覆盖。最终状态文件在 delivery_completion 中作为小型增量保存，结果以 [最终交付回执](R47_DELIVERY_COMPLETION_RECEIPT.json) 为准。没有执行迁移内容一致性测试。
+
+本轮完成计划构建和首阶段实证推进；下一方法仍需固定算子与对照，尚未登记新的响应训练。模型联合目标未完成。
