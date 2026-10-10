@@ -1,0 +1,94 @@
+{
+  "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R47_REMOTE_20261010_053712_UTC",
+  "old_R46_remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC",
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+  "deadline_UTC": "2026-10-10T06:37:12.007626+00:00",
+  "science_budget": 900,
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 0,
+  "disk_free_reserve_bytes": 8589934592,
+  "output_limit_bytes": 67108864,
+  "training_total_limit_s": 0,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "HGB_max_fits": 5,
+  "inputs": {
+    "actual": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/ACTUAL_GENERATION_INPUTS.npz",
+    "metadata": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/DEV_SOURCE_METADATA.npz",
+    "real": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/REAL_DEV_AND_REFERENCE_PRIVATE.npz",
+    "constants": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/UNIT_CHARGE_CONSTANTS.npz",
+    "selection": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R26/results/C2ST_PRIVATE.npz",
+    "width_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/DIAGNOSTIC_DEFINITION.json",
+    "CAL_metadata": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/CAL_REFERENCE_METADATA.json",
+    "RAW_RR_prediction": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R7/results/C2ST_HOLDOUT_PREDICTIONS.npz",
+    "RAW_RR_selection": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R7/results/DIAGNOSTIC_SELECTIONS.json",
+    "R46_metrics": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/metrics.json",
+    "BASE": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R32/CONTROL_FINAL/generated.npz",
+    "BASE_REAL": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/BASE_REAL_CONTROL/generated.npz",
+    "SHORT_2950_HEUN64": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/SHORT_2950_HEUN64/generated.npz",
+    "LONG_50000_HEUN64": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/LONG_50000_HEUN64/generated.npz",
+    "SHORT_2950_REAL_CONTROL": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/SHORT_2950_REAL_CONTROL/generated.npz",
+    "LONG_50000_REAL_CONTROL": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/LONG_50000_REAL_CONTROL/generated.npz"
+  },
+  "arms": [
+    "SHORT_2950_HEUN64",
+    "LONG_50000_HEUN64",
+    "SHORT_2950_REAL_CONTROL",
+    "LONG_50000_REAL_CONTROL"
+  ],
+  "no_response_training_ODE_EM": true,
+  "new_response_candidate": false,
+  "initial_ADC_rule": "cast S+G to float32; same frozen14bit ADC once; deterministic feature diagnostic only",
+  "covariance_rule": "center each component within baseline100 row; ddof1 denominator99; all six2Cov terms",
+  "population_rule": "all original rows retained; nonfinite summaries explicit; source original Qbin and observed Qbin separated",
+  "input_key_contract": {
+    "actual": [
+      "source_waveforms_V",
+      "source_ids"
+    ],
+    "metadata": [
+      "source_ids",
+      "composition"
+    ],
+    "real": [
+      "real_V",
+      "real_ids",
+      "real_groups",
+      "real_QC_valid",
+      "reference_V",
+      "reference_ids",
+      "reference_groups"
+    ],
+    "endpoints": [
+      "pre_ADC_V",
+      "waveforms_V",
+      "base_signal_V",
+      "projected_initial_Gaussian_f64_V",
+      "learned_flow_increment_f64_V",
+      "final_cast_rounding_f64_V",
+      "initial_state_f64_V"
+    ],
+    "selection": [
+      "phase0_0",
+      "phase0_1",
+      "phase0_2",
+      "phase1_0",
+      "phase1_1",
+      "phase1_2"
+    ]
+  }
+}

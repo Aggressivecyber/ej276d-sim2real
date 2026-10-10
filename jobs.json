@@ -3324,6 +3324,68 @@
       "seal_native_receipt": "reviews/R46_SEAL_NATIVE_RECEIPT.json",
       "publication_receipt": "R46_PUBLICATION_RECEIPT.json",
       "backup_receipt": "R46_BACKUP_RECEIPT.json"
+    },
+    {
+      "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+      "status": "sealed_diagnostic_root_delivery_in_progress",
+      "task": "tasks/R47_POPULATION_NOISE_DIAGNOSTIC_001.md",
+      "registration": "reviews/R47_REGISTRATION_001/RECEIPT.json",
+      "active_scientific_jobs": 0,
+      "executor_ack": "reviews/R47_EXECUTOR_ACK_001.json",
+      "scientific_start_observed": true,
+      "scientific_jobs": [
+        {
+          "tool_result_ID": "67abfe",
+          "entry": "numeric_worker.py",
+          "actual_worker_PID": 159116,
+          "supervisor_PID": 159111,
+          "start_UTC": "2026-10-10T05:46:16.677977+00:00",
+          "stop_UTC": "2026-10-10T05:46:20.391941+00:00",
+          "native_exit": 0,
+          "elapsed_s": 3.7139588720019674,
+          "receipt": "numeric_worker.py.NATIVE_RECEIPT.json"
+        },
+        {
+          "tool_result_ID": "8819f9",
+          "entry": "render_figures.py",
+          "actual_worker_PID": 58252,
+          "supervisor_PID": 48216,
+          "start_UTC": "2026-10-10T05:50:30.373081+00:00",
+          "stop_UTC": "2026-10-10T05:50:35.021131+00:00",
+          "native_exit": 0,
+          "elapsed_s": 4.648377000004984,
+          "receipt": "render_figures.py.NATIVE_RECEIPT.json"
+        },
+        {
+          "tool_result_ID": "0a38f7",
+          "entry": "repair_display.py",
+          "actual_worker_PID": 31424,
+          "supervisor_PID": 62360,
+          "start_UTC": "2026-10-10T05:54:41.595938+00:00",
+          "stop_UTC": "2026-10-10T05:54:43.230998+00:00",
+          "native_exit": 0,
+          "elapsed_s": 1.6351651000441052,
+          "receipt": "repair_display.py.NATIVE_RECEIPT.json"
+        }
+      ],
+      "scientific_elapsed_s": 9.997500972051057,
+      "scientific_counts": {
+        "HGB_attempts": 5,
+        "HGB_completed": 5,
+        "response_training_updates": 0,
+        "ODE_calls": 0,
+        "EM_attempts": 0,
+        "response_generated_rows": 0,
+        "EVAL_read": 0,
+        "CAL_waveform_decode": 0,
+        "new_G4": 0,
+        "deterministic_ADC_feature_rows": 6000
+      },
+      "response_training_runs": 0,
+      "resource_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
+      "final_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R47_KEY_RESULT_REVIEW_001.json",
+      "project_model_goal_complete": false
     }
   ]
 }

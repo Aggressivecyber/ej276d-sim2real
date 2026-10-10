@@ -1,0 +1,126 @@
+{
+  "stage": "R47_POPULATION_NOISE_DIAGNOSTIC_001",
+  "reviewed_UTC": "2026-10-10T06:06:45.002056+00:00",
+  "root_control_PID": 52548,
+  "status": "diagnostic_evidence_reviewed_no_response_candidate",
+  "review_scope": "Read actual metrics, native/resource receipts and six rendered figures; no scientific rerun.",
+  "root_read_native_tools": [
+    "0b714d",
+    "8d269b",
+    "fcfbe7",
+    "6dff03",
+    "ecec27",
+    "308bd6"
+  ],
+  "root_read_exception": {
+    "tool": "8d269b",
+    "native_exit": 1,
+    "reason": "Read-only summary assumed REAL_DEV had the same nesting as generated paths.",
+    "corrected_tool": "fcfbe7",
+    "corrected_native_exit": 0,
+    "scientific_data_changed": false
+  },
+  "scientific_jobs": [
+    {
+      "tool_result_ID": "67abfe",
+      "entry": "numeric_worker.py",
+      "actual_worker_PID": 159116,
+      "supervisor_PID": 159111,
+      "start_UTC": "2026-10-10T05:46:16.677977+00:00",
+      "stop_UTC": "2026-10-10T05:46:20.391941+00:00",
+      "native_exit": 0,
+      "elapsed_s": 3.7139588720019674,
+      "receipt": "numeric_worker.py.NATIVE_RECEIPT.json"
+    },
+    {
+      "tool_result_ID": "8819f9",
+      "entry": "render_figures.py",
+      "actual_worker_PID": 58252,
+      "supervisor_PID": 48216,
+      "start_UTC": "2026-10-10T05:50:30.373081+00:00",
+      "stop_UTC": "2026-10-10T05:50:35.021131+00:00",
+      "native_exit": 0,
+      "elapsed_s": 4.648377000004984,
+      "receipt": "render_figures.py.NATIVE_RECEIPT.json"
+    },
+    {
+      "tool_result_ID": "0a38f7",
+      "entry": "repair_display.py",
+      "actual_worker_PID": 31424,
+      "supervisor_PID": 62360,
+      "start_UTC": "2026-10-10T05:54:41.595938+00:00",
+      "stop_UTC": "2026-10-10T05:54:43.230998+00:00",
+      "native_exit": 0,
+      "elapsed_s": 1.6351651000441052,
+      "receipt": "repair_display.py.NATIVE_RECEIPT.json"
+    }
+  ],
+  "scientific_elapsed_s": 9.997500972051057,
+  "scientific_counts": {
+    "HGB_attempts": 5,
+    "HGB_completed": 5,
+    "response_training_updates": 0,
+    "ODE_calls": 0,
+    "EM_attempts": 0,
+    "response_generated_rows": 0,
+    "EVAL_read": 0,
+    "CAL_waveform_decode": 0,
+    "new_G4": 0,
+    "deterministic_ADC_feature_rows": 6000
+  },
+  "resource_limits_satisfied": true,
+  "all_original_rows_retained": true,
+  "source_particle_composition_is_not_truth": true,
+  "charge_only_BA": {
+    "SOURCE": 0.586,
+    "LONG": 0.59,
+    "RAW_TRAIN_REFERENCE": 0.478
+  },
+  "charge_only_source_and_long_decision": "uncertain_under_preregistered_95pct_CI_rule",
+  "charge_only_not_a_lower_bound_on_joint_classifier": true,
+  "REAL_reference_baseline_RMS_mV": {
+    "RAW": 0.645992,
+    "INITIAL_POST_ADC": 1.193383,
+    "SHORT": 1.234196,
+    "LONG": 1.537006
+  },
+  "noise_finding": "Initialization changes REAL noise amplitude; learned paths further alter amplitude and correlation.",
+  "initial_REAL_minus_RAW_baseline_BA": {
+    "estimate": 0.05,
+    "CI95": [
+      -0.0198266,
+      0.1100447
+    ],
+    "interpretation": "Conditional paired interval crosses zero; normalized local classifier omits absolute RMS."
+  },
+  "functional_variance_decomposition": "All four variances and six signed 2Cov terms retained; not independent physical noise or causal attribution.",
+  "metadata_only_correction": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/METADATA_CORRECTION_RECEIPT.json",
+  "metadata_correction_refit_count": 0,
+  "figures_actually_opened": 6,
+  "repaired_figures_reopened": 2,
+  "figure_QA_receipt": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/FIGURE_QA.json",
+  "sealed_bindings": [
+    {
+      "path": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/FINAL_MANIFEST.json",
+      "bytes": 18344,
+      "sha256": "d1648d4ac1daf47c6c78ff7fbe42e5bc348f17f95dd379e4dc0e130137619867"
+    },
+    {
+      "path": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/FINAL_RECEIPT.json",
+      "bytes": 1067,
+      "sha256": "807654762f059c767b24eb7b08d33d258c295eb276ea8494053095a4c7b848e5"
+    }
+  ],
+  "stage_file_count": 112,
+  "stage_bytes": 6553416,
+  "old_method_family_stays_closed": true,
+  "original_A_F_unchanged": true,
+  "optional_scope_question_unanswered_original_scope_retained": true,
+  "new_response_model_candidate": false,
+  "project_model_goal_complete": false,
+  "next_direction": "Define one input-noise-aware complete-source response operator and its matched control before registering the final method plan. Preserve original A-F and original source weights; R47 is diagnostic evidence, not an accepted response model.",
+  "next_method_registered": false,
+  "active_scientific_jobs": 0,
+  "scientific_publication_pending": true,
+  "D_incremental_backup_pending": true
+}
