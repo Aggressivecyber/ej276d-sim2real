@@ -1,0 +1,104 @@
+{
+  "UTC": "2026-10-10T21:34:01.347037+00:00",
+  "PID": 153550,
+  "status": "fixed_frozen_TRAIN_diagnostic_complete",
+  "model_goal_complete": false,
+  "original_A_F_changed": false,
+  "numerical_decomposition_pass": true,
+  "diagnostic_markers": {
+    "roundoff_order_conflict": {
+      "batches": 17,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    },
+    "outside_full_window_conflict": {
+      "batches": 0,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    },
+    "valley_PSD_conflict": {
+      "batches": 4,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    }
+  },
+  "full_TRAIN_PSD": {
+    "overall_SOURCE_PSD_W1": 0.0093706302326814,
+    "common_Q1_Q7_mean_SOURCE_PSD_W1": 0.024965917853487306,
+    "overall_same_treated_REAL_PSD_W1": 0.0002797461453731914,
+    "source_PSD_rank_rho": 0.4839592336855304
+  },
+  "population_pair_order": {
+    "ordered_parent_pairs_total": 43467649,
+    "strict_nonzero_pairs": 43460998,
+    "exact_equal_pairs": 6651,
+    "diagonal_same_parent_pairs": 6593,
+    "original_loss": 2.1151132378940627,
+    "groups": {
+      "roundoff_compatible": {
+        "pairs": 23734116,
+        "penalty_sum": 756885.7869303053,
+        "nonzero_pair_fraction": 0.5461014954143483,
+        "contribution_to_original_order_loss": 1.741528776974485
+      },
+      "resolved": {
+        "pairs": 19726882,
+        "penalty_sum": 162363.53508856858,
+        "nonzero_pair_fraction": 0.45389850458565173,
+        "contribution_to_original_order_loss": 0.373584460919578
+      },
+      "both_h_one": {
+        "pairs": 20021106,
+        "penalty_sum": 627570.4107066648,
+        "nonzero_pair_fraction": 0.4606683445235197,
+        "contribution_to_original_order_loss": 1.4439852732021128
+      },
+      "not_both_h_one": {
+        "pairs": 23439892,
+        "penalty_sum": 291678.91131220944,
+        "nonzero_pair_fraction": 0.5393316554764803,
+        "contribution_to_original_order_loss": 0.6711279646919508
+      }
+    },
+    "all_original_source_parents_equal": true,
+    "roundoff_intervals_are_storage_only": true
+  },
+  "frozen_weight_before_SHA": "f4218fa44dc0da20c840b1da32ddd1d83647a8975dadff1a5865cce15ec8590c",
+  "frozen_weight_after_SHA": "f4218fa44dc0da20c840b1da32ddd1d83647a8975dadff1a5865cce15ec8590c",
+  "counter": {
+    "response_training_runs": 0,
+    "response_updates": 0,
+    "HGB_fits": 0,
+    "density_fits": 0,
+    "teacher_waveforms": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "full_SOURCE_rows_completed": 6593,
+    "full_REAL_rows_completed": 21047,
+    "gradient_batches_attempted": 32,
+    "gradient_batches_completed": 32,
+    "neural_forward_rows_completed": 39928,
+    "neural_forward_calls_completed": 465,
+    "mathematical_Heun_field_rows": 7075840,
+    "autograd_calls_completed": 544
+  },
+  "elapsed_s": 52.52888601499944,
+  "GPU_allocated_peak_bytes": 3201523712,
+  "GPU_reserved_peak_bytes": 3596615680,
+  "scientific_scope": "TRAIN-only frozen diagnostic, no new candidate, no A-F acceptance determination.",
+  "teacher_waveforms_constructed": 0,
+  "next_model_training_authorized_by_this_result_alone": false,
+  "figures": [
+    "figures/full_TRAIN_PSD_regions.png",
+    "figures/gradient_cosine_matrix.png",
+    "figures/precision_order_and_flags.png",
+    "figures/full_window_and_projection.png",
+    "figures/raw_gradient_boundary_profiles.png",
+    "figures/saved_R59_training_trajectory.png",
+    "figures/complete_TRAIN_waveform.png"
+  ]
+}

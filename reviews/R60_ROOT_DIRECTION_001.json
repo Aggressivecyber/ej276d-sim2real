@@ -1,0 +1,114 @@
+{
+  "UTC": "2026-10-10T21:41:08.099461+00:00",
+  "owner": "/root",
+  "scientific_decision": "close_completed_frozen_diagnostic_all_three_preset_markers_false",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "original_A_F_changed": false,
+  "diagnostic_markers": {
+    "roundoff_order_conflict": {
+      "batches": 17,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    },
+    "outside_full_window_conflict": {
+      "batches": 0,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    },
+    "valley_PSD_conflict": {
+      "batches": 4,
+      "total_batches": 32,
+      "required_batches": 24,
+      "activated": false
+    }
+  },
+  "marker_subcondition_counts_out_of_32": {
+    "roundoff_mass_at_least_half": 32,
+    "roundoff_norm_at_least_half": 32,
+    "roundoff_cos_below_minus_quarter": 17,
+    "outside_norm_at_least_half": 32,
+    "outside_cos_below_minus_quarter": 0,
+    "valley_norm_at_least_half_PSD": 7,
+    "valley_cos_below_minus_quarter": 4,
+    "undefined_valley_PSD_cosines": 25
+  },
+  "full_TRAIN_PSD": {
+    "overall_SOURCE_PSD_W1": 0.0093706302326814,
+    "common_Q1_Q7_mean_SOURCE_PSD_W1": 0.024965917853487306,
+    "overall_same_treated_REAL_PSD_W1": 0.0002797461453731914,
+    "source_PSD_rank_rho": 0.4839592336855304
+  },
+  "source_order": {
+    "ordered_parent_pairs_total": 43467649,
+    "strict_nonzero_pairs": 43460998,
+    "exact_equal_pairs": 6651,
+    "diagonal_same_parent_pairs": 6593,
+    "original_loss": 2.1151132378940627,
+    "groups": {
+      "roundoff_compatible": {
+        "pairs": 23734116,
+        "penalty_sum": 756885.7869303053,
+        "nonzero_pair_fraction": 0.5461014954143483,
+        "contribution_to_original_order_loss": 1.741528776974485
+      },
+      "resolved": {
+        "pairs": 19726882,
+        "penalty_sum": 162363.53508856858,
+        "nonzero_pair_fraction": 0.45389850458565173,
+        "contribution_to_original_order_loss": 0.373584460919578
+      },
+      "both_h_one": {
+        "pairs": 20021106,
+        "penalty_sum": 627570.4107066648,
+        "nonzero_pair_fraction": 0.4606683445235197,
+        "contribution_to_original_order_loss": 1.4439852732021128
+      },
+      "not_both_h_one": {
+        "pairs": 23439892,
+        "penalty_sum": 291678.91131220944,
+        "nonzero_pair_fraction": 0.5393316554764803,
+        "contribution_to_original_order_loss": 0.6711279646919508
+      }
+    },
+    "all_original_source_parents_equal": true,
+    "roundoff_intervals_are_storage_only": true
+  },
+  "projection": {
+    "SOURCE": {
+      "N": 6593,
+      "range_active_events": 811,
+      "range_active_fraction": 0.1230092522372213,
+      "RMS_correction_V_mean": 0.012637272800021113,
+      "RMS_correction_V_max": 0.2290340273758434,
+      "rail_sample_count": 24479,
+      "preADC_relative_Q_error_max": 2.162114462336709e-08
+    },
+    "same_treated_REAL": {
+      "N": 21047,
+      "range_active_events": 0,
+      "range_active_fraction": 0.0,
+      "RMS_correction_V_mean": 0.0,
+      "RMS_correction_V_max": 0.0,
+      "rail_sample_count": 0,
+      "preADC_relative_Q_error_max": 4.213993859280404e-08
+    }
+  },
+  "saved_R59_gradient_clipped_fraction": 0.988,
+  "roundoff_compatible_share_of_original_order_penalty": 0.8233737777124682,
+  "numerical_decompositions_pass": true,
+  "all_seven_figures_opened": true,
+  "new_response_training": 0,
+  "next_protocol_registered": false,
+  "next_action": "封存R60，保留三个预设冲突标记均未触发的结论。下一轮预登记独立的单因素存储精度排序消融：相对R59只取消float32 PSD区间重叠父对的顺序罚，保留原非零父对分母、全部源父事件及其他六项损失；原网络、初始化、随机流、常数和唯一50000步终点保持。依据是直接核验的存储顺序不可分辨性，而非宣称17/32达到24/32。先检查新损失语义和复现绑定，再从零训练；同一冻结末点沿用原数值门与完整A–C，失败关闭，通过才继续D/E。原A–F、最终SOURCE人口和阈值不变。",
+  "interpretation_limits": [
+    "All three prespecified markers remain false; a separately preregistered ablation must not be presented as a triggered or validated mechanism.",
+    "Float32 interval overlap is conservative storage precision, not proof of identical true PSD or detector measurement uncertainty.",
+    "Local Euclidean gradient geometry does not determine the actual Adam trajectory or establish a cause of model failure.",
+    "TRAIN summaries neither replace original DEV gates nor establish independent-acquisition or downstream-utility validity.",
+    "Outside full-window gradients dominate their norm but are not consistently opposed to inside gradients; 0/32 is retained.",
+    "Diagnostic completion and a hypothesis for the next ablation do not complete the original model goal."
+  ]
+}
