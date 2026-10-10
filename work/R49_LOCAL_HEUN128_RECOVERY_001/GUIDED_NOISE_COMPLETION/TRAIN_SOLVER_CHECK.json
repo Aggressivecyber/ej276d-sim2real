@@ -1,0 +1,47 @@
+{
+  "PID": 49200,
+  "arm": "GUIDED_NOISE_COMPLETION",
+  "UTC": "2026-10-10T10:45:06.036412+00:00",
+  "RMS_median_LSB": 0.028838461237210643,
+  "RMS_p95_LSB": 0.3754387232959579,
+  "RMS_median_V": 1.7602674258200967e-06,
+  "RMS_p95_V": 2.291635984227296e-05,
+  "LSB_V": 6.103888176768602e-05,
+  "median_limit_LSB": 0.25,
+  "p95_limit_LSB": 1.0,
+  "preADC_relative_q_max": 9.349248399312667e-09,
+  "relative_q_limit": 1e-05,
+  "pass": true,
+  "solver128": {
+    "field_calls": 512,
+    "field_forward_rows": 32768,
+    "max_relative_q_error_f64": 3.247634626846941e-16,
+    "max_relative_q_error_f32": 8.094846340547419e-09,
+    "steps": 128,
+    "chunk": 64,
+    "fixed_guide": true,
+    "completion": true,
+    "all_rows_new_flow": true
+  },
+  "solver256": {
+    "field_calls": 1024,
+    "field_forward_rows": 65536,
+    "max_relative_q_error_f64": 3.010957413022553e-16,
+    "max_relative_q_error_f32": 9.349248399312667e-09,
+    "steps": 256,
+    "chunk": 64,
+    "fixed_guide": true,
+    "completion": true,
+    "all_rows_new_flow": true
+  },
+  "TRAIN_SOURCE_REAL_rows": [
+    64,
+    64
+  ],
+  "white_reference": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R46_FIXED_INTEGRATION_BUDGET_001\\R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+  "white_prefix": "first128 consumed-row white; original noise-generation ordinal retained",
+  "DEV_read_or_generated": 0,
+  "candidate_steps": 128,
+  "reference_only_steps": 256,
+  "no_step_search": true
+}

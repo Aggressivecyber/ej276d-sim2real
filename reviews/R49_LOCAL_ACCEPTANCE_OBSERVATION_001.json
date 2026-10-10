@@ -1,0 +1,561 @@
+{
+  "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+  "recorded_UTC": "2026-10-10T12:42:57.833775+00:00",
+  "actual_root_control_PID": 46504,
+  "status": "original_A_B_applied_to_saved_aggregates",
+  "primary_candidate": "GUIDED_NOISE_COMPLETION",
+  "scientific_threshold_version": 1,
+  "acceptance_registry_sha256": "febe96c74b5290d9fc9a03b520dbe6782f0f51bac1f5c59f13b3e818af2c9d9c",
+  "source": "work/R49_LOCAL_HEUN128_RECOVERY_001/metrics.json",
+  "arms": {
+    "GUIDED_FIXED_NOISE_CONTROL": {
+      "role": "fixed_control_not_fallback",
+      "A_pass": false,
+      "A_five_views_each_domain": {
+        "GUIDED_FIXED_NOISE_CONTROL": {
+          "full_historical_shape": {
+            "BA": 0.762,
+            "BA_95CI": [
+              0.7245321779334035,
+              0.7964331905090585
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "normalized_u480": {
+            "BA": 0.736,
+            "BA_95CI": [
+              0.6992078808121239,
+              0.7725590183423913
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "full_voltage": {
+            "BA": 0.832,
+            "BA_95CI": [
+              0.7985774460425492,
+              0.8631298338583572
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "Q_PSD_2D": {
+            "BA": 0.7,
+            "BA_95CI": [
+              0.6600552009986786,
+              0.7403239049117296
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "baseline_local": {
+            "BA": 0.574,
+            "BA_95CI": [
+              0.5274521882125325,
+              0.6182893293555467
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          }
+        },
+        "GUIDED_FIXED_NOISE_REAL_CONTROL": {
+          "full_historical_shape": {
+            "BA": 0.516,
+            "BA_95CI": [
+              0.46342870701247896,
+              0.5610816926858712
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "normalized_u480": {
+            "BA": 0.512,
+            "BA_95CI": [
+              0.46920508209821526,
+              0.5518832817728851
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "full_voltage": {
+            "BA": 0.83,
+            "BA_95CI": [
+              0.8002948241302407,
+              0.858588587305583
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "Q_PSD_2D": {
+            "BA": 0.5,
+            "BA_95CI": [
+              0.46202894304520303,
+              0.5409159370661797
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "baseline_local": {
+            "BA": 0.52,
+            "BA_95CI": [
+              0.48524719261727683,
+              0.561956856864821
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          }
+        }
+      },
+      "B_pass": false,
+      "B_PSD": {
+        "PSD_overall_W1": {
+          "value": 0.041838200596338145,
+          "maximum": 0.01,
+          "pass": false
+        },
+        "PSD_common_Q_equal_mean_W1": {
+          "value": 0.05042133087459693,
+          "maximum": 0.01,
+          "pass": false
+        }
+      },
+      "B_commonQ_missing_required_support": {
+        "REAL": [],
+        "GUIDED_FIXED_NOISE_CONTROL": []
+      },
+      "B_noise": {
+        "baseline_RMS_V": {
+          "value": 3.947812200965204e-05,
+          "BASE": 1.935838569590557e-05,
+          "maximum": 2.1294224265496127e-05,
+          "pass": false
+        },
+        "ACF1": {
+          "value": 0.058562642121788126,
+          "BASE": 0.0642349713874355,
+          "maximum": 0.07065846852617906,
+          "pass": true
+        }
+      },
+      "B_required_density_failures": {
+        "REAL": [],
+        "GUIDED_FIXED_NOISE_CONTROL": [
+          3
+        ]
+      },
+      "B_peak_width_fixed_bins2_7": [
+        {
+          "component": 0,
+          "rows": [
+            {
+              "bin_1based": 2,
+              "valid": true,
+              "peak_abs_error": 0.0841466333226979,
+              "raw_SD_relative_abs_error": 0.18087211376447823
+            },
+            {
+              "bin_1based": 3,
+              "valid": false,
+              "peak_abs_error": null,
+              "raw_SD_relative_abs_error": null
+            },
+            {
+              "bin_1based": 4,
+              "valid": true,
+              "peak_abs_error": 0.027811785192608934,
+              "raw_SD_relative_abs_error": 0.10289847546677432
+            },
+            {
+              "bin_1based": 5,
+              "valid": true,
+              "peak_abs_error": 0.018376073919028707,
+              "raw_SD_relative_abs_error": 0.0035042764441513986
+            },
+            {
+              "bin_1based": 6,
+              "valid": true,
+              "peak_abs_error": 0.01217893068504175,
+              "raw_SD_relative_abs_error": 0.16392751114951326
+            },
+            {
+              "bin_1based": 7,
+              "valid": true,
+              "peak_abs_error": 0.0046609794579210995,
+              "raw_SD_relative_abs_error": 0.10088004789346988
+            }
+          ],
+          "all_required_bins_valid": false,
+          "peak_MAE": null,
+          "peak_MAE_limit": 0.01,
+          "peak_pass": false,
+          "raw_SD_mean_relative_abs_error": null,
+          "raw_SD_relative_limit": 0.1,
+          "raw_SD_pass": false,
+          "failed_bins_not_dropped": true
+        },
+        {
+          "component": 1,
+          "rows": [
+            {
+              "bin_1based": 2,
+              "valid": true,
+              "peak_abs_error": 0.05748560918226564,
+              "raw_SD_relative_abs_error": 0.19091962067956014
+            },
+            {
+              "bin_1based": 3,
+              "valid": false,
+              "peak_abs_error": null,
+              "raw_SD_relative_abs_error": null
+            },
+            {
+              "bin_1based": 4,
+              "valid": true,
+              "peak_abs_error": 0.020904405376152735,
+              "raw_SD_relative_abs_error": 0.05653660717760755
+            },
+            {
+              "bin_1based": 5,
+              "valid": true,
+              "peak_abs_error": 0.018464676152720294,
+              "raw_SD_relative_abs_error": 0.15779713197222386
+            },
+            {
+              "bin_1based": 6,
+              "valid": true,
+              "peak_abs_error": 0.002805085283251574,
+              "raw_SD_relative_abs_error": 0.10368469080549639
+            },
+            {
+              "bin_1based": 7,
+              "valid": true,
+              "peak_abs_error": 0.0007375805369393418,
+              "raw_SD_relative_abs_error": 0.03243672351439351
+            }
+          ],
+          "all_required_bins_valid": false,
+          "peak_MAE": null,
+          "peak_MAE_limit": 0.01,
+          "peak_pass": false,
+          "raw_SD_mean_relative_abs_error": null,
+          "raw_SD_relative_limit": 0.1,
+          "raw_SD_pass": false,
+          "failed_bins_not_dropped": true
+        }
+      ]
+    },
+    "GUIDED_NOISE_COMPLETION": {
+      "role": "primary",
+      "A_pass": false,
+      "A_five_views_each_domain": {
+        "GUIDED_NOISE_COMPLETION": {
+          "full_historical_shape": {
+            "BA": 0.78,
+            "BA_95CI": [
+              0.7448859442890982,
+              0.8173167513553423
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "normalized_u480": {
+            "BA": 0.76,
+            "BA_95CI": [
+              0.7247081390681388,
+              0.7946722268580776
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "full_voltage": {
+            "BA": 0.8160000000000001,
+            "BA_95CI": [
+              0.7826910792812115,
+              0.8480713293813521
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "Q_PSD_2D": {
+            "BA": 0.688,
+            "BA_95CI": [
+              0.6438658007032774,
+              0.724760030901578
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "baseline_local": {
+            "BA": 0.604,
+            "BA_95CI": [
+              0.5577372324157197,
+              0.6491924112014505
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          }
+        },
+        "GUIDED_COMPLETION_REAL_CONTROL": {
+          "full_historical_shape": {
+            "BA": 0.49,
+            "BA_95CI": [
+              0.4511058088844467,
+              0.5300381242396508
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "normalized_u480": {
+            "BA": 0.542,
+            "BA_95CI": [
+              0.49538697559134304,
+              0.5829653006767668
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "full_voltage": {
+            "BA": 0.828,
+            "BA_95CI": [
+              0.7956319413681074,
+              0.8579962343681498
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": false
+          },
+          "Q_PSD_2D": {
+            "BA": 0.49,
+            "BA_95CI": [
+              0.448080322850807,
+              0.5303982350537751
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          },
+          "baseline_local": {
+            "BA": 0.52,
+            "BA_95CI": [
+              0.481842969425902,
+              0.5637159526816324
+            ],
+            "required_CI_containment": [
+              0.4,
+              0.6
+            ],
+            "pass": true
+          }
+        }
+      },
+      "B_pass": false,
+      "B_PSD": {
+        "PSD_overall_W1": {
+          "value": 0.02889613301775067,
+          "maximum": 0.01,
+          "pass": false
+        },
+        "PSD_common_Q_equal_mean_W1": {
+          "value": 0.03932074510301258,
+          "maximum": 0.01,
+          "pass": false
+        }
+      },
+      "B_commonQ_missing_required_support": {
+        "REAL": [],
+        "GUIDED_NOISE_COMPLETION": []
+      },
+      "B_noise": {
+        "baseline_RMS_V": {
+          "value": 3.805626944095968e-05,
+          "BASE": 1.935838569590557e-05,
+          "maximum": 2.1294224265496127e-05,
+          "pass": false
+        },
+        "ACF1": {
+          "value": 0.05782827342098264,
+          "BASE": 0.0642349713874355,
+          "maximum": 0.07065846852617906,
+          "pass": true
+        }
+      },
+      "B_required_density_failures": {
+        "REAL": [],
+        "GUIDED_NOISE_COMPLETION": [
+          3
+        ]
+      },
+      "B_peak_width_fixed_bins2_7": [
+        {
+          "component": 0,
+          "rows": [
+            {
+              "bin_1based": 2,
+              "valid": true,
+              "peak_abs_error": 0.0789149140685656,
+              "raw_SD_relative_abs_error": 0.12706669096638676
+            },
+            {
+              "bin_1based": 3,
+              "valid": false,
+              "peak_abs_error": null,
+              "raw_SD_relative_abs_error": null
+            },
+            {
+              "bin_1based": 4,
+              "valid": true,
+              "peak_abs_error": 0.018387919715323248,
+              "raw_SD_relative_abs_error": 0.0026518175469692606
+            },
+            {
+              "bin_1based": 5,
+              "valid": true,
+              "peak_abs_error": 0.015043874401674179,
+              "raw_SD_relative_abs_error": 0.09583435613655872
+            },
+            {
+              "bin_1based": 6,
+              "valid": true,
+              "peak_abs_error": 0.016847595117902264,
+              "raw_SD_relative_abs_error": 0.10268272109478131
+            },
+            {
+              "bin_1based": 7,
+              "valid": true,
+              "peak_abs_error": 0.0061552038348966776,
+              "raw_SD_relative_abs_error": 0.10057269670314768
+            }
+          ],
+          "all_required_bins_valid": false,
+          "peak_MAE": null,
+          "peak_MAE_limit": 0.01,
+          "peak_pass": false,
+          "raw_SD_mean_relative_abs_error": null,
+          "raw_SD_relative_limit": 0.1,
+          "raw_SD_pass": false,
+          "failed_bins_not_dropped": true
+        },
+        {
+          "component": 1,
+          "rows": [
+            {
+              "bin_1based": 2,
+              "valid": true,
+              "peak_abs_error": 0.04589836721366991,
+              "raw_SD_relative_abs_error": 0.2228094825566723
+            },
+            {
+              "bin_1based": 3,
+              "valid": false,
+              "peak_abs_error": null,
+              "raw_SD_relative_abs_error": null
+            },
+            {
+              "bin_1based": 4,
+              "valid": true,
+              "peak_abs_error": 0.013152161019079123,
+              "raw_SD_relative_abs_error": 0.05702783698728008
+            },
+            {
+              "bin_1based": 5,
+              "valid": true,
+              "peak_abs_error": 0.006647728225217031,
+              "raw_SD_relative_abs_error": 0.052001431113185594
+            },
+            {
+              "bin_1based": 6,
+              "valid": true,
+              "peak_abs_error": 0.01765836751402694,
+              "raw_SD_relative_abs_error": 0.054593583178442734
+            },
+            {
+              "bin_1based": 7,
+              "valid": true,
+              "peak_abs_error": 0.03299245448094629,
+              "raw_SD_relative_abs_error": 0.054934514998103035
+            }
+          ],
+          "all_required_bins_valid": false,
+          "peak_MAE": null,
+          "peak_MAE_limit": 0.01,
+          "peak_pass": false,
+          "raw_SD_mean_relative_abs_error": null,
+          "raw_SD_relative_limit": 0.1,
+          "raw_SD_pass": false,
+          "failed_bins_not_dropped": true
+        }
+      ]
+    }
+  },
+  "A_pass": false,
+  "B_pass": false,
+  "RAW_REAL_REAL_Q_PSD_2D": {
+    "balanced_accuracy": null,
+    "AUC": null,
+    "reason": "historical_RAW_REAL_REAL_Q_PSD_2D_not_fitted; no new reference fit allowed"
+  },
+  "C_six_stage_gates_and_replay": "recorded_in_final_root_review",
+  "D_E": "not_performed_in_R49",
+  "F_final_delivery": "pending_seal_Git_D",
+  "new_response_fits": 0,
+  "new_classifier_fits": 0,
+  "new_density_fits": 0,
+  "no_population_or_threshold_changes": true,
+  "B_is_absolute_B_definition_C_separately_requires_all_original_stage_gates": true
+}

@@ -1,0 +1,371 @@
+{
+  "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+  "recorded_UTC": "2026-10-10T14:17:44.960225+00:00",
+  "actual_root_control_PID": 65604,
+  "decision_basis": "Completed local generated-array evaluation and full local replay; rendered QA and native sealing are separately verified.",
+  "primary_A_C_pass": false,
+  "primary_A_pass": false,
+  "primary_B_pass": false,
+  "original_A_F_unchanged": true,
+  "compute_budget_enforced": false,
+  "time_or_output_budget_stop": false,
+  "current_family_status": "fixed_R49_local_recipe_unaccepted_unbudgeted_project_policy_continues",
+  "scientific_decision": "close_fixed_R49_Heun128_recipe",
+  "whole_noise_completion_family_declared_ineffective": false,
+  "higher_solver_step_search_is_a_supported_remedy": false,
+  "source_main_population_changed": false,
+  "fixed_control_used_as_fallback_winner": false,
+  "new_scientific_fits_or_inference_for_this_review": 0,
+  "remote_attempt_metrics_used_as_local_results": false,
+  "remote_replay_terminal": "unknown",
+  "facts": {
+    "SOURCE_primary_shape_BA": 0.78,
+    "SOURCE_primary_shape_BA_95CI": [
+      0.7448859442890982,
+      0.8173167513553423
+    ],
+    "BASE_SOURCE_shape_BA": 0.978,
+    "SOURCE_primary_voltage_BA": 0.8160000000000001,
+    "same_treated_REAL_primary_voltage_BA": 0.828,
+    "same_treated_REAL_primary_voltage_BA_95CI": [
+      0.7956319413681074,
+      0.8579962343681498
+    ],
+    "SOURCE_and_same_treated_REAL_original_five_views": {
+      "GUIDED_NOISE_COMPLETION": {
+        "full_historical_shape": {
+          "BA": 0.78,
+          "BA_95CI": [
+            0.7448859442890982,
+            0.8173167513553423
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        },
+        "normalized_u480": {
+          "BA": 0.76,
+          "BA_95CI": [
+            0.7247081390681388,
+            0.7946722268580776
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        },
+        "full_voltage": {
+          "BA": 0.8160000000000001,
+          "BA_95CI": [
+            0.7826910792812115,
+            0.8480713293813521
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        },
+        "Q_PSD_2D": {
+          "BA": 0.688,
+          "BA_95CI": [
+            0.6438658007032774,
+            0.724760030901578
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        },
+        "baseline_local": {
+          "BA": 0.604,
+          "BA_95CI": [
+            0.5577372324157197,
+            0.6491924112014505
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        }
+      },
+      "GUIDED_COMPLETION_REAL_CONTROL": {
+        "full_historical_shape": {
+          "BA": 0.49,
+          "BA_95CI": [
+            0.4511058088844467,
+            0.5300381242396508
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": true
+        },
+        "normalized_u480": {
+          "BA": 0.542,
+          "BA_95CI": [
+            0.49538697559134304,
+            0.5829653006767668
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": true
+        },
+        "full_voltage": {
+          "BA": 0.828,
+          "BA_95CI": [
+            0.7956319413681074,
+            0.8579962343681498
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": false
+        },
+        "Q_PSD_2D": {
+          "BA": 0.49,
+          "BA_95CI": [
+            0.448080322850807,
+            0.5303982350537751
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": true
+        },
+        "baseline_local": {
+          "BA": 0.52,
+          "BA_95CI": [
+            0.481842969425902,
+            0.5637159526816324
+          ],
+          "required_CI_containment": [
+            0.4,
+            0.6
+          ],
+          "pass": true
+        }
+      }
+    },
+    "primary_overall_PSD_W1": 0.02889613301775067,
+    "control_overall_PSD_W1": 0.041838200596338145,
+    "BASE_overall_PSD_W1": 0.023065461350718693,
+    "primary_fixed_Q1_7_PSD_W1": 0.03932074510301258,
+    "required_PSD_W1_max": 0.01,
+    "required_density_failed_bins": {
+      "GUIDED_FIXED_NOISE_CONTROL": {
+        "REAL": [],
+        "GUIDED_FIXED_NOISE_CONTROL": [
+          3
+        ]
+      },
+      "GUIDED_NOISE_COMPLETION": {
+        "REAL": [],
+        "GUIDED_NOISE_COMPLETION": [
+          3
+        ]
+      }
+    },
+    "density_failure_reasons": {
+      "GUIDED_FIXED_NOISE_CONTROL": [
+        "not_converged500"
+      ],
+      "GUIDED_NOISE_COMPLETION": [
+        "not_converged500"
+      ]
+    },
+    "failed_density_bins_not_removed_or_reinterpreted_as_physical_peak_absence": true,
+    "primary_noise": {
+      "baseline_RMS_V": {
+        "value": 3.805626944095968e-05,
+        "BASE": 1.935838569590557e-05,
+        "maximum": 2.1294224265496127e-05,
+        "pass": false
+      },
+      "ACF1": {
+        "value": 0.05782827342098264,
+        "BASE": 0.0642349713874355,
+        "maximum": 0.07065846852617906,
+        "pass": true
+      }
+    },
+    "primary_actual_source_pure_had_valleys": [
+      {
+        "actual_source_bin": "bin3",
+        "N": 213,
+        "candidate": 0.26291079812206575,
+        "BASE": 0.056338028169014086,
+        "delta": 0.20657276995305165,
+        "pass": false
+      },
+      {
+        "actual_source_bin": "bin4",
+        "N": 181,
+        "candidate": 0.1878453038674033,
+        "BASE": 0.0055248618784530384,
+        "delta": 0.18232044198895025,
+        "pass": false
+      }
+    ],
+    "primary_whole_population_source_ranks": [
+      {
+        "measure": "source_Q_to_output_Q",
+        "candidate": 0.9999994026248505,
+        "BASE": 0.9997263425564831,
+        "BASE_minus_candidate": -0.00027306006836747,
+        "pass": true
+      },
+      {
+        "measure": "source_PSD_to_output_PSD",
+        "candidate": 0.40101681230496566,
+        "BASE": 0.4189917083121709,
+        "BASE_minus_candidate": 0.017974896007205254,
+        "pass": true
+      }
+    ],
+    "primary_failed_boundaries": [
+      {
+        "location": "second_center_150",
+        "candidate_W1_V": 0.0007429960584267968,
+        "BASE_W1_V": 0.0006427700007334349,
+        "INDEPENDENT_W1_V": 0.0006097474405542011,
+        "limit_V": 0.0007038088825011209,
+        "pass": false
+      }
+    ],
+    "paired_primary_minus_control": {
+      "paired_primary_minus_control_C2ST": {
+        "full_historical_shape": {
+          "BA_delta_first_minus_second": 0.018000000000000016,
+          "BA_delta_95CI": [
+            -0.008065767081534161,
+            0.04451395740356954
+          ]
+        },
+        "normalized_u480": {
+          "BA_delta_first_minus_second": 0.02400000000000002,
+          "BA_delta_95CI": [
+            -0.005631829810304198,
+            0.05570917114029134
+          ]
+        },
+        "full_voltage": {
+          "BA_delta_first_minus_second": -0.015999999999999903,
+          "BA_delta_95CI": [
+            -0.044336386408219006,
+            0.01793081230646263
+          ]
+        },
+        "Q_PSD_2D": {
+          "BA_delta_first_minus_second": -0.01200000000000001,
+          "BA_delta_95CI": [
+            -0.047180108594286285,
+            0.02195137573101517
+          ]
+        },
+        "baseline_local": {
+          "BA_delta_first_minus_second": 0.030000000000000027,
+          "BA_delta_95CI": [
+            -0.004720613423887687,
+            0.06693323284102988
+          ]
+        }
+      },
+      "paired_completion_minus_fixed_same_REAL_C2ST": {
+        "full_historical_shape": {
+          "BA_delta_first_minus_second": -0.026000000000000023,
+          "BA_delta_95CI": [
+            -0.06914977535946246,
+            0.015589195468450605
+          ]
+        },
+        "normalized_u480": {
+          "BA_delta_first_minus_second": 0.030000000000000027,
+          "BA_delta_95CI": [
+            -0.009606500140432656,
+            0.06536788737019776
+          ]
+        },
+        "full_voltage": {
+          "BA_delta_first_minus_second": -0.0020000000000000018,
+          "BA_delta_95CI": [
+            -0.03766350230881124,
+            0.031056679389951644
+          ]
+        },
+        "Q_PSD_2D": {
+          "BA_delta_first_minus_second": -0.010000000000000009,
+          "BA_delta_95CI": [
+            -0.04353935938052065,
+            0.017346256259216656
+          ]
+        },
+        "baseline_local": {
+          "BA_delta_first_minus_second": 0.0,
+          "BA_delta_95CI": [
+            -0.043843196769374135,
+            0.039233349475758336
+          ]
+        }
+      }
+    },
+    "all_five_original_SOURCE_and_REAL_BA_pair_CIs_include_zero": true,
+    "independent_main_replay_rows": 8000,
+    "independent_main_replay_pass": true,
+    "six_original_stage_gates": {
+      "gate1_complete_response": true,
+      "gate2_PSD_width_centers_noise": false,
+      "gate3_source_preservation": false,
+      "gate4_boundary_source": false,
+      "gate5_same_treated_REAL_control": true,
+      "gate6_numerical_replay": true
+    }
+  },
+  "interpretation": "Both local 128/256 numerical prerequisites pass. The primary candidate improves descriptive PSD distance relative to its fixed-noise control, but fails absolute PSD, full SOURCE response, same-treated REAL voltage, required Q3 density, source-conditional valleys and one boundary constraint. The five original-view paired BA intervals for both SOURCE and REAL include zero; they do not establish a uniform full-response advantage. The baseline_local view removes per-event offset and scale, so its REAL pass does not validate absolute DC or noise amplitude. ADC representation, baseline restoration and amplitude structure remain hypotheses for the REAL voltage discrepancy. No counterfactual causal test was performed. Explaining that discrepancy alone would not resolve the observed SOURCE normalized-shape or conditional-PSD failures.",
+  "next_direction": "Retain R49 as a closed fixed recipe. A separately registered next protocol should first isolate the same-treated REAL voltage discrepancy using frozen outputs and controlled ADC/baseline representations, then define a response change that preserves source-conditional PSD while controlling noise. Maintain the original populations, all failed bins, fixed primary/control roles and original A-F thresholds. The earlier ADC source observation is a diagnostic hypothesis only; no ADC counterfactual study is claimed.",
+  "next_action": "Complete native sealing, private Git publication and D normal-copy delivery for this fixed local stage. Retain the full negative evidence and the unknown old remote terminal state. Any subsequent scientific work requires a distinct recorded protocol under the existing no-compute-budget authorization. No A-C-qualified candidate exists for D/E validation.",
+  "Chinese_current_state": "本机两臂128/256步数值检查通过，11968条输出及40个判别器/32个密度槽评价完成；8000条独立重放通过。固定主候选A/B失败，原六项门结果保留。总体PSD W1点估计比固定噪声对照低，但完整SOURCE响应、同处理REAL电压、源条件PSD和必需Q3密度仍未达标。",
+  "Chinese_result_summary": "R49本机恢复完成固定两臂的完整评价，主候选不满足原A–C联合验收。SOURCE形状BA从旧BASE的0.978降至0.780，仍未达到要求；主候选95%区间为0.745–0.817，同处理REAL电压BA为0.828（0.796–0.858）。总体/固定Q1–7 PSD W1为0.02890/0.03932，均超过0.01；旧BASE总体PSD W1为0.02307，固定噪声对照为0.04184。原五视图的SOURCE及REAL配对BA差区间均包含0，不能据此宣称主方案全面优于固定对照。两臂必需Q3密度均未在原固定定义内收敛，Q2–7峰位/宽度联合结果保持未定义；失败区保留，不推断物理粒子峰消失。主候选两处源pure-had谷比例和一处时间边界未满足约束。本机8000条独立重放通过。固定配方关闭，整个噪声补全方法家族的可行性仍不能据此否定。REAL电压差异原因尚未确定，ADC表示仅为待检验假设；SOURCE形状与条件PSD仍须分别解决。D/E没有合格候选可进入，模型目标未完成。",
+  "bindings": [
+    {
+      "path": "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
+      "bytes": 16292,
+      "SHA256": "6f53e36b3f4767ee1775fafc8e440f0033d0727592aead1a5e7e43de734c626e"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/metrics.json",
+      "bytes": 4788431,
+      "SHA256": "ce52494508b7a80e94cf53b35b7f14669f13ac4d04010a3458b8a26e439a5179"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json",
+      "bytes": 76838,
+      "SHA256": "b86f762e3f44187aa31b97c92c2633f59bdef7ad0595a448de51017c15bd856b"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/REPLAY_RECEIPT.json",
+      "bytes": 5326,
+      "SHA256": "3bffba796cfd348f07fad0772b9ef02b3f99f2e6f122e79be3a89db95fa771a6"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/TRAIN_SOLVER_CHECK.json",
+      "bytes": 3622,
+      "SHA256": "fd45faa5de98b2d14427f5dd94bae00f63bb18b657bb7b7f1c2edf6e79574f83"
+    },
+    {
+      "path": "reviews/ROOT_R49_ADC_SOURCE_OBSERVATION_001.json",
+      "bytes": 17091,
+      "SHA256": "6b7b87c051c502ae6beedc9d14e72944473e059963b5200b658ffd5d1c54e358"
+    }
+  ]
+}

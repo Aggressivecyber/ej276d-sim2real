@@ -1,0 +1,294 @@
+{
+  "stage": "R49_LOCAL_HEUN128_RECOVERY_001",
+  "reviewed_UTC": "2026-10-10T10:49:27.968534+00:00",
+  "actual_root_control_PID": 56996,
+  "review_type": "source_and_native_metadata_only",
+  "null_budget_fields": [
+    "science_budget",
+    "science_budget_s",
+    "wall_budget_s",
+    "deadline_UTC",
+    "absolute_deadline_UTC",
+    "training_wall_s",
+    "training_total_limit_s",
+    "numeric_wall_limit_s",
+    "output_limit_bytes",
+    "disk_free_reserve_bytes"
+  ],
+  "candidate_reference_steps": [
+    128,
+    256
+  ],
+  "chunk": 64,
+  "CPU_threads": 4,
+  "RSS_safety_bytes": 4294967296,
+  "new_training_updates": 0,
+  "science_source_compared_to_preserved_remote_attempt": [
+    "network.py",
+    "noise_core.py",
+    "source_flow_core.py",
+    "flow_runtime.py",
+    "check_models.py",
+    "generate_all.py",
+    "flow_diagnostics.py",
+    "evaluate_saved.py",
+    "replay_all.py",
+    "evaluation.py",
+    "diagnostic_core.py",
+    "assessment.py",
+    "energy_width.py",
+    "data_support.py",
+    "common_math.py",
+    "model.py",
+    "legacy_model.py",
+    "endpoint_common.py",
+    "temporal_common.py",
+    "mean_description.py",
+    "flow_core.py",
+    "summarize_and_plot.py",
+    "render_figures.py",
+    "render_train.py"
+  ],
+  "local_science_source_differences": [
+    "12 to 4 CPU thread settings",
+    "local RUN_HISTORY reference and report text"
+  ],
+  "report_generator_read_tool": "d6a787",
+  "report_generator_separately_adapted_for_local_provenance": true,
+  "render_train_duplication_removed": {
+    "read_tool": "d57db1",
+    "change": "TRAIN plot rendering runs once in its registered pipeline job instead of also inside render_figures."
+  },
+  "initial_inspection_control_exit": {
+    "tool": "9b86c2",
+    "native_exit": 1,
+    "cause": "Report generator includes local provenance paragraphs; scientific source equality assumptions do not apply to prose."
+  },
+  "second_inspection_control_exit": {
+    "tool": "448134",
+    "native_exit": 1,
+    "cause": "Separate TRAIN plotting entry makes the additional render_figures import/call redundant; source diff inspected."
+  },
+  "science_arrays_compared_between_platforms": false,
+  "migration_content_tests": false,
+  "both_original_128_TRAIN_rows_checked_before_DEV": true,
+  "first_local_native_receipt": {
+    "entry": "check_models.py",
+    "supervisor_PID": 57300,
+    "start_UTC": "2026-10-10T10:38:56.315135+00:00",
+    "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+    "science_budget_s": null,
+    "wall_budget_s": null,
+    "deadline_UTC": null,
+    "compute_budget_enforced": false,
+    "actual_worker_PID": 49200,
+    "actual_worker_RSS_peak_bytes": 340205568,
+    "job_tree_RSS_peak_bytes": 347295744,
+    "launcher_RSS_peak_bytes": 340205568,
+    "memory_probe_failures": 0,
+    "memory_probe_failure_events": [],
+    "handshake_before_imports": true,
+    "minimum_available_during_job_bytes": 1224200192,
+    "resource_admission": {
+      "PID": 57300,
+      "UTC": "2026-10-10T10:38:56.314362+00:00",
+      "entry": "check_models.py",
+      "available_physical_bytes": 1709260800,
+      "expected_stage_RSS_bytes": 891289600,
+      "system_headroom_bytes": 419430400,
+      "minimum_available_bytes": 1310720000,
+      "pass": true,
+      "CPU_threads": 4,
+      "RSS_safe_limit_bytes": 4294967296,
+      "CPU_not_gated_on_GPU": true,
+      "no_user_apps_or_system_settings_changed": true
+    },
+    "remote_previous_replay_terminal": "unknown",
+    "global_single_physical_job_confirmed": false,
+    "launcher_PID": 49200,
+    "actual_worker_parent_PID": 57300,
+    "nonce": "927cf21012d54f108f6aeef091b39fce",
+    "last_owned_tree_PIDs": [
+      49200
+    ],
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 370.5309765000129,
+    "stop_UTC": "2026-10-10T10:45:06.846931+00:00",
+    "worker_self_receipt": {
+      "PID": 49200,
+      "parent_PID": 57300,
+      "entry": "check_models.py",
+      "nonce": "927cf21012d54f108f6aeef091b39fce",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 369.6107230000198,
+      "self_peak_RSS_bytes": 340205568,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-10T10:45:06.039778+00:00"
+    }
+  },
+  "local_numerical_pass": true,
+  "root_scientific_computation": false,
+  "full_model_scientific_acceptance_inferred_from_source": false,
+  "remote_previous_replay_terminal": "unknown",
+  "global_single_physical_job_confirmed": false,
+  "bindings": [
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/network.py",
+      "bytes": 2923,
+      "sha256": "74ec11b9e29cc8ae9290edbe644d87bced4210b5702c28106ddbb6b60466132b"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/noise_core.py",
+      "bytes": 1809,
+      "sha256": "7fcaeb6c74809549ba371e7c355a868c1f95fab9a52ba977bf3ec0d3fe5ed8fb"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/source_flow_core.py",
+      "bytes": 3974,
+      "sha256": "56e92475fb12f5497abb2596ecd1cd359708b912788a5ddc703645422c5a0aca"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/flow_runtime.py",
+      "bytes": 1430,
+      "sha256": "cb4b25150682303f057a2fcc8000c33cd835beec5fd1fe93395fba53bc517131"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/check_models.py",
+      "bytes": 3528,
+      "sha256": "fb2aaeef9b599515c7f9a0ec7d9922c5fbb2dfbdf927c3d93d4c9fedaf6f24a6"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/generate_all.py",
+      "bytes": 10794,
+      "sha256": "66f37edef73aee13157d6757e77b676a50d1525f149e9f990ee85202a7f9a6a9"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/flow_diagnostics.py",
+      "bytes": 9286,
+      "sha256": "20e68b9f6b7a73c268ae8f46060f1296e31ecd96f03a3eb49aebdedbf0b6e255"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/evaluate_saved.py",
+      "bytes": 20204,
+      "sha256": "172186f6307c8c6250dfbbb4d5a92ca4e979d62305fc21c952a4897eba7b7cba"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/replay_all.py",
+      "bytes": 2976,
+      "sha256": "07df0f5ef5a1730cefff6b02560831bf4485e49dc673d5db90ca0e49c2698e4d"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/evaluation.py",
+      "bytes": 17874,
+      "sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/diagnostic_core.py",
+      "bytes": 10401,
+      "sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/assessment.py",
+      "bytes": 7254,
+      "sha256": "557f8b52dd3e8096e64bec6d913f1c973ef356b69587981778f57846517f15b5"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/energy_width.py",
+      "bytes": 15046,
+      "sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/data_support.py",
+      "bytes": 7689,
+      "sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/common_math.py",
+      "bytes": 1943,
+      "sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/model.py",
+      "bytes": 2019,
+      "sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/legacy_model.py",
+      "bytes": 5808,
+      "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/endpoint_common.py",
+      "bytes": 7743,
+      "sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/temporal_common.py",
+      "bytes": 6956,
+      "sha256": "d494d4f01078d2fd0a2b940390d2efa45f7164c69a83e87096d61e18964ccea5"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/mean_description.py",
+      "bytes": 3491,
+      "sha256": "b14ad22311c8399db2369d1614b5e6fc486ca5a9c2ce567f867ae1d299d8128e"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/flow_core.py",
+      "bytes": 4365,
+      "sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/summarize_and_plot.py",
+      "bytes": 15053,
+      "sha256": "bf5098bdd34cbbf8a70946fcd63075e811ebe217c2d8d00fe7f2a43adde7f8dd"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/render_figures.py",
+      "bytes": 12533,
+      "sha256": "80b1884cc20cd75f7c39aa613512b494fff6e3da58d8d160a14cf55c2a72d121"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/render_train.py",
+      "bytes": 4896,
+      "sha256": "8f98558ed6f72322814799762855ef2536e4d54325c69fb5c35954dfe8cc0243"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/make_report.py",
+      "bytes": 10075,
+      "sha256": "6f920c119443f0f260de03cc877a6a86dd01e99d216fc4234f87ba7738be7f06"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/config.json",
+      "bytes": 18609,
+      "sha256": "cab87cc53ba45ec4ff2250b095d352c55bc6ed2b2591778ec4e1991df1aa772d"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/supervise_local.py",
+      "bytes": 10762,
+      "sha256": "5e54911e8af2682373e8638ebe0f2c30a0de6a92fc15220418c3d618eed3d516"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/owned_worker.py",
+      "bytes": 2130,
+      "sha256": "961689b924fb4be3d90db9ba7c63705a74f2c29808e02c61e075bc3aaeb9ac35"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/run_local_pipeline.py",
+      "bytes": 1833,
+      "sha256": "97644338ff3beaf4737d49133e2def202ca78e9d9a926bc66251a1b0350db5b8"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/LOCAL_INPUT_INVENTORY.json",
+      "bytes": 11309,
+      "sha256": "8c91cd27c6d281e5a1aeb95b6a1c519b63236da551301a756ca60362310641bf"
+    },
+    {
+      "path": "work/R49_LOCAL_HEUN128_RECOVERY_001/LOCAL_ENVIRONMENT.json",
+      "bytes": 622,
+      "sha256": "c6e32193b06b42eb55673b30e8e1a71d40481e4b3cce98806eebeb493e9a5c34"
+    }
+  ]
+}

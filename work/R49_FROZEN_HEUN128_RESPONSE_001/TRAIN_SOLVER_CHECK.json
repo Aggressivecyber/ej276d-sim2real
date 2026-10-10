@@ -1,0 +1,107 @@
+{
+  "PID": 208979,
+  "UTC": "2026-10-10T09:44:14.425273+00:00",
+  "models": {
+    "GUIDED_FIXED_NOISE_CONTROL": {
+      "PID": 208979,
+      "arm": "GUIDED_FIXED_NOISE_CONTROL",
+      "UTC": "2026-10-10T09:43:11.919235+00:00",
+      "RMS_median_LSB": 0.03844283006525421,
+      "RMS_p95_LSB": 0.3571260427655688,
+      "RMS_median_V": 2.346507359168297e-06,
+      "RMS_p95_V": 2.1798574300529133e-05,
+      "LSB_V": 6.103888176768602e-05,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "preADC_relative_q_max": 1.081764608865057e-08,
+      "relative_q_limit": 1e-05,
+      "pass": true,
+      "solver128": {
+        "field_calls": 512,
+        "field_forward_rows": 32768,
+        "max_relative_q_error_f64": 3.079165672703164e-16,
+        "max_relative_q_error_f32": 1.0402128762008045e-08,
+        "steps": 128,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": false,
+        "all_rows_new_flow": true
+      },
+      "solver256": {
+        "field_calls": 1024,
+        "field_forward_rows": 65536,
+        "max_relative_q_error_f64": 3.412956662486443e-16,
+        "max_relative_q_error_f32": 1.081764608865057e-08,
+        "steps": 256,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": false,
+        "all_rows_new_flow": true
+      },
+      "TRAIN_SOURCE_REAL_rows": [
+        64,
+        64
+      ],
+      "white_reference": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "white_prefix": "first128 consumed-row white; original noise-generation ordinal retained",
+      "DEV_read_or_generated": 0,
+      "candidate_steps": 128,
+      "reference_only_steps": 256,
+      "no_step_search": true
+    },
+    "GUIDED_NOISE_COMPLETION": {
+      "PID": 208979,
+      "arm": "GUIDED_NOISE_COMPLETION",
+      "UTC": "2026-10-10T09:44:14.424921+00:00",
+      "RMS_median_LSB": 0.028838364213350794,
+      "RMS_p95_LSB": 0.3754441726708883,
+      "RMS_median_V": 1.7602615035921867e-06,
+      "RMS_p95_V": 2.2916692466025044e-05,
+      "LSB_V": 6.103888176768602e-05,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "preADC_relative_q_max": 1.0414924509142265e-08,
+      "relative_q_limit": 1e-05,
+      "pass": true,
+      "solver128": {
+        "field_calls": 512,
+        "field_forward_rows": 32768,
+        "max_relative_q_error_f64": 2.086566710104221e-16,
+        "max_relative_q_error_f32": 9.337949057111096e-09,
+        "steps": 128,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true
+      },
+      "solver256": {
+        "field_calls": 1024,
+        "field_forward_rows": 65536,
+        "max_relative_q_error_f64": 3.878102128846565e-16,
+        "max_relative_q_error_f32": 1.0414924509142265e-08,
+        "steps": 256,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true
+      },
+      "TRAIN_SOURCE_REAL_rows": [
+        64,
+        64
+      ],
+      "white_reference": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "white_prefix": "first128 consumed-row white; original noise-generation ordinal retained",
+      "DEV_read_or_generated": 0,
+      "candidate_steps": 128,
+      "reference_only_steps": 256,
+      "no_step_search": true
+    }
+  },
+  "both_pass": true,
+  "elapsed_s": 129.86927553699934,
+  "DEV_read_or_generated": 0,
+  "new_response_updates": 0,
+  "both_required_before_DEV": true,
+  "CPU_threads": 12,
+  "chunk": 64
+}
