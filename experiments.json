@@ -1152,7 +1152,7 @@
     },
     {
       "id": "R43_SCALAR_TIME_NEURAL_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_fixed_joint_response_failure",
       "task": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md",
       "registration": "reviews/R43_REGISTRATION_001/RECEIPT.json",
       "registered_UTC": "2026-10-09T23:31:31.265601+00:00",
@@ -1162,7 +1162,27 @@
       "science_budget_s": 2700,
       "parent_stage": "R42_SOURCE_INITIALIZED_NEURAL_FLOW_001",
       "DEV_used_for": "only_if_same_TRAIN_numeric_gate_passes; fixed endpoint no tuning",
-      "EVAL_access": false
+      "EVAL_access": false,
+      "receipt": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R43_KEY_RESULT_REVIEW_001.json",
+      "next_task": "tasks/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001.md"
+    },
+    {
+      "id": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+      "status": "registered_server_addendum_before_numeric",
+      "task": "tasks/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001.md",
+      "registration": "reviews/R44_REGISTRATION_001/RECEIPT.json",
+      "registered_UTC": "2026-10-10T00:34:08.074311+00:00",
+      "scientific_question": "R43 complete shape and source preservation pass, but PSD/peak/noise, two temporal boundaries and same-treated REAL fail. Keep R43 closed. Inspect its one frozen final model on all94400 actual TRAIN interpolation states once, measuring signed PSD-velocity residual and its share of the original480-dimensional velocity MSE. Describe original target-consumption populations separately. No response training, new t, ODE generation, compensation or new candidate.",
+      "response_fits_max": 0,
+      "HGB_fits_max": 0,
+      "science_budget_s": 3600,
+      "parent_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+      "DEV_used_for": "saved endpoint descriptive background only",
+      "EVAL_access": false,
+      "resource_addendum": "tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md",
+      "resource_registry": "RESOURCE_BUDGET.json",
+      "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00"
     }
   ]
 }

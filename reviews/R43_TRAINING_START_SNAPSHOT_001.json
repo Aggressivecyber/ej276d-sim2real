@@ -1,0 +1,117 @@
+{
+  "stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+  "observed_UTC": "2026-10-09T23:40:03.570886+00:00",
+  "actual_start_tool": "56924d",
+  "actual_start_session": 66196,
+  "root_actual_read_tools": [
+    "4ce01f",
+    "411589"
+  ],
+  "observed_local_start": {
+    "local_launch_PID": 44348,
+    "entry": "train_server.py",
+    "UTC": "2026-10-09T23:38:23.972064+00:00",
+    "command": [
+      "C:/Windows/System32/OpenSSH/ssh.exe",
+      "-T",
+      "-o",
+      "ForwardX11=no",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=8",
+      "rylan@100.82.231.102",
+      "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B /home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/linux_supervise.py train_server.py"
+    ],
+    "SSH_PID": 58332,
+    "remote_bound_actual_science": {
+      "entry": "train_server.py",
+      "supervisor_PID": 90499,
+      "start_UTC": "2026-10-09T23:38:24.126599+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": 900,
+      "actual_worker_PID": 90500,
+      "actual_worker_RSS_peak_bytes": 12906496,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 90500,
+      "actual_worker_parent_PID": 90499
+    }
+  },
+  "preflight": {
+    "PID": 89854,
+    "UTC": "2026-10-09T23:35:54.593748+00:00",
+    "python_path": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070",
+    "own_project_jobs": [],
+    "CPU_N": 16,
+    "MemAvailable": "61039440 kB",
+    "disk_free_bytes": 26471792640,
+    "gpu_query_exit": 0,
+    "gpu_resource": "NVIDIA GeForce RTX 5070, 12227 MiB, 242 MiB, 0 %",
+    "new_remote_leaf_exists": false,
+    "check_elapsed_s": 0.791184642999724,
+    "new_response_operations": 0,
+    "R33_environment_exact_fields_match": {
+      "python": true,
+      "numpy": true,
+      "torch": true,
+      "scipy": true,
+      "device": true,
+      "GPU": true
+    }
+  },
+  "pretrain_freeze": {
+    "UTC": "2026-10-09T23:38:15.606268+00:00",
+    "source_bindings": {
+      "train_server.py": {
+        "bytes": 14325,
+        "sha256": "680bc33d1023238a7391bab4b85686acf6e1a320369547cfedbd4fb86dc67033"
+      },
+      "source_flow_core.py": {
+        "bytes": 4678,
+        "sha256": "6624886b26b68fdf1ad8519b51f07d258fcae691bf00b2514d7a2d95590f9926"
+      },
+      "network.py": {
+        "bytes": 2953,
+        "sha256": "91c8dc1d3888f7fe6e0876882d203cef6158d407780ad5b81b2d8c2c629971f8"
+      },
+      "psd_order_core.py": {
+        "bytes": 3517,
+        "sha256": "9b45afb7ba77ee9d373275595718d4772a7990547d45e034d371a3861d1a8459"
+      },
+      "reorder_core.py": {
+        "bytes": 2675,
+        "sha256": "612b0c6fb1fd5bc1152cca932c9a43223ff0889a5a1b1bb8b4a12a467dfacbe9"
+      },
+      "linux_supervise.py": {
+        "bytes": 5694,
+        "sha256": "9b3ab13a3d228952198e4b9066fc306bcd192083f22d4b22ebf61cc9112da686"
+      },
+      "linux_owned_worker.py": {
+        "bytes": 1560,
+        "sha256": "90282672e4009734728dc82708a9542bb098dfb619f2f62c1c457b9fca2b25b8"
+      },
+      "remote_config.json": {
+        "bytes": 8054,
+        "sha256": "8c04db8bdc8ac1067497ed545e4e2f7f759513b55596c5cc71d7e0f0d82d6605"
+      },
+      "PROTOCOL.md": {
+        "bytes": 2080,
+        "sha256": "e167f837b3e5b6d0633ac9fc496b7c83db3cc875f617c216b1a4f41b041de725"
+      }
+    },
+    "existing_inputs_not_rehashed_for_migration": true,
+    "fixed_recipe": true
+  },
+  "key_static_review": "e24577 actual R42/R43 source delta: scalar-t plus16zero time slots; same parameters and analytic charge flow; saved constants/coupling/white/t and128TRAIN-check inputs reused;2048zero columns audited.",
+  "root_control_limitations": "One optional preflight metadata read used a guessed absent name; actual SERVER_PREFLIGHT.json was then located from the checked-in resource-check writer.",
+  "terminal_receipt_available_at_observation": true,
+  "source_fits_or_inference_from_root": 0
+}

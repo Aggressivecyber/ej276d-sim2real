@@ -1,0 +1,84 @@
+{
+  "scientific_native_failures": [
+    {
+      "entry": "evaluate_saved.py",
+      "supervisor_PID": 52536,
+      "start_UTC": "2026-10-09T23:54:27.229441+00:00",
+      "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+      "limit_s": 1839.8453244749326,
+      "actual_worker_PID": 62140,
+      "actual_worker_RSS_peak_bytes": 1217691648,
+      "launcher_RSS_peak_bytes": 1217691648,
+      "memory_probe_failures": 0,
+      "memory_probe_failure_events": [],
+      "handshake_before_imports": true,
+      "launcher_PID": 62140,
+      "actual_worker_parent_PID": 52536,
+      "actual_worker_native_exit": 1,
+      "launcher_native_exit": 1,
+      "termination_reason": null,
+      "elapsed_s": 13.077362800017,
+      "stop_UTC": "2026-10-09T23:54:40.306858+00:00",
+      "worker_self_receipt": {
+        "PID": 62140,
+        "parent_PID": 52536,
+        "entry": "evaluate_saved.py",
+        "nonce": "650d4d2bfc0c4916b909d7f7afb39fa7",
+        "native_exit": 1,
+        "error": "KeyError('R26_root')",
+        "elapsed_s": 12.09844269999303,
+        "self_peak_RSS_bytes": 1217544192,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-09T23:54:39.452491+00:00"
+      }
+    }
+  ],
+  "control_failures": [
+    {
+      "tool": "b14e00",
+      "native_exit": 1,
+      "PID": "unknown; original command did not print it",
+      "description": "relative Get-Content task path used from stage cwd; task had already been fully read from project root",
+      "scientific_work_s": 0,
+      "writes": 0,
+      "partial_reads_preserved_as_original_tool_output": true
+    },
+    {
+      "tool": "7ca6cf",
+      "native_exit": 1,
+      "PID": "unknown; original command did not print it",
+      "description": "read-only source excerpt loop requested one past final line; emitted existing lines then IndexError",
+      "source": "summarize_and_plot.py",
+      "scientific_work_s": 0,
+      "writes": 0,
+      "command_wall_s": 0.5705409,
+      "raw_tool_output_retained": true
+    }
+  ],
+  "scientific_gate_results": [
+    true,
+    false,
+    true,
+    false,
+    false,
+    true
+  ],
+  "RSS_query_gaps": [
+    {
+      "entry": "train_server.py",
+      "count": 1,
+      "events": [
+        {
+          "UTC": "2026-10-09T23:39:40.818142+00:00",
+          "PID": 90500,
+          "poll": null,
+          "context": "actual_PID_query"
+        }
+      ]
+    }
+  ],
+  "RSS_query_gap_cause": "unknown",
+  "all_original_native_logs_retained": true,
+  "science_failed_attempt_time_not_refunded": true,
+  "no_new_scope_to_rescue_results": true
+}

@@ -1,3 +1,17 @@
+# 最新资源修订：使用服务器较大计算配额
+
+用户明确要求扩大服务器计算资源。以 [SERVER_RESOURCE_POLICY.md](SERVER_RESOURCE_POLICY.md) 与 RESOURCE_BUDGET.json 为准：服务器 CPU12、RAM48GiB、单GPU10GiB；新训练最多50000更新/3小时，最多3个方法方案、6次含对照训练，改进块科学最多25小时。科学验收线不降低，封存结果不改。R44迁至服务器作一次冻结前向，执行补充见 tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md。下文旧资源限制仅作历史。
+
+# 项目验收 v1：最终指标与有限停止条件
+
+新增标准见 [PROJECT_ACCEPTANCE.md](PROJECT_ACCEPTANCE.md)：完整响应五视图 BA 95% 区间须在 [.40,.60] 内，PSD/峰位/宽度联合合格，固定下游任务 MAE 至少改善 5%，并满足源保真、范围验证和实际交付。标准在 R43 后制定，不追溯改写旧结果。本改进块仅 R44 一次诊断加最多两个新训练末点，科学合计 6300 秒；负结果关闭路线，不记模型成功。
+
+# 当前入口：R43完整形状与源保真通过，联合响应仍失败
+
+R43保留完整形状收益，PSD、峰位/噪声、两个时间边界和REAL控制未共同通过，固定配方关闭。下一问题为冻结模型在原TRAIN路径上的PSD速度残差，完整项目继续。
+
+[R43报告](R43_REPORT.md) · [交付索引](R43_DELIVERY_INDEX.json) · [R44任务](tasks/R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001.md) · [项目目标](PROJECT_OBJECTIVE.md)。以下保留历史入口。
+
 # 当前入口：R42在TRAIN数值门关闭，下一问题为标量时间表示
 
 R42没有DEV分布结论；积分精度失败及全部TRAIN证据已封存。下一轮保持32步及原科学门，仅检验一次时间表示干预，项目继续。

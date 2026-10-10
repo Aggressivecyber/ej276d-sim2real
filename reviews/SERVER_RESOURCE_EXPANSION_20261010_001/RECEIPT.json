@@ -1,0 +1,69 @@
+{
+  "resource_version": 2,
+  "registered_UTC": "2026-10-10T00:39:27.880232+00:00",
+  "reason": "User explicitly requests larger compute resources on the server.",
+  "server": "rylan@100.82.231.102",
+  "snapshot": "reviews/SERVER_RESOURCE_SNAPSHOT_20261010_002.json",
+  "policy": "SERVER_RESOURCE_POLICY.md",
+  "policy_sha256": "b6c013a0c3a7b517e8ffc69c6ac846a68c5a1516ea028b21653eac0fadc70fac",
+  "server_limits": {
+    "CPU_threads": 12,
+    "job_tree_RSS_bytes": 51539607552,
+    "MemAvailable_start_min_bytes": 60129542144,
+    "GPU_count": 1,
+    "GPU_allocated_and_reserved_max_bytes": 10737418240,
+    "GPU_free_start_min_bytes": 11811160064,
+    "other_GPU_compute_jobs_allowed": false,
+    "concurrent_project_scientific_jobs_max": 1,
+    "stage_output_bytes_max": 4294967296,
+    "disk_free_reserve_bytes": 8589934592
+  },
+  "local_auxiliary_limits": {
+    "CPU_threads": 4,
+    "RSS_bytes": 4294967296
+  },
+  "response_training": {
+    "updates_max": 50000,
+    "training_science_seconds_max": 10800,
+    "stage_science_seconds_max": 14400,
+    "stage_wall_seconds_max": 21600,
+    "same_budget_control_required_for_method_comparison": true
+  },
+  "improvement_block": {
+    "diagnostic_science_seconds_max": 3600,
+    "method_plans_max": 3,
+    "all_response_training_runs_max": 6,
+    "controls_and_repeats_count_towards_run_limit": true,
+    "total_science_seconds_max": 90000,
+    "actual_science_seconds_recorded": 0,
+    "response_training_runs_started": 0,
+    "actual_stage_receipts": [],
+    "no_automatic_extension_at_limit": true
+  },
+  "frozen_validation": {
+    "utility_runs_max": 1,
+    "utility_science_seconds_max": 7200,
+    "FULL_GAP_studies_max": 1,
+    "scope_science_seconds_max": 36000,
+    "total_science_seconds_max": 43200
+  },
+  "R44": {
+    "stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+    "execution": "server_CUDA_frozen_forward_local_plot",
+    "forward_rows": 94400,
+    "forward_chunk": 32,
+    "new_training_updates": 0,
+    "new_ODE_generation": 0,
+    "science_seconds_max": 3600,
+    "output_bytes_max": 2147483648,
+    "executor_wall_seconds_max": 10800,
+    "stage_wall_seconds_max": 14400,
+    "executor_deadline_UTC": "2026-10-10T03:39:27.880232+00:00",
+    "stage_deadline_UTC": "2026-10-10T04:39:27.880232+00:00",
+    "CPU_comparison_claim": false,
+    "previous_numeric_forward_rows_at_change": 0
+  },
+  "scientific_thresholds_lowered": false,
+  "sealed_scientific_stages_modified": false,
+  "new_server_job_submitted_by_root": false
+}
