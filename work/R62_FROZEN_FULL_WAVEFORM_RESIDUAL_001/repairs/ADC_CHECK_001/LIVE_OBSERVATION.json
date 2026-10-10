@@ -1,0 +1,270 @@
+{
+  "UTC": "2026-10-10T23:42:48.784834+00:00",
+  "control_PID": 43224,
+  "SSH_native_exit": 0,
+  "files": {
+    "REMOTE_ACTIVE_JOB.json": {
+      "entry": "diagnose_train.py",
+      "supervisor_PID": 208642,
+      "start_UTC": "2026-10-10T23:42:22.717163+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": null,
+      "compute_budget_enforced": false,
+      "wall_deadline_UTC": null,
+      "stage_output_limit_bytes": null,
+      "actual_worker_PID": 208647,
+      "actual_worker_RSS_peak_bytes": 985300992,
+      "memory_probe_failures": 1,
+      "memory_probe_failure_events": [
+        {
+          "UTC": "2026-10-10T23:42:26.282977+00:00",
+          "PID": 208647,
+          "poll": null,
+          "context": "actual_PID_query",
+          "error": "OSError('actual PID RSS unavailable')",
+          "cause": "unknown"
+        }
+      ],
+      "handshake_before_imports": true,
+      "job_tree_RSS_peak_bytes": 985362432,
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_process_memory_peak_bytes": 0,
+      "GPU_query_failures": [],
+      "RSS_limit_bytes": 51539607552,
+      "start_resource": {
+        "UTC": "2026-10-10T23:42:22.682477+00:00",
+        "MemAvailable_bytes": 62144831488,
+        "RSS_quota_bytes": 51539607552,
+        "CPU_threads": 12,
+        "disk_free_bytes": 24033603584,
+        "other_own_project_jobs": [],
+        "execution_device": "cuda:0",
+        "GPU_admission_applied": true,
+        "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+        "compute_budget_enforced": false,
+        "limit_s": null,
+        "stage_output_limit_bytes": null,
+        "GPU_free_bytes": 12167675904,
+        "other_GPU_compute_jobs": ""
+      },
+      "launcher_PID": 208647,
+      "last_disk_free_bytes": 24033587200,
+      "actual_worker_parent_PID": 208642,
+      "last_job_tree_PIDs": [
+        208647
+      ],
+      "actual_worker_native_exit": 1,
+      "launcher_native_exit": 1,
+      "termination_reason": null,
+      "elapsed_s": 3.6660465509994538,
+      "stop_UTC": "2026-10-10T23:42:26.383213+00:00",
+      "worker_self_receipt": {
+        "PID": 208647,
+        "parent_PID": 208642,
+        "nonce": "5baafbeb427643e6b8a5163a42ac5f16",
+        "entry": "diagnose_train.py",
+        "native_exit": 1,
+        "error": "AssertionError()",
+        "elapsed_s": 3.1273937270016177,
+        "self_peak_RSS_bytes": 967684096,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-10T23:42:25.860571+00:00"
+      }
+    },
+    "DIAGNOSTIC_PROGRESS.json": {
+      "UTC": "2026-10-10T23:42:24.237558+00:00",
+      "PID": 208647,
+      "phase": "artificial_checks_before_TRAIN",
+      "counter": {
+        "response_training_runs": 0,
+        "response_updates": 0,
+        "HGB_fits": 0,
+        "density_fits": 0,
+        "teacher_waveforms": 0,
+        "autograd_calls": 0,
+        "DEV_read": 0,
+        "EVAL_read": 0,
+        "CAL_decode": 0,
+        "full_SOURCE_rows_completed": 0,
+        "full_REAL_rows_completed": 0,
+        "neural_forward_rows_completed": 0,
+        "neural_forward_calls_completed": 0,
+        "mathematical_Heun_field_rows": 0,
+        "saved_endpoint_batches_completed": 0
+      },
+      "elapsed_s": 1.4058130049997999
+    },
+    "DIAGNOSTIC_FAILURE.json": {
+      "UTC": "2026-10-10T23:42:25.860050+00:00",
+      "PID": 208647,
+      "error": "AssertionError()",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/diagnose_train.py\", line 50, in <module>\n    write('ARTIFICIAL_CHECK_SERVER.json',check('cpu'));write('ARTIFICIAL_CHECK_CUDA.json',check(dev));gpu_guard()\n                                                                                          ^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/artificial_check.py\", line 29, in check\n    assert np.array_equal(canonical(x,False),canonical_REAL_torch(tx).cpu().numpy())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "counter": {
+        "response_training_runs": 0,
+        "response_updates": 0,
+        "HGB_fits": 0,
+        "density_fits": 0,
+        "teacher_waveforms": 0,
+        "autograd_calls": 0,
+        "DEV_read": 0,
+        "EVAL_read": 0,
+        "CAL_decode": 0,
+        "full_SOURCE_rows_completed": 0,
+        "full_REAL_rows_completed": 0,
+        "neural_forward_rows_completed": 0,
+        "neural_forward_calls_completed": 0,
+        "mathematical_Heun_field_rows": 0,
+        "saved_endpoint_batches_completed": 0
+      },
+      "counter_completed_rows_is_lower_bound_after_exception": true,
+      "elapsed_s": 3.0286580600004527
+    },
+    "ARTIFICIAL_CHECK_SERVER.json": {
+      "pass": true,
+      "device": "cpu",
+      "checks": {
+        "unequal_exact_W1_max_abs_error": 1.1102230246251565e-16,
+        "four_features_canonical_ADC_noise_and_covariance": true,
+        "spectral_Parseval_Nyquist_zero_power_and_boundary_indices": true,
+        "numpy_scalar_JSON": {
+          "b": true,
+          "n": 2,
+          "v": [
+            1.0,
+            2.0
+          ]
+        },
+        "nonfinite_JSON_rejected": true,
+        "traced_frozen_solve_bitwise": {
+          "pass": true,
+          "rows_each_implementation": 6,
+          "calls_each_implementation": 3,
+          "range_active_N": 2,
+          "projected_SHA256": "3d87c269adf2c8d271b3e1940bca454452105e288f7d20c483d0ac96c4fc6ece"
+        },
+        "all_summary_paths_JSON_and_original_torch_loss_equivalence": true
+      },
+      "artificial_only": true,
+      "TRAIN_rows_read": 0,
+      "new_optimizers": 0,
+      "new_parameter_updates": 0,
+      "torch_version": "2.12.0+cu130",
+      "numpy_version": "1.26.4"
+    },
+    "ENVIRONMENT.json": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "numpy": "1.26.4",
+      "torch": "2.12.0+cu130",
+      "scipy": "1.11.4",
+      "device": "cuda:0",
+      "GPU": "NVIDIA GeForce RTX 5070",
+      "PID": 208647,
+      "CPU_threads": 12,
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cwd": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC",
+      "UTC": "2026-10-10T23:42:24.237247+00:00"
+    },
+    "diagnose_train.py.NATIVE_RECEIPT.json": {
+      "entry": "diagnose_train.py",
+      "supervisor_PID": 208642,
+      "start_UTC": "2026-10-10T23:42:22.717163+00:00",
+      "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+      "limit_s": null,
+      "compute_budget_enforced": false,
+      "wall_deadline_UTC": null,
+      "stage_output_limit_bytes": null,
+      "actual_worker_PID": 208647,
+      "actual_worker_RSS_peak_bytes": 985300992,
+      "memory_probe_failures": 1,
+      "memory_probe_failure_events": [
+        {
+          "UTC": "2026-10-10T23:42:26.282977+00:00",
+          "PID": 208647,
+          "poll": null,
+          "context": "actual_PID_query",
+          "error": "OSError('actual PID RSS unavailable')",
+          "cause": "unknown"
+        }
+      ],
+      "handshake_before_imports": true,
+      "job_tree_RSS_peak_bytes": 985362432,
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_process_memory_peak_bytes": 0,
+      "GPU_query_failures": [],
+      "RSS_limit_bytes": 51539607552,
+      "start_resource": {
+        "UTC": "2026-10-10T23:42:22.682477+00:00",
+        "MemAvailable_bytes": 62144831488,
+        "RSS_quota_bytes": 51539607552,
+        "CPU_threads": 12,
+        "disk_free_bytes": 24033603584,
+        "other_own_project_jobs": [],
+        "execution_device": "cuda:0",
+        "GPU_admission_applied": true,
+        "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+        "compute_budget_enforced": false,
+        "limit_s": null,
+        "stage_output_limit_bytes": null,
+        "GPU_free_bytes": 12167675904,
+        "other_GPU_compute_jobs": ""
+      },
+      "launcher_PID": 208647,
+      "last_disk_free_bytes": 24033587200,
+      "actual_worker_parent_PID": 208642,
+      "last_job_tree_PIDs": [
+        208647
+      ],
+      "actual_worker_native_exit": 1,
+      "launcher_native_exit": 1,
+      "termination_reason": null,
+      "elapsed_s": 3.6660465509994538,
+      "stop_UTC": "2026-10-10T23:42:26.383213+00:00",
+      "worker_self_receipt": {
+        "PID": 208647,
+        "parent_PID": 208642,
+        "nonce": "5baafbeb427643e6b8a5163a42ac5f16",
+        "entry": "diagnose_train.py",
+        "native_exit": 1,
+        "error": "AssertionError()",
+        "elapsed_s": 3.1273937270016177,
+        "self_peak_RSS_bytes": 967684096,
+        "supervisor_bound_real_PID": true,
+        "UTC": "2026-10-10T23:42:25.860571+00:00"
+      }
+    },
+    "diagnose_train.py.WORKER_RECEIPT.json": {
+      "PID": 208647,
+      "parent_PID": 208642,
+      "nonce": "5baafbeb427643e6b8a5163a42ac5f16",
+      "entry": "diagnose_train.py",
+      "native_exit": 1,
+      "error": "AssertionError()",
+      "elapsed_s": 3.1273937270016177,
+      "self_peak_RSS_bytes": 967684096,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-10T23:42:25.860571+00:00"
+    }
+  },
+  "transient_read_failures": [],
+  "actual_process": {
+    "PID": 208647,
+    "exists": false,
+    "identity_matches_registered_stage": false
+  },
+  "stderr_tail": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/linux_owned_worker.py\", line 16, in <module>\n    try:runpy.run_path(str(ROOT/entry),run_name='__main__')\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 286, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/diagnose_train.py\", line 50, in <module>\n    write('ARTIFICIAL_CHECK_SERVER.json',check('cpu'));write('ARTIFICIAL_CHECK_CUDA.json',check(dev));gpu_guard()\n                                                                                          ^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/artificial_check.py\", line 29, in check\n    assert np.array_equal(canonical(x,False),canonical_REAL_torch(tx).cpu().numpy())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

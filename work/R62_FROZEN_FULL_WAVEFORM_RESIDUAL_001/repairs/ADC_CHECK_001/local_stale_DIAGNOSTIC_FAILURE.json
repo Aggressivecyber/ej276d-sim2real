@@ -1,0 +1,25 @@
+{
+  "UTC": "2026-10-10T23:42:25.860050+00:00",
+  "PID": 208647,
+  "error": "AssertionError()",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/diagnose_train.py\", line 50, in <module>\n    write('ARTIFICIAL_CHECK_SERVER.json',check('cpu'));write('ARTIFICIAL_CHECK_CUDA.json',check(dev));gpu_guard()\n                                                                                          ^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R62_ROOT_20261010_233340_UTC/artificial_check.py\", line 29, in check\n    assert np.array_equal(canonical(x,False),canonical_REAL_torch(tx).cpu().numpy())\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "counter": {
+    "response_training_runs": 0,
+    "response_updates": 0,
+    "HGB_fits": 0,
+    "density_fits": 0,
+    "teacher_waveforms": 0,
+    "autograd_calls": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "full_SOURCE_rows_completed": 0,
+    "full_REAL_rows_completed": 0,
+    "neural_forward_rows_completed": 0,
+    "neural_forward_calls_completed": 0,
+    "mathematical_Heun_field_rows": 0,
+    "saved_endpoint_batches_completed": 0
+  },
+  "counter_completed_rows_is_lower_bound_after_exception": true,
+  "elapsed_s": 3.0286580600004527
+}

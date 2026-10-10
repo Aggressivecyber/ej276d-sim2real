@@ -1,0 +1,60 @@
+{
+  "UTC": "2026-10-10T23:51:11.824206+00:00",
+  "owner": "/root",
+  "scientific_decision": "close_R62_fixed_diagnostic_two_descriptive_markers_activated_no_new_model",
+  "model_goal_complete": false,
+  "original_A_F_changed": false,
+  "original_R61_A_B_C_failed_unchanged": true,
+  "diagnostic_markers": {
+    "neural_boundary_increase": {
+      "passed_components": 2,
+      "required": 2,
+      "selected_names": [
+        "d1_149_150",
+        "d2_149",
+        "d2_150"
+      ],
+      "flags": [
+        true,
+        false,
+        true
+      ],
+      "activated": true
+    },
+    "baseline_joint_residual": {
+      "regions": 7,
+      "required": 6,
+      "activated": true
+    }
+  },
+  "neural_boundary_change_V": {
+    "d1_99_100": 7.885346139754166e-05,
+    "d1_149_150": 0.02240880928400838,
+    "d1_399_400": 0.0007190377416720075,
+    "d2_99": -4.1408573356522545e-05,
+    "d2_100": 0.00258485735389147,
+    "d2_149": -0.0007345879467521299,
+    "d2_150": 0.010443190924747938,
+    "d2_399": 2.666487337973987e-05,
+    "d2_400": 0.00016419618105746635
+  },
+  "full_baseline_covariance_relative_Frobenius_SOURCE": 0.3731029981599024,
+  "full_baseline_covariance_relative_Frobenius_REAL_control": 0.012193025001549533,
+  "SOURCE_full_original_objective": 1.1964173703449354,
+  "SOURCE_batch_mean": 1.3462646761745058,
+  "REAL_REAL_batch_mean": 0.3044508991088901,
+  "REAL_control_full_original_objective": 0.007444610070791408,
+  "high_support_out_fraction_of_full_objective": 0.8873470524419673,
+  "evidence_limits": [
+    "The two preset flags are descriptive, not causal tests or independent-acquisition evidence.",
+    "Whole-TRAIN range projection differs in scope from the fixed R61 DEV2000 population.",
+    "A dominant high-support-out scalar loss contribution does not establish gradient opposition; the old R60 conflict flags remain negative.",
+    "RMS and ACF1 marginal agreement does not establish the full baseline temporal law.",
+    "No source population reweighting, hard waveform smoothing, postprocessing calibration or new model is authorized by claiming these diagnostic flags are acceptance passes."
+  ],
+  "next_action": "封存R62固定诊断。下一轮预登记全窗训练目标的覆盖扩展：保留R61神经网络、全部原TRAIN父事件和区域权重、输入噪声与精确电荷/ADC构造，从同一初始化重新训练；在原七项损失基础上，显式约束基线多滞后/频带的联合分布，并提高全窗各坐标及一阶二阶差分局部残差的可见性。固定所有TRAIN标准化、损失公式及唯一训练末点后再运行，使用原数值门、完整A–C和独立重放判断；通过后才继续D/E。当前尚未登记或开始下一轮训练，不续训R61，不修改原A–F、源人口或R60否定标记，也不重开R37固定高斯校准或R39固定MMD配方。",
+  "why_next_direction": "Both preregistered residual flags activate, and the saved objective remains materially above empirical REAL-REAL sampling variation. This supports testing explicit joint temporal statistics and local coordinate sensitivity while retaining the existing representation; it does not identify a unique cause or prove that the extension will pass.",
+  "next_stage_registered": false,
+  "next_training_started": false,
+  "new_response_updates": 0
+}

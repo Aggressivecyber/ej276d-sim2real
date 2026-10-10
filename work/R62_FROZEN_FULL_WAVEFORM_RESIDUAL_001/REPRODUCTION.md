@@ -1,0 +1,15 @@
+# R62 frozen TRAIN residual diagnostic
+
+The preregistered protocol is `PROTOCOL.md`; it repeats the task file without changes. All original TRAIN parents and original charge regions are retained. R61 weights, the five helper modules and eight input files are bound in `INPUT_BINDING.json`. No response training, teacher construction, density fitting, HGB fitting or DEV/EVAL/CAL decoding occurs.
+
+The sole scientific entry is `diagnose_train.py`, launched once through `linux_supervise.py` and `linux_owned_worker.py` in the registered remote directory. The supervisor enforces CPU12, RSS48GiB, GPU10GiB and a single project job with a real PID handshake. Scientific time, output size and training/method budgets remain null. The original environment and every implementation hash are checked before data access. CPU and CUDA artificial checks establish exact traced-versus-original solver output and verify statistics before TRAIN is decoded.
+
+The model runs in evaluation mode with all parameter gradients disabled. One forward per original parent is observed in chunks of 64 using the unchanged noise completion, displacement, Heun128 and charge/box projection. SOURCE and same-treated REAL total 27640 neural rows and 7075840 mathematical Heun field rows. The five observed stages are input, noise initial, pre-projection neural endpoint, projected float32 and canonical ADC. Synthetic checks use a separate toy field and do not count as project-model rows.
+
+Only `source`, `target`, `source_ids`, `h`, `source_bin` and `target_bin` from the original TRAIN archive are decoded. No complete waveform array is saved by this diagnostic. Compact per-parent quantities, path coordinate statistics, baseline joint statistics, objective tables and resampling indices are saved in four private NPZ files. Original inputs and weights remain available through the R61 delivery chain.
+
+Three full-population PCG64 streams match the frozen R60 stream hashes. All eight stream seeds, initial/final states, actual consumed bytes and chained SHA256 receipts are saved. Fixed 32-batch endpoint resampling requires no neural forwards. Baseline covariance references are 32 empirical REAL resamples matched to SOURCE sample count in each scope, not population confidence intervals or independent acquisitions.
+
+`PATH_SUMMARY.json`, `BASELINE_JOINT_SUMMARY.json`, `LOSS_COVERAGE_SUMMARY.json`, `PSD_SUMMARY.json` and `PROJECTION_SUMMARY.json` retain the complete fixed statistics. `RESULT.json` reports the two preregistered descriptive markers and unchanged weights; it is not a new candidate acceptance result. `render_diagnostic.py` produces eight figures from saved statistics. Actual visual inspection, native receipts and private Git/D delivery are required for closeout.
+
+The local artificial check uses `reviews/check_R62_artificial_root.py`, CPU4/RSS4GiB, with data, caches and logs on E/D. Its first bootstrap attempt failed because optional psutil was unavailable before any scientific import or data access; the helper now uses native Windows memory and affinity APIs. The complete check subsequently passed.

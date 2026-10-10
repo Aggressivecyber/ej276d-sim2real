@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "device": "cpu",
+  "checks": {
+    "unequal_exact_W1_max_abs_error": 1.1102230246251565e-16,
+    "CPU_numpy_vs_selected_torch_backend_ADC": {
+      "REAL": {
+        "integer_codes_bitwise_equal": true,
+        "float64_bitwise_equal": true,
+        "float64_max_absolute_difference_V": 0.0,
+        "allowed_cross_backend_float64_difference_V": 2.220446049250313e-16
+      },
+      "generated": {
+        "integer_codes_bitwise_equal": true,
+        "float64_bitwise_equal": true,
+        "float64_max_absolute_difference_V": 0.0,
+        "allowed_cross_backend_float64_difference_V": 2.220446049250313e-16
+      }
+    },
+    "four_features_canonical_ADC_noise_and_covariance": true,
+    "spectral_Parseval_Nyquist_zero_power_and_boundary_indices": true,
+    "numpy_scalar_JSON": {
+      "b": true,
+      "n": 2,
+      "v": [
+        1.0,
+        2.0
+      ]
+    },
+    "nonfinite_JSON_rejected": true,
+    "traced_frozen_solve_bitwise": {
+      "pass": true,
+      "rows_each_implementation": 6,
+      "calls_each_implementation": 3,
+      "range_active_N": 2,
+      "projected_SHA256": "3d87c269adf2c8d271b3e1940bca454452105e288f7d20c483d0ac96c4fc6ece"
+    },
+    "all_summary_paths_JSON_and_original_torch_loss_equivalence": true
+  },
+  "artificial_only": true,
+  "TRAIN_rows_read": 0,
+  "new_optimizers": 0,
+  "new_parameter_updates": 0,
+  "torch_version": "2.12.0+cu130",
+  "numpy_version": "1.26.4"
+}
