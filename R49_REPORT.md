@@ -149,3 +149,9 @@ GUIDED_NOISE_COMPLETION raw-width相对误差（固定Q2–7）：component0: un
 - [同处理 REAL 三项相对判别与波形改变量](work/R49_LOCAL_HEUN128_RECOVERY_001/results/figures/same_treated_REAL_controls.png)
 - [源信息保留](work/R49_LOCAL_HEUN128_RECOVERY_001/results/figures/source_preservation.png)
 - [既有训练轨迹](work/R49_LOCAL_HEUN128_RECOVERY_001/results/figures/training_source_identity.png)
+
+## 实际阶段交付
+
+科学产物私有 Git 提交 `755fc495bbc394af21402a149f068dd3c51643b5` 已推送且远端一致。D 盘新增正常复制 1921 文件、85,724,930 B，增量 Git bundle 3,204,850 B；目录 `D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r49_local_heun128_final_20261010_143052_UTC`。恢复需要 BACKUP_FILE_LIST.json 指定的全部历史副本及 Git bundle 链；该目录单独不是完整快照。最终状态文件另存于 delivery_completion 小型增量目录。既有副本未覆盖，没有执行迁移内容一致性测试或恢复测试。
+
+最终回执：[R49_DELIVERY_COMPLETION_RECEIPT.json](R49_DELIVERY_COMPLETION_RECEIPT.json)。
