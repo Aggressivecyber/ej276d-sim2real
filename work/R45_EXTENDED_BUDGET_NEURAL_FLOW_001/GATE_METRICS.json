@@ -1,0 +1,82 @@
+{
+  "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "gates": {
+    "gate1": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate2": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate3": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate4": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate5": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate6": {
+      "status": "fail",
+      "pass": false,
+      "numerical_check": {
+        "PID": 113870,
+        "UTC": "2026-10-10T01:39:30.287032+00:00",
+        "elapsed_s": 15.015593514995999,
+        "TRAIN_source_REAL_rows": [
+          64,
+          64
+        ],
+        "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+        "DEV_read_or_generated": 0,
+        "RMS_median_V": 2.5811572557316582e-05,
+        "RMS_p95_V": 5.28778253284724e-05,
+        "LSB_V": 6.103888176768602e-05,
+        "RMS_median_LSB": 0.42287099320651755,
+        "RMS_p95_LSB": 0.8662974123563634,
+        "median_limit_LSB": 0.25,
+        "p95_limit_LSB": 1.0,
+        "solver32": {
+          "field_calls": 128,
+          "field_forward_rows": 8192,
+          "max_relative_q_error_f64": 2.2135552626399528e-16,
+          "max_relative_q_error_f32": 1.528763797748391e-08,
+          "steps": 32,
+          "chunk": 64
+        },
+        "solver64": {
+          "field_calls": 256,
+          "field_forward_rows": 16384,
+          "max_relative_q_error_f64": 2.5921022303310578e-16,
+          "max_relative_q_error_f32": 1.6224138346522212e-08,
+          "steps": 64,
+          "chunk": 64
+        },
+        "pass": false,
+        "no_prefix_or_64step_candidate": true,
+        "exact_R42_R43_inputs_white_indices_order_reused": true,
+        "CPU_threads": 12,
+        "device": "cpu",
+        "R42_reference_RMS_median_LSB": 1.9539974287524278,
+        "R42_reference_RMS_p95_LSB": 4.790319314745899,
+        "paired_RMS_difference_LSB_mean": -1.8266946720889468
+      },
+      "training_and_inheritance_complete": true,
+      "main_replay_status": "not_executed_by_stop_rule"
+    }
+  },
+  "retain_recipe": false,
+  "verdict": "close_fixed_32step_long_budget_recipe",
+  "complete_project_acceptance": false,
+  "no_64step_rescue_or_intermediate_selection": true
+}

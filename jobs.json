@@ -2934,9 +2934,164 @@
     {
       "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
       "kind": "one_fixed_extended_training_trajectory",
-      "status": "registered_for_executor",
+      "status": "sealed_no_live_stage_job",
       "registered_UTC": "2026-10-10T01:00:04.557894+00:00",
       "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
+      "max_concurrent_scientific_jobs": 1,
+      "actual_native_jobs": [
+        {
+          "entry": "train_extended.py",
+          "supervisor_PID": 107150,
+          "start_UTC": "2026-10-10T01:10:30.983895+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 10800,
+          "actual_worker_PID": 107155,
+          "actual_worker_RSS_peak_bytes": 2042970112,
+          "memory_probe_failures": 2,
+          "memory_probe_failure_events": [
+            {
+              "UTC": "2026-10-10T01:34:34.147753+00:00",
+              "PID": 107155,
+              "poll": null,
+              "context": "actual_PID_query"
+            },
+            {
+              "UTC": "2026-10-10T01:34:34.248062+00:00",
+              "PID": 107155,
+              "poll": null,
+              "context": "actual_PID_query"
+            }
+          ],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 2037903360,
+          "GPU_process_memory_peak_bytes": 629145600,
+          "GPU_query_failures": [],
+          "launcher_PID": 107155,
+          "actual_worker_parent_PID": 107150,
+          "last_job_tree_PIDs": [
+            107155
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 1443.364407056004,
+          "stop_UTC": "2026-10-10T01:34:34.348301+00:00",
+          "worker_self_receipt": {
+            "PID": 107155,
+            "parent_PID": 107150,
+            "nonce": "31265c7e0dc6433ca0a13ee74e8d677d",
+            "entry": "train_extended.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1442.8275429860005,
+            "self_peak_RSS_bytes": 2042970112,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T01:34:33.827472+00:00"
+          },
+          "tool_reference": {
+            "start_tool": "68ae81",
+            "completion_tool": "aaae29",
+            "session": 59497
+          }
+        },
+        {
+          "entry": "check_train_solver.py",
+          "supervisor_PID": 113865,
+          "start_UTC": "2026-10-10T01:39:14.547574+00:00",
+          "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+          "limit_s": 12956.635592943996,
+          "actual_worker_PID": 113870,
+          "actual_worker_RSS_peak_bytes": 768016384,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "job_tree_RSS_peak_bytes": 784347136,
+          "GPU_process_memory_peak_bytes": 0,
+          "GPU_query_failures": [],
+          "launcher_PID": 113870,
+          "actual_worker_parent_PID": 113865,
+          "last_job_tree_PIDs": [
+            113870
+          ],
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 16.143875254994782,
+          "stop_UTC": "2026-10-10T01:39:30.691453+00:00",
+          "worker_self_receipt": {
+            "PID": 113870,
+            "parent_PID": 113865,
+            "nonce": "e677447ede7f4d2dad7134e21c15be69",
+            "entry": "check_train_solver.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 15.723274518997641,
+            "self_peak_RSS_bytes": 768016384,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T01:39:30.287542+00:00"
+          },
+          "tool_reference": {
+            "start_tool": "529b8e",
+            "completion_tool": "1c5124",
+            "session": 64405
+          }
+        },
+        {
+          "entry": "plot_training.py",
+          "supervisor_PID": 59088,
+          "start_UTC": "2026-10-10T01:40:42.955361+00:00",
+          "python": "C:/Users/10629/AppData/Local/Programs/Python/Python313/python.exe",
+          "limit_s": 12940.491717689001,
+          "actual_worker_PID": 25148,
+          "actual_worker_RSS_peak_bytes": 114503680,
+          "launcher_RSS_peak_bytes": 114503680,
+          "memory_probe_failures": 0,
+          "memory_probe_failure_events": [],
+          "handshake_before_imports": true,
+          "launcher_PID": 25148,
+          "actual_worker_parent_PID": 59088,
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "elapsed_s": 3.6502811000100337,
+          "stop_UTC": "2026-10-10T01:40:46.605670+00:00",
+          "worker_self_receipt": {
+            "PID": 25148,
+            "parent_PID": 59088,
+            "entry": "plot_training.py",
+            "nonce": "156057580ac241b3b87f2f6962f4d0f1",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 3.3442439999780618,
+            "self_peak_RSS_bytes": 114503680,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-10T01:40:46.423258+00:00"
+          },
+          "tool_reference": {
+            "start_completion_tool": "b5572e"
+          }
+        }
+      ],
+      "executor_ack": "reviews/R45_EXECUTOR_ACK_001.json",
+      "actual_worker_PID": 107155,
+      "actual_supervisor_PID": 107150,
+      "actual_start_UTC": "2026-10-10T01:10:30.983895+00:00",
+      "training_start_snapshot": "reviews/R45_TRAINING_START_SNAPSHOT_001.json",
+      "training_native_exit": 0,
+      "actual_training_stop_UTC": "2026-10-10T01:34:34.348301+00:00",
+      "current_CPU_job_state": "terminal_native0_numeric_failed",
+      "training_complete_snapshot": "reviews/R45_TRAINING_COMPLETED_SNAPSHOT_001.json",
+      "current_worker_PID": null,
+      "active_scientific_jobs": 0,
+      "numeric_stop_snapshot": "reviews/R45_NUMERIC_STOP_SNAPSHOT_001.json",
+      "seal_native_receipt": "reviews/R45_SEAL_NATIVE_RECEIPT.json"
+    },
+    {
+      "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+      "kind": "two_frozen_models_common_integration_budget",
+      "status": "registered_for_executor",
+      "registered_UTC": "2026-10-10T01:49:39.896743+00:00",
+      "registration": "reviews/R46_REGISTRATION_001/RECEIPT.json",
       "max_concurrent_scientific_jobs": 1,
       "actual_native_jobs": []
     }

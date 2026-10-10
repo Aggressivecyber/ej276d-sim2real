@@ -1,0 +1,121 @@
+{
+  "stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+  "registered_UTC": "2026-10-10T01:49:39.896743+00:00",
+  "task": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md",
+  "task_sha256": "9350d959022218df31a7dbd28855f0efeefaeb460e591354aa24e2a6367fc166",
+  "reason": "R45 fixed32 inference failed the original TRAIN median tolerance after total50000 updates. Freeze SHORT2950 and LONG50000; check common64/reference128 once with unchanged tolerances, then only if both pass compare complete response at equal inference budget. No new training or checkpoint selection.",
+  "parent_stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "short_model_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+  "resource_policy": "SERVER_RESOURCE_POLICY.md",
+  "resource_version": 2,
+  "project_acceptance": "PROJECT_ACCEPTANCE.json",
+  "acceptance_version": 3,
+  "numerical_protocol_version": 2,
+  "scientific_tolerances_lowered": false,
+  "candidate_steps_changed_from32_to64": true,
+  "original_R45_status_changed": false,
+  "execution": "server_CPU12_frozen_inference_and_evaluation_local_auxiliary",
+  "server": "rylan@100.82.231.102",
+  "server_limits": {
+    "CPU_threads": 12,
+    "job_tree_RSS_bytes": 51539607552,
+    "MemAvailable_start_min_bytes": 60129542144,
+    "GPU_count": 1,
+    "GPU_allocated_and_reserved_max_bytes": 10737418240,
+    "GPU_free_start_min_bytes": 11811160064,
+    "other_GPU_compute_jobs_allowed": false,
+    "concurrent_project_scientific_jobs_max": 1,
+    "stage_output_bytes_max": 4294967296,
+    "disk_free_reserve_bytes": 8589934592
+  },
+  "GPU_jobs_authorized": 0,
+  "local_auxiliary_limits": {
+    "CPU_threads": 4,
+    "RSS_bytes": 4294967296
+  },
+  "science_budget_s": 14400,
+  "stage_wall_budget_s": 21600,
+  "executor_wall_budget_s": 18000,
+  "output_limit_bytes": 4294967296,
+  "executor_seal_deadline_UTC": "2026-10-10T06:49:39.896743+00:00",
+  "stage_deadline_UTC": "2026-10-10T07:49:39.896743+00:00",
+  "response_training_runs_max": 0,
+  "new_response_updates_max": 0,
+  "method_plan_index_in_current_block": 2,
+  "short_control": "SHORT_2950_HEUN64",
+  "primary_candidate": "LONG_50000_HEUN64",
+  "checkpoint_selection": "No intermediate model or short-model substitution",
+  "solver": {
+    "steps": 64,
+    "reference_steps": 128,
+    "TRAIN_rows_per_model": 128,
+    "models": 2,
+    "chunk": 64,
+    "median_LSB_max": 0.25,
+    "p95_LSB_max": 1.0,
+    "preADC_relative_q_max": 1e-05,
+    "require_both_pass_before_DEV": true,
+    "additional_step_or_solver_search": false
+  },
+  "if_both_solver_pass": {
+    "source_rows_per_model": 2000,
+    "REAL_control_rows_per_model": 2000,
+    "repeated_rows_per_model": 1024,
+    "source_probe_rows_per_model": 832,
+    "source_perturb_rows_per_model": 128,
+    "generation_rows_total": 11968,
+    "HGB_fits_max": 40,
+    "EM_fits_max": 32,
+    "independent_CPU_replay_rows_total": 8000
+  },
+  "long_training_improvement_description": {
+    "shape493_u480_LONG_minus_SHORT_BA_95CI_upper_strictly_below": 0,
+    "all_original_eight_distance_relative_degradation_vs_SHORT_max": 0.1,
+    "replaces_original_six_or_final_A_F_gates": false
+  },
+  "historical_training_updates_SHORT_LONG": [
+    2950,
+    50000
+  ],
+  "input_bindings": [
+    {
+      "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/SCALAR_TIME_FLOW_FINAL/FINAL_FLOW.pt",
+      "bytes": 5541441,
+      "sha256": "9cfae149ab2f7a85e057cac9a8a715904e54bb550d1ee8d21ddb62d757ea6c51"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/EXTENDED_FLOW_FINAL/FINAL_FLOW.pt",
+      "bytes": 5541441,
+      "sha256": "92565ad6dc33b2b58584a717f2bd5a06d39531a5ed2796e98600cba22909302b"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/network.py",
+      "bytes": 2953,
+      "sha256": "91c8dc1d3888f7fe6e0876882d203cef6158d407780ad5b81b2d8c2c629971f8"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/source_flow_core.py",
+      "bytes": 4678,
+      "sha256": "6624886b26b68fdf1ad8519b51f07d258fcae691bf00b2514d7a2d95590f9926"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/UNIT_CHARGE_CONSTANTS.npz",
+      "bytes": 87984,
+      "sha256": "d7a47ec7c4b7e11ea753d1d7b70a780df8b7d097f26507ad4c120467677994bc"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/UNIT_CHARGE_CONSTANTS.json",
+      "bytes": 2583,
+      "sha256": "75dc361daa74c284c9f239e75454e167e3c2a00698c4ab0253fcb59ecce45dc5"
+    },
+    {
+      "path": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "bytes": 828650,
+      "sha256": "d0e651c8184b83cd561f99640519034773e1c864a952ee654b149db0b429fe86"
+    }
+  ],
+  "new_CAL_EVAL_G4_decode": 0,
+  "max_concurrent_scientific_jobs": 1,
+  "migration_consistency_tests": false,
+  "limitations": "TRAIN-informed inference design, one inherited initialization and one exposed acquisition; equal inference budget, deliberately unequal training budget; conditional/population differences remain."
+}

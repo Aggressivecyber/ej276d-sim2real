@@ -1,0 +1,55 @@
+{
+  "PID": 60016,
+  "steps": [
+    {
+      "name": "deploy_create",
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -"
+      ],
+      "native_exit": 0,
+      "UTC": "2026-10-10T01:10:03.105901+00:00"
+    },
+    {
+      "name": "deploy_upload",
+      "argv": [
+        "scp",
+        "-q",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R45_EXTENDED_BUDGET_NEURAL_FLOW_001\\UPLOAD_TRAIN.tar",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R45_REMOTE_20261010_010004_UTC/UPLOAD_TRAIN.tar"
+      ],
+      "native_exit": 0,
+      "UTC": "2026-10-10T01:10:03.453366+00:00"
+    },
+    {
+      "name": "deploy_extract",
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python -B -"
+      ],
+      "native_exit": 0,
+      "UTC": "2026-10-10T01:10:03.746999+00:00"
+    }
+  ],
+  "migration_content_tests": false
+}

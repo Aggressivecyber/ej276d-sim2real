@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "defined_UTC": "2026-10-10T00:34:06.958873+00:00",
   "status": "prospective_engineering_target_after_R43",
   "authority": "Root defines bounded execution criteria under the user question about completion and subsequent continue instructions.",
@@ -8,8 +8,8 @@
   "preregistered_before_R1_R43": false,
   "historically_exposed_development_data": true,
   "document": "PROJECT_ACCEPTANCE.md",
-  "document_sha256": "5d1ef4a825d54526fae8502ac96d8ce918616ab8f666772663a0c488865d8178",
-  "stage_screen": "Original six R43 gates unchanged; all must pass before final frozen validation.",
+  "document_sha256": "79553ae80d4ad904a2aa2ab1557ec17bce2d14f5dbe560da6d0bf2485612c304",
+  "stage_screen": "Original R43 scientific thresholds; numerical candidate/reference64/128 only as explicitly registered by R46. No tolerance lowered.",
   "final_response": {
     "C2ST_views": [
       "shape493",
@@ -58,15 +58,12 @@
     "all_response_training_runs_max": 6,
     "controls_and_repeats_count_towards_run_limit": true,
     "total_science_seconds_max": 90000,
-    "actual_science_seconds_recorded": 0,
-    "response_training_runs_started": 0,
-    "actual_stage_receipts": [],
     "no_automatic_extension_at_limit": true,
     "first_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
     "updates_per_training_run_max": 50000,
     "science_seconds_per_training_stage_max": 14400,
-    "diagnostic_completed": false,
-    "failure_costs_counted": true
+    "failure_costs_counted": true,
+    "live_usage_registry": "RESOURCE_BUDGET.json"
   },
   "frozen_validation": {
     "utility_runs_max": 1,
@@ -95,5 +92,23 @@
   "resource_version": 2,
   "resource_policy": "SERVER_RESOURCE_POLICY.md",
   "resource_registry": "RESOURCE_BUDGET.json",
-  "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00"
+  "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00",
+  "numerical_protocol_version": 2,
+  "numerical_revision_UTC": "2026-10-10T01:49:39.896743+00:00",
+  "numerical_revision_reason": "R45 TRAIN32/64 failure; a new fixed common64/reference128 protocol before R46 execution.",
+  "numerical_precision": {
+    "protocol": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md",
+    "candidate_steps": 64,
+    "reference_steps": 128,
+    "solver": "Heun",
+    "TRAIN_rows_each_model": 128,
+    "median_LSB_max": 0.25,
+    "p95_LSB_max": 1.0,
+    "preADC_relative_q_max": 1e-05,
+    "independent_main_replay_rows_per_model": 4000,
+    "both_frozen_models_must_pass_before_DEV": true,
+    "further_step_search_authorized": false,
+    "historical32step_conclusions_changed": false,
+    "numeric_tolerances_lowered": false
+  }
 }

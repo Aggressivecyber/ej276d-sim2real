@@ -1,0 +1,12 @@
+# R45 reproduction and scope
+
+Actual server root: `/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R45_REMOTE_20261010_010004_UTC`.
+Actual server Python: `/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python` (3.12.3, NumPy1.26.4, Torch2.12.0+cu130, SciPy1.11.4). GPU training used RTX5070, CPU12; numerical check used the same environment CPU12/chunk64. Local plotting used Python3.13.3/CPU4. Executed training config is EXECUTED_TRAIN_CONFIG.json/config_remote.json; inherited keys in local/config_cpu are not evidence of running those planned stages.
+
+In a **new independent directory**, retain network.py/source_flow_core.py/probe_core.py/train_extended.py and actual executed config from PRETRAIN_FREEZE, plus input paths/bindings. TRAIN_PRIVATE is the existing R33 server input; frozen R43 final model/Adam/coupling/constants are named in INPUT_BINDINGS. Completed R45 inherited/final model and Adam are in EXTENDED_FLOW_FINAL. Engineering checkpoints every5,000 are not selected candidates. Re-running the trajectory would be a new separately budgeted computation, not an authorized continuation of this sealed directory.
+
+`reconstruct_training_random.py --global-step <2951..50000>` streams draws from saved RANDOM_STATES and PCG64 white seed20261010452 and compares the requested original_batch0/t/white hash with BATCH_HASHES_PRIVATE.npy. This helper was provided, not run as an extra stochastic test. Use original NumPy1.26.4 for reproduction; all optional output paths must stay E/D or this project's server root. Original old94400 white is not used as new training white.
+
+`check_train_solver.py` loads final50,000 weights and exact R42_TRAIN_SOLVER_CHECK_PRIVATE.npz. It was run once under Linux PID/nonce/RSS supervision and failed the .25LSB median threshold. TRAIN_SOLVER_CHECK_PRIVATE saves input, white, indices and both solutions. This closes the fixed32 recipe; no new DEV scientific job or independent main replay is authorized by this document. generate_all/evaluate_saved/replay_all are unexecuted preparation files, not successful replay evidence.
+
+Five TRAIN PNGs are reproducible solely from saved probe/loss/check arrays using plot_training.py. Original native receipts, logs, transfers and environment are preserved. Cross-platform CPU/GPU bitwise equivalence and source/destination migration validation are not claimed. No EVAL/CAL/newG4 exposure occurred.

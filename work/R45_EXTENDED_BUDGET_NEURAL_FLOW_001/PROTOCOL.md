@@ -1,0 +1,9 @@
+# R45 fixed training-budget experiment
+
+Read the original task and registration as authority. Extend the actual R43 model+Adam2950 to50000, exactly47050 new updates. Original94400 source/target/matched-target/bin/ordinal fixed; global_step k uses batch(k-1)%2950. Original constants, projection, float32 network/float64 coordinates, MSE, lr.0002, Adam(.9,.999),eps1e-8,clip5 unchanged. Additional t resumes final_t_RNG; white independent PCG64(20261010452). Save per-batch hashes, fixed replay draw algorithm, start/final RNG, every5000 engineering checkpoint, exposure counts. Intermediates are not candidates.
+
+Probe4096 states: one independent selection PCG64(20261010453), bins0..7 in order,512 without replacement from each occurrence pool; independent t/white20261010454/455. Evaluate2950 then5000..50000 with chunk32. No optimizer or selection uses the probe. State/MSE changes are a budget diagnostic, not complete-response acceptance.
+
+Only50000 final is eligible for original128 TRAIN inputs/white CPU12 chunk64 Heun32 vs64 prerequisite (median<=.25LSB,p95<=1LSB,all preADC relative q<=1e-5). Fail stops all DEV generation/new classifiers/EM/main replay. Pass continues original SOURCE2000+REAL2000 controls,1024repeat/832source/128source perturbation,20HGB/16density slots,4000 independent CPU12 replay. The original six gates retain thresholds; no support fallback, clipping or model rescue.
+
+Unique server R45_REMOTE_20261010_010004_UTC, Python existing3.12.3/Torch2.12 CUDA,CPU12,RSS48GiB,GPU allocated/reserved/process10GiB; startRAM>=56GiB,GPUfree>=11GiB/no other compute; disk reserve8GiB/output4GiB. Train including probes/setup/failures<=10800s, all science<=14400s, executor seal06:00:04.557894UTC. Local auxiliaryCPU4/RSS4GiB/E-D only. Beforeimports realPID+nonce RSS guard, process-tree sampling, gaps timestamps. No source/destination migration content tests, installs, new G4/EVAL/CAL, new agents or Git.

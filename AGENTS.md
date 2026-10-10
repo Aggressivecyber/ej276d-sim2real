@@ -1,3 +1,7 @@
+# R46数值方案补充（2026-10-10）
+
+R45已按原32/64门失败关闭。当前R46固定冻结短/长权重，共同64步候选及128步参考，数值误差容差与科学门不降低；两组均过门才进入完整评价。PROJECT_ACCEPTANCE数值方案v2、tasks/R46_FIXED_INTEGRATION_BUDGET_001.md及登记回执为当前执行依据。本轮无新增训练，方法名额第2项，计入原预算。
+
 # 最新资源修订：使用服务器较大计算配额
 
 用户明确要求扩大服务器计算资源。以 [SERVER_RESOURCE_POLICY.md](SERVER_RESOURCE_POLICY.md) 与 RESOURCE_BUDGET.json 为准：服务器 CPU12、RAM48GiB、单GPU10GiB；新训练最多50000更新/3小时，最多3个方法方案、6次含对照训练，改进块科学最多25小时。科学验收线不降低，封存结果不改。R44迁至服务器作一次冻结前向，执行补充见 tasks/R44_SERVER_RESOURCE_ADDENDUM_001.md。下文旧资源限制仅作历史。

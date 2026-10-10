@@ -1189,7 +1189,7 @@
     },
     {
       "id": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
-      "status": "registered_for_executor",
+      "status": "sealed_numerical_failure_before_DEV",
       "task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md",
       "registered_UTC": "2026-10-10T01:00:04.557894+00:00",
       "registration": "reviews/R45_REGISTRATION_001/RECEIPT.json",
@@ -1202,6 +1202,23 @@
       "science_budget_s": 14400,
       "training_science_budget_s": 10800,
       "DEV_used_for": "fixed final only after TRAIN numeric gate",
+      "EVAL_access": false,
+      "receipt": "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/FINAL_RECEIPT.json",
+      "root_review": "reviews/ROOT_R45_KEY_RESULT_REVIEW_001.json",
+      "next_task": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md"
+    },
+    {
+      "id": "R46_FIXED_INTEGRATION_BUDGET_001",
+      "status": "registered_for_executor",
+      "task": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md",
+      "registered_UTC": "2026-10-10T01:49:39.896743+00:00",
+      "registration": "reviews/R46_REGISTRATION_001/RECEIPT.json",
+      "scientific_question": "R45 fixed32 inference failed the original TRAIN median tolerance after total50000 updates. Freeze SHORT2950 and LONG50000; check common64/reference128 once with unchanged tolerances, then only if both pass compare complete response at equal inference budget. No new training or checkpoint selection.",
+      "parent_stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+      "response_fits_max": 0,
+      "new_updates_max": 0,
+      "science_budget_s": 14400,
+      "DEV_used_for": "two frozen endpoints only after both TRAIN64/128 checks pass",
       "EVAL_access": false
     }
   ]

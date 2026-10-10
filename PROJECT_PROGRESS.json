@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-10T01:00:04.557894+00:00",
+  "updated_UTC": "2026-10-10T01:49:39.896743+00:00",
   "project_status": "active_work_model_goal_not_complete",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "none_observed",
-  "latest_completed_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
-  "current_stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
-  "current_task": "tasks/R45_EXTENDED_BUDGET_NEURAL_FLOW_001.md",
+  "latest_completed_stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "current_stage": "R46_FIXED_INTEGRATION_BUDGET_001",
+  "current_task": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,26 +13,26 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R43_shape_and_source_pass_three_scientific_gates_fail",
+      "status": "R45_not_evaluated_due_numeric_failure_latest_complete_distribution_R43",
       "latest_evidence": [
-        "R43_REPORT.md",
-        "work/R43_SCALAR_TIME_NEURAL_FLOW_001/GATE_METRICS.json"
+        "R45_REPORT.md",
+        "R43_REPORT.md"
       ]
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R43_shape_and_source_pass_three_scientific_gates_fail",
+      "status": "R45_not_evaluated_due_numeric_failure_latest_complete_distribution_R43",
       "latest_evidence": [
-        "R43_REPORT.md",
-        "work/R43_SCALAR_TIME_NEURAL_FLOW_001/GATE_METRICS.json"
+        "R45_REPORT.md",
+        "R43_REPORT.md"
       ]
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R43_shape_and_source_pass_three_scientific_gates_fail",
+      "status": "R45_not_evaluated_due_numeric_failure_latest_complete_distribution_R43",
       "latest_evidence": [
-        "R43_REPORT.md",
-        "work/R43_SCALAR_TIME_NEURAL_FLOW_001/GATE_METRICS.json"
+        "R45_REPORT.md",
+        "R43_REPORT.md"
       ]
     },
     {
@@ -45,46 +45,46 @@
     },
     {
       "id": "reproducible_final_model",
-      "status": "R43_full4000_replay_passed_scientific_acceptance_pending",
+      "status": "R45_TRAIN_numeric_failure_main_replay_not_executed",
       "latest_evidence": [
-        "work/R43_SCALAR_TIME_NEURAL_FLOW_001/REPLAY_RECEIPT.json"
+        "work/R45_EXTENDED_BUDGET_NEURAL_FLOW_001/GATE_METRICS.json"
       ]
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R43_stage_evidence_recorded_project_delivery_pending",
+      "status": "R1_R45_stage_evidence_recorded_project_delivery_pending",
       "latest_evidence": [
-        "R43_REPORT.md"
+        "R45_REPORT.md"
       ]
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "R44 mean TRAIN PSD-velocity residual explanation failed1/6 versus4/6. Preserve closure. Test training budget itself by continuing the same scalar-time model and Adam from2950 to50000 total updates, with unchanged empirical pairs and objective but fresh same-distribution t/white draws. Fixed TRAIN probe and original solver gate precede complete DEV evaluation.",
+  "current_direction": "R45 fixed32 inference failed the original TRAIN median tolerance after total50000 updates. Freeze SHORT2950 and LONG50000; check common64/reference128 once with unchanged tolerances, then only if both pass compare complete response at equal inference budget. No new training or checkpoint selection.",
   "next_round_policy": "Root judges evidence and registers next bounded task; do not stop goal after one stage or negative result.",
-  "current_activity": "R45_registered_server_extended_training",
+  "current_activity": "R46_registered_fixed_frozen_model_integration",
   "latest_user_steering": "资源量给太少了 在服务器上应该允许更大的计算资源",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "execution_location": {
-    "mode": "server_GPU_training_CPU12_solver_generation_evaluation_replay_local_auxiliary",
+    "mode": "server_CPU12_frozen_inference_and_evaluation_local_auxiliary",
     "server": "rylan@100.82.231.102",
     "CPU_threads": 12,
     "job_tree_RSS_bytes": 51539607552,
-    "GPU_max_bytes": 10737418240,
+    "GPU_jobs_authorized": 0,
     "preflight_required": true,
     "local_auxiliary_CPU_threads": 4,
     "data_source_cache_temp_location": "E/D only locally"
   },
   "current_task_addendum": null,
-  "latest_response_model_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
+  "latest_response_model_stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_REWRITE_20261010_001.json",
   "current_engineering_addendum": null,
   "latest_diagnostic_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
   "latest_diagnostic_conclusion": "close_mean_TRAIN_PSD_velocity_residual_explanation",
-  "latest_response_conclusion": "close_this_fixed_scalar_time_neural_flow_recipe",
+  "latest_response_conclusion": "close_fixed_32step_long_budget_recipe",
   "acceptance_document": "PROJECT_ACCEPTANCE.md",
   "acceptance_registry": "PROJECT_ACCEPTANCE.json",
-  "acceptance_version": 2,
+  "acceptance_version": 3,
   "improvement_block_science_seconds_max": 90000,
   "resource_policy": "SERVER_RESOURCE_POLICY.md",
   "resource_registry": "RESOURCE_BUDGET.json",
@@ -92,13 +92,14 @@
   "numeric_thread_limit": 12,
   "local_numeric_thread_limit": 4,
   "improvement_block_response_training_runs_max": 6,
-  "current_stage_deadline_UTC": "2026-10-10T07:00:04.557894+00:00",
-  "stage_deadline_UTC": "2026-10-10T07:00:04.557894+00:00",
-  "executor_seal_deadline_UTC": "2026-10-10T06:00:04.557894+00:00",
+  "current_stage_deadline_UTC": "2026-10-10T07:49:39.896743+00:00",
+  "stage_deadline_UTC": "2026-10-10T07:49:39.896743+00:00",
+  "executor_seal_deadline_UTC": "2026-10-10T06:49:39.896743+00:00",
   "current_stage_progress": "registered_for_executor",
   "status": "active_work_model_goal_not_complete",
   "goal_status_note": "User-authorized bounded work continues; application goal tool most recently returned null.",
-  "latest_delivered_stage": "R43_SCALAR_TIME_NEURAL_FLOW_001",
-  "latest_stage_publication": "R43_PUBLICATION_RECEIPT.json",
-  "latest_stage_backup": "R43_BACKUP_RECEIPT.json"
+  "latest_delivered_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+  "latest_stage_publication": "R44_PUBLICATION_RECEIPT.json",
+  "latest_stage_backup": "R44_BACKUP_RECEIPT.json",
+  "numerical_protocol_version": 2
 }

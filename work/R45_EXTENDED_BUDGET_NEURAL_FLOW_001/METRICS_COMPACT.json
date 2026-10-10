@@ -1,0 +1,4815 @@
+{
+  "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "status": "closed_numerical_failure",
+  "training": {
+    "PID": 107155,
+    "UTC": "2026-10-10T01:34:33.825756+00:00",
+    "training_s": 1442.725762165006,
+    "status": "complete",
+    "counter": {
+      "inherited_updates": 2950,
+      "new_updates": 47050,
+      "new_source_rows": 1505600,
+      "new_REAL_rows": 1505600,
+      "training_forward_rows": 1505600,
+      "fixed_probe_forward_rows": 45056,
+      "probe_executions": 11,
+      "new_response_training_runs": 1,
+      "DEV_read": 0,
+      "CAL_EVAL_G4_decode": 0
+    },
+    "global_updates": 50000,
+    "selected_endpoint": "fixed50000 only",
+    "historical_counter_initial": {
+      "inherited_updates": 2950,
+      "new_updates": 0,
+      "new_source_rows": 0,
+      "new_REAL_rows": 0,
+      "training_forward_rows": 0,
+      "fixed_probe_forward_rows": 4096,
+      "probe_executions": 1,
+      "new_response_training_runs": 0,
+      "DEV_read": 0,
+      "CAL_EVAL_G4_decode": 0
+    },
+    "optimizer_final_steps": [
+      50000
+    ],
+    "loss_columns": [
+      "velocity_MSE480",
+      "target_velocity_RMS480",
+      "predicted_velocity_RMS480",
+      "preclip_grad_norm",
+      "path_q_residual",
+      "field_q_residual",
+      "PSD_velocity_signed_residual",
+      "PSD_velocity_RMSE",
+      "t_mean",
+      "t_SD_population"
+    ],
+    "fixed_probe_MSE_initial": 0.8754503186556957,
+    "fixed_probe_MSE_final": 0.8370097410290649,
+    "probe_final_over_initial_MSE": 0.9560905092985077,
+    "descriptive_probe_fit_improved": false,
+    "original_bound_stream_hashes": {
+      "source": "657a48feff122a234cbfc5fb38a7596eb544944209f6353f3d1e9f9465c40415",
+      "target": "1bb8ff6509898f3306c8fc89f84268f31c36251235ff182a041928aa59f00055",
+      "bin": "2b663f2b1d279b857b5dce383254f9e9eaf32ac2d2cf5cc7ee69ae8e1023783f",
+      "original_row_ordinal": "5ecba4f2e483bfb5cec59d23419ee853f1f779d62e57c7fbdb303c79a3e33c74",
+      "z_white": "5d08427a33a78140427a00882dcabcf127c0d20216446eb1bc6a7314b4efc02a",
+      "style": "a78033c8fec91664e2f7087c646433c642b8b0270324a87dd7d8b5f28d709a13",
+      "t": "2a445a5b3534b2c3f428cbce0e063f5d3cf9c54c03ea04bda2d173d3e46f3837",
+      "white": "a6a8b96b3bb4d7b534257e382038b8b82b3f4947ed6f2f5e02fd14b82d874178"
+    },
+    "new_t_sha256": "2f918cdac1ccd1d94382ad9721ce4b7c5e13d6c9bc527b78eebb5934707bb2d6",
+    "new_white_sha256": "32359ed763998bb4dd32245fa28ae9cfc21081c4eea472901db0a39de5d22328",
+    "additional_Monte_Carlo_states_not_reuse_old94400_white": true,
+    "unused_z_style_NCE_not_consumed": true,
+    "GPU_peak_allocated_bytes": 313275392,
+    "GPU_peak_reserved_bytes": 343932928,
+    "max_path_q_residual": 1.0408340855860843e-16,
+    "max_field_q_residual": 2.740863092043355e-16,
+    "historical_R43_training_s": 76.15230571199936
+  },
+  "exposure_summary": {
+    "new_rows_per_domain": 1505600,
+    "historical_rows_per_domain": 94400,
+    "total_rows_per_domain": 1600000,
+    "batch_count_min_max": [
+      15,
+      16
+    ],
+    "unique_SOURCE_REAL": [
+      3752,
+      18739
+    ],
+    "loaded_SOURCE_REAL": [
+      6593,
+      21047
+    ],
+    "exposure_not_independent_events": true
+  },
+  "fixed_TRAIN_probe": [
+    {
+      "global_step": 2950,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8754503186556957,
+        "PSD_RMSE": 0.02937377556231736,
+        "PSD_signed_mean": 0.009189923222141336,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.06599787483175883
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0421091567537348,
+          "PSD_RMSE": 0.03980806143268718,
+          "PSD_signed_mean": 0.007076531500620697,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.10140788502118653
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9452644648195183,
+          "PSD_RMSE": 0.03286794818130158,
+          "PSD_signed_mean": 0.0031104466092240187,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.09907423314082349
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.9085129520496424,
+          "PSD_RMSE": 0.0298670724557644,
+          "PSD_signed_mean": 0.012742654906807495,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.09530366046903763
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8805461094191729,
+          "PSD_RMSE": 0.029375762429278345,
+          "PSD_signed_mean": 0.011713569083123229,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.09159798014767775
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8532061212663549,
+          "PSD_RMSE": 0.026990147221126245,
+          "PSD_signed_mean": 0.010811941423774136,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.07709335597370068
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7884787244142799,
+          "PSD_RMSE": 0.02525210597236099,
+          "PSD_signed_mean": 0.010116464973928048,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.05556774135018676
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.8006549090321281,
+          "PSD_RMSE": 0.0245337218105555,
+          "PSD_signed_mean": 0.010238898443524502,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.024929191903239355
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7848301114907335,
+          "PSD_RMSE": 0.022683648500437314,
+          "PSD_signed_mean": 0.007708878836128566,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.016991049351781577
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0499915171073155,
+          "PSD_RMSE": 0.04878124576108356,
+          "PSD_signed_mean": 0.018975061699487906,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.09652976693557022
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9427033951677857,
+          "PSD_RMSE": 0.03794916007150169,
+          "PSD_signed_mean": 0.021191705380800153,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.09883892820864082
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.115915195230217,
+          "PSD_RMSE": 0.02675608823480794,
+          "PSD_signed_mean": -0.0025202592414469843,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.09787874198317675
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0577664045682802,
+          "PSD_RMSE": 0.043070655635380914,
+          "PSD_signed_mean": -0.008668653056954067,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.11234194748712062
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9947497195291961,
+          "PSD_RMSE": 0.042360026419090285,
+          "PSD_signed_mean": 0.007218213052777915,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.09250002634302026
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8523189470595388,
+          "PSD_RMSE": 0.0236663239250353,
+          "PSD_signed_mean": 0.007809774017833644,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.09904198368349379
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 1.009221708086039,
+          "PSD_RMSE": 0.03135299404677429,
+          "PSD_signed_mean": -0.0008479158766500328,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10155546193689718
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.915618181582964,
+          "PSD_RMSE": 0.029964284229045436,
+          "PSD_signed_mean": -0.001998580123589959,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10386114996335281
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9633169361688395,
+          "PSD_RMSE": 0.04151297144121439,
+          "PSD_signed_mean": 0.024368507141881622,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.08041654634150983
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.814521299949551,
+          "PSD_RMSE": 0.026542360800633012,
+          "PSD_signed_mean": 0.015084386385394078,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.09722139123950585
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9773989037267001,
+          "PSD_RMSE": 0.021578239198682632,
+          "PSD_signed_mean": 0.007475903584043149,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.10142983106948551
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.859973133530194,
+          "PSD_RMSE": 0.025390773139028728,
+          "PSD_signed_mean": 0.0037281602459032378,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10283612833364167
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9371036184065397,
+          "PSD_RMSE": 0.03908041669937791,
+          "PSD_signed_mean": 0.02393535556257909,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.08048588442837834
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.793235263617525,
+          "PSD_RMSE": 0.021077948478215966,
+          "PSD_signed_mean": 0.011889824702114816,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.09452076239824536
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9355525902700558,
+          "PSD_RMSE": 0.017634353169412004,
+          "PSD_signed_mean": 0.004500255494442942,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.09313412984616176
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8379600023658812,
+          "PSD_RMSE": 0.036223409157951685,
+          "PSD_signed_mean": 0.008118550480003699,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.09829837144501302
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.9317019165556434,
+          "PSD_RMSE": 0.03338158613794266,
+          "PSD_signed_mean": 0.02091688142082044,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.06421043321200727
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7505926811874372,
+          "PSD_RMSE": 0.017941948021053998,
+          "PSD_signed_mean": 0.008630619528122314,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.07932719682928985
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8950756408170141,
+          "PSD_RMSE": 0.024278224412298176,
+          "PSD_signed_mean": 0.006638696182800226,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.08391515662018333
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8335849027581349,
+          "PSD_RMSE": 0.029527892515830156,
+          "PSD_signed_mean": 0.005261882458328583,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08326587528167047
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.8390549727071942,
+          "PSD_RMSE": 0.03274569225816251,
+          "PSD_signed_mean": 0.022702111081983452,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.045822423199595286
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.7084342307769829,
+          "PSD_RMSE": 0.01825643692939827,
+          "PSD_signed_mean": 0.00878321426412903,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.05335233727947888
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8383434471928677,
+          "PSD_RMSE": 0.01789932578096803,
+          "PSD_signed_mean": 0.005605752243058315,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.06181217228313543
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7792820904524896,
+          "PSD_RMSE": 0.030805634823277844,
+          "PSD_signed_mean": 0.006189425175446047,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.05911395879549388
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8617550390213929,
+          "PSD_RMSE": 0.030272039185404925,
+          "PSD_signed_mean": 0.020139859365037014,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.015800059858685267
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6762370605065146,
+          "PSD_RMSE": 0.016379965293792615,
+          "PSD_signed_mean": 0.008684643241788505,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.02682869643790858
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8570671897268217,
+          "PSD_RMSE": 0.02380385146234938,
+          "PSD_signed_mean": 0.006657993616320167,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.028929131083248558
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.8082145300816974,
+          "PSD_RMSE": 0.02500975080171145,
+          "PSD_signed_mean": 0.005203032053500893,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.028643969074451058
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8482319298678621,
+          "PSD_RMSE": 0.025589133440614927,
+          "PSD_signed_mean": 0.01175388081331794,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.01749610978380612
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6747158024956668,
+          "PSD_RMSE": 0.01432504449061281,
+          "PSD_signed_mean": 0.006846750564299326,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.013988377242526957
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.8125714329489748,
+          "PSD_RMSE": 0.016588477554486905,
+          "PSD_signed_mean": 0.003439946232325267,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.01671315933664973
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.8090284404978417,
+          "PSD_RMSE": 0.03030137791081027,
+          "PSD_signed_mean": 0.008200584674851569,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.01994231141377623
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 2.0122792321330962e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 0.0,
+        "maxabs": 0.0,
+        "changed_values": 0
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 5000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8691776835652252,
+        "PSD_RMSE": 0.030071056658238265,
+        "PSD_signed_mean": 0.012485994857334086,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.06270180319656608
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0518282091823685,
+          "PSD_RMSE": 0.046809508200287536,
+          "PSD_signed_mean": 0.02607004288289447,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.08241437363891274
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9573777782596666,
+          "PSD_RMSE": 0.03995484686290021,
+          "PSD_signed_mean": 0.017150969008341635,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.08503371074170588
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.9061687001712521,
+          "PSD_RMSE": 0.03125728525051872,
+          "PSD_signed_mean": 0.017251867743133184,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.09079444763271194
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8747437404745324,
+          "PSD_RMSE": 0.028450141315041408,
+          "PSD_signed_mean": 0.0157947074468859,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.08751684178391508
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8503601965461354,
+          "PSD_RMSE": 0.023144616890809534,
+          "PSD_signed_mean": 0.006374620666337789,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.08153067673113704
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7734068326911194,
+          "PSD_RMSE": 0.020919539149637536,
+          "PSD_signed_mean": 0.007992179991042594,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.057692026333072216
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7800905917284962,
+          "PSD_RMSE": 0.018768234704357692,
+          "PSD_signed_mean": 0.006305441631850917,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.02886264871491294
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.759445419468231,
+          "PSD_RMSE": 0.01829350369124715,
+          "PSD_signed_mean": 0.002948129488186191,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.012230300003839203
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0627075628055287,
+          "PSD_RMSE": 0.048719230976240896,
+          "PSD_signed_mean": 0.013849831669602821,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.10165499696545531
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9490442541620638,
+          "PSD_RMSE": 0.051884947858904316,
+          "PSD_signed_mean": 0.0412572494738732,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.07877338411556777
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.130680935171969,
+          "PSD_RMSE": 0.04259827287967858,
+          "PSD_signed_mean": 0.032005551898542685,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.06335293084318709
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0627559167034613,
+          "PSD_RMSE": 0.04360921123968911,
+          "PSD_signed_mean": 0.016600172232404807,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.08707312219776174
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 1.0165530279171981,
+          "PSD_RMSE": 0.046256552905012516,
+          "PSD_signed_mean": -0.0018057760938850573,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.10152401548968325
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8605895839504174,
+          "PSD_RMSE": 0.03360486891483225,
+          "PSD_signed_mean": 0.024543531822078926,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.08230822587924852
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 1.01585067922312,
+          "PSD_RMSE": 0.03906972151321673,
+          "PSD_signed_mean": 0.02819358084394362,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.07251396521630353
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9263894228537556,
+          "PSD_RMSE": 0.0390326094649471,
+          "PSD_signed_mean": 0.01957583873313421,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.08228673110662867
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9522485890377098,
+          "PSD_RMSE": 0.03634066680215515,
+          "PSD_signed_mean": 0.00922165784326098,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.09556339564013046
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.8080097080788503,
+          "PSD_RMSE": 0.029079687563039452,
+          "PSD_signed_mean": 0.02218854279211541,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.09011723483278453
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9812027976388246,
+          "PSD_RMSE": 0.028374661373383323,
+          "PSD_signed_mean": 0.02268549118914446,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.0862202434643842
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8642027773738183,
+          "PSD_RMSE": 0.03035533714654806,
+          "PSD_signed_mean": 0.015146814356710149,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.09141747422283476
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9226209097082592,
+          "PSD_RMSE": 0.03239941764515139,
+          "PSD_signed_mean": 0.00985700802660276,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.09456423196435468
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7909080318827271,
+          "PSD_RMSE": 0.02428207992315561,
+          "PSD_signed_mean": 0.019277545100923752,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.08713304199943644
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9339216767765727,
+          "PSD_RMSE": 0.022475917267938333,
+          "PSD_signed_mean": 0.018028089014272823,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.0796062963263319
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8322935973332017,
+          "PSD_RMSE": 0.034324634210873346,
+          "PSD_signed_mean": 0.015573955037092092,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.09084296688792466
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.9224247916942205,
+          "PSD_RMSE": 0.026683803786405738,
+          "PSD_signed_mean": -0.0002979995759046861,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.0854253142087324
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7493221184182133,
+          "PSD_RMSE": 0.016442713270690443,
+          "PSD_signed_mean": 0.008060499544326319,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.07989731681308587
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8926175309943528,
+          "PSD_RMSE": 0.01866210503994282,
+          "PSD_signed_mean": 0.011025230360697915,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.07952862244228563
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8363804141056481,
+          "PSD_RMSE": 0.028649714773348822,
+          "PSD_signed_mean": 0.0078099299097957615,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08071782783020329
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.8067751043843675,
+          "PSD_RMSE": 0.024165324413181925,
+          "PSD_signed_mean": 0.009598421766116237,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.05892611251546251
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6940037701053099,
+          "PSD_RMSE": 0.01559879268171021,
+          "PSD_signed_mean": 0.008437650643050082,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.05369790090055782
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8315609884697029,
+          "PSD_RMSE": 0.015413197774307632,
+          "PSD_signed_mean": 0.009187576983644013,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.05823034754254973
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7685647285051777,
+          "PSD_RMSE": 0.027195691276648577,
+          "PSD_signed_mean": 0.004943791388493636,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.060359592582446296
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8324610054661683,
+          "PSD_RMSE": 0.02305480308968619,
+          "PSD_signed_mean": 0.006871005857203971,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.029068913366518307
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6647022653790924,
+          "PSD_RMSE": 0.01502887268884694,
+          "PSD_signed_mean": 0.008783103795697435,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.02673023588399966
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8356243424442585,
+          "PSD_RMSE": 0.016118539472792747,
+          "PSD_signed_mean": 0.008551580474400943,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.027035544225167785
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7886021424973361,
+          "PSD_RMSE": 0.019131356715959558,
+          "PSD_signed_mean": 0.0019638869906824525,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03188311413726949
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8268813132315709,
+          "PSD_RMSE": 0.022434322405848958,
+          "PSD_signed_mean": 0.0017424135140427757,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.007484642484530953
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6571968401057353,
+          "PSD_RMSE": 0.011455021578400776,
+          "PSD_signed_mean": 0.00538603078076451,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.012527657458992144
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7938297914845399,
+          "PSD_RMSE": 0.012650080249937521,
+          "PSD_signed_mean": 0.004447113139605259,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.01772032624392972
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7645949355340773,
+          "PSD_RMSE": 0.023085253402164913,
+          "PSD_signed_mean": 0.00023595824355274604,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.011977684982477404
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 2.0122792321330962e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 5.393579021626825,
+        "maxabs": 0.08124120533466339,
+        "changed_values": 1369792
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 10000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8579177744980582,
+        "PSD_RMSE": 0.026019745874723478,
+        "PSD_signed_mean": -0.007847388316957655,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.08303518637085781
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0294488096508463,
+          "PSD_RMSE": 0.03478027800464319,
+          "PSD_signed_mean": -0.0070469633592999134,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.11553137988110715
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9342457366664871,
+          "PSD_RMSE": 0.035380856459919265,
+          "PSD_signed_mean": -0.015992610982539304,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.11817729073258681
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8918825238118435,
+          "PSD_RMSE": 0.026779869872149635,
+          "PSD_signed_mean": -0.007271458402311732,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.11531777377815686
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8642922045522555,
+          "PSD_RMSE": 0.025034870228101233,
+          "PSD_signed_mean": -0.0061530192490580286,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.10946456847985901
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8300453338452709,
+          "PSD_RMSE": 0.021515184914648867,
+          "PSD_signed_mean": -0.007260953284151501,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.09516625068162632
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7700687349114875,
+          "PSD_RMSE": 0.021535752685843425,
+          "PSD_signed_mean": -0.005587784022900385,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.07127199034701517
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7772521537187106,
+          "PSD_RMSE": 0.016882524005193536,
+          "PSD_signed_mean": -0.004725899041584871,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.03989398938834873
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7661066988275635,
+          "PSD_RMSE": 0.019978164605724345,
+          "PSD_signed_mean": -0.0087404181938155,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.0005417523218375132
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0305367130128078,
+          "PSD_RMSE": 0.044630363465952644,
+          "PSD_signed_mean": -0.01195582626621921,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.12746065490127734
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.930867782821459,
+          "PSD_RMSE": 0.03054053950600896,
+          "PSD_signed_mean": -0.011677240916280555,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.13170787450572152
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.1042197758224332,
+          "PSD_RMSE": 0.022630437735391588,
+          "PSD_signed_mean": -0.004341807704208088,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.09970029044593784
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0498683712338839,
+          "PSD_RMSE": 0.03805498638185917,
+          "PSD_signed_mean": -0.0004509166305546484,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.10412421106072119
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9860957728795601,
+          "PSD_RMSE": 0.04986093386740025,
+          "PSD_signed_mean": -0.030729206015030344,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.13044744541082853
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.840048490202962,
+          "PSD_RMSE": 0.031816950560750824,
+          "PSD_signed_mean": -0.023598775428910382,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.13045053313023783
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.991023104277421,
+          "PSD_RMSE": 0.02480605248526063,
+          "PSD_signed_mean": -0.008035327613736709,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10874287367398387
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9106107045450876,
+          "PSD_RMSE": 0.027762561412594446,
+          "PSD_signed_mean": -0.00032269238790782513,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10218526222767067
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.930067666099422,
+          "PSD_RMSE": 0.03685084603356836,
+          "PSD_signed_mean": -0.014423194869384611,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.11920824835277603
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7993165047461857,
+          "PSD_RMSE": 0.023794209690336035,
+          "PSD_signed_mean": -0.01563897149665246,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.1279447491215524
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9630055720537788,
+          "PSD_RMSE": 0.01824712906764216,
+          "PSD_signed_mean": -0.004463401958734529,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.11336913661226321
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8576801587177243,
+          "PSD_RMSE": 0.024410143432853526,
+          "PSD_signed_mean": 0.005408966785953843,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10115532179359103
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9063098067241022,
+          "PSD_RMSE": 0.03289221639829749,
+          "PSD_signed_mean": -0.01447993663113277,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.11890117662209021
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7841434280762405,
+          "PSD_RMSE": 0.020659194881320134,
+          "PSD_signed_mean": -0.012511591257880629,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.1189221783582408
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9245667884696632,
+          "PSD_RMSE": 0.01493636814079026,
+          "PSD_signed_mean": -0.005406351469589503,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.10304073681019421
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8228180848440955,
+          "PSD_RMSE": 0.0296556925593801,
+          "PSD_signed_mean": 0.008091773373047943,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.09832514855196876
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.9034567640217289,
+          "PSD_RMSE": 0.027117643705207407,
+          "PSD_signed_mean": -0.012874603334477359,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.09800191796730508
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7268058597669014,
+          "PSD_RMSE": 0.017387810095148195,
+          "PSD_signed_mean": -0.012119028993085501,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.10007684535049768
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8683247760970169,
+          "PSD_RMSE": 0.014066911309095344,
+          "PSD_signed_mean": -0.004509987308193447,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09506384011117697
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8210595777035906,
+          "PSD_RMSE": 0.024251117779883143,
+          "PSD_signed_mean": 0.002442612032342927,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08608514570765612
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7905460527545567,
+          "PSD_RMSE": 0.02509167706379023,
+          "PSD_signed_mean": -0.014456890582140896,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.08298142486371965
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6924551115504409,
+          "PSD_RMSE": 0.01922506138991635,
+          "PSD_signed_mean": -0.01126445690427352,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.07340000844788142
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8309168173242534,
+          "PSD_RMSE": 0.014004664211068284,
+          "PSD_signed_mean": -0.004097811867367894,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.07151573639356162
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7708585671801623,
+          "PSD_RMSE": 0.026758928114121713,
+          "PSD_signed_mean": 0.006008607644259071,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.059294776326680856
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8291545926536505,
+          "PSD_RMSE": 0.023053050019644944,
+          "PSD_signed_mean": -0.007826037037453626,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.043765956261175895
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.666814661067699,
+          "PSD_RMSE": 0.014542214500178022,
+          "PSD_signed_mean": -0.006990039754315172,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.04250337943401226
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8219979793463892,
+          "PSD_RMSE": 0.011138440178452743,
+          "PSD_signed_mean": -0.0030821313436499064,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.038669256043218636
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7901430771072192,
+          "PSD_RMSE": 0.015620047175551455,
+          "PSD_signed_mean": -0.0011930896963693145,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03504009082432126
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8358836441090837,
+          "PSD_RMSE": 0.025249302141632658,
+          "PSD_signed_mean": -0.014508733273272924,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": -0.008766504302784748
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6592959967751028,
+          "PSD_RMSE": 0.012805772983591127,
+          "PSD_signed_mean": -0.009105102731685525,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": -0.001963476053457894
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.793464922268599,
+          "PSD_RMSE": 0.013251879602363003,
+          "PSD_signed_mean": -0.006537090314596908,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.006736122789727559
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.780156509224647,
+          "PSD_RMSE": 0.024517742771460984,
+          "PSD_signed_mean": -0.004115320358381047,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.007626406380543614
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.942890293094024e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 13.26451591092113,
+        "maxabs": 0.22367990389466286,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 15000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8538792292046626,
+        "PSD_RMSE": 0.024520473114695636,
+        "PSD_signed_mean": -0.0012258299859762053,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.07641362803987638
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0368569174004287,
+          "PSD_RMSE": 0.03816934514655355,
+          "PSD_signed_mean": -0.011449639548686143,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.11993405607049337
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9337663388106978,
+          "PSD_RMSE": 0.03220487238931143,
+          "PSD_signed_mean": -0.009220127708134258,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.11140480745818176
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8938489276055064,
+          "PSD_RMSE": 0.022981922182642747,
+          "PSD_signed_mean": -0.00219629025792412,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.11024260563376925
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8580495280945066,
+          "PSD_RMSE": 0.02221750456430846,
+          "PSD_signed_mean": 0.0020316056476130232,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.10127994358318797
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8268205602703824,
+          "PSD_RMSE": 0.021063801195413463,
+          "PSD_signed_mean": -7.621607234950404e-05,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.08798151346982433
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.760982260634083,
+          "PSD_RMSE": 0.017851670314139232,
+          "PSD_signed_mean": 0.00403315238749008,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.061651053936624726
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7674772762514193,
+          "PSD_RMSE": 0.015198531894816545,
+          "PSD_signed_mean": 0.0018175663804741854,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.03335052396628967
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7532320245702772,
+          "PSD_RMSE": 0.01734441171625708,
+          "PSD_signed_mean": 0.005253309283707091,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.014535479799360105
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0599138429878792,
+          "PSD_RMSE": 0.0523349764141597,
+          "PSD_signed_mean": -0.024053148272130193,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.1395579769071883
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9325680744556839,
+          "PSD_RMSE": 0.029437588789277002,
+          "PSD_signed_mean": -0.005818833351714582,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.12584946694115556
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.1041357086101666,
+          "PSD_RMSE": 0.024318609256910397,
+          "PSD_signed_mean": -0.0069924469434819855,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.10235092968521173
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.049428110247289,
+          "PSD_RMSE": 0.041204254431210466,
+          "PSD_signed_mean": -0.009467276543938068,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.11314057097410461
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9926318583959574,
+          "PSD_RMSE": 0.04786553192980614,
+          "PSD_signed_mean": -0.021959669770340612,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.12167790916613878
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8417511133631534,
+          "PSD_RMSE": 0.021567722573938915,
+          "PSD_signed_mean": -0.006030945170828846,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.11288270287215627
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9863864344352133,
+          "PSD_RMSE": 0.023551611860831385,
+          "PSD_signed_mean": -0.005931454777177455,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10663900083742461
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9044683030195414,
+          "PSD_RMSE": 0.026503273705502404,
+          "PSD_signed_mean": -0.0015747535156282444,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10343732335539109
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9507414453130895,
+          "PSD_RMSE": 0.032442887397817276,
+          "PSD_signed_mean": -0.008520178147944917,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.11330523163133634
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7946309067317888,
+          "PSD_RMSE": 0.017814754830038422,
+          "PSD_signed_mean": -0.0014882921174107825,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.11379406974231072
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9605794685326882,
+          "PSD_RMSE": 0.015593061481189196,
+          "PSD_signed_mean": -0.0016082970658074117,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.11051403171933608
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8504830741672321,
+          "PSD_RMSE": 0.021888913698747254,
+          "PSD_signed_mean": 0.003400710898784928,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10316357768075995
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9091684245690601,
+          "PSD_RMSE": 0.029461881764757992,
+          "PSD_signed_mean": -0.0022268359482188593,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.10664807593917629
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7699873700759952,
+          "PSD_RMSE": 0.01530997081116115,
+          "PSD_signed_mean": 0.002993378593971989,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.1034172085063882
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9181846104797908,
+          "PSD_RMSE": 0.011289717789872512,
+          "PSD_signed_mean": 0.0018149141343274389,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.09581947120627728
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8152384591447992,
+          "PSD_RMSE": 0.029026041661928282,
+          "PSD_signed_mean": 0.005813581179265151,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.10060334074575158
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8957195757379378,
+          "PSD_RMSE": 0.026137957226115734,
+          "PSD_signed_mean": -0.0033653793096435434,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.08849269394247126
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7269019742684028,
+          "PSD_RMSE": 0.013859526000458517,
+          "PSD_signed_mean": 0.0006360237309754654,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.08732179262643672
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8660680470218577,
+          "PSD_RMSE": 0.014331981489269972,
+          "PSD_signed_mean": -0.0002364829104921354,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09079033571347567
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.818500715360459,
+          "PSD_RMSE": 0.026224780426278075,
+          "PSD_signed_mean": 0.0032856853068389084,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08524207243316015
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7873110608394381,
+          "PSD_RMSE": 0.020510788190808354,
+          "PSD_signed_mean": 0.0057737060549369855,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.06275082822664176
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6876067191104882,
+          "PSD_RMSE": 0.011918399813851167,
+          "PSD_signed_mean": 0.003180650688991168,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.058954900854616736
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8176426763012526,
+          "PSD_RMSE": 0.010271903592694202,
+          "PSD_signed_mean": 0.0025428038269265456,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.0648751206992672
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7570245908722161,
+          "PSD_RMSE": 0.02552882521214023,
+          "PSD_signed_mean": 0.00512581045848436,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06017757351245556
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8206388565538292,
+          "PSD_RMSE": 0.01962756147776534,
+          "PSD_signed_mean": 0.0020169158622642303,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.033923003361458044
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6573905174343374,
+          "PSD_RMSE": 0.010932037642639903,
+          "PSD_signed_mean": 0.0009751507097243944,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03453818896997269
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8134331838650943,
+          "PSD_RMSE": 0.009268543472176854,
+          "PSD_signed_mean": 0.001245625626636179,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.034341499072932546
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7779953319451668,
+          "PSD_RMSE": 0.017173302168154967,
+          "PSD_signed_mean": 0.0027890115185230054,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03105798960942894
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8250973152862912,
+          "PSD_RMSE": 0.021372285674322096,
+          "PSD_signed_mean": 0.006498561724546221,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.012240790695034398
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6482773050398299,
+          "PSD_RMSE": 0.00827863969933985,
+          "PSD_signed_mean": 0.004468603415432729,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.011610230093660362
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7837025210306453,
+          "PSD_RMSE": 0.011271584510158413,
+          "PSD_signed_mean": 0.00292843378666664,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.016201646890991107
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7601170646489153,
+          "PSD_RMSE": 0.02330886949054163,
+          "PSD_signed_mean": 0.00690344142706397,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.01864516816598863
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 2.0860049798621105e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 18.93937950427418,
+        "maxabs": 0.31366172805428505,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 20000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.848572970526817,
+        "PSD_RMSE": 0.023876417590391035,
+        "PSD_signed_mean": -0.001538003457177155,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.07672580151107733
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0249675437323582,
+          "PSD_RMSE": 0.03442686271608426,
+          "PSD_signed_mean": -0.0008056137191173177,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.10929003024092454
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9287342948747968,
+          "PSD_RMSE": 0.03135262446852454,
+          "PSD_signed_mean": -0.0039119420909709,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.10609662184101842
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8863960804531243,
+          "PSD_RMSE": 0.025430644941591498,
+          "PSD_signed_mean": -0.0019781920506259884,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.11002450742647112
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8580543432486857,
+          "PSD_RMSE": 0.023044413928189986,
+          "PSD_signed_mean": -0.0008323061380502054,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.10414385536885118
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8269932139189062,
+          "PSD_RMSE": 0.021606389125080536,
+          "PSD_signed_mean": -0.00623835758658123,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.09414365498405605
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7560985472104169,
+          "PSD_RMSE": 0.016374364710115007,
+          "PSD_signed_mean": 0.0010514322057033425,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.06463277411841147
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7672840957197568,
+          "PSD_RMSE": 0.014843287469684474,
+          "PSD_signed_mean": 0.0027586244641097917,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.03240946588265406
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7400556450564911,
+          "PSD_RMSE": 0.016106794499168343,
+          "PSD_signed_mean": -0.0023476727418847345,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.006934497773768278
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.019736676953123,
+          "PSD_RMSE": 0.0436006266473299,
+          "PSD_signed_mean": 0.0006130557433216078,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.11489177289173652
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9253969299245542,
+          "PSD_RMSE": 0.030731667194318437,
+          "PSD_signed_mean": 0.0021665825895643186,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.11786405099987665
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.10334842118333,
+          "PSD_RMSE": 0.024118321898064444,
+          "PSD_signed_mean": 0.0006657917782771089,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.09469269096345266
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0487752798612315,
+          "PSD_RMSE": 0.036809249237175504,
+          "PSD_signed_mean": -0.006669532988724663,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.1103428274188912
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9827101989728712,
+          "PSD_RMSE": 0.046943179329618154,
+          "PSD_signed_mean": -0.011460473781989923,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.11117871317778813
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8306260316165158,
+          "PSD_RMSE": 0.02364965970910506,
+          "PSD_signed_mean": -0.0002484900865083844,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.10710024778783582
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9846592785675273,
+          "PSD_RMSE": 0.022605842186502634,
+          "PSD_signed_mean": -0.00210072297844257,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10280826903868973
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9074611935788811,
+          "PSD_RMSE": 0.022989748978094283,
+          "PSD_signed_mean": -0.000985166426353384,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10284773626611625
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9260982857880068,
+          "PSD_RMSE": 0.037552535043526014,
+          "PSD_signed_mean": -0.0058943529242216144,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.11067940640761305
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7936375179274237,
+          "PSD_RMSE": 0.021059058503632544,
+          "PSD_signed_mean": -0.002497638348793305,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.11480341597369324
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9582401680277741,
+          "PSD_RMSE": 0.01771489224578355,
+          "PSD_signed_mean": -0.0016636203787737417,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.1105693550323024
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8498905733035865,
+          "PSD_RMSE": 0.019553494362228883,
+          "PSD_signed_mean": 0.0024629170605209596,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10410137151902392
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9035818928859792,
+          "PSD_RMSE": 0.031993086363631636,
+          "PSD_signed_mean": -0.00791800784415728,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.11233924783511472
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7790712643514814,
+          "PSD_RMSE": 0.01920350344748843,
+          "PSD_signed_mean": -0.00014122643379513,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.1065518135341553
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9177010233551898,
+          "PSD_RMSE": 0.01434309012243627,
+          "PSD_signed_mean": 0.001023424115561023,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.09661096122504369
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8125257597194984,
+          "PSD_RMSE": 0.024571104984144977,
+          "PSD_signed_mean": 0.003487147675986531,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.1029297742490302
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8943807230499505,
+          "PSD_RMSE": 0.028242561493382348,
+          "PSD_signed_mean": -0.014234178765610752,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.09936149339843846
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7259610126022199,
+          "PSD_RMSE": 0.017144215695819007,
+          "PSD_signed_mean": -0.0036759586441703074,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.09163377500158248
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8723889159475283,
+          "PSD_RMSE": 0.01665994239283279,
+          "PSD_signed_mean": -0.004660517303977851,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09521437010696139
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8155124582269949,
+          "PSD_RMSE": 0.02138445467976709,
+          "PSD_signed_mean": -0.0010511183058319622,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08957887604583102
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7836305090253972,
+          "PSD_RMSE": 0.02040989549534888,
+          "PSD_signed_mean": -0.003526526651599015,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.07205106093317776
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6792034687217713,
+          "PSD_RMSE": 0.014580002276730262,
+          "PSD_signed_mean": 0.0031072461751994645,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.059028305368408446
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8163755453759406,
+          "PSD_RMSE": 0.008367849997122449,
+          "PSD_signed_mean": 0.0014199183949287052,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.06599800613126502
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.751038255640051,
+          "PSD_RMSE": 0.020469430440670382,
+          "PSD_signed_mean": 0.002172691989733784,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06313069198120615
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8167864366811411,
+          "PSD_RMSE": 0.017676436226858834,
+          "PSD_signed_mean": 0.0006851390608379665,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.03525478016288431
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6574862596723048,
+          "PSD_RMSE": 0.014379048929651314,
+          "PSD_signed_mean": 0.005480506033019963,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03003283364667713
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8154168602976491,
+          "PSD_RMSE": 0.009645474293750454,
+          "PSD_signed_mean": 0.004702704079127875,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.030884420620440844
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7792600696401139,
+          "PSD_RMSE": 0.015619842732068158,
+          "PSD_signed_mean": 0.0008580140257532556,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03298898710219869
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.7982677458396469,
+          "PSD_RMSE": 0.02084003566206932,
+          "PSD_signed_mean": -0.009519380951308004,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": -0.003777151980819827
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6344375364975006,
+          "PSD_RMSE": 0.005392110527164084,
+          "PSD_signed_mean": -0.0015978443430623725,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.005543782335165259
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7799600006922855,
+          "PSD_RMSE": 0.011095060876332488,
+          "PSD_signed_mean": 0.0012062454691622938,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.014479458573486757
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7537571946181101,
+          "PSD_RMSE": 0.021082134155292895,
+          "PSD_signed_mean": 0.001347295019387989,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.013089021758312646
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.8908485888147197e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 23.402150379250727,
+        "maxabs": 0.36819227784872055,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 25000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8463989290722125,
+        "PSD_RMSE": 0.02319026143818986,
+        "PSD_signed_mean": 0.003536981857183254,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.07165081619671691
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0269955713192598,
+          "PSD_RMSE": 0.03465074090212737,
+          "PSD_signed_mean": 0.005969196553443105,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.10251521996836412
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9289089716993837,
+          "PSD_RMSE": 0.029690114259362656,
+          "PSD_signed_mean": 0.00295701693720042,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.0992276628128471
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8855154399796379,
+          "PSD_RMSE": 0.024091381594047126,
+          "PSD_signed_mean": 0.006484918234002712,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.1015613971418424
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8536590397626863,
+          "PSD_RMSE": 0.020942242601782138,
+          "PSD_signed_mean": 0.003520319438724192,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.0997912297920768
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.821518083665325,
+          "PSD_RMSE": 0.020534541002498637,
+          "PSD_signed_mean": 0.0007152980330131372,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.08718999936446169
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7524560202211349,
+          "PSD_RMSE": 0.016755500483009687,
+          "PSD_signed_mean": 0.002989055025417581,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.06269515129869722
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7614166138748245,
+          "PSD_RMSE": 0.01571292475066261,
+          "PSD_signed_mean": 0.002180995317556795,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.03298709502920706
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7407216920554474,
+          "PSD_RMSE": 0.015869678876117153,
+          "PSD_signed_mean": 0.0034790553181080893,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.012761225833761103
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0341409298894566,
+          "PSD_RMSE": 0.043764536492937295,
+          "PSD_signed_mean": 0.004854956980309438,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.11064987165474871
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9237138813024508,
+          "PSD_RMSE": 0.028120120397676102,
+          "PSD_signed_mean": 0.005441772594512837,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.11458886099492813
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.0980576881965765,
+          "PSD_RMSE": 0.02448573685242017,
+          "PSD_signed_mean": 0.0061672912979044495,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.08919119144382531
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0500723871914577,
+          "PSD_RMSE": 0.03921972048570283,
+          "PSD_signed_mean": 0.007371754893620854,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.0963015395365457
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9859724695682128,
+          "PSD_RMSE": 0.04029488797715286,
+          "PSD_signed_mean": -0.006419531982425648,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.10613777137822383
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8307944999953201,
+          "PSD_RMSE": 0.022473879225844613,
+          "PSD_signed_mean": 0.002491915854061261,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.10435984184726618
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9831065474167553,
+          "PSD_RMSE": 0.02293073136854645,
+          "PSD_signed_mean": 0.00740582314610626,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.0933017229141409
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9059889164588493,
+          "PSD_RMSE": 0.02816111090169983,
+          "PSD_signed_mean": 0.009257491842937737,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.09260507799682514
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9262601559109062,
+          "PSD_RMSE": 0.032759000439801886,
+          "PSD_signed_mean": 0.006170380148169264,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.09861467333522218
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7912450787254219,
+          "PSD_RMSE": 0.020273068887344325,
+          "PSD_signed_mean": 0.0065788625106509135,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.105726915114249
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9577232978090412,
+          "PSD_RMSE": 0.01843106316849315,
+          "PSD_signed_mean": 0.007059791754328203,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.10184594289920046
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8489002604195253,
+          "PSD_RMSE": 0.02181406744844159,
+          "PSD_signed_mean": 0.006085321543909263,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10047896703563564
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9010332566152665,
+          "PSD_RMSE": 0.029064256208423723,
+          "PSD_signed_mean": 0.0016839326604622703,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.10273730733049516
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7704055400929956,
+          "PSD_RMSE": 0.015822518393709135,
+          "PSD_signed_mean": 0.004312181766900567,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.1020984053334596
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9145551326322626,
+          "PSD_RMSE": 0.01305178746712787,
+          "PSD_signed_mean": 0.005070444928862226,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.09256394041174248
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8088986600941453,
+          "PSD_RMSE": 0.023532930530841777,
+          "PSD_signed_mean": 0.0026183942821610172,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.10379852764285571
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8891881921619442,
+          "PSD_RMSE": 0.02704926173133349,
+          "PSD_signed_mean": -0.0010706189846798994,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.0861979336175076
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7225312279564179,
+          "PSD_RMSE": 0.014874188602231013,
+          "PSD_signed_mean": 0.0008888700413037646,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.08706894631610841
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8627467957784035,
+          "PSD_RMSE": 0.014905040758847863,
+          "PSD_signed_mean": 0.0016914618414723462,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.0888623909615112
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8115857851543437,
+          "PSD_RMSE": 0.021911448507668033,
+          "PSD_signed_mean": 0.0016980954656556431,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.0868296622743434
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7809862332491095,
+          "PSD_RMSE": 0.021463665060137426,
+          "PSD_signed_mean": 0.007436572327941884,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.06108796195363687
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6736591225325973,
+          "PSD_RMSE": 0.011327740792227332,
+          "PSD_signed_mean": 0.0027344735147112214,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.0594010780288967
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.810383006150688,
+          "PSD_RMSE": 0.00839123401163567,
+          "PSD_signed_mean": 0.0028898963994923314,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.0645280281267014
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7511210084432347,
+          "PSD_RMSE": 0.022849810448440862,
+          "PSD_signed_mean": -0.0002268989690744559,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.0655302829400144
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8082209418852603,
+          "PSD_RMSE": 0.019745477931547014,
+          "PSD_signed_mean": 0.0032282136009144542,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.032711705622807834
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.648317624721671,
+          "PSD_RMSE": 0.012100748616268923,
+          "PSD_signed_mean": 0.0018021068432692918,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03371123283642781
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8090203441997389,
+          "PSD_RMSE": 0.0089335102804505,
+          "PSD_signed_mean": 0.0036136066097017163,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.031973518089867016
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7790917083152553,
+          "PSD_RMSE": 0.01812224246950776,
+          "PSD_signed_mean": 0.0004576497795508668,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03338935134840108
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.802679911293116,
+          "PSD_RMSE": 0.01951309009374211,
+          "PSD_signed_mean": 0.0033874929428166526,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.00912972191330483
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6381891081309082,
+          "PSD_RMSE": 0.006995377491964855,
+          "PSD_signed_mean": 0.003869901783107344,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.011011528461334975
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7765020675551167,
+          "PSD_RMSE": 0.01075938694862817,
+          "PSD_signed_mean": 0.0031975138475668348,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.0164707269518913
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7508421516996734,
+          "PSD_RMSE": 0.021377955661025395,
+          "PSD_signed_mean": 0.003417831484888262,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.015159558223812923
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 2.2898349882893854e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 27.315201505988668,
+        "maxabs": 0.4536462351679802,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 30000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8451379710592442,
+        "PSD_RMSE": 0.02349187794165631,
+        "PSD_signed_mean": -0.006053564815968939,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.0812413628698691
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.023184451303241,
+          "PSD_RMSE": 0.03414936864980104,
+          "PSD_signed_mean": -0.0077686266823854015,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.11625304320419264
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9263932683820081,
+          "PSD_RMSE": 0.03122461647757805,
+          "PSD_signed_mean": -0.012392324385889521,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.11457700413593704
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8848215990542632,
+          "PSD_RMSE": 0.024608691102243757,
+          "PSD_signed_mean": -0.00917122132182668,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.1172175366976718
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8524294417403981,
+          "PSD_RMSE": 0.021573387278353645,
+          "PSD_signed_mean": -0.007147980670784086,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.11045952990158509
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8202471628885606,
+          "PSD_RMSE": 0.020207856614099108,
+          "PSD_signed_mean": -0.005479482855043046,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.09338478025251787
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7554056139403154,
+          "PSD_RMSE": 0.01713411918471416,
+          "PSD_signed_mean": -0.004606439088027311,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.07029064541214211
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.757165565304522,
+          "PSD_RMSE": 0.014555778683412289,
+          "PSD_signed_mean": -0.0019261461293765309,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.037094236476140394
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.741456665860645,
+          "PSD_RMSE": 0.01699957828222908,
+          "PSD_signed_mean": 6.370260558106311e-05,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.009345873121234076
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0225128003952269,
+          "PSD_RMSE": 0.04293820664221112,
+          "PSD_signed_mean": -0.006002823770249058,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.1215076524053072
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9187799680473162,
+          "PSD_RMSE": 0.029051955279205975,
+          "PSD_signed_mean": -0.00825428140531504,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.128284914994756
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.098827044717528,
+          "PSD_RMSE": 0.02313574321434069,
+          "PSD_signed_mean": -0.00947674476897906,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.10483522751070883
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0502331719178213,
+          "PSD_RMSE": 0.03850503279355152,
+          "PSD_signed_mean": -0.0072320967537881295,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.11090539118395468
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.974137166821708,
+          "PSD_RMSE": 0.04330785998711719,
+          "PSD_signed_mean": -0.01819936352698467,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.11791760292278286
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8312868806905928,
+          "PSD_RMSE": 0.02524283308952984,
+          "PSD_signed_mean": -0.013633668521031112,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.12048542622235854
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9846491573803732,
+          "PSD_RMSE": 0.024025137348163906,
+          "PSD_signed_mean": -0.01159652620426951,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.11230407226451666
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9066962322681641,
+          "PSD_RMSE": 0.02675128800588428,
+          "PSD_signed_mean": -0.0055297984285424,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10739236826830525
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9235447692775038,
+          "PSD_RMSE": 0.03455498832815919,
+          "PSD_signed_mean": -0.013570577637039167,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.1183556311204306
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7885712360779679,
+          "PSD_RMSE": 0.02142874278312543,
+          "PSD_signed_mean": -0.01196375969060082,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.12426953731550072
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9579300688246732,
+          "PSD_RMSE": 0.017880886156432407,
+          "PSD_signed_mean": -0.009013823120939275,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.11791955777446796
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8512995528266023,
+          "PSD_RMSE": 0.020623734588517736,
+          "PSD_signed_mean": -0.0018403820967307944,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10840467067627568
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.8945811522758115,
+          "PSD_RMSE": 0.030785287060389948,
+          "PSD_signed_mean": -0.0127615584262767,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.11718279841723414
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7697524833352672,
+          "PSD_RMSE": 0.016577240506619004,
+          "PSD_signed_mean": -0.009473167554931081,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.11588375465529124
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9148795970774426,
+          "PSD_RMSE": 0.012874027000835099,
+          "PSD_signed_mean": -0.006655814057230143,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.10429019939783485
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.810540757020628,
+          "PSD_RMSE": 0.023325839701180028,
+          "PSD_signed_mean": 0.0004748040408854045,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.1059421178841313
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8827269628104285,
+          "PSD_RMSE": 0.02501352986281332,
+          "PSD_signed_mean": -0.008506726388765208,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.09363404102159294
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7194567500445397,
+          "PSD_RMSE": 0.014491550883958601,
+          "PSD_signed_mean": -0.007905937839665096,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.09586375419707728
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8650990906953653,
+          "PSD_RMSE": 0.013937748764635499,
+          "PSD_signed_mean": -0.005946989189520341,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09650084199250387
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8150505657853522,
+          "PSD_RMSE": 0.02434755788444222,
+          "PSD_signed_mean": 0.0015297693735373157,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08699798836646175
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7838187110803981,
+          "PSD_RMSE": 0.021077581338765857,
+          "PSD_signed_mean": -0.008131605518592114,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.07665613980017086
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6778240487969913,
+          "PSD_RMSE": 0.013522047824326304,
+          "PSD_signed_mean": -0.00811771728114617,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.07025326882475408
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8140422794932802,
+          "PSD_RMSE": 0.009009784433415921,
+          "PSD_signed_mean": -0.00468028773143891,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.07209821225763265
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7521162622342223,
+          "PSD_RMSE": 0.022727140616858682,
+          "PSD_signed_mean": 0.002047128814233607,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06325625515670633
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8016946914626952,
+          "PSD_RMSE": 0.01774576879702992,
+          "PSD_signed_mean": -0.00437402130130091,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.04031394052502319
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.646006914444964,
+          "PSD_RMSE": 0.011554274694495674,
+          "PSD_signed_mean": -0.0044611822528938475,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.039974521932590934
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8068307153750117,
+          "PSD_RMSE": 0.008369001961620392,
+          "PSD_signed_mean": -0.0022038016438289555,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.037790926343397674
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7737044095789649,
+          "PSD_RMSE": 0.017087175989603846,
+          "PSD_signed_mean": 0.00269767444836041,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.031149326679591537
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.7947621825998086,
+          "PSD_RMSE": 0.019347173573775158,
+          "PSD_signed_mean": -0.0013450137051754872,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.0043972152653126905
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6364390440072286,
+          "PSD_RMSE": 0.007112392334446697,
+          "PSD_signed_mean": -0.001060774492463866,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.006080852185763767
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7792038105506209,
+          "PSD_RMSE": 0.011392952446545354,
+          "PSD_signed_mean": -0.0017857885595723634,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.011487424544752102
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7618499449778265,
+          "PSD_RMSE": 0.024522352343762804,
+          "PSD_signed_mean": 0.0045271490188350935,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.016268875757759753
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.951563910473908e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 30.62012586124562,
+        "maxabs": 0.49514155834913254,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 35000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8421857629219216,
+        "PSD_RMSE": 0.023443838208119804,
+        "PSD_signed_mean": 0.002939634625242893,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.07224816342865728
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0210364501851394,
+          "PSD_RMSE": 0.03642817618865165,
+          "PSD_signed_mean": 0.009505058245622807,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.09897935827618443
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9250980712677984,
+          "PSD_RMSE": 0.03162677205875264,
+          "PSD_signed_mean": 0.005997600186401924,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.09618707956364558
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.88048494504902,
+          "PSD_RMSE": 0.023499041625479694,
+          "PSD_signed_mean": 0.006265670010669142,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.10178064536517598
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8492828421570235,
+          "PSD_RMSE": 0.020866612352270008,
+          "PSD_signed_mean": 0.006350600324293385,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.0969609489065076
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8156508795419779,
+          "PSD_RMSE": 0.019020767685510236,
+          "PSD_signed_mean": 0.0015568818613561483,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.08634841553611866
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7491753811491452,
+          "PSD_RMSE": 0.015589086171196441,
+          "PSD_signed_mean": 0.001150965617948858,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.06453324070616595
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7581716455182278,
+          "PSD_RMSE": 0.014673333008573142,
+          "PSD_signed_mean": -0.0022269912864267536,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.037395081633190615
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7385858885070404,
+          "PSD_RMSE": 0.01618354989440463,
+          "PSD_signed_mean": -0.005082707957922368,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.004199462557730645
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0153071280752075,
+          "PSD_RMSE": 0.04569187428310237,
+          "PSD_signed_mean": 0.016841162501815162,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.09866366613324296
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9200190215994684,
+          "PSD_RMSE": 0.03343083105559539,
+          "PSD_signed_mean": 0.01861698730118561,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.10141364628825536
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.0986424802486694,
+          "PSD_RMSE": 0.0253635321103191,
+          "PSD_signed_mean": 0.005573624914988141,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.08978485782674164
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0475729410617922,
+          "PSD_RMSE": 0.03878801601969024,
+          "PSD_signed_mean": -0.002659431185909336,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.10633272561607589
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.977159060012308,
+          "PSD_RMSE": 0.041984565749469904,
+          "PSD_signed_mean": 0.005184304879423713,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.09453393451637446
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8274106054290742,
+          "PSD_RMSE": 0.02486293759749811,
+          "PSD_signed_mean": 0.011991648062194563,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.09486010963913287
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9814131061035947,
+          "PSD_RMSE": 0.025565635722398887,
+          "PSD_signed_mean": 0.005216631761243254,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.09549091429900389
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9051394416436058,
+          "PSD_RMSE": 0.029756950427124805,
+          "PSD_signed_mean": 0.0018115104278261173,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10005105941193673
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9152065277203433,
+          "PSD_RMSE": 0.031209793067964405,
+          "PSD_signed_mean": 0.006877083421627771,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.09790797006176366
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7868697089221374,
+          "PSD_RMSE": 0.020608519218249976,
+          "PSD_signed_mean": 0.009562845501019991,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.10274293212387994
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9538121977364397,
+          "PSD_RMSE": 0.017663494747355332,
+          "PSD_signed_mean": 0.0064775629762608075,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.10242817167726787
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8485816862403034,
+          "PSD_RMSE": 0.022018438167034794,
+          "PSD_signed_mean": 0.0021906531938105573,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.10437363538573433
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.8908368005744718,
+          "PSD_RMSE": 0.02782725957241983,
+          "PSD_signed_mean": 0.00453336913071852,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.09988787086023891
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7698419486660715,
+          "PSD_RMSE": 0.01668899775921737,
+          "PSD_signed_mean": 0.009609199451459383,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.09680138764890081
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9111503434522659,
+          "PSD_RMSE": 0.013574231041800966,
+          "PSD_signed_mean": 0.007312738896749411,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.0903216464438553
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8054931134553577,
+          "PSD_RMSE": 0.023813910159556747,
+          "PSD_signed_mean": 0.0036885399746453733,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.10272838195037137
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8807269740185129,
+          "PSD_RMSE": 0.023971588037699523,
+          "PSD_signed_mean": -0.0031888490327769687,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.08831616366560469
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7149274804476944,
+          "PSD_RMSE": 0.013561638620138575,
+          "PSD_signed_mean": 0.004212231351578656,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.08374558500583351
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8577214911905127,
+          "PSD_RMSE": 0.013179749506525543,
+          "PSD_signed_mean": 0.0037391812164453827,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.08681467158653819
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.810051316403053,
+          "PSD_RMSE": 0.022387244808263214,
+          "PSD_signed_mean": 0.0020372955038668807,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.08649046223613219
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7784648919593331,
+          "PSD_RMSE": 0.019634738423977713,
+          "PSD_signed_mean": -0.0012713230624568992,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.06979585734403565
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6706863870278609,
+          "PSD_RMSE": 0.011043937571351171,
+          "PSD_signed_mean": 0.0027300035194491126,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.0594055480241588
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8087696958580339,
+          "PSD_RMSE": 0.008883925815088059,
+          "PSD_signed_mean": 0.002759860765213706,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.06465806376098003
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7451174796809292,
+          "PSD_RMSE": 0.020781651117527153,
+          "PSD_signed_mean": -0.0002890601084684067,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06559244407940834
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8079088266834831,
+          "PSD_RMSE": 0.018500957978552092,
+          "PSD_signed_mean": -0.004371105310233047,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.04031102453395533
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6451638428744396,
+          "PSD_RMSE": 0.011123768747380414,
+          "PSD_signed_mean": 0.00038693788578748233,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03512640179390961
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8067716969143344,
+          "PSD_RMSE": 0.009728626625354106,
+          "PSD_signed_mean": 0.0003265375180094516,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.03526058718155928
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7723227957201522,
+          "PSD_RMSE": 0.016391428973700318,
+          "PSD_signed_mean": -0.004432841084194415,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03827984221214636
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8024480217477956,
+          "PSD_RMSE": 0.020533440114428876,
+          "PSD_signed_mean": -0.006274630396714113,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": -0.0005324014262259357
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6363721626505878,
+          "PSD_RMSE": 0.008490541402928618,
+          "PSD_signed_mean": -0.003007705651456466,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.0041339210267711665
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7784321125600582,
+          "PSD_RMSE": 0.012064622918950794,
+          "PSD_signed_mean": -0.004560419344555763,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.008712793759768703
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7425174155448667,
+          "PSD_RMSE": 0.020027874105000256,
+          "PSD_signed_mean": -0.006511582668704333,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.005230144070220326
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.8041124150158794e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 33.71634312797374,
+        "maxabs": 0.5422720238566399,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 40000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8374337804281314,
+        "PSD_RMSE": 0.022825448155204167,
+        "PSD_signed_mean": -0.002374759081543034,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.0775625571354432
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0176071221301655,
+          "PSD_RMSE": 0.03611632979650535,
+          "PSD_signed_mean": -0.009899309839728282,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.11838372636153552
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9207922663342102,
+          "PSD_RMSE": 0.031191282302733287,
+          "PSD_signed_mean": -0.009110326124118131,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.11129500587416563
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.876765744341603,
+          "PSD_RMSE": 0.02275285552457454,
+          "PSD_signed_mean": -0.0022519691366001174,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.11029828451244525
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8447629413074287,
+          "PSD_RMSE": 0.019913284425976865,
+          "PSD_signed_mean": -0.00231227589332415,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.10562382512412513
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8121498021074636,
+          "PSD_RMSE": 0.018279123357253048,
+          "PSD_signed_mean": -0.0021027052314916543,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.09000800262896647
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7460972111445314,
+          "PSD_RMSE": 0.01536626799610598,
+          "PSD_signed_mean": 0.0017405900699744275,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.06394361625414037
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7518047203786749,
+          "PSD_RMSE": 0.013848057398162732,
+          "PSD_signed_mean": 0.0015515109982366312,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.03361657934852722
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7294904356809742,
+          "PSD_RMSE": 0.014644955805188164,
+          "PSD_signed_mean": 0.003386412504707005,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.012668583020360016
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0180505635210269,
+          "PSD_RMSE": 0.04404671072801205,
+          "PSD_signed_mean": -0.009512770690808048,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.12501759932586617
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9054660473436085,
+          "PSD_RMSE": 0.027304731841955063,
+          "PSD_signed_mean": -0.0009161840042355452,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.12094681759367651
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.092255175749831,
+          "PSD_RMSE": 0.024516998179584668,
+          "PSD_signed_mean": -0.0076748553347902905,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.10303333807652006
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0523378077740446,
+          "PSD_RMSE": 0.044414608834460224,
+          "PSD_signed_mean": -0.0215508641839548,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.12522415861412134
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9739330045459298,
+          "PSD_RMSE": 0.04363584980966165,
+          "PSD_signed_mean": -0.01631128807569023,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.11602952747148843
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8189195241285493,
+          "PSD_RMSE": 0.020307452811997632,
+          "PSD_signed_mean": -0.0019478812809901114,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.10879963898231754
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.975396563029285,
+          "PSD_RMSE": 0.021131353836611754,
+          "PSD_signed_mean": -0.003957712839020005,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10466525889926717
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.9055156751963374,
+          "PSD_RMSE": 0.032115023938104316,
+          "PSD_signed_mean": -0.013462100495386103,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.11532467033514895
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9112726305648653,
+          "PSD_RMSE": 0.03036555017551915,
+          "PSD_signed_mean": -0.001921605586286829,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.10670665906967826
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.778774752632814,
+          "PSD_RMSE": 0.017687970289046957,
+          "PSD_signed_mean": 0.0023058553941394154,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.1099999222307605
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9483634559901037,
+          "PSD_RMSE": 0.015090827470224536,
+          "PSD_signed_mean": -0.0009315358799662307,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.10983727053349489
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8512652636602062,
+          "PSD_RMSE": 0.024501852979680466,
+          "PSD_signed_mean": -0.008490283960457628,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.11505457254000251
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.8875953055462815,
+          "PSD_RMSE": 0.027786925548481153,
+          "PSD_signed_mean": -0.004618909610601408,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.10904014960155883
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7616851748378188,
+          "PSD_RMSE": 0.013519041750045821,
+          "PSD_signed_mean": 0.0021954068166730937,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.10421518028368708
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9048941166986227,
+          "PSD_RMSE": 0.010999395574306592,
+          "PSD_signed_mean": -0.000811818743499391,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.09844620408410411
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.80559886928736,
+          "PSD_RMSE": 0.024072193370293177,
+          "PSD_signed_mean": -0.006434226655612674,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.1128511485806294
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8777385396084564,
+          "PSD_RMSE": 0.023741189615861635,
+          "PSD_signed_mean": -0.0014309128712913122,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.08655822750411904
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7104584403184561,
+          "PSD_RMSE": 0.011728369778815398,
+          "PSD_signed_mean": 0.0014301484153075802,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.08652766794210459
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.853357952668649,
+          "PSD_RMSE": 0.011884632732792834,
+          "PSD_signed_mean": -0.001855040620355081,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09240889342333859
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8079339676212044,
+          "PSD_RMSE": 0.021904427569408712,
+          "PSD_signed_mean": -0.007290652181419218,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.09581840992141827
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7722484330956527,
+          "PSD_RMSE": 0.019875398415428625,
+          "PSD_signed_mean": 0.008345145009696922,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.060179389271881815
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6666506409636453,
+          "PSD_RMSE": 0.010680316015602338,
+          "PSD_signed_mean": 0.0037909360352414135,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.05834461550836649
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8041820074910062,
+          "PSD_RMSE": 0.006172978485831889,
+          "PSD_signed_mean": 0.001417908843609106,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.06600001568258462
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7472046087440279,
+          "PSD_RMSE": 0.0211910773865158,
+          "PSD_signed_mean": -0.005425358556278851,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.07072874252721878
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.7991738337597949,
+          "PSD_RMSE": 0.019429869527293017,
+          "PSD_signed_mean": 0.005503650308446616,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.03043626891527566
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6382652660415559,
+          "PSD_RMSE": 0.010484223757779501,
+          "PSD_signed_mean": 0.0029715948855333785,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03254174479416371
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8018755302790139,
+          "PSD_RMSE": 0.00766512934326466,
+          "PSD_signed_mean": 0.0016423455892168128,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.033944779110351916
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7674668663723061,
+          "PSD_RMSE": 0.013866984212104848,
+          "PSD_signed_mean": -0.003356880279629194,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03720388140758114
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.7891265147660925,
+          "PSD_RMSE": 0.019368557615747222,
+          "PSD_signed_mean": 0.007790695855792947,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.013532924826281123
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.63098906354896,
+          "PSD_RMSE": 0.007371097146777896,
+          "PSD_signed_mean": 0.003966590356426063,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.011108217034653695
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.7689057736987442,
+          "PSD_RMSE": 0.010196950818549416,
+          "PSD_signed_mean": 0.0021409761220184506,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.015414189226342915
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7344104298584501,
+          "PSD_RMSE": 0.017752857208778602,
+          "PSD_signed_mean": -0.0008762748979961045,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.010865451840928556
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.6306400674181987e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 36.57894863325304,
+        "maxabs": 0.559800498187542,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 45000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8492233975022685,
+        "PSD_RMSE": 0.02795894659929081,
+        "PSD_signed_mean": 0.01231865252144377,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.0628691455324564
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0212466159390938,
+          "PSD_RMSE": 0.03635534990305244,
+          "PSD_signed_mean": 0.011434301162615526,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.0970501153591917
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9253432184291772,
+          "PSD_RMSE": 0.03406521687085583,
+          "PSD_signed_mean": 0.015725123238442048,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.08645955651160547
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8847049476487358,
+          "PSD_RMSE": 0.029862032590147535,
+          "PSD_signed_mean": 0.017389228555261118,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.09065708682058402
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8557541006699738,
+          "PSD_RMSE": 0.027456137918840325,
+          "PSD_signed_mean": 0.014343731710481016,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.08896781752031996
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8252517361980085,
+          "PSD_RMSE": 0.027499527569629194,
+          "PSD_signed_mean": 0.01610918943321885,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.07179610796425598
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7609555260214513,
+          "PSD_RMSE": 0.023498023092087737,
+          "PSD_signed_mean": 0.01374136921128738,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.05194283711282742
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.773002692428711,
+          "PSD_RMSE": 0.021994918350062974,
+          "PSD_signed_mean": 0.006579627917124999,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.028588462429638858
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7475283426829971,
+          "PSD_RMSE": 0.018268362095593262,
+          "PSD_signed_mean": 0.0032266489431192176,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.01250881945877223
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0190251059540323,
+          "PSD_RMSE": 0.04688897662349428,
+          "PSD_signed_mean": 0.010528207756142962,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.10497662087891517
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.918409706446556,
+          "PSD_RMSE": 0.033080398134003375,
+          "PSD_signed_mean": 0.016573680163086326,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.10345695342635465
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.095477582914134,
+          "PSD_RMSE": 0.024586692325699586,
+          "PSD_signed_mean": 0.01077668457964558,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.08458179816208419
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.0496849285366499,
+          "PSD_RMSE": 0.037937662899974696,
+          "PSD_signed_mean": 0.00785086725085278,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.09582242717931377
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.9749942226058085,
+          "PSD_RMSE": 0.04555912923863879,
+          "PSD_signed_mean": 0.014989289184205931,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.08472895021159225
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8287704496024026,
+          "PSD_RMSE": 0.029837410568751287,
+          "PSD_signed_mean": 0.01924693688685981,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.08760482081446765
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9837148482856984,
+          "PSD_RMSE": 0.026862671797600546,
+          "PSD_signed_mean": 0.01504011603294725,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.0856674300272999
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.904847013581247,
+          "PSD_RMSE": 0.02933798716583123,
+          "PSD_signed_mean": 0.01378612934070779,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.08807644049905507
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.922382617926758,
+          "PSD_RMSE": 0.03903443141433254,
+          "PSD_signed_mean": 0.021120518848038977,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.08366453463535246
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.7898678824602616,
+          "PSD_RMSE": 0.029459337520902018,
+          "PSD_signed_mean": 0.021030328269275148,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.09127544935562479
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9565394708721148,
+          "PSD_RMSE": 0.02372809490882104,
+          "PSD_signed_mean": 0.015700172731403166,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.09320556192212551
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.8524273253679717,
+          "PSD_RMSE": 0.02439404571576166,
+          "PSD_signed_mean": 0.011723467848247859,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.09484082073129702
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.9016355287358758,
+          "PSD_RMSE": 0.036199719284788774,
+          "PSD_signed_mean": 0.016687948323708138,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.0877332916672493
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7726204985214383,
+          "PSD_RMSE": 0.02543784767136945,
+          "PSD_signed_mean": 0.017965042211554066,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.08844554488880611
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9163802091155708,
+          "PSD_RMSE": 0.019886349876471678,
+          "PSD_signed_mean": 0.01325605296044514,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.08437833238015957
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.8127941725622257,
+          "PSD_RMSE": 0.027311868367850836,
+          "PSD_signed_mean": 0.009618434750659308,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.09679848717435743
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8939872322756982,
+          "PSD_RMSE": 0.03614812836354601,
+          "PSD_signed_mean": 0.023454695942684765,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.06167261869014295
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.7220218016925422,
+          "PSD_RMSE": 0.023632533284149937,
+          "PSD_signed_mean": 0.017643269472130622,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.07031454688528156
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8644497572767397,
+          "PSD_RMSE": 0.020433109859302058,
+          "PSD_signed_mean": 0.012503585152997291,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.07805026764998624
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8210365310845344,
+          "PSD_RMSE": 0.02568981850912639,
+          "PSD_signed_mean": 0.00903077718967674,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.07949698055032231
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7934485484803593,
+          "PSD_RMSE": 0.03202433764766258,
+          "PSD_signed_mean": 0.022968776849294107,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.04555575743228465
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.68093729450214,
+          "PSD_RMSE": 0.020718057282771415,
+          "PSD_signed_mean": 0.016637701081507462,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.04549785046210045
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.8203725192563351,
+          "PSD_RMSE": 0.016770190313033596,
+          "PSD_signed_mean": 0.012363805300207092,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.055054119225986645
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7561231147278418,
+          "PSD_RMSE": 0.02428892249600361,
+          "PSD_signed_mean": 0.004686829084818791,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06061655488612114
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.8172006495248914,
+          "PSD_RMSE": 0.025557802478190447,
+          "PSD_signed_mean": 0.011439051613965337,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.02450086760975694
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6527460841694093,
+          "PSD_RMSE": 0.016691963535376494,
+          "PSD_signed_mean": 0.009900558602509858,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.025612781077187237
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8143169848649369,
+          "PSD_RMSE": 0.015099747076316061,
+          "PSD_signed_mean": 0.00757000127426859,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.02801712342530013
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.8039607542382045,
+          "PSD_RMSE": 0.0264168730367944,
+          "PSD_signed_mean": -0.0014689226066907418,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.03531592373464269
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.8068896324910168,
+          "PSD_RMSE": 0.021088324103274828,
+          "PSD_signed_mean": 0.0071124087141937195,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.012854637684681897
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6441764538173878,
+          "PSD_RMSE": 0.011201509755607714,
+          "PSD_signed_mean": 0.005937569371634966,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.013079196049862598
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.781858087554266,
+          "PSD_RMSE": 0.012972838791812115,
+          "PSD_signed_mean": 0.0017975096119801476,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.01507072271630461
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7627052961061918,
+          "PSD_RMSE": 0.0243193128284819,
+          "PSD_signed_mean": -0.002602610451309793,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.009139116287614869
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.8388068845354155e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 39.27024263327125,
+        "maxabs": 0.5966734811663628,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    },
+    {
+      "global_step": 50000,
+      "overall": {
+        "N": 4096,
+        "MSE480": 0.8370097410290649,
+        "PSD_RMSE": 0.023099291765359475,
+        "PSD_signed_mean": -0.007178327094566597,
+        "target_PSD_velocity_mean": -0.07518779805390016,
+        "predicted_PSD_velocity_mean": -0.08236612514846677
+      },
+      "by_Q": [
+        {
+          "bin_id": 1,
+          "N": 512,
+          "MSE480": 1.0150320701428939,
+          "PSD_RMSE": 0.03422743933817703,
+          "PSD_signed_mean": -0.009681646614930057,
+          "target_PSD_velocity_mean": -0.10848441652180724,
+          "predicted_PSD_velocity_mean": -0.11816606313673728
+        },
+        {
+          "bin_id": 2,
+          "N": 512,
+          "MSE480": 0.9180153709419347,
+          "PSD_RMSE": 0.030750184908043172,
+          "PSD_signed_mean": -0.010552987622554025,
+          "target_PSD_velocity_mean": -0.1021846797500475,
+          "predicted_PSD_velocity_mean": -0.11273766737260153
+        },
+        {
+          "bin_id": 3,
+          "N": 512,
+          "MSE480": 0.8771299749416204,
+          "PSD_RMSE": 0.0239213241209261,
+          "PSD_signed_mean": -0.008759674672021314,
+          "target_PSD_velocity_mean": -0.10804631537584512,
+          "predicted_PSD_velocity_mean": -0.11680599004786645
+        },
+        {
+          "bin_id": 4,
+          "N": 512,
+          "MSE480": 0.8473115517919971,
+          "PSD_RMSE": 0.02303697105884782,
+          "PSD_signed_mean": -0.009303296876939152,
+          "target_PSD_velocity_mean": -0.10331154923080098,
+          "predicted_PSD_velocity_mean": -0.11261484610774014
+        },
+        {
+          "bin_id": 5,
+          "N": 512,
+          "MSE480": 0.8146514722993317,
+          "PSD_RMSE": 0.02057394799411222,
+          "PSD_signed_mean": -0.008602334536196583,
+          "target_PSD_velocity_mean": -0.08790529739747482,
+          "predicted_PSD_velocity_mean": -0.0965076319336714
+        },
+        {
+          "bin_id": 6,
+          "N": 512,
+          "MSE480": 0.7437696549794055,
+          "PSD_RMSE": 0.01486856663609265,
+          "PSD_signed_mean": -0.0032926828039670716,
+          "target_PSD_velocity_mean": -0.06568420632411481,
+          "predicted_PSD_velocity_mean": -0.06897688912808188
+        },
+        {
+          "bin_id": 7,
+          "N": 512,
+          "MSE480": 0.7518781515853399,
+          "PSD_RMSE": 0.014523131738688765,
+          "PSD_signed_mean": -0.004912357175638066,
+          "target_PSD_velocity_mean": -0.03516809034676385,
+          "predicted_PSD_velocity_mean": -0.04008044752240192
+        },
+        {
+          "bin_id": 8,
+          "N": 512,
+          "MSE480": 0.7282896815499963,
+          "PSD_RMSE": 0.013903669167595079,
+          "PSD_signed_mean": -0.002321636454286508,
+          "target_PSD_velocity_mean": 0.009282170515653013,
+          "predicted_PSD_velocity_mean": 0.006960534061366505
+        }
+      ],
+      "by_Q_time": [
+        {
+          "bin_id": 1,
+          "time_bin0": 0,
+          "N": 124,
+          "MSE480": 1.0159375677923361,
+          "PSD_RMSE": 0.044841443953274315,
+          "PSD_signed_mean": -0.013853567334295892,
+          "target_PSD_velocity_mean": -0.11550482863505812,
+          "predicted_PSD_velocity_mean": -0.12935839596935403
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 1,
+          "N": 128,
+          "MSE480": 0.9097141255745136,
+          "PSD_RMSE": 0.02985205269890482,
+          "PSD_signed_mean": -0.009430904511503649,
+          "target_PSD_velocity_mean": -0.12003063358944097,
+          "predicted_PSD_velocity_mean": -0.12946153810094463
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 2,
+          "N": 132,
+          "MSE480": 1.0897492877022223,
+          "PSD_RMSE": 0.022758258608915588,
+          "PSD_signed_mean": -0.006677766993274389,
+          "target_PSD_velocity_mean": -0.09535848274172977,
+          "predicted_PSD_velocity_mean": -0.10203624973500415
+        },
+        {
+          "bin_id": 1,
+          "time_bin0": 3,
+          "N": 128,
+          "MSE480": 1.04242068325532,
+          "PSD_RMSE": 0.036233719893346644,
+          "PSD_signed_mean": -0.008988591381303222,
+          "target_PSD_velocity_mean": -0.10367329443016657,
+          "predicted_PSD_velocity_mean": -0.11266188581146977
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 0,
+          "N": 138,
+          "MSE480": 0.971699341358517,
+          "PSD_RMSE": 0.04640880358053307,
+          "PSD_signed_mean": -0.019099271067968066,
+          "target_PSD_velocity_mean": -0.0997182393957982,
+          "predicted_PSD_velocity_mean": -0.11881751046376625
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 1,
+          "N": 122,
+          "MSE480": 0.8171394619886453,
+          "PSD_RMSE": 0.022346982651239876,
+          "PSD_signed_mean": -0.00941802115302875,
+          "target_PSD_velocity_mean": -0.10685175770132745,
+          "predicted_PSD_velocity_mean": -0.11626977885435617
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 2,
+          "N": 128,
+          "MSE480": 0.9752361351297447,
+          "PSD_RMSE": 0.02103357460090695,
+          "PSD_signed_mean": -0.007501632120065128,
+          "target_PSD_velocity_mean": -0.10070754606024715,
+          "predicted_PSD_velocity_mean": -0.10820917818031228
+        },
+        {
+          "bin_id": 2,
+          "time_bin0": 3,
+          "N": 124,
+          "MSE480": 0.8984525899643,
+          "PSD_RMSE": 0.023650454692628192,
+          "PSD_signed_mean": -0.005308248091372769,
+          "target_PSD_velocity_mean": -0.10186256983976286,
+          "predicted_PSD_velocity_mean": -0.10717081793113564
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 0,
+          "N": 134,
+          "MSE480": 0.9189099279000854,
+          "PSD_RMSE": 0.0363325017960205,
+          "PSD_signed_mean": -0.01569278542122771,
+          "target_PSD_velocity_mean": -0.10478505348339144,
+          "predicted_PSD_velocity_mean": -0.12047783890461913
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 1,
+          "N": 117,
+          "MSE480": 0.77915765596765,
+          "PSD_RMSE": 0.019658422269119926,
+          "PSD_signed_mean": -0.00938713097266897,
+          "target_PSD_velocity_mean": -0.11230577762489989,
+          "predicted_PSD_velocity_mean": -0.1216929085975689
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.9485126957251797,
+          "PSD_RMSE": 0.016044150329951493,
+          "PSD_signed_mean": -0.005988798496531699,
+          "target_PSD_velocity_mean": -0.10890573465352867,
+          "predicted_PSD_velocity_mean": -0.11489453315006036
+        },
+        {
+          "bin_id": 3,
+          "time_bin0": 3,
+          "N": 122,
+          "MSE480": 0.843868085061337,
+          "PSD_RMSE": 0.016961653943150995,
+          "PSD_signed_mean": -0.003699859596805117,
+          "target_PSD_velocity_mean": -0.10656428857954488,
+          "predicted_PSD_velocity_mean": -0.11026414817635
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 0,
+          "N": 123,
+          "MSE480": 0.8967914851997042,
+          "PSD_RMSE": 0.03551603534710684,
+          "PSD_signed_mean": -0.01929954839146115,
+          "target_PSD_velocity_mean": -0.10442123999095744,
+          "predicted_PSD_velocity_mean": -0.12372078838241861
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 1,
+          "N": 119,
+          "MSE480": 0.7617401737231813,
+          "PSD_RMSE": 0.016541630898086523,
+          "PSD_signed_mean": -0.007818079946745903,
+          "target_PSD_velocity_mean": -0.10641058710036018,
+          "predicted_PSD_velocity_mean": -0.11422866704710606
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 2,
+          "N": 153,
+          "MSE480": 0.9071331012098389,
+          "PSD_RMSE": 0.01294194453766382,
+          "PSD_signed_mean": -0.0052840372323314545,
+          "target_PSD_velocity_mean": -0.0976343853406047,
+          "predicted_PSD_velocity_mean": -0.10291842257293615
+        },
+        {
+          "bin_id": 4,
+          "time_bin0": 3,
+          "N": 117,
+          "MSE480": 0.80410014256218,
+          "PSD_RMSE": 0.022337851067980665,
+          "PSD_signed_mean": -0.0055609772532790504,
+          "target_PSD_velocity_mean": -0.10641692192501671,
+          "predicted_PSD_velocity_mean": -0.1119778991782958
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 0,
+          "N": 142,
+          "MSE480": 0.8835093764070676,
+          "PSD_RMSE": 0.0284041977481794,
+          "PSD_signed_mean": -0.01765666008161235,
+          "target_PSD_velocity_mean": -0.08512731463282772,
+          "predicted_PSD_velocity_mean": -0.10278397471444005
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.711098418305989,
+          "PSD_RMSE": 0.013584068127617512,
+          "PSD_signed_mean": -0.006395003948480629,
+          "target_PSD_velocity_mean": -0.08795781635741219,
+          "predicted_PSD_velocity_mean": -0.09435282030589281
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 2,
+          "N": 119,
+          "MSE480": 0.8546795622281542,
+          "PSD_RMSE": 0.012731279255552355,
+          "PSD_signed_mean": -0.0049742407890597095,
+          "target_PSD_velocity_mean": -0.09055385280298353,
+          "predicted_PSD_velocity_mean": -0.09552809359204324
+        },
+        {
+          "bin_id": 5,
+          "time_bin0": 3,
+          "N": 116,
+          "MSE480": 0.8098109309568562,
+          "PSD_RMSE": 0.022352665633619352,
+          "PSD_signed_mean": -0.0038093910689716063,
+          "target_PSD_velocity_mean": -0.08852775773999906,
+          "predicted_PSD_velocity_mean": -0.09233714880897065
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 0,
+          "N": 105,
+          "MSE480": 0.7706782228998927,
+          "PSD_RMSE": 0.020931569196094704,
+          "PSD_signed_mean": -0.009316655947705643,
+          "target_PSD_velocity_mean": -0.06852453428157874,
+          "predicted_PSD_velocity_mean": -0.07784119022928439
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 1,
+          "N": 138,
+          "MSE480": 0.6657347165614822,
+          "PSD_RMSE": 0.011111173375490268,
+          "PSD_signed_mean": -0.001593435378885702,
+          "target_PSD_velocity_mean": -0.06213555154360792,
+          "predicted_PSD_velocity_mean": -0.0637289869224936
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 2,
+          "N": 139,
+          "MSE480": 0.804441996995991,
+          "PSD_RMSE": 0.006331700553060176,
+          "PSD_signed_mean": -0.0011731792532541298,
+          "target_PSD_velocity_mean": -0.06741792452619373,
+          "predicted_PSD_velocity_mean": -0.06859110377944788
+        },
+        {
+          "bin_id": 6,
+          "time_bin0": 3,
+          "N": 130,
+          "MSE480": 0.7400001652079964,
+          "PSD_RMSE": 0.018517459189948002,
+          "PSD_signed_mean": -0.0024972209433345945,
+          "target_PSD_velocity_mean": -0.06530338397093993,
+          "predicted_PSD_velocity_mean": -0.06780060491427453
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 0,
+          "N": 133,
+          "MSE480": 0.7946841308088828,
+          "PSD_RMSE": 0.019541111074325896,
+          "PSD_signed_mean": -0.009990586698031101,
+          "target_PSD_velocity_mean": -0.03593991922372227,
+          "predicted_PSD_velocity_mean": -0.04593050592175338
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 1,
+          "N": 124,
+          "MSE480": 0.6375425855157146,
+          "PSD_RMSE": 0.010865045834004905,
+          "PSD_signed_mean": -0.0036379943644228594,
+          "target_PSD_velocity_mean": -0.035513339679697095,
+          "predicted_PSD_velocity_mean": -0.03915133404411995
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 2,
+          "N": 110,
+          "MSE480": 0.8018160187198051,
+          "PSD_RMSE": 0.006661147932176476,
+          "PSD_signed_mean": -0.0008067107830651927,
+          "target_PSD_velocity_mean": -0.03558712469956873,
+          "predicted_PSD_velocity_mean": -0.03639383548263392
+        },
+        {
+          "bin_id": 7,
+          "time_bin0": 3,
+          "N": 145,
+          "MSE480": 0.7725074589723138,
+          "PSD_RMSE": 0.016121545786888923,
+          "PSD_signed_mean": -0.004458823143192741,
+          "target_PSD_velocity_mean": -0.03384700112795194,
+          "predicted_PSD_velocity_mean": -0.038305824271144685
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 0,
+          "N": 136,
+          "MSE480": 0.7897660524496039,
+          "PSD_RMSE": 0.019217118715164048,
+          "PSD_signed_mean": -0.005218443905670912,
+          "target_PSD_velocity_mean": 0.005742228970488178,
+          "predicted_PSD_velocity_mean": 0.0005237850648172657
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 1,
+          "N": 135,
+          "MSE480": 0.6288237722619427,
+          "PSD_RMSE": 0.005841671086130679,
+          "PSD_signed_mean": -0.0017177584939222098,
+          "target_PSD_velocity_mean": 0.007141626678227632,
+          "predicted_PSD_velocity_mean": 0.005423868184305422
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 2,
+          "N": 116,
+          "MSE480": 0.770568818465976,
+          "PSD_RMSE": 0.00976264672287671,
+          "PSD_signed_mean": -0.0005483540859390734,
+          "target_PSD_velocity_mean": 0.013273213104324463,
+          "predicted_PSD_velocity_mean": 0.012724859018385389
+        },
+        {
+          "bin_id": 8,
+          "time_bin0": 3,
+          "N": 125,
+          "MSE480": 0.7295915329842919,
+          "PSD_RMSE": 0.016269850629470204,
+          "PSD_signed_mean": -0.0014677041822001354,
+          "target_PSD_velocity_mean": 0.01174172673892466,
+          "predicted_PSD_velocity_mean": 0.010274022556724525
+        }
+      ],
+      "chunk": 32,
+      "max_path_q_residual": 6.418476861114186e-17,
+      "max_field_q_residual": 1.9255430583342559e-16,
+      "parameter_delta_from_inherited2950": {
+        "L2": 41.772909936846716,
+        "maxabs": 0.6233694478869438,
+        "changed_values": 1369793
+      },
+      "new_fit": false,
+      "used_for_checkpoint_selection": false,
+      "ODE_error_claim": false
+    }
+  ],
+  "numeric": {
+    "PID": 113870,
+    "UTC": "2026-10-10T01:39:30.287032+00:00",
+    "elapsed_s": 15.015593514995999,
+    "TRAIN_source_REAL_rows": [
+      64,
+      64
+    ],
+    "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+    "DEV_read_or_generated": 0,
+    "RMS_median_V": 2.5811572557316582e-05,
+    "RMS_p95_V": 5.28778253284724e-05,
+    "LSB_V": 6.103888176768602e-05,
+    "RMS_median_LSB": 0.42287099320651755,
+    "RMS_p95_LSB": 0.8662974123563634,
+    "median_limit_LSB": 0.25,
+    "p95_limit_LSB": 1.0,
+    "solver32": {
+      "field_calls": 128,
+      "field_forward_rows": 8192,
+      "max_relative_q_error_f64": 2.2135552626399528e-16,
+      "max_relative_q_error_f32": 1.528763797748391e-08,
+      "steps": 32,
+      "chunk": 64
+    },
+    "solver64": {
+      "field_calls": 256,
+      "field_forward_rows": 16384,
+      "max_relative_q_error_f64": 2.5921022303310578e-16,
+      "max_relative_q_error_f32": 1.6224138346522212e-08,
+      "steps": 64,
+      "chunk": 64
+    },
+    "pass": false,
+    "no_prefix_or_64step_candidate": true,
+    "exact_R42_R43_inputs_white_indices_order_reused": true,
+    "CPU_threads": 12,
+    "device": "cpu",
+    "R42_reference_RMS_median_LSB": 1.9539974287524278,
+    "R42_reference_RMS_p95_LSB": 4.790319314745899,
+    "paired_RMS_difference_LSB_mean": -1.8266946720889468
+  },
+  "gates": {
+    "gate1": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate2": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate3": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate4": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate5": {
+      "status": "not_evaluated",
+      "pass": null,
+      "reason": "Fixed TRAIN 32/64 numerical prerequisite failed; DEV evaluation forbidden"
+    },
+    "gate6": {
+      "status": "fail",
+      "pass": false,
+      "numerical_check": {
+        "PID": 113870,
+        "UTC": "2026-10-10T01:39:30.287032+00:00",
+        "elapsed_s": 15.015593514995999,
+        "TRAIN_source_REAL_rows": [
+          64,
+          64
+        ],
+        "white_prefix": "first128 consumed-row white, original noise-generation ordinal saved",
+        "DEV_read_or_generated": 0,
+        "RMS_median_V": 2.5811572557316582e-05,
+        "RMS_p95_V": 5.28778253284724e-05,
+        "LSB_V": 6.103888176768602e-05,
+        "RMS_median_LSB": 0.42287099320651755,
+        "RMS_p95_LSB": 0.8662974123563634,
+        "median_limit_LSB": 0.25,
+        "p95_limit_LSB": 1.0,
+        "solver32": {
+          "field_calls": 128,
+          "field_forward_rows": 8192,
+          "max_relative_q_error_f64": 2.2135552626399528e-16,
+          "max_relative_q_error_f32": 1.528763797748391e-08,
+          "steps": 32,
+          "chunk": 64
+        },
+        "solver64": {
+          "field_calls": 256,
+          "field_forward_rows": 16384,
+          "max_relative_q_error_f64": 2.5921022303310578e-16,
+          "max_relative_q_error_f32": 1.6224138346522212e-08,
+          "steps": 64,
+          "chunk": 64
+        },
+        "pass": false,
+        "no_prefix_or_64step_candidate": true,
+        "exact_R42_R43_inputs_white_indices_order_reused": true,
+        "CPU_threads": 12,
+        "device": "cpu",
+        "R42_reference_RMS_median_LSB": 1.9539974287524278,
+        "R42_reference_RMS_p95_LSB": 4.790319314745899,
+        "paired_RMS_difference_LSB_mean": -1.8266946720889468
+      },
+      "training_and_inheritance_complete": true,
+      "main_replay_status": "not_executed_by_stop_rule"
+    }
+  },
+  "new_DEV_main_rows": 0,
+  "new_HGB_fits": 0,
+  "new_EM_fits": 0,
+  "main_replay_rows": 0,
+  "full_response_and_PSD_distribution_conclusion": "not_evaluated",
+  "excludes_per_event_identity_white_hash_and_prediction_arrays": true
+}

@@ -1,0 +1,99 @@
+{
+  "stage": "R45_EXTENDED_BUDGET_NEURAL_FLOW_001",
+  "UTC": "2026-10-10T01:45:07.527859+00:00",
+  "scientific_elapsed_s": 1463.1585634110088,
+  "GPU_training_including_import_probes_and_saving_s": 1443.364407056004,
+  "CPU12_TRAIN_numerical_check_s": 16.143875254994782,
+  "local_CPU4_saved_TRAIN_plot_s": 3.6502811000100337,
+  "training_program_s": 1442.725762165006,
+  "historical_R43_training_program_s_separate": 76.15230571199936,
+  "historical_R43_cost_not_reexecuted_or_free": true,
+  "science_limit_s": 14400,
+  "training_limit_s": 10800,
+  "server_tree_RSS_limit_bytes": 51539607552,
+  "server_GPU_limit_bytes": 10737418240,
+  "server_worker_RSS_HWM_peak_bytes": 2042970112,
+  "server_simultaneous_sampled_tree_RSS_peak_bytes": 2037903360,
+  "GPU_process_peak_bytes": 629145600,
+  "GPU_allocated_peak_bytes": 313275392,
+  "GPU_reserved_peak_bytes": 343932928,
+  "allocator_containment_not_summed": true,
+  "local_worker_RSS_peak_bytes": 114503680,
+  "RSS_query_gap_events": [
+    {
+      "UTC": "2026-10-10T01:34:34.147753+00:00",
+      "PID": 107155,
+      "poll": null,
+      "context": "actual_PID_query"
+    },
+    {
+      "UTC": "2026-10-10T01:34:34.248062+00:00",
+      "PID": 107155,
+      "poll": null,
+      "context": "actual_PID_query"
+    }
+  ],
+  "RSS_query_gap_cause": "unknown; timestamps near terminal receipt do not establish cause",
+  "local_CPU_threads": 4,
+  "server_CPU_threads": 12,
+  "new_response_training_runs": 1,
+  "counter": {
+    "inherited_updates": 2950,
+    "new_updates": 47050,
+    "new_source_rows": 1505600,
+    "new_REAL_rows": 1505600,
+    "training_forward_rows": 1505600,
+    "fixed_probe_forward_rows": 45056,
+    "probe_executions": 11,
+    "new_response_training_runs": 1,
+    "DEV_read": 0,
+    "CAL_EVAL_G4_decode": 0
+  },
+  "TRAIN_numerical_field_forward_rows": 24576,
+  "TRAIN_numerical_final_solution_rows": 256,
+  "DEV_body_copy_or_array_decode": 0,
+  "DEV_generation": 0,
+  "new_HGB": 0,
+  "new_EM": 0,
+  "main_replay": 0,
+  "new_CAL_EVAL_G4_decode": 0,
+  "migration_content_consistency_tests": 0,
+  "ordinary_control_failures": [
+    {
+      "tool": "478b2e",
+      "native_exit": 1,
+      "PID": "unknown",
+      "kind": "source/control query",
+      "error": "rg given a literal Windows wildcard filename; ERROR123",
+      "scientific_compute_s": 0,
+      "response_updates_or_forwards": 0,
+      "resolved": "use explicit files or rg -g"
+    },
+    {
+      "tool": "71c89b",
+      "native_exit": 1,
+      "PID": "unknown",
+      "kind": "source/control query",
+      "error": "R43/local_supervise.py does not exist; actual known helper is R44/supervise.py",
+      "scientific_compute_s": 0,
+      "response_updates_or_forwards": 0,
+      "resolved": "read/copy actual R44 supervisor"
+    },
+    {
+      "tool": "1b9235",
+      "native_exit": 1,
+      "PID": "unknown",
+      "kind": "source/control query",
+      "error": "Queried nonexistent TRAINING_EXPOSURE_PRIVATE.json; actual saved name is EXPOSURE_SUMMARY.json",
+      "scientific_compute_s": 0,
+      "response_updates_or_forwards": 0,
+      "resolved": "read actual saved exposure summary; no scientific rerun"
+    }
+  ],
+  "scientific_native_failures": 0,
+  "engineering_and_transfer_wall_separate_from_science": true,
+  "ordinary_control_wall_comprehensive_metering": "not instrumented; native logs/receipts preserved",
+  "output_limit_bytes": 4294967296,
+  "executor_deadline_UTC": "2026-10-10T06:00:04.557894+00:00",
+  "budget_pass": true
+}
