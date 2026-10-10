@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "defined_UTC": "2026-10-10T00:34:06.958873+00:00",
   "status": "prospective_engineering_target_after_R43",
   "authority": "Root defines bounded execution criteria under the user question about completion and subsequent continue instructions.",
@@ -8,8 +8,8 @@
   "preregistered_before_R1_R43": false,
   "historically_exposed_development_data": true,
   "document": "PROJECT_ACCEPTANCE.md",
-  "document_sha256": "08e2a72b7b69159a3ed2aa2be4c0b74f12bf66058db29d77b9a9e14c90a1b62d",
-  "stage_screen": "Original R43 scientific thresholds; fixed64/reference128 numerical scheme is retained by R48 for both new endpoints. No tolerance lowered.",
+  "document_sha256": "4fdf9968c3271d5c59c1195838e08fa66fa6779b1032a34d2dc4a1adfb99e461",
+  "stage_screen": "Original R43 scientific gates; R49 common Heun128/reference256 and original numerical tolerances.",
   "final_response": {
     "C2ST_views": [
       "shape493",
@@ -53,25 +53,25 @@
   },
   "scope": "One frozen FULL/GAP study; only regions satisfying A-C claimed validated; failures explicitly excluded.",
   "improvement_block": {
-    "diagnostic_science_seconds_max": 3600,
-    "method_plans_max": 3,
-    "all_response_training_runs_max": 6,
+    "diagnostic_science_seconds_max": null,
+    "method_plans_max": null,
+    "all_response_training_runs_max": null,
     "controls_and_repeats_count_towards_run_limit": true,
-    "total_science_seconds_max": 90000,
-    "no_automatic_extension_at_limit": true,
+    "total_science_seconds_max": null,
+    "no_automatic_extension_at_limit": false,
     "first_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
-    "updates_per_training_run_max": 50000,
-    "science_seconds_per_training_stage_max": 14400,
+    "updates_per_training_run_max": null,
+    "science_seconds_per_training_stage_max": null,
     "failure_costs_counted": true,
     "live_usage_registry": "RESOURCE_BUDGET.json"
   },
   "frozen_validation": {
-    "utility_runs_max": 1,
-    "utility_science_seconds_max": 7200,
-    "FULL_GAP_studies_max": 1,
-    "scope_science_seconds_max": 36000,
-    "total_science_seconds_max": 43200,
-    "require_separate_fixed_protocol_before_execution": true
+    "utility_science_seconds_max": null,
+    "scope_science_seconds_max": null,
+    "total_science_seconds_max": null,
+    "require_separate_fixed_protocol_before_execution": true,
+    "planned_utility_studies_per_frozen_candidate": 1,
+    "planned_FULL_GAP_studies_per_frozen_candidate": 1
   },
   "positive_completion": "Same frozen method satisfies A-F and final delivery; limited to historically exposed single acquisition.",
   "negative_closeout": "Close current route with complete negative evidence; project/model goal remains unmet.",
@@ -84,21 +84,45 @@
     true
   ],
   "application_goal_observation": {
-    "value": "active",
-    "created_UTC": "2026-10-10T07:10:59+00:00",
-    "observed_UTC": "2026-10-10T07:30:27+00:00",
-    "explicit_user_request": "设置目标",
-    "receipt": "reviews/PROJECT_GOAL_ACTIVATION_20261010_001/RECEIPT.json"
+    "value": null,
+    "observed_in_current_turn": true,
+    "source": "get_goal tool returned null after the latest user request",
+    "automatically_recreated": false
   },
   "scientific_threshold_version": 1,
-  "resource_version": 2,
+  "resource_version": 3,
   "resource_policy": "SERVER_RESOURCE_POLICY.md",
   "resource_registry": "RESOURCE_BUDGET.json",
-  "resource_revision_UTC": "2026-10-10T00:39:27.880232+00:00",
-  "numerical_protocol_version": 2,
-  "numerical_revision_UTC": "2026-10-10T01:49:39.896743+00:00",
-  "numerical_revision_reason": "R45 TRAIN32/64 failure; a new fixed common64/reference128 protocol before R46 execution.",
+  "resource_revision_UTC": "2026-10-10T09:26:54.044065+00:00",
+  "numerical_protocol_version": 3,
+  "numerical_revision_UTC": "2026-10-10T09:34:11.601732+00:00",
+  "numerical_revision_reason": "New user-authorized frozen R48 weight comparison at common128/reference256 before R49 science.",
   "numerical_precision": {
+    "protocol": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+    "candidate_steps": 128,
+    "reference_steps": 256,
+    "solver": "Heun",
+    "TRAIN_rows_each_model": 128,
+    "median_LSB_max": 0.25,
+    "p95_LSB_max": 1.0,
+    "preADC_relative_q_max": 1e-05,
+    "independent_main_replay_rows_per_model": 4000,
+    "both_frozen_models_must_pass_before_DEV": true,
+    "further_step_search_authorized": false,
+    "historical32step_conclusions_changed": false,
+    "numeric_tolerances_lowered": false,
+    "previous_protocol": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
+    "historical64step_conclusions_changed": false
+  },
+  "previous_application_goal_observation": {
+    "value": null,
+    "observed_UTC": "2026-10-10T00:34:06.958873+00:00",
+    "automatically_recreated": false
+  },
+  "current_status_reconciliation_UTC": "2026-10-10T09:34:11.601732+00:00",
+  "compute_budget_enforced": false,
+  "user_override_receipt": "reviews/NO_COMPUTE_BUDGET_20261010_001/RECEIPT.json",
+  "previous_numerical_precision": {
     "protocol": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
     "candidate_steps": 64,
     "reference_steps": 128,
@@ -113,11 +137,5 @@
     "historical32step_conclusions_changed": false,
     "numeric_tolerances_lowered": false,
     "previous_protocol": "tasks/R46_FIXED_INTEGRATION_BUDGET_001.md"
-  },
-  "previous_application_goal_observation": {
-    "value": null,
-    "observed_UTC": "2026-10-10T00:34:06.958873+00:00",
-    "automatically_recreated": false
-  },
-  "current_status_reconciliation_UTC": "2026-10-10T07:34:06.929385+00:00"
+  }
 }

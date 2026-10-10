@@ -1,0 +1,124 @@
+{
+  "stage": "R49_FROZEN_HEUN128_RESPONSE_001",
+  "registered_UTC": "2026-10-10T09:34:11.601732+00:00",
+  "actual_root_control_PID": 53420,
+  "task": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+  "task_sha256": "43a8a466cc2776e4d628e416e0d9255dad9dd69e671a8688aa7645dc50e93cb8",
+  "consultation": "reviews/R49_NUMERICAL_DESIGN_CONSULT_001.md",
+  "user_instruction": "推进下一轮 不设置预算",
+  "compute_budget_enforced": false,
+  "science_budget_s": null,
+  "wall_budget_s": null,
+  "deadline_UTC": null,
+  "stage_output_budget_bytes": null,
+  "numerical_protocol_version": 3,
+  "scientific_threshold_version": 1,
+  "resource_version": 3,
+  "primary": "GUIDED_NOISE_COMPLETION",
+  "control": "GUIDED_FIXED_NOISE_CONTROL",
+  "candidate_steps": 128,
+  "reference_steps": 256,
+  "CPU_threads": 12,
+  "chunk": 64,
+  "TRAIN_rows_each_model": 128,
+  "RMS_median_LSB_max": 0.25,
+  "RMS_p95_LSB_max": 1.0,
+  "preADC_relative_q_max": 1e-05,
+  "both_required_before_DEV": true,
+  "planned_new_training_runs": 0,
+  "planned_new_response_updates": 0,
+  "historical_updates_each": 50000,
+  "planned_DEV_generated_rows_if_numerical_pass": 11968,
+  "planned_HGB_fits": 40,
+  "planned_density_slots": 32,
+  "planned_main_replay_rows": 8000,
+  "primary_control_switch_allowed": false,
+  "higher_step_search_in_this_protocol": false,
+  "frozen_local_version_bindings": [
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/GUIDED_FIXED_NOISE_CONTROL/FINAL_FLOW.pt",
+      "bytes": 5541825,
+      "sha256": "8d79c12df032067e4ca30a86bc2bdf86affbcf2b823e43b7ba199ea75fd7e870"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/GUIDED_NOISE_COMPLETION/FINAL_FLOW.pt",
+      "bytes": 5541825,
+      "sha256": "ea8da4af691b1add9964d967916a99cba211c91ecec683b6fab74d4f07382a58"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/NOISE_CALIBRATION.npz",
+      "bytes": 3394,
+      "sha256": "08b7c967ad35957565085b21822f83401e21d9a769caa0d2174c5c6ef98a9dbc"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/network.py",
+      "bytes": 2923,
+      "sha256": "74ec11b9e29cc8ae9290edbe644d87bced4210b5702c28106ddbb6b60466132b"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/noise_core.py",
+      "bytes": 1809,
+      "sha256": "7fcaeb6c74809549ba371e7c355a868c1f95fab9a52ba977bf3ec0d3fe5ed8fb"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/source_flow_core.py",
+      "bytes": 3973,
+      "sha256": "1b33db9ca95edf52b66959687d3a5f6b5e46bbaaacf6d3d83d52a69fdbdbc73c"
+    }
+  ],
+  "protocol_bindings": [
+    {
+      "path": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+      "bytes": 8147,
+      "sha256": "43a8a466cc2776e4d628e416e0d9255dad9dd69e671a8688aa7645dc50e93cb8"
+    },
+    {
+      "path": "reviews/R49_NUMERICAL_DESIGN_CONSULT_001.md",
+      "bytes": 8327,
+      "sha256": "907885a5fc8ea42a23e50d7192f77caf808c0d203ae9ecce739495d5060f61dd"
+    },
+    {
+      "path": "PROJECT_ACCEPTANCE.md",
+      "bytes": 10739,
+      "sha256": "4fdf9968c3271d5c59c1195838e08fa66fa6779b1032a34d2dc4a1adfb99e461"
+    },
+    {
+      "path": "PROJECT_ACCEPTANCE.json",
+      "bytes": 5669,
+      "sha256": "febe96c74b5290d9fc9a03b520dbe6782f0f51bac1f5c59f13b3e818af2c9d9c"
+    },
+    {
+      "path": "SERVER_RESOURCE_POLICY.md",
+      "bytes": 3290,
+      "sha256": "8c545c78e06261a2d844ebd6dd382e6eba3847e0e6c8b529222edf24a78246fb"
+    },
+    {
+      "path": "reviews/NO_COMPUTE_BUDGET_20261010_001/RECEIPT.json",
+      "bytes": 1695,
+      "sha256": "025e5ce5c7e1220b38207f169f84c95c627bf9adf4f0dc61ae0492198c66ade6"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/FINAL_RECEIPT.json",
+      "bytes": 745,
+      "sha256": "8cbe65f05a6b1e7c7f8f99c9e0d7b069318a2b4109d9a4e1184176f56cd60c08"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAINING_COMPACT.json",
+      "bytes": 7879,
+      "sha256": "3c8bce927f97d188d46b408f62860e66623a1ed534619f033118835a29b7c7b7"
+    },
+    {
+      "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAIN_SOLVER_CHECK.json",
+      "bytes": 3613,
+      "sha256": "76306f33b5d42429b64cb2b5cd4ac3faea69bca1b8932d1b77b61ce707a4ceb3"
+    }
+  ],
+  "local_disk_free_at_registration": {
+    "E": 68291706880,
+    "D": 449277952
+  },
+  "historical_scientific_stages_modified": false,
+  "new_scientific_work_started_by_root": false,
+  "scientific_thresholds_lowered": false,
+  "project_model_goal_complete": false
+}
