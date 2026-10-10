@@ -1,0 +1,38 @@
+{
+  "UTC": "2026-10-10T16:11:23.137835+00:00",
+  "all_blocks_pass": false,
+  "decision": "close_fixed_16_charge_quantile_coupling",
+  "blocks": {
+    "full_cycle": {
+      "occurrences": 94400,
+      "PSD_direction_hits_bins2_7": 6,
+      "PSD_direction_supported": true,
+      "noise_all8_pass": false,
+      "noise_failed_bins": [
+        1,
+        8
+      ],
+      "joint_construction_pass": false
+    },
+    "final_partial_cycle": {
+      "occurrences": 89600,
+      "PSD_direction_hits_bins2_7": 6,
+      "PSD_direction_supported": true,
+      "noise_all8_pass": false,
+      "noise_failed_bins": [
+        1,
+        8
+      ],
+      "joint_construction_pass": false
+    }
+  },
+  "new_training_started": false,
+  "model_goal_complete": false,
+  "group_count_scanned": false,
+  "group_count": 16,
+  "training_exposure_rule": "16 repeats of full-cycle mapping, then independently constructed final-partial mapping; original target indices remain the REAL identity sequence.",
+  "scientific_decision": "fixed_joint_coupling_noise_failed_Q1_Q8_closed",
+  "old_recipe_reopened_as_success": false,
+  "next_action": "Close fixed 16-quantile coupling as a sufficient target repair. Next register a new endpoint construction that retains the measured baseline and adds a fixed smooth pulse-only correction preserving source charge and target PSD, with analytical TRAIN checks before one newly registered response training. No quantile-count scan.",
+  "application_goal_status": "active"
+}
