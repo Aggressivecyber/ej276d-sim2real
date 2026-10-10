@@ -1,0 +1,161 @@
+{
+  "UTC": "2026-10-10T19:15:49.654018+00:00",
+  "owner": "/root",
+  "scientific_decision": "joint_statistical_constraints_feasible_in_fixed_family",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "conclusion_zh": "R58一次固定LP及保存解核验通过：原6593源等权边缘与全部21047 REAL贡献保留，总体PSD W1为0.0006015000，共同Q1–7均值为0.0100000000000698，后者处于预登记数值容差内的边界。Q3/Q4 h==1谷增量均约2个百分点，TRAIN加权源PSD秩关联为0.924042；这只支持本有限统计族的可行性，不是原A–F通过。联合律有2.9210%质量在已观测REAL基线范围下不满足ADC积分必要条件，均来自原输入已越界的高端支持外源；自由PSD总电荷硬界未排除任何源事件。0教师波形、0神经训练，完整模型目标未完成。",
+  "source_parents": 6593,
+  "REAL_parents": 21047,
+  "PSD_summary": {
+    "overall_W1": 0.0006015000129706361,
+    "common_Q1_Q7_equal_mean_W1": 0.010000000000069828,
+    "by_bin": [
+      {
+        "raw_bin0": null,
+        "source_parents": 6593,
+        "REAL_parents": 21047,
+        "joint_count_mass": 6593.000000000001,
+        "W1": 0.0006015000129706361
+      },
+      {
+        "raw_bin0": -1,
+        "source_parents": 1922,
+        "REAL_parents": 1120,
+        "joint_count_mass": 1922.0000000000005,
+        "W1": 0.16987260921401476
+      },
+      {
+        "raw_bin0": 0,
+        "source_parents": 639,
+        "REAL_parents": 1670,
+        "joint_count_mass": 638.9999999999999,
+        "W1": 0.03215572710829689
+      },
+      {
+        "raw_bin0": 1,
+        "source_parents": 622,
+        "REAL_parents": 2286,
+        "joint_count_mass": 622.0,
+        "W1": 0.014782739223201872
+      },
+      {
+        "raw_bin0": 2,
+        "source_parents": 621,
+        "REAL_parents": 2533,
+        "joint_count_mass": 621.0,
+        "W1": 0.014588511689029953
+      },
+      {
+        "raw_bin0": 3,
+        "source_parents": 581,
+        "REAL_parents": 2604,
+        "joint_count_mass": 581.0,
+        "W1": 0.007055587979612552
+      },
+      {
+        "raw_bin0": 4,
+        "source_parents": 561,
+        "REAL_parents": 2689,
+        "joint_count_mass": 560.9999999999998,
+        "W1": 0.0011203530317180847
+      },
+      {
+        "raw_bin0": 5,
+        "source_parents": 399,
+        "REAL_parents": 2624,
+        "joint_count_mass": 399.0,
+        "W1": 0.00014744799565342455
+      },
+      {
+        "raw_bin0": 6,
+        "source_parents": 214,
+        "REAL_parents": 2526,
+        "joint_count_mass": 214.0,
+        "W1": 0.0001496329729760187
+      },
+      {
+        "raw_bin0": 7,
+        "source_parents": 116,
+        "REAL_parents": 1963,
+        "joint_count_mass": 116.0,
+        "W1": 0.14434017464815713
+      },
+      {
+        "raw_bin0": 8,
+        "source_parents": 918,
+        "REAL_parents": 1032,
+        "joint_count_mass": 918.0,
+        "W1": 0.20698644890844897
+      }
+    ],
+    "overall_within_numerical_tolerance": true,
+    "conditional_within_numerical_tolerance": true
+  },
+  "valleys": [
+    {
+      "bin": 3,
+      "source_parents": 482,
+      "original_fraction": 0.0,
+      "candidate_fraction": 0.02,
+      "delta": 0.02,
+      "allowed_delta": 0.02,
+      "within_numerical_tolerance": true
+    },
+    {
+      "bin": 4,
+      "source_parents": 435,
+      "original_fraction": 0.0,
+      "candidate_fraction": 0.020000000000000004,
+      "delta": 0.020000000000000004,
+      "allowed_delta": 0.02,
+      "within_numerical_tolerance": true
+    }
+  ],
+  "weighted_SOURCE_PSD_rho": 0.924042043980706,
+  "independent_solver_verification": {
+    "equality_residual_max": 3.58046925441613e-13,
+    "inequality_violation_max": 2.2655390063963665e-10,
+    "lower_bound_violation_max": 0.0,
+    "CDF_slack_upper_bound_violation_max": 0.0,
+    "group_row_error_max": 1.8562928971732617e-13,
+    "target_column_error_max": 3.2862601528904634e-13,
+    "per_parent_probability_sum_error_max": 6.195044477408373e-14,
+    "SOURCE_global_weight_error_max": 9.405453846311751e-18,
+    "strict_nonnegative_probability_law": true,
+    "objective_from_saved_solution": -507.68312533301867,
+    "numeric_feasible": true
+  },
+  "saved_law_equals_saved_LP_solution": true,
+  "exact_REAL_integer_quantile_mass_checked": true,
+  "root_saved_marginal_check": {
+    "group_row_error_max": 1.8562928971732617e-13,
+    "target_column_error_max": 3.2862601528904634e-13
+  },
+  "ADC_summary": {
+    "raw_bin0": null,
+    "source_parents": 6593,
+    "original_input_overrange_parents": 816,
+    "parents_with_positive_impossible_probability": 202,
+    "impossible_global_mass": 0.029210108113267814,
+    "impossible_conditional_probability": 0.029210108113267814,
+    "originally_in_range_impossible_global_mass": 0.0,
+    "originally_overrange_impossible_global_mass": 0.029210108113267814,
+    "free_PSD_observed_baseline_impossible_parents": 0,
+    "absolute_ADC_charge_impossible_parents": 0
+  },
+  "original_A_F_changed": false,
+  "evaluation_source_population_changed": false,
+  "teacher_waveforms_constructed": 0,
+  "new_response_training": 0,
+  "next_action": "封存R58有限统计族结果，以此作为联合PSD与源关联并非已被排除的证据。下一轮预登记直接无配对的全窗神经分布训练：保留全部原TRAIN源父事件等权，联合考虑总体/条件PSD、真实全窗条件分布、源秩/谷概率、精确电荷、ADC范围和同处理REAL控制；不把R58有限原子或分数组合充当逐事件真实目标波形。先仅用合法TRAIN固定网络、损失和一个科学终点，再执行冻结候选的原数值检查、完整A–C及独立重放；通过后继续原D/E。R58的2.92% TRAIN不可实现质量不授权修改原DEV人口、阈值或删除支持外源。",
+  "interpretation_limits": [
+    "The result is a floating-point feasible law in the single registered finite family, not a rational certificate or an upper bound over all mappings.",
+    "The conditional mean 0.0100000000000698 and both valley fractions are at their numerical constraint boundaries; individual Q1-Q3 W1 values exceed 0.01.",
+    "The source parent marginal is unchanged, but statistical fractional assignments are not true particle labels or physical event pairs.",
+    "The TRAIN rank correlation and valley references are not the original DEV C-gate comparison.",
+    "ADC impossibility is conditional on the observed REAL baseline range; no waveform, noise, width, source perturbation, boundary or DEV acceptance is established.",
+    "All ten regions and failed exterior behavior remain in the saved law and report; no region is removed.",
+    "The same frozen neural method must still pass the complete original A-F and actual delivery."
+  ]
+}
