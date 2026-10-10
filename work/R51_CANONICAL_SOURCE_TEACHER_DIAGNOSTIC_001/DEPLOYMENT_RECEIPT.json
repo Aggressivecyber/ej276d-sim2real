@@ -1,0 +1,64 @@
+{
+  "UTC": "2026-10-10T16:03:26.275093+00:00",
+  "control_PID": 62540,
+  "events": [
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "scp",
+        "-q",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\config.json",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\SOURCE_INPUT_PRIVATE.npz",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\INPUT_BINDING.json",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\feature_definitions.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\numeric_worker.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\linux_supervise_post.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\linux_owned_worker.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\PROTOCOL.md",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\Q_DEFINITION.json",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R51_CANONICAL_SOURCE_TEACHER_DIAGNOSTIC_001\\VALLEY_DEFINITION.json",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC/"
+      ],
+      "native_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "{\n  \"supervisor_PID\": 16464,\n  \"launch_time_unix\": 1791648204.6497006,\n  \"stage\": \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC\",\n  \"actual_job\": {\n    \"entry\": \"numeric_worker.py\",\n    \"supervisor_PID\": 16464,\n    \"start_UTC\": \"2026-10-10T16:03:24.682739+00:00\",\n    \"python\": \"/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python\",\n    \"limit_s\": null,\n    \"compute_budget_enforced\": false,\n    \"wall_deadline_UTC\": null,\n    \"stage_output_limit_bytes\": null,\n    \"actual_worker_PID\": 16465,\n    \"actual_worker_RSS_peak_bytes\": 12951552,\n    \"memory_probe_failures\": 0,\n    \"memory_probe_failure_events\": [],\n    \"handshake_before_imports\": true,\n    \"job_tree_RSS_peak_bytes\": 0,\n    \"execution_device\": \"cpu\",\n    \"GPU_admission_applied\": false,\n    \"GPU_process_memory_peak_bytes\": null,\n    \"RSS_limit_bytes\": 51539607552,\n    \"start_resource\": {\n      \"UTC\": \"2026-10-10T16:03:24.682635+00:00\",\n      \"MemAvailable_bytes\": 62202138624,\n      \"RSS_quota_bytes\": 51539607552,\n      \"CPU_threads\": 12,\n      \"disk_free_bytes\": 24417521664,\n      \"other_own_project_jobs\": [],\n      \"execution_device\": \"cpu\",\n      \"GPU_admission_applied\": false,\n      \"GPU_allocated_reserved_safety_limits_bytes\": 10737418240,\n      \"compute_budget_enforced\": false,\n      \"limit_s\": null,\n      \"stage_output_limit_bytes\": null\n    },\n    \"launcher_PID\": 16465,\n    \"last_disk_free_bytes\": 24417505280,\n    \"actual_worker_parent_PID\": 16464\n  },\n  \"immediate_exit\": null\n}\n",
+      "stderr": ""
+    }
+  ]
+}
