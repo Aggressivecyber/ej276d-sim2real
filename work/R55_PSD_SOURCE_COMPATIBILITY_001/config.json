@@ -1,0 +1,58 @@
+{
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "stage": "R55_PSD_SOURCE_COMPATIBILITY_001",
+  "owner": "/root",
+  "subagents_allowed": false,
+  "registered_UTC": "2026-10-10T17:57:18.820551+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R55_ROOT_20261010_175719_UTC",
+  "protocol": "tasks/R55_PSD_SOURCE_COMPATIBILITY_001.md",
+  "allowed_scientific_entries": [
+    "numeric_worker.py"
+  ],
+  "input_paths": {
+    "features": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/results/FEATURES_PRIVATE.npz",
+    "metrics": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/metrics.json",
+    "actual_inputs": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/ACTUAL_GENERATION_INPUTS.npz",
+    "source_metadata": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/DEV_SOURCE_METADATA.npz",
+    "response_ids": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC/CONTINUOUS_Q_RESPONSE/generated.npz",
+    "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json",
+    "width_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/DIAGNOSTIC_DEFINITION.json"
+  },
+  "SOURCE_N": 2000,
+  "REAL_N": 2000,
+  "expected_purehad_counts": {
+    "bin3": 213,
+    "bin4": 181
+  },
+  "original_overall_W1_max": 0.01,
+  "original_conditional_mean_W1_max": 0.01,
+  "original_valley_delta_max": 0.02,
+  "diagnostic_PSD_margin": 1e-06,
+  "q_relative_tolerance": 1e-05,
+  "ADC_q_bound_LSB": 600,
+  "q_absolute_margin_Vns": 1e-06,
+  "log_boundary_margin": 1e-10,
+  "min_common_bin_N": 40,
+  "LP_method": "highs-ds",
+  "LP_attempts": 1,
+  "LP_options": {
+    "presolve": true,
+    "threads": 12,
+    "parallel": false
+  },
+  "response_training_runs": 0,
+  "HGB_fits": 0,
+  "density_fits": 0,
+  "ODE_generation": 0,
+  "historically_exposed_DEV_read": true,
+  "CAL_decode": 0,
+  "EVAL_read": 0
+}
