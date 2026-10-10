@@ -37,3 +37,9 @@ R48新增DEV推理、HGB、EM和主输出独立重放均为0。已完成TRAIN求
 可复核入口：[执行器报告](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/REPORT.md)、[数值结果](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAIN_SOLVER_CHECK.json)、[训练摘要](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/TRAINING_COMPACT.json)、[资源回执](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/RESOURCE_RECEIPT.json)、[原生退出链](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/NATIVE_CHAIN.json)、[复现说明](work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/REPRODUCTION.md)、[根复核](reviews/ROOT_R48_KEY_RESULT_REVIEW_001.json)、[原A–F](PROJECT_ACCEPTANCE.md)。config.json继承的new_response_training_runs=0仅为非生效历史元数据；真实两次训练以原生回执及TRAINING_COMPACT为准，冻结配置未为美化计数而改写。
 
 所有本机新增数据/源码/日志/缓存/临时文件保留E/D；原始和封存资料未覆盖。科学产物在E及已用服务器新目录保存；原始输入为既有依赖，D增量不应宣称重新归档了所有外部原始数据。恢复入口并不代表执行过恢复测试。模型目标仍未完成。
+
+## 实际阶段交付
+
+科学产物私有 Git 提交 `9e963b76346b58f9ab6bfaeb9170f240f88f110a` 已推送且远端一致。D 盘新增正常复制 1590 文件、73,489,914 B，增量 Git bundle 671,825 B；目录 `D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r48_guided_noise_final_20261010_090139_UTC`。恢复需要 BACKUP_FILE_LIST.json 指定的全部历史副本及 Git bundle 链；该目录单独不是完整快照。最终状态文件另存于 delivery_completion 小型增量目录。既有副本未覆盖，没有执行迁移内容一致性测试或恢复测试。
+
+最终回执：[R48_DELIVERY_COMPLETION_RECEIPT.json](R48_DELIVERY_COMPLETION_RECEIPT.json)。

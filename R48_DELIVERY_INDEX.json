@@ -1,6 +1,6 @@
 {
   "stage": "R48_GUIDED_NOISE_COMPLETION_FLOW_001",
-  "status": "science_sealed_publication_and_backup_pending",
+  "status": "scientific_artifacts_published_and_backed_up_final_receipt_authoritative",
   "created_UTC": "2026-10-10T09:01:39.975718+00:00",
   "report": "R48_REPORT.md",
   "execution_plan": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
@@ -9,23 +9,32 @@
   "scientific_decision": "close_fixed_R48_Heun64_recipe_numerical_failure_before_DEV",
   "original_acceptance_A_F_unchanged": true,
   "private_Git": {
-    "status": "pending",
+    "status": "verified_published",
     "repository": "Aggressivecyber/ej276d-sim2real",
     "visibility": "PRIVATE",
-    "receipt": "R48_PUBLICATION_RECEIPT.json"
+    "receipt": "R48_PUBLICATION_RECEIPT.json",
+    "scientific_artifact_commit": "9e963b76346b58f9ab6bfaeb9170f240f88f110a"
   },
   "backup": {
-    "status": "pending",
+    "status": "copy_completed",
     "directory": "D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r48_guided_noise_final_20261010_090139_UTC",
     "receipt": "R48_BACKUP_RECEIPT.json",
     "mode": "incremental_with_explicit_R44_R45_R46_R47_dependencies",
-    "standalone_full_snapshot": false
+    "standalone_full_snapshot": false,
+    "base_dependencies": [
+      "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r44_psd_velocity_final_20261010_005904_UTC",
+      "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r45_extended_budget_final_20261010_014746_UTC",
+      "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r46_fixed_integration_final_20261010_024218_UTC",
+      "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r47_population_noise_final_20261010_060645_UTC"
+    ],
+    "metadata_overlay_directory": "D:/GAN_backups/research/sim2real_two_papers_20261008_0305/r48_guided_noise_final_20261010_090139_UTC/delivery_completion",
+    "metadata_overlay_receipt": "R48_DELIVERY_COMPLETION_RECEIPT.json"
   },
   "bindings": [
     {
       "path": "R48_REPORT.md",
-      "bytes": 4947,
-      "sha256": "bfae5ad2985fd82eb11187043dd50a493f9ef61a2c5a48f25c220d81df7fbc23"
+      "bytes": 5638,
+      "sha256": "81bafe1e3560a078e9910272fdc9475f233fa27d23e8390dfc24a79d2f605ec9"
     },
     {
       "path": "tasks/R48_GUIDED_NOISE_COMPLETION_FLOW_001.md",
@@ -72,5 +81,6 @@
       "bytes": 3363,
       "sha256": "86e688104df860689b6cf4b6a96caa6f9eef1f55fb36234250e50222d96ad69e"
     }
-  ]
+  ],
+  "delivery_completion_receipt": "R48_DELIVERY_COMPLETION_RECEIPT.json"
 }
