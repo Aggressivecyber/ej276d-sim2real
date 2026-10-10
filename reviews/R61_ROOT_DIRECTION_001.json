@@ -1,0 +1,278 @@
+{
+  "UTC": "2026-10-10T23:24:19.140733+00:00",
+  "stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001",
+  "scientific_decision": "close_fixed_R61_precision_order_ablation",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "root_only": true,
+  "A_C": {
+    "A": false,
+    "B": false,
+    "C": false
+  },
+  "fixed_stage_gates": {
+    "gate1_complete_response": false,
+    "gate2_PSD_width_centers_noise": false,
+    "gate3_source_preservation": true,
+    "gate4_boundary_source": false,
+    "gate5_same_treated_REAL_control": true,
+    "gate6_numerical_replay": true
+  },
+  "PSD": {
+    "overall_PSD_W1": 0.010148559344896581,
+    "common_Q1_7_PSD_W1": 0.012159815007557322,
+    "peak_MAE_required_Q2_7": {
+      "0": 0.01290434569195261,
+      "1": 0.00745929495033588
+    },
+    "raw_width_relative_errors": {
+      "0": {
+        "required_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "failed_required_bins": [],
+        "mean_absolute_relative_rawSD_error": 0.2252719825787559,
+        "pass": false
+      },
+      "1": {
+        "required_bins_1based": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "failed_required_bins": [],
+        "mean_absolute_relative_rawSD_error": 0.2093912539916699,
+        "pass": false
+      }
+    },
+    "original_noise_side_effects_required": true,
+    "pass": false
+  },
+  "SOURCE_C2ST": {
+    "full_historical_shape": {
+      "BA": 0.954,
+      "BA_95CI": [
+        0.9347481189646505,
+        0.9712340806687877
+      ],
+      "pass": false
+    },
+    "normalized_u480": {
+      "BA": 0.938,
+      "BA_95CI": [
+        0.9156677436004824,
+        0.9584971520679986
+      ],
+      "pass": false
+    },
+    "full_voltage": {
+      "BA": 0.9059999999999999,
+      "BA_95CI": [
+        0.8786489435393798,
+        0.9311852334811354
+      ],
+      "pass": false
+    },
+    "Q_PSD_2D": {
+      "BA": 0.652,
+      "BA_95CI": [
+        0.6127323040271837,
+        0.6949651663058102
+      ],
+      "pass": false
+    },
+    "baseline_local": {
+      "BA": 0.812,
+      "BA_95CI": [
+        0.7785317174007138,
+        0.842610900766635
+      ],
+      "pass": false
+    }
+  },
+  "same_treated_REAL_C2ST": {
+    "full_historical_shape": {
+      "BA": 0.518,
+      "BA_95CI": [
+        0.4736980933377209,
+        0.5584957687633364
+      ],
+      "pass": true
+    },
+    "normalized_u480": {
+      "BA": 0.502,
+      "BA_95CI": [
+        0.455647960602838,
+        0.5483161679046586
+      ],
+      "pass": true
+    },
+    "full_voltage": {
+      "BA": 0.51,
+      "BA_95CI": [
+        0.46868059833142556,
+        0.5481812346236075
+      ],
+      "pass": true
+    },
+    "Q_PSD_2D": {
+      "BA": 0.51,
+      "BA_95CI": [
+        0.46638595861219306,
+        0.5523866125789112
+      ],
+      "pass": true
+    },
+    "baseline_local": {
+      "BA": 0.512,
+      "BA_95CI": [
+        0.4757091691038517,
+        0.5545676386511059
+      ],
+      "pass": true
+    }
+  },
+  "paired_R61_minus_R59": {
+    "full_historical_shape": {
+      "BA_delta_first_minus_second": 0.01200000000000001,
+      "BA_delta_95CI": [
+        -0.010809086946283906,
+        0.036170326006619735
+      ],
+      "AUC_delta_first_minus_second": 0.0028000000000000247,
+      "AUC_delta_95CI": [
+        -0.008069933937984034,
+        0.01197479148289046
+      ],
+      "valid_replicates": 500,
+      "clusters": 460,
+      "paired_test_rows_and_groups": true,
+      "conditional_on_two_fitted_classifiers": true,
+      "response_training_uncertainty": false,
+      "reference": "R59_SOURCE"
+    },
+    "normalized_u480": {
+      "BA_delta_first_minus_second": -0.018000000000000016,
+      "BA_delta_95CI": [
+        -0.04165426274458528,
+        0.0051983508806971584
+      ],
+      "AUC_delta_first_minus_second": -0.0038719999999999866,
+      "AUC_delta_95CI": [
+        -0.010414710779577813,
+        0.0015019015153785755
+      ],
+      "valid_replicates": 500,
+      "clusters": 460,
+      "paired_test_rows_and_groups": true,
+      "conditional_on_two_fitted_classifiers": true,
+      "response_training_uncertainty": false,
+      "reference": "R59_SOURCE"
+    },
+    "full_voltage": {
+      "BA_delta_first_minus_second": -0.038000000000000034,
+      "BA_delta_95CI": [
+        -0.061713604201569884,
+        -0.015325097888219232
+      ],
+      "AUC_delta_first_minus_second": -0.01246399999999992,
+      "AUC_delta_95CI": [
+        -0.024075787100083762,
+        -0.003233548643337908
+      ],
+      "valid_replicates": 500,
+      "clusters": 460,
+      "paired_test_rows_and_groups": true,
+      "conditional_on_two_fitted_classifiers": true,
+      "response_training_uncertainty": false,
+      "reference": "R59_SOURCE"
+    },
+    "Q_PSD_2D": {
+      "BA_delta_first_minus_second": -0.09599999999999997,
+      "BA_delta_95CI": [
+        -0.14034891119810855,
+        -0.05224483828477839
+      ],
+      "AUC_delta_first_minus_second": -0.11474399999999996,
+      "AUC_delta_95CI": [
+        -0.15326276135891093,
+        -0.08077610219875352
+      ],
+      "valid_replicates": 500,
+      "clusters": 460,
+      "paired_test_rows_and_groups": true,
+      "conditional_on_two_fitted_classifiers": true,
+      "response_training_uncertainty": false,
+      "reference": "R59_SOURCE"
+    },
+    "baseline_local": {
+      "BA_delta_first_minus_second": -0.06999999999999995,
+      "BA_delta_95CI": [
+        -0.10342299082639926,
+        -0.03577475568331388
+      ],
+      "AUC_delta_first_minus_second": -0.068832,
+      "AUC_delta_95CI": [
+        -0.0958353462012525,
+        -0.04520209368486586
+      ],
+      "valid_replicates": 500,
+      "clusters": 460,
+      "paired_test_rows_and_groups": true,
+      "conditional_on_two_fitted_classifiers": true,
+      "response_training_uncertainty": false,
+      "reference": "R59_SOURCE"
+    }
+  },
+  "failed_boundaries": [
+    {
+      "location": "first_149_150",
+      "candidate_W1_V": 0.003111548556430444,
+      "BASE_W1_V": 0.0014943233839956056,
+      "INDEPENDENT_W1_V": 0.0019123786852224874,
+      "limit_V": 0.0019734175669901734,
+      "pass": false
+    },
+    {
+      "location": "second_center_149",
+      "candidate_W1_V": 0.002663156930965023,
+      "BASE_W1_V": 0.0006816517121406352,
+      "INDEPENDENT_W1_V": 0.000600225843862536,
+      "limit_V": 0.0007426905939083212,
+      "pass": false
+    },
+    {
+      "location": "second_center_150",
+      "candidate_W1_V": 0.0024411279985350667,
+      "BASE_W1_V": 0.0006427699444546163,
+      "INDEPENDENT_W1_V": 0.0006097479094183008,
+      "limit_V": 0.0007038088262223023,
+      "pass": false
+    }
+  ],
+  "single_factor_audit_pass": true,
+  "serialization_only_repair": "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/repairs/AUDIT_JSON_001/REPAIR_REVIEW.json",
+  "new_TRAIN_diagnostic_registered": false,
+  "D_E_started": false,
+  "next_action": "封存R61唯一末点，保留单因素消融带来部分PSD和电压指标改善、但原A–C仍失败的结论。下一轮先预登记仅用合法TRAIN的冻结R61完整波形残差诊断：一次覆盖全部原父事件的前向，分开记录输入、神经位移、约束投影及规范ADC，在固定电荷区间核对全窗电压/归一化形状的一阶二阶差分、基线联合噪声与原PSD谷区，检查现有分布损失的覆盖及随机小批量误差；同处理REAL与全部支持外源同时保留。依据TRAIN证据选择下一项全响应机制；不续训R61、不选择中间检查点或改变原A–F及最终SOURCE人口，也不将R60未触发的标记改判。",
+  "limits": [
+    "Single training seed; paired bootstrap intervals condition on the two fixed fitted classifiers.",
+    "Lower C2ST and PSD errors in some views do not establish joint success or a unique cause.",
+    "R60 three preregistered conflict flags remain untriggered; no retrospective reinterpretation.",
+    "Existing single-acquisition development evidence does not establish independent-acquisition or physical event-pair validity."
+  ],
+  "evidence": [
+    "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/ACCEPTANCE_A_C.json",
+    "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/GATE_METRICS.json",
+    "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/FROZEN_ARTIFACT_REVIEW.json",
+    "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/FIGURE_QA.json"
+  ]
+}

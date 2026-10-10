@@ -1,0 +1,3299 @@
+{
+  "PID": 191731,
+  "UTC": "2026-10-10T23:19:18.241652+00:00",
+  "models": {
+    "PRECISION_RESOLVED_RESPONSE": {
+      "PID": 191731,
+      "arm": "PRECISION_RESOLVED_RESPONSE",
+      "UTC": "2026-10-10T23:19:18.236057+00:00",
+      "RMS_median_LSB": 0.0,
+      "RMS_p95_LSB": 0.0,
+      "RMS_median_V": 0.0,
+      "RMS_p95_V": 0.0,
+      "LSB_V": 6.103888176768602e-05,
+      "median_limit_LSB": 0.25,
+      "p95_limit_LSB": 1.0,
+      "preADC_relative_q_max": 9.452602489887976e-09,
+      "relative_q_limit": 1e-05,
+      "pass": true,
+      "solver128": {
+        "field_calls": 512,
+        "field_forward_rows": 32768,
+        "actual_network_calls": 2,
+        "actual_network_rows": 128,
+        "cached_time_and_state_constant_displacement": true,
+        "max_relative_q_error_f64": 2.3167658458750167e-15,
+        "max_relative_q_error_f32": 9.452602489887976e-09,
+        "steps": 128,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true,
+        "post_integral_box_charge_projection": true,
+        "box_projection_iterations": 64,
+        "range_active_projection_events": 0
+      },
+      "solver256": {
+        "field_calls": 1024,
+        "field_forward_rows": 65536,
+        "actual_network_calls": 2,
+        "actual_network_rows": 128,
+        "cached_time_and_state_constant_displacement": true,
+        "max_relative_q_error_f64": 4.16001719093576e-15,
+        "max_relative_q_error_f32": 9.452602489887976e-09,
+        "steps": 256,
+        "chunk": 64,
+        "fixed_guide": true,
+        "completion": true,
+        "all_rows_new_flow": true,
+        "post_integral_box_charge_projection": true,
+        "box_projection_iterations": 64,
+        "range_active_projection_events": 0
+      },
+      "constraint_projection128": {
+        "N": 128,
+        "range_active_events": 0,
+        "rail_sample_total": 0,
+        "fields": {
+          "pre_constraint_out_of_range_sample_count": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_RMS_V": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_maxabs_V": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_rail_sample_count": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "pre_constraint_charge_relative_error": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 6.390508867125841e-16,
+            "sample_sd": 5.088688959302644e-16,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              2.6447784369569556e-16,
+              5.443980710940654e-16,
+              8.935318636569878e-16,
+              1.5791103304274706e-15,
+              2.3167658458750167e-15
+            ]
+          }
+        },
+        "internal_model_operation": "Euclidean box-charge projection after constant-field Heun",
+        "zero_ADC_clip_count_does_not_mean_zero_model_projection": true,
+        "equal_original_parent_weights": true,
+        "pass_claim": false,
+        "inside_TRAIN_support": {
+          "N": 128,
+          "range_active_events": 0,
+          "rail_sample_total": 0,
+          "fields": {
+            "pre_constraint_out_of_range_sample_count": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_RMS_V": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_maxabs_V": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_rail_sample_count": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "pre_constraint_charge_relative_error": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 6.390508867125841e-16,
+              "sample_sd": 5.088688959302644e-16,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                2.6447784369569556e-16,
+                5.443980710940654e-16,
+                8.935318636569878e-16,
+                1.5791103304274706e-15,
+                2.3167658458750167e-15
+              ]
+            }
+          }
+        },
+        "outside_TRAIN_support": {
+          "N": 0,
+          "range_active_events": 0,
+          "rail_sample_total": 0,
+          "fields": {
+            "pre_constraint_out_of_range_sample_count": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_RMS_V": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_maxabs_V": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_rail_sample_count": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "pre_constraint_charge_relative_error": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            }
+          }
+        },
+        "by_original_charge_region": [
+          {
+            "region": -1,
+            "N": 0,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_RMS_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              }
+            }
+          },
+          {
+            "region": 0,
+            "N": 19,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 7.867808119695751e-16,
+                "sample_sd": 5.260673324727125e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  4.944244840619606e-16,
+                  7.155304330155744e-16,
+                  1.0423475559300111e-15,
+                  1.7284557782389286e-15,
+                  1.9260128270339846e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 1,
+            "N": 17,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 4.741650662955939e-16,
+                "sample_sd": 3.8056184886538977e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  9.175592778532468e-17,
+                  1.3516727112507102e-16,
+                  4.552317292272611e-16,
+                  4.957084863222818e-16,
+                  1.192622462353249e-15,
+                  1.46035998992475e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 2,
+            "N": 15,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 4.2859423145808835e-16,
+                "sample_sd": 3.3511549078467204e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  8.119086567117353e-17,
+                  4.925114342707946e-16,
+                  6.12471384370707e-16,
+                  9.47818019979924e-16,
+                  1.0113776296449662e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 3,
+            "N": 22,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 7.074166600796802e-16,
+                "sample_sd": 6.257747377813535e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  6.1251085700076216e-18,
+                  2.590031321610593e-16,
+                  5.580769238885038e-16,
+                  1.0086120745504722e-15,
+                  1.8554540712043073e-15,
+                  2.3167658458750167e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 4,
+            "N": 16,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 8.055282282959944e-16,
+                "sample_sd": 5.127853692247824e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  1.4640627763940033e-16,
+                  4.1224330757023196e-16,
+                  7.181120792483449e-16,
+                  1.2810145314811846e-15,
+                  1.5804468906331765e-15,
+                  1.6680650079168276e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 5,
+            "N": 19,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 5.935173679158222e-16,
+                "sample_sd": 5.722596007415146e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  1.4153725438220144e-16,
+                  4.3591181502174745e-16,
+                  7.35430249512436e-16,
+                  1.6321909563419287e-15,
+                  1.9748568072645784e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 6,
+            "N": 14,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 6.084920016614595e-16,
+                "sample_sd": 4.2683509608654225e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  3.4129204517333414e-16,
+                  6.213403704888184e-16,
+                  8.837022030858183e-16,
+                  1.188162112328599e-15,
+                  1.4210260537169632e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 7,
+            "N": 6,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 6.85437047457082e-16,
+                "sample_sd": 5.351172952919413e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  2.318859192231323e-16,
+                  9.645554477615887e-16,
+                  1.0384626214961771e-15,
+                  1.1122529973554763e-15,
+                  1.132750300101295e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 8,
+            "N": 0,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_RMS_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              }
+            }
+          }
+        ]
+      },
+      "constraint_projection256": {
+        "N": 128,
+        "range_active_events": 0,
+        "rail_sample_total": 0,
+        "fields": {
+          "pre_constraint_out_of_range_sample_count": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_RMS_V": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_maxabs_V": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "constraint_projection_rail_sample_count": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 0.0,
+            "sample_sd": 0.0,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "pre_constraint_charge_relative_error": {
+            "n": 128,
+            "defined_n": 128,
+            "undefined_n": 0,
+            "mean": 1.274118260325683e-15,
+            "sample_sd": 9.891219830987849e-16,
+            "quantile_levels": [
+              0,
+              0.05,
+              0.25,
+              0.5,
+              0.75,
+              0.95,
+              1
+            ],
+            "quantiles": [
+              0.0,
+              1.544945794645515e-16,
+              4.348006648733324e-16,
+              1.0043652612337255e-15,
+              1.841338563710549e-15,
+              3.1837659811081314e-15,
+              4.16001719093576e-15
+            ]
+          }
+        },
+        "internal_model_operation": "Euclidean box-charge projection after constant-field Heun",
+        "zero_ADC_clip_count_does_not_mean_zero_model_projection": true,
+        "equal_original_parent_weights": true,
+        "pass_claim": false,
+        "inside_TRAIN_support": {
+          "N": 128,
+          "range_active_events": 0,
+          "rail_sample_total": 0,
+          "fields": {
+            "pre_constraint_out_of_range_sample_count": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_RMS_V": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_maxabs_V": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "constraint_projection_rail_sample_count": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 0.0,
+              "sample_sd": 0.0,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "pre_constraint_charge_relative_error": {
+              "n": 128,
+              "defined_n": 128,
+              "undefined_n": 0,
+              "mean": 1.274118260325683e-15,
+              "sample_sd": 9.891219830987849e-16,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": [
+                0.0,
+                1.544945794645515e-16,
+                4.348006648733324e-16,
+                1.0043652612337255e-15,
+                1.841338563710549e-15,
+                3.1837659811081314e-15,
+                4.16001719093576e-15
+              ]
+            }
+          }
+        },
+        "outside_TRAIN_support": {
+          "N": 0,
+          "range_active_events": 0,
+          "rail_sample_total": 0,
+          "fields": {
+            "pre_constraint_out_of_range_sample_count": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_RMS_V": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_maxabs_V": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "constraint_projection_rail_sample_count": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            },
+            "pre_constraint_charge_relative_error": {
+              "n": 0,
+              "defined_n": 0,
+              "undefined_n": 0,
+              "mean": null,
+              "sample_sd": null,
+              "quantile_levels": [
+                0,
+                0.05,
+                0.25,
+                0.5,
+                0.75,
+                0.95,
+                1
+              ],
+              "quantiles": null
+            }
+          }
+        },
+        "by_original_charge_region": [
+          {
+            "region": -1,
+            "N": 0,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_RMS_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              }
+            }
+          },
+          {
+            "region": 0,
+            "N": 19,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 1.3396895858780834e-15,
+                "sample_sd": 1.136771032106658e-15,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  1.539582836351582e-16,
+                  1.5925942186915275e-16,
+                  3.5578173247804237e-16,
+                  1.1613602500040237e-15,
+                  1.9352077827415813e-15,
+                  3.3702659560487797e-15,
+                  4.095611988094749e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 1,
+            "N": 17,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 17,
+                "defined_n": 17,
+                "undefined_n": 0,
+                "mean": 1.416841022598472e-15,
+                "sample_sd": 1.207257867141842e-15,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  2.2135552626399528e-16,
+                  2.421634888823425e-16,
+                  3.650289380549445e-16,
+                  9.005504643682992e-16,
+                  2.161539219574747e-15,
+                  3.211404172534104e-15,
+                  4.16001719093576e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 2,
+            "N": 15,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 15,
+                "defined_n": 15,
+                "undefined_n": 0,
+                "mean": 1.3186286921945469e-15,
+                "sample_sd": 9.145818024448212e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  2.4553959062837964e-16,
+                  6.146109993662898e-16,
+                  1.0563818734143711e-15,
+                  1.830897812342555e-15,
+                  2.756482344793932e-15,
+                  3.298480588674168e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 3,
+            "N": 22,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 22,
+                "defined_n": 22,
+                "undefined_n": 0,
+                "mean": 1.5082938015668984e-15,
+                "sample_sd": 1.0716543996275318e-15,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  1.423584540011207e-16,
+                  1.5996624670176873e-16,
+                  6.364848895970066e-16,
+                  1.2481578838475073e-15,
+                  2.2395419902329314e-15,
+                  3.5032104516653046e-15,
+                  3.7480354815289395e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 4,
+            "N": 16,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 16,
+                "defined_n": 16,
+                "undefined_n": 0,
+                "mean": 1.416485152837202e-15,
+                "sample_sd": 1.0036933526506418e-15,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  8.936062542411575e-17,
+                  7.079717395131421e-16,
+                  1.3144118426412712e-15,
+                  1.9737338663731595e-15,
+                  2.862557634866121e-15,
+                  3.5137506633456082e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 5,
+            "N": 19,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 19,
+                "defined_n": 19,
+                "undefined_n": 0,
+                "mean": 8.876918957514005e-16,
+                "sample_sd": 5.70494961322263e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  1.8226375752372163e-16,
+                  2.797734647654206e-16,
+                  4.3708599932912557e-16,
+                  7.079241581918634e-16,
+                  1.3358497220599255e-15,
+                  1.9550681184669305e-15,
+                  2.0153944827024294e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 6,
+            "N": 14,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 14,
+                "defined_n": 14,
+                "undefined_n": 0,
+                "mean": 1.1281709141681765e-15,
+                "sample_sd": 9.149689625874331e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  1.1383902922108404e-16,
+                  1.215105363630697e-16,
+                  5.028639906787413e-16,
+                  8.857572344005012e-16,
+                  1.598617377179926e-15,
+                  2.928039200020857e-15,
+                  2.98708346283102e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 7,
+            "N": 6,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_RMS_V": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 0.0,
+                "sample_sd": 0.0,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 6,
+                "defined_n": 6,
+                "undefined_n": 0,
+                "mean": 8.767570875689166e-16,
+                "sample_sd": 8.854945954437637e-16,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": [
+                  1.8541772845372756e-16,
+                  1.8544048018492213e-16,
+                  1.8632948070476666e-16,
+                  6.299833997816766e-16,
+                  1.1872097236982186e-15,
+                  2.1092929778612556e-15,
+                  2.403761324713555e-15
+                ]
+              }
+            }
+          },
+          {
+            "region": 8,
+            "N": 0,
+            "range_active_events": 0,
+            "rail_sample_total": 0,
+            "fields": {
+              "pre_constraint_out_of_range_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_RMS_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_maxabs_V": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "constraint_projection_rail_sample_count": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              },
+              "pre_constraint_charge_relative_error": {
+                "n": 0,
+                "defined_n": 0,
+                "undefined_n": 0,
+                "mean": null,
+                "sample_sd": null,
+                "quantile_levels": [
+                  0,
+                  0.05,
+                  0.25,
+                  0.5,
+                  0.75,
+                  0.95,
+                  1
+                ],
+                "quantiles": null
+              }
+            }
+          }
+        ]
+      },
+      "TRAIN_SOURCE_REAL_rows": [
+        64,
+        64
+      ],
+      "white_reference": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "white_prefix": "first128 consumed-row white; original noise-generation ordinal retained",
+      "DEV_read_or_generated": 0,
+      "candidate_steps": 128,
+      "reference_only_steps": 256,
+      "no_step_search": true
+    }
+  },
+  "both_pass": true,
+  "historical_control_pass_reused": true,
+  "new_models": 1,
+  "device": "cuda:0",
+  "elapsed_s": 2.3600805120004225,
+  "DEV_read_or_generated": 0,
+  "new_response_updates": 0,
+  "both_required_before_DEV": true,
+  "CPU_threads": 12,
+  "chunk": 64
+}

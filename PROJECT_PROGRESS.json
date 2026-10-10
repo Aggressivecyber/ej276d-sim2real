@@ -1,11 +1,11 @@
 {
-  "updated_UTC": "2026-10-10T21:43:49.626077+00:00",
-  "project_status": "R60_delivered_long_term_goal_active",
+  "updated_UTC": "2026-10-10T23:24:20.212440+00:00",
+  "project_status": "R61_science_complete_delivery_pending_goal_active",
   "project_objective": "PROJECT_OBJECTIVE.md",
   "application_goal_status": "active",
-  "latest_completed_stage": "R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001",
-  "current_stage": "R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001",
-  "current_task": "tasks/R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001.md",
+  "latest_completed_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001",
+  "current_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001",
+  "current_task": "tasks/R61_PRECISION_RESOLVED_SOURCE_ORDER_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
@@ -13,71 +13,145 @@
     },
     {
       "id": "target_distribution_learning",
-      "status": "R49_joint_A_C_failure_original_thresholds_retained",
+      "status": "R61_A_failed_original_thresholds_retained",
       "latest_evidence": [
-        "R49_REPORT.md",
-        "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
-        "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
-      ]
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/ACCEPTANCE_A_C.json",
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/GATE_METRICS.json",
+        "R61_REPORT.md"
+      ],
+      "prior_status_records": [
+        {
+          "status": "R49_joint_A_C_failure_original_thresholds_retained",
+          "latest_evidence": [
+            "R49_REPORT.md",
+            "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
+            "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
+          ]
+        }
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "G4_conditioned_full_response",
-      "status": "R49_joint_A_C_failure_original_thresholds_retained",
+      "status": "R61_joint_A_C_not_passed",
       "latest_evidence": [
-        "R49_REPORT.md",
-        "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
-        "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
-      ]
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/ACCEPTANCE_A_C.json",
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/GATE_METRICS.json",
+        "R61_REPORT.md"
+      ],
+      "prior_status_records": [
+        {
+          "status": "R49_joint_A_C_failure_original_thresholds_retained",
+          "latest_evidence": [
+            "R49_REPORT.md",
+            "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
+            "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
+          ]
+        }
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "charge_conditional_width_noise_waveform",
-      "status": "R49_joint_A_C_failure_original_thresholds_retained",
+      "status": "R61_B_failed_original_thresholds_retained",
       "latest_evidence": [
-        "R49_REPORT.md",
-        "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
-        "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
-      ]
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/ACCEPTANCE_A_C.json",
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/GATE_METRICS.json",
+        "R61_REPORT.md"
+      ],
+      "prior_status_records": [
+        {
+          "status": "R49_joint_A_C_failure_original_thresholds_retained",
+          "latest_evidence": [
+            "R49_REPORT.md",
+            "reviews/R49_LOCAL_ACCEPTANCE_OBSERVATION_001.json",
+            "work/R49_LOCAL_HEUN128_RECOVERY_001/GATE_METRICS.json"
+          ]
+        }
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "task_utility",
-      "status": "partial_budget_estimator_target_dependent_R5"
+      "status": "not_evaluated_for_frozen_R61",
+      "prior_status_records": [
+        {
+          "status": "partial_budget_estimator_target_dependent_R5",
+          "latest_evidence": []
+        }
+      ],
+      "latest_evidence": [
+        "PROJECT_ACCEPTANCE.json",
+        "reviews/FROZEN_A_F_VALIDATION_PREPARATION_001.md"
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "charge_gap_generalization",
-      "status": "unmet_R6_no_reliable_full_response"
+      "status": "not_evaluated_for_frozen_R61",
+      "prior_status_records": [
+        {
+          "status": "unmet_R6_no_reliable_full_response",
+          "latest_evidence": []
+        }
+      ],
+      "latest_evidence": [
+        "PROJECT_ACCEPTANCE.json",
+        "reviews/FROZEN_A_F_VALIDATION_PREPARATION_001.md"
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "reproducible_final_model",
-      "status": "R49_8000_main_replay_passed_no_A_F_final_model",
+      "status": "R61_inference_and_replay_verified_full_A_F_unproven",
       "latest_evidence": [
-        "work/R49_LOCAL_HEUN128_RECOVERY_001/FINAL_RECEIPT.json",
-        "work/R49_LOCAL_HEUN128_RECOVERY_001/REPLAY_RECEIPT.json"
-      ]
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/FROZEN_ARTIFACT_REVIEW.json",
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/REPLAY_RECEIPT.json"
+      ],
+      "prior_status_records": [
+        {
+          "status": "R49_8000_main_replay_passed_no_A_F_final_model",
+          "latest_evidence": [
+            "work/R49_LOCAL_HEUN128_RECOVERY_001/FINAL_RECEIPT.json",
+            "work/R49_LOCAL_HEUN128_RECOVERY_001/REPLAY_RECEIPT.json"
+          ]
+        }
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     },
     {
       "id": "final_research_delivery",
-      "status": "R1_R49_stage_evidence_delivered_model_goal_unmet",
+      "status": "R61_scientific_endpoint_complete_private_Git_D_pending",
       "latest_evidence": [
-        "R49_REPORT.md",
-        "R49_PUBLICATION_RECEIPT.json",
-        "R49_BACKUP_RECEIPT.json"
-      ]
+        "work/R61_PRECISION_RESOLVED_SOURCE_ORDER_001/FINAL_RECEIPT.json"
+      ],
+      "prior_status_records": [
+        {
+          "status": "R1_R49_stage_evidence_delivered_model_goal_unmet",
+          "latest_evidence": [
+            "R49_REPORT.md",
+            "R49_PUBLICATION_RECEIPT.json",
+            "R49_BACKUP_RECEIPT.json"
+          ]
+        }
+      ],
+      "candidate_stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001"
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "封存R60，保留三个预设冲突标记均未触发的结论。下一轮预登记独立的单因素存储精度排序消融：相对R59只取消float32 PSD区间重叠父对的顺序罚，保留原非零父对分母、全部源父事件及其他六项损失；原网络、初始化、随机流、常数和唯一50000步终点保持。依据是直接核验的存储顺序不可分辨性，而非宣称17/32达到24/32。先检查新损失语义和复现绑定，再从零训练；同一冻结末点沿用原数值门与完整A–C，失败关闭，通过才继续D/E。原A–F、最终SOURCE人口和阈值不变。",
+  "current_direction": "封存R61唯一末点，保留单因素消融带来部分PSD和电压指标改善、但原A–C仍失败的结论。下一轮先预登记仅用合法TRAIN的冻结R61完整波形残差诊断：一次覆盖全部原父事件的前向，分开记录输入、神经位移、约束投影及规范ADC，在固定电荷区间核对全窗电压/归一化形状的一阶二阶差分、基线联合噪声与原PSD谷区，检查现有分布损失的覆盖及随机小批量误差；同处理REAL与全部支持外源同时保留。依据TRAIN证据选择下一项全响应机制；不续训R61、不选择中间检查点或改变原A–F及最终SOURCE人口，也不将R60未触发的标记改判。",
   "next_round_policy": "User-authorized no compute budgets; retain original A-F and register any distinct next scientific protocol.",
-  "current_activity": "root_following_R60_evidence_backed_direction",
+  "current_activity": "root_R61_delivery",
   "latest_user_steering": "主助手独立完成原A–F长期目标，不设计算预算",
   "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
   "latest_user_steering_receipt": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
   "execution_location": {
-    "mode": "server_GPU_single_frozen_diagnostic",
+    "mode": "server_GPU_single_root_neural_training",
     "host": "rylan@100.82.231.102",
-    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R60_ROOT_20261010_212220_UTC",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC",
     "CPU_threads": 12,
     "job_tree_RSS_bytes": 51539607552,
-    "current_stage_GPU_used": true,
+    "current_stage_GPU_used": false,
     "preflight_required": false,
     "server_user_reported_state": "online",
     "remote_previous_attempt_terminal": "unknown_process_absent_after_restart",
@@ -104,8 +178,8 @@
   "current_stage_deadline_UTC": null,
   "stage_deadline_UTC": null,
   "executor_seal_deadline_UTC": null,
-  "current_stage_progress": "sealed_and_delivered",
-  "status": "R60_delivered_long_term_goal_active",
+  "current_stage_progress": "science_complete_delivery_pending",
+  "status": "R61_science_complete_delivery_pending_goal_active",
   "goal_status_note": "Application get_goal confirmed active; same original A-F objective, root-only, no quotas.",
   "latest_delivered_stage": "R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001",
   "latest_stage_publication": "R60_PUBLICATION_RECEIPT.json",
@@ -123,24 +197,24 @@
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r48_guided_noise_final_20261010_090139_UTC"
   ],
   "execution_plan": "PROJECT_EXECUTION_PLAN_20261010_002.md",
-  "current_stage_scope": "frozen_R59_TRAIN_loss_gradient_diagnostic",
+  "current_stage_scope": "single_factor_precision_resolved_source_order_ablation",
   "current_executor_ack": null,
   "original_fixed_charge_flow_family_closed": true,
   "current_route_research_closed": true,
   "active_scientific_jobs": 0,
   "delivery_completion_receipt": "R60_DELIVERY_COMPLETION_RECEIPT.json",
   "goal_activation_receipt": "reviews/PROJECT_GOAL_ACTIVATION_20261010_001/RECEIPT.json",
-  "next_action": "封存R60，保留三个预设冲突标记均未触发的结论。下一轮预登记独立的单因素存储精度排序消融：相对R59只取消float32 PSD区间重叠父对的顺序罚，保留原非零父对分母、全部源父事件及其他六项损失；原网络、初始化、随机流、常数和唯一50000步终点保持。依据是直接核验的存储顺序不可分辨性，而非宣称17/32达到24/32。先检查新损失语义和复现绑定，再从零训练；同一冻结末点沿用原数值门与完整A–C，失败关闭，通过才继续D/E。原A–F、最终SOURCE人口和阈值不变。",
-  "current_stage_registration": "reviews/R60_REGISTRATION_001/RECEIPT.json",
+  "next_action": "封存R61唯一末点，保留单因素消融带来部分PSD和电压指标改善、但原A–C仍失败的结论。下一轮先预登记仅用合法TRAIN的冻结R61完整波形残差诊断：一次覆盖全部原父事件的前向，分开记录输入、神经位移、约束投影及规范ADC，在固定电荷区间核对全窗电压/归一化形状的一阶二阶差分、基线联合噪声与原PSD谷区，检查现有分布损失的覆盖及随机小批量误差；同处理REAL与全部支持外源同时保留。依据TRAIN证据选择下一项全响应机制；不续训R61、不选择中间检查点或改变原A–F及最终SOURCE人口，也不将R60未触发的标记改判。",
+  "current_stage_registration": "reviews/R61_REGISTRATION_001/RECEIPT.json",
   "next_prepared_task": null,
   "executor_start_observation": null,
   "last_native_observation": "work/R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001/LIVE_OBSERVATION.json",
   "current_job": {
-    "stage": "R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001",
-    "status": "sealed_and_delivered_no_live_job",
+    "stage": "R61_PRECISION_RESOLVED_SOURCE_ORDER_001",
+    "status": "science_complete_delivery_pending",
     "active_scientific_jobs": 0,
-    "actual_worker_PID": 153550,
-    "supervisor_PID": 153545,
+    "actual_worker_PID": 192902,
+    "supervisor_PID": 192901,
     "actual_native_exit": 0
   },
   "latest_training_progress": [
@@ -174,7 +248,7 @@
     }
   ],
   "updated_at_utc": "2026-10-10T14:30:52.917424+00:00",
-  "latest_scientific_decision": "close_completed_frozen_diagnostic_all_three_preset_markers_false",
+  "latest_scientific_decision": "close_fixed_R61_precision_order_ablation",
   "improvement_block_closed": false,
   "further_scientific_execution_authorized": true,
   "queued_stage_registration": null,
@@ -197,7 +271,7 @@
   "global_single_physical_job_confirmed": false,
   "execution_owner": "/root",
   "subagents_allowed": false,
-  "latest_completed_report": "R60_REPORT.md",
+  "latest_completed_report": "R61_REPORT.md",
   "latest_completed_review": "reviews/R60_ROOT_DIRECTION_001.json",
   "latest_numeric_receipt": "work/R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
   "latest_completed_backup": "R60_BACKUP_RECEIPT.json",
@@ -207,5 +281,6 @@
   "delivery_index": "R60_DELIVERY_COMPLETION_RECEIPT.json",
   "publication_receipt": "R60_PUBLICATION_RECEIPT.json",
   "backup_receipt": "R60_BACKUP_RECEIPT.json",
-  "latest_key_result_review": "reviews/R60_ROOT_DIRECTION_001.json"
+  "latest_key_result_review": "reviews/R61_ROOT_DIRECTION_001.json",
+  "full_A_F_proven": false
 }

@@ -1,0 +1,330 @@
+{
+  "pass": true,
+  "checks": {
+    "sole_50000": true,
+    "one_fresh_fit_no_teacher": true,
+    "all_eligible_parents_seen": true,
+    "new_seed_matches": true,
+    "no_validation_decode": true,
+    "loss_records_complete_finite": true,
+    "counter_totals": true,
+    "positive_exposures_and_totals": true,
+    "exact_stratified_draw_totals": true,
+    "initial_state_hash_matches": true,
+    "six_consumed_stream_hashes": true,
+    "all_RNG_states_saved": true,
+    "initial_PCG64_states_match_seeds": true,
+    "q_error_within_original_tolerance": true,
+    "GPU_within_cap": true,
+    "no_network_h_or_PDG": true,
+    "seven_losses_sum": true,
+    "R59_initial_state_equal": true,
+    "R59_all_six_consumed_streams_equal": true,
+    "R59_parent_arrays_and_exposures_equal": true,
+    "R59_final_PCG64_states_equal": true,
+    "R59_frozen_distribution_statistics_byte_identical": true,
+    "single_factor_receipt_assertions_match": true,
+    "precision_trace_complete_finite_nonnegative": true,
+    "original_order_equals_resolved_plus_omitted": true,
+    "original_pair_mass_and_resolved_fraction_valid": true,
+    "precision_intervals_cover_original_source": true,
+    "precision_rule_frozen_original_denominator": true
+  },
+  "weight_file_SHA256": "bb9e05b98537b002db1866fdc47c20a28415e7a93649d90bb5308ebcac4af732",
+  "loss_columns": [
+    "total_loss",
+    "full_window",
+    "PSD",
+    "source_order",
+    "source_valley",
+    "noise",
+    "REAL_identity",
+    "box_correction",
+    "learning_rate",
+    "gradient_norm",
+    "max_relative_q_f64",
+    "max_relative_q_f32",
+    "SOURCE_global_range_projection_fraction",
+    "REAL_range_projection_fraction",
+    "SOURCE_global_projection_RMS_V",
+    "REAL_projection_RMS_V",
+    "overall_PSD_W1",
+    "Q1_Q7_mean_PSD_W1",
+    "Q3_h_one_soft_valley",
+    "Q4_h_one_soft_valley"
+  ],
+  "all_updates_recorded": 50000,
+  "constraint_loss_trace_summary": {
+    "SOURCE_global_range_projection_fraction": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.12099528079023206,
+      "sample_sd": 0.008984495001798532,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.07832170483846504,
+        0.10442893978462006,
+        0.11748255725769756,
+        0.12183376308205673,
+        0.1261849689064159,
+        0.13488738055513422,
+        0.14033823752464736
+      ]
+    },
+    "REAL_range_projection_fraction": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "SOURCE_global_projection_RMS_V": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.041235625474524515,
+      "sample_sd": 0.005723245836292815,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.016535398680034303,
+        0.030043031197334473,
+        0.03852899215951802,
+        0.04190146301093932,
+        0.04496273486417907,
+        0.04911870391486256,
+        0.058610284154623216
+      ]
+    },
+    "REAL_projection_RMS_V": {
+      "n": 50000,
+      "defined_n": 50000,
+      "undefined_n": 0,
+      "mean": 0.0,
+      "sample_sd": 0.0,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "TRAIN_summary_measure": "per-update minibatch estimates, SOURCE weighted by original region mass; not exhaustive frozen TRAIN inference",
+  "stream_reconstruction_executed": false,
+  "realized_exposures_uniform": false,
+  "equal_parent_global_measure_in_expectation": true,
+  "comparison_with_R59_is_single_factor_ablation": true,
+  "single_factor_precision_order": {
+    "pass": true,
+    "checks": {
+      "R59_initial_state_equal": true,
+      "R59_all_six_consumed_streams_equal": true,
+      "R59_parent_arrays_and_exposures_equal": true,
+      "R59_final_PCG64_states_equal": true,
+      "R59_frozen_distribution_statistics_byte_identical": true,
+      "single_factor_receipt_assertions_match": true,
+      "precision_trace_complete_finite_nonnegative": true,
+      "original_order_equals_resolved_plus_omitted": true,
+      "original_pair_mass_and_resolved_fraction_valid": true,
+      "precision_intervals_cover_original_source": true,
+      "precision_rule_frozen_original_denominator": true
+    },
+    "historical_R59_parent_array_checks": {
+      "source_ids": true,
+      "source_counts": true,
+      "REAL_reference_counts": true,
+      "REAL_identity_counts": true,
+      "source_bin0": true,
+      "REAL_bin0": true,
+      "source_h": true,
+      "source_original_psd": true,
+      "source_original_q": true
+    },
+    "precision_trace_columns": [
+      "original_order_loss",
+      "omitted_order_loss",
+      "original_nonzero_pair_mass",
+      "resolved_pair_fraction"
+    ],
+    "rows": 50000,
+    "original_minus_resolved_minus_omitted_maxabs": 1.7763568394002505e-15,
+    "trace_summary": {
+      "original_order_loss": {
+        "n": 50000,
+        "defined_n": 50000,
+        "undefined_n": 0,
+        "mean": 2.530046562428078,
+        "sample_sd": 0.3677946397800427,
+        "quantile_levels": [
+          0,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          1.1466317914202218,
+          2.050597991006279,
+          2.283994968147407,
+          2.475069985971512,
+          2.710231670287131,
+          3.175510229770947,
+          5.149130647388313
+        ]
+      },
+      "omitted_order_loss": {
+        "n": 50000,
+        "defined_n": 50000,
+        "undefined_n": 0,
+        "mean": 2.0415605155796603,
+        "sample_sd": 0.24036719894486192,
+        "quantile_levels": [
+          0,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.42120821877304016,
+          1.6853369748311864,
+          1.8838919043946953,
+          2.0319015194754804,
+          2.191362622082802,
+          2.4445458282312966,
+          3.2093476988646508
+        ]
+      },
+      "original_nonzero_pair_mass": {
+        "n": 50000,
+        "defined_n": 50000,
+        "undefined_n": 0,
+        "mean": 0.9951152842877864,
+        "sample_sd": 9.554109243751887e-05,
+        "quantile_levels": [
+          0,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.9942238072830181,
+          0.9949377890937708,
+          0.995066616777169,
+          0.9951451959601323,
+          0.9951821559185602,
+          0.9952198538000638,
+          0.9952628347233594
+        ]
+      },
+      "resolved_pair_fraction": {
+        "n": 50000,
+        "defined_n": 50000,
+        "undefined_n": 0,
+        "mean": 0.45490189629561173,
+        "sample_sd": 0.020409688343623007,
+        "quantile_levels": [
+          0,
+          0.05,
+          0.25,
+          0.5,
+          0.75,
+          0.95,
+          1
+        ],
+        "quantiles": [
+          0.35939566862027195,
+          0.42087133309114244,
+          0.4412038689646194,
+          0.4552001851575771,
+          0.4689045370547801,
+          0.4879242732988486,
+          0.5361634661001254
+        ]
+      }
+    },
+    "source_interval_width_summary": {
+      "n": 6593,
+      "defined_n": 6593,
+      "undefined_n": 0,
+      "mean": 1.129416700001824e-07,
+      "sample_sd": 9.79818383840856e-09,
+      "quantile_levels": [
+        0,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        1
+      ],
+      "quantiles": [
+        9.604991080269798e-08,
+        9.88315957295427e-08,
+        1.0657666227320561e-07,
+        1.1129861254843831e-07,
+        1.1762453422381469e-07,
+        1.3159931013806415e-07,
+        1.3555010736077122e-07
+      ]
+    },
+    "same_actual_consumption_not_only_same_seeds": true,
+    "single_training_seed": true,
+    "independent_training_seed_variability_estimated": false,
+    "TRAIN_only_saved_records_no_new_forward_or_fit": true
+  }
+}
