@@ -5,7 +5,7 @@
   "server": "rylan@100.82.231.102",
   "snapshot": "reviews/SERVER_RESOURCE_SNAPSHOT_20261010_002.json",
   "policy": "SERVER_RESOURCE_POLICY.md",
-  "policy_sha256": "669de440b9c9db8328bfe5d468fa0b65726d42441c0ab95db8d3d408af5e95e8",
+  "policy_sha256": "539c0646dee36287a1b39ceb975d9d04d048ece1fd26daf015f10d340107a8e6",
   "server_limits": {
     "CPU_threads": 12,
     "job_tree_RSS_bytes": 51539607552,
@@ -37,7 +37,7 @@
     "all_response_training_runs_max": null,
     "controls_and_repeats_count_towards_run_limit": true,
     "total_science_seconds_max": null,
-    "actual_science_seconds_recorded": 21541.35072075401,
+    "actual_science_seconds_recorded": 21552.26022153701,
     "response_training_runs_started": 3,
     "actual_stage_receipts": [
       {
@@ -105,6 +105,15 @@
         "status": "sealed_full_response_evaluated",
         "stage_science_complete": true,
         "inflight_science_not_yet_in_total": false
+      },
+      {
+        "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+        "receipt": "work/R50_FROZEN_VOLTAGE_ATTRIBUTION_001/RESOURCE_RECEIPT.json",
+        "science_s": 10.909500782999885,
+        "response_training_runs_started": 0,
+        "new_response_updates": 0,
+        "status": "sealed_diagnostic",
+        "stage_science_complete": true
       }
     ],
     "no_automatic_extension_at_limit": false,
@@ -182,6 +191,15 @@
         "new_response_updates": 0,
         "stage_science_complete": true,
         "resource_receipt": "work/R49_LOCAL_HEUN128_RECOVERY_001/RESOURCE_RECEIPT.json"
+      },
+      {
+        "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+        "kind": "diagnostic_not_response_method",
+        "registered_UTC": "2026-10-10T15:38:27.288953+00:00",
+        "science_budget": null,
+        "planned_HGB_fits": 24,
+        "new_training_runs": 0,
+        "status": "sealed_diagnostic"
       }
     ],
     "current_family_status": "fixed_R49_local_recipe_unaccepted_unbudgeted_project_policy_continues",
@@ -383,5 +401,7 @@
     "stage_output_budget_bytes": null,
     "local_files": "E/D only"
   },
-  "unknown_remote_job_observation": "reviews/R49_REMOTE_INTERRUPTION_001.json"
+  "unknown_remote_job_observation": "reviews/R49_REMOTE_INTERRUPTION_001.json",
+  "current_execution_owner": "/root",
+  "current_registered_stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001"
 }

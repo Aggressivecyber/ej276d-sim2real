@@ -1,0 +1,61 @@
+{
+  "UTC": "2026-10-10T15:40:52.096658+00:00",
+  "control_PID": 53568,
+  "events": [
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R50_ROOT_20261010_153827_UTC\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "scp",
+        "-q",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\config.json",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\INPUT_PRIVATE.npz",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\INPUT_BINDING.json",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\numeric_worker.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\linux_supervise_post.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\linux_owned_worker.py",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R50_FROZEN_VOLTAGE_ATTRIBUTION_001\\PROTOCOL.md",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R50_ROOT_20261010_153827_UTC/"
+      ],
+      "native_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "{\n  \"supervisor_PID\": 10614,\n  \"launch_time_unix\": 1791646850.5068474,\n  \"stage\": \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R50_ROOT_20261010_153827_UTC\",\n  \"actual_job\": {\n    \"entry\": \"numeric_worker.py\",\n    \"supervisor_PID\": 10614,\n    \"start_UTC\": \"2026-10-10T15:40:50.541233+00:00\",\n    \"python\": \"/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python\",\n    \"limit_s\": null,\n    \"compute_budget_enforced\": false,\n    \"wall_deadline_UTC\": null,\n    \"stage_output_limit_bytes\": null,\n    \"actual_worker_PID\": 10615,\n    \"actual_worker_RSS_peak_bytes\": 12840960,\n    \"memory_probe_failures\": 0,\n    \"memory_probe_failure_events\": [],\n    \"handshake_before_imports\": true,\n    \"job_tree_RSS_peak_bytes\": 0,\n    \"execution_device\": \"cpu\",\n    \"GPU_admission_applied\": false,\n    \"GPU_process_memory_peak_bytes\": null,\n    \"RSS_limit_bytes\": 51539607552,\n    \"start_resource\": {\n      \"UTC\": \"2026-10-10T15:40:50.541141+00:00\",\n      \"MemAvailable_bytes\": 62466482176,\n      \"RSS_quota_bytes\": 51539607552,\n      \"CPU_threads\": 12,\n      \"disk_free_bytes\": 24274604032,\n      \"other_own_project_jobs\": [],\n      \"execution_device\": \"cpu\",\n      \"GPU_admission_applied\": false,\n      \"GPU_allocated_reserved_safety_limits_bytes\": 10737418240,\n      \"compute_budget_enforced\": false,\n      \"limit_s\": null,\n      \"stage_output_limit_bytes\": null\n    },\n    \"launcher_PID\": 10615,\n    \"last_disk_free_bytes\": 24274587648,\n    \"actual_worker_parent_PID\": 10614\n  },\n  \"immediate_exit\": null\n}\n",
+      "stderr": ""
+    }
+  ]
+}

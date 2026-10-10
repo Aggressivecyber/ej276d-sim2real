@@ -1,0 +1,60 @@
+{
+  "UTC": "2026-10-10T15:43:50.360322+00:00",
+  "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+  "scientific_decision": "ADC_float_representation_confound_supported_frozen_diagnostic_complete",
+  "RAW_ADC_code_changes": 0,
+  "RAW_ADC_voltage_RMS_mean_V": 1.5623751122783264e-08,
+  "RAW_native_BA": 0.546,
+  "RAW_ADC_native_BA": 0.838,
+  "RAW_ADC_canonical_BA": 0.546,
+  "completion_post_native": {
+    "case": "COMPLETION_POST",
+    "view": "native_voltage",
+    "BA": 0.828,
+    "BA_95CI": [
+      0.7956319413681074,
+      0.8579962343681498
+    ],
+    "AUC": 0.9022720000000001,
+    "features": 480,
+    "diagnostic_CI_inside_original_engineering_band": false,
+    "elapsed_s": 0.45509583800003384,
+    "original_A_status_changed": false
+  },
+  "completion_post_canonical": {
+    "case": "COMPLETION_POST",
+    "view": "canonical_ADC_voltage",
+    "BA": 0.526,
+    "BA_95CI": [
+      0.47451519183905877,
+      0.5797141604418911
+    ],
+    "AUC": 0.534848,
+    "features": 480,
+    "diagnostic_CI_inside_original_engineering_band": true,
+    "elapsed_s": 0.38899304099982146,
+    "original_A_status_changed": false
+  },
+  "ADC_pre_post_code_disagreements": {
+    "RAW_LEGACY_ADC": {
+      "same_ADC_codes_before_after": true,
+      "changed_ADC_codes_before_after": 0,
+      "canonical_feature_exact_equal": true
+    },
+    "FIXED_POST": {
+      "same_ADC_codes_before_after": false,
+      "changed_ADC_codes_before_after": 161,
+      "canonical_feature_exact_equal": false
+    },
+    "COMPLETION_POST": {
+      "same_ADC_codes_before_after": false,
+      "changed_ADC_codes_before_after": 67,
+      "canonical_feature_exact_equal": false
+    }
+  },
+  "original_R49_acceptance_rewritten": false,
+  "new_accepted_response_candidate": false,
+  "model_goal_complete": false,
+  "remaining": "SOURCE full shape, PSD/Q-conditional width, absolute source noise and source/temporal constraints remain unresolved.",
+  "next_action": "Register common ADC code representation prospectively for future candidates and controls; then isolate the SOURCE conditional PSD/width and noise mismatch before choosing a new response-training mechanism. Keep original raw-voltage results alongside canonical diagnostics; no historical threshold or result rewriting."
+}

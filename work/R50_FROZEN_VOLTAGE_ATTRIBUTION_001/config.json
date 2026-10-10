@@ -1,0 +1,63 @@
+{
+  "stage": "R50_FROZEN_VOLTAGE_ATTRIBUTION_001",
+  "registered_UTC": "2026-10-10T15:38:27.288953+00:00",
+  "owner": "/root",
+  "subagents_allowed": false,
+  "protocol": "tasks/R50_FROZEN_VOLTAGE_ATTRIBUTION_001.md",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R50_ROOT_20261010_153827_UTC",
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "allowed_scientific_entries": [
+    "numeric_worker.py"
+  ],
+  "planned_HGB_fits": 24,
+  "response_training_runs": 0,
+  "new_generation_rows": 0,
+  "density_fits": 0,
+  "EVAL_read": 0,
+  "CAL_decode": 0,
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "bootstrap_seed": 2026100871,
+  "bootstrap_repeats": 500,
+  "cases": [
+    "RAW_REFERENCE",
+    "RAW_LEGACY_ADC",
+    "FIXED_PRE",
+    "FIXED_POST",
+    "COMPLETION_PRE",
+    "COMPLETION_POST"
+  ],
+  "core_views": [
+    "native_voltage",
+    "canonical_ADC_voltage"
+  ],
+  "decomposition_cases": [
+    "RAW_REFERENCE",
+    "FIXED_POST",
+    "COMPLETION_POST"
+  ],
+  "decomposition_views": [
+    "baseline_subtracted_voltage",
+    "baseline_mean",
+    "baseline_RMS",
+    "pulse_Q_PSD_peak"
+  ],
+  "diagnostic_only": true,
+  "original_acceptance_unchanged": true,
+  "EVAL_remains_closed": true
+}
