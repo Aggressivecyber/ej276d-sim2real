@@ -1,0 +1,253 @@
+{
+  "UTC": "2026-10-11T07:10:44.146486+00:00",
+  "native": {
+    "entry": "pilot.py",
+    "supervisor_PID": 353047,
+    "start_UTC": "2026-10-11T07:05:35.150212+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": 600,
+    "compute_budget_enforced": true,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 353058,
+    "actual_worker_RSS_peak_bytes": 2951745536,
+    "memory_probe_failures": 2,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-11T07:08:56.502914+00:00",
+        "PID": 353058,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      },
+      {
+        "UTC": "2026-10-11T07:08:56.603197+00:00",
+        "PID": 353058,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 2939133952,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 4160749568,
+    "GPU_query_failures": [],
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-11T07:05:35.108873+00:00",
+      "MemAvailable_bytes": 61534371840,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 118681743360,
+      "other_own_project_jobs": [],
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": true,
+      "limit_s": 600,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12168724480,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 353058,
+    "last_disk_free_bytes": 118681358336,
+    "actual_worker_parent_PID": 353047,
+    "last_job_tree_PIDs": [
+      353058
+    ],
+    "actual_worker_native_exit": 1,
+    "launcher_native_exit": 1,
+    "termination_reason": null,
+    "elapsed_s": 201.55318473800435,
+    "stop_UTC": "2026-10-11T07:08:56.703387+00:00",
+    "worker_self_receipt": {
+      "PID": 353058,
+      "parent_PID": 353047,
+      "nonce": "372daf7aec6d4f9ca858acf52362aa59",
+      "entry": "pilot.py",
+      "native_exit": 1,
+      "error": "TimeoutError('full30 arm exceeded180 seconds')",
+      "elapsed_s": 200.6965488309943,
+      "self_peak_RSS_bytes": 2951745536,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-11T07:08:55.862905+00:00"
+    }
+  },
+  "identities": {
+    "actual_worker_PID": {
+      "PID": 353058,
+      "state": null,
+      "terminal": true
+    },
+    "supervisor_PID": {
+      "PID": 353047,
+      "state": null,
+      "terminal": true
+    }
+  },
+  "manifest": [
+    {
+      "path": "BASELINE_BUDGET_GATE.json",
+      "bytes": 329,
+      "sha256": "1fa7e8c923fa6f37416d3a17fc9132467595e08aa2c752a86a3fdfa96ab1c6a4"
+    },
+    {
+      "path": "COMMON_START_RESTORATION.json",
+      "bytes": 973,
+      "sha256": "5c676d1c3c155111e7f4149d7b43fcadb3040c05d5e1d7293cafe46200034fae"
+    },
+    {
+      "path": "ENVIRONMENT.json",
+      "bytes": 289,
+      "sha256": "46847d006d4b178bd858e2479659ddec0d1f3bb55e445dbed7fd2762e373ab3f"
+    },
+    {
+      "path": "FILE_BINDING.json",
+      "bytes": 3575,
+      "sha256": "716f201d6c0bfaf98a2819c30690b25a1d84936721a76a59836ecbcb9114fa2d"
+    },
+    {
+      "path": "PROGRESS.json",
+      "bytes": 198,
+      "sha256": "e576ed718f26b69ee4ff9b062c064c257f3b20f9cfee042f7131d0fb33894086"
+    },
+    {
+      "path": "PROTOCOL.md",
+      "bytes": 7325,
+      "sha256": "48208ed53d4aeee7de6a7859d771282fc5c23d3d995aa708b372c9a5ec8bd5f1"
+    },
+    {
+      "path": "REMOTE_ACTIVE_JOB.json",
+      "bytes": 2404,
+      "sha256": "03104bdfd1781132e3adbfd0fad4967616047231b5407c339d7680f381567403"
+    },
+    {
+      "path": "REMOTE_RUN_HISTORY.json",
+      "bytes": 2562,
+      "sha256": "ea5a2065ec978c0d9b3ffb56305984b2411a8a9439aed9240280d3a2943df025"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 1284,
+      "sha256": "08e3b3b89b88eb4e26ead1482f1240b742188ec40db3ef6471a2707c47bac6ac"
+    },
+    {
+      "path": "ROOT_IMPLEMENTATION_REVIEW.json",
+      "bytes": 2306,
+      "sha256": "a48877b828e7fd74289e88a2665502672bf4c5879f0f78d8b74e817696d70687"
+    },
+    {
+      "path": "SUPERVISOR.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "SUPERVISOR.stdout.log",
+      "bytes": 5544,
+      "sha256": "b07a8f82325530053663e8a3d9f7cac8087d74486421957f5a4b770eea881229"
+    },
+    {
+      "path": "baseline/EVALUATION.json",
+      "bytes": 28930,
+      "sha256": "da8267a82174d371e4047b1e2d5300e07b4cc6c6bed3f59a5c069ea2ad15c0a8"
+    },
+    {
+      "path": "baseline/PROBES.json",
+      "bytes": 25056,
+      "sha256": "24d6066ab2ad6add75f7fd796e1a20b6fafc13b773001b79bba94a2294f890c2"
+    },
+    {
+      "path": "config.json",
+      "bytes": 1505,
+      "sha256": "29e8f7065f2ee143dc9bb56632af867bc9e1393bacbf1d894a3a85d1824845ed"
+    },
+    {
+      "path": "full_step.py",
+      "bytes": 11883,
+      "sha256": "d468b1c1c3b047fb10422dbc0d0a655d4c85087fc22bbbca02714fc37f06952a"
+    },
+    {
+      "path": "linux_owned_worker.py",
+      "bytes": 1535,
+      "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a"
+    },
+    {
+      "path": "linux_supervise.py",
+      "bytes": 11441,
+      "sha256": "e8162783b47ae14d6a656110831a79e92f9b568ba78d70da74cf6f3cef449ca8"
+    },
+    {
+      "path": "mini_step.py",
+      "bytes": 4846,
+      "sha256": "de3cba6e0e8691fd5f9cf94ccd3c95e0cbb9ea01edfc59c9b376bf3aad4c3ca3"
+    },
+    {
+      "path": "pilot.py",
+      "bytes": 25317,
+      "sha256": "b6ba5aa1cbbd1a7ebfd13f26df17dd146ccb80c182e52ae8fef834e2540f16c9"
+    },
+    {
+      "path": "pilot.py.NATIVE_RECEIPT.json",
+      "bytes": 2404,
+      "sha256": "03104bdfd1781132e3adbfd0fad4967616047231b5407c339d7680f381567403"
+    },
+    {
+      "path": "pilot.py.RSS_ACK.json",
+      "bytes": 224,
+      "sha256": "b2be9ec567ccfbda0e5bceb80d0716db1422b0c62ca95e93faa1fb2dabe4268d"
+    },
+    {
+      "path": "pilot.py.SCIENCE_PID.json",
+      "bytes": 535,
+      "sha256": "4b300d3b541ef7b40c4bf7d630b0794a8b3ed28033eb16e7aefe3ab3dddb52c5"
+    },
+    {
+      "path": "pilot.py.START_RESOURCE.json",
+      "bytes": 487,
+      "sha256": "8ba402c24f4ed99b2419d4d206eefe43bb84d41bcdcb50baaea7ce251b7f68a3"
+    },
+    {
+      "path": "pilot.py.WORKER_RECEIPT.json",
+      "bytes": 348,
+      "sha256": "2d25c7ae8189149e19dce267f3ecfdfacd0222c6807c61691e24261f0b911fd0"
+    },
+    {
+      "path": "pilot.py.stderr.log",
+      "bytes": 1328,
+      "sha256": "d965808154b3af7a0a52524d290f777e5735e4fa83f428b5473f91d5b98a8bc9"
+    },
+    {
+      "path": "pilot.py.stdout.log",
+      "bytes": 2039,
+      "sha256": "4c863375b3af505da7e841128af49b1ef1bea3d877cf77975f523973e0dcdbc1"
+    },
+    {
+      "path": "pilot.py.used",
+      "bytes": 33,
+      "sha256": "da99a62e5f62faeb86066b08fd33bd9daa623a683badf0fbd478cc08b4dde6f4"
+    }
+  ],
+  "bundle_SHA256": "8ffa8bb5ae5d4847901433f62c47baba80b19ab0eb61f3ea2229c44325072b70",
+  "bundle_bytes": 194560,
+  "old_checkpoint_unchanged": true,
+  "GPU_processes": "",
+  "local_guard": {
+    "PID": 45704,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R66_EQUAL_COST_PILOT_001\\runtime_cache",
+    "numeric_environment_threads": 1
+  },
+  "local_memory": {
+    "peak_RSS_bytes": 20545536,
+    "RSS_bytes": 20545536,
+    "peak_private_commit_bytes": 12419072
+  },
+  "downloaded_and_reopened": true
+}

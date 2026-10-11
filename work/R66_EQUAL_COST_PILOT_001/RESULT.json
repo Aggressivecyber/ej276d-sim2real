@@ -1,0 +1,11 @@
+{
+  "stage": "R66_EQUAL_COST_PILOT_001",
+  "status": "INCONCLUSIVE_EXECUTION",
+  "original_A_F_complete": false,
+  "original_R65_50000_complete": false,
+  "automatic_long_resume": false,
+  "UTC": "2026-10-11T07:08:55.862047+00:00",
+  "elapsed_s": 200.71186590500292,
+  "error": "TimeoutError('full30 arm exceeded180 seconds')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R66_ROOT_20261011_070346_UTC/pilot.py\", line 306, in <module>\n    full=make_arm('full');Ftrain=train(full,'full')\n                                 ^^^^^^^^^^^^^^^^^^\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R66_ROOT_20261011_070346_UTC/pilot.py\", line 267, in train\n    check_budget();H['step']=501+n;exec(code,H);n+=1\n                                   ^^^^^^^^^^^^\n  File \"bound_R65_update_body\", line 58, in <module>\n  File \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R66_ROOT_20261011_070346_UTC/pilot.py\", line 262, in phase_check\n    if time.monotonic()>=arm_deadline:raise TimeoutError('full30 arm exceeded180 seconds')\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTimeoutError: full30 arm exceeded180 seconds\n"
+}

@@ -1,0 +1,758 @@
+{
+  "UTC": "2026-10-11T07:18:06.421536+00:00",
+  "stage": "R67_EQUAL_COST_REPAIR_001",
+  "native_status": "NEGATIVE_LOCAL_SUPPORT",
+  "native_exit": 0,
+  "completed_comparison": true,
+  "cumulative_compute": {
+    "UTC": "2026-10-11T07:17:50.657709+00:00",
+    "actual_CPU_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "torch_threads": 12,
+    "prior_attempt_native_wall_s": 201.55318473800435,
+    "repair_native_wall_s": 235.93943178400514,
+    "cumulative_native_wall_s": 437.4926165220095,
+    "original_cumulative_cap_s": 600
+  },
+  "common_start_restoration_verified": true,
+  "frozen_update_body_hashes_verified": true,
+  "parent_population": {
+    "SOURCE": 6593,
+    "REAL": 21047
+  },
+  "DEV_read": 0,
+  "EVAL_read": 0,
+  "CAL_decode": 0,
+  "original_A_F_complete": false,
+  "original_R65_50000_complete": false,
+  "automatic_long_resume": false,
+  "independent_training_replicates": false,
+  "only_fixed_model_noise_MC": true,
+  "root_resource": {
+    "PID": 53408,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R67_EQUAL_COST_REPAIR_001\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 61771776,
+    "RSS_bytes": 61771776,
+    "peak_private_commit_bytes": 49033216
+  },
+  "primary_recomputed": true,
+  "harm_checks_recomputed": true,
+  "primary": {
+    "baseline_mean": 40.220084977114084,
+    "full_mean": 5.928173571612876,
+    "mini_mean": 4.5463600536137685,
+    "full_vs_mini_relative_improvement": -0.30393842584041364,
+    "full_vs_baseline_relative_improvement": 0.8526066373309229,
+    "full_beats_mini_probes": 0,
+    "pass_gate": false,
+    "descriptive_paired_noise_MC_full_minus_mini_95_interval": [
+      0.4240278993624051,
+      2.687717152898575
+    ]
+  },
+  "failed_harm_checks": [
+    {
+      "group": "pieces",
+      "key": "noise",
+      "baseline": 0.16960984484471675,
+      "full": 0.14475523016977354,
+      "mini": 0.12885800860895702,
+      "bound": 0.13733850095119288,
+      "pass_gate": false
+    },
+    {
+      "group": "pieces",
+      "key": "temporal_joint",
+      "baseline": 0.15495993498808652,
+      "full": 0.15747813417749063,
+      "mini": 0.09122445588825875,
+      "bound": 0.09897245273766307,
+      "pass_gate": false
+    },
+    {
+      "group": "pieces",
+      "key": "source_order",
+      "baseline": 2.0996913500929093,
+      "full": 1.9786055458618808,
+      "mini": 1.7073965242844715,
+      "bound": 1.812381091889117,
+      "pass_gate": false
+    },
+    {
+      "group": "pieces",
+      "key": "REAL_identity",
+      "baseline": 0.022610118803290058,
+      "full": 0.015455718478746942,
+      "mini": 0.0050965255137592905,
+      "bound": 0.006227031553923793,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_overall",
+      "baseline": 2.312281553074061e-05,
+      "full": 1.790746895843848e-05,
+      "mini": 1.5094710472941704e-05,
+      "bound": 1.6250951249478735e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_-1",
+      "baseline": 6.6084678340853e-05,
+      "full": 6.216791601884115e-05,
+      "mini": 4.226798311754843e-05,
+      "bound": 4.557231703459108e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_0",
+      "baseline": 2.0146171813927546e-05,
+      "full": 2.5841154560061336e-05,
+      "mini": 1.9335816924776927e-05,
+      "bound": 2.0343225515473305e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_ACF1_W1_region_0",
+      "baseline": 0.028292469680079736,
+      "full": 0.030069973517595973,
+      "mini": 0.033715748330197755,
+      "bound": 0.029978257196589624,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_1",
+      "baseline": 2.0401088845190133e-05,
+      "full": 2.5814174273174458e-05,
+      "mini": 1.4156411691209475e-05,
+      "bound": 1.5176566133468982e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_2",
+      "baseline": 2.5881283904500832e-05,
+      "full": 3.26389785655209e-05,
+      "mini": 2.2443479004394223e-05,
+      "bound": 2.3737643199619264e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_ACF1_W1_region_2",
+      "baseline": 0.022514527125431245,
+      "full": 0.02385396229736761,
+      "mini": 0.025971874808544113,
+      "bound": 0.023813120965858452,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "PSD_W1_region_3",
+      "baseline": 0.022182354854233408,
+      "full": 0.02432700854646909,
+      "mini": 0.028309225106214263,
+      "bound": 0.023597816209544122,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_3",
+      "baseline": 2.4379279338499358e-05,
+      "full": 3.162246437077727e-05,
+      "mini": 2.2065865685003634e-05,
+      "bound": 2.3284929651928602e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "PSD_W1_region_4",
+      "baseline": 0.017537652115557075,
+      "full": 0.013536015496099882,
+      "mini": 0.007978989393380466,
+      "bound": 0.00885587209915832,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_4",
+      "baseline": 2.2856556583592406e-05,
+      "full": 2.8747583852349654e-05,
+      "mini": 1.715946363134938e-05,
+      "bound": 1.8302391460529e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "PSD_W1_region_5",
+      "baseline": 0.014339318302484548,
+      "full": 0.011566164787228762,
+      "mini": 0.009387717771175043,
+      "bound": 0.01010468378629927,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_5",
+      "baseline": 3.035263755398137e-05,
+      "full": 3.899698421215977e-05,
+      "mini": 2.780810095209514e-05,
+      "bound": 2.9325832829794208e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_6",
+      "baseline": 3.0114766575027404e-05,
+      "full": 3.726472632939229e-05,
+      "mini": 5.158140698584197e-05,
+      "bound": 3.26939369243195e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_RMS_W1_region_8",
+      "baseline": 1.7323646207641108e-05,
+      "full": 1.4777786599436993e-05,
+      "mini": 1.2616550328571125e-05,
+      "bound": 1.348283263895318e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "baseline_ACF1_W1_region_8",
+      "baseline": 0.018133656773211493,
+      "full": 0.02310502033472161,
+      "mini": 0.0331027413940059,
+      "bound": 0.01978879394291179,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "projection_fraction_overall",
+      "baseline": 0.124507052934931,
+      "full": 0.11825041710905507,
+      "mini": 0.11100788715304111,
+      "bound": 0.11723323989978765,
+      "pass_gate": false
+    },
+    {
+      "group": "nonnegative",
+      "key": "projection_fraction_support_out",
+      "baseline": 0.2890404929577465,
+      "full": 0.2745158450704226,
+      "mini": 0.2577024647887324,
+      "bound": 0.2721544895366197,
+      "pass_gate": false
+    },
+    {
+      "group": "correlations",
+      "key": "overall",
+      "baseline": 0.1746705335217809,
+      "full": 0.19050556680849412,
+      "mini": 0.23467534020567388,
+      "bound": 0.2146753402056739,
+      "pass_gate": false
+    },
+    {
+      "group": "correlations",
+      "key": "region_7",
+      "baseline": 0.5644946757390535,
+      "full": 0.543348518048668,
+      "mini": 0.5880329066236112,
+      "bound": 0.5680329066236112,
+      "pass_gate": false
+    },
+    {
+      "group": "valleys",
+      "key": "Q3_h_one",
+      "baseline": 0.03371369294605809,
+      "full": 0.032417012448132776,
+      "mini": 0.0,
+      "bound": 0.01,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_pieces",
+      "key": "full_window",
+      "baseline": 0.04970348079148584,
+      "full": 0.045740944592989594,
+      "mini": 0.027929499279363616,
+      "bound": 0.03041467341893791,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_pieces",
+      "key": "coordinate_RMS",
+      "baseline": 0.06336254967321514,
+      "full": 0.05514536438554801,
+      "mini": 0.03050059886996757,
+      "bound": 0.03366872645362833,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_pieces",
+      "key": "PSD",
+      "baseline": 1.641225240241191,
+      "full": 1.1791188571837596,
+      "mini": 0.31936735899992663,
+      "bound": 0.4014286211119862,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_pieces",
+      "key": "noise",
+      "baseline": 0.38914076735161685,
+      "full": 0.37897250890440304,
+      "mini": 0.18617520348992955,
+      "bound": 0.2056322419575104,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_pieces",
+      "key": "temporal_joint",
+      "baseline": 0.1341186840494247,
+      "full": 0.12531903587833562,
+      "mini": 0.05571956169420937,
+      "bound": 0.06242549599668061,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_overall",
+      "baseline": 0.017041882843755823,
+      "full": 0.012296990404206868,
+      "mini": 0.0035616063485782155,
+      "bound": 0.004413700590766006,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_overall",
+      "baseline": 3.938629399032023e-05,
+      "full": 3.7228729657687715e-05,
+      "mini": 2.1652461604270462e-05,
+      "bound": 2.3621876303786475e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_overall",
+      "baseline": 0.0629129571896887,
+      "full": 0.06285754887675093,
+      "mini": 0.0261448080847416,
+      "bound": 0.02929045604422604,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_-1",
+      "baseline": 0.056016542179959064,
+      "full": 0.04190346620463105,
+      "mini": 0.02660632289986244,
+      "bound": 0.029407150108860393,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_-1",
+      "baseline": 0.04783678861854149,
+      "full": 0.047611271261665734,
+      "mini": 0.00993778541297679,
+      "bound": 0.012329624943903864,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_0",
+      "baseline": 0.02341071007202756,
+      "full": 0.01623605302639758,
+      "mini": 0.0035112221968094243,
+      "bound": 0.004681757800410802,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_0",
+      "baseline": 3.845929227819596e-05,
+      "full": 3.562661293918512e-05,
+      "mini": 2.0857427457451942e-05,
+      "bound": 2.278049207136174e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_0",
+      "baseline": 0.06038656745125903,
+      "full": 0.061945247260291006,
+      "mini": 0.02247163731402501,
+      "bound": 0.025490965786587962,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_1",
+      "baseline": 0.015460610520432995,
+      "full": 0.010715351834333682,
+      "mini": 0.0029278391359116385,
+      "bound": 0.0037008697619332885,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_1",
+      "baseline": 3.92119613590118e-05,
+      "full": 3.6272832024939323e-05,
+      "mini": 1.9793303347359498e-05,
+      "bound": 2.1754001415310088e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_1",
+      "baseline": 0.06066347641292533,
+      "full": 0.06192153658532267,
+      "mini": 0.021862043550185492,
+      "bound": 0.02489521747083176,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_2",
+      "baseline": 0.01793479534279108,
+      "full": 0.013491978062212171,
+      "mini": 0.0050393691798120265,
+      "bound": 0.00593610904695158,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_2",
+      "baseline": 4.199199903147003e-05,
+      "full": 4.00428201097646e-05,
+      "mini": 3.0267353181316055e-05,
+      "bound": 3.236705313288956e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_2",
+      "baseline": 0.0664003152155442,
+      "full": 0.06771594928130001,
+      "mini": 0.031208480431038556,
+      "bound": 0.034528496291815765,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_3",
+      "baseline": 0.017091591789128016,
+      "full": 0.011930005563635215,
+      "mini": 0.0052595602951349555,
+      "bound": 0.006114139984591356,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_3",
+      "baseline": 3.909588310388432e-05,
+      "full": 3.682654450835406e-05,
+      "mini": 2.341486798554387e-05,
+      "bound": 2.5369762140738087e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_3",
+      "baseline": 0.06378253849559723,
+      "full": 0.06325883622647076,
+      "mini": 0.02698786478751004,
+      "bound": 0.030176991812289902,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_4",
+      "baseline": 0.014074204015217095,
+      "full": 0.010029376054831214,
+      "mini": 0.0015650540210291669,
+      "bound": 0.0022687643217900216,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_4",
+      "baseline": 3.867264253840011e-05,
+      "full": 3.632538795968726e-05,
+      "mini": 1.6837118025245266e-05,
+      "bound": 1.877085015216527e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_4",
+      "baseline": 0.06210163623353379,
+      "full": 0.061886686096515195,
+      "mini": 0.02443872581513129,
+      "bound": 0.027543807726807982,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_5",
+      "baseline": 0.012155889593770716,
+      "full": 0.00901469442774679,
+      "mini": 0.0007636106664064535,
+      "bound": 0.0013714052460949895,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_5",
+      "baseline": 4.035113603991235e-05,
+      "full": 3.828493052479437e-05,
+      "mini": 1.914473059541711e-05,
+      "bound": 2.1162387397412728e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_5",
+      "baseline": 0.06485299739137307,
+      "full": 0.0642218016423439,
+      "mini": 0.02795753375338584,
+      "bound": 0.031200183722954494,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_6",
+      "baseline": 0.010350552394108585,
+      "full": 0.007580248207121639,
+      "mini": 0.0007135303248385605,
+      "bound": 0.0012310580445439897,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_6",
+      "baseline": 4.0182783640663904e-05,
+      "full": 3.839158554824118e-05,
+      "mini": 2.1221454789897726e-05,
+      "bound": 2.3230693971930922e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_6",
+      "baseline": 0.0637089102790131,
+      "full": 0.06291817183897452,
+      "mini": 0.02920327323594192,
+      "bound": 0.03238871884989258,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_7",
+      "baseline": 0.011183963166651689,
+      "full": 0.00779128386993988,
+      "mini": 0.002045734798085969,
+      "bound": 0.0026049330564185532,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_7",
+      "baseline": 4.144618929969947e-05,
+      "full": 3.9436491656107604e-05,
+      "mini": 2.213262588579711e-05,
+      "bound": 2.420503535078208e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_7",
+      "baseline": 0.06396525180981641,
+      "full": 0.0620522397088606,
+      "mini": 0.0268568147122984,
+      "bound": 0.03005507740278922,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "PSD_W1_region_8",
+      "baseline": 0.013318676739900637,
+      "full": 0.009662074093810428,
+      "mini": 0.002618905629234597,
+      "bound": 0.003284839566229629,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_RMS_W1_region_8",
+      "baseline": 4.9177736557571425e-05,
+      "full": 4.8335270346843874e-05,
+      "mini": 2.4211475587781355e-05,
+      "bound": 2.6670462415659925e-05,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "baseline_ACF1_W1_region_8",
+      "baseline": 0.07095213474516819,
+      "full": 0.07049181730264054,
+      "mini": 0.03588626432326289,
+      "bound": 0.0394338711605213,
+      "pass_gate": false
+    },
+    {
+      "group": "REAL_nonnegative",
+      "key": "parentwise_normalized_identity_MSE",
+      "baseline": 0.021707426648556884,
+      "full": 0.015000782034002732,
+      "mini": 0.004305320584864343,
+      "bound": 0.0053906920172921875,
+      "pass_gate": false
+    }
+  ],
+  "full_training": {
+    "arm": "full",
+    "completed_updates": 20,
+    "first_original_step": 501,
+    "last_original_step": 520,
+    "training_elapsed_s": 98.5195388639986,
+    "fixed_learning_rate": 0.00019999999981874005,
+    "model_SHA256": "603766b49c87216cfa883459c6732ceed6906144c4bef3e2bbd635a7c274ae04",
+    "source_occurrences": 6400,
+    "REAL_reference_occurrences": 6400,
+    "REAL_identity_occurrences": 1280,
+    "full_D_SOURCE_occurrences": 131860,
+    "full_D_REAL_occurrences": 420940,
+    "neural_forward_rows": 271400,
+    "global_max_q64": 5.184332592560151e-16,
+    "global_max_q32": 1.9657484620960966e-08,
+    "checkpoint_SHA256": "6af9512b8acb0e0281d78876cc223e919529bfaea2effc0dfade2baf0ca71285"
+  },
+  "mini_training": {
+    "arm": "mini",
+    "completed_updates": 979,
+    "first_original_step": 501,
+    "last_original_step": 1479,
+    "training_elapsed_s": 98.61496079999779,
+    "fixed_learning_rate": 0.00019999999981874005,
+    "model_SHA256": "01fd1d2933e23cacaa9ab9eafdeca8b3e0892f3882896112f321128221bd2cfd",
+    "source_occurrences": 313280,
+    "REAL_reference_occurrences": 313280,
+    "REAL_identity_occurrences": 62656,
+    "full_D_SOURCE_occurrences": 0,
+    "full_D_REAL_occurrences": 0,
+    "neural_forward_rows": 375936,
+    "global_max_q64": 4.435265645983109e-16,
+    "global_max_q32": 3.486181382343406e-08,
+    "cost_match_absolute_s": 0.09542193599918392,
+    "cost_match_tolerance_s": 0.9851953886399861,
+    "cost_match_pass": true,
+    "checkpoint_SHA256": "45d3d8aebbaeb43e25488d0c7b77f9536c5955bb014a4b15f30313b064056c50"
+  },
+  "PSD_means": [
+    {
+      "metric": "PSD_W1_overall",
+      "baseline": 0.010475867239283647,
+      "full": 0.007062990044769846,
+      "mini": 0.006572584329192834
+    },
+    {
+      "metric": "PSD_W1_region_0",
+      "baseline": 0.021597134541467285,
+      "full": 0.007490261760049062,
+      "mini": 0.012637653082965678
+    },
+    {
+      "metric": "PSD_W1_region_1",
+      "baseline": 0.01743641367132021,
+      "full": 0.010559612625307298,
+      "mini": 0.01316866106742554
+    },
+    {
+      "metric": "PSD_W1_region_2",
+      "baseline": 0.03379687826565017,
+      "full": 0.034604558194583815,
+      "mini": 0.037312699291493306
+    },
+    {
+      "metric": "PSD_W1_region_3",
+      "baseline": 0.022182354854233408,
+      "full": 0.02432700854646909,
+      "mini": 0.028309225106214263
+    },
+    {
+      "metric": "PSD_W1_region_4",
+      "baseline": 0.017537652115557075,
+      "full": 0.013536015496099882,
+      "mini": 0.007978989393380466
+    },
+    {
+      "metric": "PSD_W1_region_5",
+      "baseline": 0.014339318302484548,
+      "full": 0.011566164787228762,
+      "mini": 0.009387717771175043
+    },
+    {
+      "metric": "PSD_W1_region_6",
+      "baseline": 0.011501466783127003,
+      "full": 0.0059103065428853605,
+      "mini": 0.008023521491844217
+    },
+    {
+      "metric": "PSD_W1_region_7",
+      "baseline": 0.12956755347993765,
+      "full": 0.12901036674094363,
+      "mini": 0.13623515875142872
+    },
+    {
+      "metric": "PSD_W1_region_-1",
+      "baseline": 0.1018151228845546,
+      "full": 0.10051939598159534,
+      "mini": 0.10343207679873195
+    },
+    {
+      "metric": "PSD_W1_region_8",
+      "baseline": 0.0581681051945091,
+      "full": 0.05920940304615499,
+      "mini": 0.06664006769982107
+    }
+  ],
+  "source_rank_means": {
+    "baseline": 0.1746705335217809,
+    "full": 0.19050556680849412,
+    "mini": 0.23467534020567388
+  },
+  "final_decision": "No demonstrated joint equal-cost benefit; do not resume expensive R65",
+  "figure": "work/R67_EQUAL_COST_REPAIR_001/R67_COMPARISON.png",
+  "report_SHA256": "5125657329f028db7da41f9714c6785f8d7b39d2d940a56e815aa8f7500034ea",
+  "original_acceptance_hashes": {
+    "PROJECT_ACCEPTANCE.json": "b0e4c13302dc67b0eec0799e77fdbab603e29a293cb32bbc26fa0734f025ac9e",
+    "PROJECT_ACCEPTANCE.md": "d6f68a1e902d901bcceafaa1d23f97b1a8ff5ad9f52acf46b00b82d7a6bdb04d"
+  }
+}

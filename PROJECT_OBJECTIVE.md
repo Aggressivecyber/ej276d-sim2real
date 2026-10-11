@@ -1,3 +1,21 @@
+# Current: bounded cost-benefit assessment closed; R65 remains on cost hold
+
+R67 result: NEGATIVE_LOCAL_SUPPORT. Root verified native completion, common starting states, full parent metrics and the original cumulative600-second cap. No demonstrated joint equal-cost benefit; do not resume expensive R65. R66 failed execution is separately preserved. No active scientific worker and no further retry under this assessment. Original A-F and R65 fixed50000 endpoint remain incomplete. See R67_REPORT.md and reviews/R67_EQUAL_COST_REPAIR_001/ROOT_RESULT_REVIEW.json. All new local files stay on E/D.
+
+## Earlier records
+
+# Current: R67 single corrected comparison inside the original600-second total budget
+
+R66 is closed INVALID: full30 timeout after unintended single-CPU launch, no comparative endpoint. Root corrects the launcher once under the unspent original budget: R67 full20 versus equal-time mini, worker cap395 seconds, exact CPU0..11 checked before imports. Together with observed R66 native time201.553185 seconds, total cap is596.553185 seconds. Eight probes, full populations, starting model/Adam/RNG, fixedLR and metrics remain unchanged. No further retry or expensive R65 restart. Original A-F and50000 remain incomplete. See tasks/R67_EQUAL_COST_REPAIR_001.md and reviews/R66_EQUAL_COST_PILOT_001/ROOT_INVALID_CLOSURE_AND_BUDGET_REPAIR.json.
+
+## Earlier records
+
+# Current: R66 capped equal-cost benefit pilot registered
+
+R65 processes have exited (-15) and176 files were archived; original update500 checkpoint hash is unchanged. The50000-update endpoint remains incomplete and on cost hold. R66 is a separate, single-worker600-second TRAIN-only local comparison from the same model/Adam/RNG state, with common fixed update501 learning rate, full30 updates versus equal-time original mini updates, eight common full-parent probes and one complete same-treated-REAL control per model. The baseline cost gate must fit all work; otherwise stop inconclusive without extending or dropping metrics. No DEV/EVAL, population reduction, A-F changes or automatic long-run restart. Positive local evidence permits only a separately capped confirmation. Root leads/reviews; the scoped6.1-sol/max static review is finished. All new local files remain on E/D. See tasks/R66_EQUAL_COST_PILOT_001.md.
+
+## Earlier records
+
 # Current user instruction: prove benefit before further full-distribution cost
 
 R65 is PAUSED at completed update613, in update614; the worker and its supervisor are stopped with their memory retained. The durable checkpoint is update500. The local post-controller has stopped and the completion heartbeat is PAUSED. The user asked for evidence that the full-population change improves results before paying its large cost. No such quality or equal-compute benefit has been established. The original R65 50000-step endpoint and original A-F remain unchanged but incomplete. Do not resume the expensive run automatically. No new pilot has been registered or executed. Any proposed pilot must first declare a small fixed compute cap, common starting state, equal-compute comparison, fixed TRAIN probes and stopping rules; TRAIN proxy improvements cannot establish final A-F success. Root leads and reviews; auxiliary analysis, when useful, uses gpt-6.1-sol/max. All new local files remain on E/D. See R65_COST_BENEFIT_REVIEW.md and reviews/R65_THROUGHPUT_OPTIMIZATION_001/BENEFIT_EVIDENCE_PAUSE_RECEIPT.json.

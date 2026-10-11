@@ -1,0 +1,5 @@
+# R66 capped pilot: invalid execution
+
+The worker ended natively with exit1 after 201.553185 seconds. Full30 hit its180-second arm limit. The launcher unintentionally passed CPU affinity[11] to both supervisor and worker, although torch threads were12. No full30 endpoint or mini comparison was obtained; this is not evidence for or against full-D quality. The number of completed full updates was not durably published and remains unknown (0..29). The original update500 checkpoint is unchanged; partial RAM was discarded. Eight baseline probes and one complete REAL control were preserved, but baseline values cannot demonstrate improvement.
+
+Root registers exactly one new R67 comparison, with actual12-CPU launch verification and20 full updates, solely to fit the unspent part of the original600-second total allocation. R66 is closed and never reinterpreted. R67 cap395 seconds plus the observed R66 native time is below600. This is an explicit operational revision of the initial no-retry plan; no endpoint quality was available to select the revision. No further retry or long-run restart is authorized by this repair.

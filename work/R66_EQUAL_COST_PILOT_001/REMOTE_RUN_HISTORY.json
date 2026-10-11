@@ -1,0 +1,79 @@
+[
+  {
+    "entry": "pilot.py",
+    "supervisor_PID": 353047,
+    "start_UTC": "2026-10-11T07:05:35.150212+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": 600,
+    "compute_budget_enforced": true,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 353058,
+    "actual_worker_RSS_peak_bytes": 2951745536,
+    "memory_probe_failures": 2,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-11T07:08:56.502914+00:00",
+        "PID": 353058,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      },
+      {
+        "UTC": "2026-10-11T07:08:56.603197+00:00",
+        "PID": 353058,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 2939133952,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 4160749568,
+    "GPU_query_failures": [],
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-11T07:05:35.108873+00:00",
+      "MemAvailable_bytes": 61534371840,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 118681743360,
+      "other_own_project_jobs": [],
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": true,
+      "limit_s": 600,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12168724480,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 353058,
+    "last_disk_free_bytes": 118681358336,
+    "actual_worker_parent_PID": 353047,
+    "last_job_tree_PIDs": [
+      353058
+    ],
+    "actual_worker_native_exit": 1,
+    "launcher_native_exit": 1,
+    "termination_reason": null,
+    "elapsed_s": 201.55318473800435,
+    "stop_UTC": "2026-10-11T07:08:56.703387+00:00",
+    "worker_self_receipt": {
+      "PID": 353058,
+      "parent_PID": 353047,
+      "nonce": "372daf7aec6d4f9ca858acf52362aa59",
+      "entry": "pilot.py",
+      "native_exit": 1,
+      "error": "TimeoutError('full30 arm exceeded180 seconds')",
+      "elapsed_s": 200.6965488309943,
+      "self_peak_RSS_bytes": 2951745536,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-11T07:08:55.862905+00:00"
+    }
+  }
+]

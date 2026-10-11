@@ -1,0 +1,63 @@
+si = np.concatenate([group[streams['source_rows'].integers(0, len(group), size=C['batch_per_region'])] for group in groupsS]).astype('i8')
+ri = np.concatenate([group[streams['REAL_reference_rows'].integers(0, len(group), size=C['batch_per_region'])] for group in groupsR]).astype('i8')
+ii = streams['REAL_identity_rows'].integers(0, len(real), size=C['identity_batch']).astype('i8')
+assert np.array_equal(sraw[si], np.repeat(CATEGORIES, C['batch_per_region'])) and np.array_equal(rraw[ri], np.repeat(CATEGORIES, C['batch_per_region']))
+epsilonS = streams['source_epsilon'].standard_normal((len(si), 480)).astype('<f4')
+epsilonI = streams['identity_epsilon'].standard_normal((len(ii), 480)).astype('<f4')
+nS, _ = innovation(source[si], epsilonS, mu, edges, noise['p480'], noise['kappa2'], float(noise['tau2']), True)
+nI, _ = innovation(real[ii], epsilonI, mu, edges, noise['p480'], noise['kappa2'], float(noise['tau2']), True)
+bx = torch.as_tensor(np.r_[sb[si], rb[ii]], device=dev, dtype=torch.int64)
+q = torch.as_tensor(np.r_[sq[si], rq[ii]], device=dev)
+hc = torch.as_tensor(np.r_[sh[si], rh[ii]], device=dev)
+x = torch.cat((xs[si], xr[ii]))
+n = torch.as_tensor(np.concatenate((nS, nI)), device=dev)
+directions = objective.draw_directions(streams['projection_directions'])
+temporal_directions = objective.draw_temporal_directions(streams['baseline_projection_directions'])
+rate = learning_rate(step)
+for group in optimizer.param_groups:
+    group['lr'] = rate
+optimizer.zero_grad(set_to_none=True)
+output, raw = endpoint(model, x, n, q, bx, hc, mt, st)
+loss, pieces, diagnostic = objective(output, raw, xr[ri], xr[ii], torch.as_tensor(rraw[ii], device=dev), torch.as_tensor(sp[si], device=dev), torch.as_tensor(source_h[si], device=dev), directions, torch.as_tensor(interval_low[si], device=dev), torch.as_tensor(interval_high[si], device=dev), temporal_directions)
+if not torch.isfinite(loss):
+    raise FloatingPointError('nonfinite direct-distribution loss')
+eq64 = ((q_torch(output) - q).abs() / q).max()
+eq32 = ((q_torch(output.to(torch.float32).to(torch.float64)) - q).abs() / q).max()
+if max(float(eq64.detach()), float(eq32.detach())) > 1e-05:
+    raise FloatingPointError('training constrained endpoint charge error')
+if ((output < -0.5) | (output > 0.5)).any():
+    raise FloatingPointError('training constrained endpoint outside voltage range')
+loss.backward()
+norm = torch.nn.utils.clip_grad_norm_(model.parameters(), C['gradient_clip'], error_if_nonfinite=True)
+optimizer.step()
+updates = step
+counter['new_response_updates'] = updates
+counter['SOURCE_training_rows'] += len(si)
+counter['REAL_reference_rows'] += len(ri)
+counter['REAL_identity_rows'] += len(ii)
+np.add.at(countsS, si, 1)
+np.add.at(countsR, ri, 1)
+np.add.at(countsI, ii, 1)
+for name, values in [('source_rows', si.astype('<u2')), ('REAL_reference_rows', ri.astype('<u2')), ('REAL_identity_rows', ii.astype('<u2')), ('source_epsilon', epsilonS), ('identity_epsilon', epsilonI)]:
+    hashes[name] = chain_update(hashes[name], values)
+for p in directions:
+    hashes['projection_directions'] = chain_update(hashes['projection_directions'], p)
+hashes['baseline_projection_directions'] = chain_update(hashes['baseline_projection_directions'], temporal_directions)
+sN = len(si)
+active = ((raw < -0.5) | (raw > 0.5)).any(1)
+correction = (output - raw).square().mean(1)
+values = [loss.detach(), *[pieces[k].detach() for k in loss_names], loss.new_tensor(rate), norm.to(loss), eq64.detach(), eq32.detach(), (active[:sN].to(loss) * objective.sw).sum(), active[sN:].to(loss).mean(), (correction[:sN] * objective.sw).sum().sqrt().detach(), correction[sN:].mean().sqrt().detach(), diagnostic['overall_PSD_W1'], diagnostic['Q1_Q7_mean_PSD_W1'], diagnostic['Q3_h_one_soft_valley'], diagnostic['Q4_h_one_soft_valley']]
+row = torch.stack(values).cpu().numpy().astype('f8')
+dense.append(row)
+order_row = torch.stack([diagnostic[k] for k in order_columns]).cpu().numpy().astype('f8')
+order_dense.append(order_row)
+assert np.isfinite(order_row).all() and np.all(order_row >= 0)
+assert abs(order_row[0] - order_row[1] - row[columns.index('source_order')]) <= 1e-10 + 1e-10 * abs(order_row[0])
+global_max_q64 = max(global_max_q64, float(row[columns.index('max_relative_q_f64')]))
+global_max_q32 = max(global_max_q32, float(row[columns.index('max_relative_q_f32')]))
+coverage_row = torch.stack([diagnostic[k] for k in coverage_columns]).cpu().numpy().astype('f8')
+coverage_dense.append(coverage_row)
+assert np.isfinite(coverage_row).all() and np.all(coverage_row >= 0)
+assert abs(coverage_row[:3].sum() - row[0]) <= 1e-10 + 1e-10 * abs(row[0])
+if torch.cuda.max_memory_allocated() > C['GPU_limit_bytes'] or torch.cuda.max_memory_reserved() > C['GPU_limit_bytes']:
+    raise MemoryError('GPU allocated/reserved safety limit')
