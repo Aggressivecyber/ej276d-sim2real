@@ -1,0 +1,330 @@
+{
+  "review_id": "R64_RESULT_AUDIT_SCRIPT_STATIC_REVIEW_001",
+  "reviewer": "/root/r64_distribution_gradient_prep",
+  "scope": "Source/text-only review plus parsing six already completed JSON artifacts from the seven-file early fetch. No NPZ, original scientific array or weight was opened; no project module, model, loss or VJP executed.",
+  "initial_audit_script_sha256": "b4a3f4d77bcebe578fc095367e1e7d01d6807632ed03d822eeb7508d8fbf2493",
+  "initial_script_backup": "reviews/R64_RESULT_ANALYSIS_001/root_audit_corrections/review_R64_results_root_before_static_review.py",
+  "reviewed_contracts": [
+    {
+      "artifact": "SOURCE_ENDPOINTS_PRIVATE.npz / REAL_control_ENDPOINTS_PRIVATE.npz",
+      "expected": "projected float64 (6593,480)/(21047,480); epsilon little-endian float32 matching population; original_raw_bins original parent-length raw-region labels",
+      "evidence": "diagnose_train.py:300-324"
+    },
+    {
+      "artifact": "PARENT_IDENTITIES_PRIVATE.npz",
+      "expected": "SOURCE_ids hash; original SOURCE/REAL order arrays arange(6593)/arange(21047)",
+      "evidence": "diagnose_train.py:331-332"
+    },
+    {
+      "artifact": "FROZEN_RANDOM_DESIGN_PRIVATE.npz",
+      "expected": "macro_SOURCE_indices/macro_REAL_indices <u2 (32,10,4,32); paired_bootstrap_indices <u2 (1000,32); directions_0..3 float32 (480/480/479/478,64); temporal_directions float32 (31,64); REAL_floor__<scope>__A/B <u2 (32,SOURCE_scope_N)",
+      "evidence": "diagnose_train.py:243-277"
+    },
+    {
+      "artifact": "ENDPOINT_GEOMETRY_PRIVATE.npz",
+      "expected": "SOURCE_REAL__/REAL_control_REAL__<scope>__<view>__coordinate_W1 (d,) and __projection_W1 (64,); REAL_pair_floor__ equivalents (32,d)/(32,64). Eleven scopes and five views in producer order.",
+      "evidence": "endpoint_geometry.py:252-255,383-435"
+    },
+    {
+      "artifact": "FULL_REFERENCE_PARAMETER_GRADIENTS_PRIVATE.npz",
+      "expected": "components float64 (5,1369889)",
+      "evidence": "diagnose_train.py:398-402"
+    },
+    {
+      "artifact": "FULL_REFERENCE_ENDPOINT_GRADIENTS_PRIVATE.npz",
+      "expected": "components float64 (5,6593,480), flatten to (5,3164640) only after structural check",
+      "evidence": "diagnose_train.py:354,399-400"
+    },
+    {
+      "artifact": "parameter_gradients_private/macro_00..31.npz",
+      "expected": "A and B each float64 (5,1369889); total_D is vector sum before norms/errors",
+      "evidence": "diagnose_train.py:425-431"
+    },
+    {
+      "artifact": "PARAMETER_MEAN_GRADIENTS_PRIVATE.npz / ENDPOINT_MEAN_GRADIENTS_PRIVATE.npz",
+      "expected": "mean_A_components/mean_B_components float64 (5,P), P=1369889/3164640; bootstrap_error_changes float64 (1000,6)",
+      "evidence": "diagnose_train.py:439-443"
+    },
+    {
+      "artifact": "gradient summaries",
+      "expected": "reported_order five D names then total_D; 32 macro_records; denominator 32 for dispersion; macro-paired B-minus-A squared error, fixed 1000 rows, linear 2.5/97.5 percentiles; zero reference gives null relative metrics/cosines",
+      "evidence": "gradient_statistics.py:170-305"
+    },
+    {
+      "artifact": "statistics bootstrap_indices_sha256",
+      "expected": "hash of internal contiguous little-endian int64 indices; saved design itself uses uint16",
+      "evidence": "gradient_statistics.py:39-45,296"
+    }
+  ],
+  "random_stream_review": {
+    "result": "All nine reconstruction streams match frozen worker consumption order, shapes, casts and hash chaining in the initially reviewed script; correction did not need to change them.",
+    "algorithm": "NumPy PCG64 per named seed; initial hash 32 zero bytes; SHA256(previous_digest + contiguous consumed-array bytes); compare initial/final RNG state and final chains.",
+    "streams": [
+      {
+        "name": "full_SOURCE_epsilon",
+        "calls": 1,
+        "shape": [
+          6593,
+          480
+        ],
+        "draw": "standard_normal then <f4"
+      },
+      {
+        "name": "full_REAL_epsilon",
+        "calls": 1,
+        "shape": [
+          21047,
+          480
+        ],
+        "draw": "standard_normal then <f4"
+      },
+      {
+        "name": "full_feature_directions",
+        "calls": 4,
+        "shape": "(480,64),(480,64),(479,64),(478,64)",
+        "draw": "standard_normal; float64 column normalization; <f4; four separate digest updates"
+      },
+      {
+        "name": "temporal_feature_directions",
+        "calls": 1,
+        "shape": [
+          31,
+          64
+        ],
+        "draw": "standard_normal; float64 column normalization; <f4"
+      },
+      {
+        "name": "macro_SOURCE_rows",
+        "calls": 320,
+        "shape": "one (128,) digest per macro/region draw; store [32,10,4,32]",
+        "draw": "macro outer, region -1..8, SOURCE/REAL independent choice(original pool,replace=True); <u2"
+      },
+      {
+        "name": "macro_REAL_rows",
+        "calls": 320,
+        "shape": "one (128,) digest per macro/region draw; store [32,10,4,32]",
+        "draw": "same order with its own original REAL region pool and generator"
+      },
+      {
+        "name": "gradient_paired_bootstrap",
+        "calls": 1,
+        "shape": [
+          1000,
+          32
+        ],
+        "draw": "integers(0,32) default dtype then <u2"
+      },
+      {
+        "name": "REAL_floor_A_rows",
+        "calls": 11,
+        "shape": "(32,SOURCE_scope_N) for all,region-1,...,region8",
+        "draw": "choice(complete scope REAL pool,replace=True); <u2"
+      },
+      {
+        "name": "REAL_floor_B_rows",
+        "calls": 11,
+        "shape": "same 11 shapes",
+        "draw": "independent B generator, interleaved A then B within each scope"
+      }
+    ]
+  },
+  "initial_findings": [
+    {
+      "id": "A01",
+      "priority": 1,
+      "initial_lines": [
+        201,
+        214
+      ],
+      "kind": "certain runtime failure",
+      "finding": "Audit requested __sliced_W1, but frozen geometry producer saves __projection_W1 for all three prefixes.",
+      "repair": "Replace only those two audit suffixes. Do not edit frozen geometry source or artifacts.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        208,
+        222
+      ],
+      "closure": "Both paths now use __projection_W1, exactly matching the unchanged producer."
+    },
+    {
+      "id": "A02",
+      "priority": 2,
+      "initial_lines": [
+        315,
+        338
+      ],
+      "kind": "endpoint summary coverage",
+      "finding": "Initial endpoint audit did not recompute mean squared error, finite-sample decomposition or paired mean change, despite checking reference/mean vectors and bootstrap intervals.",
+      "repair": "Recompute MSE and paired mean from 32 scalar records, recompute mean-vector error directly, and check the saved dispersion through the finite identity. Do not claim endpoint Welford M2 was independently reconstructed without macro endpoint vectors.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        376,
+        419
+      ],
+      "closure": "MSE and paired mean are recomputed from scalar records; direct saved-mean discrepancy and norm are checked; saved dispersion participates in the finite identity under the frozen numerical tolerance. Saved decomposition operands and original-parenthesization residual are checked. No independent endpoint Welford reconstruction is claimed."
+    },
+    {
+      "id": "A03",
+      "priority": 2,
+      "initial_lines": [
+        223,
+        236
+      ],
+      "kind": "charge-bound coverage",
+      "finding": "Initial audit checked four regional bound quotients and trusted flags, but did not recompute nominal inequalities, coefficient reductions, mass-weighted bound aggregation/fractions or RESULT.charge_bound.",
+      "repair": "Recompute the scalar inequalities and .125/.25 contributions; aggregate with original SOURCE mass; compare geometry aggregate and RESULT copy.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        237,
+        272
+      ],
+      "closure": "Nominal scalar inequalities, .125/.25 V480 reductions, source-mass weighted output/source bound aggregation and fractions are checked; RESULT.charge_bound must exactly equal the geometry aggregate."
+    },
+    {
+      "id": "A04",
+      "priority": 2,
+      "initial_lines": [
+        195,
+        221,
+        291,
+        320
+      ],
+      "kind": "structural contract",
+      "finding": "Several NPZ shapes and the geometry scope/view order were implicit; flattening endpoint reference before checking original shape and np.allclose broadcasting can hide malformed structure.",
+      "repair": "Assert original full endpoint shape, both mean shapes, bootstrap shape, coordinate/projection/floor shapes and exact 11-scope/5-view order before arithmetic.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        197,
+        224,
+        332,
+        333,
+        367,
+        375
+      ],
+      "closure": "Expected scope/view order, geometry coordinate/projection/floor shapes, original full endpoint shape and both mean/bootstrap shapes are explicit before reduction/flattening."
+    },
+    {
+      "id": "A05",
+      "priority": 2,
+      "initial_lines": [
+        55,
+        58,
+        85,
+        87,
+        344
+      ],
+      "kind": "resource receipt coverage",
+      "finding": "Initial resource audit omitted scientific job-tree RSS and CPU environment checks; its local guard recorded peak RSS but only current RSS triggered an immediate stop and final success lacked a peak bound.",
+      "repair": "Check job_tree_RSS_peak_bytes and ENVIRONMENT thread/affinity counts, plus final local recorded peak against its 2 GiB guard. The root audit's 2 GiB limit is distinct from this review agent's 1 GiB limit.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        86,
+        91,
+        428
+      ],
+      "closure": "Scientific job-tree RSS, 12 CPU threads and 12 unique affinity entries are checked. Root audit must finish with recorded actual RSS peak <= its 2 GiB guard."
+    },
+    {
+      "id": "A06",
+      "priority": 2,
+      "initial_lines": [
+        303,
+        307
+      ],
+      "kind": "numerical robustness",
+      "finding": "Parameter dispersion was derived by subtracting uncentered second moments, which can lose small dispersion to cancellation despite valid Welford output.",
+      "repair": "Use a second read of saved parameter vectors and mean-centered squared differences. Preserve original comparison tolerances; no new model/loss/VJP is required.",
+      "status": "closed_by_root_only",
+      "final_lines": [
+        340,
+        357
+      ],
+      "closure": "All saved parameter pairs are read a second time for mean-centered squared deviations. No tolerance is changed and no model/loss/VJP is added."
+    }
+  ],
+  "native_schema_review": {
+    "result": "All accessed native/fetch/portable/network receipt field names match producer source; actual final native/fetch/32-macro receipts are outside this static review.",
+    "producers": [
+      "linux_supervise.py:78-83,154-163",
+      "linux_owned_worker.py",
+      "reviews/fetch_R64_root.py:33-73",
+      "portable_fixture.py:148-189",
+      "network_replay_artificial.py:115-131"
+    ],
+    "resources": {
+      "science_CPU_threads": 12,
+      "science_RSS_limit_bytes": 51539607552,
+      "science_GPU_limit_bytes": 10737418240,
+      "root_audit_CPU_count": 1,
+      "root_audit_RSS_limit_bytes": 2147483648,
+      "review_agent_CPU_count": 1,
+      "review_agent_RSS_limit_bytes": 1073741824
+    },
+    "planned_scientific_counts": {
+      "neural_rows": 245209,
+      "neural_calls": 3865,
+      "parameter_VJP_calls": 33800,
+      "five_term_objective_calls": 161,
+      "full_SOURCE_replays": 33,
+      "paired_macros": 32
+    }
+  },
+  "static_receipt_file": "STATIC_RECEIPT.json",
+  "boundaries": {
+    "science_finished_claimed": false,
+    "complete_32_macro_results_analyzed": false,
+    "original_arrays_or_weights_read": false,
+    "new_model_loss_or_VJP_calls": 0,
+    "NPZ_opened": 0,
+    "root_script_or_scientific_files_modified_by_reviewer": false,
+    "next_action": "Return this review, then await complete 32-group results and the parent's next instruction before gradient analysis."
+  },
+  "UTC": "2026-10-11 02:27:39 UTC",
+  "status": "static_findings_closed_ready_for_root_saved_artifact_audit_after_complete_fetch",
+  "final_audit_script_sha256": "bc32340bb613640825c5258df5dadb85acf1eb69a4d571653fe946242a9afc65",
+  "correction_rounds": [
+    {
+      "sha256": "3fc6c041ac04c281fa6ab864861f0ee99bee6471142dc87de8cee5f029d7486c",
+      "result": "Initial six fixes implemented; added endpoint raw second-moment gate required a follow-up to avoid cancellation."
+    },
+    {
+      "sha256": "bc32340bb613640825c5258df5dadb85acf1eb69a4d571653fe946242a9afc65",
+      "result": "Endpoint raw subtraction retained descriptively; finite identity checked with saved Welford dispersion under frozen tolerance; saved residual reconstructed in original operation order; int64 bootstrap hash added."
+    }
+  ],
+  "followup_numeric_resolution": {
+    "final_lines": [
+      287,
+      288,
+      388,
+      408,
+      432,
+      433
+    ],
+    "endpoint_dispersion": "Raw E||g||^2-||mean||^2 is retained unmodified as descriptive audit output, not a near-zero pass/fail gate. MSE comes from macro records; mean error is computed directly from saved vectors; stored Welford dispersion is checked through the finite identity under its frozen tolerance.",
+    "residual": "Saved residual uses exactly saved_mse-(saved_discrepancy+saved_dispersion); no regrouped subtraction is compared as though bitwise equivalent.",
+    "bootstrap_hash": "Both gradient summaries are checked against reconstructed bootstrap indices converted to little-endian int64, matching the statistics helper."
+  },
+  "unresolved_blocking_findings": [],
+  "static_verification": {
+    "original_backup_matches_reviewed_initial_script": true,
+    "final_script_AST_parse": true,
+    "frozen_worker_statistics_geometry_config_and_root_seal_unchanged": true,
+    "native_exit_codes": [
+      0,
+      0
+    ],
+    "actual_review_CPU_count": 1,
+    "actual_review_RSS_limit_bytes": 1073741824,
+    "observed_guarded_static_process_peak_RSS_bytes": 30490624,
+    "root_audit_script_executed": false,
+    "scientific_or_artificial_tests_executed": false
+  },
+  "remaining_evidence_boundary": [
+    "This closes text/static findings only. It does not establish that the final audit has run, that all 32 groups/final native receipts were fetched, that saved arrays numerically pass, or that figures were visually reviewed.",
+    "The seventh early artifact is an NPZ. Its keys/shapes were traced from frozen producer code; this reviewer did not open its archive or arrays.",
+    "Current root audit checks saved-artifact arithmetic; it does not reproduce the scientific network endpoint or endpoint macro gradients. Endpoint dispersion is an identity-consistency check with stored Welford output.",
+    "Final scientific conclusions and any gradient analysis await complete results and the parent's next instruction."
+  ]
+}
+

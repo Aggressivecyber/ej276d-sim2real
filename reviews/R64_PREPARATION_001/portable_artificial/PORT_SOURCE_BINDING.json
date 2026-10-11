@@ -1,0 +1,550 @@
+{
+  "UTC": "2026-10-11T01:59:03.272935+00:00",
+  "status": "static_port_generated_no_fixture_execution",
+  "original_fixture_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\artificial_fixture.py",
+  "original_fixture_sha256": "5273878b94ef509e466a0ed5250b4f6c3b7b87ac4e87cee6c10b48fa06126c6e",
+  "original_receipt_sha256": "9fc29894450691905490b7f6a659e5c9d781e952a0fb18584d06dc71bd8bb3a1",
+  "original_tolerances_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+  "portable_fixture_sha256_before_local_execution": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+  "expected_test_count": 69,
+  "expected_test_names": [
+    "R63_equal32_value_full_window",
+    "R63_equal32_gradient_full_window",
+    "R63_equal32_value_PSD",
+    "R63_equal32_gradient_PSD",
+    "R63_equal32_value_noise",
+    "R63_equal32_gradient_noise",
+    "R63_equal32_value_coordinate_RMS",
+    "R63_equal32_gradient_coordinate_RMS",
+    "R63_equal32_value_temporal_joint",
+    "R63_equal32_gradient_temporal_joint",
+    "uniform_fastpath_vs_generic_full_value_full_window",
+    "uniform_fastpath_vs_generic_full_gradient_full_window",
+    "uniform_fastpath_vs_generic_full_value_PSD",
+    "uniform_fastpath_vs_generic_full_gradient_PSD",
+    "uniform_fastpath_vs_generic_full_value_noise",
+    "uniform_fastpath_vs_generic_full_gradient_noise",
+    "uniform_fastpath_vs_generic_full_value_coordinate_RMS",
+    "uniform_fastpath_vs_generic_full_gradient_coordinate_RMS",
+    "uniform_fastpath_vs_generic_full_value_temporal_joint",
+    "uniform_fastpath_vs_generic_full_gradient_temporal_joint",
+    "uniform_fastpath_vs_generic_equal32_value_full_window",
+    "uniform_fastpath_vs_generic_equal32_gradient_full_window",
+    "uniform_fastpath_vs_generic_equal32_value_PSD",
+    "uniform_fastpath_vs_generic_equal32_gradient_PSD",
+    "uniform_fastpath_vs_generic_equal32_value_noise",
+    "uniform_fastpath_vs_generic_equal32_gradient_noise",
+    "uniform_fastpath_vs_generic_equal32_value_coordinate_RMS",
+    "uniform_fastpath_vs_generic_equal32_gradient_coordinate_RMS",
+    "uniform_fastpath_vs_generic_equal32_value_temporal_joint",
+    "uniform_fastpath_vs_generic_equal32_gradient_temporal_joint",
+    "full_unequal_oracle_value_full_window",
+    "full_unequal_oracle_gradient_full_window",
+    "full_unequal_oracle_value_PSD",
+    "full_unequal_oracle_gradient_PSD",
+    "full_unequal_oracle_value_noise",
+    "full_unequal_oracle_gradient_noise",
+    "full_unequal_oracle_value_coordinate_RMS",
+    "full_unequal_oracle_gradient_coordinate_RMS",
+    "full_unequal_oracle_value_temporal_joint",
+    "full_unequal_oracle_gradient_temporal_joint",
+    "zero_RMS_exact_zero_value_and_selected_gradient",
+    "duplicates_original_slot_scatter_vs_preparation",
+    "duplicate_exact_global_mass_scatter",
+    "uniform_fastpath_vs_generic_equal128_value_full_window",
+    "uniform_fastpath_vs_generic_equal128_gradient_full_window",
+    "uniform_fastpath_vs_generic_equal128_value_PSD",
+    "uniform_fastpath_vs_generic_equal128_gradient_PSD",
+    "uniform_fastpath_vs_generic_equal128_value_noise",
+    "uniform_fastpath_vs_generic_equal128_gradient_noise",
+    "uniform_fastpath_vs_generic_equal128_value_coordinate_RMS",
+    "uniform_fastpath_vs_generic_equal128_gradient_coordinate_RMS",
+    "uniform_fastpath_vs_generic_equal128_value_temporal_joint",
+    "uniform_fastpath_vs_generic_equal128_gradient_temporal_joint",
+    "wrong_microbatch_major_layout_rejected",
+    "wrong_population_mass_binding_rejected",
+    "wrong_global_mass_detectably_changes_values_and_gradients",
+    "empty_duplicate_and_C_gradient_requests_rejected",
+    "same_schedule_firstpass_vs_singlegraph_Y",
+    "two_pass_parent_endpoint_gradient_full_window",
+    "two_pass_parameter_gradient_full_window",
+    "two_pass_parent_endpoint_gradient_PSD",
+    "two_pass_parameter_gradient_PSD",
+    "two_pass_parent_endpoint_gradient_noise",
+    "two_pass_parameter_gradient_noise",
+    "two_pass_parent_endpoint_gradient_coordinate_RMS",
+    "two_pass_parameter_gradient_coordinate_RMS",
+    "two_pass_parent_endpoint_gradient_temporal_joint",
+    "two_pass_parameter_gradient_temporal_joint",
+    "two_pass_total_parameter_gradient"
+  ],
+  "retained_assert_count": 19,
+  "comparison_name_and_tolerance_expressions_unchanged": true,
+  "comparison_definitions": [
+    {
+      "test_name_expression": "'duplicates_original_slot_scatter_vs_preparation'",
+      "frozen_rule": "'equal_R63_f32_vs_f64_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'duplicate_exact_global_mass_scatter'",
+      "frozen_rule": "'duplicate_scatter_gradient'"
+    },
+    {
+      "test_name_expression": "'same_schedule_firstpass_vs_singlegraph_Y'",
+      "frozen_rule": "'same_schedule_two_pass_endpoint'"
+    },
+    {
+      "test_name_expression": "'two_pass_total_parameter_gradient'",
+      "frozen_rule": "'same_schedule_two_pass_parameter_gradient'"
+    },
+    {
+      "test_name_expression": "'R63_equal32_value_' + name",
+      "frozen_rule": "'equal_R63_f32_vs_f64_value'"
+    },
+    {
+      "test_name_expression": "'R63_equal32_gradient_' + name",
+      "frozen_rule": "'equal_R63_f32_vs_f64_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_full_value_' + name",
+      "frozen_rule": "'unequal_oracle_value'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_full_gradient_' + name",
+      "frozen_rule": "'unequal_oracle_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_equal32_value_' + name",
+      "frozen_rule": "'unequal_oracle_value'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_equal32_gradient_' + name",
+      "frozen_rule": "'unequal_oracle_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'full_unequal_oracle_value_' + name",
+      "frozen_rule": "'unequal_oracle_value'"
+    },
+    {
+      "test_name_expression": "'full_unequal_oracle_gradient_' + name",
+      "frozen_rule": "'unequal_oracle_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_equal128_value_' + name",
+      "frozen_rule": "'unequal_oracle_value'"
+    },
+    {
+      "test_name_expression": "'uniform_fastpath_vs_generic_equal128_gradient_' + name",
+      "frozen_rule": "'unequal_oracle_endpoint_gradient'"
+    },
+    {
+      "test_name_expression": "'two_pass_parent_endpoint_gradient_' + name",
+      "frozen_rule": "'same_schedule_two_pass_endpoint'"
+    },
+    {
+      "test_name_expression": "'two_pass_parameter_gradient_' + name",
+      "frozen_rule": "'same_schedule_two_pass_parameter_gradient'"
+    }
+  ],
+  "device_only_AST_edits_and_resource_metadata_removal": [
+    {
+      "line": 92,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.as_tensor"
+    },
+    {
+      "line": 93,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.as_tensor"
+    },
+    {
+      "line": 125,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 126,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 128,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 129,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 130,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.zeros"
+    },
+    {
+      "line": 131,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.full"
+    },
+    {
+      "line": 132,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.arange"
+    },
+    {
+      "line": 132,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.arange"
+    },
+    {
+      "line": 139,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 140,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.arange"
+    },
+    {
+      "line": 176,
+      "kind": "selected_device_distribution_objective"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 182,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 183,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 183,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 194,
+      "kind": "original_R63_loss_device"
+    },
+    {
+      "line": 199,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 201,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.ones"
+    },
+    {
+      "line": 221,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 221,
+      "kind": "explicit_detach_CPU_numpy"
+    },
+    {
+      "line": 238,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 238,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 240,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 251,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 251,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 252,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 252,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 255,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 255,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 270,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 270,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 271,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 271,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 274,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 274,
+      "kind": "CPU_array_to_selected_device"
+    },
+    {
+      "line": 278,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 282,
+      "kind": "selected_device_distribution_objective"
+    },
+    {
+      "line": 312,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 336,
+      "kind": "selected_device_tensor_constructor",
+      "call": "torch.tensor"
+    },
+    {
+      "line": 362,
+      "kind": "selected_device_distribution_objective"
+    },
+    {
+      "line": 372,
+      "kind": "selected_device_distribution_objective"
+    },
+    {
+      "line": 420,
+      "kind": "supervisor_owned_resource_field",
+      "field": "CPU_affinity"
+    },
+    {
+      "line": 420,
+      "kind": "supervisor_owned_resource_field",
+      "field": "RSS_limit_bytes"
+    },
+    {
+      "line": 420,
+      "kind": "supervisor_owned_resource_field",
+      "field": "peak_RSS_bytes"
+    }
+  ],
+  "omitted_setup_or_IO_statements": [
+    {
+      "line": 81,
+      "statement": "torch.set_num_threads(1)"
+    },
+    {
+      "line": 82,
+      "statement": "torch.set_num_interop_threads(1)"
+    },
+    {
+      "line": 83,
+      "statement": "torch.use_deterministic_algorithms(True)"
+    },
+    {
+      "line": 84,
+      "statement": "torch.backends.mha.set_fastpath_enabled(False)"
+    },
+    {
+      "line": 85,
+      "statement": "import distribution_gradient as dg"
+    },
+    {
+      "line": 86,
+      "statement": "from original_bindings import R63"
+    },
+    {
+      "line": 87,
+      "statement": "from weighted_empirical_w1 import FrozenMass"
+    },
+    {
+      "line": 442,
+      "statement": "(ROOT / 'ARTIFICIAL_RECEIPT.json').write_text(json.dumps(receipt, indent=2, allow_nan=False) + '\\n', encoding='utf8')"
+    },
+    {
+      "line": 443,
+      "statement": "stage('receipt_written')"
+    },
+    {
+      "line": 444,
+      "statement": "print(json.dumps({'status': receipt['status'], 'tests': len(TESTS), 'peak_RSS_bytes': receipt['peak_RSS_bytes'], 'elapsed_seconds': receipt['elapsed_seconds']}), flush=True)"
+    }
+  ],
+  "adapter_hashes": {
+    "original_bindings.py": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+    "weighted_empirical_w1.py": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+    "distribution_gradient.py": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+    "SOURCE_BINDINGS.json": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+    "FROZEN_TOLERANCES.json": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+    "r63_original/network.py": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+    "r63_original/noise_core.py": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+    "r63_original/source_flow_core.py": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+    "r63_original/precision_order.py": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+    "r63_original/R61_distribution_loss.py": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+    "r63_original/distribution_loss.py": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+    "r63_original/config.json": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5"
+  },
+  "protected_existing_files": [
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\endpoint_geometry.py",
+      "sha256": "275425853ed2681ed8bbd88d7b1207bddeb5dd59fd8a8296069db5c3d474e9b3",
+      "bytes": 28035
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\artificial_check.py",
+      "sha256": "3de250b031d64135ee09582e1b6083f2c53b5de432ccaa588e0af91423bcf492",
+      "bytes": 19170
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\README.md",
+      "sha256": "efd1e219983738e8259a225011a40ff134245cdd31a914cf2f852ce0d447df21",
+      "bytes": 5157
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\PROTOCOL_DRAFT.json",
+      "sha256": "b4c3b794a0009b9bd9e68878ef66cc0f93701a97a2fd8e96141f286b3bb5d881",
+      "bytes": 10625
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\ARTIFICIAL_CHECK.json",
+      "sha256": "063ae5b025a55e4d681b9d67c6b78abb673c02048598260b0d0d3546b87ab163",
+      "bytes": 4860
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\SOURCE_BINDING.json",
+      "sha256": "aeb2fcee0391f9ff82e0d61e7f4925ae27850c2a1ee92d206459eb1936327f25",
+      "bytes": 3723
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\endpoint_geometry\\PREPARATION_RECEIPT.json",
+      "sha256": "1a275bc7078ddcdbfadc087de4361678870784980ab144b2ef648202072093f9",
+      "bytes": 4003
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\original_bindings.py",
+      "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+      "bytes": 1743
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\weighted_empirical_w1.py",
+      "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+      "bytes": 13328
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\distribution_gradient.py",
+      "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+      "bytes": 21466
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\SOURCE_BINDINGS.json",
+      "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+      "bytes": 3236
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\FROZEN_TOLERANCES.json",
+      "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+      "bytes": 876
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\network.py",
+      "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+      "bytes": 2916
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\noise_core.py",
+      "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+      "bytes": 2338
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\source_flow_core.py",
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+      "bytes": 6725
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\precision_order.py",
+      "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+      "bytes": 4669
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\R61_distribution_loss.py",
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+      "bytes": 7555
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\distribution_loss.py",
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+      "bytes": 5577
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\r63_original\\config.json",
+      "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+      "bytes": 7756
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\artificial_fixture.py",
+      "sha256": "5273878b94ef509e466a0ed5250b4f6c3b7b87ac4e87cee6c10b48fa06126c6e",
+      "bytes": 28969
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\ARTIFICIAL_RECEIPT.json",
+      "sha256": "9fc29894450691905490b7f6a659e5c9d781e952a0fb18584d06dc71bd8bb3a1",
+      "bytes": 23580
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\PREPARATION_RECEIPT.json",
+      "sha256": "706a4616267723f27d1a86f0d0ffa744bc3dce70ab70cd6bffc6a224242eb7c0",
+      "bytes": 5832
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R64_PREPARATION_001\\distribution_gradient\\NATIVE_EXIT_RECEIPT.json",
+      "sha256": "1954c3ee5534f90cfd196ee25e2d71e1ceb1d85ad3f189d05acef93f683108ff",
+      "bytes": 551
+    }
+  ],
+  "scientific_array_or_weight_reads": 0,
+  "note": "Only source/config/previous artificial receipt text was read. No fixture body executed in this static port step. No original bytes were changed."
+}

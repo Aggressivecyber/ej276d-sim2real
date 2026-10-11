@@ -1,0 +1,943 @@
+{
+  "UTC": "2026-10-11T02:38:05.604129+00:00",
+  "status": "complete_summary_only_finite_scalar_analysis",
+  "scope": "32 completed paired macros; fixed frozen TRAIN reference; five D terms and their vector sum; primary parameter coordinate; endpoint secondary comparison retained",
+  "new_scientific_computation": {
+    "network_forwards": 0,
+    "loss_evaluations": 0,
+    "VJP": 0,
+    "optimizer_steps": 0,
+    "large_vectors_read": false,
+    "weights_read": false,
+    "original_arrays_read": false
+  },
+  "definitions": {
+    "A": "Mean of four microbatch gradients, 32 rows per region in each microbatch, drawn from the same 128 sampled rows as B",
+    "B": "Gradient of the pooled 128 rows per region",
+    "F": "The fixed all-parent finite TRAIN reference gradient in the same coordinate",
+    "error": "mean_m ||g_m-F||^2 without division by vector dimension",
+    "mean_discrepancy": "||mean_m g_m-F||^2; finite empirical quantity, not population bias",
+    "dispersion": "mean_m ||g_m-mean_m g_m||^2; Welford M2 / 32, not M2 / 31",
+    "angle_of_mean_deg": "acos(cos(mean_m g_m,F)); separate from mean_m acos(cos(g_m,F))",
+    "aggregate_cross_error": "error(total_D)-sum_j error(component_j) = 2 sum_i<j mean_m <e_i,m,e_j,m>",
+    "aggregate_cross_mean_discrepancy": "mean_discrepancy(total_D)-sum_j mean_discrepancy(component_j)",
+    "aggregate_cross_dispersion": "dispersion(total_D)-sum_j dispersion(component_j)"
+  },
+  "bootstrap": {
+    "seed": 20261011644,
+    "generator": "PCG64",
+    "replicates": 1000,
+    "macros": 32,
+    "index_shape": [
+      1000,
+      32
+    ],
+    "saved_index_dtype": "uint16",
+    "hash_representation": "C-contiguous int64, matching original summary implementation",
+    "sha256": "503bb315ecd34e89ce52750795e8c859adec8654c5a0a36aab87288a7239285a",
+    "quantile_method": "linear",
+    "quantiles": [
+      0.025,
+      0.975
+    ],
+    "original_error_CIs_reconstructed": true,
+    "new_cross_and_angle_CIs": "post hoc descriptive, paired macro resampling with the same frozen indices; unadjusted; not additional registered primary endpoints",
+    "original_CI_max_abs_discrepancy": 1.1368683772161603e-13
+  },
+  "coordinates": {
+    "parameter": {
+      "vector_dimension": 1369889,
+      "rows": {
+        "full_window": {
+          "F_squared_norm": 2.0683802243963987,
+          "error_A": 0.49471711732662677,
+          "error_B": 0.19547364973505998,
+          "error_B_minus_A": -0.29924346759156684,
+          "error_B_minus_A_95CI": [
+            -0.30418474756803376,
+            -0.29433366036132436
+          ],
+          "error_relative_to_A_percent": -60.48779334918333,
+          "unadjusted_CI_sign": "B_lower_error",
+          "mean_discrepancy_A": 0.44945135617778437,
+          "mean_discrepancy_B": 0.1444661791254042,
+          "mean_discrepancy_B_minus_A": -0.30498517705238015,
+          "dispersion_A": 0.04526576114884251,
+          "dispersion_B": 0.05100747060965572,
+          "dispersion_B_minus_A": 0.005741709460813212,
+          "change_decomposition_residual": 1.1102230246251565e-16,
+          "mean_gradient_cosine_A": 0.8894576709501583,
+          "mean_gradient_cosine_B": 0.9694760955786148,
+          "mean_gradient_angle_deg_A": 27.194823013975142,
+          "mean_gradient_angle_deg_B": 14.192817034865623,
+          "macro_mean_cosine_A": 0.8794649272530392,
+          "macro_mean_cosine_B": 0.9589293602326361,
+          "macro_mean_cosine_B_minus_A": 0.07946443297959693,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.07770310951477034,
+            0.08135898678410598
+          ],
+          "macro_mean_angle_deg_A": 28.393042882583213,
+          "macro_mean_angle_deg_B": 16.353206459251425,
+          "macro_mean_angle_B_minus_A_deg": -12.039836423331788,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -12.43317923968818,
+            -11.706364255559922
+          ],
+          "macro_angle_B_less_than_A_count": 32,
+          "macro_error_B_less_than_A_count": 32,
+          "signed_error_delta_share_of_total_percent": -0.14500874985514403,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "PSD": {
+          "F_squared_norm": 187.07468154925513,
+          "error_A": 347.7239842956676,
+          "error_B": 538.7004146002923,
+          "error_B_minus_A": 190.97643030462467,
+          "error_B_minus_A_95CI": [
+            83.33321048637292,
+            325.5084084714929
+          ],
+          "error_relative_to_A_percent": 54.921845754027295,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 209.8001867392442,
+          "mean_discrepancy_B": 126.93466335807447,
+          "mean_discrepancy_B_minus_A": -82.86552338116972,
+          "dispersion_A": 137.92379755642364,
+          "dispersion_B": 411.76575124221773,
+          "dispersion_B_minus_A": 273.8419536857941,
+          "change_decomposition_residual": 2.8421709430404007e-13,
+          "mean_gradient_cosine_A": 0.053540780013827644,
+          "mean_gradient_cosine_B": 0.6265595009210426,
+          "mean_gradient_angle_deg_A": 86.93087174573076,
+          "mean_gradient_angle_deg_B": 51.203257564093256,
+          "macro_mean_cosine_A": 0.03851572271810743,
+          "macro_mean_cosine_B": 0.16274329907071644,
+          "macro_mean_cosine_B_minus_A": 0.124227576352609,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.04279459150665464,
+            0.20533231398174354
+          ],
+          "macro_mean_angle_deg_A": 85.93990243757567,
+          "macro_mean_angle_deg_B": 77.6223217285862,
+          "macro_mean_angle_B_minus_A_deg": -8.31758070898947,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -13.544583679122457,
+            -2.8732730410477347
+          ],
+          "macro_angle_B_less_than_A_count": 24,
+          "macro_error_B_less_than_A_count": 11,
+          "signed_error_delta_share_of_total_percent": 92.54422037399257,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "noise": {
+          "F_squared_norm": 9.091410294535251,
+          "error_A": 7.598653353496881,
+          "error_B": 8.897506099494507,
+          "error_B_minus_A": 1.2988527459976251,
+          "error_B_minus_A_95CI": [
+            0.09879460754875202,
+            2.7862551379542415
+          ],
+          "error_relative_to_A_percent": 17.093196459605522,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 5.771012986995202,
+          "mean_discrepancy_B": 3.7786203229030515,
+          "mean_discrepancy_B_minus_A": -1.9923926640921503,
+          "dispersion_A": 1.8276403665016887,
+          "dispersion_B": 5.118885776591451,
+          "dispersion_B_minus_A": 3.2912454100897626,
+          "change_decomposition_residual": 1.2878587085651816e-14,
+          "mean_gradient_cosine_A": 0.924478983962942,
+          "mean_gradient_cosine_B": 0.9855213885129953,
+          "mean_gradient_angle_deg_A": 22.410079089201787,
+          "mean_gradient_angle_deg_B": 9.761723057312922,
+          "macro_mean_cosine_A": 0.3884321684225702,
+          "macro_mean_cosine_B": 0.40760877070797136,
+          "macro_mean_cosine_B_minus_A": 0.019176602285401217,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            -0.03030309070571386,
+            0.059791884069362124
+          ],
+          "macro_mean_angle_deg_A": 63.93596888697424,
+          "macro_mean_angle_deg_B": 61.922758531091866,
+          "macro_mean_angle_B_minus_A_deg": -2.0132103558823684,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -4.747275816729552,
+            1.2640188717009784
+          ],
+          "macro_angle_B_less_than_A_count": 21,
+          "macro_error_B_less_than_A_count": 15,
+          "signed_error_delta_share_of_total_percent": 0.6294039247002243,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "coordinate_RMS": {
+          "F_squared_norm": 4.173087118190592,
+          "error_A": 0.38418839177595393,
+          "error_B": 0.21055940642591628,
+          "error_B_minus_A": -0.17362898535003768,
+          "error_B_minus_A_95CI": [
+            -0.17919589331364455,
+            -0.16829162397058278
+          ],
+          "error_relative_to_A_percent": -45.193709405799126,
+          "unadjusted_CI_sign": "B_lower_error",
+          "mean_discrepancy_A": 0.26274083584817143,
+          "mean_discrepancy_B": 0.08364605464317491,
+          "mean_discrepancy_B_minus_A": -0.1790947812049965,
+          "dispersion_A": 0.12144755592778265,
+          "dispersion_B": 0.12691335178274152,
+          "dispersion_B_minus_A": 0.005465795854958863,
+          "change_decomposition_residual": -5.551115123125783e-17,
+          "mean_gradient_cosine_A": 0.9684314420290853,
+          "mean_gradient_cosine_B": 0.9902086797590148,
+          "mean_gradient_angle_deg_A": 14.4349132074092,
+          "mean_gradient_angle_deg_B": 8.024412676360093,
+          "macro_mean_cosine_A": 0.9574468686007773,
+          "macro_mean_cosine_B": 0.9790951219047543,
+          "macro_mean_cosine_B_minus_A": 0.021648253303976923,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.02103384143674114,
+            0.022254817142172482
+          ],
+          "macro_mean_angle_deg_A": 16.669398671868713,
+          "macro_mean_angle_deg_B": 11.458566300363845,
+          "macro_mean_angle_B_minus_A_deg": -5.210832371504867,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -5.50444498220559,
+            -4.946273984933476
+          ],
+          "macro_angle_B_less_than_A_count": 32,
+          "macro_error_B_less_than_A_count": 32,
+          "signed_error_delta_share_of_total_percent": -0.08413791721793172,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "temporal_joint": {
+          "F_squared_norm": 0.07206955599010514,
+          "error_A": 0.05787594384744044,
+          "error_B": 0.0746256583918409,
+          "error_B_minus_A": 0.016749714544400468,
+          "error_B_minus_A_95CI": [
+            0.009561310542666878,
+            0.023586064233294447
+          ],
+          "error_relative_to_A_percent": 28.9407194611846,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 0.032273705858472786,
+          "mean_discrepancy_B": 0.015625280328210357,
+          "mean_discrepancy_B_minus_A": -0.01664842553026243,
+          "dispersion_A": 0.0256022379889677,
+          "dispersion_B": 0.05900037806363063,
+          "dispersion_B_minus_A": 0.03339814007466293,
+          "change_decomposition_residual": -3.122502256758253e-17,
+          "mean_gradient_cosine_A": 0.743663488998293,
+          "mean_gradient_cosine_B": 0.8989558245663187,
+          "mean_gradient_angle_deg_A": 41.95556915826632,
+          "mean_gradient_angle_deg_B": 25.978847326870614,
+          "macro_mean_cosine_A": 0.5742463462345637,
+          "macro_mean_cosine_B": 0.5775146536907407,
+          "macro_mean_cosine_B_minus_A": 0.0032683074561769276,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            -0.02482443014633035,
+            0.0322561887806812
+          ],
+          "macro_mean_angle_deg_A": 54.472635442946284,
+          "macro_mean_angle_deg_B": 54.10328364433151,
+          "macro_mean_angle_B_minus_A_deg": -0.3693517986147785,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -2.3997834467464716,
+            1.6115644915349046
+          ],
+          "macro_angle_B_less_than_A_count": 17,
+          "macro_error_B_less_than_A_count": 6,
+          "signed_error_delta_share_of_total_percent": 0.008116652256647237,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "total_D": {
+          "F_squared_norm": 149.999121486797,
+          "error_A": 344.97279232091245,
+          "error_B": 551.3351448620488,
+          "error_B_minus_A": 206.36235254113632,
+          "error_B_minus_A_95CI": [
+            99.05100094847836,
+            343.48602557985976
+          ],
+          "error_relative_to_A_percent": 59.81989221606985,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 202.12226442264327,
+          "mean_discrepancy_B": 123.18960478104825,
+          "mean_discrepancy_B_minus_A": -78.93265964159502,
+          "dispersion_A": 142.85052789826918,
+          "dispersion_B": 428.1455400810007,
+          "dispersion_B_minus_A": 285.2950121827315,
+          "change_decomposition_residual": -1.7053025658242404e-13,
+          "mean_gradient_cosine_A": -0.07700116802452539,
+          "mean_gradient_cosine_B": 0.4230442789128522,
+          "mean_gradient_angle_deg_A": 94.41621338644772,
+          "mean_gradient_angle_deg_B": 64.97306471055195,
+          "macro_mean_cosine_A": 0.008471789807488354,
+          "macro_mean_cosine_B": 0.13380313062654722,
+          "macro_mean_cosine_B_minus_A": 0.12533134081905886,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.05289619360913244,
+            0.19816971344394851
+          ],
+          "macro_mean_angle_deg_A": 88.16583964406445,
+          "macro_mean_angle_deg_B": 79.90096136707079,
+          "macro_mean_angle_B_minus_A_deg": -8.264878276993656,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -12.758551322773084,
+            -3.417127150368691
+          ],
+          "macro_angle_B_less_than_A_count": 24,
+          "macro_error_B_less_than_A_count": 12,
+          "signed_error_delta_share_of_total_percent": 100,
+          "original_registered_primary_in_coordinate_summary": true
+        }
+      },
+      "aggregate_cross_terms": {
+        "A": {
+          "error": -11.286626781202074,
+          "mean_discrepancy": -14.193401201480555,
+          "dispersion": 2.9067744202782535,
+          "per_macro_aggregate_cross_error": [
+            -35.204567384009806,
+            -27.095625294656088,
+            2.2355651913934906,
+            -30.153121296923473,
+            -1.317218425185331,
+            -26.149921230615348,
+            2.4901169063915063,
+            -12.408732715594113,
+            4.103112719663244,
+            -19.27567297826866,
+            -20.13550440432556,
+            2.688245327067733,
+            -34.75581101808962,
+            2.9461159312358944,
+            -2.685929179396908,
+            -1.4340574203646668,
+            -35.973166133161385,
+            -10.29419034469879,
+            3.532965480850976,
+            -9.077586332442706,
+            -22.46642418193977,
+            -37.06722656586538,
+            7.8751352375657575,
+            -18.16248301760777,
+            -3.368561871251096,
+            -35.33414442550847,
+            -15.270078657747717,
+            -7.302187754766834,
+            -8.708650105529216,
+            4.614369112073874,
+            40.4344058231477,
+            -18.45122798990849
+          ],
+          "decomposition_residual": 2.2737367544323206e-13
+        },
+        "B": {
+          "error": 3.2565654477091357,
+          "mean_discrepancy": -7.767416414026059,
+          "dispersion": 11.023981861735479,
+          "per_macro_aggregate_cross_error": [
+            -49.701506587888844,
+            84.75781918966516,
+            -4.562686575494908,
+            9.457495755232287,
+            7.939694701264301,
+            -15.90734079680503,
+            36.30678320105039,
+            2.4043674018887486,
+            2.9307439955452423,
+            -14.117495068355623,
+            7.879431121172502,
+            5.481524760112229,
+            -50.4343902395309,
+            62.39010872889099,
+            12.586174028642688,
+            18.63803026522436,
+            -73.01881331470702,
+            12.811581526259943,
+            -14.514671594998504,
+            -1.445786047737215,
+            -14.590750326472744,
+            -22.451379993498847,
+            92.47135584147895,
+            -20.348535108211934,
+            -6.349340953623837,
+            -42.29064721386976,
+            -41.48162790965807,
+            1.1565441990512255,
+            -23.796557360487327,
+            46.75376157918299,
+            95.07721242451862,
+            0.17899469885219332
+          ],
+          "decomposition_residual": -2.8421709430404007e-13
+        },
+        "B_minus_A": {
+          "error": 14.54319222891121,
+          "mean_discrepancy": 6.425984787454496,
+          "dispersion": 8.117207441457225,
+          "error_95CI_posthoc": [
+            4.993545152809329,
+            25.190789322579302
+          ],
+          "per_macro_aggregate_cross_error": [
+            -14.496939203879037,
+            111.85344448432124,
+            -6.798251766888399,
+            39.61061705215576,
+            9.256913126449632,
+            10.242580433810318,
+            33.81666629465889,
+            14.813100117482861,
+            -1.1723687241180016,
+            5.158177909913036,
+            28.01493552549806,
+            2.7932794330444963,
+            -15.678579221441282,
+            59.4439927976551,
+            15.272103208039596,
+            20.072087685589025,
+            -37.04564718154563,
+            23.105771870958733,
+            -18.04763707584948,
+            7.631800284705491,
+            7.875673855467028,
+            14.615846572366536,
+            84.5962206039132,
+            -2.1860520906041643,
+            -2.9807790823727416,
+            -6.956502788361291,
+            -26.211549251910355,
+            8.45873195381806,
+            -15.087907254958111,
+            42.13939246710912,
+            54.64280660137092,
+            18.630222688760682
+          ],
+          "signed_error_delta_share_of_total_percent": 7.047405716123616
+        },
+        "component_delta_sum": 191.81916031222508,
+        "component_delta_plus_cross_delta": 206.3623525411363,
+        "total_delta_residual": 2.842170943040401e-14
+      },
+      "reference_total_D_squared_norm": 149.999121486797,
+      "reference_sum_component_squared_norm": 202.47962874236748
+    },
+    "endpoint": {
+      "vector_dimension": 3164640,
+      "rows": {
+        "full_window": {
+          "F_squared_norm": 0.26410478010536964,
+          "error_A": 2.5185854526368168,
+          "error_B": 2.5081919448286194,
+          "error_B_minus_A": -0.0103935078081977,
+          "error_B_minus_A_95CI": [
+            -0.03312753386520159,
+            0.013932164154231014
+          ],
+          "error_relative_to_A_percent": -0.41267243076133403,
+          "unadjusted_CI_sign": "includes_zero",
+          "mean_discrepancy_A": 0.26199863132406404,
+          "mean_discrepancy_B": 0.1753126863141122,
+          "mean_discrepancy_B_minus_A": -0.08668594500995183,
+          "dispersion_A": 2.2565868213127533,
+          "dispersion_B": 2.332879258514506,
+          "dispersion_B_minus_A": 0.0762924372017526,
+          "change_decomposition_residual": 1.5265566588595902e-15,
+          "mean_gradient_cosine_A": 0.3117623333388408,
+          "mean_gradient_cosine_B": 0.5958138751285204,
+          "mean_gradient_angle_deg_A": 71.83453097989857,
+          "mean_gradient_angle_deg_B": 53.42932681818771,
+          "macro_mean_cosine_A": 0.0637410432109,
+          "macro_mean_cosine_B": 0.14267030549966697,
+          "macro_mean_cosine_B_minus_A": 0.07892926228876697,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.07778815655891586,
+            0.0799535111473218
+          ],
+          "macro_mean_angle_deg_A": 86.34539451328729,
+          "macro_mean_angle_deg_B": 81.79747493609457,
+          "macro_mean_angle_B_minus_A_deg": -4.547919577192712,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -4.6072393126905675,
+            -4.481907802510219
+          ],
+          "macro_angle_B_less_than_A_count": 32,
+          "macro_error_B_less_than_A_count": 19,
+          "signed_error_delta_share_of_total_percent": -0.004128422288649203,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "PSD": {
+          "F_squared_norm": 238.47188399671015,
+          "error_A": 2934.1005261994346,
+          "error_B": 3130.550784082293,
+          "error_B_minus_A": 196.45025788285835,
+          "error_B_minus_A_95CI": [
+            126.82216267600369,
+            268.6925879411157
+          ],
+          "error_relative_to_A_percent": 6.695416742838121,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 246.44421994380264,
+          "mean_discrepancy_B": 204.41419026175137,
+          "mean_discrepancy_B_minus_A": -42.030029682051264,
+          "dispersion_A": 2687.656306255624,
+          "dispersion_B": 2926.1365938205345,
+          "dispersion_B_minus_A": 238.48028756491067,
+          "change_decomposition_residual": -1.0516032489249483e-12,
+          "mean_gradient_cosine_A": 0.3101987270099438,
+          "mean_gradient_cosine_B": 0.47473257744034286,
+          "mean_gradient_angle_deg_A": 71.92879289278152,
+          "mean_gradient_angle_deg_B": 61.658060398055866,
+          "macro_mean_cosine_A": 0.05995435769864252,
+          "macro_mean_cosine_B": 0.09945535669495091,
+          "macro_mean_cosine_B_minus_A": 0.03950099899630839,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.015226258603781136,
+            0.06240419509664933
+          ],
+          "macro_mean_angle_deg_A": 86.55864401929941,
+          "macro_mean_angle_deg_B": 84.27123871490306,
+          "macro_mean_angle_B_minus_A_deg": -2.2874053043963487,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -3.6062366882021952,
+            -0.8901011068579896
+          ],
+          "macro_angle_B_less_than_A_count": 24,
+          "macro_error_B_less_than_A_count": 6,
+          "signed_error_delta_share_of_total_percent": 78.03232924064297,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "noise": {
+          "F_squared_norm": 113.80394366135701,
+          "error_A": 955.9959033713085,
+          "error_B": 1021.2367129049953,
+          "error_B_minus_A": 65.24080953368687,
+          "error_B_minus_A_95CI": [
+            49.73657998643585,
+            80.95243156907236
+          ],
+          "error_relative_to_A_percent": 6.824381705362534,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 104.44311166946562,
+          "mean_discrepancy_B": 82.8165917414921,
+          "mean_discrepancy_B_minus_A": -21.62651992797352,
+          "dispersion_A": 851.5527917018431,
+          "dispersion_B": 938.4201211635037,
+          "dispersion_B_minus_A": 86.86732946166057,
+          "change_decomposition_residual": -1.8474111129762605e-13,
+          "mean_gradient_cosine_A": 0.34571734942720395,
+          "mean_gradient_cosine_B": 0.5330212160378315,
+          "mean_gradient_angle_deg_A": 69.77440841406893,
+          "mean_gradient_angle_deg_B": 57.7901855785493,
+          "macro_mean_cosine_A": 0.06691976685607645,
+          "macro_mean_cosine_B": 0.11658603857752295,
+          "macro_mean_cosine_B_minus_A": 0.049666271721446505,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.03186563747310224,
+            0.07007476045749961
+          ],
+          "macro_mean_angle_deg_A": 86.1567807456849,
+          "macro_mean_angle_deg_B": 83.27623007613043,
+          "macro_mean_angle_B_minus_A_deg": -2.880550669554477,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -4.066551016246046,
+            -1.8504718184695548
+          ],
+          "macro_angle_B_less_than_A_count": 25,
+          "macro_error_B_less_than_A_count": 3,
+          "signed_error_delta_share_of_total_percent": 25.91440899250124,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "coordinate_RMS": {
+          "F_squared_norm": 0.11058575612274175,
+          "error_A": 1.843910681918502,
+          "error_B": 1.572666368142362,
+          "error_B_minus_A": -0.27124431377614006,
+          "error_B_minus_A_95CI": [
+            -0.2901851052711936,
+            -0.24984046669382787
+          ],
+          "error_relative_to_A_percent": -14.710274008170675,
+          "unadjusted_CI_sign": "B_lower_error",
+          "mean_discrepancy_A": 0.12934098552817858,
+          "mean_discrepancy_B": 0.08410552332872469,
+          "mean_discrepancy_B_minus_A": -0.04523546219945389,
+          "dispersion_A": 1.7145696963903243,
+          "dispersion_B": 1.488560844813637,
+          "dispersion_B_minus_A": -0.22600885157668738,
+          "change_decomposition_residual": 1.2212453270876722e-15,
+          "mean_gradient_cosine_A": 0.3031438457980329,
+          "mean_gradient_cosine_B": 0.5671498930922863,
+          "mean_gradient_angle_deg_A": 72.35347197944152,
+          "mean_gradient_angle_deg_B": 55.448282694254914,
+          "macro_mean_cosine_A": 0.06142040906740101,
+          "macro_mean_cosine_B": 0.1286150393967946,
+          "macro_mean_cosine_B_minus_A": 0.0671946303293936,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.06593429942885613,
+            0.06852889777662952
+          ],
+          "macro_mean_angle_deg_A": 86.47862391805175,
+          "macro_mean_angle_deg_B": 82.61027024040683,
+          "macro_mean_angle_B_minus_A_deg": -3.868353677644927,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -3.9457743777797183,
+            -3.795103259297271
+          ],
+          "macro_angle_B_less_than_A_count": 32,
+          "macro_error_B_less_than_A_count": 32,
+          "signed_error_delta_share_of_total_percent": -0.10774139889321517,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "temporal_joint": {
+          "F_squared_norm": 14.9069326207862,
+          "error_A": 146.2338096409851,
+          "error_B": 143.58020350507275,
+          "error_B_minus_A": -2.653606135912342,
+          "error_B_minus_A_95CI": [
+            -6.375823345266029,
+            0.879003919302269
+          ],
+          "error_relative_to_A_percent": -1.8146324317386948,
+          "unadjusted_CI_sign": "includes_zero",
+          "mean_discrepancy_A": 16.11889615467404,
+          "mean_discrepancy_B": 11.381193086915488,
+          "mean_discrepancy_B_minus_A": -4.737703067758552,
+          "dispersion_A": 130.11491348631108,
+          "dispersion_B": 132.1990104181573,
+          "dispersion_B_minus_A": 2.0840969318462044,
+          "change_decomposition_residual": 5.773159728050814e-15,
+          "mean_gradient_cosine_A": 0.243439393710822,
+          "mean_gradient_cosine_B": 0.5113775757547999,
+          "mean_gradient_angle_deg_A": 75.91037450879658,
+          "mean_gradient_angle_deg_B": 59.244366991601254,
+          "macro_mean_cosine_A": 0.049877838984468154,
+          "macro_mean_cosine_B": 0.11236144583209903,
+          "macro_mean_cosine_B_minus_A": 0.06248360684763087,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.05952538666263856,
+            0.06545962774222798
+          ],
+          "macro_mean_angle_deg_A": 87.14091417187063,
+          "macro_mean_angle_deg_B": 83.54779881320673,
+          "macro_mean_angle_B_minus_A_deg": -3.5931153586638835,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -3.764999989762287,
+            -3.422078602547323
+          ],
+          "macro_angle_B_less_than_A_count": 32,
+          "macro_error_B_less_than_A_count": 19,
+          "signed_error_delta_share_of_total_percent": -1.0540432468964973,
+          "original_registered_primary_in_coordinate_summary": false
+        },
+        "total_D": {
+          "F_squared_norm": 374.2306986810107,
+          "error_A": 4095.613078470958,
+          "error_B": 4347.368036697347,
+          "error_B_minus_A": 251.75495822638814,
+          "error_B_minus_A_95CI": [
+            172.74245629005458,
+            332.35127089463293
+          ],
+          "error_relative_to_A_percent": 6.146941945023221,
+          "unadjusted_CI_sign": "B_higher_error",
+          "mean_discrepancy_A": 370.3443216357578,
+          "mean_discrepancy_B": 301.69098305501143,
+          "mean_discrepancy_B_minus_A": -68.65333858074638,
+          "dispersion_A": 3725.2687568352003,
+          "dispersion_B": 4045.6770536423346,
+          "dispersion_B_minus_A": 320.4082968071343,
+          "change_decomposition_residual": 1.9895196601282805e-13,
+          "mean_gradient_cosine_A": 0.32379016152747425,
+          "mean_gradient_cosine_B": 0.4955384521187483,
+          "mean_gradient_angle_deg_A": 71.10770660090579,
+          "mean_gradient_angle_deg_B": 60.29473725258299,
+          "macro_mean_cosine_A": 0.06297210324911484,
+          "macro_mean_cosine_B": 0.10542165047033392,
+          "macro_mean_cosine_B_minus_A": 0.04244954722121907,
+          "macro_mean_cosine_B_minus_A_95CI_posthoc": [
+            0.02575255461697224,
+            0.05911318562009178
+          ],
+          "macro_mean_angle_deg_A": 86.38683190646498,
+          "macro_mean_angle_deg_B": 83.93428673450718,
+          "macro_mean_angle_B_minus_A_deg": -2.4525451719577807,
+          "macro_mean_angle_B_minus_A_95CI_deg_posthoc": [
+            -3.4113546034916573,
+            -1.4838072060811003
+          ],
+          "macro_angle_B_less_than_A_count": 26,
+          "macro_error_B_less_than_A_count": 4,
+          "signed_error_delta_share_of_total_percent": 100,
+          "original_registered_primary_in_coordinate_summary": true
+        }
+      },
+      "aggregate_cross_terms": {
+        "A": {
+          "error": 54.92034312467467,
+          "mean_discrepancy": 2.946754250963238,
+          "dispersion": 51.97358887371911,
+          "per_macro_aggregate_cross_error": [
+            91.4341446870485,
+            92.68142240527914,
+            41.329887753790445,
+            60.25753196361529,
+            38.174452929147265,
+            20.70289242182662,
+            57.11206651381235,
+            4.398042276977321,
+            64.72101682070706,
+            78.42530317897172,
+            43.62499643839055,
+            110.72395824554178,
+            16.860695795045103,
+            56.786540497431815,
+            35.19349247932405,
+            90.6480561184344,
+            22.514281564410794,
+            36.369598393468095,
+            59.398499919245296,
+            63.662179688755714,
+            37.60963262006226,
+            89.64806517166562,
+            9.745263177541347,
+            73.11838544422699,
+            116.84360141796606,
+            23.222688548351016,
+            71.44353050715108,
+            52.66298361923282,
+            36.5300747420938,
+            45.94099466642592,
+            44.13730485236556,
+            71.52939513128786
+          ],
+          "decomposition_residual": -7.673861546209082e-12
+        },
+        "B": {
+          "error": 47.919477892014584,
+          "mean_discrepancy": 2.81958975520962,
+          "dispersion": 45.09988813681093,
+          "per_macro_aggregate_cross_error": [
+            132.02914466566472,
+            77.70374722365568,
+            85.48263388846726,
+            68.76059591542253,
+            -5.31876957509121,
+            -3.148204942063785,
+            -7.2916668873031085,
+            33.0039719707529,
+            79.43587335209486,
+            63.735591678709625,
+            14.406080887625649,
+            55.177610329047184,
+            6.168151066272912,
+            57.770053311444826,
+            22.278126496148616,
+            77.78446139650896,
+            -14.93485869741744,
+            42.37699392739569,
+            58.74051878819864,
+            82.62097110888772,
+            13.566396378992067,
+            34.64420640935805,
+            -28.054959507181593,
+            73.21235851974507,
+            49.49371355626772,
+            20.78190098176401,
+            110.6467651942985,
+            49.64692980300606,
+            7.9187565049878685,
+            136.50812357544692,
+            33.014185631053806,
+            105.26388959229871
+          ],
+          "decomposition_residual": -5.9685589803848416e-12
+        },
+        "B_minus_A": {
+          "error": -7.0008652326600895,
+          "mean_discrepancy": -0.1271644957536182,
+          "dispersion": -6.873700736908177,
+          "error_95CI_posthoc": [
+            -19.254551994010495,
+            4.87126265118443
+          ],
+          "per_macro_aggregate_cross_error": [
+            40.594999978616215,
+            -14.977675181623454,
+            44.15274613467682,
+            8.503063951807235,
+            -43.493222504238474,
+            -23.851097363890403,
+            -64.40373340111546,
+            28.60592969377558,
+            14.714856531387795,
+            -14.689711500262092,
+            -29.218915550764905,
+            -55.5463479164946,
+            -10.69254472877219,
+            0.9835128140130109,
+            -12.915365983175434,
+            -12.863594721925438,
+            -37.449140261828234,
+            6.007395533927593,
+            -0.6579811310466539,
+            18.958791420132002,
+            -24.04323624107019,
+            -55.00385876230757,
+            -37.80022268472294,
+            0.09397307551807899,
+            -67.34988786169833,
+            -2.440787566587005,
+            39.203234687147415,
+            -3.0160538162267585,
+            -28.611318237105934,
+            90.567128909021,
+            -11.123119221311754,
+            33.734494461010854
+          ],
+          "signed_error_delta_share_of_total_percent": -2.780825165065719
+        },
+        "component_delta_sum": 258.75582345904854,
+        "component_delta_plus_cross_delta": 251.75495822638845,
+        "total_delta_residual": -3.126388037344441e-13
+      },
+      "reference_total_D_squared_norm": 374.2306986810107,
+      "reference_sum_component_squared_norm": 367.5574508150815
+    }
+  },
+  "input_bindings": {
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/COPY_RECEIPT.json": {
+      "bytes": 632,
+      "sha256": "9df5a6782cecae29952ceb53ab1f52ecc7b25af934cf0c20193685629d7c196a"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/diagnose_train.py.NATIVE_RECEIPT.json": {
+      "bytes": 2458,
+      "sha256": "69ea44eb676daf1a1c9f3bf40fc5fef382142b1d6333bed8202b252de055dde0"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/ENDPOINT_GRADIENT_SUMMARY.json": {
+      "bytes": 195420,
+      "sha256": "f23ea835abe5cfaf2fa6534dd932021235e96f5f86fcda6851a48e8c50cbe455"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/FIGURE_MANIFEST.json": {
+      "bytes": 241,
+      "sha256": "384abd841401af7df4c72c48190531f1708383928a88b0f8df04eea0afb42a64"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/MACRO_LOSS_AND_GRADIENT_RECORDS.json": {
+      "bytes": 411177,
+      "sha256": "7411f0ac76fbe9f46f02a13706a2cf3b4b1f1925c01539f7ba8bbf410d88c36c"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/PARAMETER_GRADIENT_SUMMARY.json": {
+      "bytes": 196026,
+      "sha256": "e195f3486fbae5c4c8df1450971b67ac9f03782e836abaf6888350516d2e2d68"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/completed_summary_copy/RESULT.json": {
+      "bytes": 3430,
+      "sha256": "53b19e2f911caecdf263c008884067cd7ba8a7d79222ac7783973f2a1834746b"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/config.json": {
+      "bytes": 5526,
+      "sha256": "ce1c5001dd66dd166bbb84fe4c6624ca93275ba96db36ee7ef4c682d65a7001b"
+    },
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/root_audit_corrections/NATIVE_RESOURCE_REVIEW_NOTE.json": {
+      "bytes": 460,
+      "sha256": "e705f5b0e22e163a82c3934f5d521eeed4aa6bc12ffbce2b1c2cadca57d816b0"
+    }
+  },
+  "native_receipt_review": {
+    "actual_worker_PID": 267898,
+    "native_exit": 0,
+    "termination_reason": null,
+    "actual_worker_RSS_peak_bytes": 4645408768,
+    "RSS_limit_bytes": 51539607552,
+    "GPU_process_memory_peak_bytes": 1862270976,
+    "GPU_limit_bytes": 10737418240,
+    "RSS_probe_failures": 2,
+    "RSS_probe_events": [
+      {
+        "UTC": "2026-10-11T02:29:42.559060+00:00",
+        "PID": 267898,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      },
+      {
+        "UTC": "2026-10-11T02:29:42.659396+00:00",
+        "PID": 267898,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "RSS_failure_original_termination_rule": "more than five failures; two failures do not satisfy termination threshold",
+    "all_RSS_probe_events_after_worker_self_receipt": true,
+    "probe_failure_cause": "unknown; timing is not proof of an exit race",
+    "PID_absent_source": "COPY_RECEIPT attestation, no new remote process query by this analysis",
+    "correction_note": {
+      "before_sha256": "bc32340bb613640825c5258df5dadb85acf1eb69a4d571653fe946242a9afc65",
+      "scientific_artifacts_changed": false,
+      "audit_executed_before_correction": false,
+      "finding": "Final native receipt records two RSS sampling errors after worker self-receipt. Original supervisor stops only after more than five. Replace invented zero-errors assertion with original policy verification and preserve all failures; their cause remains unknown."
+    }
+  },
+  "limitations": [
+    "Finite sample means and dispersions have no population bias or unbiased variance interpretation.",
+    "Mean-gradient angle and mean-discrepancy confidence intervals cannot be reconstructed from these scalar summaries without cross-macro vector products, so none are invented.",
+    "Aggregate cross terms do not identify any individual component pair.",
+    "Error contribution percentages are algebraic signed shares of the observed total difference, not causal shares.",
+    "Secondary and new post hoc intervals are not adjusted for multiple comparisons.",
+    "No original acceptance gate, model-performance, training-dynamics or R60 conflict determination is changed."
+  ],
+  "verification": {
+    "summary_macro_records_identical_to_copied_macro_records": true,
+    "all_12_original_error_CIs_recomputed": true,
+    "same_bootstrap_hash_both_coordinates": true,
+    "all_32_macros_complete": true,
+    "all_finite_error_decompositions_checked": true,
+    "all_aggregate_cross_decompositions_checked": true,
+    "input_files_unchanged_after": true
+  },
+  "resource": {
+    "PID": 62320,
+    "CPU_affinity_mask": 1,
+    "CPU_count": 1,
+    "numpy_version": "2.3.5",
+    "RSS_limit_bytes": 1073741824,
+    "guard_poll_seconds": 0.02,
+    "guard_applied_before_numpy_import": true,
+    "elapsed_seconds": 3.154717699973844,
+    "new_artifacts_on_drive": "E",
+    "actual_peak_RSS_at_final_probe_bytes": 46886912,
+    "observed_native_exit": 0
+  },
+  "coordinate_decision_priority": {
+    "primary": "parameter total_D paired squared L2 error",
+    "secondary": "endpoint total_D and all component comparisons; original per-coordinate primary flags are preserved only as source metadata"
+  },
+  "conclusions": {
+    "primary": "B pooled-128 gradient has higher parameter total_D mean squared error than A mean-of-four-32 gradients under this fixed diagnostic: +206.36235254113632, original paired 95% CI [99.05100094847836,343.48602557985976].",
+    "mechanism_within_finite_decomposition": "All twelve empirical mean-gradient discrepancies decrease and mean-gradient angles improve for B. Parameter total dispersion increases by 285.2950121827315, exceeding the 78.93265964159502 mean-discrepancy reduction. PSD supplies 92.5442% and aggregate cross error supplies 7.0474% of the signed total error difference.",
+    "opposite_and_uncertain": "Parameter full_window and coordinate_RMS errors improve; endpoint coordinate_RMS improves. Endpoint full_window and temporal_joint error-change intervals include zero. Parameter noise and temporal_joint post hoc per-macro angle-change intervals include zero.",
+    "supported_focus_without_method_selection": [
+      "Distinguish estimator dispersion from mean-gradient discrepancy, especially for PSD after the parameter pullback.",
+      "Retain aggregate component cross terms when interpreting total gradient error.",
+      "Treat batch-size changes as changes in a nonlinear finite distribution-loss estimator, not as a guaranteed variance reduction.",
+      "Keep parameter and endpoint coordinate results separate and preserve both."
+    ],
+    "claims_not_supported": [
+      "Calling B128 a total gradient-error improvement in this diagnostic.",
+      "Calling every B direction or every B component worse.",
+      "Inferring population bias, population variance, training stability or convergence from these finite conditional quantities.",
+      "Selecting architecture, objective reweighting, conflict surgery, regularization, batch size, or a new method from this result.",
+      "Changing R60 conflict-negative interpretation, original A-F decisions, or nine-term original-training claims.",
+      "Inferring the identity or causal role of any individual pair in the aggregate cross terms."
+    ]
+  }
+}
+

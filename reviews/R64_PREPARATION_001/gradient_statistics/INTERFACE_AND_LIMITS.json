@@ -1,0 +1,74 @@
+{
+  "status": "pure_NumPy_code_and_artificial_verification_only",
+  "module": "gradient_statistics.py",
+  "term_order": ["full_window", "PSD", "noise", "coordinate_RMS", "temporal_joint"],
+  "reported_order": ["full_window", "PSD", "noise", "coordinate_RMS", "temporal_joint", "total_D"],
+  "constants": {"macros":32,"bootstrap_replicates":1000,"bootstrap_shape":[1000,32],"bootstrap_quantile_method":"linear","default_feature_chunk":65536},
+  "array_contract": "Pure CPU NumPy float32/float64 ndarray or memmap. Reference [5,P]; A/B [32,5,P] or one macro [5,P]. For science preserve f64 parameter/endpoint vectors and f64 online sums. No tensor, array file, model, optimizer, or RNG is loaded by this module.",
+  "APIs": {
+    "summarize_gradients": {
+      "signature": "summarize_gradients(ref, A, B, bootstrap_indices, coordinate_label='parameter', feature_chunk=65536)",
+      "meaning": "Convenience wrapper over exactly 32 macro pairs. Inputs are traversed without making a second [32,5,P] copy; float32 conversion and scalar reductions occur per coordinate chunk. Uses Welford mean/M2."
+    },
+    "macro_gradient_record": {
+      "signature": "macro_gradient_record(ref, A_macro, B_macro, feature_chunk=65536)",
+      "meaning": "Returns one small record and retains no vectors. Caller separately does sum_A += A_macro and sum_B += B_macro in float64 and stores exactly 32 records in original macro order.",
+      "schema": "R64_MACRO_GRADIENT_SCALARS_V1",
+      "list_keys_each_six_values": ["reference_squared_norm","A_squared_norm","B_squared_norm","A_dot_reference","B_dot_reference","A_squared_l2_error","B_squared_l2_error","dot_A_B","squared_l2_A_minus_B"],
+      "extra_keys": ["schema", "reported_order"],
+      "total_D_rule": "The sixth vector is the sum of five gradient component vectors before dot products, norms, errors or cosine. It is never the sum or average of five squared errors."
+    },
+    "summarize_sufficient_statistics": {
+      "signature": "summarize_sufficient_statistics(ref, sum_A, sum_B, records, bootstrap_indices, coordinate_label='endpoint', feature_chunk=65536)",
+      "meaning": "ref/sum_A/sum_B are [5,P], records is the ordered list of exactly 32 macro_gradient_record dictionaries. No macro endpoint vectors are needed. It checks record schema/order and binding to supplied reference squared norms, then produces the same result structure.",
+      "dispersion": "mean squared norm minus squared norm of the empirical mean, denominator 32. Raw difference and fixed arithmetic bound are reported. A small negative within the frozen bound is explicitly reported and clamped to zero; a larger negative raises. The separate direct-error decomposition must also pass. This subtraction can lose precision when dispersion is tiny relative to mean norm; it never silently asserts exact arithmetic.",
+      "alternative_when_cancellation_matters": "GradientAccumulator retains only mean vectors and scalar Welford M2, with no macro vector archive. It gives the same statistical quantity through more stable arithmetic; do not change the registered scientific statistic, CI unit or tolerances after observing outcomes."
+    },
+    "GradientAccumulator": {
+      "signature": "GradientAccumulator(ref, bootstrap_indices, coordinate_label='parameter', feature_chunk=65536)",
+      "update": "acc.update(A_macro, B_macro) -> small JSON scalar record; exactly 32 calls, inputs not retained",
+      "finalize": "acc.finalize() -> StatisticsResult; checks all finite-sample decompositions, then makes fixed paired bootstrap summaries",
+      "state": "two [6,P] means, one [6,P] frozen reference, small scalar records and Welford M2; no [32,5,P] internal archive. Invalid shape/nonfinite input is rejected before mutation; an arithmetic failure after mutation marks the object failed. Finalized accumulators cannot be updated or finalized again."
+    }
+  },
+  "return_type": {
+    "name": "StatisticsResult",
+    "summary": "JSON-compatible dictionary",
+    "mean_A": "read-only [6,P] f64 view in reported_order, caller owns persistence",
+    "mean_B": "read-only [6,P] f64 view in reported_order, caller owns persistence",
+    "bootstrap_error_changes": "read-only [1000,6] f64 table; every column uses the exact same external resample index rows"
+  },
+  "summary_paths": {
+    "reference.TERM": "norm, squared_norm",
+    "macro_records[k].A_or_B.TERM": "squared_norm, norm, dot_reference, cosine_reference, squared_l2_error, relative_squared_l2_error",
+    "macro_records[k].paired.TERM": "B_minus_A_squared_l2_error, dot_A_B, cosine_A_B, squared_l2_A_minus_B",
+    "arms.A_or_B.TERM": "mean_squared_l2_error, relative_mean_squared_l2_error, mean_norm, mean_squared_norm, mean_dot_reference, mean_cosine_reference, defined_cosine_count, mean_gradient, empirical_dispersion_mean_squared_l2, finite_sample_decomposition",
+    "arms.A_or_B.TERM.mean_gradient": "same norm/dot/cos/error fields measured on the empirical mean gradient against ref",
+    "arms.A_or_B.TERM.finite_sample_decomposition": "mean squared error = squared discrepancy of empirical mean from ref + mean squared dispersion about empirical mean; residual, allowed error and passed are explicit",
+    "paired.TERM": "mean_B_minus_A_squared_l2_error, bootstrap_percentile_95_interval, bootstrap_replicates, bootstrap_unit, resampling, primary, multiple_testing_adjusted",
+    "bootstrap_indices_sha256": "SHA256 of caller indices canonicalized to C-contiguous little-endian int64, shape 1000x32; no new random draws",
+    "dispersion_method_and_dispersion_arithmetic": "states Welford or sufficient second-moment arithmetic and exposes any cancellation clamp"
+  },
+  "statistical_contract": [
+    "Squared-error averages are over the 32 macros, not over vector coordinates. Norms use raw unclipped supplied vectors.",
+    "The primary comparison is paired B-minus-A squared error of total_D. Five component comparisons are secondary and not adjusted for multiple testing.",
+    "The caller's fixed 1000x32 bootstrap indices are applied to macro pairs identically for A/B and all components/total. The 95 percent interval uses linear 0.025 and 0.975 quantiles. No source/REAL parent clustering, reseeding, random draw, fitted threshold or changed CI unit occurs.",
+    "Empirical mean discrepancy and dispersion describe the supplied finite reference. They are not labelled population bias or unbiased bias/variance estimates.",
+    "If reference norm is zero, relative error and reference cosine are null. If the current or mean gradient norm is zero, its cosine is null. Absolute quantities and all 32 macro records remain. Mean macro cosine is null if any macro cosine is undefined, with defined_cosine_count retained.",
+    "An interval below zero supports only smaller squared gradient error under the fixed finite-reference diagnostic, not improved training, nine-term descent, original A-F performance or selection of a subsequent method.",
+    "Loss values are retained by the R64 worker independently; this module summarizes gradient vectors only. Parameter and endpoint calls must use distinct coordinate_label values."
+  ],
+  "memory_contract": {
+    "persistent_module_bytes_approximation": "144*P bytes for one frozen [6,P] reference and two [6,P] mean arrays, plus small records/bootstrap and O(feature_chunk) scratch",
+    "parameter_P": 1369889,
+    "parameter_persistent_module_bytes": 197264016,
+    "caller_parameter_A_plus_B_f64_bytes": 3506915840,
+    "endpoint_P": 3164640,
+    "endpoint_persistent_module_bytes": 455708160,
+    "avoided_endpoint_all_A_plus_B_f64_bytes": 8101478400,
+    "notes": "Caller-owned reference/sums/private parameter arrays are additional. The measured artificial full-dimension probe uses broadcast input views but materializes actual module reference/mean storage and processes all 32 macros; no statement equates its input storage with retained real parameter arrays."
+  },
+  "validation": "artificial_selfcheck.py checks direct arithmetic, Welford/sufficient-statistic identity, shared paired bootstrap, A=B, B closer, zero ref/zero gradient/mixed undefined cosines, total-vector cancellation, shape/index/reference negative controls, and a full 1,369,889-dimension 32-macro artificial memory probe. FROZEN_TOLERANCES.json was hashed before the first run.",
+  "reproduce": "PowerShell -NoProfile -File run_selfcheck.ps1: E-drive NumPy environment with -B, one-core affinity, one-thread environment, all temp/cache/logs on E, 1 GiB worker RSS kill ceiling. Native exit and artificial results are separate receipts.",
+  "scope": "All new files are in gradient_statistics/. Previously frozen distribution_gradient/ was not changed or rerun. No scientific array, scientific weight, scientific forward/gradient, root metadata write, Git operation, or additional agent occurred."
+}

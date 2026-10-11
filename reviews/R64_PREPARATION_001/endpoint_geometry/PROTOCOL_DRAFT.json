@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "stage_id": "R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001",
+  "component": "endpoint_geometry",
+  "status": "draft_for_root_registration_not_registered_not_executed",
+  "prepared_by": "/root/r64_endpoint_geometry_prep",
+  "purpose": "Describe the fixed R63 direct TRAIN endpoint and its finite canonical REAL reference before interpreting separately measured distribution gradients.",
+  "frozen_population": {
+    "SOURCE_N": 6593,
+    "REAL_N": 21047,
+    "waveform_points": 480,
+    "raw_regions": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "within_domain_parent_mass": "one over original domain N; all original parents and saved order retained",
+    "within_region_law": "uniform over all original parents in that raw region",
+    "regional_objective_mass": "unchanged original SOURCE count in region divided by 6593",
+    "raw_bins": "original un-clipped TRAIN raw-bins; no recomputation from outputs, reassignment, support deletion or Q8 substitution for above",
+    "scientific_default_counts_may_be_overridden": false
+  },
+  "endpoint_and_reference": {
+    "SOURCE_Y_preADC": "First return value of original source_flow_core.endpoint using frozen R63 weights, original input, fixed per-parent innovation, frozen original neural/noise constants and projection.",
+    "SOURCE_Y_canonical": "canonical_adc_torch(Y_preADC, False), supplied by registered worker; NumPy two-stage canonical path checked for consistency.",
+    "REAL_reference": "canonical_REAL_torch(original REAL TRAIN); full original within-region empirical law, no response-network evaluation for reference.",
+    "REAL_control": "Optional separately registered same-treated direct endpoint on all 21047 REAL parents; must be supplied and labeled separately from fixed reference.",
+    "source_charge": "q_np of original SOURCE stored float32 values converted to float64; q=sum(v[100:400])-3*sum(v[0:100]), no reporting factor 1000.",
+    "old_R62_traced_solve_Heun_output_is_Y": false,
+    "per_parent_noise": "Preserve R62 full SOURCE and optional full REAL PCG64 seeds as a reproducible condition. Fixed per-parent noise does not claim bitwise identity with old Heun inference output or independent noise at every repeated training occurrence.",
+    "inherited_full_SOURCE_epsilon_seed": 20261011600,
+    "inherited_full_REAL_epsilon_seed": 20261011601,
+    "inherited_fullview_direction_seed": 20261011602
+  },
+  "constants_and_directions": {
+    "old_fullviews": ["V480", "U480", "DU479", "D2U478"],
+    "U480": "subtract each event's first 100 mean and divide by its full-window positive maximum with 0.0025 floor; not unit-charge normalization",
+    "temporal31": "R63 RMS from sqrt(max(power,1e-20)), non-circular ACF lags 1..20, rFFT bins 1..50 grouped in ten five-bin bands; multiply interior bins by 2 and Nyquist by 1; divide frequency power by 10000 and max(power,1e-20)",
+    "centers_scales": "Re-use all R63 frozen old fullview and new temporal REAL TRAIN constants without re-fitting.",
+    "projection_count_each_view": 64,
+    "direction_dtype": "float32",
+    "direction_policy": "One pre-fixed bank shared by geometry and gradient reference; no redraw by scope or replicate. This diagnostic bank is distinct from the original training direction stream that redrew each update.",
+    "source_coefficient_in_full_window_coordinate_mean": 0.125,
+    "source_coefficient_in_coordinate_RMS": 0.25,
+    "registered_outer_weights": {"full_window": 1.0, "coordinate_RMS": 1.0, "temporal_joint": 1.0}
+  },
+  "matched_REAL_floor_design": {
+    "scopes_in_order": ["all", "region-1", "region0", "region1", "region2", "region3", "region4", "region5", "region6", "region7", "region8"],
+    "replicates": 32,
+    "sample_N_each_side_each_scope": "exact original SOURCE count in the same scope",
+    "A_and_B": "Independent with-replacement uniform draws from canonical REAL parents in that same raw region; all scope draws from all original REAL parents.",
+    "comparison": "REAL_A vs REAL_B; SOURCE remains compared with the entire canonical REAL scope, not either draw",
+    "duplicates": "retained as occurrences with mass 1/N; no unique-row replacement or duplicate merging",
+    "supplied_indices": "global REAL row indices (32, SOURCE scope N), frozen and saved by the root worker before geometry computation",
+    "generation_template": "Two PCG64 generators A/B. For each fixed scope in order, choose original sorted global REAL region rows ri; emit ri[rng.integers(0,len(ri),size=(32,SOURCE_scope_N),dtype=int64)] in C order.",
+    "proposed_new_seed_fields_for_root_to_adopt_before_scientific_decode": {
+      "temporal_directions": 20261011645,
+      "matched_REAL_A_rows": 20261011646,
+      "matched_REAL_B_rows": 20261011647
+    },
+    "code_generates_random_arrays": false,
+    "population_confidence_interval_or_independent_acquisition_claim": false,
+    "original_training_batch_noise_expectation_claim": false
+  },
+  "predefined_outputs": {
+    "all_scopes_full_reference": [
+      "Every old fullview coordinate W1 vector, mean, RMS and maximum after original regional standardization; all 64 fixed projection W1 values and their mean.",
+      "All 31 temporal coordinate W1 values and all 64 fixed temporal projection W1 values, with marginal/sliced half sum.",
+      "The same coordinate W1 vectors without regional standardization, including full-population physical V480 residuals.",
+      "full_window, coordinate_RMS, temporal_joint by scope; all ten unmodified SOURCE masses and weighted regional contributions; all-scope pooled standardized statistic labeled separately.",
+      "Optional same-treated REAL full-reference residuals, kept separate from SOURCE and from reference.",
+      "SOURCE original/direct-preADC/canonical and REAL raw/canonical q count, min, 10/50/90-percentile, max, mean, SD; source-original to raw/canonical REAL and source-canonical to canonical REAL empirical q W1.",
+      "Per-parent and scope summaries of direct preADC q error, generated ADC q change, total canonical q error and raw-to-canonical REAL q change."
+    ],
+    "all_scopes_32_REAL_pairs": [
+      "All coordinate/projection W1 arrays and all three component values for every A/B replicate.",
+      "Raw and canonical REAL q W1 for every A/B replicate; no single selected replicate.",
+      "Original A/B global indices and unique-parent counts; all repeated occurrences retained.",
+      "All SOURCE-vs-complete-REAL minus REAL-pair component values; descriptive summary only, no new pass/fail scientific threshold."
+    ],
+    "each_original_region_charge_mean_bound": [
+      "Dout=abs(mean q(source_canonical)-mean q(canonical_REAL)) and Dsrc=abs(mean original q_source-mean q(canonical_REAL)), including signed gaps.",
+      "epsq=mean abs(q(source_canonical)-original q_source), measured on actual shared endpoint; preADC and ADC changes reported separately.",
+      "Actual represented V480 zbar reconstructed as mu+scale*zbar; Erep=sum abs(a)*mean absolute reconstruction residual across both laws, evaluated nominally in float64.",
+      "LBmean=[Dout-Erep]+/(480*max(abs(a)*scale)); LBRMS=[Dout-Erep]+/(sqrt(480)*norm(abs(a)*scale)).",
+      "Source-charge versions substitute [Dsrc-epsq-Erep]+; report both forms, observed coordinate mean/RMS and their ratios.",
+      "Weighted V480 bound sum m_source*(LBmean/8+LBRMS/4), all regional contributions and ratio to observed full_window+coordinate_RMS; zero denominator yields null."
+    ]
+  },
+  "numerical_semantics": {
+    "features": "nominal float64, R63 definitions",
+    "standardized_represented_coordinates": "float32 after float64 subtraction and division using frozen center/scale",
+    "projected_represented_coordinates": "float32 matrix product using supplied float32 directions",
+    "empirical_W1": "R62 quantile-partition integral for unequal uniform empirical laws, nominal float64 sorting/subtraction/reduction; bounded column scratch space",
+    "nominal_scaled_inequality_atol": 2e-10,
+    "nominal_check_rule": "a <= b + atol*(1+max(abs(a),abs(b)))",
+    "representation_error": "Reconstruct actual zbar to voltage, so discrepancy is not limited to an ideal final cast error; reconstruction and reduction themselves remain un-enclosed float64 arithmetic.",
+    "certified_interval_result": false,
+    "exact_device_training_loss_or_FFT_BLAS_bits_claim": false,
+    "bound_independence": "Bounds are output-specific diagnostics. No valid uniform bound across all neural outputs or all permitted ADC errors is asserted."
+  },
+  "root_registration_fields_still_required": [
+    "Actual work directory, unique scientific job, host/resource guard and source/helper hashes; this preparation directory is not an execution registration.",
+    "Frozen R63 model tensor hash and checkpoint identity; direct endpoint worker implementation hash.",
+    "Legal TRAIN archive, SOURCE and REAL parent identities/order, original raw-bin and charge binding; all constants archives and arrays by name/hash.",
+    "Actual accepted direction and A/B seeds, RNG state/consumption order, supplied noise/direction/index hashes and shared-reference compatibility with the gradient module.",
+    "Whether all-REAL same-treated direct endpoint control is included, with its separately recorded model row count.",
+    "Scientific output file names, checksum manifest and completion receipt fields; original source population/weights and A-F preserved."
+  ],
+  "stop_and_close": [
+    "Input/hash/parent/order/shape/raw-bin/constant/direction/canonical-path mismatch stops the worker; no row deletion or replacement, new fit, support change or non-TRAIN read to repair a result.",
+    "Any nonfinite statistic, resource failure, or failed nominal charge inequality check stops implementation acceptance. Save failure evidence without widening the numerical tolerance after observing scientific results.",
+    "Complete all ten regions, full population and all 32 predetermined REAL pairs; no favorable-region/replicate selection, seed search, extra directions, altered scales or extended sampling after a result.",
+    "Finish this fixed descriptive analysis. It does not authorize training, checkpoint selection, feature addition, larger training batches, source mass changes, changed A-F or R60 conclusions, or D/E execution."
+  ],
+  "scientific_work_added_by_component": {
+    "new_neural_forward_rows": 0,
+    "gradient_calls": 0,
+    "optimizer_updates": 0,
+    "fits": 0,
+    "scientific_data_or_weights_read_during_preparation": 0,
+    "DEV_EVAL_CAL_split_reads_during_preparation": 0,
+    "new_scientific_jobs_registered_by_preparation": 0
+  }
+}

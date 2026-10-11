@@ -1,0 +1,619 @@
+{
+  "review_id": "R64_WORKER_STATIC_REVIEW_001",
+  "UTC": "2026-10-11 02:07:26 UTC",
+  "reviewer": "/root/r64_distribution_gradient_prep",
+  "worker_root": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001",
+  "status": "no_scientific_logic_blocker_found_in_reviewed_snapshot_pending_root_prelaunch_seal",
+  "scientific_logic_blocking_findings": [],
+  "scope": {
+    "method": "Read-only inspection of source, configuration and existing receipts; standard-library AST/import-symbol and byte-hash checks. No worker or project module imported.",
+    "prohibited_material_opened": 0,
+    "scientific_arrays_opened": 0,
+    "scientific_weights_opened": 0,
+    "science_or_artificial_tests_executed_in_this_review": 0,
+    "modified_existing_project_files": 0,
+    "root_metadata_or_git_changed": false,
+    "review_artifacts": [
+      "REVIEW.json",
+      "REVIEW.md"
+    ],
+    "limitations": [
+      "Static review does not establish target-environment import success, CPU/CUDA numerical pass, resource sufficiency during science, bitwise scientific replay, completed science, rendered figure quality, native exit success or delivery.",
+      "24 source AST parses and 76 local from-import symbol checks cover static names and paths only. External libraries and Linux APIs were not imported here.",
+      "Earlier artificial receipts were not rerun. Their source bindings were verified against the current assembly."
+    ]
+  },
+  "resolved_findings": [
+    {
+      "id": "ASSEMBLY_001",
+      "severity_at_initial_snapshot": "blocks_startup",
+      "initial_snapshot_worker_sha256": "d74128281b474a448830b6cb0a6e2a6b307cb0d22853401cad1f24368b51da9c",
+      "problem": "At the initial snapshot the adapter and support modules were absent; imports outside the worker try block would fail before scientific work.",
+      "resolution": "Current snapshot contains all required local modules. All 17 assembly copies match both their frozen source and assembly manifest; six top-level R63 helpers match INPUT_BINDING. 76 local import symbols resolve statically.",
+      "remaining_boundary": "Imports still precede the diagnostic try block, so an environment/import failure relies on the owned native worker receipt and stderr. linux_owned_worker.py wraps runpy in a finally receipt."
+    }
+  ],
+  "prelaunch_pending": [
+    {
+      "id": "ROOT_SEAL_001",
+      "file": "diagnose_train.py",
+      "lines": [
+        145,
+        147
+      ],
+      "state_at_review": "ROOT_IMPLEMENTATION_REVIEW.json not yet present",
+      "significance": "Worker intentionally requires this root-owned final file/hash seal before artificial or scientific execution. Missing file causes a safe early failure.",
+      "closure": "Root must create and verify the final seal after reviews and before launch. This reviewer did not modify root metadata.",
+      "scientific_algorithm_defect": false
+    }
+  ],
+  "observations": [
+    {
+      "id": "MASS_NUMERIC_001",
+      "severity": "documented_numeric_boundary",
+      "blocking": false,
+      "locations": [
+        "distribution_adapter/distribution_gradient.py:210-217",
+        "distribution_adapter/distribution_gradient.py:244-250",
+        "distribution_adapter/weighted_empirical_w1.py:53",
+        "REPRODUCTION.md"
+      ],
+      "evidence": "SOURCE and REAL each derive their own region counts/domain total in binary64. Sampled global slots divide the represented regional mass by K, then FrozenMass converts represented binary64 inputs to exact integer ratios and normalizes their exact integer total.",
+      "conclusion": "Integer-CDF exactness holds for the explicitly represented mass law. It is not an arbitrary-precision evaluation of the ideal rational region_count/(domain_count*K). Complete uniform reference laws normalize to exactly equal 1/N parent mass.",
+      "paired_arm_implication": "For K=32 and K=128 the division is an exact power-of-two rescaling for these finite positive represented masses; exact normalization therefore retains the same represented aggregate regional mass in both arms. The two domain mass laws remain distinct.",
+      "disposition": "REPRODUCTION.md accurately discloses this frozen floating-point boundary. No frozen module was changed; no scientific numerical impact was computed or claimed."
+    },
+    {
+      "id": "RESULT_COMPLETION_001",
+      "severity": "receipt_interpretation",
+      "blocking": false,
+      "locations": [
+        "diagnose_train.py:458-477"
+      ],
+      "evidence": "The worker writes science RESULT.json before rendering, then updates it after figures; a rendering failure produces DIAGNOSTIC_FAILURE.json and nonzero native exit while the first RESULT.json may remain.",
+      "disposition": "Root must require final phase, figure manifest/visual QA and native success receipts, as already required by PROTOCOL/REPRODUCTION. RESULT.json alone is insufficient evidence that the registered endpoint completed."
+    }
+  ],
+  "checked_invariants": [
+    {
+      "id": "POPULATIONS",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:188-216",
+        "diagnose_train.py:280-347"
+      ],
+      "evidence": "All 6593 SOURCE and 21047 REAL original TRAIN parents are loaded and retained in original order; SOURCE ID hash and raw-region bins/counts are checked. Network clipped bins are separate from raw loss-region labels. REAL reference is canonical raw REAL; same-treated REAL control is descriptive."
+    },
+    {
+      "id": "FROZEN_MODEL_ENDPOINT",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:217-231",
+        "diagnose_train.py:280-298",
+        "diagnose_train.py:449-452",
+        "R63/train_final.py:132-141"
+      ],
+      "evidence": "Unique frozen state is hash checked before/after, strict loaded, train mode/grad-enabled without an optimizer. Direct original endpoint is used; original innovation completion=True agrees with R63. Five D settings match sealed R63 config."
+    },
+    {
+      "id": "PAIRED_SAMPLING",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:232-277",
+        "diagnose_train.py:413-424",
+        "distribution_adapter/distribution_gradient.py:ParentLayout/paired_layouts"
+      ],
+      "evidence": "Independent named PCG64 streams draw each domain by raw region in -1..8 order, 128 replacement occurrences reshaped [4,32]. A averages four complete five-term D32 gradients; B uses the same occurrences region-major as D128. Duplicates remain occurrences and scatter to original parents."
+    },
+    {
+      "id": "FULL_REFERENCE",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:347-359",
+        "diagnose_train.py:398-407"
+      ],
+      "evidence": "Full F uses complete ParentLayout.full_reference and original frozen features, scales/directions, five D terms only. Endpoint coordinate is projected-before-ADC; unrelated C terms are excluded."
+    },
+    {
+      "id": "CHAIN_RULE",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:351-359",
+        "diagnose_train.py:363-395"
+      ],
+      "evidence": "The objective applies canonical STE once to a projected-output leaf. Parameter VJP injects G_Y into the original projected endpoint, applying original Box backward once. Detached canonical/code/free-mask checks do not enter that chain."
+    },
+    {
+      "id": "REPLAY_AND_ACCUMULATION",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:300-324",
+        "diagnose_train.py:363-396"
+      ],
+      "evidence": "Every original SOURCE row is replayed in the same 64-row schedule including final single row and zero derivatives. Each chunk must match projected endpoint bits, canonical codes and strict free mask. Native parameter gradients flatten in manifest order, cast to float64 CPU and accumulate in original chunk order without additional division."
+    },
+    {
+      "id": "STATISTICS",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:408-443",
+        "gradient_statistics.py:GradientAccumulator"
+      ],
+      "evidence": "Endpoint and parameter Welford accumulators each receive 32 paired A/B updates with all five components and vector-sum total_D. One shared fixed 1000x32 macro bootstrap is supplied to both. Finite variance/error decomposition and zero-reference conventions remain in the byte-identical tested statistics helper."
+    },
+    {
+      "id": "RECONSTRUCTION",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:277",
+        "diagnose_train.py:321-332",
+        "diagnose_train.py:400-443",
+        "diagnose_train.py:453-457"
+      ],
+      "evidence": "Saved private parent identities, endpoints, noise/innovation, indices/directions, random states, full endpoint/parameter gradients, parameter macro vectors, endpoint/parameter means and scalar records support the protocol reconstruction. Endpoint macro arrays are not duplicated on disk."
+    },
+    {
+      "id": "PRE_SCIENCE_ARTIFICIAL_GATES",
+      "pass_static": true,
+      "locations": [
+        "diagnose_train.py:127-183"
+      ],
+      "evidence": "All input byte verification and array/checkpoint decoding follow CPU+CUDA portable 69-check and actual-network replay gates. portable compact.passed/compact.checks fields and ArtificialCheckFailure.receipt match the current interface. Their actual pass remains unverified by this review."
+    },
+    {
+      "id": "NATIVE_RECEIPT_BOUNDARY",
+      "pass_static": true,
+      "locations": [
+        "linux_owned_worker.py",
+        "linux_supervise.py",
+        "diagnose_train.py:478-481"
+      ],
+      "evidence": "Owned worker handshake binds actual PID before project imports; supervisor records native status and monitors owned RSS/GPU. Successful counters are incremented after operations; exception receipt identifies counts as completed lower bounds. The actual native run is outside this review."
+    }
+  ],
+  "independently_reconciled_planned_counts": {
+    "initial_SOURCE_calls": 104,
+    "initial_REAL_calls": 329,
+    "initial_rows": 27640,
+    "complete_SOURCE_replays": 33,
+    "SOURCE_rows_per_replay": 6593,
+    "calls_per_SOURCE_replay": 104,
+    "total_neural_rows": 245209,
+    "total_neural_calls": 3865,
+    "parameter_VJP_calls": 33800,
+    "five_term_endpoint_objective_calls": 161,
+    "paired_macros": 32,
+    "formulas": {
+      "rows": "6593 + 21047 + 33*6593",
+      "calls": "ceil(6593/64)+ceil(21047/64)+33*ceil(6593/64)",
+      "VJP": "104*(5+32*10)",
+      "objectives": "1+32*(4+1)"
+    },
+    "actual_scientific_counts_observed": false
+  },
+  "static_checks": {
+    "purpose": "static source AST/import-symbol/hash review only; no project module imported",
+    "python": "E:\\GAN\\runtime_envs\\fresh_noise_cpu_20261007_103015\\venv\\Scripts\\python.exe",
+    "python_no_bytecode": true,
+    "python_file_count": 24,
+    "local_from_import_checks": 76,
+    "missing_local_import_symbols": [],
+    "external_import_roots": [
+      "__future__",
+      "contextlib",
+      "copy",
+      "ctypes",
+      "dataclasses",
+      "datetime",
+      "functools",
+      "hashlib",
+      "importlib",
+      "json",
+      "math",
+      "matplotlib",
+      "numpy",
+      "os",
+      "pathlib",
+      "resource",
+      "runpy",
+      "scipy",
+      "shutil",
+      "signal",
+      "subprocess",
+      "sys",
+      "threading",
+      "time",
+      "torch",
+      "traceback",
+      "types",
+      "typing",
+      "uuid"
+    ],
+    "assembly_copy_checks": [
+      {
+        "target": "distribution_adapter/distribution_gradient.py",
+        "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "source_sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "expected_sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/original_bindings.py",
+        "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "source_sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "expected_sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/weighted_empirical_w1.py",
+        "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "source_sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "expected_sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/SOURCE_BINDINGS.json",
+        "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+        "source_sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+        "expected_sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/FROZEN_TOLERANCES.json",
+        "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+        "source_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+        "expected_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/network.py",
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "source_sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "expected_sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/noise_core.py",
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "source_sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "expected_sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/source_flow_core.py",
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "source_sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "expected_sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/precision_order.py",
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "source_sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "expected_sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/R61_distribution_loss.py",
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "source_sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "expected_sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/distribution_loss.py",
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "source_sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "expected_sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "pass_equal": true
+      },
+      {
+        "target": "distribution_adapter/r63_original/config.json",
+        "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+        "source_sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+        "expected_sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+        "pass_equal": true
+      },
+      {
+        "target": "endpoint_geometry.py",
+        "sha256": "275425853ed2681ed8bbd88d7b1207bddeb5dd59fd8a8296069db5c3d474e9b3",
+        "source_sha256": "275425853ed2681ed8bbd88d7b1207bddeb5dd59fd8a8296069db5c3d474e9b3",
+        "expected_sha256": "275425853ed2681ed8bbd88d7b1207bddeb5dd59fd8a8296069db5c3d474e9b3",
+        "pass_equal": true
+      },
+      {
+        "target": "gradient_statistics.py",
+        "sha256": "99478d4e69b9c42d07d783b1cccdc6a85536e1992a9db2c2abf29d33fd5d5bdf",
+        "source_sha256": "99478d4e69b9c42d07d783b1cccdc6a85536e1992a9db2c2abf29d33fd5d5bdf",
+        "expected_sha256": "99478d4e69b9c42d07d783b1cccdc6a85536e1992a9db2c2abf29d33fd5d5bdf",
+        "pass_equal": true
+      },
+      {
+        "target": "portable_fixture.py",
+        "sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "source_sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "expected_sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "pass_equal": true
+      },
+      {
+        "target": "network_replay_artificial.py",
+        "sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf",
+        "source_sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf",
+        "expected_sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf",
+        "pass_equal": true
+      },
+      {
+        "target": "residual_math.py",
+        "sha256": "14977a416a28ee6a0d95d0335b252e4556ce12961aff245dba4d8e2dc4c54b11",
+        "source_sha256": "14977a416a28ee6a0d95d0335b252e4556ce12961aff245dba4d8e2dc4c54b11",
+        "expected_sha256": "14977a416a28ee6a0d95d0335b252e4556ce12961aff245dba4d8e2dc4c54b11",
+        "pass_equal": true
+      }
+    ],
+    "original_R63_helper_checks": [
+      {
+        "name": "network.py",
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "expected_sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "pass_equal": true
+      },
+      {
+        "name": "noise_core.py",
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "expected_sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "pass_equal": true
+      },
+      {
+        "name": "source_flow_core.py",
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "expected_sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "pass_equal": true
+      },
+      {
+        "name": "R61_distribution_loss.py",
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "expected_sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "pass_equal": true
+      },
+      {
+        "name": "distribution_loss.py",
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "expected_sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "pass_equal": true
+      },
+      {
+        "name": "precision_order.py",
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "expected_sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "pass_equal": true
+      }
+    ],
+    "frozen_config_comparison": {
+      "PSD_loss_scale": {
+        "original": 0.01,
+        "current": 0.01,
+        "equal": true
+      },
+      "temporal_power_floor": {
+        "original": 1e-20,
+        "current": 1e-20,
+        "equal": true
+      },
+      "projection_directions": {
+        "original": 64,
+        "current": 64,
+        "equal": true
+      },
+      "temporal_projection_directions": {
+        "original": 64,
+        "current": 64,
+        "equal": true
+      },
+      "five_D_loss_weights": {
+        "full_window": {
+          "original": 1,
+          "current": 1,
+          "equal": true
+        },
+        "PSD": {
+          "original": 1,
+          "current": 1,
+          "equal": true
+        },
+        "noise": {
+          "original": 1,
+          "current": 1,
+          "equal": true
+        },
+        "coordinate_RMS": {
+          "original": 1,
+          "current": 1,
+          "equal": true
+        },
+        "temporal_joint": {
+          "original": 1,
+          "current": 1,
+          "equal": true
+        }
+      }
+    },
+    "manifest": [
+      {
+        "name": "diagnose_train.py",
+        "bytes": 29622,
+        "sha256": "28106f620d8c01b7e5234ef13aef2099f6a9ea7c89f25e9e91485c5a08992135",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/distribution_gradient.py",
+        "bytes": 21466,
+        "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/original_bindings.py",
+        "bytes": 1743,
+        "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/distribution_loss.py",
+        "bytes": 5577,
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/network.py",
+        "bytes": 2916,
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/noise_core.py",
+        "bytes": 2338,
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/precision_order.py",
+        "bytes": 4669,
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/R61_distribution_loss.py",
+        "bytes": 7555,
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/r63_original/source_flow_core.py",
+        "bytes": 6725,
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_adapter/weighted_empirical_w1.py",
+        "bytes": 13328,
+        "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "ast_parse": true
+      },
+      {
+        "name": "distribution_loss.py",
+        "bytes": 5577,
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "ast_parse": true
+      },
+      {
+        "name": "endpoint_geometry.py",
+        "bytes": 28035,
+        "sha256": "275425853ed2681ed8bbd88d7b1207bddeb5dd59fd8a8296069db5c3d474e9b3",
+        "ast_parse": true
+      },
+      {
+        "name": "gradient_statistics.py",
+        "bytes": 24299,
+        "sha256": "99478d4e69b9c42d07d783b1cccdc6a85536e1992a9db2c2abf29d33fd5d5bdf",
+        "ast_parse": true
+      },
+      {
+        "name": "linux_owned_worker.py",
+        "bytes": 1535,
+        "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a",
+        "ast_parse": true
+      },
+      {
+        "name": "linux_supervise.py",
+        "bytes": 10823,
+        "sha256": "bf41e88f36d639c6f2d4d9dd1dc8645755c5d61640f62c96c5ed3cefdf77e21b",
+        "ast_parse": true
+      },
+      {
+        "name": "network.py",
+        "bytes": 2916,
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "ast_parse": true
+      },
+      {
+        "name": "network_replay_artificial.py",
+        "bytes": 11372,
+        "sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf",
+        "ast_parse": true
+      },
+      {
+        "name": "noise_core.py",
+        "bytes": 2338,
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "ast_parse": true
+      },
+      {
+        "name": "portable_fixture.py",
+        "bytes": 40547,
+        "sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "ast_parse": true
+      },
+      {
+        "name": "precision_order.py",
+        "bytes": 4669,
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "ast_parse": true
+      },
+      {
+        "name": "R61_distribution_loss.py",
+        "bytes": 7555,
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "ast_parse": true
+      },
+      {
+        "name": "render_diagnostic.py",
+        "bytes": 8745,
+        "sha256": "f8123267a1dbad186e3d54ca7477ec57c5495525d6be3a752361b035c1789b80",
+        "ast_parse": true
+      },
+      {
+        "name": "residual_math.py",
+        "bytes": 3963,
+        "sha256": "14977a416a28ee6a0d95d0335b252e4556ce12961aff245dba4d8e2dc4c54b11",
+        "ast_parse": true
+      },
+      {
+        "name": "source_flow_core.py",
+        "bytes": 6725,
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "ast_parse": true
+      },
+      {
+        "name": "PROTOCOL.md",
+        "bytes": 16051,
+        "sha256": "306907def992e816ba6706883238be7c541223e5567f9bad24d3c9259a7dba01"
+      },
+      {
+        "name": "config.json",
+        "bytes": 5526,
+        "sha256": "ce1c5001dd66dd166bbb84fe4c6624ca93275ba96db36ee7ef4c682d65a7001b"
+      },
+      {
+        "name": "REPRODUCTION.md",
+        "bytes": 6421,
+        "sha256": "3c9f92593b28278eb822f9b117bb1751e61e2cc84fc1856490238de7026badc8"
+      },
+      {
+        "name": "INPUT_BINDING.json",
+        "bytes": 5363,
+        "sha256": "2cde7b4417c15b3412ca6cc3f2fb3492f252a16052c3d3d0b8dc45e9be2ab379"
+      },
+      {
+        "name": "ASSEMBLY_RECEIPT.json",
+        "bytes": 5909,
+        "sha256": "6e7831ee3a11901a4b5cf1a19b80c17baa818d1ba0b38cb611f7f15ceff55404"
+      }
+    ],
+    "ROOT_IMPLEMENTATION_REVIEW_present": false,
+    "scientific_arrays_or_weights_opened": 0,
+    "worker_or_test_execution": false,
+    "static_process_peak_working_set_bytes": 34734080,
+    "static_process_affinity_mask": 1
+  },
+  "final_disposition": "No remaining scientific-logic blocker found in this immutable snapshot. Root-owned prelaunch seal, target artificial gates, scientific replay/native receipts and visual QA are still required. This report is not a claim of experiment completion or original A-F acceptance."
+}
+

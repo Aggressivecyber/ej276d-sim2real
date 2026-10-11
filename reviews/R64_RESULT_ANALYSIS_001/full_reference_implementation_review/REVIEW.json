@@ -1,0 +1,355 @@
+{
+  "UTC": "2026-10-11T02:47:57.585736+00:00",
+  "status": "static_review_complete_no_implementation_or_new_execution",
+  "root_selected_direction": "reviews/R64_ROOT_DIRECTION_001.json",
+  "root_selected_baseline": {
+    "full_D": "existing FrozenDistributionObjective.__call__ once with all five terms; one total endpoint derivative; exact full parameter VJP",
+    "network_chunk": 64,
+    "additional_REAL_feature_cache": false,
+    "C": "one unmodified original DistributionLoss call on 320 SOURCE +64 identity; select four C pieces, compute but discard five microbatch D pieces",
+    "extra_C_averaging": false,
+    "sampled_parameter_VJP": false,
+    "original_R63_initialization": true,
+    "optimizer_and_learning_rate": "unchanged R63 Adam and schedule",
+    "fixed_terminal_updates": 50000,
+    "protocol_registration_or_execution_authorized_by_this_review": false
+  },
+  "implementation_contract": {
+    "initialization": {
+      "model_seed": 20261010590,
+      "expected_state_tensor_SHA": "4a51097e257d4b35976452982aa9a84f48e321d425e0ba3859e8afe8a7bd239b",
+      "parameter_count": 1369889,
+      "load_R63_trained_or_R64_frozen_weight": false
+    },
+    "D_input": {
+      "source_rows": 6593,
+      "REAL_rows": 21047,
+      "source_parent_order": "original archive order, all parents once",
+      "REAL_parent_order": "original archive order, all parents once",
+      "raw_REAL_reference": "canonical_REAL_torch only, no network/no innovation",
+      "source_step_noise": "new independent full-parent stream; one epsilon per SOURCE parent per update; retain exact epsilon and innovation during replay",
+      "directions": "original fresh full-window and temporal direction streams, once per optimizer step",
+      "statistics": "reuse bound original frozen R63 statistics without refit"
+    },
+    "D_minimal_API": {
+      "name": "full_D_value_and_endpoint_gradient",
+      "arguments": [
+        "projected_SOURCE_Y_float64[Ns,480]",
+        "raw_REAL_float64[Nr,480]",
+        "frozen_statistics",
+        "original_cfg",
+        "fresh_four_directions_float32[d,64]",
+        "fresh_temporal_directions_float32[31,64]",
+        "original_source_and_REAL_region_vectors",
+        "full_reference_layout"
+      ],
+      "returns": [
+        "five scalar values",
+        "existing DResult.total scalar value",
+        "one detached total GY_float64[Ns,480]"
+      ],
+      "body": "Construct current FrozenDistributionObjective with current-step directions, feature_chunk=64 and unchanged uniform_fastpath. Set leaf=Y.detach().clone().requires_grad_(True); result=objective(leaf, raw_REAL, full_layout, terms=D_NAMES); GY=autograd.grad(result.total,leaf)[0].detach(). Do not call the five-pass endpoint_gradients helper in the baseline.",
+      "sum_order": "existing __call__ inserts full_window, coordinate_RMS, PSD, noise, temporal_joint; use returned total rather than silently changing reduction order",
+      "no_gradient_normalization_after_return": true
+    },
+    "D_VJP": {
+      "first_pass": "no-grad SOURCE forward in 103 full64 chunks plus final1; cache projected Y, canonical codes, strict Box free mask, exact innovation",
+      "second_pass": "same weights, model mode, numerical settings, inputs, innovations and chunk boundaries; check replay Y bitwise, codes exact, free mask exact; inject GY slice into projected out once",
+      "parameter_accumulation": "one autograd.grad(out,parameters,grad_outputs=GY_slice) per chunk; original parameter order; promote native parameter gradients to float64 and sum in original chunk order",
+      "no_five_component_parameter_replays": true,
+      "no_extra_divide_by_parents_chunks_or_components": true,
+      "Box_STE": "GY already contains original canonical STE; Box derivative enters exactly once in original endpoint replay; no raw injection for D"
+    },
+    "C_minimal_API": {
+      "name": "original_C_microbatch",
+      "network_rows": 384,
+      "original_B": 32,
+      "identity_rows": 64,
+      "full_original_loss_call": true,
+      "C_names": [
+        "source_order",
+        "source_valley",
+        "REAL_identity",
+        "box_correction"
+      ],
+      "C_scalar": "sum(original_cfg.loss_weights[name] * original_pieces[name] for name in C_NAMES)",
+      "discard_micro_D_for_optimizer": true,
+      "preserve_raw_and_out_graph": true,
+      "source_order_denominator": "sum_{i,j} sw_i sw_j 1[original_source_psd_i != original_source_psd_j], clamped at 1e-30; resolved intervals affect only numerator",
+      "source_valley_denominator": "per-region sampled mean over exactly32 slots divided by frozen population h=1 fraction; never sampled h count",
+      "identity": "original raw identity bin +1 for V480_scale, original 64x480 mean",
+      "box": "0.5 * (sum_SOURCE sw_i mean480((out-raw)^2) + mean_IDENTITY mean480((out-raw)^2)) /0.5^2",
+      "coupled_raw_out_reason": "using only dC/dout would drop direct raw derivative of box_correction",
+      "RNG": "preserve original source/REAL-reference/identity index streams and source/identity occurrence-noise draws; retain duplicated SOURCE slots with independent occurrence noises; draw original direction streams once and share those direction arrays with full D"
+    },
+    "gradient_update": {
+      "combine": "g_theta_D + g_theta_C before clipping; convert to each parameter storage dtype once",
+      "clip": "one original clip_grad_norm_(5.0) on combined gradient",
+      "optimizer": "one original Adam.step per update; lr from original learning_rate(step)",
+      "logging": "training total = full_D_total + C_total; log five full D and four C terms; do not substitute discarded microbatch D in training totals"
+    },
+    "interpretation": "exact complete-parent first-order selected algorithmic gradient for each realized noise/direction draw; not integration over all noise/directions, unique hard-ADC classical derivative, bitwise associativity of differently grouped float sums, or original R63 joint D/C stochastic coupling"
+  },
+  "code_level_operation_counts_per_step": {
+    "SOURCE_rows_per_D_pass": 6593,
+    "D_passes": 2,
+    "SOURCE_chunks_per_pass": 104,
+    "SOURCE_last_chunk": 1,
+    "C_SOURCE_rows": 320,
+    "C_identity_rows": 64,
+    "C_forward_rows": 384,
+    "neural_rows_per_step": 13570,
+    "neural_forward_calls_per_step": 209,
+    "D_parameter_VJP_calls": 104,
+    "C_reverse_calls": 1,
+    "full_D_distinct_scalar_W1_laws": {
+      "conditional_coordinate_shared_full_window_RMS": 19170,
+      "conditional_full_window_slices": 2560,
+      "PSD_global_and_Q1_Q7": 8,
+      "noise_global": 2,
+      "temporal_marginal_and_sliced": 950
+    },
+    "full_D_block_sort_pairs": {
+      "coordinate": 320,
+      "full_window_sliced": 40,
+      "PSD": 8,
+      "noise": 1,
+      "temporal": 20
+    },
+    "old_microbatch_D_computed_but_discarded_scalar_laws": {
+      "full_window_coordinate": 19170,
+      "full_window_slices": 2560,
+      "coordinate_RMS_recomputed": 19170,
+      "PSD_global_and_all10_before_Q1_Q7_reduction": 11,
+      "noise_global": 2,
+      "temporal": 950
+    },
+    "old_microbatch_torch_sort_calls_including_CDF_edges": 39,
+    "old_microbatch_value_sort_calls_only": 36,
+    "old_microbatch_CDF_edge_sort_calls": 3,
+    "C_order_pair_matrix_entries": 102400,
+    "C_valley_selected_rows": 64,
+    "C_identity_scalar_residuals": 30720,
+    "C_box_scalar_residuals": 184320,
+    "full_D_scalar_W1_total": 22690,
+    "full_D_torch_sort_calls": 778,
+    "old_microbatch_D_scalar_W1_total": 41863,
+    "all_D_value_sort_calls_baseline": 814,
+    "all_torch_sort_calls_baseline_including_CDF_edges": 817
+  },
+  "code_level_neural_counts_at_root_selected_50000_updates": {
+    "forward_rows": 678500000,
+    "forward_calls": 10450000,
+    "D_parameter_VJP_calls": 5200000,
+    "C_reverse_calls": 50000,
+    "meaning": "deterministic loop counts only; not runtime/throughput/peak-memory predictions"
+  },
+  "source_locations": [
+    {
+      "file": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/distribution_gradient.py",
+      "lines": "52-58,142-165,244-325,327-350",
+      "reason": "full parent layout, complete-law feature-block sort, exact masses, joint five-D evaluator, old five-pass helper"
+    },
+    {
+      "file": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/diagnose_train.py",
+      "lines": "134-141,280-314,363-385",
+      "reason": "numerical settings, 64-row first pass and full parameter VJP"
+    },
+    {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+      "lines": "24-28,103-112,126-156",
+      "reason": "init/Adam/LR and original C microbatch stream/endpoint loop"
+    },
+    {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+      "lines": "72-104",
+      "reason": "original C pieces plus intentionally retained old D evaluation"
+    },
+    {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/precision_order.py",
+      "lines": "25-38",
+      "reason": "nonzero pair denominator and interval-resolved numerator"
+    },
+    {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+      "lines": "13-47,57-67",
+      "reason": "selected Box backward, canonical STE and distinct out/raw"
+    },
+    {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+      "lines": "58-80",
+      "reason": "original nine-term call extension still evaluated by C baseline"
+    }
+  ],
+  "new_artificial_proof_requirements": [
+    {
+      "id": "joint_D",
+      "required": "On artificial equal32 and ragged unequal populations, compare all five values and total GY of one joint call against bound five-call endpoint_gradients plus independent exact-CDF oracle where applicable. Preserve ties, duplicate atoms, abs(0)=0, zero-RMS, source/REAL unequal regional masses, original selected derivative and dtype/cast placement.",
+      "status": "not_executed_in_this_review"
+    },
+    {
+      "id": "full_VJP",
+      "required": "On original architecture with artificial nonzero head, compare joint-total GY injected over full same64 schedule including final1 against all-term direct graph and sum of five VJPs; all parameters, no parent subsampling. Preserve CPU/CUDA numerical settings and exact Y/codes/Box free-mask replay. Zero initialization alone is insufficient.",
+      "status": "not_executed_in_this_review"
+    },
+    {
+      "id": "C_selection",
+      "required": "Compare wrapper four pieces/value and gradients against direct unmodified original DistributionLoss call at same out/raw. Test independent raw/out leaf partials and coupled original endpoint parameter gradient; active Box, nonzero identity, resolved/unresolved/touching/equal source PSD pairs, duplicates, valley h mask and population denominator, raw outer-region identity bins.",
+      "status": "not_executed_in_this_review"
+    },
+    {
+      "id": "combined_update",
+      "required": "Artificial scalar full D + original C direct-graph gradient versus independent full-D VJP plus C gradient before one clipping operation; verify per-parameter gradient, combined norm, clipped gradient and one Adam update/state under original hyperparameters. Retain D/C coefficients once; no hidden averaging.",
+      "status": "not_executed_in_this_review"
+    },
+    {
+      "id": "streams_init",
+      "required": "Hash original R63 initialization; demonstrate original C index/noise/direction draws unchanged and duplicated C occurrences remain independent; separate full-D noise stream changes across artificial steps but is frozen inside the two passes. Weight update invalidates all SOURCE endpoints; no old-step GY reuse.",
+      "status": "not_executed_in_this_review"
+    },
+    {
+      "id": "capacity",
+      "required": "Preflight combined five-D graph under intended resource/device admission using artificial inputs; current feature_chunk=64 does not prove graph memory bounded to one block because autograd retains blocks. Freeze tolerances before execution and retain failures without post-result relaxation.",
+      "status": "not_executed_in_this_review"
+    }
+  ],
+  "existing_evidence_only": {
+    "distribution_CPU_CUDA": "stored 69-check adapter receipts passed; separate terms, integer-CDF and selected-branch toy proofs; not new combined-total plus C proof",
+    "network_CPU_CUDA": "stored nonzero-head architecture replay passed; CUDA chunk64 with65 rows, scalar artificial STE loss; not all-nine combined optimizer proof",
+    "scientific_forward": "stored R64 forward receipt establishes actual same64 schedule used in completed diagnostic; no new scientific execution here"
+  },
+  "optional_not_selected": [
+    {
+      "name": "REAL feature and plan cache",
+      "conditions": "Only fixed raw canonical REAL, frozen standardized marginal/PSD/noise features, stable target sort and device uniform-count plans can persist. Fresh-direction projected REAL and sort must refresh each step. Source endpoint/features/sorts refresh after every noise/weight change. Cache values/selected gradient require exact or frozen-tolerance proof.",
+      "default": false
+    },
+    {
+      "name": "feature streaming",
+      "conditions": "Current column blocks preserve complete row laws but not whole-graph memory bound. Coordinate_RMS needs full coordinate W1 norm; per-block norm/mean changes loss. Any two-pass coefficient scheme must preserve original dtype cast, stable tie choice, zero-norm gradient and full-feature normalization; not needed for selected baseline.",
+      "default": false
+    },
+    {
+      "name": "C extraction to skip old D",
+      "conditions": "May omit five discarded old D calculations only after extracted routine agrees with original four C values, independent out/raw derivatives and coupled parameter gradients in listed edge cases. No such extraction is delivered or claimed verified here.",
+      "default": false
+    },
+    {
+      "name": "larger network chunks",
+      "conditions": "Separate artificial replay/kernel and gradient proof required; retain64 baseline.",
+      "default": false
+    }
+  ],
+  "files_read": {
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/config.json": {
+      "bytes": 7756,
+      "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py": {
+      "bytes": 24763,
+      "sha256": "bd34fc715f9363987694ee020edf45b9df1b40d8732f4d388aec0ccaf4d6512f"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py": {
+      "bytes": 5577,
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py": {
+      "bytes": 7555,
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py": {
+      "bytes": 6725,
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/precision_order.py": {
+      "bytes": 4669,
+      "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/network.py": {
+      "bytes": 2916,
+      "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/noise_core.py": {
+      "bytes": 2338,
+      "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10"
+    },
+    "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/COVERAGE_RESPONSE/INITIALIZATION.json": {
+      "bytes": 335,
+      "sha256": "92529905ca1f48d9a2a7f7a78dd4a0563b8cf47ec0a41614c1963b8dfb6f97f5"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/distribution_gradient.py": {
+      "bytes": 21466,
+      "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/weighted_empirical_w1.py": {
+      "bytes": 13328,
+      "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/original_bindings.py": {
+      "bytes": 1743,
+      "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/SOURCE_BINDINGS.json": {
+      "bytes": 3236,
+      "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/distribution_adapter/FROZEN_TOLERANCES.json": {
+      "bytes": 876,
+      "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/diagnose_train.py": {
+      "bytes": 29622,
+      "sha256": "28106f620d8c01b7e5234ef13aef2099f6a9ea7c89f25e9e91485c5a08992135"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/network_replay_artificial.py": {
+      "bytes": 11372,
+      "sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/NETWORK_ARTIFICIAL_CPU.json": {
+      "bytes": 1698,
+      "sha256": "b794980ef778eb69cef37d39b4b8e63983a9e9cce37044f61b2346c83e5fb475"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/NETWORK_ARTIFICIAL_CUDA.json": {
+      "bytes": 1707,
+      "sha256": "dd307e1578a69d852fd4050ddcaa93b0c9884b85d6469a148c46ef5c783edd62"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/DISTRIBUTION_ARTIFICIAL_CPU.json": {
+      "bytes": 27585,
+      "sha256": "1ad99339ce4f14fdfb632890c9737069638357fad5792c4a4f17d272ddfbf0bc"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/DISTRIBUTION_ARTIFICIAL_CUDA.json": {
+      "bytes": 27815,
+      "sha256": "c5c59b4b3fedab9465b8a26a80d3351399eefdc079ade47cee0d68029b875150"
+    },
+    "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/FORWARD_RECEIPT.json": {
+      "bytes": 554,
+      "sha256": "15f47b8707672ce5c12c78ef5e066ddd865ad00d5e5680a02379382c9bcd2b19"
+    },
+    "reviews/R64_PREPARATION_001/distribution_gradient/artificial_fixture.py": {
+      "bytes": 28969,
+      "sha256": "5273878b94ef509e466a0ed5250b4f6c3b7b87ac4e87cee6c10b48fa06126c6e"
+    },
+    "reviews/R64_ROOT_DIRECTION_001.json": {
+      "bytes": 12463,
+      "sha256": "0de4a7f5ee5cd7cc006f9209be85daa7033a30b4ef0401a8757cc0f1eb86d5e1"
+    }
+  },
+  "scientific_files_modified": false,
+  "new_files_restricted_to": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R64_RESULT_ANALYSIS_001/full_reference_implementation_review/",
+  "new_tests_or_training_run": false,
+  "no_registration_or_root_metadata_edits": true,
+  "actual_static_process": {
+    "PID": 59024,
+    "CPU_affinity_mask": 1,
+    "CPU_count": 1,
+    "peak_RSS_at_final_probe_bytes": 18481152,
+    "RSS_limit_bytes": 1073741824,
+    "guard_poll_seconds": 0.02,
+    "scientific_imports": 0,
+    "scientific_data_or_weights_read": 0,
+    "new_network_or_loss_or_VJP_executions": 0,
+    "native_exit": 0,
+    "exec_chunk_id": "1b2738"
+  }
+}
+

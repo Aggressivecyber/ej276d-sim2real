@@ -1,0 +1,245 @@
+{
+  "UTC": "2026-10-11T02:47:07.399838+00:00",
+  "owner": "/root",
+  "stage": "R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001",
+  "decision_status": "fixed_diagnostic_closed_next_protocol_preparation_selected",
+  "model_goal_complete": false,
+  "application_goal_status": "active",
+  "original_A_F_changed": false,
+  "original_R63_A_B_C": [
+    "failed",
+    "failed",
+    "failed"
+  ],
+  "original_A_F_reassessed": false,
+  "scientific_decision": "封存R64固定诊断：联合128的参数total_D均方误差比四个32批的平均增加206.362353，原95%配对区间[99.051001,343.486026]。两空间全部分量的32宏均值更接近参照，但总经验离散度增加更多；本次不支持采用B128作为梯度误差改进。完整几何残差和全部支持外父事件保留，未证明原A–F不可行。",
+  "next_action": "下一轮预登记完整有限TRAIN分布训练：从原R63同一初始化重新训练，每次更新对全部6593 SOURCE父事件各取一份新噪声，并对全部21047 canonical REAL计算原五项D。按原64行调度完成两遍缓存和全部参数VJP，将五项D的端点梯度合并后注入，原区域质量、标准化、损失权重、ADC/Box路径和原四项C定义保持。C每更新保留一个原320 SOURCE+64 REAL identity微批，原索引及每次出现独立噪声流保持；完整D噪声使用另行声明的流。保留原优化器及学习率日程，预先固定与R63相同的50000次更新为唯一末点；先完成联合五D梯度、原C取项与真实网络回放的CPU/CUDA人工检查，再训练，按原数值门、完整A–C及独立重放评价；通过后才继续D/E。不续训R63、不选择中间检查点、不删除或重权支持外人口，不重开R60阴性冲突标记。",
+  "primary_parameter_gradient_comparison": {
+    "mean_B_minus_A_squared_l2_error": 206.36235254113632,
+    "bootstrap_percentile_95_interval": [
+      99.05100094847836,
+      343.48602557985976
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_unit": "macro pair",
+    "resampling": "same caller-supplied index row for A/B and all components/total",
+    "primary": true,
+    "multiple_testing_adjusted": false
+  },
+  "parameter_total_D": {
+    "A": {
+      "mean_squared_l2_error": 344.97279232091245,
+      "relative_mean_squared_l2_error": 2.299832085025092,
+      "mean_norm": 12.794974919315457,
+      "mean_squared_norm": 183.0195582771657,
+      "mean_dot_reference": -5.977056278474832,
+      "mean_cosine_reference": 0.008471789807488361,
+      "defined_cosine_count": 32,
+      "mean_gradient": {
+        "squared_norm": 40.16903037889655,
+        "norm": 6.337904257630952,
+        "dot_reference": -5.97705627847486,
+        "cosine_reference": -0.07700116802452539,
+        "squared_l2_error": 202.12226442264327,
+        "relative_squared_l2_error": 1.3474896547339723
+      },
+      "empirical_dispersion_mean_squared_l2": 142.85052789826918,
+      "finite_sample_decomposition": {
+        "mean_squared_l2_error": 344.97279232091245,
+        "mean_gradient_discrepancy_squared_l2": 202.12226442264327,
+        "empirical_dispersion_mean_squared_l2": 142.85052789826918,
+        "residual": 0.0,
+        "absolute_residual": 0.0,
+        "allowed_error": 1.7348639616045623e-08,
+        "passed": true
+      }
+    },
+    "B": {
+      "mean_squared_l2_error": 551.3351448620488,
+      "relative_mean_squared_l2_error": 3.675589159437694,
+      "mean_norm": 19.387927826793746,
+      "mean_squared_norm": 453.0788580925896,
+      "mean_dot_reference": 25.871417358668648,
+      "mean_cosine_reference": 0.13380313062654722,
+      "defined_cosine_count": 32,
+      "mean_gradient": {
+        "squared_norm": 24.933318011588412,
+        "norm": 4.993327348731346,
+        "dot_reference": 25.8714173586686,
+        "cosine_reference": 0.4230442789128522,
+        "squared_l2_error": 123.18960478104825,
+        "relative_squared_l2_error": 0.8212688418437935
+      },
+      "empirical_dispersion_mean_squared_l2": 428.1455400810007,
+      "finite_sample_decomposition": {
+        "mean_squared_l2_error": 551.3351448620488,
+        "mean_gradient_discrepancy_squared_l2": 123.18960478104825,
+        "empirical_dispersion_mean_squared_l2": 428.1455400810007,
+        "residual": -2.2737367544323206e-13,
+        "absolute_residual": 2.2737367544323206e-13,
+        "allowed_error": 2.766675724310245e-08,
+        "passed": true
+      }
+    }
+  },
+  "endpoint_total_D": {
+    "A": {
+      "mean_squared_l2_error": 4095.613078470958,
+      "relative_mean_squared_l2_error": 10.944086342745505,
+      "mean_norm": 62.195825908755694,
+      "mean_squared_norm": 3874.3321658711443,
+      "mean_dot_reference": 76.47489304059788,
+      "mean_cosine_reference": 0.06297210324911486,
+      "defined_cosine_count": 32,
+      "mean_gradient": {
+        "squared_norm": 149.06340903594273,
+        "norm": 12.209152674774066,
+        "dot_reference": 76.47489304059792,
+        "cosine_reference": 0.32379016152747425,
+        "squared_l2_error": 370.3443216357578,
+        "relative_squared_l2_error": 0.9896150234094889
+      },
+      "empirical_dispersion_mean_squared_l2": 3725.2687568352003,
+      "finite_sample_decomposition": {
+        "mean_squared_l2_error": 4095.613078470958,
+        "mean_gradient_discrepancy_squared_l2": 370.3443216357578,
+        "empirical_dispersion_mean_squared_l2": 3725.2687568352003,
+        "residual": 0.0,
+        "absolute_residual": 0.0,
+        "allowed_error": 2.0488065392354793e-07,
+        "passed": true
+      }
+    },
+    "B": {
+      "mean_squared_l2_error": 4347.368036697347,
+      "relative_mean_squared_l2_error": 11.616812976647289,
+      "mean_norm": 65.07478726994229,
+      "mean_squared_norm": 4241.277724043149,
+      "mean_dot_reference": 134.07019301340668,
+      "mean_cosine_reference": 0.10542165047033392,
+      "defined_cosine_count": 32,
+      "mean_gradient": {
+        "squared_norm": 195.6006704008142,
+        "norm": 13.985730956972331,
+        "dot_reference": 134.07019301340665,
+        "cosine_reference": 0.4955384521187483,
+        "squared_l2_error": 301.69098305501143,
+        "relative_squared_l2_error": 0.806163107725614
+      },
+      "empirical_dispersion_mean_squared_l2": 4045.6770536423346,
+      "finite_sample_decomposition": {
+        "mean_squared_l2_error": 4347.368036697347,
+        "mean_gradient_discrepancy_squared_l2": 301.69098305501143,
+        "empirical_dispersion_mean_squared_l2": 4045.6770536423346,
+        "residual": 9.094947017729282e-13,
+        "absolute_residual": 9.094947017729282e-13,
+        "allowed_error": 2.1746840183486735e-07,
+        "passed": true
+      }
+    }
+  },
+  "evidence_bindings": [
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/RESULT.json",
+      "bytes": 3342,
+      "sha256": "dafd2f3854ae54e0a328ea543490975307548f5fe7fbd459d0ff53ecb7361eb7"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/PARAMETER_GRADIENT_SUMMARY.json",
+      "bytes": 191044,
+      "sha256": "c97a1820eaf4672754b4b1424b25d3d261fc668dad3dfe0c1ff9ea7ba10c1277"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/ENDPOINT_GRADIENT_SUMMARY.json",
+      "bytes": 190438,
+      "sha256": "46accb944db4c62f9d4ec6c68187924ab690626604e783d45a64822d850097e6"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/ENDPOINT_GEOMETRY_SUMMARY.json",
+      "bytes": 258207,
+      "sha256": "79cac395d45cd6eeaeac4ff9caf0e2190ae6406e8d9995576aa2f0f464b1f7a6"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/SUPPORTING_SUMMARY.json",
+      "bytes": 24624,
+      "sha256": "bd6e9bac8bcfa69571bfdf01b55b4299bd4f3228e5dca0ca8de11e2ec1c3661d"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/FROZEN_ARTIFACT_REVIEW.json",
+      "bytes": 7134,
+      "sha256": "49d87414adac1c9e530dd30815e4bc09f638212335e922f904d01dff96be13f7"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/ROOT_ARTIFACT_REVIEW.NATIVE_RECEIPT.json",
+      "bytes": 677,
+      "sha256": "54c2fe42f05f8c27d7f0680b11abf1d2cb7783df70fcc5f5a601cf38bd9c8180"
+    },
+    {
+      "path": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/FIGURE_QA.json",
+      "bytes": 3165,
+      "sha256": "bf7fcf25780c3c8616ed59ccca7b70a1a4ac016bad18cbd11fc75c4fef2157f9"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/gradient/REPORT.md",
+      "bytes": 13808,
+      "sha256": "bcb3ac08639d23279b0453c24e488a1c6e5d124fbe0ffae3f187901b47032420"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/gradient/ANALYSIS.json",
+      "bytes": 41570,
+      "sha256": "436c5f0f36b7e1b94fe3efad8cc0338bb8f23e26f6028e5b94a73b11be10b870"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/geometry/REPORT.md",
+      "bytes": 14524,
+      "sha256": "5dae3e6a03238c4c159f9722278ede7d8ef6e129e13de174810a5f615e8bc6d4"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/geometry/SUMMARY.json",
+      "bytes": 878064,
+      "sha256": "32d1961f58a3aa79281d472632bec0e9d63923dd9ec8e0013491aca58b3a939c"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/literature_followup/REPORT.json",
+      "bytes": 13180,
+      "sha256": "01f5a7841b2b1fd53b533102bf78318ce6d053f1377d23a62303b87cab20b0bc"
+    },
+    {
+      "path": "reviews/R64_RESULT_ANALYSIS_001/literature_followup/SOURCES.json",
+      "bytes": 4537,
+      "sha256": "d31e769933f2c6b1f70e0f3475b8b70edabef134ac2e9bb471b91a35c0053f13"
+    }
+  ],
+  "reasoning": [
+    "The primary parameter-space total-D interval is strictly positive; the pre-result conditional B128 proposal is not activated.",
+    "All five finite mean-gradient discrepancies decrease in B, but PSD dispersion and the aggregate cross-term dominate the total squared error increase.",
+    "The A/B relative total-D errors are about 2.30/3.68 of the fixed reference squared norm; smaller A error alone does not show either estimator is adequate.",
+    "Full-window and coordinate-RMS residuals exceed the saved REAL-pair descriptions in every original region, while the nominal charge bound covers only a specified fraction of measured coordinate discrepancy.",
+    "Exact full finite-parent D evaluation removes this parent-subsampling reduction discrepancy conditional on each step noise/directions. It does not integrate conditional noise or all directions.",
+    "One original C microbatch preserves its formula and marginal draw law. Four-C averaging would introduce another variance change and is not selected.",
+    "D and C use distinct endpoint realizations; their joint stochastic coupling changes from R63. This is documented, not claimed as an identical full-objective stochastic law.",
+    "The next candidate tests a new finite empirical objective using more data and compute per update. No equal-exposure, equal-compute, monotone batch-size or guaranteed A-F improvement claim is made."
+  ],
+  "implementation_baseline": {
+    "parent_order": "original full SOURCE and REAL archive order",
+    "reference": "all raw REAL passed only through original canonical_REAL_torch",
+    "full_D_gradient": "one endpoint leaf, joint five-term scalar, one total endpoint derivative, full chunked parameter VJP",
+    "network_chunk": 64,
+    "new_training_weight_loaded": false,
+    "fixed_terminal_updates": 50000,
+    "optimizer_and_learning_rate_schedule": "original R63 unchanged",
+    "C": "one original DistributionLoss call; retain its four C pieces, discard its five microbatch D pieces",
+    "feature_cache": "no additional REAL feature cache selected",
+    "extra_C_averaging": false,
+    "sampled_parameter_VJP": false,
+    "new_protocol_registered": false,
+    "new_scientific_execution_started": false
+  },
+  "interpretation_limits": [
+    "Fixed frozen-model finite-noise diagnostic, not an estimate of all original occurrence-noise training trajectories.",
+    "Box selected backward, ADC STE and stable sorting define an algorithmic surrogate derivative, not a unique classical derivative of quantized output.",
+    "Component and supplementary angle/cross-term intervals are secondary and unadjusted; original primary comparison remains parameter total_D.",
+    "The nominal V bound is not a causal fraction, interval certificate or proof that original A-F cannot be satisfied.",
+    "No new response weight, DEV/EVAL/CAL decode, density fit or acceptance result exists in R64."
+  ]
+}

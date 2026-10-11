@@ -1,0 +1,62 @@
+{
+  "status": "code_and_single_artificial_fixture_preparation_only",
+  "entry_module": "distribution_gradient.py",
+  "imports": "Place this directory on sys.path; import FrozenDistributionObjective, ParentLayout, paired_layouts, D_NAMES from distribution_gradient. original_bindings.py imports byte-bound definition-only copies and does not import train_final.py.",
+  "constructor": {
+    "signature": "FrozenDistributionObjective(statistics, cfg, directions, temporal_directions, source_regions, real_regions, feature_chunk=64, device='cpu', uniform_fastpath=True)",
+    "statistics_keys": {
+      "source_counts": "10 original SOURCE parent counts in category order [-1,0,1,2,3,4,5,6,7,8]; must match source_regions exactly",
+      "REAL_counts": "10 independent original REAL parent counts; must match real_regions exactly",
+      "V480_center_and_scale": "keys V480_center and V480_scale, shape [10,480], original frozen f64 statistics",
+      "U480_center_and_scale": "keys U480_center and U480_scale, shape [10,480], original frozen f64 statistics",
+      "DU479_center_and_scale": "keys DU479_center and DU479_scale, shape [10,479], original frozen f64 statistics",
+      "D2U478_center_and_scale": "keys D2U478_center and D2U478_scale, shape [10,478], original frozen f64 statistics",
+      "temporal_center_and_scale": "keys temporal_center and temporal_scale, shape [10,31], original frozen f64 statistics",
+      "noise_scale": "two frozen original REAL noise scales; no refitting in this module"
+    },
+    "cfg_required": {"projection_directions":64,"temporal_projection_directions":64,"PSD_loss_scale":0.01,"temporal_power_floor":1e-20,"loss_weights":"all five D entries exist and equal 1"},
+    "directions": "four frozen f32 matrices [480,64], [480,64], [479,64], [478,64]",
+    "temporal_directions": "one frozen f32 matrix [31,64]",
+    "source_regions_and_real_regions": "independent original parent row order; integer labels [-1,0,...,8], all ten populated. These are original region labels, not the clipped 0..7 network bins.",
+    "device": "explicit CPU or CUDA. CUDA without an index resolves once to current_device. Original ADC/features/standardization/f32 matrix products remain on this device. CUDA is implemented but has not been exercised by this local CPU fixture."
+  },
+  "layout": {
+    "F": "ParentLayout.full_reference(source_regions, real_regions): every original parent exactly once; each regional list is ragged and stable in original parent order; global laws use original parent row order.",
+    "A_and_B": "paired_layouts(S_ids, R_ids, source_regions, real_regions), both IDs exactly [10,4,32]. Returns four independent region-major 32 layouts and one region-major 128 layout. B preserves region then microbatch then slot order. A = one quarter sum of four D32 values/gradients.",
+    "duplicates": "Slots are never deduplicated by identity or waveform value. Same parent is gathered repeatedly from one cached endpoint and keeps one fixed noise realization; gradient accumulation sums every slot into the original parent coordinate without dividing by occurrence count.",
+    "global_mass": "F uses 1/N_SOURCE and 1/N_REAL independently. Sampled law uses SOURCE region mass / SOURCE regional slot count and REAL region mass / REAL regional slot count independently. Conditions use separate uniform masses 1/nS_r and 1/nR_r.",
+    "validation": "Rejects wrong region-major reshapes, outside-parent IDs, missing regions, mismatched population count masses, full-reference row loss/reorder and a mismatch between global and conditional occurrences."
+  },
+  "evaluation": {
+    "inputs": "source_endpoint [N_SOURCE,480] f64 projected after original Box but before canonical ADC, reference [N_REAL,480] f64 original stored REAL; both on configured device, reference requires_grad=False",
+    "graph_API": "objective(source_endpoint, reference, layout, terms=D_NAMES) -> DResult(pieces, total, diagnostics). terms can select one or more unique D entries.",
+    "detached_gradient_API": "objective.endpoint_gradients(source_endpoint, reference, layout, terms=D_NAMES) -> values[name] Python scalar, gradients[name] detached [N_SOURCE,480] tensor, total_value, total_gradient, gradient_coordinate, diagnostics. Each term creates its own endpoint leaf/graph and releases it before the next term. Empty, repeated, or C term selections are rejected.",
+    "VJP_boundary": "gradients[name] is dD/dY at projected pre-ADC original-parent endpoint. Replay original source_flow_core.endpoint at fixed theta/noise/mode/device/chunk schedule; compare Y bitwise, canonical codes and strict Box free mask; inject G_Y into replay out. The feature graph has included canonical STE exactly once, and this replay traverses original Box backward exactly once. Do not inject G_Y into raw or apply a second Box/STE. No clipping, optimizer, or extra population/chunk normalization.",
+    "network_mode": "For future actual R63 network, preserve training mode, zero dropout and disabled MHA fastpath in both passes to avoid eval+no_grad path changes. The local fixture uses a nonzero toy network and does not validate real attention kernels.",
+    "all_regions_sorting": "feature_chunk blocks coordinates, never parent rows. Every conditional sort covers the complete relevant regional law and every global sort its complete global law.",
+    "uniform_fastpath": "Exact integer CDF segment plan is cached only by (nSOURCE,nREAL); torch stable sort retains original row ties. The whole feature/direction numerical path and W1 float64 distance/reduction stay on device.",
+    "general_mass_path": "Detach the whole coordinate law to host float64, use the byte-bound integer-mass helper and stable original-order sort, then put W1 value and selected first-order coordinate gradient back on input device. Frozen masses never receive derivatives.",
+    "numeric_limit": "Original full-window and temporal standardized features/projections remain float32; W1 distance and reduction use float64. This is tolerance-equivalent to original equal-size R63 f32 reductions, not bitwise equality. First-order selected algorithm gradients only, no higher derivative claim."
+  },
+  "nine_original_terms": {
+    "full_window": {"group":"D","meaning":"Four families V480/U480/DU479/D2U478; each regional marginal mean coordinate W1 and 64-direction sliced mean W1 receive one half each; SOURCE regional masses then four-family mean. Original feature normalization and frozen REAL scales retained."},
+    "PSD": {"group":"D","meaning":"One half of independent-mass global PSD W1 plus equal mean of seven conditional PSD W1 values for Q1..Q7; divide by 0.01. Seven-region conditional reduction is not weighted by SOURCE masses."},
+    "noise": {"group":"D","meaning":"Original baseline RMS and lag-one ACF. Each coordinate uses independent SOURCE/REAL global masses and its original noise scale, then the two standardized W1 values are averaged."},
+    "coordinate_RMS": {"group":"D","meaning":"In each region/family first compute each coordinate's W1, then sqrt(mean(W_j squared)); weight regions by SOURCE mass and average four families. Exactly zero RMS selects zero gradient."},
+    "temporal_joint": {"group":"D","meaning":"Original 31 baseline features: RMS, ACF lags 1..20 and ten five-bin rFFT power fractions with original Nyquist multiplicity/floor. Frozen original scaling, half marginal plus half 64-direction sliced W1, SOURCE regional mass."},
+    "source_order": {"group":"C_excluded","meaning":"Original precision-resolved source pair ranking within each 320-source microbatch, preserving the original nonzero-source-PSD-pair denominator and pair weights. Never replace with 128-region merged cross-microbatch pairs."},
+    "source_valley": {"group":"C_excluded","meaning":"Original Q3/Q4 h=1 sigmoid valley occupancy with its microbatch mean, frozen h fraction, original raw occupancy and ReLU-square excess. Never merge four nonlinear microbatch reductions."},
+    "REAL_identity": {"group":"C_excluded","meaning":"Original 64-row REAL identity canonical-output/reference squared difference normalized by frozen region V480 scale; separate original per-occurrence identity noise if constructed elsewhere."},
+    "box_correction": {"group":"C_excluded","meaning":"One half of SOURCE-mass-weighted output-minus-raw mean square plus identity-row mean square, divided by 0.5 squared. Depends on both raw and projected endpoints and cannot use the D-only G_Y interface alone."}
+  },
+  "scope_and_limitations": [
+    "No scientific array, checkpoint, DEV/EVAL/CAL, optimizer update, scientific forward or scientific gradient was used for this preparation.",
+    "Artificial constants are generated in artificial_fixture.py; the hash binds waveforms, noise, stats, directions, masses, slots and toy state. It is one fixture, not a sample of scientific datasets.",
+    "The full finite reference, A and B are conditional on fixed per-parent noise, fixed directions, weights, TRAIN constants, STE and stable original-row tie branch. This does not estimate the original training expectation with independent noise for each appearance or fresh directions for each update.",
+    "The five D terms and their parameter gradients do not establish total nine-term training conflict. C remains historically defined and excluded from the main comparison.",
+    "Distinct parents with equal feature values are not merged; selected stable tie gradients need not be the unique gradient at a nonsmooth point. Hard-ADC finite differences are not a valid equivalence test for STE gradients.",
+    "Local tests execute original endpoint/Box/STE/features with an artificial nonzero toy network only. Actual R63 ResponseNetwork CPU/CUDA replay requires an independent artificial smoke before any scientific input is read.",
+    "Artificial success is not scientific registration, a science-budget grant, an A-F pass, a training authorization, or a successful R63/R64 scientific outcome."
+  ],
+  "reproduction": "PowerShell -NoProfile -File run_fixture.ps1. It launches the E-drive CPU venv with -B, one-core affinity, one torch/inter-op thread, E-only temp/cache/logs and a 1.2 GiB RSS kill ceiling. Native exit receipt is separate from the artificial result receipt. FROZEN_TOLERANCES.json was written and hashed before the first run and has not been relaxed."
+}

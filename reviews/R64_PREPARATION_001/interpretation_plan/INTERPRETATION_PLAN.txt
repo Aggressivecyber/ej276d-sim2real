@@ -1,0 +1,51 @@
+R64 冻结端点解释准备（尚未读取 R64 科学结果）
+
+只根据 SOURCE_BINDING.json 中的六份封存文本推理。本文是读数规则与后续问题清单，没有观测后的选择、训练建议或新增验收门。R63 原 A/B/C 失败、R60 三项预设冲突标记未触发的结论保持；R64 不能替代原 A–F。
+
+1. 先固定比较对象，再解释大小
+
+R64 的 Y 是原训练函数的直接端点，经电荷/范围投影后、共同 ADC 前；其分布比较使用共同 ADC 后表示。参照为全部原始 REAL 的 canonical_REAL，网络处理后的 REAL 单独作为描述对照。固定父事件噪声、固定方向、全父经验法则与选定 tie/STE 导数限定了本轮问题。R62 使用 R61 权重的 Heun 路径；R63 训练表是逐更新小批量均值，评价表来自历史 DEV。不能把这些旧表直接当成 R64 同定义的前后差。
+
+R62 的完整 REAL–REAL 损失为 0，而32批均值为0.3044509，说明有限批损失可有明显抽样量；同时其 SOURCE 残差仍超出该描述参照。R63 增加覆盖后原 A–C 仍失败。它们共同支持本轮区分“已经覆盖但仍残留的几何差异”和“有限批梯度估计差异”，不支持预先认定缺少特征、批量过小、网络能力不足或唯一机制。
+
+2. 电荷下界占 V 残差：下界紧致程度，不是因果贡献率
+
+对原区域 r，记坐标 W1 的均值和 RMS 为 M_r、R_r，均在冻结标准化和实际 float32 表示上计算。a=(-3×100,+1×300,0×80)，c_r=|a|*scale_r。Dout_r=|E q(Ycanonical)-E q(REALcanonical)|；Erep_r 是实际表示重建误差的电荷加权平均和，不能用理想半 ULP 代替。
+
+LBm_r=[Dout_r-Erep_r]+/(480*max(c_r))；LBr_r=[Dout_r-Erep_r]+/(sqrt(480)*||c_r||2)。SOURCE 电荷形式把分子换为 [Dsrc_r-epsq_r-Erep_r]+，其中 epsq_r=mean|q(Ycanonical)-q(SOURCEraw)|，包括实际投影/浮点/ADC 后总电荷误差，不能设为0。
+
+当前原权重下，B_V=sum_r mS_r*(LBm_r/8+LBr_r/4)，V_obs=sum_r mS_r*(M_r/8+R_r/4)。真正的 V 坐标贡献下界占比是 rho_V=B_V/V_obs。V_obs=0 时占比为 null，并保留原数值与已登记不等式检查。另列 rho_all=B_V/(D_full_window+D_coordinate_RMS)。现有 charge_bound_aggregation.output_lower_bound_fraction_of_observed_full_window_plus_RMS 对应 rho_all，不能改名成 rho_V；全局 rho_V 可直接从已保存区域 summary 的 observed_V480_two_coordinate_contributions 与原 mS 求得，无需新数组或网络调用。
+
+报告 B_V、V_obs、两个占比、逐区 signed 电荷均值差、Erep、epsq 及 SOURCE 形式。比例越接近1，仅表示这个名义下界越紧；观测值减下界不是已证明可优化的余量。正下界说明当前输出的电荷均值差要求相应 V 坐标代价非零，不证明电荷约束造成相同比例的历史训练残差。零下界没有兼容性证明；任意比例都不解释 U/DU/D2U、切片项、PSD 或时序项，也不是所有候选模型统一不可约界或 A–F 不可行证书。全部运算为名义 float64，沿用已有 scaled atol=2e-10，不增设“占比通过线”。
+
+3. SOURCE、同处理 REAL 与32对同量 REAL：定位残差，保留抽样设计差异
+
+在全部十区及 all 范围分别并列：SOURCE 对完整 REAL 的几何量 S；同处理 REAL 对完整 REAL 的量 T；32对独立有放回 REAL 抽样的 A–B 数值 F_1...F_32，每边 N 等于该范围的原 SOURCE N。保留重复质量与原人口权重。当前 geometry 源码的 matched floor 是 full_window、coordinate_RMS、temporal_joint 三项；五 D 中的 PSD/noise 不能被写成已有同一 floor。逐坐标/方向详细数组已由原模块定义，本文不读取它们。
+
+若 S 超过全部32个 F 且超过 T，可说“该固定表示的 SOURCE 残差超过这些已抽到的 REAL 参照和处理对照”，支持继续定位已有视图、区域和31维时序坐标中的残差。若 S 落在 F 范围内或更低，只能说本次参照未分离这项差异；不能称等效、通过、优于 REAL 或已经收敛。若 T 也偏离 REAL，应同时考察共同处理及输入人口差异，不能把所有残差归为 SOURCE 特有失配。
+
+S 是一份 SOURCE 对完整 REAL；F 是两份有限 REAL 抽样，两者不是完全相同的两样本设计。F 的 min/max、分位数不是总体置信区间，也不能用“超过32次”构造显著性或独立采集结论。T 的完整 REAL 人数与 SOURCE 人数也不同。若已有 A/B 对完整 REAL 的同定义结果可并列；不得凭空补称已计算。all 范围汇集各父自己的区域标准化，不等于按 mS 加权的十区目标；原始单位 W1、逐区标准化量、加权量与全局量分别命名。
+
+4. 五 D、total D 的端点/参数梯度：参考误差、经验均值差与散度
+
+对 h∈{原父端点 Y, 参数 theta}、每个五 D 项及其向量和，F 是全父有限经验参考，A 是四个32槽损失梯度的平均，B 是同一批每区128槽的损失梯度。固定噪声、父 ID、重复次数、两域各自质量、常数、方向和端点相同；A/B 的区别是分布归约方式。所有量保持原尺度及原单位外权重，参数向量在 CPU float64 按原顺序累加，不裁剪，也不按维数再除。
+
+每臂报告 E=mean_m||g_m-gF||²，H=||mean_m(g_m)-gF||²，V=mean_m||g_m-mean_m(g_m)||²，核验 E=H+V。H 是32次经验均值的偏离，V 的分母也是32；它们不是总体 bias²/variance 的无偏估计。比较 B-A 的 E、H、V 可说明本次误差差异由哪一部分数值构成；若只降低散度而 H 未降，不能说均值失配已解决。分解验证沿用 atol=1e-10、rtol=5e-11；验证失败先报告数值失败，不解释为科学信号。
+
+主比较唯一是参数 total_D 的配对 ΔE=mean_m(||gB_m-gF||²-||gA_m-gF||²)，及固定1000次、macro pair 为单位、linear quantile 的95% bootstrap区间。区间整体小于0，只支持 B 在这个冻结有限参考下的参数误差更小；整体大于0支持相反描述；包含0不提供分离的方向结论，不等于等效。五分量是未做多重调整的次要结果，端点结果另列，不升格替换主比较。
+
+total_D 必须先求五向量之和再求范数/误差，不能把分量平方误差相加。分量间抵消可能使总误差很小，或使某项恶化被掩盖；高 cosine 也可伴随严重幅度错误，所以同时报告范数、dot、cosine、绝对与相对平方误差。参考范数为0时相对误差/cosine 为 null；任一 macro cosine 未定义时保留全部 macro，平均 cosine 也为 null。
+
+两空间的绝对误差量纲、维数和坐标度量不同，不能横向比较数值大小。沿当前固定导数链有 g_theta=J^T G_Y，因此端点误差改善可能被 J^T 抑制、放大或重新排序；参数与端点结论不同本身不证明实现错误、局部约束是唯一原因或网络容量不足。首先以既定人工检查和精确 replay/VJP 规则确认可比性，再提出可检验的链路问题。tie/abs(0)/零 RMS 的选定算法导数也不等于唯一经典梯度，硬 ADC 有限差分不是其 oracle。
+
+5. 三组证据联合后，只提出可检验的问题
+
+• V 下界占比与端点到参数的误差/范数变化共同出现：当前剩余电荷均值方向与可实现的局部参数变化如何对应？本轮只有与该解释一致的描述；不能据此解除电荷约束。要分清 Box、charge-null 构造及网络 Jacobian 的作用，需另行登记针对性机制测量。
+• 已覆盖的 U/DU/D2U 或时序残差高于 REAL 参照，无论 V 下界多紧：这些剩余差异在哪些原区域、时间坐标或31项中出现？哪些在同处理 REAL 中也存在？先用已定义摘要回答，不能自动添加新特征或删除支持外父事件。
+• B 的参数主比较更小且几何残差仍在：有限批梯度近似在该冻结点存在可测区别，但能否跨独立预登记的父噪声/方向库保持、是否影响完整九项更新与原 A–F，仍需后续独立证据；本轮不据此增大训练批量。
+• A/B 的均值偏离都保留，或端点/参数方向不同：它来自有限分布泛函、重复/tie 分支、固定随机环境还是局部映射的哪一部分？目前可分解数值，不能唯一归因。先确认原摘要中的均值/散度和各分量抵消；任何新机制试验另行登记。
+• 几何差异未被这32对参照分离，或参考梯度为0：这只是本次表示/抽样/选定导数下的信息，不能倒推 R63 原门通过或模型已经最优。
+
+D 排除了 source_order、source_valley、REAL_identity、box_correction。即使某个 D 梯度与参考相反，也不能重写 R60 阴性结论或声称完整九项冲突。原 PSD、边界、源关联、同处理 REAL 和独立采集边界仍需在后续相应证据中联合处理。下一步方法保持未选择；附带 JSON 只列条件与问题，不执行任何研究。
+
+来源：R63_REPORT.md；R62_REPORT.md；tasks/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001.md；work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/config.json；reviews/R64_PREPARATION_001/endpoint_geometry/endpoint_geometry.py；reviews/R64_PREPARATION_001/gradient_statistics/gradient_statistics.py。精确路径和 SHA 见 SOURCE_BINDING.json。没有新增文献引用。

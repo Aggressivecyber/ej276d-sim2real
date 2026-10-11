@@ -1,0 +1,88 @@
+{
+  "UTC": "2026-10-11T02:29:39.583064+00:00",
+  "PID": 267898,
+  "status": "fixed_frozen_TRAIN_finite_reference_diagnostic_complete",
+  "model_goal_complete": false,
+  "original_A_F_changed": false,
+  "counter": {
+    "response_training_runs": 0,
+    "response_updates": 0,
+    "HGB_fits": 0,
+    "density_fits": 0,
+    "teacher_waveforms": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "full_SOURCE_rows_completed": 6593,
+    "full_REAL_rows_completed": 21047,
+    "neural_forward_rows_completed": 245209,
+    "neural_forward_calls_completed": 3865,
+    "parameter_VJP_calls_completed": 33800,
+    "endpoint_objective_calls_completed": 161,
+    "full_SOURCE_replay_passes_completed": 33,
+    "paired_macro_batches_completed": 32
+  },
+  "full_reference_loss": {
+    "full_window": 0.5881167219797391,
+    "PSD": 1.042463862177908,
+    "noise": 0.026578457143631093,
+    "coordinate_RMS": 0.8782395233131236,
+    "temporal_joint": 0.08117302135920054
+  },
+  "primary_parameter_gradient_comparison": {
+    "mean_B_minus_A_squared_l2_error": 206.36235254113632,
+    "bootstrap_percentile_95_interval": [
+      99.05100094847836,
+      343.48602557985976
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_unit": "macro pair",
+    "resampling": "same caller-supplied index row for A/B and all components/total",
+    "primary": true,
+    "multiple_testing_adjusted": false
+  },
+  "primary_endpoint_gradient_comparison": {
+    "mean_B_minus_A_squared_l2_error": 251.75495822638814,
+    "bootstrap_percentile_95_interval": [
+      172.74245629005458,
+      332.35127089463293
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_unit": "macro pair",
+    "resampling": "same caller-supplied index row for A/B and all components/total",
+    "primary": true,
+    "multiple_testing_adjusted": false
+  },
+  "charge_bound": {
+    "output_specific_V480_lower_bound_full_window_plus_RMS": 0.1468162482762023,
+    "source_charge_form_V480_lower_bound_full_window_plus_RMS": 0.14674751405099629,
+    "observed_full_window_plus_RMS": 1.4663562447792398,
+    "output_lower_bound_fraction_of_observed_full_window_plus_RMS": 0.10012317866065726,
+    "source_lower_bound_fraction_of_observed_full_window_plus_RMS": 0.10007630449522119,
+    "coefficients": {
+      "V480_coordinate_mean_in_full_window": 0.125,
+      "V480_coordinate_RMS_in_coordinate_RMS": 0.25
+    },
+    "unit_outer_weights": {
+      "full_window": 1.0,
+      "coordinate_RMS": 1.0,
+      "temporal_joint": 1.0
+    },
+    "all_nominal_inequality_checks_pass": true
+  },
+  "frozen_weight_before_SHA": "626206f9c25281e18a2d58c82c70c9d4f32df7fb1d73788e588f59009ec924f3",
+  "frozen_weight_after_SHA": "626206f9c25281e18a2d58c82c70c9d4f32df7fb1d73788e588f59009ec924f3",
+  "all_input_hashes_unchanged_after": true,
+  "all_replayed_endpoints_bitwise": true,
+  "elapsed_s": 1148.3817783359991,
+  "GPU_allocated_peak_bytes": 1398710272,
+  "GPU_reserved_peak_bytes": 1568669696,
+  "artificial_network_rows_are_separate_from_scientific_counts": true,
+  "scientific_scope": "Conditional fixed finite TRAIN reference and five D terms only; no optimizer, new method or A-F determination.",
+  "figures": [
+    "figures/01_endpoint_geometry.png",
+    "figures/02_gradient_comparison.png",
+    "figures/03_paired_error_intervals.png",
+    "figures/04_charge_and_waveform.png"
+  ]
+}

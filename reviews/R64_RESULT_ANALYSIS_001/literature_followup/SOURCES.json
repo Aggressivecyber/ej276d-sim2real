@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "title": "R64 conditional follow-up: narrow primary sources",
+  "accessed_utc_date": "2026-10-11",
+  "selection": "Reuse two directly relevant sealed sources and add one original gradient-cache paper. No broad search, new feature proposal or literature-based hyperparameter choice.",
+  "sources": [
+    {
+      "id": "P1",
+      "title": "The Cramer Distance as a Solution to Biased Wasserstein Gradients",
+      "authors": "Marc G. Bellemare et al.",
+      "version": "arXiv:1705.10743v1 (2017)",
+      "url": "https://arxiv.org/abs/1705.10743v1",
+      "locator": "Abstract; precise earlier theorem locators retained in sealed report.json.",
+      "supported_fact": "Empirical Wasserstein gradients need not be unbiased for the population Wasserstein objective.",
+      "use_here": "Motivates keeping finite empirical-reference error separate from population-gradient claims.",
+      "limit": "Not a result about R63's five losses, ADC STE, B=128, training trajectory or A–F."
+    },
+    {
+      "id": "P2",
+      "title": "Minibatch optimal transport distances; analysis and applications",
+      "authors": "Kilian Fatras, Younes Zine, Szymon Majewski, Remi Flamary, Remi Gribonval, Nicolas Courty",
+      "version": "arXiv:2101.01792v1 (2021)",
+      "url": "https://arxiv.org/html/2101.01792v1",
+      "locator": "Introduction (minibatch expectation changes the problem); Section 4.2, Theorems 29–30, Definition 32, Eqs.44–46.",
+      "supported_fact": "Under stated regularity and integrability assumptions, minibatch stochastic derivatives target the expected minibatch objective; that objective differs from transport between the original measures.",
+      "use_here": "A=average four D32 and B=joint D128 are distinct reductions; neither is automatically an unbiased full-F or population gradient.",
+      "limit": "Its smooth-model/generalized-derivative assumptions cannot be asserted for R63's hard ADC plus chosen STE. No monotone finite-batch improvement or project acceptance guarantee is imported."
+    },
+    {
+      "id": "P6",
+      "title": "Scaling Deep Contrastive Learning Batch Size under Memory Limited Setup",
+      "authors": "Luyu Gao, Yunyi Zhang, Jiawei Han, Jamie Callan",
+      "version": "arXiv:2101.06983v2 (2021)",
+      "url": "https://arxiv.org/html/2101.06983v2",
+      "abstract_url": "https://arxiv.org/abs/2101.06983v2",
+      "locator": "Section 3.2 Eqs.2–3; Section 3.3 Steps 1–4, Eqs.8–9.",
+      "supported_fact": "Cache representations without encoder graphs, compute their loss derivatives jointly, replay sub-batch encoder graphs with cached derivatives, accumulate, then update once.",
+      "official_code_url": "https://github.com/luyug/GradCache",
+      "official_code_provenance": "Linked by the paper at footnote 1; not downloaded or executed for this report.",
+      "use_here": "A method-level precedent for endpoint-gradient/VJP splitting in a loss that couples samples.",
+      "limit": "Its task is contrastive learning. Applying the factorization to R63 is a project-specific inference requiring exact objective, randomness, state, projection and ADC replay checks. Its memory/speed numbers are not R63 measurements."
+    }
+  ],
+  "local_definitions": [
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/tasks/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001.md",
+      "sha256": "306907def992e816ba6706883238be7c541223e5567f9bad24d3c9259a7dba01",
+      "role": "registered R64 definitions; no results"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/report.json",
+      "sha256": "20891a32bca4b0d2eabcec295b9219eb7c863289d063ede925646cc314019e2f",
+      "role": "sealed earlier primary-source review"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/C1_IMPLEMENTATION_NOTES.json",
+      "sha256": "4b593215183c1c4893e243338a859582fd981cdde22bece76f1af9056688953f",
+      "role": "sealed static R63 implementation analysis"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/CODE_PREPARATION_RECEIPT.json",
+      "sha256": "26682374b35a7f7cf4312c43cf763002aa86ac1610fe51ca1bfea13f1d6a8a0a",
+      "role": "sealed artificial-only preparation receipt; not actual R63 replay proof"
+    }
+  ],
+  "results_consulted": false,
+  "quotations_used": false,
+  "downloaded_or_executed_external_code": false
+}

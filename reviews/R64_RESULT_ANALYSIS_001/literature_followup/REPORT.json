@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "title": "R64 条件性梯度证据如何进入下一轮训练",
+  "status": "conditional_design_only_not_selected_not_registered_not_run",
+  "created_utc": "2026-10-11T02:25:23Z",
+  "inputs": [
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/tasks/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001.md",
+      "sha256": "306907def992e816ba6706883238be7c541223e5567f9bad24d3c9259a7dba01",
+      "role": "registered R64 definitions; no results"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/report.json",
+      "sha256": "20891a32bca4b0d2eabcec295b9219eb7c863289d063ede925646cc314019e2f",
+      "role": "sealed earlier primary-source review"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/C1_IMPLEMENTATION_NOTES.json",
+      "sha256": "4b593215183c1c4893e243338a859582fd981cdde22bece76f1af9056688953f",
+      "role": "sealed static R63 implementation analysis"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/CODE_PREPARATION_RECEIPT.json",
+      "sha256": "26682374b35a7f7cf4312c43cf763002aa86ac1610fe51ca1bfea13f1d6a8a0a",
+      "role": "sealed artificial-only preparation receipt; not actual R63 replay proof"
+    }
+  ],
+  "scope": "只解释已登记 R64 将能支持的条件性结论，并给一个可检验的后续训练设计。本报告未读取 R64 实际结果、科学数组、权重或 DEV/EVAL/CAL。",
+  "main_point": "若数值与回放先决条件通过，且已登记 total-D 参数梯度平方误差的 B-minus-A 配对95%区间上界小于0，可据此提出联合128分布归约的训练试验。它只说明 B 更接近这一个冻结有限经验参照的算法代理梯度，尚未证明训练改善或 A–F 通过。",
+  "actual_R64_results": {
+    "completed_macro_groups": null,
+    "integrated_artificial_and_replay_checks_passed": null,
+    "total_D_parameter_error_delta_mean": null,
+    "total_D_parameter_error_delta_ci95": null,
+    "component_parameter_results": null,
+    "endpoint_coordinate_results": null,
+    "geometry_results": null,
+    "full_reference_zero_norm": null,
+    "primary_interpretation": null,
+    "next_scientific_protocol_selected": null
+  },
+  "reading_rules": [
+    {
+      "condition": "全部先决条件有效，已登记 total-D 参数坐标主比较的95%区间完全低于0",
+      "allowed": "支持该 theta、TRAIN、父噪声、方向、质量与 tie 规则下，B 的条件性平方误差较小。",
+      "action": "可进入独立登记后续训练设计的讨论；不是本报告已经选择或启动训练。"
+    },
+    {
+      "condition": "主区间含0，或只有某分量/端点坐标改善",
+      "allowed": "不能据此给出主比较支持 B 的结论；分量结果为未校正多重比较的描述。",
+      "action": "如实保留不确定/局部结果，不挑分量、区域、tie 规则替代主比较。"
+    },
+    {
+      "condition": "主区间完全高于0",
+      "allowed": "本次冻结条件下证据倾向 A 的误差更小。",
+      "action": "不把联合128宣布为该诊断支持的改进。"
+    },
+    {
+      "condition": "回放、输入范围、质量或数学兼容性失败",
+      "allowed": "相关梯度比较不可用于科学解释。",
+      "action": "按已登记 R64 规则停止受影响阶段并记录失败。"
+    }
+  ],
+  "interpretation_limits": {
+    "registered_rule": "使用 R64 的32个配对宏批、固定1000次宏批 bootstrap、线性分位数95%区间。早先未登记 C1 提议中的25%/24-of-32/REAL10%阈值不是 R64 规则，不在结果后套用。",
+    "uncertainty": "该区间只描述固定有限参照下的宏批抽样不确定性；未涵盖新采集、另一个训练点、父噪声库或方向库的变化。有限样本的均值偏离+离散度恒等式不是总体无偏 bias/variance 分解。",
+    "zero_reference": "gF 为0时保留绝对平方误差，未定义的相对误差/夹角记 null；不能删掉这类情况。",
+    "gradient_meaning": "gF^D 是原 BoxChargeProjection、canonical ADC STE、固定排序/abs(0)=0/零RMS分支所定义的算法代理梯度。它不是总体真梯度或硬 ADC 前向的唯一经典导数。P1/P2 的理论也没有替 R64 的 STE 证明这些性质。"
+  },
+  "noise_and_population": {
+    "diagnostic": "R64 每个 SOURCE 父只有一份固定 epsilon；重复抽到该父，复用同一端点与 Jacobian并保留重复质量。REAL 分布参考是 canonical raw REAL，既不经网络，也没有创新噪声；same-treated REAL 是独立描述控制。",
+    "training_difference": "R63 对每次 SOURCE 出现独立生噪声，重复父在同批或跨批也可有不同端点。固定每父噪声的诊断不能直接估计这一随机训练律的梯度误差；同一个随机种子不能消除这种定义差异。",
+    "proposed_transfer": "后续条件性试验恢复每次出现独立噪声，宏批之间重新采样；两臂共享同一个宏批的父ID、每次出现的 epsilon、两套新方向及 identity 槽位。两遍 VJP 的内部回放重用本宏批随机数，但不把 R64 的噪声表固化为训练数据。",
+    "original_masses": "保留全部原6593 SOURCE、21047 REAL父和十个原区域[-1,0,1,2,3,4,5,6,7,8]。每区K次抽样的全局 SOURCE/REAL质量分别是 mS_r/K 与 mR_r/K；全父全局质量分别为1/6593与1/21047。全窗、坐标RMS、时序区域汇总沿原 mS；PSD全局及noise沿两域各自质量，PSD的Q1–Q7条件部分仍原七区均分。",
+    "coverage": "支持外、边界和两域原质量的差别属于目标本身；不删父、截成共同支持、配对重采样、把两域改成同一质量或重归一化区域来改善指标。更准确的梯度不会自动解除 charge/Box 约束与目标分布的差异。"
+  },
+  "coordinate_and_objective": {
+    "parameter_vs_endpoint": "设投影后ADC前端点梯度误差为 deltaG，原网络/投影 Jacobian 为 J，则参数误差 deltag=J^T deltaG，||deltag||^2=deltaG^T J J^T deltaG。端点欧氏误差变小不保证参数误差变小，反之亦然；梯度范数小也不等于更接近参照。两种坐标必须分别命名。",
+    "five_vs_nine": "R64 的 D 仅含 full_window、PSD、noise、coordinate_RMS、temporal_joint。完整训练还含 C={source_order,source_valley,REAL_identity,box_correction}；D 改善不说明 D+C 的梯度冲突、Adam更新或 A–F 改善。",
+    "microbatch_constraints": "后续两臂应使用 Cbar=(C1+C2+C3+C4)/4，保留四个原320-SOURCE/64-identity微批、source_order父对/分母、source_valley非线性归约和raw/out投影修正。不能合成128后新增跨微批父对或改变谷项定义。",
+    "equality_boundary": "在同一 theta、同一随机输入下，Cbar 的值/梯度对两臂相同。两条训练轨迹分开后 Cbar 的定义和样本安排仍相同，数值/梯度一般不同；不能说整个训练期间 C 都相消。",
+    "optimizer_boundary": "诊断未执行 clipping 或 Adam；二者训练时作用于完整 D+C。平方误差均值较低不保证每一步下降、有限步轨迹较优、总目标或任一接受门槛通过。"
+  },
+  "one_conditional_training_design": {
+    "status": "pre_registration_design_only",
+    "testable_question": "在恢复原每次出现新噪声、共同128次出现及固定完整九项定义下，联合分布归约是否带来原接受指标的可重复改善，同时保住SOURCE与same-treated REAL边界？",
+    "control": "A: 每区域128个SOURCE与128个REAL出现，拆四个32；D_A=(D32_1+D32_2+D32_3+D32_4)/4；加同定义 Cbar 后只执行一次 optimizer update。",
+    "candidate": "B: 区域内部合并同一128次出现后计算 D_B=D128，再加同定义 Cbar，执行一次 optimizer update。必须 region-major；不可将四个320行完整微批直接重排成10×128。",
+    "paired_randomness": "两臂按固定外部采样表共享父ID和每次出现噪声，避免实现的随机数消费顺序造成脱配。每宏批按原方向分布新取一套全窗和一套31维方向，A的四批与B共用；这保留单微批方向边缘分布，但四批间相关性不同于R63的四个独立更新。",
+    "initialization_and_schedule": "两臂从同一个未来预先指定的合法初始化/权重和 optimizer state 开始，使用相同原损失权重、优化器、学习率规则及 clip。此处不选择初始化、步数、seed集合或超参，不自动按批量放大学习率。",
+    "fairness": "两臂用相同宏批更新数和出现次数。四次小批梯度累积得到 A，不是 B；原 R63 的四次连续Adam更新也不是 A。相同宏批步数相对R63原32更新改变每步曝光和更新频率，不能只按步数或无测量地宣称等算力。",
+    "implementation_check": "若采用两遍缓存，必须在进入新的科学运行前验证与单图同目标等价、重复出现身份、两个域质量、ADC codes、Box活动集和选定代理梯度。封存的小型人工helper通过记录不能代替实际ResponseNetwork的CPU/CUDA回放证据；本报告未核查R64这些实际结果。",
+    "observations_and_stop_rule": "按未来预先冻结的阶段与数据使用规则报告原A–F全部指标、SOURCE保持、PSD条件宽度/噪声/边界、same-treated REAL及原独立回放要求；同时记录五个D、四个C和实际资源成本。失败则封存该固定方案的阴性结果；不凭结果逐个扫描batch/LR/特征/区域，也不降低原门槛。",
+    "fields_to_freeze_before_any_future_run": {
+      "protocol_id": null,
+      "initialization_and_optimizer_state": null,
+      "macro_update_count": null,
+      "seed_set": null,
+      "numeric_replay_tolerances": null,
+      "device_and_resource_schedule": null,
+      "original_acceptance_stage_binding": null
+    }
+  },
+  "full_parent_or_larger_joint_gradient": {
+    "relationship": "联合128是一个可测试的归约变化；全父或更大批量仍是另一个待登记选择。R64若为正，也不证明随批量增加误差单调下降、噪声积分准确或A–F可达。",
+    "algorithm": [
+      "在当前theta和本步随机数下按固定chunk做无网络图的SOURCE端点收集；REAL分布参考固定，不需要网络VJP。缓存投影后ADC前端点与回放核对信息。",
+      "在完整区域/全局测度上计算五项D和端点梯度。每个坐标/投影的排序必须覆盖其全部父/出现，不能把chunk内W1平均充当联合W1。不等样本/不等质量使用精确CDF分段；坐标RMS要先取得完整W向量及对应系数。",
+      "按同theta、噪声、方向、模式和chunk调度重放，核对ADC与Box后对端点注入已完整加权的梯度；逐块累积参数VJP，不再除父数/chunk数。原Box backward与ADC STE各保留正确的一次路径。",
+      "两遍之间不更新theta，不使用过时端点缓存。若同时缓存C，box_correction需处理对raw和out两路偏导；更稳妥的是保留原四个C微批。不得把source_order也扩到全父后称仅改变D。"
+    ],
+    "resources": "网络激活可由chunk控制，端点/梯度缓存仍随父数与480坐标线性增长，另有特征块、排序缓冲、参数梯度和optimizer状态。逐坐标/投影块可减少峰值；全局排序不能退化为小批平均。无需稠密SOURCE×REAL运输矩阵，但仍有重算、排序及CPU/GPU传输成本。",
+    "boundary": "GradCache提供拆分端点梯度与网络VJP的原始方法依据[P6]，不证明R63数值重放、不证明总内存常数、也不提供本任务的速度/显存保证。需实际资源回执，不能从论文实验直接套用其开销。",
+    "noise_integral": "即使每步遍历所有父并为每父新抽一份epsilon，也只是该有限噪声实现的经验损失；它不等于对每父条件噪声分布做精确积分。固定有限方向也不是所有方向的积分。"
+  },
+  "additional_non_inferences": [
+    "不把有限经验参照称为总体真实目标或唯一正确匹配；无配对/独立采集保证。",
+    "不把参数梯度更接近gF称为训练已改善、九项目标无冲突或A–F已通过。",
+    "不把某一theta上的结论推广到整条训练轨迹、其他噪声/方向或新采集。",
+    "若后续几何给出正charge相关名义下界，只按原V标准化与表示误差解释；它不是严格区间证明或整套A–F不可行证明，也不授权减去损失下界、修改charge或区域质量。"
+  ],
+  "source_ids": [
+    "P1",
+    "P2",
+    "P6"
+  ],
+  "author_inference_boundary": "除 SOURCES.json 明确标出的论文结论外，上述设计和局限是依据封存项目定义作出的静态推理，不是论文已经验证的R63/R64实验结果。",
+  "execution": {
+    "scientific_arrays_read": 0,
+    "model_weights_read": 0,
+    "R64_results_read": 0,
+    "scientific_computations": 0,
+    "training_updates": 0,
+    "new_protocols_registered": 0,
+    "model_or_hyperparameter_selections": 0
+  }
+}

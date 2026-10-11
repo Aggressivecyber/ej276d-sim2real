@@ -1,0 +1,186 @@
+{
+  "schema": "R64_PREOUTCOME_INTERPRETATION_PLAN_V1",
+  "status": "CONDITIONAL_PLAN_NO_R64_SCIENTIFIC_OUTCOMES_READ",
+  "source_binding_file": "SOURCE_BINDING.json",
+  "report_file": "INTERPRETATION_PLAN.txt",
+  "selected_next_method": null,
+  "selected_decision_rows": [],
+  "all_observed_R64_values": null,
+  "new_acceptance_thresholds": [],
+  "existing_acceptance_changed": false,
+  "existing_negative_results_preserved": ["R63 original A/B/C failed", "R60 three predefined conflict markers not triggered"],
+  "scope": {
+    "scientific_arrays_read": 0,
+    "scientific_weights_read": 0,
+    "R64_scientific_result_read": false,
+    "new_DEV_EVAL_CAL_read": 0,
+    "scientific_execution": 0,
+    "training_or_optimizer_updates": 0,
+    "new_literature_sources": 0,
+    "external_application_writes": 0
+  },
+  "fixed_comparison": {
+    "endpoint": "original direct training endpoint projected before canonical ADC; not accumulated Heun endpoint",
+    "distribution_reference": "canonical_REAL(raw original REAL); same-treated REAL is a separate descriptive control",
+    "conditioning": ["frozen R63 final parameters", "all original parents and regions", "one fixed noise per SOURCE parent", "fixed direction libraries", "original domain-specific masses", "specified selected tie/STE derivative"],
+    "D": ["full_window", "PSD", "noise", "coordinate_RMS", "temporal_joint"],
+    "excluded_C": ["source_order", "source_valley", "REAL_identity", "box_correction"],
+    "geometry_floor_terms": ["full_window", "coordinate_RMS", "temporal_joint"],
+    "A": "average of gradients of four 32-slot-per-region losses",
+    "B": "gradient of one 128-slot-per-region loss using exactly the same occurrences",
+    "F": "full original unequal-count weighted finite empirical objective",
+    "macro_pairs": 32,
+    "primary": "parameter total_D paired B-minus-A squared gradient error",
+    "bootstrap": {"replicates": 1000, "unit": "macro pair", "paired": true, "same_indices_all_components": true, "quantiles": [0.025, 0.975], "quantile_method": "linear", "multiple_testing_adjusted": false},
+    "endpoint_results": "separate secondary coordinate-space description"
+  },
+  "derived_reporting_definitions": {
+    "V_bound": "B_V = sum_r mS_r * (LB_coordinate_mean_r / 8 + LB_coordinate_RMS_r / 4)",
+    "V_denominator": "V_obs = sum_r mS_r * rows[r].charge_mean_bound.observed_V480_two_coordinate_contributions",
+    "V_only_fraction": "rho_V = B_V / V_obs when V_obs > 0; null otherwise",
+    "all_views_fraction": "rho_all = B_V / (D_full_window + D_coordinate_RMS); this is the existing aggregate field output_lower_bound_fraction_of_observed_full_window_plus_RMS",
+    "V_fraction_data_requirement": "existing per-region JSON summaries only; no new arrays or network calls required",
+    "source_charge_numerator": "max(0, Dsrc - actual_postADC_total_mean_absolute_charge_error_q - Erep)",
+    "empirical_error": "E = mean_m ||g_m - gF||^2",
+    "empirical_mean_discrepancy": "H = ||mean_m(g_m) - gF||^2",
+    "empirical_dispersion": "V = mean_m ||g_m - mean_m(g_m)||^2, denominator 32",
+    "decomposition": "E = H + V; finite empirical identity, not unbiased population bias/variance",
+    "total_D": "sum five component vectors before any norm, dot or error",
+    "error_normalization": "no division by coordinate count; relative error divides by squared reference norm only when nonzero",
+    "zero_reference": "retain absolute results; undefined relative quantities/cosines are null; omit no macro"
+  },
+  "existing_numerical_rules_for_reference_only": {
+    "geometry_scaled_atol": 2e-10,
+    "gradient_decomposition_atol": 1e-10,
+    "gradient_decomposition_rtol": 5e-11,
+    "scientific_interpretation_thresholds": false,
+    "rules_modified": false
+  },
+  "decision_rows": [
+    {
+      "id": "VALIDITY_FIRST",
+      "possible_evidence": "Input/source binding, artificial prerequisites, same-schedule replay, selected derivative construction, bound arithmetic, or gradient decomposition fails its already registered check.",
+      "supported_conclusion": "The affected numerical comparison is not established; preserve and report the exact failure.",
+      "unsupported_conclusions": ["scientific incompatibility", "evidence for a new method", "permission to loosen tolerances or alter populations"],
+      "next_testable_question": "Which existing binding or identity failed under the frozen definition?",
+      "next_action_scope": "root-owned numerical diagnosis under original rules; no new training",
+      "source_ids": ["R64_PROTOCOL", "R64_CONFIG", "GEOMETRY_SOURCE", "GRADIENT_STATISTICS_SOURCE"]
+    },
+    {
+      "id": "POSITIVE_V_BOUND",
+      "possible_evidence": "All nominal checks pass and B_V > 0; report rho_V and rho_all continuously without a new cutoff.",
+      "supported_conclusion": "The current endpoint's charge mean mismatch requires at least this nominal contribution to its V coordinate objective.",
+      "unsupported_conclusions": ["rho is a causal fraction of training failure", "the unbounded remainder is achievable improvement", "all-view or temporal/PSD incompatibility", "uniform model-independent irreducibility", "A-F infeasibility"],
+      "next_testable_question": "How tight is this bound within each retained region, how much residual remains in other views, and how do output and SOURCE-charge forms differ after actual representation/charge errors?",
+      "next_action_scope": "interpret existing regional summaries",
+      "source_ids": ["R64_PROTOCOL", "GEOMETRY_SOURCE"]
+    },
+    {
+      "id": "ZERO_OR_UNDEFINED_V_BOUND",
+      "possible_evidence": "B_V = 0, or V_obs = 0 makes rho_V null.",
+      "supported_conclusion": "This mean-based nominal calculation supplies no positive V lower bound; preserve raw quantities and numerical checks.",
+      "unsupported_conclusions": ["charge compatibility proved", "loss can reach zero", "original acceptance passed"],
+      "next_testable_question": "Is the zero numerator due to charge means, representation correction, actual charge deviation, or a zero measured denominator, and what do already reported other views show?",
+      "next_action_scope": "interpret existing summaries without changing representation",
+      "source_ids": ["GEOMETRY_SOURCE"]
+    },
+    {
+      "id": "SOURCE_ABOVE_SAVED_REAL_REFERENCES",
+      "possible_evidence": "For a named original scope and one of the three available geometry floor terms, S > max(F_1,...,F_32) and S > T.",
+      "supported_conclusion": "SOURCE residual exceeds these 32 matched-size REAL-pair descriptions and the same-treated REAL description under the fixed representation.",
+      "unsupported_conclusions": ["population significance or 95 percent interval", "causal domain mechanism identified", "new features required", "same floor exists for PSD and noise"],
+      "next_testable_question": "Which already covered coordinates, directions, original regions and temporal features carry the residual, with all failure regions retained?",
+      "next_action_scope": "interpret registered summaries; any additional mechanism measurement must be separately registered",
+      "source_ids": ["R62_REPORT", "R64_PROTOCOL", "GEOMETRY_SOURCE"]
+    },
+    {
+      "id": "SOURCE_WITHIN_OR_BELOW_REAL_RANGE",
+      "possible_evidence": "S lies within or below the 32 saved REAL-pair values.",
+      "supported_conclusion": "This finite reference comparison does not separate a larger SOURCE residual for this statistic.",
+      "unsupported_conclusions": ["SOURCE and REAL are equivalent", "better than REAL", "model convergence", "R63 failure overturned"],
+      "next_testable_question": "How does the one-source-versus-complete-REAL design differ from two finite REAL draws, and do any already reported scope/view results still show residuals?",
+      "next_action_scope": "descriptive interpretation only",
+      "source_ids": ["R63_REPORT", "GEOMETRY_SOURCE"]
+    },
+    {
+      "id": "PROCESSED_REAL_ALSO_HAS_RESIDUAL",
+      "possible_evidence": "The same-treated REAL control T also deviates from canonical raw REAL in the relevant views/scopes.",
+      "supported_conclusion": "The pattern is not exclusively a SOURCE-output observation; preserve the separate common-processing control.",
+      "unsupported_conclusions": ["the control can replace the reference", "the network is the unique cause", "SOURCE and REAL sample counts are matched in this control"],
+      "next_testable_question": "Which residual directions are shared with processed REAL, and which remain SOURCE-specific after describing the original population and standardization differences?",
+      "next_action_scope": "interpret existing full control and population summaries",
+      "source_ids": ["R64_PROTOCOL", "GEOMETRY_SOURCE"]
+    },
+    {
+      "id": "PRIMARY_INTERVAL_NEGATIVE",
+      "possible_evidence": "The upper endpoint of the registered paired parameter-total_D B-minus-A squared-error interval is < 0.",
+      "supported_conclusion": "B has smaller squared parameter-gradient error under this fixed finite empirical diagnostic.",
+      "unsupported_conclusions": ["larger training batches improve learning", "full nine-term descent", "A-F improvement", "a future method has been selected"],
+      "next_testable_question": "Is the observed change carried by empirical mean discrepancy, dispersion or both, and would a separately registered random-environment repetition retain it?",
+      "next_action_scope": "first use current statistics; future replication requires registration",
+      "source_ids": ["R64_PROTOCOL", "GRADIENT_STATISTICS_SOURCE"]
+    },
+    {
+      "id": "PRIMARY_INTERVAL_POSITIVE",
+      "possible_evidence": "The lower endpoint of the registered paired parameter-total_D B-minus-A squared-error interval is > 0.",
+      "supported_conclusion": "B has larger squared parameter-gradient error under this fixed finite empirical diagnostic.",
+      "unsupported_conclusions": ["small batches universally improve training", "128 can never help", "objective coverage is adequate"],
+      "next_testable_question": "Which components and empirical mean/dispersion changes produce the reversal under the shared occurrences?",
+      "next_action_scope": "interpret existing statistics and preserve the negative result",
+      "source_ids": ["GRADIENT_STATISTICS_SOURCE"]
+    },
+    {
+      "id": "PRIMARY_INTERVAL_INCLUDES_ZERO",
+      "possible_evidence": "The registered paired parameter-total_D interval includes or touches 0.",
+      "supported_conclusion": "This interval gives no separated direction of the descriptive primary comparison.",
+      "unsupported_conclusions": ["equivalence", "absence of sampling effects", "permission to replace the primary result with a favorable component"],
+      "next_testable_question": "What do all absolute errors, empirical mean discrepancies, dispersions and component results show without changing the primary comparison?",
+      "next_action_scope": "report inconclusive primary direction and secondary quantities",
+      "source_ids": ["R64_PROTOCOL", "GRADIENT_STATISTICS_SOURCE"]
+    },
+    {
+      "id": "MEAN_AND_DISPERSION_TRADEOFF",
+      "possible_evidence": "B-A changes in E, H and V have mixed signs, or a reduction in E is numerically carried by only one of H or V.",
+      "supported_conclusion": "The finite identity states exactly how empirical mean discrepancy and spread combine in these 32 macros.",
+      "unsupported_conclusions": ["an unbiased population bias/variance estimate", "reduced dispersion proves unbiased gradients", "a confidence interval for H or V was computed"],
+      "next_testable_question": "Does the same mean-discrepancy pattern persist beyond this frozen parent-noise/direction realization under an independently registered diagnostic?",
+      "next_action_scope": "current decomposition first; no new execution implied",
+      "source_ids": ["GRADIENT_STATISTICS_SOURCE", "R64_PROTOCOL"]
+    },
+    {
+      "id": "ENDPOINT_PARAMETER_DISAGREEMENT",
+      "possible_evidence": "Endpoint and parameter descriptions order A/B differently, or error is attenuated/amplified after the fixed J^T map.",
+      "supported_conclusion": "The two coordinate spaces answer different questions; the shared local Jacobian can change error directions and scale.",
+      "unsupported_conclusions": ["compare raw error magnitudes across spaces", "implementation bug proved", "Box or network capacity is uniquely responsible", "charge preservation should be relaxed"],
+      "next_testable_question": "After original replay/VJP checks pass, which residual directions are transmitted or suppressed by the existing charge-null, Box and network chain?",
+      "next_action_scope": "use current summaries; attribution among chain elements requires separate registration",
+      "source_ids": ["R64_PROTOCOL", "GRADIENT_STATISTICS_SOURCE"]
+    },
+    {
+      "id": "TOTAL_COMPONENT_CANCELLATION_OR_ZERO_REFERENCE",
+      "possible_evidence": "Total_D error differs from a naive sum of component errors, or any full-reference component/total vector is zero.",
+      "supported_conclusion": "Vector-sum cross terms and zero-reference semantics must be retained; undefined ratios/cosines remain null.",
+      "unsupported_conclusions": ["sum component squared errors to reconstruct total", "discard undefined macros", "zero selected gradient proves global optimum", "favorable total means every component improved"],
+      "next_testable_question": "Which component magnitudes/directions and empirical mean vectors account for the total result without rescaling the frozen objective?",
+      "next_action_scope": "interpret saved component vectors and statistics, with no new loss weights",
+      "source_ids": ["GRADIENT_STATISTICS_SOURCE", "R64_PROTOCOL"]
+    },
+    {
+      "id": "JOINT_GEOMETRY_AND_GRADIENT_EVIDENCE",
+      "possible_evidence": "Any V-bound fraction and REAL-reference residual pattern is observed together with any valid primary gradient outcome.",
+      "supported_conclusion": "Geometry characterizes the frozen output/reference discrepancy; gradient statistics characterize approximation to one selected local finite-reference derivative. Both are needed, and neither determines the other.",
+      "unsupported_conclusions": ["automatically combine a feature extension with a batch-size change", "single causal explanation of R63 failure", "complete nine-term conflict", "independent-acquisition benefit"],
+      "next_testable_question": "Which one unresolved mechanism question is supported by the joint pattern after charge scope, already-covered residuals and local estimator effects are kept distinct?",
+      "next_action_scope": "root synthesis after full receipts; choose and preregister later, with no method chosen here",
+      "source_ids": ["R62_REPORT", "R63_REPORT", "R64_PROTOCOL", "GEOMETRY_SOURCE", "GRADIENT_STATISTICS_SOURCE"]
+    }
+  ],
+  "global_non_inferences": [
+    "No fixed-parent diagnostic estimates the original independent-occurrence noise/fresh-direction training expectation.",
+    "No comparison is an independent-acquisition or physical event-correspondence validation.",
+    "No total-D statement covers the four excluded original C terms or revises R60 negative conflict markers.",
+    "No numerical tolerance in this plan becomes a new scientific acceptance threshold.",
+    "No SOURCE parent, original region, failure or duplicate mass may be omitted or reweighted.",
+    "No current result or next method is selected before the root observes the completed registered evidence."
+  ]
+}

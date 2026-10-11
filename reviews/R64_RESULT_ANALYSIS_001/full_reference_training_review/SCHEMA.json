@@ -1,0 +1,1838 @@
+{
+  "copy_receipt": {
+    "UTC": "2026-10-11T02:32:12.085980+00:00",
+    "source": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R64_ROOT_20261011_015543_UTC",
+    "files": {
+      "list_N": 6,
+      "first": "RESULT.json"
+    },
+    "remote_native_exit": 0,
+    "actual_PID_absent": true,
+    "all_32_macro_groups_complete": true,
+    "metadata_read_native_exit": 0,
+    "full_private_payload_transfer_is_separate": true,
+    "migration_content_consistency_test": false
+  },
+  "native_receipt": {
+    "entry": "diagnose_train.py",
+    "supervisor_PID": 267893,
+    "start_UTC": "2026-10-11T02:10:33.507932+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": null,
+    "compute_budget_enforced": false,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 267898,
+    "actual_worker_RSS_peak_bytes": 4645408768,
+    "memory_probe_failures": 2,
+    "memory_probe_failure_events": {
+      "list_N": 2,
+      "first": {
+        "UTC": "2026-10-11T02:29:42.559060+00:00",
+        "PID": 267898,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('actual PID RSS unavailable')",
+        "cause": "unknown"
+      }
+    },
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 4645408768,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 1862270976,
+    "GPU_query_failures": {
+      "list_N": 0,
+      "first": null
+    },
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-11T02:10:33.474672+00:00",
+      "MemAvailable_bytes": 62091034624,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 23903850496,
+      "other_own_project_jobs": {
+        "list_N": 0,
+        "first": null
+      },
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": false,
+      "limit_s": null,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12168724480,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 267898,
+    "last_disk_free_bytes": 20620783616,
+    "actual_worker_parent_PID": 267893,
+    "last_job_tree_PIDs": {
+      "list_N": 1,
+      "first": 267898
+    },
+    "actual_worker_native_exit": 0,
+    "launcher_native_exit": 0,
+    "termination_reason": null,
+    "elapsed_s": 1149.2517947640008,
+    "stop_UTC": "2026-10-11T02:29:42.759727+00:00",
+    "worker_self_receipt": {
+      "PID": 267898,
+      "parent_PID": 267893,
+      "nonce": "ee85caad0bfe45758829ff490682f425",
+      "entry": "diagnose_train.py",
+      "native_exit": 0,
+      "error": null,
+      "elapsed_s": 1148.4832324840027,
+      "self_peak_RSS_bytes": 4644392960,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-11T02:29:42.007309+00:00"
+    }
+  },
+  "parameter_summary": {
+    "coordinate_label": "parameter",
+    "component_order": {
+      "list_N": 5,
+      "first": "full_window"
+    },
+    "reported_order": {
+      "list_N": 6,
+      "first": "full_window"
+    },
+    "macros": 32,
+    "vector_dimension": 1369889,
+    "squared_error_convention": "mean over macros of squared Euclidean vector error; no division by vector dimension",
+    "raw_unclipped_gradients": true,
+    "feature_chunk": 65536,
+    "dispersion_method": "Welford online M2 / 32",
+    "dispersion_arithmetic": null,
+    "reference": {
+      "full_window": {
+        "norm": 1.4381864358964032,
+        "squared_norm": 2.0683802243963987
+      },
+      "PSD": {
+        "norm": 13.677524686479464,
+        "squared_norm": 187.07468154925513
+      },
+      "noise": {
+        "norm": 3.0151965598506596,
+        "squared_norm": 9.091410294535251
+      },
+      "coordinate_RMS": {
+        "norm": 2.0428135299607235,
+        "squared_norm": 4.173087118190592
+      },
+      "temporal_joint": {
+        "norm": 0.2684577359475885,
+        "squared_norm": 0.07206955599010514
+      },
+      "total_D": {
+        "norm": 12.24741284871205,
+        "squared_norm": 149.999121486797
+      }
+    },
+    "arms": {
+      "A": {
+        "full_window": {
+          "mean_squared_l2_error": 0.49471711732662677,
+          "relative_mean_squared_l2_error": 0.2391809356381739,
+          "mean_norm": 1.160167534188709,
+          "mean_squared_norm": 1.361216816611658,
+          "mean_dot_reference": 1.4674399618407163,
+          "mean_cosine_reference": 0.8794649272530392,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.04526576114884251,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "PSD": {
+          "mean_squared_l2_error": 347.7239842956676,
+          "relative_mean_squared_l2_error": 1.8587442267227108,
+          "mean_norm": 12.274064942156267,
+          "mean_squared_norm": 168.7857301988988,
+          "mean_dot_reference": 4.068213726243191,
+          "mean_cosine_reference": 0.03851572271810742,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 137.92379755642364,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "noise": {
+          "mean_squared_l2_error": 7.598653353496881,
+          "relative_mean_squared_l2_error": 0.8358057889065187,
+          "mean_norm": 1.4115982540614889,
+          "mean_squared_norm": 2.287404880654312,
+          "mean_dot_reference": 1.8900809108463374,
+          "mean_cosine_reference": 0.38843216842257017,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 1.8276403665016887,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "coordinate_RMS": {
+          "mean_squared_l2_error": 0.38418839177595393,
+          "relative_mean_squared_l2_error": 0.09206335283566619,
+          "mean_norm": 1.9415130163878596,
+          "mean_squared_norm": 3.807152373235975,
+          "mean_dot_reference": 3.7980255498253053,
+          "mean_cosine_reference": 0.9574468686007773,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.12144755592778265,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "temporal_joint": {
+          "mean_squared_l2_error": 0.05787594384744044,
+          "relative_mean_squared_l2_error": 0.8030567561063727,
+          "mean_norm": 0.24662901176934984,
+          "mean_squared_norm": 0.06239770389595198,
+          "mean_dot_reference": 0.038295658019308336,
+          "mean_cosine_reference": 0.5742463462345638,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.0256022379889677,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "total_D": {
+          "mean_squared_l2_error": 344.97279232091245,
+          "relative_mean_squared_l2_error": 2.299832085025092,
+          "mean_norm": 12.794974919315457,
+          "mean_squared_norm": 183.0195582771657,
+          "mean_dot_reference": -5.977056278474832,
+          "mean_cosine_reference": 0.008471789807488361,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 142.85052789826918,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        }
+      },
+      "B": {
+        "full_window": {
+          "mean_squared_l2_error": 0.19547364973505998,
+          "relative_mean_squared_l2_error": 0.09450566555871212,
+          "mean_norm": 1.2666243473944478,
+          "mean_squared_norm": 1.619590910113124,
+          "mean_dot_reference": 1.746248742387234,
+          "mean_cosine_reference": 0.9589293602326361,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.05100747060965572,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "PSD": {
+          "mean_squared_l2_error": 538.7004146002923,
+          "relative_mean_squared_l2_error": 2.879600863885246,
+          "mean_norm": 19.013544124554368,
+          "mean_squared_norm": 435.9987960794757,
+          "mean_dot_reference": 42.1865315142192,
+          "mean_cosine_reference": 0.16274329907071644,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 411.76575124221773,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "noise": {
+          "mean_squared_l2_error": 8.897506099494507,
+          "relative_mean_squared_l2_error": 0.9786717144250658,
+          "mean_norm": 2.446192167273858,
+          "mean_squared_norm": 6.320328969270278,
+          "mean_dot_reference": 3.2571165821555117,
+          "mean_cosine_reference": 0.40760877070797136,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 5.118885776591451,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "coordinate_RMS": {
+          "mean_squared_l2_error": 0.21055940642591628,
+          "relative_mean_squared_l2_error": 0.0504565086858797,
+          "mean_norm": 1.9968405931045359,
+          "mean_squared_norm": 4.025889034797585,
+          "mean_dot_reference": 3.9942083732811287,
+          "mean_cosine_reference": 0.9790951219047542,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.12691335178274152,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "temporal_joint": {
+          "mean_squared_l2_error": 0.0746256583918409,
+          "relative_mean_squared_l2_error": 1.0354671590052074,
+          "mean_norm": 0.3099002102723258,
+          "mean_squared_norm": 0.09857921091613292,
+          "mean_dot_reference": 0.048011554257198504,
+          "mean_cosine_reference": 0.5775146536907407,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 0.05900037806363063,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "total_D": {
+          "mean_squared_l2_error": 551.3351448620488,
+          "relative_mean_squared_l2_error": 3.675589159437694,
+          "mean_norm": 19.387927826793746,
+          "mean_squared_norm": 453.0788580925896,
+          "mean_dot_reference": 25.871417358668648,
+          "mean_cosine_reference": 0.13380313062654722,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 428.1455400810007,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        }
+      }
+    },
+    "paired": {
+      "full_window": {
+        "mean_B_minus_A_squared_l2_error": -0.29924346759156684,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": -0.30418474756803376
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "PSD": {
+        "mean_B_minus_A_squared_l2_error": 190.97643030462467,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 83.33321048637292
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "noise": {
+        "mean_B_minus_A_squared_l2_error": 1.2988527459976251,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 0.09879460754875202
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "coordinate_RMS": {
+        "mean_B_minus_A_squared_l2_error": -0.17362898535003768,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": -0.17919589331364455
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "temporal_joint": {
+        "mean_B_minus_A_squared_l2_error": 0.016749714544400468,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 0.009561310542666878
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "total_D": {
+        "mean_B_minus_A_squared_l2_error": 206.36235254113632,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 99.05100094847836
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": true,
+        "multiple_testing_adjusted": false
+      }
+    },
+    "macro_records": {
+      "list_N": 32,
+      "first": {
+        "macro_index": 0,
+        "A": {
+          "full_window": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          }
+        },
+        "B": {
+          "full_window": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          }
+        },
+        "paired": {
+          "full_window": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          }
+        }
+      }
+    },
+    "bootstrap_indices_sha256": "503bb315ecd34e89ce52750795e8c859adec8654c5a0a36aab87288a7239285a",
+    "bootstrap_quantile_method": "linear",
+    "all_finite_sample_decompositions_passed": true,
+    "numerical_decomposition_tolerance": {
+      "atol": 1e-10,
+      "rtol": 5e-11
+    },
+    "interpretation": {
+      "list_N": 4,
+      "first": "Finite empirical mean discrepancy and dispersion conditional on the supplied fixed reference; not population bias or an unbiased bias/variance estimate."
+    }
+  },
+  "endpoint_summary": {
+    "coordinate_label": "endpoint",
+    "component_order": {
+      "list_N": 5,
+      "first": "full_window"
+    },
+    "reported_order": {
+      "list_N": 6,
+      "first": "full_window"
+    },
+    "macros": 32,
+    "vector_dimension": 3164640,
+    "squared_error_convention": "mean over macros of squared Euclidean vector error; no division by vector dimension",
+    "raw_unclipped_gradients": true,
+    "feature_chunk": 65536,
+    "dispersion_method": "Welford online M2 / 32",
+    "dispersion_arithmetic": null,
+    "reference": {
+      "full_window": {
+        "norm": 0.5139112570331279,
+        "squared_norm": 0.26410478010536964
+      },
+      "PSD": {
+        "norm": 15.442534895434433,
+        "squared_norm": 238.47188399671015
+      },
+      "noise": {
+        "norm": 10.667893121950417,
+        "squared_norm": 113.80394366135701
+      },
+      "coordinate_RMS": {
+        "norm": 0.33254436714932,
+        "squared_norm": 0.11058575612274175
+      },
+      "temporal_joint": {
+        "norm": 3.8609497045139296,
+        "squared_norm": 14.9069326207862
+      },
+      "total_D": {
+        "norm": 19.34504325870094,
+        "squared_norm": 374.2306986810107
+      }
+    },
+    "arms": {
+      "A": {
+        "full_window": {
+          "mean_squared_l2_error": 2.5185854526368168,
+          "relative_mean_squared_l2_error": 9.536311503456995,
+          "mean_norm": 1.5345514467760843,
+          "mean_squared_norm": 2.355008905312823,
+          "mean_dot_reference": 0.0502641163906882,
+          "mean_cosine_reference": 0.06374104321089999,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 2.2565868213127533,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "PSD": {
+          "mean_squared_l2_error": 2934.1005261994346,
+          "relative_mean_squared_l2_error": 12.303758736773817,
+          "mean_norm": 52.79546822068433,
+          "mean_squared_norm": 2794.793898763932,
+          "mean_dot_reference": 49.582628280606194,
+          "mean_cosine_reference": 0.05995435769864251,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 2687.656306255624,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "noise": {
+          "mean_squared_l2_error": 955.9959033713085,
+          "relative_mean_squared_l2_error": 8.400375879908317,
+          "mean_norm": 29.739162974247126,
+          "mean_squared_norm": 884.5861078955961,
+          "mean_dot_reference": 21.19707409282222,
+          "mean_cosine_reference": 0.06691976685607645,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 851.5527917018431,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "coordinate_RMS": {
+          "mean_squared_l2_error": 1.843910681918502,
+          "relative_mean_squared_l2_error": 16.674034220753548,
+          "mean_norm": 1.3370405124688245,
+          "mean_squared_norm": 1.787935188346876,
+          "mean_dot_reference": 0.027305131275557434,
+          "mean_cosine_reference": 0.06142040906740101,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 1.7145696963903243,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "temporal_joint": {
+          "mean_squared_l2_error": 146.2338096409851,
+          "relative_mean_squared_l2_error": 9.809785377112187,
+          "mean_norm": 11.6510252844506,
+          "mean_squared_norm": 135.81484613660496,
+          "mean_dot_reference": 2.243984558203024,
+          "mean_cosine_reference": 0.049877838984468154,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 130.11491348631108,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "total_D": {
+          "mean_squared_l2_error": 4095.613078470958,
+          "relative_mean_squared_l2_error": 10.944086342745505,
+          "mean_norm": 62.195825908755694,
+          "mean_squared_norm": 3874.3321658711443,
+          "mean_dot_reference": 76.47489304059788,
+          "mean_cosine_reference": 0.06297210324911486,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 3725.2687568352003,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        }
+      },
+      "B": {
+        "full_window": {
+          "mean_squared_l2_error": 2.5081919448286194,
+          "relative_mean_squared_l2_error": 9.496957774970708,
+          "mean_norm": 1.5729393610709779,
+          "mean_squared_norm": 2.474742994073811,
+          "mean_dot_reference": 0.11532791467528092,
+          "mean_cosine_reference": 0.14267030549966697,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 2.332879258514506,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "PSD": {
+          "mean_squared_l2_error": 3130.550784082293,
+          "relative_mean_squared_l2_error": 13.127546659234179,
+          "mean_norm": 55.28640493550597,
+          "mean_squared_norm": 3064.6241396274954,
+          "mean_dot_reference": 86.27261977095864,
+          "mean_cosine_reference": 0.09945535669495091,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 2926.1365938205345,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "noise": {
+          "mean_squared_l2_error": 1021.2367129049953,
+          "relative_mean_squared_l2_error": 8.973649594638468,
+          "mean_norm": 31.38723755254354,
+          "mean_squared_norm": 985.2911747094408,
+          "mean_dot_reference": 38.929202732901146,
+          "mean_cosine_reference": 0.11658603857752296,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 938.4201211635037,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "coordinate_RMS": {
+          "mean_squared_l2_error": 1.572666368142362,
+          "relative_mean_squared_l2_error": 14.221238098664553,
+          "mean_norm": 1.2523522274394498,
+          "mean_squared_norm": 1.5691870349568744,
+          "mean_dot_reference": 0.05355321146862708,
+          "mean_cosine_reference": 0.1286150393967946,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 1.488560844813637,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "temporal_joint": {
+          "mean_squared_l2_error": 143.58020350507275,
+          "relative_mean_squared_l2_error": 9.631773830175147,
+          "mean_norm": 11.775085299001534,
+          "mean_squared_norm": 138.8799630078453,
+          "mean_dot_reference": 5.103346061779369,
+          "mean_cosine_reference": 0.11236144583209903,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 132.1990104181573,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        },
+        "total_D": {
+          "mean_squared_l2_error": 4347.368036697347,
+          "relative_mean_squared_l2_error": 11.616812976647289,
+          "mean_norm": 65.07478726994229,
+          "mean_squared_norm": 4241.277724043149,
+          "mean_dot_reference": 134.07019301340668,
+          "mean_cosine_reference": 0.10542165047033392,
+          "defined_cosine_count": 32,
+          "mean_gradient": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "empirical_dispersion_mean_squared_l2": 4045.6770536423346,
+          "finite_sample_decomposition": {
+            "dict_keys": [
+              "mean_squared_l2_error",
+              "mean_gradient_discrepancy_squared_l2",
+              "empirical_dispersion_mean_squared_l2",
+              "residual",
+              "absolute_residual",
+              "allowed_error",
+              "passed"
+            ]
+          }
+        }
+      }
+    },
+    "paired": {
+      "full_window": {
+        "mean_B_minus_A_squared_l2_error": -0.0103935078081977,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": -0.03312753386520159
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "PSD": {
+        "mean_B_minus_A_squared_l2_error": 196.45025788285835,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 126.82216267600369
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "noise": {
+        "mean_B_minus_A_squared_l2_error": 65.24080953368687,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 49.73657998643585
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "coordinate_RMS": {
+        "mean_B_minus_A_squared_l2_error": -0.27124431377614006,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": -0.2901851052711936
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "temporal_joint": {
+        "mean_B_minus_A_squared_l2_error": -2.653606135912342,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": -6.375823345266029
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": false,
+        "multiple_testing_adjusted": false
+      },
+      "total_D": {
+        "mean_B_minus_A_squared_l2_error": 251.75495822638814,
+        "bootstrap_percentile_95_interval": {
+          "list_N": 2,
+          "first": 172.74245629005458
+        },
+        "bootstrap_replicates": 1000,
+        "bootstrap_unit": "macro pair",
+        "resampling": "same caller-supplied index row for A/B and all components/total",
+        "primary": true,
+        "multiple_testing_adjusted": false
+      }
+    },
+    "macro_records": {
+      "list_N": 32,
+      "first": {
+        "macro_index": 0,
+        "A": {
+          "full_window": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          }
+        },
+        "B": {
+          "full_window": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "squared_norm",
+              "norm",
+              "dot_reference",
+              "cosine_reference",
+              "squared_l2_error",
+              "relative_squared_l2_error"
+            ]
+          }
+        },
+        "paired": {
+          "full_window": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "PSD": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "noise": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "coordinate_RMS": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "temporal_joint": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          },
+          "total_D": {
+            "dict_keys": [
+              "B_minus_A_squared_l2_error",
+              "dot_A_B",
+              "cosine_A_B",
+              "squared_l2_A_minus_B"
+            ]
+          }
+        }
+      }
+    },
+    "bootstrap_indices_sha256": "503bb315ecd34e89ce52750795e8c859adec8654c5a0a36aab87288a7239285a",
+    "bootstrap_quantile_method": "linear",
+    "all_finite_sample_decompositions_passed": true,
+    "numerical_decomposition_tolerance": {
+      "atol": 1e-10,
+      "rtol": 5e-11
+    },
+    "interpretation": {
+      "list_N": 4,
+      "first": "Finite empirical mean discrepancy and dispersion conditional on the supplied fixed reference; not population bias or an unbiased bias/variance estimate."
+    }
+  },
+  "result": {
+    "UTC": "2026-10-11T02:29:39.583064+00:00",
+    "PID": 267898,
+    "status": "fixed_frozen_TRAIN_finite_reference_diagnostic_complete",
+    "model_goal_complete": false,
+    "original_A_F_changed": false,
+    "counter": {
+      "response_training_runs": 0,
+      "response_updates": 0,
+      "HGB_fits": 0,
+      "density_fits": 0,
+      "teacher_waveforms": 0,
+      "DEV_read": 0,
+      "EVAL_read": 0,
+      "CAL_decode": 0,
+      "full_SOURCE_rows_completed": 6593,
+      "full_REAL_rows_completed": 21047,
+      "neural_forward_rows_completed": 245209,
+      "neural_forward_calls_completed": 3865,
+      "parameter_VJP_calls_completed": 33800,
+      "endpoint_objective_calls_completed": 161,
+      "full_SOURCE_replay_passes_completed": 33,
+      "paired_macro_batches_completed": 32
+    },
+    "full_reference_loss": {
+      "full_window": 0.5881167219797391,
+      "PSD": 1.042463862177908,
+      "noise": 0.026578457143631093,
+      "coordinate_RMS": 0.8782395233131236,
+      "temporal_joint": 0.08117302135920054
+    },
+    "primary_parameter_gradient_comparison": {
+      "mean_B_minus_A_squared_l2_error": 206.36235254113632,
+      "bootstrap_percentile_95_interval": {
+        "list_N": 2,
+        "first": 99.05100094847836
+      },
+      "bootstrap_replicates": 1000,
+      "bootstrap_unit": "macro pair",
+      "resampling": "same caller-supplied index row for A/B and all components/total",
+      "primary": true,
+      "multiple_testing_adjusted": false
+    },
+    "primary_endpoint_gradient_comparison": {
+      "mean_B_minus_A_squared_l2_error": 251.75495822638814,
+      "bootstrap_percentile_95_interval": {
+        "list_N": 2,
+        "first": 172.74245629005458
+      },
+      "bootstrap_replicates": 1000,
+      "bootstrap_unit": "macro pair",
+      "resampling": "same caller-supplied index row for A/B and all components/total",
+      "primary": true,
+      "multiple_testing_adjusted": false
+    },
+    "charge_bound": {
+      "output_specific_V480_lower_bound_full_window_plus_RMS": 0.1468162482762023,
+      "source_charge_form_V480_lower_bound_full_window_plus_RMS": 0.14674751405099629,
+      "observed_full_window_plus_RMS": 1.4663562447792398,
+      "output_lower_bound_fraction_of_observed_full_window_plus_RMS": 0.10012317866065726,
+      "source_lower_bound_fraction_of_observed_full_window_plus_RMS": 0.10007630449522119,
+      "coefficients": {
+        "V480_coordinate_mean_in_full_window": 0.125,
+        "V480_coordinate_RMS_in_coordinate_RMS": 0.25
+      },
+      "unit_outer_weights": {
+        "full_window": 1.0,
+        "coordinate_RMS": 1.0,
+        "temporal_joint": 1.0
+      },
+      "all_nominal_inequality_checks_pass": true
+    },
+    "frozen_weight_before_SHA": "626206f9c25281e18a2d58c82c70c9d4f32df7fb1d73788e588f59009ec924f3",
+    "frozen_weight_after_SHA": "626206f9c25281e18a2d58c82c70c9d4f32df7fb1d73788e588f59009ec924f3",
+    "all_input_hashes_unchanged_after": true,
+    "all_replayed_endpoints_bitwise": true,
+    "elapsed_s": 1148.3817783359991,
+    "GPU_allocated_peak_bytes": 1398710272,
+    "GPU_reserved_peak_bytes": 1568669696,
+    "artificial_network_rows_are_separate_from_scientific_counts": true,
+    "scientific_scope": "Conditional fixed finite TRAIN reference and five D terms only; no optimizer, new method or A-F determination.",
+    "figures": {
+      "list_N": 4,
+      "first": "figures/01_endpoint_geometry.png"
+    }
+  },
+  "r63_config": {
+    "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "CPU_threads": 12,
+    "RSS_limit_bytes": 51539607552,
+    "GPU_limit_bytes": 10737418240,
+    "MemAvailable_min_bytes": 60129542144,
+    "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+    "source_local_TRAIN": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R23_ONLINE_STANDARDIZED_CRITIC_001\\TRAIN_PRIVATE.npz",
+    "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+    "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+    "train_solver_input": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+    "expected_R33_environment": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "numpy": "1.26.4",
+      "torch": "2.12.0+cu130",
+      "scipy": "1.11.4",
+      "device": "cuda:0",
+      "GPU": "NVIDIA GeForce RTX 5070"
+    },
+    "stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+    "owner": "/root",
+    "subagents_allowed": false,
+    "registered_UTC": "2026-10-11T00:01:33.757519+00:00",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC",
+    "protocol": "tasks/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001.md",
+    "arm": "COVERAGE_RESPONSE",
+    "arms": {
+      "list_N": 1,
+      "first": "COVERAGE_RESPONSE"
+    },
+    "science_budget": null,
+    "deadline_UTC": null,
+    "output_limit_bytes": null,
+    "compute_budget_enforced": false,
+    "model_seed": 20261010590,
+    "PCG64_seeds": {
+      "source_rows": 20261010591,
+      "REAL_reference_rows": 20261010592,
+      "REAL_identity_rows": 20261010593,
+      "source_epsilon": 20261010594,
+      "identity_epsilon": 20261010595,
+      "projection_directions": 20261010596,
+      "baseline_projection_directions": 20261011631
+    },
+    "updates": 50000,
+    "batch_per_region": 32,
+    "identity_batch": 64,
+    "region_categories": {
+      "list_N": 10,
+      "first": -1
+    },
+    "lr": 0.0002,
+    "lr_initial": 1e-06,
+    "lr_final": 2e-05,
+    "warmup_updates": 500,
+    "betas": {
+      "list_N": 2,
+      "first": 0.9
+    },
+    "gradient_clip": 5.0,
+    "projection_directions": 64,
+    "box_projection_iterations": 64,
+    "solver_steps": 128,
+    "solver_check_steps": 256,
+    "generation_chunk": 64,
+    "inference_device": "cuda:0",
+    "input_paths": {
+      "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+      "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+      "train_solver_input": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/R42_TRAIN_SOLVER_CHECK_PRIVATE.npz",
+      "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json",
+      "distribution_statistics": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC/TRAIN_DISTRIBUTION_CONSTANTS.npz",
+      "R61_training_receipt": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC/PRECISION_RESOLVED_RESPONSE/TRAINING_RECEIPT.json",
+      "R61_parent_exposures": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC/PRECISION_RESOLVED_RESPONSE/PARENT_EXPOSURES_PRIVATE.npz",
+      "R61_final_random_states": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC/PRECISION_RESOLVED_RESPONSE/FINAL_RANDOM_STATES.json"
+    },
+    "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json",
+    "SOURCE_N": 6593,
+    "REAL_N": 21047,
+    "PSD_loss_scale": 0.01,
+    "valley_delta": 0.02,
+    "valley_smoothing": 0.002,
+    "feature_names": {
+      "list_N": 4,
+      "first": "V480"
+    },
+    "feature_scale_floor": {
+      "V480": 6.103888176768602e-05,
+      "U480": 0.001,
+      "DU479": 0.001,
+      "D2U478": 0.001
+    },
+    "noise_scale_floor": {
+      "list_N": 2,
+      "first": 6.1038881767686015e-06
+    },
+    "loss_weights": {
+      "full_window": 1.0,
+      "PSD": 1.0,
+      "source_order": 1.0,
+      "source_valley": 1.0,
+      "noise": 1.0,
+      "REAL_identity": 1.0,
+      "box_correction": 1.0,
+      "coordinate_RMS": 1.0,
+      "temporal_joint": 1.0
+    },
+    "allowed_scientific_entries": {
+      "list_N": 5,
+      "first": "train_final.py"
+    },
+    "GPU_scientific_entries": {
+      "list_N": 4,
+      "first": "train_final.py"
+    },
+    "historical_R54_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R54_ROOT_20261010_171003_UTC",
+    "historical_R54_report": "R54_REPORT.md",
+    "prior_joint_law_used_as_teacher": false,
+    "training_source_global_measure": "original equal parent weights via explicit region importance correction",
+    "historical_R59_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R59_ROOT_20261010_192814_UTC",
+    "historical_R59_report": "R59_REPORT.md",
+    "historical_R60_report": "R60_REPORT.md",
+    "source_order_rule": "float32_PSD_interval_disjoint_only_original_nonzero_denominator",
+    "sole_scientific_change": "Add nonnegative full-coordinate RMS empirical-W1 and 31-feature baseline temporal marginal/sliced distribution losses to the unchanged original seven losses.",
+    "new_response_training_runs": 1,
+    "interval_fit_or_threshold_search": false,
+    "historical_R61_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC",
+    "historical_R61_report": "R61_REPORT.md",
+    "historical_R62_report": "R62_REPORT.md",
+    "expected_R61_initial_state_SHA": "4a51097e257d4b35976452982aa9a84f48e321d425e0ba3859e8afe8a7bd239b",
+    "expected_R61_stream_hashes": {
+      "source_rows": "0f5567fa9a5cbb9d5113a760130b6c159faa9e8d5e09027d9a0cb0332f6ca5b2",
+      "REAL_reference_rows": "1e3e083641aa649ca1c498abc06a4079dbe0aec440e9f0c6f753702181ebb0c0",
+      "REAL_identity_rows": "c89bf701cca4b50cb20d62f04a1a1a5ff11349874f038c35638432e7208a5b29",
+      "source_epsilon": "6a3e813c23c1d68d5c87c3b6089ca1faf990229127fbea1e347d762194e7b58b",
+      "identity_epsilon": "2321010053240d2c150d12206ebde2fde63e601456f90dae0481139d248855c7",
+      "projection_directions": "27eb00f64c04582769e39bd9e3cb2139cd111a43fa4a7fc94be922fc7fde272b"
+    },
+    "fixed_endpoint_objective_extension": true,
+    "original_distribution_constants_reused_from_R61": true,
+    "new_temporal_statistics_TRAIN_only": true,
+    "temporal_feature_count": 31,
+    "temporal_lags": {
+      "list_N": 20,
+      "first": 1
+    },
+    "temporal_band_bin_count": 5,
+    "temporal_band_count": 10,
+    "temporal_projection_directions": 64,
+    "temporal_scale_floor": {
+      "list_N": 31,
+      "first": 6.1038881767686015e-06
+    },
+    "temporal_power_floor": 1e-20,
+    "coordinate_RMS_pooling": "positive_l2_norm_of_coordinate_empirical_W1_div_sqrt_dimension"
+  },
+  "r64_config": {
+    "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "CPU_threads": 12,
+    "RSS_limit_bytes": 51539607552,
+    "GPU_limit_bytes": 10737418240,
+    "MemAvailable_min_bytes": 60129542144,
+    "expected_R33_environment": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "numpy": "1.26.4",
+      "torch": "2.12.0+cu130",
+      "scipy": "1.11.4",
+      "device": "cuda:0",
+      "GPU": "NVIDIA GeForce RTX 5070"
+    },
+    "stage": "R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001",
+    "owner": "/root",
+    "subagents_allowed": true,
+    "agent_model_and_reasoning_policy": "Exactly inherit current root settings for all execution and planning agents; no overrides",
+    "registered_UTC": "2026-10-11T01:55:43.245858+00:00",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R64_ROOT_20261011_015543_UTC",
+    "protocol": "tasks/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001.md",
+    "historical_R63_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC",
+    "input_paths": {
+      "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+      "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+      "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+      "distribution_statistics": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R61_ROOT_20261010_214925_UTC/TRAIN_DISTRIBUTION_CONSTANTS.npz",
+      "temporal_statistics": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC/TRAIN_TEMPORAL_CONSTANTS.npz",
+      "frozen_weight": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC/COVERAGE_RESPONSE/FINAL_FLOW.pt",
+      "frozen_training_receipt": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC/COVERAGE_RESPONSE/TRAINING_RECEIPT.json",
+      "frozen_training_config": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC/config.json"
+    },
+    "science_budget": null,
+    "deadline_UTC": null,
+    "output_limit_bytes": null,
+    "compute_budget_enforced": false,
+    "PCG64_seeds": {
+      "full_SOURCE_epsilon": 20261011600,
+      "full_REAL_epsilon": 20261011601,
+      "full_feature_directions": 20261011602,
+      "temporal_feature_directions": 20261011640,
+      "macro_SOURCE_rows": 20261011641,
+      "macro_REAL_rows": 20261011642,
+      "gradient_paired_bootstrap": 20261011644,
+      "REAL_floor_A_rows": 20261011645,
+      "REAL_floor_B_rows": 20261011646
+    },
+    "expected_full_stream_hashes": {
+      "full_SOURCE_epsilon": "60e1679b5c7b8ffa149d4ec6cb38c20cc5501508fd3556fcf1f6d88d69f29c0e",
+      "full_REAL_epsilon": "c6d9863481135506e8d2ef9f5ee67d8f6251f1ea0729aea43155474f6620d0e6",
+      "full_feature_directions": "37ab68b4d0bab6cd80c9ea43950b09ccf4e5cacfaa3f0498bd2eb830f89746bc"
+    },
+    "SOURCE_N": 6593,
+    "REAL_N": 21047,
+    "full_parent_rows": 27640,
+    "generation_chunk": 64,
+    "endpoint_definition": "original_direct_training_endpoint_projected_before_ADC",
+    "model_training_mode": true,
+    "MHA_fastpath_enabled": false,
+    "gradient_components": {
+      "list_N": 5,
+      "first": "full_window"
+    },
+    "excluded_gradient_components": {
+      "list_N": 4,
+      "first": "source_order"
+    },
+    "full_reference_gradients": 1,
+    "paired_macro_batches": 32,
+    "microbatches_per_macro": 4,
+    "microbatch_per_region": 32,
+    "macro_per_region": 128,
+    "projection_directions": 64,
+    "temporal_projection_directions": 64,
+    "temporal_feature_count": 31,
+    "temporal_power_floor": 1e-20,
+    "PSD_loss_scale": 0.01,
+    "loss_weights": {
+      "full_window": 1.0,
+      "PSD": 1.0,
+      "source_order": 1.0,
+      "source_valley": 1.0,
+      "noise": 1.0,
+      "REAL_identity": 1.0,
+      "box_correction": 1.0,
+      "coordinate_RMS": 1.0,
+      "temporal_joint": 1.0
+    },
+    "matched_REAL_floor_replicates": 32,
+    "paired_gradient_bootstrap_replicates": 1000,
+    "bootstrap_quantiles": {
+      "list_N": 2,
+      "first": 0.025
+    },
+    "bootstrap_quantile_method": "linear",
+    "neural_replay_full_SOURCE_passes": 33,
+    "planned_total_network_rows": 245209,
+    "native_parameter_count": 1369889,
+    "endpoint_replay_bitwise_required": true,
+    "canonical_codes_exact_required": true,
+    "Box_free_masks_exact_required": true,
+    "parameter_VJP_accumulation_dtype": "float64_CPU_in_original_chunk_order",
+    "keep_all_parameter_gradient_vectors_float64": true,
+    "save_full_reference_endpoint_gradients": true,
+    "save_macro_endpoint_gradients": false,
+    "macro_endpoint_storage": "Summary records and online mean vectors; reproduce exact vectors from fixed endpoints and saved macro IDs",
+    "geometry_numpy_cuda_bitwise_equivalence_claimed": false,
+    "charge_bound_nominal_scaled_atol": 2e-10,
+    "supplementary_summaries": {
+      "list_N": 5,
+      "first": "raw_and_canonical_PSD_W1_by_all_original_regions"
+    },
+    "response_training_runs": 0,
+    "response_updates": 0,
+    "HGB_fits": 0,
+    "density_fits": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "allowed_scientific_entries": {
+      "list_N": 1,
+      "first": "diagnose_train.py"
+    },
+    "GPU_scientific_entries": {
+      "list_N": 1,
+      "first": "diagnose_train.py"
+    }
+  }
+}
