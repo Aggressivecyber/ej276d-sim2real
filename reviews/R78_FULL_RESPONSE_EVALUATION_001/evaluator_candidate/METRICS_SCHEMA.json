@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "acceptance_version": 5,
+  "metrics_file": "metrics.json",
+  "parallel_charge_file": "CHARGE_DISTRIBUTION_DIAGNOSTICS.json",
+  "exact_charge_same_content": true,
+  "required_top_level": [
+    "C2ST",
+    "PSD_main",
+    "energy_conditional_width",
+    "domain_vs_REAL",
+    "source_composition",
+    "source_association_actual_preADC_input",
+    "source_probes",
+    "generation",
+    "data_roles",
+    "domains",
+    "primary_DEV_population_reweighted",
+    "explicit_constraint_projection",
+    "boundary_differences",
+    "guide_probe",
+    "current_training",
+    "charge_diagnostics",
+    "REAL_identity"
+  ],
+  "source_and_real_arms": "config_post SOURCE_arm/REAL_arm == adapter config same roles",
+  "C2ST": {
+    "results": "BASE/BASE_REAL_CONTROL/RAW_REAL_REAL reused plus SOURCE_arm/REAL_arm",
+    "views": [
+      "full_historical_shape",
+      "normalized_u480",
+      "full_voltage",
+      "Q_PSD_2D",
+      "baseline_local"
+    ],
+    "new_fits": 10,
+    "train_each_domain": 600,
+    "holdout_each_domain": 250,
+    "bootstrap_repeats": 500,
+    "bootstrap_seed": 2026100871,
+    "paired": "newSOURCE vs BASE; newREAL vs RAW_REAL_REAL; same_treated_REAL_control_paired newREAL vs BASE_REAL_CONTROL"
+  },
+  "density": {
+    "new_description_slots": 16,
+    "EM_attempts_max": 16,
+    "tables": "REAL/SOURCE_CLEAN/BASE/BASE_REAL_CONTROL/INDEPENDENT_CFM reused; each current arm slices length8",
+    "fixed_required_common_bins_1based": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "missing_required_bin": "explicit invalid slice and null MAE, never a candidate-qualified intersection"
+  },
+  "charge": {
+    "units": "mV ns",
+    "labels": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      "invalid"
+    ],
+    "axes": [
+      "input_Q0",
+      "target_Qstar",
+      "preADC_window",
+      "canonical_evaluation"
+    ],
+    "migrations": [
+      "input_to_Qstar",
+      "Qstar_to_preADC",
+      "preADC_to_canonical"
+    ],
+    "axis_counts_and_weights": "11-element lists in labels order",
+    "cdf": {
+      "unique_Q_mVns": "strict increasing finite unique values; empty + reason if invalid",
+      "cumulative_original_weight": "original full equal1/2000 mass at each jump, final1"
+    },
+    "REAL_reference": "top level units/empirical_CDF/rows/counts/weights/invalid/outside, plus canonical_evaluation axis",
+    "row_mass": "all2000 each arm and untreatedREAL, no QC deletion/normalization"
+  },
+  "primary_valley_counts": [
+    213,
+    181
+  ],
+  "historical_valley_counts": [
+    207,
+    182
+  ],
+  "source_probes": "rows.source_roll_no_fixed_points.waveform_RMS_vs_correct_reference_V.mean computed from strict saved canonical",
+  "guide_probe": "SOURCE_arm.rows128/output_nonidentical_fraction/preADC_output_RMS_V.median from current generator; root computes original gate",
+  "generation": "same current generation domains with full_response_applied_N2000, SOURCE outside417, BASE_fallback_N0; no actual forward in evaluator",
+  "projection": "same generated per-row summaries including10 original raw bin categories; missing physical split unknown",
+  "raw_voltage_moments": "domain ->9 descriptions overall plus8 current canonical output bins; saved full480 mean/SD arrays when supported; qualifiedge40",
+  "gates": "root A-C/sixstage/102 and figure rendering only; evaluator never aggregates pass",
+  "additional_outputs": [
+    "EVALUATION_STARTED.json",
+    "EVALUATION_PROGRESS.json",
+    "EVALUATION_NUMERIC_RECEIPT.json",
+    "SAME_TREATED_REAL_CONTROL_PAIRED.json",
+    "SOURCE_PROBES_CANONICAL_EVALUATION_SUMMARY.json",
+    "BOUNDARY_METRICS.json",
+    "C2ST_RUNNING.json",
+    "results/C2ST_PRIVATE.npz",
+    "results/FEATURES_PRIVATE.npz",
+    "results/PSD_SECTIONS_PRIVATE.npz",
+    "results/RAW_VOLTAGE_MOMENTS_PRIVATE.npz",
+    "results/BOUNDARY_DIFFERENCES_PRIVATE.npz",
+    "results/C_<arm>__<view>.json",
+    "results/<arm>__<view>_PREDICTIONS_PRIVATE.npz",
+    "results/WIDTH_<arm>_bin<1..8>.json",
+    "results/WIDTH_<arm>_TABLE.json"
+  ],
+  "failure_output": "EVALUATION_FAILURE.json: started attempts and completed slots; unfinished fit completion unknown; no final quality claim"
+}

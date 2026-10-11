@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "acceptance_version": 5,
+  "execution_enabled": true,
+  "purpose": "registered_v5_full_response_generation_replay",
+  "stage": "R78_FULL_RESPONSE_EVALUATION_001",
+  "registered_stage": "R78_FULL_RESPONSE_EVALUATION_001",
+  "owner": "/root",
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R78_EVAL_20261011_143707_UTC",
+  "output_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R78_EVAL_20261011_143707_UTC",
+  "SOURCE_arm": "R77_FULL_RESPONSE",
+  "REAL_arm": "R77_REAL_CONTROL",
+  "CPU_threads": 12,
+  "exact_CPU_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "expected_environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "expected_R33_environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "allowed_scientific_entries": [
+    "generate_full_response.py",
+    "replay_full_response.py",
+    "evaluate_saved.py",
+    "summarize_and_plot.py"
+  ],
+  "GPU_scientific_entries": [
+    "generate_full_response.py",
+    "replay_full_response.py"
+  ],
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "inference_device": "cuda:0",
+  "generation_chunk": 256,
+  "straight_through": false,
+  "raw_precision": "loaded_raw_to_float64",
+  "epsilon_precision": "float32",
+  "expected_populations": {
+    "SOURCE": 2000,
+    "REAL_control": 2000,
+    "joint8": 1024,
+    "probes": 832,
+    "guide": 128,
+    "original_support_outside": 417,
+    "primary_valley_bin2": 213,
+    "primary_valley_bin3": 181
+  },
+  "training": {
+    "config": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/config.json",
+      "sha256": "7ff3520f0bae83f1fed18d84afea8440d0790b5ba3e24e7c01d694632f7b93a7"
+    },
+    "receipt": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/TRAINING_RECEIPT.json",
+      "sha256": "117a2451094bd25dab88ffac102ab7af9a6067d89b78ed85074a912977680438"
+    },
+    "numerical_reference": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/NUMERICAL_REFERENCE.json",
+      "sha256": "73a48bcce799065517dd315400f61a9fd751a284c9988c8d8c44cbd44cac983d"
+    },
+    "postcheck_receipt": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/POSTCHECK_RECEIPT.json",
+      "sha256": "26387b3b3d336f191c20b954e8633e1c3350a5a17c9a0c6a461543b65a24154b"
+    },
+    "TRAIN_replay": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/TRAIN_SERIALIZATION_REPLAY.json",
+      "sha256": "8763feef9fb66daab02993db9e244cac46851a4afd54e041e22bb2acd8b7465a"
+    },
+    "DATA_receipt": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/DATA_RECEIPT.json",
+      "sha256": "dc4079ffa5bbfb239b3a12e94de61d08b080a71b28f9384acfec492fc95bdfd5"
+    },
+    "native_receipt": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/train_full.py.NATIVE_RECEIPT.json",
+      "sha256": "5b7b911ef2a13a86566584b3ab67c729f1d34267d1543b8c9fe11a2628a7779c"
+    }
+  },
+  "model": {
+    "shape_weights": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/FINAL_SHAPE.pt",
+      "sha256": "75d4c8853c2f15eaa3a1388a4853d750ecd24f413b7853945010ac2c94de1bbe"
+    },
+    "frozen_Q_weights": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/FROZEN_Q_HEAD.pt",
+      "sha256": "0792320c627596f45cfce461382e7877c0b45ef81d86e53bfacdf6474dfc4b24"
+    },
+    "original_Q_weights": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R71_ROOT_20261011_093644_UTC/FINAL_HEAD.pt",
+      "sha256": "ca7f66cc5bdfe861ad8a370ebb4bdc23f8be03dc128e26dcb9df865da872d335",
+      "bytes": 72441
+    },
+    "shape_statistics": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/SHAPE_STATISTICS.npz",
+      "sha256": "52ac2ac35d1df43f001df05af985b795354c20e0543c056015064cc148828663"
+    }
+  },
+  "inputs": {
+    "actual": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/ACTUAL_GENERATION_INPUTS.npz",
+      "sha256": "3aa788085a98b7379913018879dbcfcde1eccd19f6906b6a59e8a4ef25d98671",
+      "bytes": 6413537
+    },
+    "source_metadata": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/DEV_SOURCE_METADATA.npz",
+      "sha256": "812aeac24adaee122ce5ee71c82c9449eb66fa89aecff6fd53e743c182158e23",
+      "bytes": 128181
+    },
+    "REAL_packet": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/REAL_DEV_AND_REFERENCE_PRIVATE.npz",
+      "sha256": "73132ccc26495621c164d3be4e39ef5ee137f6b5a888f502bd00af39dc7ae3d6",
+      "bytes": 3268744
+    },
+    "probes": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/PROBE_INPUTS_CORRECTED.npz",
+      "sha256": "446422cebebf53ea1ac8258ab7ddab014df3e00bba44724f0d35df306ca1648d",
+      "bytes": 3177884
+    },
+    "joint8": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/JOINT8_INPUTS_PRIVATE.npz",
+      "sha256": "901ff2c44ac615eac2c3b7bd9daeee786bfea04e34c594a7372027887d99571d",
+      "bytes": 2065865
+    }
+  },
+  "runtime_source_directory": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC",
+  "runtime_sources": {
+    "waveform_response.py": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/waveform_response.py",
+      "sha256": "e72566445355e95aab08bdd75d7dab90c8df6f2587f80cb757504f6ccfdcc0b5"
+    },
+    "public_charge_head.py": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/public_charge_head.py",
+      "sha256": "c99ddf9c83106da23e95b0f9ae805dae9260f30c8489eef0d61ccd3e12922496"
+    },
+    "common_response.py": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/common_response.py",
+      "sha256": "2bdfb0be20eb441557c1a73f7e069a8c0e2d7fc564048d157963e5a085cb04eb"
+    },
+    "physical_operators.py": {
+      "path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R77_FULL_20261011_114139_UTC/physical_operators.py",
+      "sha256": "9db9afb65c32c2ec18f7c4e7a54319bd949fc67c15414bb17fbf26a3d8d98d71"
+    }
+  },
+  "binding_status": "Actual completed R77 weights, native/numeric receipts and fixed references prospectively bound",
+  "endpoint_rule": "bound training config.updates == TRAINING_RECEIPT.completed_updates == unique_selected_endpoint > 0; no fixed50000 in production admission",
+  "original_Q_container_rule": "FROZEN file SHA matches training receipt, original file SHA matches DATA receipt, both loaded state dictionaries byte-equal",
+  "scientific_quality_or_native_completion_claim": null,
+  "registered_UTC": "2026-10-11T14:37:07.400487+00:00",
+  "R65_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC"
+}

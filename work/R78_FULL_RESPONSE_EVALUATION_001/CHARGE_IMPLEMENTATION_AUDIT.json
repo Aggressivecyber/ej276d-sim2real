@@ -1,0 +1,158 @@
+{
+  "population": {
+    "R77_FULL_RESPONSE": {
+      "rows": 2000,
+      "identity_order_weight_match": true,
+      "identity_fields": {
+        "source_ids": true,
+        "edep_ee_MeV": true,
+        "edep_hadron_MeV": true,
+        "composition": true,
+        "pdg_inferred": true,
+        "Qsource_Vns": true,
+        "source_label": true,
+        "original_row": true,
+        "original_weight": true,
+        "original_group": true,
+        "legacy_nominal_Qsource_Vns": true,
+        "original_source_bin_raw": true,
+        "source_Qbin_actual_preADC": true,
+        "inside_TRAIN_support": true,
+        "source_q_Vns": true,
+        "original_SOURCE_INPUT_Q_mVns": true,
+        "original_SOURCE_INPUT_PSD": true,
+        "original_primary_valley_bin_raw": true
+      },
+      "original_weight_sum": 1.0000000000000004,
+      "all_original_equal_weights": true,
+      "outside_original_support_rows": 417,
+      "pre_ADC_finite": true,
+      "pre_ADC_outside_range_sample_count": 0,
+      "all_rows_full_response": true,
+      "provenance": {
+        "identity": "this formal evaluator check_original_identity; comparisons retained once",
+        "equal_weights": "sd.original_uniform_weights validated all supplied parent weights in charge_diagnostics",
+        "response_flags_and_Qstar": "this formal evaluator generated_npz/check_payload",
+        "outside_rows": "existing full-parent input_Q0 description",
+        "preADC_scalar_checks": "first scalar export from this formal evaluator's already loaded pre_ADC_V"
+      }
+    },
+    "R77_REAL_CONTROL": {
+      "rows": 2000,
+      "identity_order_weight_match": true,
+      "identity_fields": {
+        "original_row": true,
+        "original_weight": true,
+        "reference_ids": true,
+        "reference_groups": true,
+        "original_group": true
+      },
+      "original_weight_sum": 1.0000000000000004,
+      "all_original_equal_weights": true,
+      "outside_original_support_rows": 213,
+      "pre_ADC_finite": true,
+      "pre_ADC_outside_range_sample_count": 0,
+      "all_rows_full_response": true,
+      "provenance": {
+        "identity": "this formal evaluator check_original_identity; comparisons retained once",
+        "equal_weights": "sd.original_uniform_weights validated all supplied parent weights in charge_diagnostics",
+        "response_flags_and_Qstar": "this formal evaluator generated_npz/check_payload",
+        "outside_rows": "existing full-parent input_Q0 description",
+        "preADC_scalar_checks": "first scalar export from this formal evaluator's already loaded pre_ADC_V"
+      }
+    }
+  },
+  "charge": {
+    "R77_FULL_RESPONSE": {
+      "rows": 2000,
+      "predicted_Qstar_positive_finite": true,
+      "actual_f32_preADC_max_relative_error": 1.1936832509413159e-08,
+      "reported_f64_preADC_max_relative_error": 2.9804420171414667e-16,
+      "row_metadata_consistent": true,
+      "metadata_checks": {
+        "Q0": true,
+        "Qstar": true,
+        "QpreADC": true,
+        "QADC": true,
+        "predicted_target_Q_Vns": true,
+        "Q_relative_error_f32": true,
+        "Q_relative_error_f64": true,
+        "saved_preADC_relative_Qstar_error_f32": true,
+        "original_bin_raw": true,
+        "target_bin_raw": true,
+        "preADC_bin_raw": true,
+        "ADC_bin_raw": true,
+        "evaluation_output_bin_raw": true,
+        "ADC_integer_codes": true,
+        "evaluation_canonical_V": true,
+        "evaluation_canonical_Q_mVns": true,
+        "evaluation_canonical_PSD": true
+      },
+      "row_metadata_consistency_scope": "formal strict canonical checks and existing independent held-out full-chain metadata equality",
+      "actual_f32_error_provenance": "saved generator NumPy q_window(pre_ADC_V) versus separately predicted Qstar; not recomputed in summary",
+      "input_charge_hard_preservation_gate": false,
+      "canonical_ADC_Q_not_claimed_exact_Qstar": true
+    },
+    "R77_REAL_CONTROL": {
+      "rows": 2000,
+      "predicted_Qstar_positive_finite": true,
+      "actual_f32_preADC_max_relative_error": 1.6563004674446628e-08,
+      "reported_f64_preADC_max_relative_error": 2.2732554537375313e-16,
+      "row_metadata_consistent": true,
+      "metadata_checks": {
+        "Q0": true,
+        "Qstar": true,
+        "QpreADC": true,
+        "QADC": true,
+        "predicted_target_Q_Vns": true,
+        "Q_relative_error_f32": true,
+        "Q_relative_error_f64": true,
+        "saved_preADC_relative_Qstar_error_f32": true,
+        "original_bin_raw": true,
+        "target_bin_raw": true,
+        "preADC_bin_raw": true,
+        "ADC_bin_raw": true,
+        "evaluation_output_bin_raw": true,
+        "ADC_integer_codes": true,
+        "evaluation_canonical_V": true,
+        "evaluation_canonical_Q_mVns": true,
+        "evaluation_canonical_PSD": true
+      },
+      "row_metadata_consistency_scope": "formal strict canonical checks and existing independent held-out full-chain metadata equality",
+      "actual_f32_error_provenance": "saved generator NumPy q_window(pre_ADC_V) versus separately predicted Qstar; not recomputed in summary",
+      "input_charge_hard_preservation_gate": false,
+      "canonical_ADC_Q_not_claimed_exact_Qstar": true
+    }
+  },
+  "mass": {
+    "pass": true,
+    "checks": {
+      "same_original_parent_measure": true,
+      "REAL_target_full2000_defined": true,
+      "R77_FULL_RESPONSE.rows": true,
+      "R77_FULL_RESPONSE.original_weight_sum": true,
+      "R77_FULL_RESPONSE.axis.input_Q0": true,
+      "R77_FULL_RESPONSE.axis.target_Qstar": true,
+      "R77_FULL_RESPONSE.axis.preADC_window": true,
+      "R77_FULL_RESPONSE.axis.canonical_evaluation": true,
+      "R77_FULL_RESPONSE.migration.input_to_Qstar": true,
+      "R77_FULL_RESPONSE.migration.Qstar_to_preADC": true,
+      "R77_FULL_RESPONSE.migration.preADC_to_canonical": true,
+      "R77_REAL_CONTROL.rows": true,
+      "R77_REAL_CONTROL.original_weight_sum": true,
+      "R77_REAL_CONTROL.axis.input_Q0": true,
+      "R77_REAL_CONTROL.axis.target_Qstar": true,
+      "R77_REAL_CONTROL.axis.preADC_window": true,
+      "R77_REAL_CONTROL.axis.canonical_evaluation": true,
+      "R77_REAL_CONTROL.migration.input_to_Qstar": true,
+      "R77_REAL_CONTROL.migration.Qstar_to_preADC": true,
+      "R77_REAL_CONTROL.migration.preADC_to_canonical": true
+    },
+    "source": "existing sd.charge_diagnostics full-parent formal evaluation result",
+    "CDF_KS_W1_or_migration_recomputed_in_summary": false,
+    "independent_root_recalculation": false,
+    "new_Q_acceptance_threshold": null
+  },
+  "provenance": "formal evaluator/export and prescribed replay receipts",
+  "independent_root_recalculation": false
+}

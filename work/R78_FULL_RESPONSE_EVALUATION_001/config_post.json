@@ -1,0 +1,73 @@
+{
+  "C2ST": {
+    "max_iter": 100,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 20,
+    "l2_regularization": 1.0,
+    "early_stopping": false,
+    "random_state": 20261008
+  },
+  "train_each_domain": 600,
+  "holdout_each_domain": 250,
+  "bootstrap_repeats": 500,
+  "bootstrap_seed": 2026100871,
+  "C2ST_views": [
+    "full_historical_shape",
+    "normalized_u480",
+    "full_voltage",
+    "Q_PSD_2D",
+    "baseline_local"
+  ],
+  "local_input_paths": {
+    "width_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/DIAGNOSTIC_DEFINITION.json"
+  },
+  "R32_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R32",
+  "R33_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R33",
+  "R39_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39",
+  "old_BASE_REAL_generated": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/BASE_REAL_CONTROL/generated.npz",
+  "R26_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R26",
+  "frozen_eval_input_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC",
+  "canonical_R51_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC",
+  "stage": "R78_FULL_RESPONSE_EVALUATION_001",
+  "acceptance_version": 5,
+  "updates": 25000,
+  "SOURCE_arm": "R77_FULL_RESPONSE",
+  "REAL_arm": "R77_REAL_CONTROL",
+  "evaluation_adapter_config": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R78_EVAL_20261011_143707_UTC/config.json",
+  "HGB_max_fits": 10,
+  "density_EM_max": 16,
+  "width_slots": 16,
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "recipe_description": "R77 full-parent25000 full-waveform MLP; frozen R71 public Q head; same public SOURCE/REAL operator; unique final endpoint",
+  "historical_controls_frozen_no_new_fit": true,
+  "required_density_bins_1based": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "reference_bindings": {
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/CAL_REFERENCE_METADATA.json": "2b90f1e613ff9ef692a96350bd9c6e25bfdd779e14531f85900d0cdd1cee2445",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json": "11f581dd8ea7ca6dc04a711b106fe5f427df68fb5e02f431e729823e53dd4ab5",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/DATA_ROLES.json": "12d900930103bc37ede4487f428d879575b165dbbf71a4be2b82b6678a3f9fdf",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/DIAGNOSTIC_DEFINITION.json": "68f915df1cc3e09832713f3206bd608bda72a9fa50ebcdb2c813da6b883519e5",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/metrics.json": "d08f21a2f937573ce688c810a6f888c78f31c82c68684c6c3dfa42d0615e686c",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R32/CONTROL_FINAL/generated.npz": "04aab3f54281f532b599eae3c72125c99293d7ce597c14cf70fdddf699e23dbe",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R33/INDEPENDENT_CFM/generated.npz": "cf4ccf1b8f9316888cadf637012510419ec56c796edc17b5456d369e93928216",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R39/BASE_REAL_CONTROL/generated.npz": "6da18258b44f35697dffc2634c988e530fe6b2d6df21edf81a46f36ee8d3cb17",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/references/R26/results/C2ST_PRIVATE.npz": "5648961f7e95a77fa294d70c427ca775d0b4211f58fa24921c5fb837c1efa4bb",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC/CANONICAL_C2ST.json": "58fd7018f37b7033ff39e1659e29e9fecad4983459eceafb3c40956566c58890",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R51_ROOT_20261010_155635_UTC/CANONICAL_PREDICTIONS_PRIVATE.npz": "9cc229d52fb333ddec51f78e18f704f662c497f7df71b4b6cc556cd9535ad70e"
+  },
+  "D_E_evaluation_not_authorized_by_this_config": true,
+  "execution_enabled": true,
+  "registered_UTC": "2026-10-11T14:37:07.400487+00:00",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R78_EVAL_20261011_143707_UTC",
+  "output_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R78_EVAL_20261011_143707_UTC",
+  "frozen_model_file_SHA256": "75d4c8853c2f15eaa3a1388a4853d750ecd24f413b7853945010ac2c94de1bbe"
+}
