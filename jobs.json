@@ -4782,7 +4782,7 @@
     },
     {
       "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
-      "status": "full_empirical_training_running",
+      "status": "retired_incomplete_cost_hold",
       "owner": "/root",
       "registered_UTC": "2026-10-11T03:01:07.453860+00:00",
       "protocol": "tasks/R65_FULL_EMPIRICAL_D_RESPONSE_001.md",
@@ -4791,28 +4791,105 @@
       "new_training_runs_started": 1,
       "fixed_terminal_update": 50000,
       "model_goal_complete": false,
-      "updated_UTC": "2026-10-11T03:25:43.958363+00:00",
+      "updated_UTC": "2026-10-11T07:38:00.698370+00:00",
       "current_job": {
         "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
-        "status": "full_empirical_training_running",
-        "UTC": "2026-10-11T03:25:43.958363+00:00",
-        "active_scientific_jobs": 1,
-        "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
-        "actual_worker_PID": 291399,
-        "native_attempt_id": "37c43e76bb064c44937ebe888d58d0da",
-        "new_training_runs_started": 1,
-        "artificial_checks_passed": 8,
-        "scientific_terminal_update": 50000,
-        "current_observation": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/LATEST_REMOTE_OBSERVATION.json",
-        "launch_receipt": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/LAUNCH_RECEIPT.json",
-        "new_response_updates_at_observation": 0,
-        "model_goal_complete": false
+        "status": "terminal",
+        "actual_worker_PID": 330411,
+        "supervisor_PID": 330406,
+        "actual_worker_native_exit": -15,
+        "elapsed_s": 6254.914389844998,
+        "stop_UTC": "2026-10-11T06:55:46.047082+00:00",
+        "termination_reason": null
       },
-      "active_scientific_jobs": 1,
-      "artificial_checks_passed": 8
+      "active_scientific_jobs": 0,
+      "artificial_checks_passed": 8,
+      "actual_native_exit": -15,
+      "last_completed_update": 613,
+      "durable_checkpoint_update": 500,
+      "in_memory_updates_501_to_613_retained": false,
+      "automatic_resume": false,
+      "terminal_evidence": "reviews/R66_EQUAL_COST_PILOT_001/R65_RETIREMENT_RECEIPT.json",
+      "reconciliation": "reviews/R68_TRAIN_CHARGE_COMPATIBILITY_001/NATIVE_PREFLIGHT.json"
+    },
+    {
+      "stage": "R66_EQUAL_COST_PILOT_001",
+      "status": "closed_invalid_execution",
+      "owner": "/root",
+      "active_scientific_jobs": 0,
+      "protocol": "tasks/R66_EQUAL_COST_PILOT_001.md",
+      "output_root": "work/R66_EQUAL_COST_PILOT_001",
+      "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R66_ROOT_20261011_070346_UTC",
+      "native": {
+        "actual_worker_PID": 353058,
+        "supervisor_PID": 353047,
+        "actual_worker_native_exit": 1,
+        "elapsed_s": 201.55318473800435,
+        "stop_UTC": "2026-10-11T07:08:56.703387+00:00",
+        "termination_reason": null
+      },
+      "model_goal_complete": false,
+      "delivery_receipt": "R67_DELIVERY_RECEIPT.json",
+      "reconciled_UTC": "2026-10-11T07:38:00.698370+00:00"
+    },
+    {
+      "stage": "R67_EQUAL_COST_REPAIR_001",
+      "status": "closed_negative_local_support",
+      "owner": "/root",
+      "active_scientific_jobs": 0,
+      "protocol": "tasks/R67_EQUAL_COST_REPAIR_001.md",
+      "output_root": "work/R67_EQUAL_COST_REPAIR_001",
+      "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R67_ROOT_20261011_071221_UTC",
+      "native": {
+        "actual_worker_PID": 355171,
+        "supervisor_PID": 355160,
+        "actual_worker_native_exit": 0,
+        "elapsed_s": 235.93943178400514,
+        "stop_UTC": "2026-10-11T07:17:24.011738+00:00",
+        "termination_reason": null
+      },
+      "model_goal_complete": false,
+      "delivery_receipt": "R67_DELIVERY_RECEIPT.json",
+      "reconciled_UTC": "2026-10-11T07:38:00.698370+00:00"
+    },
+    {
+      "stage": "R68_TRAIN_CHARGE_COMPATIBILITY_001",
+      "status": "closed_finite_TRAIN_charge_certificate",
+      "owner": "/root",
+      "kind": "fixed_finite_TRAIN_scalar_arithmetic",
+      "active_scientific_jobs": 0,
+      "protocol": "tasks/R68_TRAIN_CHARGE_COMPATIBILITY_001.md",
+      "output_root": "work/R68_TRAIN_CHARGE_COMPATIBILITY_001",
+      "registered_UTC": "2026-10-11T07:38:00.698370+00:00",
+      "model_goal_complete": false,
+      "worker_PID": 9788,
+      "native": {
+        "UTC": "2026-10-11T07:38:30.427949+00:00",
+        "actual_worker_PID": 9788,
+        "actual_worker_native_exit": 0,
+        "elapsed_s": 4.512829100014642,
+        "termination_reason": null,
+        "worker_cap_s": 60,
+        "resource": {
+          "PID": 16764,
+          "CPU_affinity_mask": 1,
+          "CPU_affinity_count": 1,
+          "RSS_hard_max_bytes": 1073741824,
+          "RSS_limit_flags": 6,
+          "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R68_TRAIN_CHARGE_COMPATIBILITY_001\\supervisor_runtime\\runtime_cache",
+          "numeric_environment_threads": 1,
+          "peak_RSS_bytes": 19144704,
+          "RSS_bytes": 18075648,
+          "peak_private_commit_bytes": 12443648
+        }
+      },
+      "result": "work/R68_TRAIN_CHARGE_COMPATIBILITY_001/RESULT.json",
+      "root_review": "reviews/R68_TRAIN_CHARGE_COMPATIBILITY_001/ROOT_RESULT_REVIEW.json",
+      "delivery_receipt": "R68_DELIVERY_RECEIPT.json"
     }
   ],
-  "active_scientific_jobs": 1,
-  "active_remote_scientific_jobs": 1,
-  "active_local_scientific_jobs": 0
+  "active_scientific_jobs": 0,
+  "active_remote_scientific_jobs": 0,
+  "active_local_scientific_jobs": 0,
+  "updated_UTC": "2026-10-11T07:38:00.698370+00:00"
 }

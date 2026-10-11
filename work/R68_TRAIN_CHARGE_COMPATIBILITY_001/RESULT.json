@@ -1,0 +1,126 @@
+{
+  "UTC": "2026-10-11T07:38:30.400996+00:00",
+  "status": "COMPLETED_FINITE_TRAIN_CHARGE_CERTIFICATE",
+  "raw_finite_charge_comparison": {
+    "KS_lower_bound": {
+      "numerator": 35569779,
+      "denominator": 138762871,
+      "decimal": 0.25633498891789286
+    },
+    "best_threshold_BA_lower_bound": {
+      "numerator": 87166325,
+      "denominator": 138762871,
+      "decimal": 0.6281674944589465
+    },
+    "exceeds_point60_threshold": true,
+    "unique_threshold_count": 27434,
+    "witness": {
+      "threshold": {
+        "numerator": 26284435427,
+        "denominator": 17179869184,
+        "decimal": 1.529955504636746
+      },
+      "direction": "SOURCE_CDF_above_REAL",
+      "SOURCE_lower_count": 2517,
+      "SOURCE_upper_count": 2517,
+      "REAL_count": 2640,
+      "SOURCE_N": 6593,
+      "REAL_N": 21047,
+      "integer_gap_numerator": 35569779,
+      "integer_gap_denominator": 138762871
+    }
+  },
+  "robust_interval_result": {
+    "KS_lower_bound": {
+      "numerator": 34468748,
+      "denominator": 138762871,
+      "decimal": 0.24840036640637106
+    },
+    "best_threshold_BA_lower_bound": {
+      "numerator": 173231619,
+      "denominator": 277525742,
+      "decimal": 0.6242001832031855
+    },
+    "exceeds_point60_threshold": true,
+    "unique_threshold_count": 34013,
+    "witness": {
+      "threshold": {
+        "numerator": 367441801196480574631,
+        "denominator": 234548164034560000000,
+        "decimal": 1.5665942332524039
+      },
+      "direction": "SOURCE_CDF_above_REAL",
+      "SOURCE_lower_count": 2517,
+      "SOURCE_upper_count": 2616,
+      "REAL_count": 2807,
+      "SOURCE_N": 6593,
+      "REAL_N": 21047,
+      "integer_gap_numerator": 34468748,
+      "integer_gap_denominator": 138762871
+    }
+  },
+  "interval_definition": {
+    "relative_tolerance": {
+      "numerator": 1,
+      "denominator": 100000,
+      "decimal": 1e-05
+    },
+    "ADC_charge_radius": {
+      "numerator": 200,
+      "denominator": 5461,
+      "decimal": 0.03662332906061161
+    },
+    "float64_reduction_slack": {
+      "numerator": 1,
+      "denominator": 10000000,
+      "decimal": 1e-07
+    },
+    "units": "V samples",
+    "per_coordinate_ADC_radius": "1/16383 V"
+  },
+  "exact_fraction_interval_endpoints": true,
+  "exact_integer_CDF_comparisons": true,
+  "independent_witness_count_verified": true,
+  "artificial_cases_passed": 5,
+  "scope": "All equal-parent TRAIN output laws supported in the declared per-parent charge intervals, including stochastic conditional laws.",
+  "excludes_exact_joint_Q_PSD_equality": true,
+  "fixed_HGB_or_original_DEV_AF_universal_failure_proven": false,
+  "heldout_CI_or_population_inference": false,
+  "original_A_F_complete": false,
+  "arbitrary_future_ADC_or_charge_map_covered": false,
+  "acceptance_or_population_changed": false,
+  "R65_automatic_resume": false,
+  "data_access": {
+    "archive": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/ENDPOINT_GEOMETRY_PRIVATE.npz",
+    "archive_SHA256": "e5562444d91498a70412c28117936a059dcb084bf1999093b07c3434aca313da",
+    "decoded_fields": [
+      "SOURCE_original_q",
+      "REAL_canonical_q"
+    ],
+    "SOURCE_N": 6593,
+    "REAL_N": 21047,
+    "weights": "unchanged uniform original parent laws; all rows retained",
+    "waveform_arrays_decoded": 0,
+    "model_weights_decoded": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "network_calls": 0,
+    "optimizer_updates": 0,
+    "classifier_fits": 0,
+    "RNG_draws": 0
+  },
+  "analysis_elapsed_s": 3.6322355999145657,
+  "resource": {
+    "PID": 9788,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R68_TRAIN_CHARGE_COMPATIBILITY_001\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 54231040,
+    "RSS_bytes": 48254976,
+    "peak_private_commit_bytes": 43966464
+  }
+}

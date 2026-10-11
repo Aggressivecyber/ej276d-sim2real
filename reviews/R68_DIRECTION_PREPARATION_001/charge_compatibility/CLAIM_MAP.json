@@ -1,0 +1,336 @@
+{
+  "audit_id": "R68_DIRECTION_PREPARATION_001_charge_compatibility",
+  "version": 1,
+  "language": "zh-CN",
+  "scope": "Static scientific-protocol and numerical-source reading only",
+  "project_root": "E:/GAN/research/sim2real_two_papers_20261008_0305",
+  "current_acceptance_changed": false,
+  "scientific_execution_performed": false,
+  "claims": [
+    {
+      "id": "C01",
+      "status": "required_current_contract",
+      "claim": "当前有效 A–F 要求原输入逐事件 preADC 相对电荷误差≤1e-5，同时满足源秩门；不能仅凭秩替换该不变量。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "21,36"
+        },
+        {
+          "file": "PROJECT_ACCEPTANCE.json",
+          "lines": "36,100-113"
+        },
+        {
+          "file": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md",
+          "lines": "23,31,42-46"
+        }
+      ],
+      "boundary": "方法数值不变量；不是已验证的普遍物理电荷等价律。"
+    },
+    {
+      "id": "C02",
+      "status": "verified_static_code",
+      "claim": "q=sum100:400−3sum0:100；相对误差目标与分母都是原 f32 INPUT 的正 q，误差以f64累计；无事后分母下限。",
+      "evidence": [
+        {
+          "file": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/source_flow_core.py",
+          "lines": "5-14,39-51"
+        },
+        {
+          "file": "work/R49_FROZEN_HEUN128_RESPONSE_001/noise_core.py",
+          "lines": "4-20"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/noise_core.py",
+          "lines": "4-20"
+        }
+      ],
+      "boundary": "SOURCE 和同处理 REAL 各对自己的输入 q；不得写回新q掩盖偏移。"
+    },
+    {
+      "id": "C03",
+      "status": "verified_static_code",
+      "claim": "电压 N/2N RMS 差与电荷对INPUT残差是两项独立数值检查。",
+      "evidence": [
+        {
+          "file": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/check_train_solver.py",
+          "lines": "12-13"
+        },
+        {
+          "file": "work/R49_FROZEN_HEUN128_RESPONSE_001/check_models.py",
+          "lines": "19-30"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/numerical_check.py",
+          "lines": "24-39"
+        }
+      ],
+      "boundary": "不得把电荷门改成候选解相对参考解的电荷差。"
+    },
+    {
+      "id": "C04",
+      "status": "verified_static_code",
+      "claim": "全部主 SOURCE 与同处理 REAL 输出的f32 preADC电荷≤1e-5是gate6条件；postADC只描述且不声称精确。",
+      "evidence": [
+        {
+          "file": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/summarize_and_plot.py",
+          "lines": "103-110,123-131"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/summarize_and_plot.py",
+          "lines": "28-35,89-98"
+        }
+      ],
+      "boundary": "不能宣称整个ADC后管线逐位保电荷，也不能免除主输出检查。"
+    },
+    {
+      "id": "C05",
+      "status": "verified_static_code",
+      "claim": "R63范围/电荷联合投影保持原q目标，评价mVns电荷只是同一定义乘1000。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+          "lines": "13-30,64-66,73-85"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluation.py",
+          "lines": "83-87"
+        }
+      ],
+      "boundary": "同单位比例换算须明确；换积分窗或目标不是同一验收。"
+    },
+    {
+      "id": "C06",
+      "status": "valid_finite_empirical_implication",
+      "claim": "严格逐事件保q且保持事件/权重时，经验q边缘不变；已不同的固定q经验边缘排除联合Q–PSD严格相等。",
+      "evidence": [
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "5-7"
+        }
+      ],
+      "boundary": "需区分1e-5、ADC量化、有限经验人口与未知真实采集总体。"
+    },
+    {
+      "id": "C07",
+      "status": "valid_descriptive_classifier_identity",
+      "claim": "完整经验样本双方向最佳q阈值BA=(1+KS)/2；保存KS=.2685对应.63425。",
+      "evidence": [
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "9"
+        }
+      ],
+      "boundary": "训练/留出固定HGB及其分组95CI均未被该量证明。"
+    },
+    {
+      "id": "C08",
+      "status": "rejected_overclaim",
+      "claim": "仅凭保存KS、描述阈值BA或q均值下界证明固定HGB BA95CI必不在[.40,.60]。",
+      "evidence": [
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "9-11"
+        },
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "19,26"
+        },
+        {
+          "file": "R64_REPORT.md",
+          "lines": "73"
+        }
+      ],
+      "reason": "缺少固定模型/身份留出/bootstrap之间的必然联系；近似有限能力验收不是严格联合分布等式。"
+    },
+    {
+      "id": "C09",
+      "status": "conditional_mathematical_implication",
+      "claim": "共同确定性可逆T若把两个分布严格推向同一分布，则输入分布相等。",
+      "evidence": [
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "11"
+        }
+      ],
+      "boundary": "当前噪声/条件化/ADC整体管线未证明满足前提，不是所有sim2real的不可能性证明。"
+    },
+    {
+      "id": "C10",
+      "status": "valid_finite_family_result",
+      "claim": "R58给出保留6593源等权与21047 REAL贡献的有限联合统计族数值可行解，PSD总体/共同区门在所登记容差内。",
+      "evidence": [
+        {
+          "file": "R58_REPORT.md",
+          "lines": "3,9-11,26,42,49"
+        }
+      ],
+      "boundary": "不是全窗、噪声、峰宽、神经实现或A–F通过；有限族最优也非所有映射上界。"
+    },
+    {
+      "id": "C11",
+      "status": "valid_conditional_necessary_bound",
+      "claim": "R58的2.9210%不可实现质量只针对该联合律与已观测REAL基线范围，全部来自原输入越界高端支持外；自由PSD电荷界未排除源。",
+      "evidence": [
+        {
+          "file": "R58_REPORT.md",
+          "lines": "51-73"
+        }
+      ],
+      "boundary": "不等于任意输出必失败、DEV失败率、全模型不可能或删除/重权事件授权。"
+    },
+    {
+      "id": "C12",
+      "status": "valid_output_specific_nominal_bound",
+      "claim": "R64 B_V=.146816248、V-only比例.243179632、四视图几何比例.100123179有不同原分母；属于当前浮点端点名义下界紧致程度。",
+      "evidence": [
+        {
+          "file": "R64_REPORT.md",
+          "lines": "71-73"
+        }
+      ],
+      "boundary": "不是因果比例、区间证书或HGB/整个A–F模型无关不可行证明。"
+    },
+    {
+      "id": "C13",
+      "status": "valid_candidate_negative_only",
+      "claim": "R63源秩与数值检查通过但该固定候选A/B/C失败；R64 B128梯度阴性受其固定参照与32宏组限制。",
+      "evidence": [
+        {
+          "file": "R63_REPORT.md",
+          "lines": "3,9-15,36-43,52-53,119,129"
+        },
+        {
+          "file": "R64_REPORT.md",
+          "lines": "3,7-9,20,29,47"
+        }
+      ],
+      "boundary": "不得把局部阴性升级为项目或所有方法阻塞。"
+    },
+    {
+      "id": "C14",
+      "status": "forbidden_unilateral_change",
+      "claim": "只保Q秩后做单调Q分位数映射、改source_q目标/分母、改父ID/权重/人口/分区或删支持外以达标。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "21,32,36"
+        },
+        {
+          "file": "tasks/R43_SCALAR_TIME_NEURAL_FLOW_001.md",
+          "lines": "35,42-46"
+        },
+        {
+          "file": "tasks/R49_FROZEN_HEUN128_RESPONSE_001.md",
+          "lines": "24-29"
+        },
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "13"
+        }
+      ],
+      "reason": "秩保真不是当前继承电荷数值门的替代授权。"
+    },
+    {
+      "id": "C15",
+      "status": "proposed_not_registered_not_executed",
+      "claim": "一次TRAIN标量电荷可达CDF包络与W1下界诊断，原q±1e-5q和另证ADC界，保留全部父事件/权重/区域。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "21,32"
+        },
+        {
+          "file": "reviews/R45_GOAL_COMPATIBILITY_NOTE_001.md",
+          "lines": "7-9"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+          "lines": "41-47,73-85"
+        }
+      ],
+      "boundary": "kappa>.20只证明完整固定经验样本Q阈值可分性下界；kappa≤.20不是A可行证书；无HGB/模型/波形/科学执行。"
+    },
+    {
+      "id": "C16",
+      "status": "binding_parent_context_not_independently_audited",
+      "claim": "R67等成本full20/mini979共同score5.928/4.546未支持fullD收益；R65退休与成本hold维持。",
+      "evidence": [],
+      "boundary": "来自根任务上下文，本审核范围不读或重算R67；不得据局部成本阴性标整体阻塞。"
+    },
+    {
+      "id": "C17",
+      "status": "static_conditional_check_of_root_draft",
+      "claim": "根提出的全TRAIN Fraction CDF证书可采用600/16383+1e-7保守ADC/求和界，但只针对无ADC饱和裁剪且原f32 preADC q门成立、原canonical链不变的类。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+          "lines": "41-47,73-85"
+        },
+        {
+          "file": "R64 ENDPOINT_GEOMETRY_PRIVATE.npz field semantics",
+          "lines": "root-verified endpoint_geometry.py:375-382; arrays not opened by this audit"
+        }
+      ],
+      "boundary": "q_i精确Fraction；闭区间与右连续CDF全部同值原子跳跃同步；整数交叉乘法；不证明固定HGB/DEV/所有方法失败。"
+    }
+  ],
+  "diagnostic": {
+    "status": "design_only",
+    "purpose": "Bound finite TRAIN Q mismatch that cannot be removed under the unchanged original per-event charge tolerance",
+    "inputs": {
+      "SOURCE_original_q_scalar_rows": 6593,
+      "REAL_canonical_q_scalar_rows": 21047,
+      "parent_ID_order_regions_weights": "unchanged",
+      "missing_required_scalar": "record unknown; do not decode waveforms in this task"
+    },
+    "epsilon": 1e-05,
+    "preADC_interval": [
+      "q_i*(1-epsilon)",
+      "q_i*(1+epsilon)"
+    ],
+    "ADC_bound": "separate certified bound for the original implementation; ideal 300/16383 alone is not an implementation certificate",
+    "CDF_low": "sum_i w_i*I(U_i<=t)",
+    "CDF_high": "sum_i w_i*I(L_i<=t)",
+    "KS_lower_bound": "sup_t max(CDF_low-F_REAL, F_REAL-CDF_high, 0)",
+    "W1_lower_bound": "integral distance(F_REAL(t), [CDF_low(t),CDF_high(t)]) dt",
+    "balanced_threshold_BA_descriptive_lower_bound": "(1+KS_lower_bound)/2",
+    "required_output": "preADC and ADC branches separate; full population and all original ten regions; exact input hashes and unknown ADC-bound branch if unproved",
+    "computation_design": "One scalar sorting/scan; no repeat scan or classifier; no saved-waveform/model inference",
+    "cannot_infer": "Fixed fitted HGB heldout BA or its bootstrap CI, true population equivalence, or overall A-F attainability",
+    "new_scientific_jobs": 0
+  },
+  "root_diagnostic_addendum": {
+    "status": "static_review_only",
+    "root_plan": "Global equal-weight TRAIN Fraction charge interval CDF certificate",
+    "SOURCE_rows": 6593,
+    "REAL_rows": 21047,
+    "arrays_read_by_this_audit": false,
+    "preADC_gate": "old f32 original input q relative error ≤1e-5",
+    "extra_ADC_absolute_bound_q_units": "600/16383",
+    "extra_float64_arithmetic_margin_q_units": "1/10000000 (bind actual numeric literal outward or document absorbed rounding)",
+    "required_conditions": [
+      "finite original input q>0",
+      "f32 preADC values inside [-0.5,0.5] with no ADC saturation clipping",
+      "original R63 canonical ADC implementation",
+      "all original parents and equal weights unchanged",
+      "SOURCE_original_q corresponds to the same input q definition as the numerical gate",
+      "canonical REAL q scalar units match SOURCE q"
+    ],
+    "float32_ADC_bound_proof": {
+      "M": 16383,
+      "scaled_value_absolute_error_code_bound": "M*2^-25+2^-11 < 0.001",
+      "first_integer_code_voltage_error": "≤0.501/M",
+      "legacy_float32_voltage_representation_error": "≤2^-25+2^-26",
+      "reencoding_code_error": "M*(2^-25+2^-26)+float64 arithmetic error < 0.001 < 0.5, so canonical recovers the first integer code",
+      "final_coordinate_error": "<1/M",
+      "charge_L1_coefficient_norm": 600
+    },
+    "CDF_policy": "closed intervals; all three CDF counts use <=; atomically process all equal support values; if reporting t-minus use < consistently",
+    "integer_numerator": "max(cUpper*N_REAL-cREAL*N_SOURCE, cREAL*N_SOURCE-cLower*N_REAL, 0)",
+    "integer_denominator": "N_SOURCE*N_REAL",
+    "threshold_greater_than_point20": "5*numerator>denominator",
+    "epsilon": "prefer Fraction.from_float(1e-5) to bind old binary64 threshold, or explicitly enclose decimal/binary difference in the declared arithmetic margin",
+    "conclusion_scope": "Fixed finite global TRAIN empirical distributions for the specified charge-preserving and non-saturating class; not fixed HGB, heldout/bootstrap, true populations or original 2000 DEV A-F"
+  }
+}

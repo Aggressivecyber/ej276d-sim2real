@@ -1,3 +1,15 @@
+# Current: R68 finite TRAIN charge bound completed; original A-F unmet
+
+The exact preserved-charge/ADC envelope leaves aTRAIN charge KS gap of at least0.248400366, corresponding to a descriptive threshold BA lower bound0.624200183 on these same finite laws. This is not a proof against the original held-out fixed-HGB gate. R67 full-D remains negative in the joint equal-cost test; itsD5 sum is slightly lower butC4 higher, and noise/temporal D terms are individually worse. R65 remains retired on cost hold. No active scientific worker, no new training, no source-weight or A-F change. Next inspect existing input population/scale provenance before further compute. See R68_REPORT.md and the root review.
+
+## Earlier records
+
+# Current: R68 registered TRAIN charge compatibility analysis
+
+R67 did not establish joint equal-cost benefit; R65 remains retired and on cost hold. R68 performs one local exact CDF-envelope calculation from saved TRAIN charge scalars, with all original parents, a conservative charge/ADC interval and a60-second cap. No model inference, training, new pilot or DEV/EVAL access. A positive finite TRAIN bound cannot establish failure of the original fixed-HGB held-out gate. Original A-F remains unchanged and incomplete. Native process state was refreshed and the stale jobs ledger reconciled; no remote scientific worker is active. See tasks/R68_TRAIN_CHARGE_COMPATIBILITY_001.md.
+
+## Earlier records
+
 # 当前入口：R46数值与8000条重放通过，联合科学目标未达
 
 固定50000步/64步方案关闭；波形和PSD局部改善，源保真、噪声、边界及REAL控制仍失败。原验收线未降低。
