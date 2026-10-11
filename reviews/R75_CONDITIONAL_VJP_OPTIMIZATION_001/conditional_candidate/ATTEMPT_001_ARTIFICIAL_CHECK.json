@@ -1,0 +1,9 @@
+{
+  "status": "FAIL",
+  "result": null,
+  "error": {
+    "type": "RuntimeError",
+    "message": "self.dim() cannot be 0 to view Double as Byte (different element sizes)",
+    "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\conditional_candidate\\run_local_checks.py\", line 42, in main\n    result = run_checks(\"cpu\", seed=750001)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\conditional_candidate\\check_conditional_vjp.py\", line 40, in run_checks\n    return _run(device, seed)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\conditional_candidate\\check_conditional_vjp.py\", line 138, in _run\n    compare_endpoint(\"original_50row_fixture\", base, parameter_check=True)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\conditional_candidate\\check_conditional_vjp.py\", line 103, in compare_endpoint\n    term_bits = {k: _bits_equal(old[1][k], new[1][k]) for k in old[1]}\n                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\conditional_candidate\\check_conditional_vjp.py\", line 23, in _bits_equal\n    return a.dtype == b.dtype and torch.equal(a.contiguous().view(torch.uint8), b.contiguous().view(torch.uint8))\n                                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nRuntimeError: self.dim() cannot be 0 to view Double as Byte (different element sizes)\n"
+  }
+}

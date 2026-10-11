@@ -1,0 +1,125 @@
+{
+  "UTC": "2026-10-11T11:19:59.372172+00:00",
+  "root_profile_evidence_review_pass": true,
+  "engineering_updates": 21,
+  "main_updates": 0,
+  "native_exit": 0,
+  "median_seconds": 0.3884189480013447,
+  "p90_seconds": 0.389653257401369,
+  "component_median_seconds": {
+    "RNG_and_learning_rate": 0.0013671595079358667,
+    "neural_physical_firstpass": 0.035805451501801144,
+    "endpoint_leaves_setup": 0.0009229559946106747,
+    "forward_full_window+coordinate_RMS": 0.08237501350231469,
+    "backward_full_window+coordinate_RMS": 0.1557137905037962,
+    "accumulate_full_window+coordinate_RMS": 0.0005273740025586449,
+    "forward_PSD": 0.0023664260006626137,
+    "backward_PSD": 0.007791795498633292,
+    "accumulate_PSD": 0.0005263929997454397,
+    "forward_temporal_joint": 0.00973186299961526,
+    "backward_temporal_joint": 0.025211766005668323,
+    "accumulate_temporal_joint": 0.0005251475013210438,
+    "forward_noise": 0.0008821465016808361,
+    "backward_noise": 0.002832548001606483,
+    "accumulate_noise": 0.0005261664991849102,
+    "forward_source_order": 0.001211771508678794,
+    "backward_source_order": 0.0006018574931658804,
+    "accumulate_source_order": 0.00011139699927298352,
+    "forward_source_valley": 0.0004728484927909449,
+    "backward_source_valley": 0.0010688015026971698,
+    "accumulate_source_valley": 0.00011144150630570948,
+    "forward_REAL_identity": 0.00147615800233325,
+    "backward_REAL_identity": 0.001973174003069289,
+    "accumulate_REAL_identity": 0.00041502699605189264,
+    "forward_box_correction": 0.001398274500388652,
+    "backward_box_correction": 0.0022491214986075647,
+    "accumulate_box_correction": 0.0014515959992422722,
+    "endpoint_gradient_concatenation": 0.0014481550024356693,
+    "complete_neural_parameter_VJP": 0.045939607996842824,
+    "clip_and_Adam": 0.0007515090037486516
+  },
+  "selected_operator_records": [
+    {
+      "name": "aten::fill_",
+      "count": 77,
+      "input_shapes": [
+        [
+          21047,
+          480
+        ],
+        []
+      ],
+      "self_cpu_us": 102.992999999929,
+      "cpu_total_us": 287.7449999999699,
+      "self_device_us": 9179.122999999927,
+      "device_total_us": 9179.122999999927
+    },
+    {
+      "name": "void (anonymous namespace)::indexing_backward_kernel_stride_1<double>(long const*, long const*, double const*, double*, long, long, long, long, bool)",
+      "count": 236,
+      "input_shapes": [],
+      "self_cpu_us": 0,
+      "cpu_total_us": 0,
+      "self_device_us": 26434.432999999786,
+      "device_total_us": 26434.432999999786
+    },
+    {
+      "name": "aten::add_",
+      "count": 37,
+      "input_shapes": [
+        [
+          21047,
+          480
+        ],
+        [
+          21047,
+          480
+        ],
+        []
+      ],
+      "self_cpu_us": 87.29699999999139,
+      "cpu_total_us": 187.97300000011455,
+      "self_device_us": 14721.231000000058,
+      "device_total_us": 14721.231000000058
+    }
+  ],
+  "operator_attribution_note": "CUDA kernel rows and aten rows overlap attribution; do not sum as disjoint costs or predict speedup",
+  "CPU_CUDA_artificial_pass": true,
+  "initial_state_and_all_rng_restored": true,
+  "RSS_peak_bytes": 3676405760,
+  "GPU_peak_bytes": 5360320512,
+  "RSS_probe_failures": [
+    {
+      "UTC": "2026-10-11T11:15:06.317988+00:00",
+      "PID": 401652,
+      "poll": null,
+      "context": "actual_PID_query",
+      "error": "OSError('actual PID RSS unavailable')",
+      "cause": "unknown"
+    },
+    {
+      "UTC": "2026-10-11T11:15:06.418281+00:00",
+      "PID": 401652,
+      "poll": null,
+      "context": "actual_PID_query",
+      "error": "OSError('actual PID RSS unavailable')",
+      "cause": "unknown"
+    }
+  ],
+  "scientific_decision": "Repeated full-array gradient scatter/add/fill observed; exact conditional VJP candidate needs direct verification, no quality verdict",
+  "next_action": "R76 preparation: exact local conditional feature gradient assembly plus one retained neural forward; same nine laws and50k cost gate",
+  "application_goal_status": "active",
+  "model_goal_complete": false,
+  "guard": {
+    "PID": 60352,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R75_CONDITIONAL_VJP_OPTIMIZATION_001\\seal_runtime\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 30502912,
+    "RSS_bytes": 27328512,
+    "peak_private_commit_bytes": 22241280
+  }
+}
