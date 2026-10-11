@@ -1,0 +1,90 @@
+{
+  "server_python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+  "CPU_threads": 12,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240,
+  "MemAvailable_min_bytes": 60129542144,
+  "expected_R33_environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "numpy": "1.26.4",
+    "torch": "2.12.0+cu130",
+    "scipy": "1.11.4",
+    "device": "cuda:0",
+    "GPU": "NVIDIA GeForce RTX 5070"
+  },
+  "stage": "R71_REAL_CHARGE_FULL_TRAIN_001",
+  "owner": "/root",
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R71_ROOT_20261011_093644_UTC",
+  "exact_CPU_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "science_budget": null,
+  "deadline_UTC": null,
+  "output_limit_bytes": null,
+  "compute_budget_enforced": false,
+  "allowed_scientific_entries": [
+    "train_full.py"
+  ],
+  "GPU_scientific_entries": [
+    "train_full.py"
+  ],
+  "model_seed": 20261011710,
+  "source_epsilon_seed": 20261011711,
+  "real_epsilon_seed": 20261011712,
+  "artificial_seed": 20261011713,
+  "updates": 50000,
+  "benchmark_warmup_updates": 10,
+  "benchmark_timed_updates": 40,
+  "cost_limit_seconds": 14400,
+  "cost_safety_multiplier": 1.25,
+  "postprocess_reserve_seconds": 900,
+  "lr": 0.0002,
+  "lr_initial": 1e-06,
+  "lr_final": 2e-05,
+  "warmup_updates": 500,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "gradient_clip": 5.0,
+  "recovery_interval_updates": 5000,
+  "progress_interval_updates": 250,
+  "SOURCE_N": 6593,
+  "REAL_N": 21047,
+  "hidden": 16,
+  "dtype": "float64",
+  "input_scale_floor": 1e-06,
+  "charge_limit": 300.0,
+  "generation_chunk": 256,
+  "loss_weights": {
+    "charge_distribution": 1.0,
+    "REAL_identity": 1.0,
+    "source_charge_order": 1.0
+  },
+  "loss_scope": "pre-ADC predicted charge Q* component only; actual canonical waveform metrics are postchecks",
+  "endpoint": "sole completed update50000, no checkpoint selection",
+  "numeric_CPU_reference_rows_per_domain": 64,
+  "numeric_median_LSB_max": 0.25,
+  "numeric_p95_LSB_max": 1.0,
+  "preADC_relative_Qstar_error_max": 1e-05,
+  "model_goal_complete": false,
+  "current_acceptance": "PROJECT_ACCEPTANCE_REAL_CHARGE_V5.json",
+  "R65_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+  "input_paths": {
+    "TRAIN_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R33_REMOTE_20261009_175239_UTC/inputs/TRAIN_PRIVATE.npz",
+    "constants_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+    "noise_calibration_path": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+    "valley_definition": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R46_REMOTE_20261010_014939_UTC/VALLEY_DEFINITION.json"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "R71_assistant_static_and_artificial_audit_completion_v1",
+  "status": "AUDIT_DELIVERED",
+  "noise_and_reference_native_receipt": "COMMON_RESPONSE_ARTIFICIAL_REVIEW.json",
+  "noise_and_reference_report": "COMMON_RESPONSE_REVIEW.md",
+  "noise_and_reference_native_exit_receipt": "COMMON_RESPONSE_NATIVE_EXIT_CODE.txt",
+  "noise_and_reference_artificial_checks": 18,
+  "noise_and_reference_native_exit_code": 0,
+  "noise_and_reference_peak_RSS_bytes": 230912000,
+  "noise_and_reference_CPU_affinity_mask": 2,
+  "noise_and_reference_torch_threads": 1,
+  "noise_and_reference_torch_interop_threads": 1,
+  "trainer_static_receipt": "TRAINER_STATIC_INTERFACE_REVIEW.json",
+  "trainer_static_report": "TRAINER_STATIC_INTERFACE_REVIEW.md",
+  "trainer_static_native_exit_code": 0,
+  "trainer_static_peak_RSS_bytes": 23752704,
+  "trainer_execution_performed": false,
+  "loss_implementation_independently_reviewed": false,
+  "CUDA_executed_by_this_agent": false,
+  "scientific_arrays_or_weights_read_by_this_audit": false,
+  "scientific_training_or_new_probe_executed_by_this_audit": false,
+  "root_or_frozen_files_modified_by_this_agent": false,
+  "new_checks_after_root_freeze_notification": false,
+  "blocking_findings": [
+    {
+      "finding": "progress duplicate elapsed_s keyword at first main update",
+      "status": "root_fixed_and_static_scalar_check_passed"
+    },
+    {
+      "finding": "zero noise-amplitude sqrt backward NaN",
+      "status": "root_fixed_and_artificial_native_check_passed"
+    },
+    {
+      "finding": "NumPy reference slope-underflow and nonfinite-epsilon failure-contract mismatch",
+      "status": "root_fixed_and_artificial_native_check_passed"
+    }
+  ],
+  "remaining_blocking_bug_in_reviewed_interfaces": null,
+  "scope_limit": "Static interface audit assumes root-supplied loss return contract; CPU synthetic checks are not CUDA/scientific/heldout A-F acceptance."
+}

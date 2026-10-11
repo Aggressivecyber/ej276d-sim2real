@@ -1,0 +1,40 @@
+{
+  "UTC": "2026-10-11T10:02:01.289791+00:00",
+  "source_files": [
+    {
+      "name": "adc_audit.py",
+      "sha256": "d66de6d7e39261095958a9a92ad82b75e7514b059e6102e8a1d70ab6f74c8810"
+    },
+    {
+      "name": "config.json",
+      "sha256": "35221951fd1e878157d0f95e76cee323638ee4109da3ff328e5aad76730b1687"
+    },
+    {
+      "name": "linux_owned_worker.py",
+      "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a"
+    },
+    {
+      "name": "linux_supervise.py",
+      "sha256": "716d94e82bffb5140c9491571c0715a4764309816889f9f42354b05497b61f90"
+    }
+  ],
+  "parent_stage": "R71_REAL_CHARGE_FULL_TRAIN_001",
+  "source_preADC_files": [
+    "LEARNED_SOURCE_PRIVATE.npz",
+    "LEARNED_REAL_PRIVATE.npz"
+  ],
+  "fixed_selection": "first64 each",
+  "purpose": "Check actual integer ADC codes on NumPy versus frozen CUDA ADC operator; raw float64 voltage equality was misnamed in the main diagnostic",
+  "rows": 128,
+  "model_inference_rows": 0,
+  "optimizer_updates": 0,
+  "original_metrics_unchanged": true,
+  "input_hashes": {
+    "LEARNED_SOURCE_PRIVATE.npz": "3694aec9aa9535dcf01f15c01cdba37dc166ba16666e59a15789f5bf9ef35990",
+    "LEARNED_REAL_PRIVATE.npz": "fb103de17e93b4a33c3212cc2cf151e39515f8159c9ae613a6d575d07e3b566b",
+    "physical_operators.py": "9db9afb65c32c2ec18f7c4e7a54319bd949fc67c15414bb17fbf26a3d8d98d71"
+  },
+  "CPU": 1,
+  "RSS_limit_bytes": 51539607552,
+  "GPU_limit_bytes": 10737418240
+}

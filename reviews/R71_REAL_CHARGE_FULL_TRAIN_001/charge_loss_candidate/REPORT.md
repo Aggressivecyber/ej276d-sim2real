@@ -1,0 +1,9 @@
+# Charge objective candidate
+
+Implemented `FullChargeObjective(q_source_input, q_real_canonical)`; call returns `(total, terms)` with keys `charge_distribution`, `REAL_identity`, `source_charge_order`. References, predictions and losses are float64 on one unchanged device; `std_Q` and `std_logQ` expose frozen REAL population (ddof=0) constants. Nonpositive/nonfinite Q or standard deviations, wrong dtype/device or parent counts fail without floors.
+
+All three coefficients are 1. Distribution averages exact finite uniform-population W1 in Q and logQ, normalized by their REAL population standard deviations. REAL identity uses normalized squared logQ change. Source order uses original-Q stable ordering; exact input ties compare group means weighted by group sizes, imposing no within-tie order. Cached integer uniform-CDF breakpoints define exact quantile cells. Production complexity is O((N+M) log(N+M)); no dense pairwise array, bins, random sampling or reweighting. Autograd uses stable-sort/absolute-value subgradients at nonsmooth ties.
+
+Artificial CPU checks passed: SciPy W1 and independent dense toy values agree within 2.23e-16; dense toy gradients within 6.94e-17; smooth finite differences within 2.12e-10. Unequal sizes, repeats, original ties, within-tie permutations, identical empirical laws, invalid inputs and unfloored positive small std were checked. Synthetic 6593/21047 forward/backward passed (0.0278 seconds for scalar losses only). CUDA is unknown: local torch is CPU-only.
+
+Native exit 0. Test affinity mask 4 / one CPU, RSS hard cap 1 GiB, peak RSS 270249984 bytes; cache resides under this E: directory. No actual scientific arrays, models, training, inference, SSH or Git were used. Full receipts and SHA manifests accompany the module; root owns freeze and scientific integration.

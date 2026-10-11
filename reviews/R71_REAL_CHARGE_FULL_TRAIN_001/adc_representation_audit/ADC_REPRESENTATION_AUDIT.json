@@ -1,0 +1,33 @@
+{
+  "purpose": "Interpret original ADC_code_equal field which compared float64 voltages, not integer ADC indices",
+  "original_main_results_unchanged": true,
+  "model_forward_rows": 0,
+  "new_training_updates": 0,
+  "quantizer_only_rows": 128,
+  "primary_preADC_numpy_reference_already_bitwise": true,
+  "results": {
+    "SOURCE": {
+      "N": 64,
+      "samples": 30720,
+      "float64_voltage_arrays_bitwise": false,
+      "different_float64_voltage_values": 2173,
+      "max_voltage_abs_difference": 1.1102230246251565e-16,
+      "max_voltage_difference_LSB": 1.818878381243394e-12,
+      "ADC_integer_codes_bitwise": true,
+      "different_integer_codes": 0
+    },
+    "REAL": {
+      "N": 64,
+      "samples": 30720,
+      "float64_voltage_arrays_bitwise": false,
+      "different_float64_voltage_values": 2380,
+      "max_voltage_abs_difference": 1.1102230246251565e-16,
+      "max_voltage_difference_LSB": 1.818878381243394e-12,
+      "ADC_integer_codes_bitwise": true,
+      "different_integer_codes": 0
+    }
+  },
+  "elapsed_s": 0.447199376008939,
+  "allocated_GPU_peak_bytes": 737280,
+  "reserved_GPU_peak_bytes": 2097152
+}

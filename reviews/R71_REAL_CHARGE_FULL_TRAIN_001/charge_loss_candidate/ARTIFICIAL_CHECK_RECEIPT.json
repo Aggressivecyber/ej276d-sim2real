@@ -1,0 +1,111 @@
+{
+  "status": "PASS_ARTIFICIAL_ONLY",
+  "scientific_array_reads": 0,
+  "actual_model_training_or_inference": 0,
+  "CPU": "passed",
+  "CUDA": "unknown_no_local_CUDA_available",
+  "torch_version": "2.10.0+cpu",
+  "scipy_version": "1.16.3",
+  "checks": [
+    {
+      "device": "cpu",
+      "case": "unequal_sizes_smooth",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "repeated_predictions_and_reference",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "original_ties_with_crossing",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "single_source",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "identical_law_different_counts",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "within_original_tie_permutation",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "central_finite_difference",
+      "pass": true
+    },
+    {
+      "case": "zero_reference_std",
+      "rejected": true
+    },
+    {
+      "case": "empty_source",
+      "rejected": true
+    },
+    {
+      "case": "wrong_dtype",
+      "rejected": true
+    },
+    {
+      "case": "zero_source_input",
+      "rejected": true
+    },
+    {
+      "case": "NaN_source_prediction",
+      "rejected": true
+    },
+    {
+      "case": "nonpositive_REAL_prediction",
+      "rejected": true
+    },
+    {
+      "case": "nonfinite_REAL_input",
+      "rejected": true
+    },
+    {
+      "case": "parent_count_changed",
+      "rejected": true
+    },
+    {
+      "case": "positive_small_std_not_floored",
+      "pass": true
+    },
+    {
+      "case": "artificial_6593_21047_full_forward_backward",
+      "pass": true
+    }
+  ],
+  "max_dense_value_abs_error": 2.220446049250313e-16,
+  "max_dense_gradient_abs_error": 6.938893903907228e-17,
+  "max_scipy_distribution_abs_error": 2.220446049250313e-16,
+  "max_smooth_central_difference_abs_error": 2.1175450282129304e-10,
+  "artificial_full_dimension_forward_backward_seconds": 0.02776069997344166,
+  "full_dimension_timing_scope": "synthetic scalar losses only, not full-model training",
+  "elapsed_seconds": 0.09750519995577633,
+  "resource_limits": {
+    "PID": 9232,
+    "CPU_affinity_mask": 4,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R71_REAL_CHARGE_FULL_TRAIN_001\\charge_loss_candidate\\runtime_cache",
+    "numeric_environment_threads": 1
+  },
+  "resource_memory": {
+    "peak_RSS_bytes": 270249984,
+    "RSS_bytes": 270249984,
+    "peak_private_commit_bytes": 265457664
+  },
+  "source_SHA256": {
+    "charge_losses.py": "e266c6c2882a322eaa5d1d2e5a8527e4d3644432bfd59c659007243613cbf1d5",
+    "check_charge_losses.py": "3584bebffecd1548433a9ac151a0097644ccdaab6bf5ae8755b90cd9f3db5cdd"
+  }
+}

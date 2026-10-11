@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checks": [
+    "ortho_FFT_covariance_spectrum_0",
+    "analytic_matches_dense_projected_ddof1_spectrum_0",
+    "ortho_FFT_covariance_spectrum_1",
+    "analytic_matches_dense_projected_ddof1_spectrum_1",
+    "ortho_FFT_covariance_spectrum_2",
+    "analytic_matches_dense_projected_ddof1_spectrum_2",
+    "ortho_FFT_covariance_spectrum_3",
+    "analytic_matches_dense_projected_ddof1_spectrum_3",
+    "continuous_Qstar_kappa_gradient",
+    "proposed_safe_sqrt_forward_equals_original",
+    "proposed_safe_sqrt_finite_backward_inactive_zero",
+    "original_zero_sqrt_backward_hazard_reproduced",
+    "independent_Qstar_tau_0.0",
+    "independent_preADC_tau_0.0",
+    "independent_ADC_tau_0.0",
+    "independent_Qstar_tau_0.002",
+    "independent_preADC_tau_0.002",
+    "independent_ADC_tau_0.002"
+  ],
+  "check_count": 18,
+  "measurements": {
+    "analytic_dense_max_absolute_variance_error": 1.1102230246251565e-15,
+    "ortho_FFT_covariance_max_absolute_error": 1.3322676295501878e-15,
+    "kappa_Q_derivative_max_absolute_fd_error": 8.926678162933174e-13,
+    "loaded_common_response_zero_amp_backward_all_finite": true,
+    "NumPy_rejects_logit_slope_underflow": true,
+    "NumPy_rejects_nonfinite_epsilon": true
+  },
+  "notes": [],
+  "error": null,
+  "sources": [
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/common_response.py",
+      "sha256": "2bdfb0be20eb441557c1a73f7e069a8c0e2d7fc564048d157963e5a085cb04eb"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/numpy_reference.py",
+      "sha256": "6525482f59428ac255de9ecc7d4f024f30e5e7fec5f67a749f1674fc26462b52"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/public_charge_head.py",
+      "sha256": "c99ddf9c83106da23e95b0f9ae805dae9260f30c8489eef0d61ccd3e12922496"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/physical_operators.py",
+      "sha256": "9db9afb65c32c2ec18f7c4e7a54319bd949fc67c15414bb17fbf26a3d8d98d71"
+    },
+    {
+      "path": "reviews/R65_WAIT_ANALYSIS_001/recovery_procedure/local_resource_guard.py",
+      "sha256": "01caa0405c4e24a555cdd701a3435ebc3917339db9cd900a3a4f3e415c855d41"
+    }
+  ],
+  "resources": {
+    "PID": 68112,
+    "CPU_affinity_mask": 2,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R71_REAL_CHARGE_FULL_TRAIN_001\\implementation_candidate\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 230912000,
+    "RSS_bytes": 225726464,
+    "peak_private_commit_bytes": 268963840,
+    "exit_code": 0,
+    "torch_threads": 1,
+    "torch_interop_threads": 1,
+    "elapsed_wall_seconds": 5.082558800000697,
+    "evidence_level": "artificial_native_CPU_only",
+    "CUDA_executed": false,
+    "science_arrays_weights_read": false,
+    "full_waveform_network_run": false
+  },
+  "generated_utc": "2026-10-11T09:42:50.291449+00:00"
+}

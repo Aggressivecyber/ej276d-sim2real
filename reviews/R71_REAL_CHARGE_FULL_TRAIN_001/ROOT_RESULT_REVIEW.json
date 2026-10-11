@@ -1,0 +1,174 @@
+{
+  "UTC": "2026-10-11T09:59:11.251520+00:00",
+  "root_saved_evidence_recomputation_pass": true,
+  "complete_main_updates": 50000,
+  "native_exit": 0,
+  "training_elapsed_seconds": 351.4339797480061,
+  "process_elapsed_seconds": 363.5750582509936,
+  "native_peak_RSS_bytes": 2991366144,
+  "native_GPU_process_peak_bytes": 1069547520,
+  "first_loss": [
+    0.9001307525403492,
+    0.9001307525403492,
+    2.2955911642810365e-31,
+    0.0,
+    3.280161191985958,
+    1.398e-06
+  ],
+  "last_loss": [
+    0.13737022649289338,
+    0.0692766194180948,
+    0.0014648874493517286,
+    0.06662871962544684,
+    0.3150099090767346,
+    2e-05
+  ],
+  "results": {
+    "IDENTITY_CONTROL_SOURCE": {
+      "N": 6593,
+      "parents_and_original_Q_unchanged": true,
+      "canonical_ADC_from_preADC_recomputed": true,
+      "Q_metadata_CPU_GPU_maxabs": 1.4210854715202004e-14,
+      "migration_population_preserved": true,
+      "relative_Qstar_error_max": 1.2394526240741301e-08,
+      "metrics_recomputed": {
+        "Q_W1_mVns": 3028.994357999753,
+        "Q_KS": 0.25643001433719254,
+        "overall_PSD_W1": 0.11384973753040635
+      }
+    },
+    "IDENTITY_CONTROL_REAL": {
+      "N": 21047,
+      "parents_and_original_Q_unchanged": true,
+      "canonical_ADC_from_preADC_recomputed": true,
+      "Q_metadata_CPU_GPU_maxabs": 7.105427357601002e-15,
+      "migration_population_preserved": true,
+      "relative_Qstar_error_max": 1.7193584818825938e-08,
+      "metrics_recomputed": {
+        "Q_W1_mVns": 0.024172522427603663,
+        "Q_KS": 0.00014253812894950146,
+        "overall_PSD_W1": 1.633653446904983e-05
+      }
+    },
+    "LEARNED_SOURCE": {
+      "N": 6593,
+      "parents_and_original_Q_unchanged": true,
+      "canonical_ADC_from_preADC_recomputed": true,
+      "Q_metadata_CPU_GPU_maxabs": 5.329070518200751e-15,
+      "migration_population_preserved": true,
+      "relative_Qstar_error_max": 1.6233922869143134e-08,
+      "metrics_recomputed": {
+        "Q_W1_mVns": 227.90293216053496,
+        "Q_KS": 0.03567885245037927,
+        "overall_PSD_W1": 0.04289168300932754
+      }
+    },
+    "LEARNED_REAL": {
+      "N": 21047,
+      "parents_and_original_Q_unchanged": true,
+      "canonical_ADC_from_preADC_recomputed": true,
+      "Q_metadata_CPU_GPU_maxabs": 7.105427357601002e-15,
+      "migration_population_preserved": true,
+      "relative_Qstar_error_max": 2.930175760640012e-08,
+      "metrics_recomputed": {
+        "Q_W1_mVns": 13.782801072515285,
+        "Q_KS": 0.0032308642561885703,
+        "overall_PSD_W1": 0.00022458074657464569
+      }
+    }
+  },
+  "numerical_reference": {
+    "SOURCE": {
+      "N": 64,
+      "median_RMS_LSB": 0.0,
+      "p95_RMS_LSB": 0.0,
+      "max_RMS_LSB": 0.0,
+      "independent_Qstar_relative_error_max": 1.9120975122581196e-15,
+      "ADC_code_equal": false,
+      "pass_gate": true
+    },
+    "REAL": {
+      "N": 64,
+      "median_RMS_LSB": 0.0,
+      "p95_RMS_LSB": 0.0,
+      "max_RMS_LSB": 0.0,
+      "independent_Qstar_relative_error_max": 1.8292105902853147e-15,
+      "ADC_code_equal": false,
+      "pass_gate": true
+    }
+  },
+  "TRAIN_component_replay": {
+    "SOURCE": {
+      "N": 2000,
+      "preADC_bitwise": true,
+      "canonical_ADC_bitwise": true,
+      "Qstar_bitwise": true
+    },
+    "REAL": {
+      "N": 2000,
+      "preADC_bitwise": true,
+      "canonical_ADC_bitwise": true,
+      "Qstar_bitwise": true
+    }
+  },
+  "input_bindings_and_initial_restore_verified": true,
+  "canonical_Q_KS_float_tie_audit": {
+    "IDENTITY_CONTROL_SOURCE": {
+      "primary_saved_KS": 0.25643001433719254,
+      "CPU_recomputed_float_KS": 0.25643001433719254,
+      "exact_ADC_integer_charge_KS": 0.25643001433719254,
+      "KS_difference": 0.0,
+      "largest_SOURCE_or_REAL_candidate_charge_atom_mass": 0.0004550280600637039,
+      "largest_REAL_reference_charge_atom_mass": 0.00019005083859932533,
+      "certified_tie_splitting_KS_bound": 0.0006450788986630293,
+      "max_integer_lattice_residual": 1.1641532182693481e-10
+    },
+    "IDENTITY_CONTROL_REAL": {
+      "primary_saved_KS": 0.00019005083859929828,
+      "CPU_recomputed_float_KS": 0.00014253812894950146,
+      "exact_ADC_integer_charge_KS": 0.00014253812894950146,
+      "KS_difference": -4.7512709649796814e-05,
+      "largest_SOURCE_or_REAL_candidate_charge_atom_mass": 0.00019005083859932533,
+      "largest_REAL_reference_charge_atom_mass": 0.00019005083859932533,
+      "certified_tie_splitting_KS_bound": 0.00038010167719865066,
+      "max_integer_lattice_residual": 8.731149137020111e-11
+    },
+    "LEARNED_SOURCE": {
+      "primary_saved_KS": 0.03567885245037927,
+      "CPU_recomputed_float_KS": 0.03567885245037927,
+      "exact_ADC_integer_charge_KS": 0.03567885245037927,
+      "KS_difference": 0.0,
+      "largest_SOURCE_or_REAL_candidate_charge_atom_mass": 0.0004550280600637039,
+      "largest_REAL_reference_charge_atom_mass": 0.00019005083859932533,
+      "certified_tie_splitting_KS_bound": 0.0006450788986630293,
+      "max_integer_lattice_residual": 8.731149137020111e-11
+    },
+    "LEARNED_REAL": {
+      "primary_saved_KS": 0.0032308642561885703,
+      "CPU_recomputed_float_KS": 0.0032308642561885703,
+      "exact_ADC_integer_charge_KS": 0.0032308642561885703,
+      "KS_difference": 0.0,
+      "largest_SOURCE_or_REAL_candidate_charge_atom_mass": 0.00023756354824915665,
+      "largest_REAL_reference_charge_atom_mass": 0.00019005083859932533,
+      "certified_tie_splitting_KS_bound": 0.00042761438684848195,
+      "max_integer_lattice_residual": 8.731149137020111e-11
+    }
+  },
+  "primary_saved_metrics_unchanged": true,
+  "whole_model_A_F_complete": false,
+  "final_heldout_replay_complete": false,
+  "historical_acceptance_v4_unchanged": true,
+  "current_acceptance_version": 5,
+  "local_guard": {
+    "PID": 43348,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R71_REAL_CHARGE_FULL_TRAIN_001\\root_review_runtime\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 568864768,
+    "RSS_bytes": 382885888,
+    "peak_private_commit_bytes": 578404352
+  }
+}

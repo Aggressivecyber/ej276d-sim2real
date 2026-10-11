@@ -1,0 +1,76 @@
+{
+  "status": "PASS_STATIC_INTERFACES_CONDITIONAL_ON_LOSS_MODULE_CONTRACT",
+  "sources": [
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/train_full.py",
+      "sha256": "8a0fb667f05be51876d84fcb8fb6e523bffb75723e4f89210b861b354d535995"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/artificial_checks.py",
+      "sha256": "bfbb6b8757de8cb4b2f8a1a6f65be17983149cb00b1e7fe21bc54c3bebc996b7"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/postcheck.py",
+      "sha256": "13b22226221435567086a1b8138e2931d2480e570ba4a5392ba9d50c7d84e611"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/common_response.py",
+      "sha256": "2bdfb0be20eb441557c1a73f7e069a8c0e2d7fc564048d157963e5a085cb04eb"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/numpy_reference.py",
+      "sha256": "6525482f59428ac255de9ecc7d4f024f30e5e7fec5f67a749f1674fc26462b52"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/physical_operators.py",
+      "sha256": "9db9afb65c32c2ec18f7c4e7a54319bd949fc67c15414bb17fbf26a3d8d98d71"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/public_charge_head.py",
+      "sha256": "c99ddf9c83106da23e95b0f9ae805dae9260f30c8489eef0d61ccd3e12922496"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/config.json",
+      "sha256": "8703123b2e9c3f2fbc2a88530e6cd74890fd541de8bf54da380d044f4153e9a5"
+    },
+    {
+      "path": "work/R71_REAL_CHARGE_FULL_TRAIN_001/INPUT_BINDING.json",
+      "sha256": "621819661f1161d53649d60cbc00b85f1999c986bc264da9a74cca649c2611f5"
+    }
+  ],
+  "checks": {
+    "syntax_parse_all_Python_files": true,
+    "progress_fixed_duplicate_elapsed_native_scalar_check": true,
+    "common_response_order": true,
+    "NumPy_reference_order": true,
+    "TRAIN_only_named_loading": true,
+    "benchmark_10_40_restore_full_model_and_CPU_CUDA_RNG_empty_Adam": true,
+    "canonical_CPU_CUDA_semantics_static": true,
+    "final_endpoint_reference_and_TRAIN4000_replay_static": true
+  },
+  "loss_module": {
+    "module_exists_at_check": false,
+    "execution_not_performed": true,
+    "contract_supplied_by_root": "FullChargeObjective(qs,qrc)(predS,predR,qr)->(total,terms), terms has charge_distribution/REAL_identity/source_charge_order",
+    "registration_dependency_pending": "charge_losses.py must be present before freeze/deploy"
+  },
+  "resources": {
+    "PID": 66280,
+    "CPU_affinity_mask": 2,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R71_REAL_CHARGE_FULL_TRAIN_001\\implementation_candidate\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 23752704,
+    "RSS_bytes": 23216128,
+    "peak_private_commit_bytes": 15237120,
+    "elapsed_wall_seconds": 0.019345599925145507,
+    "exit_code": 0,
+    "CUDA_executed": false,
+    "scientific_execution": false,
+    "scientific_arrays_weights_read": false,
+    "evidence_level": "static_AST_and_artificial_scalar_progress_only"
+  },
+  "generated_utc": "2026-10-11T09:48:51.749011+00:00"
+}
