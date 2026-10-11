@@ -1,0 +1,68 @@
+{
+  "schema_version": "D-code-preparation-receipt-1",
+  "status": "code_preparation_selftests_passed",
+  "prepared_UTC": "2026-10-11T01:22:39.122335+00:00",
+  "output_directory": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R63_WAIT_PARALLEL_001\\validation_prep",
+  "implementation": "pure NumPy statistics adapter; standard library only for binding hashes and selftest receipt",
+  "checks_implemented": [
+    "D1 PSD MAE point gain <= -5%",
+    "D2 paired relative PSD MAE 95% CI upper < 0",
+    "D3 candidate minus REAL+original SIM absolute PSD MAE 95% CI upper < 0",
+    "D4 full REAL PSD MAE point noninferiority <= +5%",
+    "D5 REAL1024 logQ RMSE point noninferiority <= +5%",
+    "D6 every D1-D5 passes for Ridge and HGB and explicit frozen design validity"
+  ],
+  "bootstrap": {
+    "repeats": 1000,
+    "seed": 2026100853,
+    "quantile_method": "linear",
+    "resampling": "one shared whole-group draw per replicate across all 8 prediction packets",
+    "relative_CI": "ratio computed after each replicate's two weighted MAEs",
+    "invalid_replicates": "no discard; any invalid replicate makes that CI undefined and not passing"
+  },
+  "interface_contract": {
+    "required_keyword_without_default": "frozen_input_design_valid",
+    "omitted_declaration": "signature raises TypeError; evaluation cannot run or pass",
+    "false_or_nonbool_declaration": "all checks undefined and not passing",
+    "packet_bindings": "truth and every arm separately supply same-order row_ids and group_ids",
+    "missing_zero_nonfinite": "undefined and not passing; no denominator floor",
+    "inclusive_point_bounds": "equivalent candidate <= (1 + threshold)*reference; no tolerance",
+    "strict_CI_bounds": "CI upper < 0; no tolerance"
+  },
+  "selftest": {
+    "artifact": "ARTIFICIAL_SELFTEST.json",
+    "tests_run": 20,
+    "all_passed": true,
+    "artificial_arrays_only": true
+  },
+  "execution": {
+    "invocation": "Python313/python.exe -B test_d_statistics_adapter.py",
+    "affinity_cpus": 1,
+    "numpy_threads_requested": 1,
+    "observed_peak_working_set_bytes": 44613632,
+    "per_process_below_512_MiB": true
+  },
+  "immutable_report": {
+    "expected_sha256": "e1eafdc353f90b4c56eb0ec2d4cbd125cd26707035d92a446130279e02640c7b",
+    "before_sha256": "e1eafdc353f90b4c56eb0ec2d4cbd125cd26707035d92a446130279e02640c7b",
+    "after_sha256": "e1eafdc353f90b4c56eb0ec2d4cbd125cd26707035d92a446130279e02640c7b",
+    "unchanged": true
+  },
+  "scientific_execution_or_acceptance": {
+    "wired_to_actual_D": false,
+    "actual_D_acceptance_tested": false,
+    "actual_frozen_input_design_verified": false,
+    "scientific_arrays_read": false,
+    "models_or_identity_bins_read": false,
+    "trained_generated_or_fitted": false,
+    "D_or_E_registered_or_run": false,
+    "frozen_R63_modified": false,
+    "root_metadata_or_Git_modified": false,
+    "limitation": "A caller-supplied true design flag is not proof of actual sample identities, training design, model freezing, or scientific acceptance."
+  },
+  "hashes_sha256": {
+    "d_statistics_adapter.py": "02a2f1fb88c1bb3c74121357bb38087f03c184f2a873b04f7f673fe343eb77fb",
+    "test_d_statistics_adapter.py": "ed3291288a73e411bab842c9b5094d7eb435af8af4fa45c18354cd5fdb7b3dc0",
+    "ARTIFICIAL_SELFTEST.json": "011d05d303af5ba6ba7e8da023ffd40506007eefb0325a666f338b30efaffcfc"
+  }
+}

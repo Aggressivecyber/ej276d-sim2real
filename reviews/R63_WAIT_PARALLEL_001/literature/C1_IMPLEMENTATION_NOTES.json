@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "title": "C1 finite-empirical reference and paired 4x32/128: static implementation notes",
+  "created_utc": "2026-10-11T01:18:44.5813573Z",
+  "status": "static_review_only_not_registered_not_implemented_not_run",
+  "original_report": {
+    "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/report.json",
+    "immutable_sha256": "20891a32bca4b0d2eabcec295b9219eb7c863289d063ede925646cc314019e2f"
+  },
+  "conclusion": [
+    "条件化有限经验参照与配对诊断在现有结构上可实现，但不能直接复用固定 reshape(10,B,dim) 的接口处理全人口。需未来独立诊断适配层；当前源文件与协议不改。",
+    "g_F 必须写成 g_F^D：冻结参数、每父噪声及方向后，五个分布项的完整有限经验算法代理梯度。它不是总体真梯度，也不是量化 ADC 前向函数的经典导数。",
+    "原 C1 每父一份噪声可作为条件化诊断，但改变了 R63 对每次出现独立生噪声的重复父语义；此限制不能靠同一随机种子消除。",
+    "全参考只改变分布项归约。四个非分布项必须保留原四个微批及其梯度，不能放进全人口排序/谷损失后仍称单因素比较。"
+  ],
+  "code_evidence": [
+    {
+      "file": "distribution_loss.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+      "lines": "37-80",
+      "fact": "R63 equal-size coordinate RMS and temporal terms; inherits all seven original terms."
+    },
+    {
+      "file": "R61_distribution_loss.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+      "lines": "7-32,58-109",
+      "fact": "Feature/PSD/noise maps, exact weighted scalar W1, separate SOURCE/REAL masses, original reduction and non-distribution terms."
+    },
+    {
+      "file": "train_final.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+      "sha256": "bd34fc715f9363987694ee020edf45b9df1b40d8732f4d388aec0ccaf4d6512f",
+      "lines": "37-42,67-89,126-150",
+      "fact": "Region-major sampling with replacement; independent epsilon per occurrence; endpoint then loss then gradient clipping and Adam. Top-level executable, not a safe diagnostic import."
+    },
+    {
+      "file": "source_flow_core.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+      "lines": "7-47,57-67",
+      "fact": "Float64 charge-constrained projection, its custom backward, canonical ADC STE and direct training endpoint."
+    },
+    {
+      "file": "noise_core.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/noise_core.py",
+      "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+      "lines": "13-45",
+      "fact": "Fixed original charge/bin conditioning and deterministic innovation given epsilon and frozen calibration."
+    },
+    {
+      "file": "network.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/network.py",
+      "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+      "lines": "5-47",
+      "fact": "Per-event GroupNorm/LayerNorm and temporal attention; dropout zero; no BatchNorm across parents. Chunk replay is structurally possible, not numerically verified here."
+    },
+    {
+      "file": "precision_order.py",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/precision_order.py",
+      "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+      "lines": "25-38",
+      "fact": "Order loss couples pairs in each source microbatch and has its own nonzero-pair denominator."
+    },
+    {
+      "file": "config.json",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/config.json",
+      "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+      "lines": "selected configuration fields",
+      "fact": "batch_per_region=32; identity_batch=64; both direction counts=64; all nine loss weights=1; PSD scale=.01; gradient clip=5."
+    }
+  ],
+  "definitions_and_frozen_randomness": {
+    "distribution_terms_D": [
+      "full_window",
+      "PSD",
+      "noise",
+      "coordinate_RMS",
+      "temporal_joint"
+    ],
+    "common_terms_C": [
+      "source_order",
+      "source_valley",
+      "REAL_identity",
+      "box_correction"
+    ],
+    "fixed_object": "冻结唯一待诊断权重 theta、已存 TRAIN 标准化与噪声常数、原父事件行序/区域、原 charge 与 continuous_logq、原 source_h/PSD/precision intervals、一个原全窗方向库及一个31维方向库；不得重新拟合常数或重分区域。当前不加载权重或科学数组。",
+    "full_reference": "F 包含每个原 SOURCE 父一次及每个原 REAL 参考父一次；SOURCE i 使用 epsilon_S[i]，生成 n_i，再用 source_flow_core.endpoint 得到投影后、ADC前 Y_i(theta)。REAL 参考只经过 canonical_REAL_torch，不加创新噪声、不经过网络。",
+    "duplicate_rule_for_this_C1": "每父固定一份 epsilon_S[i]。抽到同一 SOURCE 父多次，必须复用完全相同的 epsilon/n/Y 与 theta Jacobian；保留重复抽样次数和质量。严禁去重后按唯一父重新等权。REAL参考重复父同理累加质量，但没有 epsilon。REAL_identity 是独立的保持项，其四个64槽位各有冻结 epsilon_I[k,slot]，两臂共用；不可混称 REAL参考噪声。",
+    "difference_from_current_training": "train_final.py:131 按 (len(si),480) 槽位生成 epsilonS。相同父在同批或其他微批重复出现也独立生噪声。每父冻结一份只检验给定有限噪声实现的排序/归约误差；不能外推为原每次独立噪声训练律的偏差估计。若坚持原槽位独立噪声，原来一份每父噪声的 F 已不再是同一经验测度的完整参考，必须另定义参照，不得混用。",
+    "directions": "两个方向库各只冻结一次，并在 F、A、B、所有宏批共用。每个微批各抽新方向会重新引入随机差别；固定方向库也不代表 R63 每更新 fresh directions 的期望目标。",
+    "interpretation": "即便 W1 有限和与 VJP 精确，g_F^D 仍条件于有限 TRAIN、theta、噪声、方向、canonical STE、排序 tie 约定和数值实现。有限宏批均值只能估计这个条件化抽样过程；无总体梯度或独立采集结论。"
+  },
+  "exact_unequal_sample_W1": {
+    "region_weights": "第 r 区 S 有 nS_r 个父、REAL 有 nR_r 个父。区域条件 W1 分别用 a_i=1/nS_r 与 b_j=1/nR_r。允许 nS_r != nR_r；保留全部父，不能截短、复制补齐或用固定分位网格近似。",
+    "scalar_algorithm": [
+      "对 x、y 分别 stable sort，同时用对应排列重排固定非负质量 a、b；各自归一化为总和1。输入原序必须冻结。",
+      "A=cumsum(a), B=cumsum(b)，浮点末项固定为1；edges=stable_sort([0,A,B])。对每个正长度区间 [e_l,e_l+1]，取内部中点 u_l，令 i_l=searchsorted(A,u_l)、j_l=searchsorted(B,u_l)。零长度区间贡献严格0，可忽略。",
+      "W1=sum_l Delta_l*abs(x_sorted[i_l]-y_sorted[j_l])。固定质量的CDF分段 detach；这是有限加权分位积分，无须构造稠密 nS*nR 运输矩阵。现有 weighted_w1 已实现该结构。",
+      "选定排序分支后，dW/dx_sorted[i]=sum_{l:i_l=i} Delta_l*sign(x_sorted[i]-y_sorted[j_l])，sign(0)=0；若 y 也可微则对应负号。scatter 回原行；本次 REAL参考恒定。重复出现父的梯度最终 scatter_add 到父坐标。"
+    ],
+    "global_mass_rule": "令 mS_r=N_SOURCE,r/N_SOURCE，mR_r=N_REAL,r/N_REAL，二者来自原冻结计数。任一分层样本大小 K_r 的 SOURCE 行权重为 mS_r/K_r，REAL参考为 mR_r/K_r。全人口则分别为 mS_r/nS_r=1/N_SOURCE 与 mR_r/nR_r=1/N_REAL。全局 PSD/两个 noise 坐标必须分别使用这两套质量，不能两边都用 SOURCE、都用 REAL或把十区各视为1/10。",
+    "reductions_to_preserve": {
+      "full_window": "四族 V480/U480/DU479/D2U478 各在区内按原 REAL TRAIN center/scale 标准化；marginal=各坐标 W1 的均值，sliced=64投影 W1 的均值。每族 sum_r mS_r*0.5*(marginal+sliced)，再对四族平均。",
+      "coordinate_RMS": "每族每区先得到逐坐标 W_j，R_r=sqrt(mean_j W_j^2)，再 sum_r mS_r*R_r，最后四族平均。不能先平方距离再平均或交换区域/坐标 RMS 与平均顺序。R>0 时 dR/dW_j=W_j/(d*R)，R=0固定零分支。",
+      "temporal_joint": "31维原 temporal_features、原固定尺度；每区 marginal=31个坐标 W1 均值，sliced=64投影 W1均值。0.5*sum_r mS_r*(marginal+sliced)。",
+      "PSD": "0.5*(全局双质量加权 W1 + mean_{r=0..6} 区内条件 W1)/0.01。代码 bybin[1:8] 对应原区域0..6即Q1..Q7；条件部分均分七区，不改成 source_mass 加权。",
+      "noise": "RMS 与 lag1 ACF 两个坐标各用全局 SOURCE/REAL各自质量计算 W1，分别除原 noise_scale[j]，最后二坐标平均。"
+    },
+    "numeric_contract": "保留原特征计算与 dtype：endpoint/canonical/PSD/noise为float64；全窗/31维标准化完成后转float32并使用原float32方向。CDF质量与区间长度用float64，不改特征公式或硬 ADC。完整不等样本加权归约在实数算术下精确；与当前等样本float32 mean未必逐位相同。未来人工fixture须比较等样本特例的值与算法梯度，预先冻结容差；若误差影响比较则不得宣称等价。"
+  },
+  "paired_construction": {
+    "sampling": "每个宏批，每区分别从原 SOURCE/REAL父列表有放回均匀抽128槽位，各拆四个32。A=(1/4)*sum_k D32(S_k,R_k)，B=D128(同一槽位合集)。每区父ID、出现次数、噪声、方向与变量值完全一致。",
+    "row_layout": "原损失reshape(10,B,dim)要求 region-major。B 必须在每个区域内部拼四个32，再拼十区，即 [region, microbatch, slot, feature] -> [region,128,feature]。直接把四个完整320行微批首尾相接再reshape(10,128,dim)会混区、错用尺度/质量。",
+    "full_reference_layout": "F 用每区父索引/offset的 ragged 列表，不能任设B再reshape，也不能把 F 重新平衡成每区等数后称完整原经验测度。",
+    "common_C": "每个微批 C_k 仍包含原320 SOURCE和64 REAL_identity；用其原 mS/32、source_order 原微批父对/分母、source_valley 原微批 mean和relu-square、identity与raw/output投影修正。C_bar=(1/4)*sum_k C_k，A、B逐值逐梯度相同。合成128的source_order新增跨微批父对；合成谷项改变非线性归约，均不允许。",
+    "gradients_to_compare": "主比较为参数坐标中的 g_A^D、g_B^D 与 g_F^D，按项及合计分开。若报告总梯度，应写 g_A^D+g_Cbar 与 g_B^D+g_Cbar；不得把这两者直接减仅含D的g_F。添加同一g_Cbar到参考虽使差值相消，但参考随宏批变化，夹角/范数也不再是D的诊断。",
+    "endpoint_coordinate_alignment": "端点梯度先按固定父ID scatter_add 到同一个 [N_SOURCE,480] 坐标系，未抽到的父为零；保留所有重复质量，不能除以重复次数。不同抽样槽位形状的梯度向量不能直接做夹角。参数梯度可直接对齐同一参数顺序。",
+    "no_update_semantics": "所有 theta 固定，不做Adam、gradient clipping、学习率或优化器状态更新。诊断原始算法梯度；训练里clip=5位于loss.backward之后，加入clip会形成另一非线性比较。"
+  },
+  "two_pass_endpoint_gradient_VJP": {
+    "feasibility_boundary": "网络无跨父BatchNorm且attention只沿单事件时间轴，故数学上可逐父/小块回放。实现尚未执行；不同batch形状或设备内核可能改变浮点结果，不能用静态检查代替数值一致性证据。",
+    "algorithm": [
+      "先冻结theta、模式、dtype、设备/内核设置、父行序与固定chunk调度。完整REAL参考特征可在no_grad下缓存。未来诊断只导入无运行副作用的核心模块；不得import或执行train_final.py来取函数。",
+      "第一遍按固定chunk调用实际 source_flow_core.endpoint(theta,x,n,q,b,h,mu,scale)，不保留网络图，保存投影后ADC前 Y_i 及核对所需 raw_i、投影free mask和canonical codes。不能改用 solve/Heun 路径，因为训练调用的是直接endpoint。",
+      "令 Y_leaf=Y_cache.detach().requires_grad_(True)，以 canonical_adc_torch(Y_leaf,True) 经原feature/PSD/noise链计算完整D_F并求 G_Y=d_alg D_F/dY_leaf。每次排序必须覆盖该区域/全局全部相关父；可以逐项或逐坐标块计算并累加G_Y以节约内存，不能分小块算W1再平均。coordinate_RMS的跨坐标归约须先得到完整W向量/其RMS系数。",
+      "第二遍同theta、相同父噪声和完全相同chunk顺序重新调用endpoint，保留本chunk网络图。核对重放Y、canonical codes及Box free mask；任何会改变ADC或活动集的差异先判为重放不等价。",
+      "对重放out使用autograd.backward(out, grad_tensors=G_Y_chunk)或等价VJP，把每块参数梯度相加。G_Y已含全部质量/均值系数；此处不能再除父数、chunk数或四个微批数。冻结参数但保留requires_grad，求导期间不更新theta。",
+      "BoxChargeProjection.backward 会恰好执行一次，随后经过 displacement 的charge-null投影、float64/float32转换和真实网络。不得把G_Y直接注入raw，或用clip/identity替代Box backward；也不得把已经经过Box的G_raw再次注入out。",
+      "A、B也可从同一父级Y_leaf缓存gather重复槽位，分别求D_A/D_B端点梯度，再scatter_add后用同样VJP。这样合批差别只在分布归约，避免不同网络batch形状进入A/B差别。",
+      "四个C_k最稳妥的实现是按原微批原计算图分别反传后乘1/4。box_correction直接依赖raw及out；若以后也对C做两遍，必须分别保存对out和raw的偏导，并同时对(out,raw)注入，不能只复用D的G_Y方案。"
+    ],
+    "projection_backward": "原forward对float64 raw执行64次二分与[-.5,.5]约束。free=(out>-.5)&(out<.5)为严格不含轨；a[:100]=-3,a[100:400]=1。backward为 c=sum(g*free*a)/max(sum(free*a^2),1)，g_raw=free*(g-c*a)；q为固定输入，无参数梯度需额外加回。重放必须走原自定义Function。",
+    "ADC_boundary": "canonical_adc_torch(v,True)=v+(canonical-v).detach()，前向是两段round后的规范ADC，反向对v为identity。Y_leaf与回放接口选在投影后ADC前，可让原STE保留一次。真实hard ADC有限差分一般不等于该代理梯度，不能用前者要求后者一致。",
+    "optional_raw_endpoint_gradient": "如要报告投影前端点梯度，另按原Box backward把G_Y映射为G_raw，并清楚标注坐标层；它是报告量。参数VJP仍只选out+G_Y或raw+G_raw其中一种完整路径，不能重复应用。"
+  },
+  "deterministic_ties_and_nonsmooth_points": {
+    "input_order": "F按原父行序；抽样槽位按(region,microbatch,slot)固定原序；所有sort stable=True，同值按该固定原序分派。记录排序置换或可重建的行序。不可在数值相等时重新随机打乱。",
+    "selected_subgradient": "固定排序分支与detach的CDF分段；abs相等差取sign(0)=0；坐标W1全零时RMS范数分支取0梯度。原feature amax/clamp/floor、source valley relu以及Box严格free边界一律沿原实现，不另做平滑或容差tie合并。",
+    "limit": "ADC使精确ties常见。相同前向损失在不同tie分派下可能给不同父级/参数代理梯度，因此g_F需连同tie约定命名；不能把选择的子梯度当唯一真梯度，也不能在比较后选择较有利tie规则。",
+    "weighted_duplicate_caution": "固定同父噪声时重复槽位可累加到同父质量，但若把不同父的相等数值合并为一个点，会丢失不同网络Jacobian与固定tie分派；不可按数值去重。"
+  },
+  "one_future_artificial_fixture": {
+    "status": "plan_only_not_run_no_additional_fixture_proposed",
+    "fixture": "一个完全人工、单CPU线程的十区域小父池：SOURCE/REAL各区父数不同且全局区域质量不同，正charge的480点波形、一个含约束活动轨的样本、重复父、不同父但相等标量/ADC值、至少一个全零坐标W1向量；全部常数和非零冻结网络权重人工指定。固定父epsilon、方向与四个32槽位抽样表；不读科学数组，不训练。",
+    "checks_in_this_single_fixture": [
+      "不等权/不等样本W1值用独立CDF区间积分作oracle；离ties的标量输入检查上述解析梯度，ties检查冻结的选定分支。等数等权特例与当前R63排序归约对照，并记录float32/float64误差。",
+      "同一固定chunk调度下，先保留所有chunk图构造单图参考，再做两遍缓存/VJP；核对前向codes、Box free mask、各项端点梯度与参数梯度。人工权重非零，避免零输出头造成的退化通过。无需真实ADC前向有限差分。",
+      "检查重复父scatter_add、两域各自质量、region-major拼接和四个C_k的值/梯度同一性；A/B数值允许不同，因为那正是待隔离的归约。故意采用错误质量/排列/合批source_order应能被这一fixture发现。"
+    ],
+    "pass_rule": "执行前固定dtype对应的绝对/相对容差、非零参考判据与输出字段，不看结果再调整。任何值/梯度/活动集不等价则停止进入科学数据；本静态笔记不宣称该fixture通过。"
+  },
+  "actual_scope_receipt": {
+    "only_new_file": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/C1_IMPLEMENTATION_NOTES.json",
+    "original_report_intended_byte_preservation": true,
+    "source_code_changes": 0,
+    "protocol_or_root_metadata_changes": 0,
+    "git_operations": 0,
+    "scientific_arrays_opened": 0,
+    "model_checkpoints_loaded": 0,
+    "scientific_experiments_run": 0,
+    "gradient_computations_run": 0,
+    "optimizer_updates": 0,
+    "artificial_fixture_runs": 0,
+    "new_agents": 0,
+    "execution": "Sequential static text/hash reads and writing this JSON only; no Python/scientific import. E: output only. R63 runtime status not independently inspected in this supplement."
+  }
+}

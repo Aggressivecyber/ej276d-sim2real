@@ -1,0 +1,2575 @@
+{
+  "schema_version": 1,
+  "report_id": "R63_WAIT_PARALLEL_001_train_evidence",
+  "created_UTC": "2026-10-11T01:16:47.189175+00:00",
+  "status": "completed_static_and_saved_TRAIN_evidence_review",
+  "language": "zh-CN",
+  "scope": {
+    "objective": "将R62冻结TRAIN残差与R63九项损失逐项对应；区分可证明的单项盲区、已有描述证据、未触发标记及尚待检验机制。",
+    "R63_context": "按任务说明处于唯一50000步作业等待期间；本报告未刷新远端状态或读取R63最终评价，不能据此判断R63结果。",
+    "new_scientific_work_performed": false,
+    "new_training_updates": 0,
+    "new_neural_forward_rows": 0,
+    "new_autograd_calls": 0,
+    "new_density_fits": 0,
+    "new_HGB_fits": 0,
+    "raw_TRAIN_waveforms_decoded": 0,
+    "DEV_arrays_decoded": 0,
+    "EVAL_arrays_decoded": 0,
+    "CAL_arrays_decoded": 0,
+    "R63_final_evaluation_read": false,
+    "saved_compact_array_read": "R62 LOSS_COVERAGE_PRIVATE.npz 中已保存 full_tables 的 above 单元，仅提取原值；其余为小型JSON、协议和静态源码。",
+    "scientific_metrics_recomputed": false,
+    "filesystem_writes": [
+      "reviews/R63_WAIT_PARALLEL_001/train_evidence/report.json"
+    ],
+    "frozen_code_config_threshold_population_or_Git_changed": false,
+    "execution": "单本机文本/JSON处理进程；标准库读取NPY摘要，不导入torch/numpy或启动BLAS。所有新文件只写E盘。",
+    "parent_instruction_refinement": "统一称高端条件边界外区（仍有同定义 REAL 参照）；不把该区定义误称实测绝对支持外，不建议删源或改最终权重。",
+    "memory_use": "仅用于导航与核对历史联合验收原则；本报告全部科学数值来自本轮读取的项目文件。"
+  },
+  "evidence_index": {
+    "G0": {
+      "file": "AGENTS.md",
+      "lines": [
+        1,
+        12
+      ],
+      "locator": "最新执行分工和冻结科学边界",
+      "bytes": 28730,
+      "sha256": "3195677c622a773257ea5127721164cd3e34e70890216f685c886772dd941bbd"
+    },
+    "G1": {
+      "file": "tasks/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001.md",
+      "locator": "冻结目标公式；不变条件、数据访问与训练；实现检查和固定评价",
+      "bytes": 7440,
+      "sha256": "047a4319cbafd7941581197919a18846a1f509d88b45c1005b4973632ddcf290"
+    },
+    "G2": {
+      "file": "tasks/R61_PRECISION_RESOLVED_SOURCE_ORDER_001.md",
+      "locator": "依据与独立假设；唯一科学改动；固定对照条件与训练终点",
+      "bytes": 7330,
+      "sha256": "39d501564c3ca441976e3c87abfc15e6bae746e43fbeca69975438de9befd865"
+    },
+    "G3": {
+      "file": "PROJECT_ACCEPTANCE.md",
+      "lines": [
+        19,
+        36
+      ],
+      "locator": "A–C、D及原六门；这里只读协议，未读取评价数据",
+      "bytes": 10968,
+      "sha256": "d6f68a1e902d901bcceafaa1d23f97b1a8ff5ad9f52acf46b00b82d7a6bdb04d"
+    },
+    "C1": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+      "lines": [
+        7,
+        109
+      ],
+      "locator": "七项原损失；feature_vectors、noise_features、weighted_w1、DistributionLoss",
+      "bytes": 7555,
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a"
+    },
+    "C2": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+      "lines": [
+        9,
+        80
+      ],
+      "locator": "temporal_features、coordinate_w1_rms、temporal_distribution_terms、两项新增损失",
+      "bytes": 5577,
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26"
+    },
+    "C3": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+      "lines": [
+        7,
+        99
+      ],
+      "locator": "Q定义、charge_vector、BoxChargeProjection、规范ADC、endpoint与solve",
+      "bytes": 6725,
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d"
+    },
+    "C4": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/precision_order.py",
+      "lines": [
+        11,
+        38
+      ],
+      "locator": "保守存储PSD区间与保留原分母的可分辨对排序罚",
+      "bytes": 4669,
+      "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2"
+    },
+    "C5": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+      "lines": [
+        57,
+        163
+      ],
+      "locator": "TRAIN白名单、冻结统计、原区域抽样、解析端点及逐项反传",
+      "bytes": 24763,
+      "sha256": "bd34fc715f9363987694ee020edf45b9df1b40d8732f4d388aec0ccaf4d6512f"
+    },
+    "C6": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/noise_core.py",
+      "lines": [
+        4,
+        45
+      ],
+      "locator": "bins_for、continuous_logq、innovation",
+      "bytes": 2338,
+      "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10"
+    },
+    "C7": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/residual_analysis.py",
+      "lines": [
+        6,
+        97
+      ],
+      "locator": "已保存路径、基线、目标覆盖和PSD汇总的字段定义",
+      "bytes": 9093,
+      "sha256": "5dd4236d1c16988200b964f78cc9b82fdf8f478289d8ddc9e40719eb1509f4e2"
+    },
+    "C8": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/residual_math.py",
+      "lines": [
+        6,
+        9,
+        26,
+        28,
+        79,
+        86
+      ],
+      "locator": "区域/特征轴顺序，U峰归一，full_tables末轴为逐坐标/切片",
+      "bytes": 3963,
+      "sha256": "14977a416a28ee6a0d95d0335b252e4556ce12961aff245dba4d8e2dc4c54b11"
+    },
+    "C9": {
+      "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/config.json",
+      "locator": "loss_weights、batch_per_region、identity_batch、PSD_loss_scale、valley_smoothing、valley_delta、feature_scale_floor、temporal_scale_floor",
+      "bytes": 7756,
+      "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5"
+    },
+    "E1": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/RESULT.json",
+      "locator": "diagnostic_markers、counter、frozen_weight_before_SHA、frozen_weight_after_SHA、scientific_scope",
+      "bytes": 3173,
+      "sha256": "bbe3ab9e87e210e63e8787674fb76d7a78283c5e1ebd73f6e2be83f70863e3be"
+    },
+    "E2": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/PATH_SUMMARY.json",
+      "locator": "rows[domain,stage,scope].feature_mean_W1/voltage_segment_mean_W1/boundary_W1_V；boundary_names；neural_boundary_change_V",
+      "bytes": 97601,
+      "sha256": "d49a051e3e3a0d0d56dce7aa2f532d1caab62c88afd8c8f4d7b7dec208cb12eb"
+    },
+    "E3": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/BASELINE_JOINT_SUMMARY.json",
+      "locator": "rows[scope].SOURCE_covariance_relative_Frobenius、REAL_control_covariance_relative_Frobenius、empirical_reference_quantiles、SOURCE_baseline_feature_W1、zero_power_N",
+      "bytes": 40096,
+      "sha256": "33a1963dd099549a6ff000c2605988c5ad469cb1d879e760b789845ce211a14f"
+    },
+    "E4": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/LOSS_COVERAGE_SUMMARY.json",
+      "locator": "comparisons.*.full_empirical_loss/batch_loss_summary/full_per_feature/full_region_contributions；SOURCE_minus_REAL_REAL_paired_batch_excess；source_original_region_mass",
+      "bytes": 6744,
+      "sha256": "d8c8c6c6dbeae91547a30837c1e38005adca811320d35cc43bf871e63d0a1252"
+    },
+    "E5": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/PSD_SUMMARY.json",
+      "locator": "overall_SOURCE_W1、common_Q1_Q7_mean_W1、regions、valleys、source_PSD_rank、source_Q_rank、density_fits",
+      "bytes": 2726,
+      "sha256": "d90f48d6c8904e7fa7096a75deb89bac3cabd28815e4178f38d2088952989872"
+    },
+    "E6": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/PROJECTION_SUMMARY.json",
+      "locator": "SOURCE和REAL_control的range_active_N、rail_samples_total、projection_RMS_V、preADC_relative_Q_error_f32、projection_boundaries_abs_mean_V",
+      "bytes": 2960,
+      "sha256": "8a13b3d16429ac59aae4f1b5a7c5079ca6e5fe897d3a6448aeb33e290e0848d6"
+    },
+    "E7": {
+      "file": "work/R60_FROZEN_TRAIN_GRADIENT_DIAGNOSTIC_001/GRADIENT_SUMMARY.json",
+      "locator": "diagnostic_markers、mean_loss、gradient_semantics、raw_waveform_gradient_semantics、undefined_cosines_retained_as_null",
+      "bytes": 10126,
+      "sha256": "8164519b7124f46820b4e9d7cb7d7ed1a3b1e3132760d51954000bb8ddda1865"
+    },
+    "E8": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/LOSS_COVERAGE_PRIVATE.npz",
+      "locator": "只读取已保存full_tables[comparison,9,feature,marginal_or_sliced]；未读取原始波形，未重算W1",
+      "bytes": 592793,
+      "sha256": "0c96e298e6dee65f05cccecb94ebbd7a63e21783e1b42468447f8c13a657d5e0"
+    },
+    "E9": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/FROZEN_ARTIFACT_REVIEW.json",
+      "locator": "pass、checks、new_model_forwards、raw_TRAIN_waveforms_decoded、DEV_EVAL_CAL_decoded",
+      "bytes": 1043,
+      "sha256": "cc12042949e61a761fecc126c6cfd196e29171467c93f9b5530999152de203df"
+    },
+    "E10": {
+      "file": "R62_REPORT.md",
+      "locator": "边界LSB表；基线协方差表；抽样参照；88.73%贡献；源谷区；投影表",
+      "bytes": 9857,
+      "sha256": "becfce43660a6c4293875296562cd6c355c25b8de92908a79d6067b129d061f5"
+    },
+    "E11": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/INPUT_BINDING.json",
+      "locator": "inputs.TRAIN_path、inputs.constants_path、inputs.distribution_statistics、frozen_weight_tensor_SHA、source_parent_ID_SHA",
+      "bytes": 4995,
+      "sha256": "c82bc56992d89605de2ab2e9afb08980a8959558155db29841c87c59d5f5eef4"
+    },
+    "E12": {
+      "file": "work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/config.json",
+      "locator": "seeds、expected_full_stream_hashes、SOURCE_N、REAL_N、resampling_batches、ADC_LSB_V",
+      "bytes": 3866,
+      "sha256": "e919e54e59d20e1179542a5f0f5ac110e453b9ad392cbb3ed3a54643380063db"
+    },
+    "E13": {
+      "file": "R60_REPORT.md",
+      "locator": "32批预设标记、25批谷梯度为零、98.80%裁剪前范数超过5；均属R59冻结诊断",
+      "bytes": 6739,
+      "sha256": "cfa9c1d45ca831c5e09a52d3f4fdcd88b05740dcc381d0115ad7fc4906e7d1ab"
+    },
+    "E14": {
+      "file": "tasks/R59_DIRECT_DISTRIBUTION_RESPONSE_001.md",
+      "lines": [
+        27,
+        38
+      ],
+      "locator": "十区域独立有放回32抽样；总体各域人口质量；共同Q1–Q7等区PSD项",
+      "bytes": 9576,
+      "sha256": "cfe2a184f302ddbd2805fb2be0c55dfa2e8a07804938edeb8dd0514ec05a742a"
+    }
+  },
+  "existing_value_snapshots": {
+    "R62_result": {
+      "diagnostic_markers": {
+        "neural_boundary_increase": {
+          "passed_components": 2,
+          "required": 2,
+          "selected_names": [
+            "d1_149_150",
+            "d2_149",
+            "d2_150"
+          ],
+          "flags": [
+            true,
+            false,
+            true
+          ],
+          "activated": true
+        },
+        "baseline_joint_residual": {
+          "regions": 7,
+          "required": 6,
+          "activated": true
+        }
+      },
+      "counter": {
+        "response_training_runs": 0,
+        "response_updates": 0,
+        "HGB_fits": 0,
+        "density_fits": 0,
+        "teacher_waveforms": 0,
+        "autograd_calls": 0,
+        "DEV_read": 0,
+        "EVAL_read": 0,
+        "CAL_decode": 0,
+        "full_SOURCE_rows_completed": 6593,
+        "full_REAL_rows_completed": 21047,
+        "neural_forward_rows_completed": 27640,
+        "neural_forward_calls_completed": 433,
+        "mathematical_Heun_field_rows": 7075840,
+        "saved_endpoint_batches_completed": 32
+      },
+      "frozen_weight_before_SHA": "23fb626bb16032eb8b5d319992e6444044e71f611c4cef567eceb9d4574fdd5c",
+      "frozen_weight_after_SHA": "23fb626bb16032eb8b5d319992e6444044e71f611c4cef567eceb9d4574fdd5c",
+      "full_SOURCE_PSD_W1": 0.0036046785488458785,
+      "full_SOURCE_common_Q1_Q7_mean_W1": 0.010809827351511704,
+      "scientific_scope": "Frozen R61 TRAIN path description and empirical reference. No new candidate or acceptance determination."
+    },
+    "R62_population_by_region": [
+      {
+        "region": -1,
+        "SOURCE_N": 1922,
+        "REAL_N": 1120,
+        "SOURCE_W1": 0.16198983152665267,
+        "REAL_control_W1": 0.0028353480806047435
+      },
+      {
+        "region": 0,
+        "SOURCE_N": 639,
+        "REAL_N": 1670,
+        "SOURCE_W1": 0.007115401004446484,
+        "REAL_control_W1": 0.0005898517560191236
+      },
+      {
+        "region": 1,
+        "SOURCE_N": 622,
+        "REAL_N": 2286,
+        "SOURCE_W1": 0.007068370348330855,
+        "REAL_control_W1": 0.001163754056141469
+      },
+      {
+        "region": 2,
+        "SOURCE_N": 621,
+        "REAL_N": 2533,
+        "SOURCE_W1": 0.02847076275396137,
+        "REAL_control_W1": 0.0004871670149757972
+      },
+      {
+        "region": 3,
+        "SOURCE_N": 581,
+        "REAL_N": 2604,
+        "SOURCE_W1": 0.020103314992920666,
+        "REAL_control_W1": 0.0007020677792844038
+      },
+      {
+        "region": 4,
+        "SOURCE_N": 561,
+        "REAL_N": 2689,
+        "SOURCE_W1": 0.0047060177200229794,
+        "REAL_control_W1": 0.0005437415234040835
+      },
+      {
+        "region": 5,
+        "SOURCE_N": 399,
+        "REAL_N": 2624,
+        "SOURCE_W1": 0.0030236953415038095,
+        "REAL_control_W1": 0.0004993014314821661
+      },
+      {
+        "region": 6,
+        "SOURCE_N": 214,
+        "REAL_N": 2526,
+        "SOURCE_W1": 0.005181229299395778,
+        "REAL_control_W1": 0.00031655579091707765
+      },
+      {
+        "region": 7,
+        "SOURCE_N": 116,
+        "REAL_N": 1963,
+        "SOURCE_W1": 0.23257368208336862,
+        "REAL_control_W1": 0.000271160066224183
+      },
+      {
+        "region": 8,
+        "SOURCE_N": 918,
+        "REAL_N": 1032,
+        "SOURCE_W1": 0.1431391547319546,
+        "REAL_control_W1": 0.00030624224248855547
+      }
+    ],
+    "R62_PATH_all_SOURCE_stages": [
+      {
+        "domain": "SOURCE",
+        "stage": "input",
+        "scope": "all",
+        "original_region": null,
+        "N": 6593,
+        "REAL_N": 21047,
+        "feature_mean_W1": {
+          "V480": 0.006681021759049581,
+          "U480": 0.025081164277756036,
+          "DU479": 0.011727821734727448,
+          "D2U478": 0.016515773843629098
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.000520906489833883,
+          "100:150": 0.05163844676497309,
+          "150:400": 0.0020719228673275474,
+          "400:480": 0.0006862092534983572
+        },
+        "boundary_W1_V": [
+          0.0007189549097076958,
+          0.00276024243478867,
+          0.001183154472405013,
+          0.0012548569768110062,
+          0.0012610980407899133,
+          0.004544767205848057,
+          0.004506742669061068,
+          0.0017879955028948821,
+          0.0017823232042912466
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "noise_initial",
+        "scope": "all",
+        "original_region": null,
+        "N": 6593,
+        "REAL_N": 21047,
+        "feature_mean_W1": {
+          "V480": 0.006551037719911945,
+          "U480": 0.020948138741538367,
+          "DU479": 0.00872237537259017,
+          "D2U478": 0.01435853908496942
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 8.056243445545487e-05,
+          "100:150": 0.05150085076808642,
+          "150:400": 0.0020383322057107344,
+          "400:480": 0.0006477034035022976
+        },
+        "boundary_W1_V": [
+          0.00011343067292041256,
+          0.002558289930395991,
+          0.0005635715371700963,
+          0.00018764921563334635,
+          0.0002033667778513438,
+          0.0036332329666360595,
+          0.0035853727513858896,
+          0.0007159432228612329,
+          0.0007038996548664856
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "neural_raw",
+        "scope": "all",
+        "original_region": null,
+        "N": 6593,
+        "REAL_N": 21047,
+        "feature_mean_W1": {
+          "V480": 0.010734558361912108,
+          "U480": 0.016655333487117452,
+          "DU479": 0.0031263583486097215,
+          "D2U478": 0.0032345083015967863
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.00024044749519867893,
+          "100:150": 0.07341584185446866,
+          "150:400": 0.005657440647664189,
+          "400:480": 0.000542387619480796
+        },
+        "boundary_W1_V": [
+          0.00019228413431795422,
+          0.024967099214404372,
+          0.0012826092788421038,
+          0.0001462406422768238,
+          0.0027882241317428134,
+          0.0028986450198839296,
+          0.014028563676133827,
+          0.0007426080962409727,
+          0.000868095835923952
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "projected_f32",
+        "scope": "all",
+        "original_region": null,
+        "N": 6593,
+        "REAL_N": 21047,
+        "feature_mean_W1": {
+          "V480": 0.007909051361849783,
+          "U480": 0.01515561436399152,
+          "DU479": 0.0033877986714763208,
+          "D2U478": 0.0035808010062312965
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.003952390485573688,
+          "100:150": 0.04486127068229047,
+          "150:400": 0.004458604245831151,
+          "400:480": 0.0005423876194776986
+        },
+        "boundary_W1_V": [
+          0.005141952295636729,
+          0.009474523814782997,
+          0.00019018514325770853,
+          0.004828462059853274,
+          0.0021779411064900027,
+          0.008792864846729795,
+          0.0025238921353610538,
+          0.0005494351465907853,
+          0.0004325634124211536
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "all",
+        "original_region": null,
+        "N": 6593,
+        "REAL_N": 21047,
+        "feature_mean_W1": {
+          "V480": 0.007908841547774818,
+          "U480": 0.015156551517060407,
+          "DU479": 0.0033887943947007856,
+          "D2U478": 0.003582554257665131
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.003951630566578627,
+          "100:150": 0.04486092591391521,
+          "150:400": 0.0044585984458549955,
+          "400:480": 0.0005423122389317631
+        },
+        "boundary_W1_V": [
+          0.005140072889215382,
+          0.009474526024043483,
+          0.00018890884568841898,
+          0.0048261675838712275,
+          0.002177270249095281,
+          0.008792032812649897,
+          0.002524687115837628,
+          0.0005487979576249799,
+          0.0004312653874757276
+        ]
+      }
+    ],
+    "R62_PATH_canonical_SOURCE_per_region": [
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region-1",
+        "original_region": -1,
+        "N": 1922,
+        "REAL_N": 1120,
+        "feature_mean_W1": {
+          "V480": 0.0008071627129882981,
+          "U480": 0.012818601217519165,
+          "DU479": 0.00393714845996032,
+          "D2U478": 0.00451706484051628
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 6.14027054198142e-05,
+          "100:150": 0.005701892278378203,
+          "150:400": 0.0003475864625469111,
+          "400:480": 0.00011633252670954634
+        },
+        "boundary_W1_V": [
+          8.61110878975209e-05,
+          0.0008091691338778628,
+          7.795642667697253e-05,
+          0.00011723778716731445,
+          0.00015379028453908913,
+          0.0007830438096842306,
+          0.0008328535152765694,
+          0.0001347836301395474,
+          0.00011981619674667054
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region0",
+        "original_region": 0,
+        "N": 639,
+        "REAL_N": 1670,
+        "feature_mean_W1": {
+          "V480": 0.0004552304278446385,
+          "U480": 0.006453008334846801,
+          "DU479": 0.0036340047152794166,
+          "D2U478": 0.004991920680121989
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 6.796708284581648e-05,
+          "100:150": 0.0021242839170301604,
+          "150:400": 0.0003663299106492372,
+          "400:480": 0.00017396529458784426
+        },
+        "boundary_W1_V": [
+          4.444467758800505e-05,
+          0.0013351979829989095,
+          0.00011095911535529166,
+          9.778210015405022e-05,
+          7.677126702034874e-05,
+          0.0017155551056045036,
+          0.0016316031200416805,
+          0.00010851082202992,
+          0.00017848100097295853
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region1",
+        "original_region": 1,
+        "N": 622,
+        "REAL_N": 2286,
+        "feature_mean_W1": {
+          "V480": 0.00048730012980449953,
+          "U480": 0.005920268230533432,
+          "DU479": 0.003279414439940327,
+          "D2U478": 0.004671462616429051
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 4.6463054781257735e-05,
+          "100:150": 0.00212646068503583,
+          "150:400": 0.00042260415034219413,
+          "400:480": 0.00021604606238367457
+        },
+        "boundary_W1_V": [
+          8.791631697938763e-05,
+          0.0015613661233609341,
+          0.00011734538841400614,
+          0.0001422871173578122,
+          0.00016883005813060032,
+          0.0021624746091869393,
+          0.0019431580415930172,
+          0.0001492682292204516,
+          0.00017163617112891805
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region2",
+        "original_region": 2,
+        "N": 621,
+        "REAL_N": 2533,
+        "feature_mean_W1": {
+          "V480": 0.0006851767715768665,
+          "U480": 0.006372104957438946,
+          "DU479": 0.0030463369194930054,
+          "D2U478": 0.004259002668311725
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 7.20982644624625e-05,
+          "100:150": 0.0029106668025656647,
+          "150:400": 0.0006216860942827209,
+          "400:480": 0.0002590020026460786
+        },
+        "boundary_W1_V": [
+          5.387727780479655e-05,
+          0.0022204435956182287,
+          0.00010621511168486725,
+          9.636048976532661e-05,
+          7.021466137982507e-05,
+          0.0027474085376422066,
+          0.0024503720718020323,
+          0.00015590346602540133,
+          0.0001636702229426679
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region3",
+        "original_region": 3,
+        "N": 581,
+        "REAL_N": 2604,
+        "feature_mean_W1": {
+          "V480": 0.0007425532015652612,
+          "U480": 0.005852821173741923,
+          "DU479": 0.002640088399279009,
+          "D2U478": 0.003776160855151266
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 6.870369647200151e-05,
+          "100:150": 0.003150754134745982,
+          "150:400": 0.0006784182831998254,
+          "400:480": 0.00028016111958587155
+        },
+        "boundary_W1_V": [
+          5.479892612642268e-05,
+          0.002655116799379551,
+          0.00014570628259768094,
+          8.437707838603672e-05,
+          0.00017088412941051824,
+          0.0035017507047738223,
+          0.003122626589309365,
+          0.00020117735601653887,
+          0.0001804927291291285
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region4",
+        "original_region": 4,
+        "N": 561,
+        "REAL_N": 2689,
+        "feature_mean_W1": {
+          "V480": 0.00067699748777914,
+          "U480": 0.004248036720449931,
+          "DU479": 0.002054579216680762,
+          "D2U478": 0.00287936426580015
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 7.87791823650189e-05,
+          "100:150": 0.0026441932965329913,
+          "150:400": 0.0006344922771562464,
+          "400:480": 0.0003281017722721772
+        },
+        "boundary_W1_V": [
+          3.581742090523465e-05,
+          0.002903916174500409,
+          0.00017411859055734138,
+          6.346068485562083e-05,
+          8.91521987893093e-05,
+          0.003750574455421076,
+          0.003540492697968783,
+          0.00027265076979946326,
+          0.00024930960214698854
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region5",
+        "original_region": 5,
+        "N": 399,
+        "REAL_N": 2624,
+        "feature_mean_W1": {
+          "V480": 0.000765709032601115,
+          "U480": 0.004315566587880687,
+          "DU479": 0.0018148443851115094,
+          "D2U478": 0.0025157898982441575
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.00015843098031615457,
+          "100:150": 0.0024542818054969938,
+          "150:400": 0.0007601645297293342,
+          "400:480": 0.00048677518637170686
+        },
+        "boundary_W1_V": [
+          9.255980302071238e-05,
+          0.002421165951257317,
+          0.0001856195300235935,
+          0.00018271519031283148,
+          0.0001582516798835671,
+          0.0021523334185243378,
+          0.002389911286893686,
+          0.0002917851941828777,
+          0.0002429892321129285
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region6",
+        "original_region": 6,
+        "N": 214,
+        "REAL_N": 2526,
+        "feature_mean_W1": {
+          "V480": 0.0010791730671295431,
+          "U480": 0.004449269778322065,
+          "DU479": 0.001943459502997708,
+          "D2U478": 0.0025023826679426747
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.00011831049909104887,
+          "100:150": 0.0031895439463740637,
+          "150:400": 0.0012134048443031267,
+          "400:480": 0.0005417951739823871
+        },
+        "boundary_W1_V": [
+          0.00012873399665937058,
+          0.0030454929125880276,
+          0.00021641520014577465,
+          0.0002740342767225575,
+          0.0002174673610375671,
+          0.0011509050284425782,
+          0.0011336635011953498,
+          0.00034198164826076716,
+          0.000271065010484035
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region7",
+        "original_region": 7,
+        "N": 116,
+        "REAL_N": 1963,
+        "feature_mean_W1": {
+          "V480": 0.009432522689673059,
+          "U480": 0.017870746983817888,
+          "DU479": 0.003665460035486234,
+          "D2U478": 0.003657946411611172
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.00020872764419324445,
+          "100:150": 0.046472480048066256,
+          "150:400": 0.008295300415374374,
+          "400:480": 0.0013661127547104483
+        },
+        "boundary_W1_V": [
+          0.00012143925010426786,
+          0.02367481735012354,
+          0.0003984114725108209,
+          0.00020277385224260508,
+          0.00017597960915560106,
+          0.0008875006981428799,
+          0.008077633445900111,
+          0.001392376913704238,
+          0.0010667039691466974
+        ]
+      },
+      {
+        "domain": "SOURCE",
+        "stage": "canonical_ADC",
+        "scope": "region8",
+        "original_region": 8,
+        "N": 918,
+        "REAL_N": 1032,
+        "feature_mean_W1": {
+          "V480": 0.038971499375146004,
+          "U480": 0.042360218469611716,
+          "DU479": 0.0076640025993628385,
+          "D2U478": 0.0045859288355631425
+        },
+        "voltage_segment_mean_W1": {
+          "0:100": 0.028214843811453595,
+          "100:150": 0.18187789062378545,
+          "150:400": 0.026585367447032545,
+          "400:480": 0.001807486574716448
+        },
+        "boundary_W1_V": [
+          0.03710235918633519,
+          0.05900593939524059,
+          0.0016861476941589014,
+          0.03505760651548513,
+          0.016015238965923193,
+          0.061871860169678966,
+          0.014850860134704678,
+          0.003913659813633455,
+          0.0035441471946464054
+        ]
+      }
+    ],
+    "R62_baseline_covariance_rows": [
+      {
+        "scope": "all",
+        "original_region": null,
+        "SOURCE_N": 6593,
+        "REAL_N": 21047,
+        "SOURCE_covariance_relative_Frobenius": 0.3731029981599024,
+        "REAL_control_covariance_relative_Frobenius": 0.012193025001549533,
+        "empirical_reference_quantiles": [
+          0.12485117197617487,
+          0.12520780870143391,
+          0.12957726561029453,
+          0.14397368945472455,
+          0.144058531380474
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region-1",
+        "original_region": -1,
+        "SOURCE_N": 1922,
+        "REAL_N": 1120,
+        "SOURCE_covariance_relative_Frobenius": 0.48896087461318766,
+        "REAL_control_covariance_relative_Frobenius": 0.022824400917523625,
+        "empirical_reference_quantiles": [
+          0.21008084810132246,
+          0.21225149911033153,
+          0.2288635701915904,
+          0.2728392525851038,
+          0.299635694306441
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region0",
+        "original_region": 0,
+        "SOURCE_N": 639,
+        "REAL_N": 1670,
+        "SOURCE_covariance_relative_Frobenius": 0.524872433012722,
+        "REAL_control_covariance_relative_Frobenius": 0.0181016868550324,
+        "empirical_reference_quantiles": [
+          0.3799734743610392,
+          0.3804589635451431,
+          0.4076966212931543,
+          0.4532036597579395,
+          0.45676763810334703
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region1",
+        "original_region": 1,
+        "SOURCE_N": 622,
+        "REAL_N": 2286,
+        "SOURCE_covariance_relative_Frobenius": 0.5230861264592779,
+        "REAL_control_covariance_relative_Frobenius": 0.017337872694172536,
+        "empirical_reference_quantiles": [
+          0.3843212435550844,
+          0.3854247502533118,
+          0.40342364599421404,
+          0.44723741824840635,
+          0.47118616628815463
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region2",
+        "original_region": 2,
+        "SOURCE_N": 621,
+        "REAL_N": 2533,
+        "SOURCE_covariance_relative_Frobenius": 0.6148170891073126,
+        "REAL_control_covariance_relative_Frobenius": 0.020405302384122706,
+        "empirical_reference_quantiles": [
+          0.3854468739023914,
+          0.3884411288506075,
+          0.41428010432261553,
+          0.4594493890348102,
+          0.47579928633449925
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region3",
+        "original_region": 3,
+        "SOURCE_N": 581,
+        "REAL_N": 2604,
+        "SOURCE_covariance_relative_Frobenius": 0.625174714402331,
+        "REAL_control_covariance_relative_Frobenius": 0.02123884719290788,
+        "empirical_reference_quantiles": [
+          0.3904826000672695,
+          0.39843821138548613,
+          0.42393650500265234,
+          0.4974880839718801,
+          0.5678525592776014
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region4",
+        "original_region": 4,
+        "SOURCE_N": 561,
+        "REAL_N": 2689,
+        "SOURCE_covariance_relative_Frobenius": 0.9056915575405386,
+        "REAL_control_covariance_relative_Frobenius": 0.0159394888933752,
+        "empirical_reference_quantiles": [
+          0.4109764243576663,
+          0.41318416689387055,
+          0.4378476011700652,
+          0.4692466007968604,
+          0.4939906266706223
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region5",
+        "original_region": 5,
+        "SOURCE_N": 399,
+        "REAL_N": 2624,
+        "SOURCE_covariance_relative_Frobenius": 2.4097372714872924,
+        "REAL_control_covariance_relative_Frobenius": 0.016089678586641405,
+        "empirical_reference_quantiles": [
+          0.462986977326282,
+          0.47146999368119974,
+          0.5039529055911443,
+          0.5878031192350817,
+          0.5908270519122069
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region6",
+        "original_region": 6,
+        "SOURCE_N": 214,
+        "REAL_N": 2526,
+        "SOURCE_covariance_relative_Frobenius": 1.3437179863080437,
+        "REAL_control_covariance_relative_Frobenius": 0.016614712642368298,
+        "empirical_reference_quantiles": [
+          0.62599304249195,
+          0.637897485189751,
+          0.6931095231798636,
+          0.7623129178468236,
+          0.7732706738076676
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region7",
+        "original_region": 7,
+        "SOURCE_N": 116,
+        "REAL_N": 1963,
+        "SOURCE_covariance_relative_Frobenius": 0.9982956933852368,
+        "REAL_control_covariance_relative_Frobenius": 0.019466699653961656,
+        "empirical_reference_quantiles": [
+          0.8320936971431347,
+          0.8337677305414019,
+          0.9288923514917296,
+          1.3525497259772674,
+          1.4694848698768208
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": false,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      },
+      {
+        "scope": "region8",
+        "original_region": 8,
+        "SOURCE_N": 918,
+        "REAL_N": 1032,
+        "SOURCE_covariance_relative_Frobenius": 0.7687818090507701,
+        "REAL_control_covariance_relative_Frobenius": 0.02921905073067256,
+        "empirical_reference_quantiles": [
+          0.2914177821924653,
+          0.29713300846275514,
+          0.31298133027871317,
+          0.3691609891162087,
+          0.3786964124664981
+        ],
+        "SOURCE_exceeds_all_32_references_and_REAL_control": true,
+        "zero_power_N": {
+          "SOURCE": 0,
+          "REAL_control": 0,
+          "REAL_reference": 0
+        }
+      }
+    ],
+    "R62_baseline_feature_order": [
+      "RMS_V",
+      "ACF1",
+      "ACF2",
+      "ACF3",
+      "ACF4",
+      "ACF5",
+      "ACF6",
+      "ACF7",
+      "ACF8",
+      "ACF9",
+      "ACF10",
+      "ACF11",
+      "ACF12",
+      "ACF13",
+      "ACF14",
+      "ACF15",
+      "ACF16",
+      "ACF17",
+      "ACF18",
+      "ACF19",
+      "ACF20",
+      "rFFT_band1",
+      "rFFT_band2",
+      "rFFT_band3",
+      "rFFT_band4",
+      "rFFT_band5",
+      "rFFT_band6",
+      "rFFT_band7",
+      "rFFT_band8",
+      "rFFT_band9",
+      "rFFT_band10"
+    ],
+    "R62_baseline_all_W1": {
+      "SOURCE_baseline_feature_W1": [
+        3.9764096178108776e-06,
+        0.005877851965373176,
+        0.09984916563785354,
+        0.08075309428715799,
+        0.10141336058521008,
+        0.042128924732848544,
+        0.015677681005570366,
+        0.01395170277023938,
+        0.010453216778454108,
+        0.018575669289393817,
+        0.008148966019546287,
+        0.015231730081793553,
+        0.009354773372082107,
+        0.00831821672097656,
+        0.009761413197997646,
+        0.004720633187612553,
+        0.005541129775398191,
+        0.010426136055764507,
+        0.006258743763183179,
+        0.009261072797765777,
+        0.008325059129659395,
+        0.024955180047267267,
+        0.024301439604180484,
+        0.009221579755002556,
+        0.025956547768490202,
+        0.04151558930888697,
+        0.01672463643898735,
+        0.016533414142422383,
+        0.023796887437287084,
+        0.004597450993595378,
+        0.004833588270473746
+      ],
+      "REAL_control_baseline_feature_W1": [
+        2.1008124604652114e-06,
+        0.0010056788825561402,
+        0.002149626096709355,
+        0.0011297858467665435,
+        0.0008449366676212636,
+        0.0015244999563019134,
+        0.0006548600599110745,
+        0.00026453190710680106,
+        0.00028807525325038144,
+        0.0002616636207453411,
+        0.00027720335205061615,
+        0.00028815659831038943,
+        0.0002396998353660326,
+        0.0002781315154324981,
+        0.00030067384629964804,
+        0.00035633532751998476,
+        0.0002764854392546716,
+        0.00021083211283428599,
+        0.0002810669731435469,
+        0.00022879045836323374,
+        0.0002806789838433499,
+        0.00017819696089937029,
+        0.0001259559621664859,
+        9.944261675396523e-05,
+        0.0002979179901280981,
+        0.0003796060669801736,
+        0.00023072260275307149,
+        0.00014837994276461483,
+        0.0003523654047011127,
+        0.0002097578918822589,
+        0.0010548031645290666
+      ]
+    },
+    "R62_loss_coverage": {
+      "SOURCE_REAL": {
+        "full_empirical_loss": 1.1964173703449354,
+        "batch_loss_summary": {
+          "N": 32,
+          "mean": 1.3462646761745058,
+          "SD": 0.12068124623981688,
+          "min": 0.961077129756278,
+          "median": 1.3603353040343764,
+          "max": 1.5206690110317602
+        },
+        "full_per_feature": [
+          2.953644236162804,
+          1.322481521083438,
+          0.3068318633122964,
+          0.20271186082120343
+        ],
+        "full_region_contributions": [
+          0.046114327639754545,
+          0.013676385000613567,
+          0.013017744926415225,
+          0.014428103889813106,
+          0.013419902954232076,
+          0.010894835178732132,
+          0.008045201707647994,
+          0.005147609772296202,
+          0.010035832209482553,
+          1.061637427065948
+        ],
+        "batch_per_feature_mean": [
+          3.0595243356758717,
+          1.444702459332684,
+          0.495268876416904,
+          0.38556303327256425
+        ],
+        "batch_per_feature_SD": [
+          0.3243277255509886,
+          0.13072986197564065,
+          0.021608945043356777,
+          0.012415182930666806
+        ]
+      },
+      "REAL_REAL": {
+        "full_empirical_loss": 0.0,
+        "batch_loss_summary": {
+          "N": 32,
+          "mean": 0.3044508991088901,
+          "SD": 0.006131614911719111,
+          "min": 0.2939407215116173,
+          "median": 0.30438776775542775,
+          "max": 0.31592276528595714
+        },
+        "full_per_feature": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "full_region_contributions": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "batch_per_feature_mean": [
+          0.3010866416608112,
+          0.30017066434482237,
+          0.30908652786946167,
+          0.3074597625604655
+        ],
+        "batch_per_feature_SD": [
+          0.008173995522435381,
+          0.008637980287294171,
+          0.006274370731147206,
+          0.005926310349996945
+        ]
+      },
+      "REAL_control_REAL": {
+        "full_empirical_loss": 0.007444610070791408,
+        "batch_loss_summary": {
+          "N": 32,
+          "mean": 0.3031807673650307,
+          "SD": 0.006002427072776178,
+          "min": 0.2929284167161261,
+          "median": 0.30380530300932906,
+          "max": 0.3146600249992174
+        },
+        "full_per_feature": [
+          0.007484732968687245,
+          0.007368878734049128,
+          0.007262215620266982,
+          0.007662612960162276
+        ],
+        "full_region_contributions": [
+          0.0025299258459853683,
+          0.0005951940982767594,
+          0.0005443129918986181,
+          0.0005124579437642291,
+          0.0005371849003019254,
+          0.00048766355525107965,
+          0.00033676419463607286,
+          0.00017806453538455868,
+          0.00011789556548016395,
+          0.0016051464398126323
+        ],
+        "batch_per_feature_mean": [
+          0.2991479007536758,
+          0.29973817161999994,
+          0.3080089006193437,
+          0.30582809646710346
+        ],
+        "batch_per_feature_SD": [
+          0.007316078669064617,
+          0.007859684539500962,
+          0.005996515791150057,
+          0.0061992929618508415
+        ]
+      }
+    },
+    "R62_SOURCE_minus_REAL_REAL_paired_batch_excess": {
+      "N": 32,
+      "mean": 1.0418137770656157,
+      "SD": 0.12250836704548006,
+      "min": 0.6490027073387779,
+      "median": 1.053255906604709,
+      "max": 1.214627119221551
+    },
+    "R62_SOURCE_original_region_mass": [
+      0.291521310480813,
+      0.09692097679356894,
+      0.09434248445320795,
+      0.09419080843318671,
+      0.08812376763233733,
+      0.08509024723191264,
+      0.06051873198847262,
+      0.03245866828454421,
+      0.01759441832246322,
+      0.1392385863794934
+    ],
+    "R62_above_saved_full_tables": {
+      "shape": [
+        3,
+        10,
+        4,
+        2
+      ],
+      "selected_region_index": 9,
+      "last_axis": [
+        "marginal_W1_mean",
+        "sliced_W1_mean"
+      ],
+      "values": {
+        "SOURCE_REAL": {
+          "V480": [
+            15.380358498378786,
+            24.53324473599917
+          ],
+          "U480": [
+            4.315928595546817,
+            12.18744515499127
+          ],
+          "DU479": [
+            0.965707210167672,
+            2.1085410725507394
+          ],
+          "D2U478": [
+            0.44342862065081134,
+            1.0620829888022751
+          ]
+        },
+        "REAL_REAL": {
+          "V480": [
+            0.0,
+            0.0
+          ],
+          "U480": [
+            0.0,
+            0.0
+          ],
+          "DU479": [
+            0.0,
+            0.0
+          ],
+          "D2U478": [
+            0.0,
+            0.0
+          ]
+        },
+        "REAL_control_REAL": {
+          "V480": [
+            0.009599697927697128,
+            0.010613411752549222
+          ],
+          "U480": [
+            0.010351867509008216,
+            0.010769949476737163
+          ],
+          "DU479": [
+            0.011271076192274309,
+            0.012785477630343446
+          ],
+          "D2U478": [
+            0.01229125485605398,
+            0.014541495397686729
+          ]
+        }
+      }
+    },
+    "R62_PSD_and_valleys": {
+      "overall_SOURCE_W1": 0.0036046785488458785,
+      "common_Q1_Q7_mean_W1": 0.010809827351511704,
+      "overall_REAL_control_W1": 0.00036446004257681153,
+      "regions": [
+        {
+          "region": -1,
+          "SOURCE_N": 1922,
+          "REAL_N": 1120,
+          "SOURCE_W1": 0.16198983152665267,
+          "REAL_control_W1": 0.0028353480806047435
+        },
+        {
+          "region": 0,
+          "SOURCE_N": 639,
+          "REAL_N": 1670,
+          "SOURCE_W1": 0.007115401004446484,
+          "REAL_control_W1": 0.0005898517560191236
+        },
+        {
+          "region": 1,
+          "SOURCE_N": 622,
+          "REAL_N": 2286,
+          "SOURCE_W1": 0.007068370348330855,
+          "REAL_control_W1": 0.001163754056141469
+        },
+        {
+          "region": 2,
+          "SOURCE_N": 621,
+          "REAL_N": 2533,
+          "SOURCE_W1": 0.02847076275396137,
+          "REAL_control_W1": 0.0004871670149757972
+        },
+        {
+          "region": 3,
+          "SOURCE_N": 581,
+          "REAL_N": 2604,
+          "SOURCE_W1": 0.020103314992920666,
+          "REAL_control_W1": 0.0007020677792844038
+        },
+        {
+          "region": 4,
+          "SOURCE_N": 561,
+          "REAL_N": 2689,
+          "SOURCE_W1": 0.0047060177200229794,
+          "REAL_control_W1": 0.0005437415234040835
+        },
+        {
+          "region": 5,
+          "SOURCE_N": 399,
+          "REAL_N": 2624,
+          "SOURCE_W1": 0.0030236953415038095,
+          "REAL_control_W1": 0.0004993014314821661
+        },
+        {
+          "region": 6,
+          "SOURCE_N": 214,
+          "REAL_N": 2526,
+          "SOURCE_W1": 0.005181229299395778,
+          "REAL_control_W1": 0.00031655579091707765
+        },
+        {
+          "region": 7,
+          "SOURCE_N": 116,
+          "REAL_N": 1963,
+          "SOURCE_W1": 0.23257368208336862,
+          "REAL_control_W1": 0.000271160066224183
+        },
+        {
+          "region": 8,
+          "SOURCE_N": 918,
+          "REAL_N": 1032,
+          "SOURCE_W1": 0.1431391547319546,
+          "REAL_control_W1": 0.00030624224248855547
+        }
+      ],
+      "valleys": [
+        {
+          "region": 2,
+          "N": 482,
+          "bounds": [
+            0.19793871405505006,
+            0.24183059505068738
+          ],
+          "edge_half_width": 0.004,
+          "original_valley_mass": 0.0,
+          "original_low_edge_mass": 0.0,
+          "original_high_edge_mass": 0.0,
+          "output_valley_mass": 0.0,
+          "output_low_edge_mass": 0.0,
+          "output_high_edge_mass": 0.004149377593360996
+        },
+        {
+          "region": 3,
+          "N": 435,
+          "bounds": [
+            0.19809888448555618,
+            0.24135042042186136
+          ],
+          "edge_half_width": 0.004,
+          "original_valley_mass": 0.0,
+          "original_low_edge_mass": 0.0,
+          "original_high_edge_mass": 0.0,
+          "output_valley_mass": 0.0,
+          "output_low_edge_mass": 0.0,
+          "output_high_edge_mass": 0.011494252873563218
+        }
+      ],
+      "source_PSD_rank": 0.4598912091759548,
+      "source_Q_rank": 0.9999997645911044,
+      "density_fits": 0
+    },
+    "R62_projection": {
+      "SOURCE": {
+        "rows": 6593,
+        "range_active_N": 809,
+        "rail_samples_total": 24189,
+        "delta_RMS_V": {
+          "N": 6593,
+          "mean": 0.017185421017487015,
+          "SD": 0.0353869830152499,
+          "min": 0.001691145111390556,
+          "median": 0.004753834768856492,
+          "max": 0.16950884187565884
+        },
+        "projection_RMS_V": {
+          "N": 6593,
+          "mean": 0.012010831543143587,
+          "SD": 0.03946034628877921,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.20909316987088852
+        },
+        "preADC_relative_Q_error_f32": {
+          "N": 6593,
+          "mean": 3.285922457243142e-09,
+          "SD": 2.8223928434294086e-09,
+          "min": 0.0,
+          "median": 2.5495302925275875e-09,
+          "max": 2.2190546648182633e-08
+        },
+        "preADC_relative_Q_error_f64": {
+          "N": 6593,
+          "mean": 5.392568916374357e-16,
+          "SD": 4.688284524848654e-16,
+          "min": 0.0,
+          "median": 4.193709548343246e-16,
+          "max": 2.8476307416731483e-15
+        },
+        "delta_boundaries_abs_mean_V": [
+          0.00040679493363339215,
+          0.02403695439188229,
+          0.00176402383376059,
+          0.00035073473130319563,
+          0.0029716282098420075,
+          0.003918354458761533,
+          0.01479155367705726,
+          0.0014193234033967486,
+          0.0015284743363857063
+        ],
+        "projection_boundaries_abs_mean_V": [
+          0.004965860503048657,
+          0.015492575444621662,
+          0.0012414651257621643,
+          0.004965860503048657,
+          0.004965860503048657,
+          0.009055082717917533,
+          0.015492575444621662,
+          0.0012414651257621643,
+          0.0012414651257621643
+        ]
+      },
+      "REAL_control": {
+        "rows": 21047,
+        "range_active_N": 0,
+        "rail_samples_total": 0,
+        "delta_RMS_V": {
+          "N": 21047,
+          "mean": 8.701808310152638e-05,
+          "SD": 7.090757159230253e-05,
+          "min": 2.2652398184957763e-05,
+          "median": 7.403908558691509e-05,
+          "max": 0.003199965503324572
+        },
+        "projection_RMS_V": {
+          "N": 21047,
+          "mean": 0.0,
+          "SD": 0.0,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0
+        },
+        "preADC_relative_Q_error_f32": {
+          "N": 21047,
+          "mean": 3.0206263954265004e-09,
+          "SD": 2.398065038995591e-09,
+          "min": 8.366854150246761e-13,
+          "median": 2.5225678185989245e-09,
+          "max": 4.0914770645395694e-08
+        },
+        "preADC_relative_Q_error_f64": {
+          "N": 21047,
+          "mean": 7.286899460800336e-16,
+          "SD": 5.796956134868786e-16,
+          "min": 0.0,
+          "median": 6.044458795781286e-16,
+          "max": 7.987200083706247e-15
+        },
+        "delta_boundaries_abs_mean_V": [
+          9.580284149041715e-06,
+          7.499899244813022e-05,
+          2.3935195784496583e-05,
+          1.5129877150828952e-05,
+          1.5010053509244336e-05,
+          0.0001040968065777089,
+          9.606212928168115e-05,
+          3.443193085489115e-05,
+          3.438840099070524e-05
+        ],
+        "projection_boundaries_abs_mean_V": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "R60_conflict_markers": {
+      "roundoff_order_conflict": {
+        "batches": 17,
+        "total_batches": 32,
+        "required_batches": 24,
+        "activated": false
+      },
+      "outside_full_window_conflict": {
+        "batches": 0,
+        "total_batches": 32,
+        "required_batches": 24,
+        "activated": false
+      },
+      "valley_PSD_conflict": {
+        "batches": 4,
+        "total_batches": 32,
+        "required_batches": 24,
+        "activated": false
+      }
+    },
+    "R63_frozen_loss_settings": {
+      "loss_weights": {
+        "full_window": 1.0,
+        "PSD": 1.0,
+        "source_order": 1.0,
+        "source_valley": 1.0,
+        "noise": 1.0,
+        "REAL_identity": 1.0,
+        "box_correction": 1.0,
+        "coordinate_RMS": 1.0,
+        "temporal_joint": 1.0
+      },
+      "batch_per_region": 32,
+      "identity_batch": 64,
+      "projection_directions": 64,
+      "PSD_loss_scale": 0.01,
+      "valley_delta": 0.02,
+      "valley_smoothing": 0.002,
+      "feature_scale_floor": {
+        "V480": 6.103888176768602e-05,
+        "U480": 0.001,
+        "DU479": 0.001,
+        "D2U478": 0.001
+      },
+      "noise_scale_floor": [
+        6.1038881767686015e-06,
+        0.01
+      ],
+      "temporal_power_floor": 1e-20,
+      "temporal_scale_floor": [
+        6.1038881767686015e-06,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "temporal_projection_directions": 64
+    },
+    "R62_saved_artifact_review": {
+      "pass": true,
+      "checks": {
+        "frozen_bindings_unchanged_and_pre_TRAIN_assertion_failure_preserved": true,
+        "native_complete_registered_counts_and_TRAIN_whitelist": true,
+        "all_path_coordinate_reductions_segment_summaries_and_boundary_marker": true,
+        "covariance_residuals_saved_feature_W1_reference_quantiles_and_marker": true,
+        "all_original_objective_weights_full_tables_and_32_batch_reductions": true,
+        "all_PSD_valley_edge_source_rank_and_projection_summaries": true,
+        "all_eight_consumption_streams_and_actual_indices_reconstructed": true
+      },
+      "new_model_forwards": 0,
+      "raw_TRAIN_waveforms_decoded": 0,
+      "DEV_EVAL_CAL_decoded": 0
+    }
+  },
+  "region_and_representation_semantics": {
+    "region_axis": [
+      "below",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q8",
+      "above"
+    ],
+    "raw_region_axis": [
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "charge": "q=sum(v[100:400])-3*sum(v[0:100])；logq=log(1000*q)。",
+    "above_exact_rule": "raw=searchsorted(edges_logQ,logq,side=right)-1；恰等edges[-1]强制归raw=7。因此above/raw=8严格为logq>冻结edges[-1]。",
+    "network_conditioning": "网络离散bin=clip(raw,0,7)；above使用bin=7的单位电荷常数/条件嵌入，continuous_logq按相邻边界标准化且不裁剪。",
+    "reference": "损失和统计使用未裁剪的原raw区域；above对同样raw=8的1032个REAL父事件作参考，不对Q8的1963个REAL作替代。",
+    "above_SOURCE_N": 918,
+    "above_REAL_N": 1032,
+    "above_SOURCE_mass": 0.1392385863794934,
+    "above_SOURCE_full_window_contribution": 1.061637427065948,
+    "SOURCE_full_window_total": 1.1964173703449354,
+    "reported_share_percent_rounded": 88.73,
+    "share_interpretation": "贡献是源区域质量乘四视图中逐坐标/切片平均后的已保存标量；不是梯度范数、不可约误差下界或全部源被剔除后的对照。",
+    "U480_definition": "扣除每事件前100点均值，再除该事件全窗正峰值max（下限0.0025）；DU、D2U为其一/二阶差分。它们是峰归一形状，不能称单位电荷归一形状；网络内部另用source/q。",
+    "unknown": {
+      "numeric_upper_edge": "本次未打开常数NPZ的edges_logQ值；依据已冻结常数绑定和实现规则精确定义，绝对电荷阈值数值未从摘要核验。",
+      "above_original_SOURCE_REAL_Q_ranges_and_empirical_distance": "unknown：本次读取摘要没有区内源/REAL原Q的完整ECDF距离和范围。",
+      "above_observed_REAL_absolute_charge_or_shape_support": "unknown；1032个同区域REAL参照的存在不证明其覆盖所有918个源的细粒度电荷/形状。",
+      "irreducible_fraction_of_above_full_window_loss": "unknown；现有V/U/DU/D2U分解不能剥离受Q/ADC/区域参照限制的部分与可优化形状部分。"
+    },
+    "evidence_refs": [
+      "E4",
+      "E5",
+      "E8",
+      "E11"
+    ],
+    "code_refs": [
+      "C6:13-29",
+      "C5:62-75",
+      "C5:127-144",
+      "C1:7-12",
+      "C1:76-84",
+      "C7:53-79",
+      "C8:79-86"
+    ]
+  },
+  "nine_loss_coverage": [
+    {
+      "loss": "full_window",
+      "coefficient": 1,
+      "coverage": "十原区域、四视图V480/U480/DU479/D2U478，各为0.5*(逐坐标W1均值+64方向切片W1均值)，再按原SOURCE区域质量、四视图平均。完整V480切片提供联合信息。",
+      "R62_evidence": "完整1.1964173703；四视图全人口标准化值[2.9536442362,1.3224815211,0.3068318633,0.2027118608]；above贡献1.0616374271。above两分量V=[15.3803585,24.5332447]、U=[4.3159286,12.1874452]、DU=[0.9657072,2.1085411]、D2U=[0.4434286,1.0620830]，并非只有绝对电压残差。",
+      "limit": "坐标平均会稀释稀疏局部误差；有限随机切片/批次及源质量加权不保证每区每坐标达标。上述数值不能识别不可约Q差距或真实梯度竞争。",
+      "evidence_refs": [
+        "E2",
+        "E4",
+        "E8"
+      ],
+      "code_refs": [
+        "C1:7-12",
+        "C1:62-84",
+        "C7:53-79",
+        "C8:79-86"
+      ]
+    },
+    {
+      "loss": "PSD",
+      "coefficient": 1,
+      "coverage": "0.5*(各域按各自原人口质量的总体加权W1+Q1–Q7七区等权W1)/0.01；above、below、Q8仍进入总体项，未进入七区均值项。",
+      "R62_evidence": "总体0.0036046785，共同七区0.0108098274；Q3=0.0284707628，Q4=0.0201033150，above=0.1431391547，Q8=0.2325736821。",
+      "limit": "总体达某个数值不保证条件峰/宽度、Q–PSD依赖或源关联；小W1没有自动对应原10%峰宽门的保证。总体质量与条件参照质量的混合差异可产生目标折中，当前未证明冲突。",
+      "evidence_refs": [
+        "E5",
+        "E4",
+        "G3"
+      ],
+      "code_refs": [
+        "C1:14-16",
+        "C1:22-32",
+        "C1:85-88"
+      ]
+    },
+    {
+      "loss": "source_order",
+      "coefficient": 1,
+      "coverage": "只惩罚float32 PSD保守存储区间严格可分辨父对的逆序；保持原全部非零PSD有序对分母、源行质量和0.01尺度。",
+      "R62_evidence": "源PSD Spearman=0.4598912092而Q Spearman=0.9999997646；输入同一人口的R60区间重叠对54.6101%、原排序罚贡献82.3374%是存储事实。",
+      "limit": "hinge对dy=0为0，没有输出间距下界，不能单独保证秩关联；被省略的重叠对不等于粒子真值相同。R62没有给出该末点新梯度冲突测量。",
+      "evidence_refs": [
+        "E5",
+        "G2",
+        "E7"
+      ],
+      "code_refs": [
+        "C4:11-38",
+        "C1:89-89"
+      ]
+    },
+    {
+      "loss": "source_valley",
+      "coefficient": 1,
+      "coverage": "仅Q3/Q4的h==1，sigmoid双边窗宽度0.002；按原h比例估计条件概率，超过原硬谷比例+0.02才平方惩罚。",
+      "R62_evidence": "两区h==1分母482/435，原与输出硬谷质量均0；高边界±0.004输出质量0.0041493776/0.0114942529。",
+      "limit": "硬谷为0不等于平滑概率或梯度为0；有限批估计后relu平方存在噪声/阈值效应。边界附近质量不是已确认的谷约束因果堆积。未覆盖其余h/区域源语义。",
+      "evidence_refs": [
+        "E5",
+        "E7",
+        "C9"
+      ],
+      "code_refs": [
+        "C1:49-55",
+        "C1:90-97"
+      ]
+    },
+    {
+      "loss": "noise",
+      "coefficient": 1,
+      "coverage": "前100点去均值后的RMS与ACF1两项总体加权W1，按各域原区域质量和原REAL噪声尺度。",
+      "R62_evidence": "总体RMS W1=3.9764096e-6 V、ACF1 W1=0.005877852；但ACF2=0.099849166、ACF4=0.101413361，REAL控制相应仅0.002149626/0.000844937。",
+      "limit": "两项总体边缘不能识别逐区多滞后、频带、非平稳和基线绝对均值；31维新增项改善多滞后/频带覆盖，但不是完整基线过程。",
+      "evidence_refs": [
+        "E3"
+      ],
+      "code_refs": [
+        "C1:18-20",
+        "C1:48-48",
+        "C1:98-99",
+        "C2:11-19"
+      ]
+    },
+    {
+      "loss": "REAL_identity",
+      "coefficient": 1,
+      "coverage": "另取全REAL中64父事件，以同网络/同噪声路径的规范ADC输出对原规范ADC输入作逐点标准化平方误差；逐区V尺度固定。",
+      "R62_evidence": "完整REAL_control–REAL全窗损失0.0074446101，PSD W1=0.0003644600；协方差全体相对误差0.012193025；范围投影0/21047。",
+      "limit": "TRAIN上的较小控制偏离是正面描述，不等于原DEV五视图BA同时通过，也不能说明源域所有约束兼容。",
+      "evidence_refs": [
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "G3"
+      ],
+      "code_refs": [
+        "C1:73-74",
+        "C1:100-101",
+        "C5:129-144"
+      ]
+    },
+    {
+      "loss": "box_correction",
+      "coefficient": 1,
+      "coverage": "投影后output与神经raw的均方修正，SOURCE原质量和REAL均值各半，再除0.5^2；硬电荷/范围另由固定投影保证。",
+      "R62_evidence": "SOURCE809/6593范围活跃、24189个端点采样，修正RMS逐事件均值0.0120108315 V、最大0.2090931699 V；preADC相对Q最大2.2190547e-8。",
+      "limit": "可行电荷和低修正均方不保证噪声/边界接近REAL。投影在饱和采样及Q法向上消除局部数据梯度，box项自身仍可提供修正压力；不能据此推断实际优化受阻程度。",
+      "evidence_refs": [
+        "E6",
+        "E2"
+      ],
+      "code_refs": [
+        "C1:102-103",
+        "C3:13-37",
+        "C3:64-67"
+      ]
+    },
+    {
+      "loss": "coordinate_RMS",
+      "coefficient": 1,
+      "coverage": "对原四视图所有坐标的经验W1作RMS，保持十区SOURCE质量；不针对九个边界另选权。",
+      "R62_evidence": "d1_149_150神经阶段W1增量367.12352 LSB、d2_150增量171.0908 LSB；d2_149增量-12.034754 LSB，原2/3描述标记保持。",
+      "limit": "与同坐标均值W1具有相同零集合；对k个同幅残差的相对增强为sqrt(d/k)，对单坐标最大仍有1/sqrt(d)稀释。它增强局部可见性，不增加跨坐标配对信息。",
+      "evidence_refs": [
+        "E2",
+        "E10"
+      ],
+      "code_refs": [
+        "C2:37-41",
+        "C2:60-68"
+      ]
+    },
+    {
+      "loss": "temporal_joint",
+      "coefficient": 1,
+      "coverage": "每区31维(RMS、ACF1–20、10个非零rFFT五bin功率占比)经REAL TRAIN固定均值/总体SD标准化；0.5*(边缘W1+64方向切片W1)，按SOURCE质量；第七随机流独立。",
+      "R62_evidence": "Q1–Q7七区协方差残差超同处理REAL及32个经验参照；Q6=2.4097373，对照0.01608968、参照最大0.59082705；Q8=0.99829569未超参照最大1.46948487。",
+      "limit": "31维有真正的联合切片约束，但特征映射不唯一：去均值、时间反转和整体符号反转留下相同描述。完整100x100时间位置协方差、高阶/相位结构未被此项唯一确定。旧V480切片仍在，故不是九项整体的严格盲区。",
+      "evidence_refs": [
+        "E3",
+        "G1"
+      ],
+      "code_refs": [
+        "C2:9-35",
+        "C2:43-57",
+        "C2:69-79",
+        "C1:76-84"
+      ]
+    }
+  ],
+  "supported_findings": [
+    {
+      "id": "S1",
+      "type": "observed_residual_not_causal",
+      "claim": "R62完整SOURCE全窗残差高于抽样参照，不能全部归于B=32有限批噪声。",
+      "values": {
+        "full_SOURCE": 1.1964173703449354,
+        "batch_SOURCE_mean": 1.3462646761745058,
+        "batch_REAL_REAL_mean": 0.3044508991088901,
+        "paired_excess_min": 0.6490027073387779,
+        "paired_excess_mean": 1.0418137770656157
+      },
+      "evidence_refs": [
+        "E4"
+      ],
+      "code_refs": [
+        "C7:53-79"
+      ]
+    },
+    {
+      "id": "S2",
+      "type": "observed_residual_not_causal",
+      "claim": "高端条件边界外区（仍有同定义REAL参照）在当前已实现的目标中占主导；电压、峰归一形状和差分均有剩余，而非单一绝对幅度。",
+      "values": {
+        "SOURCE_N": 918,
+        "REAL_N": 1032,
+        "SOURCE_mass": 0.1392385863794934,
+        "contribution": 1.061637427065948,
+        "total": 1.1964173703449354,
+        "reported_share_percent": 88.73,
+        "stored_table": {
+          "V480": [
+            15.380358498378786,
+            24.53324473599917
+          ],
+          "U480": [
+            4.315928595546817,
+            12.18744515499127
+          ],
+          "DU479": [
+            0.965707210167672,
+            2.1085410725507394
+          ],
+          "D2U478": [
+            0.44342862065081134,
+            1.0620829888022751
+          ]
+        }
+      },
+      "evidence_refs": [
+        "E4",
+        "E5",
+        "E8"
+      ],
+      "code_refs": [
+        "C6:13-29",
+        "C1:7-12",
+        "C1:76-84",
+        "C8:79-86"
+      ]
+    },
+    {
+      "id": "S3",
+      "type": "observed_residual_not_causal",
+      "claim": "短滞后与基线联合残差是真实保存的TRAIN差异；只看总体RMS/ACF1不足以概括这些差异。",
+      "values": {
+        "all_cov_SOURCE": 0.3731029981599024,
+        "all_cov_control": 0.012193025001549533,
+        "all_cov_reference_max": 0.144058531380474,
+        "SOURCE_RMS_W1_V": 3.9764096178108776e-06,
+        "SOURCE_ACF2_W1": 0.09984916563785354,
+        "SOURCE_ACF4_W1": 0.10141336058521008,
+        "regions_flagged_of_8": 7
+      },
+      "evidence_refs": [
+        "E3"
+      ],
+      "code_refs": [
+        "C1:18-20",
+        "C2:11-19",
+        "C7:28-51"
+      ]
+    },
+    {
+      "id": "S4",
+      "type": "path_stage_description",
+      "claim": "神经端点和后续投影均伴随不同局部残差；投影并非对所有位置单调改善。该阶段对比不能指定某个损失或网络层为因果。",
+      "values": {
+        "SOURCE_baseline_segment_W1_neural_raw_V": 0.00024044749519867893,
+        "SOURCE_baseline_segment_W1_projected_f32_V": 0.003952390485573688,
+        "SOURCE_baseline_segment_W1_canonical_ADC_V": 0.003951630566578627,
+        "d1_149_neural_raw_W1_V": 0.024967099214404372,
+        "d1_149_projected_f32_W1_V": 0.009474523814782997,
+        "d1_149_canonical_ADC_W1_V": 0.009474526024043483
+      },
+      "evidence_refs": [
+        "E2",
+        "E6"
+      ],
+      "code_refs": [
+        "C3:13-37",
+        "C7:6-26"
+      ]
+    },
+    {
+      "id": "S5",
+      "type": "observed_partial_success_not_acceptance",
+      "claim": "严格Q构造有效，且同处理REAL的TRAIN偏离小；源PSD关联、区域PSD和边界仍需联合判定。",
+      "values": {
+        "SOURCE_Q_rank": 0.9999997645911044,
+        "SOURCE_PSD_rank": 0.4598912091759548,
+        "SOURCE_Q_error_max": 2.2190546648182633e-08,
+        "REAL_control_range_active": 0,
+        "REAL_control_PSD_W1": 0.00036446004257681153
+      },
+      "evidence_refs": [
+        "E5",
+        "E6",
+        "G3"
+      ],
+      "code_refs": [
+        "C3:7-37",
+        "C1:85-103"
+      ]
+    }
+  ],
+  "negative_or_not_triggered_findings": [
+    {
+      "id": "N1",
+      "scope": "R60冻结R59，不是R63",
+      "claim": "原三个梯度冲突标记均未触发，不能把R62大标量贡献追认成R60阳性。",
+      "values": {
+        "roundoff_order_conflict": {
+          "batches": 17,
+          "total_batches": 32,
+          "required_batches": 24,
+          "activated": false
+        },
+        "outside_full_window_conflict": {
+          "batches": 0,
+          "total_batches": 32,
+          "required_batches": 24,
+          "activated": false
+        },
+        "valley_PSD_conflict": {
+          "batches": 4,
+          "total_batches": 32,
+          "required_batches": 24,
+          "activated": false
+        }
+      },
+      "evidence_refs": [
+        "E7",
+        "G2"
+      ],
+      "code_refs": []
+    },
+    {
+      "id": "N2",
+      "scope": "R62",
+      "claim": "Q8协方差没有超过全部32个经验参照；d2_149神经阶段增量不是正超1LSB。保留两项阴性。",
+      "values": {
+        "Q8_SOURCE_covariance": 0.9982956933852368,
+        "Q8_reference_max": 1.4694848698768208,
+        "d2_149_neural_change_V": -0.0007345879467521299
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ],
+      "code_refs": [
+        "C7:21-25",
+        "C7:38-50"
+      ]
+    },
+    {
+      "id": "N3",
+      "scope": "R62",
+      "claim": "两区h==1硬谷概率没有升高；不能将谷污染写成已出现，也不能由硬谷0推定平滑罚无梯度。",
+      "values": {
+        "Q3_h_N": 482,
+        "Q4_h_N": 435,
+        "original_valley_mass": [
+          0.0,
+          0.0
+        ],
+        "output_valley_mass": [
+          0.0,
+          0.0
+        ]
+      },
+      "evidence_refs": [
+        "E5"
+      ],
+      "code_refs": [
+        "C1:90-97"
+      ]
+    },
+    {
+      "id": "N4",
+      "scope": "R62",
+      "claim": "保存的全部域/区域零基线功率计数为0，不能把该轮差异归为零功率保护被实际触发。",
+      "values": {
+        "all_SOURCE_zero_power_N": 0,
+        "all_REAL_control_zero_power_N": 0,
+        "all_REAL_reference_zero_power_N": 0,
+        "power_floor_R63": 1e-20
+      },
+      "evidence_refs": [
+        "E3",
+        "C9"
+      ],
+      "code_refs": [
+        "C2:11-19"
+      ]
+    },
+    {
+      "id": "N5",
+      "scope": "R62",
+      "claim": "不能把已见大边界残差归为最后ADC舍入单独造成；d1_149在投影后float32和规范ADC的W1几乎相同，基线段同样在投影后已增大。此结论只定位保存阶段的量级，不否定训练期STE问题。",
+      "values": {
+        "d1_149_projected_f32_W1_V": 0.009474523814782997,
+        "d1_149_canonical_ADC_W1_V": 0.009474526024043483,
+        "ADC_LSB_V": 6.103888176768602e-05
+      },
+      "evidence_refs": [
+        "E2",
+        "E12"
+      ],
+      "code_refs": [
+        "C3:41-47"
+      ]
+    },
+    {
+      "id": "N6",
+      "scope": "本次证据界限",
+      "claim": "没有R63终点输出/梯度证据，没有R62峰密度拟合，也没有高端区不可约损失下界；这些均保持unknown。",
+      "values": {
+        "R62_density_fits": 0,
+        "this_review_R63_final_evaluation_read": false,
+        "this_review_new_forwards": 0
+      },
+      "evidence_refs": [
+        "E1",
+        "E5",
+        "G1"
+      ],
+      "code_refs": []
+    }
+  ],
+  "mathematically_demonstrable_limits": [
+    {
+      "id": "M1",
+      "applies_to": "coordinate_RMS单项与旧逐坐标均值部分",
+      "claim": "信息零集合相同，局部权重不同。",
+      "argument": "令w_j>=0，A=mean(w_j)，R=sqrt(mean(w_j^2))。A=0当且仅当R=0；A<=R<=sqrt(d)*A，max_j(w_j)<=sqrt(d)*R。若k个坐标有同值a，则R/A=sqrt(d/k)。d为480/480/479/478。",
+      "implication": "新增项能强化稀疏坐标残差，却不提供新的跨事件坐标配对；也没有逐边界最大误差门的等价性。",
+      "evidence_refs": [
+        "E2",
+        "C9"
+      ],
+      "code_refs": [
+        "C2:37-41",
+        "C2:62-68",
+        "C1:81-84"
+      ]
+    },
+    {
+      "id": "M2",
+      "applies_to": "31维temporal_features单项；不能外推为九项整体",
+      "claim": "基线特征映射具有精确不唯一性。",
+      "argument": "前100点去均值b后，b与-b、b[t]与b[99-t]具有相同RMS、所有所用非循环ACF及rFFT功率幅度；加常数基线也在去均值步骤消失。故即使31维联合律完全匹配，时间方向、符号非对称、绝对基线均值及位置协方差不被唯一决定。",
+      "qualification": "一般时间重排不保持ACF；未主张任意相位修改都保持这里的非循环ACF。旧V480坐标/随机切片及差分损失仍能识别部分上述差异。",
+      "evidence_refs": [
+        "E3",
+        "G1"
+      ],
+      "code_refs": [
+        "C2:11-19",
+        "C1:76-84"
+      ]
+    },
+    {
+      "id": "M3",
+      "applies_to": "有限批独立经验W1；B=1反例说明一般风险，不能当作B=32塌缩证明",
+      "claim": "经验批W1含非零匹配底噪，其期望目标一般不等于总体W1。",
+      "argument": "一维W1=积分|F-G|；对独立有限样本经验CDF，凸性给出E|F_hat-G_hat|>=|F-G|。简单B=1例：目标Uniform[-1,1]，生成也为该分布时E|X-Y|=2/3；生成恒0时E|0-Y|=1/2。因此有限批目标可能偏向收窄。",
+      "project_evidence": "R62完整REAL–REAL=0，而B=32的32批均值0.3044508991、范围[0.2939407215,0.3159227653]。R63沿用B=32；没有R63收窄的实证归因。",
+      "evidence_refs": [
+        "E4",
+        "C9"
+      ],
+      "code_refs": [
+        "C1:81-88",
+        "C2:37-46",
+        "C5:127-137"
+      ]
+    },
+    {
+      "id": "M4",
+      "applies_to": "区域质量和总体/条件目标的几何关系",
+      "claim": "总体匹配与逐区匹配之间存在必须检查的混合质量条件，不由质量不同自动推出冲突。",
+      "argument": "若每区生成PSD律P_S^b=P_R^b，则总体生成是sum m_S^b P_R^b，而总体REAL是sum m_R^b P_R^b；二者相同须sum(m_S^b-m_R^b)P_R^b=0。质量不同仅给出可能折中，需实际区内律验证。",
+      "project_evidence": "below质量1922/6593对1120/21047；above质量918/6593对1032/21047。full_window/coordinate_RMS/temporal按m_S，PSD总体和noise分别按各域质量；PSD共同Q1–Q7又是等区平均。",
+      "implication": "外层九个系数都为1不能称物理目标/区域或梯度平衡；不能据该混合条件改源权重。",
+      "evidence_refs": [
+        "E4",
+        "E5",
+        "C9"
+      ],
+      "code_refs": [
+        "C1:62-63",
+        "C1:83-99",
+        "C2:67-75"
+      ]
+    },
+    {
+      "id": "M5",
+      "applies_to": "source_order/source_valley单项",
+      "claim": "排序hinge允许并列，平滑谷概率不等于硬谷概率。",
+      "argument": "所有输出PSD都相等时dy=0，每个可分辨对的relu(-sign(ds)*dy)=0；所以该项没有单独防收窄/并列保证。谷窗为sigmoid乘积，硬窗外仍有非零尾部；batch概率再过relu平方会造成另一层非线性抽样偏差。",
+      "qualification": "全常数PSD通常被PSD/full_window损失惩罚，本例不证明总目标支持塌缩。R62硬谷0并未证明平滑罚的数值或梯度。",
+      "evidence_refs": [
+        "E5",
+        "G2",
+        "C9"
+      ],
+      "code_refs": [
+        "C4:25-37",
+        "C1:90-97"
+      ]
+    },
+    {
+      "id": "M6",
+      "applies_to": "电荷/ADC构造与边界局部可见性",
+      "claim": "Q和快积分定义对100、150、400存在结构性分段敏感性；投影在饱和和Q法向上限制梯度。",
+      "argument": "a_Q=(-3于0:100,1于100:400,0其后)，a_F=(-0.5于0:100,1于100:150,0其后)。p=1-F/Q，因此dp=-(1/Q)dF+(F/Q^2)dQ；在精确Q切空间dp=-(1/Q)dF。两积分并不约束波形局部连续性。投影自由坐标的反传为A(g-a_Q*(a_Q^T A g)/(a_Q^T A a_Q))，饱和坐标导数为0。",
+      "qualification": "这说明候选梯度通道，不证明它制造了R62的150边界。代码中未饱和坐标投影修正为-lambda*a_Q，149与150同属a_Q=1；纯公共Q平移不会单独在149/150创造跳变，局部饱和、原神经残差等须分开测量。",
+      "evidence_refs": [
+        "E2",
+        "E6"
+      ],
+      "code_refs": [
+        "C3:7-37",
+        "C1:14-16"
+      ]
+    },
+    {
+      "id": "M7",
+      "applies_to": "canonical_adc_torch的梯度语义",
+      "claim": "训练使用ADC直通梯度，非硬量化真实导数。",
+      "argument": "代码返回v+(canonical-v).detach()，前向为固定硬ADC值，反向对v为恒等；硬量化在码元内的真实导数为0。不能用穿过硬ADC的微小数值差分去验证直通代理的等价，也不能由其梯度符号保证实际码值下降。",
+      "qualification": "这是明示设计而非新发现的实现错误；R62阶段数值显示终末ADC舍入不是已见大残差的唯一来源。",
+      "evidence_refs": [
+        "E2",
+        "G1"
+      ],
+      "code_refs": [
+        "C3:41-47"
+      ]
+    },
+    {
+      "id": "M8",
+      "applies_to": "精确Q与电压联合律的可达性；不直接等于当前切片损失下界",
+      "claim": "固定输入Q时，任意精确preADC输出的Q边缘由源人口固定。",
+      "argument": "若某原区SOURCE与REAL的Q律不同，则preADC完整V联合律不可能精确相等。对真正以欧氏距离为代价的W1，W1(V_out,V_REAL)>=W1(Q_source,Q_REAL)/sqrt(1200)，因为||a_Q||_2=sqrt(1200)。在仅限制基线均值m属于观测REAL范围[m_min,m_max]时，ADC范围[-0.5,0.5]进一步必要地要求q属于[-150-300*m_max,150-300*m_min]。",
+      "qualification": "本次缺少区内Q距离和所需m极值，未计算任何下界；当前full_window是坐标+有限切片，不可把该联合W1下界直接当作其不可约值。后者仅是限制到观测基线包络的必要条件，不是所有可行波形的物理不可能性。preADC精确Q与规范ADC后Q也须分开。",
+      "evidence_refs": [
+        "E5",
+        "E6",
+        "E11"
+      ],
+      "code_refs": [
+        "C3:7-39",
+        "C1:76-84"
+      ]
+    },
+    {
+      "id": "M9",
+      "applies_to": "有限特征/有限方向的实际训练，不是理想无限方向极限",
+      "claim": "有限投影不能作为联合律完全相等的证书；也不能把64方向当作整个训练唯一固定的低秩盲空间。",
+      "argument": "旧四视图方向与新增31维方向均逐更新重抽，R63共50000更新；完整V480的理想全方向投影族可区分联合律。实际有限样本/有限方向、加权求和、非零容差仍可能漏检局部依赖，需用保留的原五视图和独立结构统计验证。",
+      "evidence_refs": [
+        "G1",
+        "C9",
+        "G3"
+      ],
+      "code_refs": [
+        "C1:65-70",
+        "C2:53-57",
+        "C5:126-137"
+      ]
+    }
+  ],
+  "still_unverified_R63_hypotheses": [
+    {
+      "id": "H1",
+      "hypothesis": "高端条件边界外区的大残差由区内Q/基线包络不匹配与可优化形状误差共同构成，其相对份额未知。",
+      "supported_part": "918对1032父事件；目标贡献88.73%；电压及峰归一形状残差均已保存。",
+      "missing_evidence": "同区原Q ECDF/范围、REAL基线均值包络、逐父饱和/投影与四视图残差的关联、合法下界；不能用同区REAL存在推断全部源有对应实测支持。",
+      "evidence_refs": [
+        "E4",
+        "E5",
+        "E6",
+        "E8"
+      ],
+      "code_refs": [
+        "C6:13-29",
+        "C3:7-37"
+      ]
+    },
+    {
+      "id": "H2",
+      "hypothesis": "R63增加31维约束后仍可能保留时间位置协方差、长滞后/非对称或基线均值残差。",
+      "supported_part": "R62基线7/8区描述标记；31维映射的确不唯一。",
+      "missing_evidence": "R63固定末点的31维完整分布残差与完整协方差/时间位置统计是否分离。若31维本身仍差，不能优先归因为新增特征不足。",
+      "evidence_refs": [
+        "E3",
+        "G1"
+      ],
+      "code_refs": [
+        "C2:11-19",
+        "C1:76-84"
+      ]
+    },
+    {
+      "id": "H3",
+      "hypothesis": "区域加权与小批量W1/稀疏边界导致优化方向更偏向某些区域或平均尺度。",
+      "supported_part": "B=32实测抽样底噪、above标量贡献及坐标平均的数学稀释。",
+      "missing_evidence": "R63保存轨迹、固定批梯度及各区域贡献；欧氏梯度也不能替代实际Adam更新。",
+      "evidence_refs": [
+        "E4",
+        "E7",
+        "C9"
+      ],
+      "code_refs": [
+        "C1:62-84",
+        "C2:62-75",
+        "C5:149-163"
+      ]
+    },
+    {
+      "id": "H4",
+      "hypothesis": "源排序/谷约束与PSD/局部差分目标可能在R63部分区域竞争，投影又改变有效梯度。",
+      "supported_part": "源PSD秩0.45989、Q3/Q4 PSD残差与硬谷0并存；分段积分和投影梯度结构存在。",
+      "missing_evidence": "R63冻结模型下预登记的逐项、逐区和投影前后梯度。R60三个原标记未触发，不能当作此假设成立的证据。",
+      "evidence_refs": [
+        "E5",
+        "E6",
+        "E7"
+      ],
+      "code_refs": [
+        "C1:85-103",
+        "C3:13-37",
+        "C4:25-38"
+      ]
+    }
+  ],
+  "conditional_followup_TRAIN_diagnostic_proposal": {
+    "status": "draft_proposal_not_registered_not_executed",
+    "activation_conditions": [
+      "R63唯一50000步末点及原A–C/数值门结果先按原协议封存；本报告不打开这些结果，也不据中途损失选参。",
+      "仅在R63终局失败后考虑；若失败为原数值门，先关闭方法并处理数值证据，本方案的新模型前向部分暂不激活。",
+      "只有数值门通过而原A–C失败、科学作业槽已清空、主助手另行登记完整输入绑定/阈值/种子/统计后，才运行以下TRAIN诊断。",
+      "不训练、不更新权重、不调系数、不拟合峰密度/HGB/教师、不改变源父事件、区域权重或原A–F；新的诊断标记只是分辨机制的描述条件。"
+    ],
+    "fixed_input_scope": {
+      "parents": "全部6593 SOURCE、21047 REAL TRAIN；原ID顺序、h和十个原raw区，所有源等父目标质量保留。",
+      "TRAIN_archive_SHA256": "9e2f2c3c18470f4b2f3374a39590a9c27b18222bd1b22b5d7467e561409ad854",
+      "source_parent_ID_SHA": "8a9cd601e1846fca27f15b68c116059930340ba9700fe9bc49a2f06af65c4f22",
+      "weights": "只用已封存R63 update50000；未来登记时写入实际张量SHA，当前保持unknown，不选其他检查点。",
+      "normalization": "原R61 TRAIN_DISTRIBUTION_CONSTANTS及已冻结R63 TRAIN_TEMPORAL_CONSTANTS，复用字节，不重新拟合。",
+      "scientific_fields_allowed": [
+        "source",
+        "target",
+        "source_ids",
+        "h",
+        "source_bin",
+        "target_bin"
+      ],
+      "forbidden_fields": [
+        "source_val",
+        "target_val",
+        "DEV",
+        "EVAL",
+        "CAL"
+      ],
+      "full_path_noise": "复用R62完整人口PCG64种子full_SOURCE_epsilon=20261011600、full_REAL_epsilon=20261011601及消费形状/字节；只对R63新末点前向一次，不重算R61/R62。",
+      "full_path_forward_rows": 27640,
+      "full_path_network_calls_at_chunk64": 433,
+      "four_view_fixed_directions": "复用R62 full_feature_directions=20261011602及已保存directions_0..3，每视图64方向。",
+      "temporal_fixed_directions": "新诊断独立PCG64 seed20261011641，一次standard_normal((31,64)) float64、列L2归一、转小端float32；不借用/推进训练随机流。",
+      "endpoint_resampling": "复用R62 LOSS_COVERAGE_PRIVATE中的batch_SOURCE_rows、batch_REAL_A_rows、batch_REAL_B_rows、batch_REAL_control_rows：32批，每域每原区32；它是固定噪声端点重采样，不等同训练轨迹期望。",
+      "covariance_reference": "复用R62 BASELINE_JOINT_PRIVATE每个原区已保存32次reference_indices，按原SOURCE N抽样的REAL经验参照；不称总体置信区间。",
+      "gradient_batches": "固定同32批SOURCE/REAL_A父索引；REAL_identity另用PCG64 seed20261011642逐批64个均匀REAL索引；SOURCE/identity噪声另用seed20261011643/20261011644按原训练形状生成；32批全部执行并保留，不按阳性提前终止。",
+      "gradient_model_rows_if_registered": 12288,
+      "combined_max_planned_model_rows": 39928,
+      "count_note": "39928是27640+32*(10*32+64)的预定统计设计计数，不是续训或方法搜索额度；密度拟合、优化器更新和DEV/EVAL/CAL均为0。"
+    },
+    "ranked_diagnostics": [
+      {
+        "priority": 1,
+        "id": "D1_charge_reference_geometry",
+        "hypothesis": "高端目标残差包含固定Q与同区参照电荷/基线包络间的可测差距；不能全归网络形状，也不能预先称不可约。",
+        "why_first": "above仅13.9239%源质量却占88.73%当前全窗目标，且保留1032个同区REAL；需要先解释比较对象和物理自由度。",
+        "inputs": "全部原TRAIN输入、原Q区域边界、原规范ADC公式；此子项不需新神经前向。与R63路径共享的人口范围冻结。",
+        "statistics": [
+          "每个原区及全体SOURCE/REAL的Q最小值、最大值、经验分位与精确一维W1；分开原float32输入Q、REAL规范ADC Q，不用Q8替代above。",
+          "每区用原R62 32次matched-N REAL索引计算Q自身经验参照，报告全部32值，保留真实有限样本差别。",
+          "记录每区REAL前100点均值的完整观测范围，统计SOURCE q不满足[-150-300*m_max,150-300*m_min]的数量/原质量，并同时报告无该包络限制的|q|<=300。",
+          "计算诊断参照D_mix=W1(sum m_SOURCE^b P_REAL_PSD^b, sum m_REAL^b P_REAL_PSD^b)，同时保存所有原质量；该重加权仅是几何参照，不改训练或最终评价。",
+          "若区内Q距离非零，报告preADC真正联合欧氏W1的Q方向下界W1_Q/sqrt(1200)；明确它不是现行坐标+64切片loss的直接下界。"
+        ],
+        "preregistered_positive_rules": [
+          "对每个原区，SOURCE–REAL原Q W1严格超过该区全部32个matched-N REAL–REAL经验Q W1，标为可检出的参照电荷差距；所有10区同时报告，不只摘above。",
+          "若任一原SOURCE父事件在|q|<=300下仍违反观测REAL基线均值包络的必要条件，则标为观测包络条件不可实现质量；只针对该包络，不宣称物理或A–F不可能。",
+          "D_mix>1e-12仅标记两个混合参照不完全相同；不得把其非零当作0.01验收不可达，须连同各区实际误差和质量解释。"
+        ],
+        "preregistered_negative_rules": "Q距离未超过所有经验参照、观测包络违例为0或D_mix<=1e-12时，对应标记为未触发，不得事后收窄包络/改区域使其阳性。",
+        "closure": "结束这一固定参照诊断；不剔除above父事件、不改质量、不设人口匹配新验收，不以阳性替代完整响应研究。",
+        "evidence_refs": [
+          "E4",
+          "E5",
+          "E6",
+          "E8",
+          "E11"
+        ],
+        "code_refs": [
+          "C6:13-29",
+          "C3:7-39",
+          "C1:62-99"
+        ]
+      },
+      {
+        "priority": 2,
+        "id": "D2_full_path_and_feature_resolution",
+        "hypothesis": "R63能否同时减少原局部边界与基线联合残差；若31维已接近经验参照而完整时间位置协方差仍差，才优先考虑描述分辨率不足。",
+        "why_second": "R62两项标记只是覆盖扩展的动机，必须用固定末点检验新增目标是否真正覆盖并减少相应残差。",
+        "inputs": "唯一27640行R63 TRAIN路径：输入、加噪初态、神经raw、投影后float32、规范ADC；原R62摘要作为封存对照，不重算。",
+        "statistics": [
+          "全480/479/478坐标W1、RMS及最大值、原九边界各阶段W1；按所有10原区和全体列出，禁止只挑149/150或只挑低损失区域。",
+          "31维完整经验边缘/固定64切片W1及每区100x100去事件均值基线协方差相对Frobenius；另报告每父绝对基线均值和固定5个20点块的均值/能量分布作为定位描述，不据其事后增设阳性规则。",
+          "投影活跃/非活跃仅作为解释分层，全部父事件继续保留；记录每父rail数、投影RMS、基线均值改变量及九边界改变量。",
+          "同处理REAL使用完全同一映射，并保留其31维与协方差偏离；误差拆分只对保存阶段描述，不当因果干预。"
+        ],
+        "preregistered_positive_rules": [
+          "沿用R62描述性神经边界条件：d1_149_150、d2_149、d2_150中至少2项的neural_raw减noise_initial W1>1LSB；不修改原验收边界门。",
+          "沿用R62协方差条件：Q1–Q8至少6区的SOURCE协方差误差严格大于同处理REAL且超过全部32个matched-N REAL参照。",
+          "只有同一批至少6区同时满足：31维固定完整统计残差不大于其32批REAL–REAL标量参照最大值，而协方差仍满足上述超参照条件，才标为31维与完整位置统计分辨率分离。该条件是经验描述，不能证明31维总体等价。"
+        ],
+        "preregistered_negative_rules": "原边界计数<2、协方差计数<6或分辨率分离计数<6，对应标记不触发。若31维自身仍明显超参照，优先记为已覆盖统计仍未拟合，而不是宣布需要更多特征。",
+        "closure": "固定一次路径结束；不改特征、窗长、平滑、标准化、阈值或R63末点。数学不唯一性即使存在，也不能代替该实测分离。",
+        "evidence_refs": [
+          "E1",
+          "E2",
+          "E3",
+          "E12"
+        ],
+        "code_refs": [
+          "C7:6-51",
+          "C2:11-19",
+          "C2:60-79"
+        ]
+      },
+      {
+        "priority": 3,
+        "id": "D3_batch_floor_and_region_accounting",
+        "hypothesis": "R63残余目标是稳定完整分布差异，还是主要落在固定端点B=32经验底噪内；外层系数1如何分配到区域和局部坐标。",
+        "why_third": "R62已证明抽样底噪明显但不足解释全部残差，R63新增RMS/31维项可能改变底噪与区域贡献；不能照搬R62数值。",
+        "inputs": "D2唯一端点缓存、冻结R61/R63标准化常数、固定方向与32组已保存父索引；无新增神经前向。",
+        "statistics": [
+          "分别为full_window、coordinate_RMS、temporal_joint及其边缘/切片计算完整不等样本经验值和32批SOURCE–REAL、REAL–REAL、REAL_control–REAL；所有逐区/逐特征分量及原质量保留。",
+          "报告配对SOURCE–REAL减REAL–REAL的32值、均值/SD/范围及正值计数；不把32次经验重采样当独立采集CI。",
+          "报告每区在完整目标中的原质量加权贡献、各坐标W1的平均/RMS/最大值；不将高标量贡献称梯度主导。",
+          "只读已保存终局50000步训练轨迹，预定按10个连续5000更新块汇总九项损失、梯度裁剪比例及投影比例，完整列出各块；不选择最佳块或续训。"
+        ],
+        "preregistered_positive_rules": [
+          "某项SOURCE配对批excess在至少24/32批>0，且其完整SOURCE残差严格超过完整REAL_control参照，则标稳定残余；此标记拒绝该项仅由当前批抽样底噪解释。",
+          "仅当所有三项的SOURCE32批中位数均落在对应REAL–REAL[min,max]内，且均未达到24/32正excess，才标未区分出超底噪差异；仍不宣称原A–C通过。"
+        ],
+        "preregistered_negative_rules": "不满足任一组合时记混合/unknown；不得增大或缩小B、方向数、批数、区域集合或更换随机种子寻求结论。",
+        "closure": "保留一次固定经验比较的全部阴性。新增RMS或基线项若仍有稳定残余，后续机制检验先面对优化/几何问题，而非把模型损失绝对值当收敛门。",
+        "evidence_refs": [
+          "E4",
+          "E8",
+          "E12",
+          "C9"
+        ],
+        "code_refs": [
+          "C7:53-79",
+          "C2:37-46",
+          "C5:117-163"
+        ]
+      },
+      {
+        "priority": 4,
+        "id": "D4_source_projection_gradient_competition",
+        "hypothesis": "在R63末点是否出现源排序/谷区、内外区域与响应目标之间稳定的局部竞争，或数据梯度被原电荷/饱和投影明显削弱。",
+        "why_fourth": "这是唯一需要新增32批神经求导的子项；只有冻结末点的逐项证据能更新R63判断，不能用R62标量或R60未触发结果替代。",
+        "inputs": "固定32组父索引、预先指定identity索引/噪声/方向；原训练解析endpoint；零优化器步，不能更改投影/ADC或输出人口。",
+        "statistics": [
+          "九项原加权参数梯度的范数与Gram、g_response=full_window+PSD+noise+coordinate_RMS+temporal_joint、g_source=source_order+source_valley；REAL_identity与box_correction单列。",
+          "full_window+coordinate_RMS+temporal_joint按原raw Q1–Q8与below/above分解梯度，另列above；分解重组在预登记float64/float32容差内核验。",
+          "单独source_valley与PSD梯度，source_order可分辨/原省略对仅作描述分解；记录同批软谷、硬谷及原高边界±0.004质量。",
+          "对数据项记录规范ADC直通之后、BoxChargeProjection之前/之后的波形梯度范数及rail自由掩码；给出eta=1-||J_projection^T g||^2/||g||^2，g=0时null。Q法向移除单独标记为设计约束。",
+          "PSD积分梯度按0:100、100:150、150:400、400:480和全部差分位置记录，不把沿100/150/400的结构性分段直接当因果。",
+          "若最终Adam一阶/二阶矩状态没有独立封存，仅报告原欧氏局部梯度，实际Adam竞争保持unknown，不用恢复缓存挑选其他状态。"
+        ],
+        "preregistered_positive_rules": [
+          "源约束竞争：至少24/32批同时满足cos(g_source,g_response)<-0.25且||g_source||>=0.5||g_response||。",
+          "区域竞争：至少24/32批同时满足cos(g_inside,g_outside)<-0.25且||g_outside||>=0.5||g_inside||。above及below原值同时报告，不用任意单区替代预设outside组合。",
+          "谷/PSD竞争：至少24/32批同时满足cos(g_valley,g_PSD)<-0.25且||g_valley||>=0.5||g_PSD||。",
+          "投影削弱描述：至少24/32批的SOURCE响应波形梯度eta>=0.5且存在范围活跃源行；分开Q法向移除和rail掩码。该标记不等于约束有错或可以放松。"
+        ],
+        "preregistered_negative_rules": "任何组合不足24批均为未触发；零梯度余弦保留null且不计阳性；不把范数占比单条件替代完整标记。R60的17/0/4原结论原封不动。",
+        "closure": "全部32批完成后关闭固定诊断。即使阳性也只是局部机制证据，须另行提出受控消融才能谈因果；阴性不得靠改阈值、加批或扫描损失系数延长。",
+        "evidence_refs": [
+          "E5",
+          "E6",
+          "E7",
+          "E13",
+          "G2"
+        ],
+        "code_refs": [
+          "C1:85-103",
+          "C4:25-38",
+          "C3:13-45",
+          "C5:141-150"
+        ]
+      }
+    ],
+    "global_stop_and_close_rules": [
+      "输入/权重/常数绑定、ID数量顺序或复现语义失配，立即停止并保留失败回执；不访问非TRAIN来补证。",
+      "若提出的必要条件超出观测REAL包络，只能报告该包络的兼容性限制；不得声明完整原A–F目标不可能。",
+      "达到预定一次完整人口路径与32批后结束；未触发标记和unknown都是有效结论，不延长批数、不重新选seed、不循环续训。",
+      "禁止删除或下调任何源区、按结果改变原阈值或把TRAIN描述替代DEV验收。",
+      "服务器仍为CPU12/RSS48GiB/GPU10GiB和唯一科学作业；本机全队CPU4/RSS4GiB；文件只在E/D，原R61/R62/R63产物不覆盖。"
+    ]
+  },
+  "decision_boundary": {
+    "current_action": "只交付本报告，让R63按冻结50000步和原后处理协议完成。",
+    "mechanism_confirmed": "没有新的训练因果机制被确认；本次确证的是已存残差、精确定义和单项损失的数学限制。",
+    "not_a_claim": [
+      "R63已经失败或成功",
+      "R62描述标记是唯一原因",
+      "原A–F已经通过",
+      "above没有REAL参照",
+      "高端残差88.73%全不可约",
+      "源人口或原验收目标应修改",
+      "31维不唯一意味着九项整体无法区分完整波形"
+    ],
+    "next_science": "仅在上述终局失败和另行登记条件满足时，按D1→D2→D3→D4固定顺序诊断。"
+  }
+}

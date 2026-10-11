@@ -1,0 +1,415 @@
+{
+  "schema_version": "1.0",
+  "report_id": "R63_WAIT_PARALLEL_001_LITERATURE",
+  "created_at_utc": "2026-10-11T01:11:07Z",
+  "language": "zh-CN",
+  "status": "completed_literature_review_only",
+  "project_root": "E:/GAN/research/sim2real_two_papers_20261008_0305",
+  "scope": {
+    "task": "等待R63唯一50000步末点期间，核验原始文献并提出最多两个可检验后续方向。",
+    "authority": "当前AGENTS.md首节允许独立辅助研究；本报告是提案，不是科学作业登记。",
+    "current_r63_process_state": "按分工说明仍在运行；本子任务未读取LIVE_OBSERVATION或远端进程，因此不独立确认实时进度。",
+    "unchanged": [
+      "当前R63九项损失、网络、初始化、随机流、人口权重、50000步末点及后处理",
+      "原A–F、全部最终SOURCE身份/组成/顺序/权重",
+      "R37和R39固定配方关闭结论",
+      "R60三个冲突标记未触发的结论"
+    ],
+    "actual_actions": {
+      "primary_literature_read": true,
+      "protocol_and_report_text_read": true,
+      "new_scientific_array_decodes": 0,
+      "model_forwards": 0,
+      "gradient_computations": 0,
+      "training_updates": 0,
+      "statistical_fits": 0,
+      "new_scientific_jobs": 0,
+      "git_operations": 0,
+      "shared_file_edits": 0
+    },
+    "sole_output": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/report.json",
+    "resource_note": "仅网页阅读与短时文本/哈希处理；未启动GPU或数值分析。服从全队本机CPU4/RSS4GiB及E/D存储限制。"
+  },
+  "executive_findings": [
+    "目前最有区分力的后续问题是有限batch目标/梯度误差与有限特征下的局部联合结构覆盖，应分开诊断；不能根据R62描述标记预先宣称任一机制是R63失败原因。",
+    "R62的REAL–REAL全量经验损失为0，32父/区小批量均值为0.3044509；SOURCE完整损失1.1964174、批均值1.3462647。有限batch底噪存在，但不能解释全部SOURCE残差。",
+    "31维RMS/ACF/功率特征对整段基线符号翻转和时间反转不变。这个数学事实只说明新增31维特征不唯一；R63仍保留完整V480等四视图、逐步新随机方向，其九项联合目标并未由此被证明存在严格盲区。",
+    "匹配波形/PSD边缘或条件分布不识别正确的源事件对应；电荷、ADC、源秩/谷约束、输入扰动和同处理REAL必须继续联合检查。无配对可识别性论文不能被误用为本项目已不可能的证明。",
+    "优先候选是同父事件/随机量的4×32损失平均与128合批损失的冻结梯度诊断。局部跨尺度与PSD联合特征是独立备选，仅在TRAIN残差及增量可见性证据成立后考虑。"
+  ],
+  "primary_sources": [
+    {
+      "id": "P1",
+      "title": "The Cramer Distance as a Solution to Biased Wasserstein Gradients",
+      "authors": "Marc G. Bellemare et al.",
+      "version": "arXiv:1705.10743v1, 2017-05-30",
+      "url": "https://arxiv.org/abs/1705.10743",
+      "full_text_url": "https://arxiv.org/pdf/1705.10743",
+      "verification": "已直接阅读作者预印本正文。",
+      "exact_locators": [
+        "PDF printed pp.3–4: Proposition 2 and Theorem 1",
+        "PDF printed p.5: Theorem 2 and energy distance Eq.(4)"
+      ],
+      "literature_facts": "论文在Bernoulli例子中证明经验Wasserstein目标的梯度及最优点可偏离总体目标，并给出随机目标被退化解最小化的例子；其Cramer结论有明确抽样与可微性前提。",
+      "project_inference": "反复抽取B=32不等于优化完整经验W1；R63的ADC直通梯度、区域权重、投影和RMS归约还需单独诊断。",
+      "not_supported": "论文不证明R63发生塌缩，不证明增大batch或改用Cramer可通过A–F。"
+    },
+    {
+      "id": "P2",
+      "title": "Minibatch optimal transport distances; analysis and applications",
+      "authors": "Kilian Fatras, Younes Zine, Szymon Majewski, Remi Flamary, Remi Gribonval, Nicolas Courty",
+      "version": "arXiv:2101.01792v1, 2021",
+      "url": "https://arxiv.org/abs/2101.01792",
+      "full_text_url": "https://arxiv.org/html/2101.01792v1",
+      "pdf_url": "https://arxiv.org/pdf/2101.01792v1",
+      "verification": "已直接阅读arXiv HTML正文；PDF解析/截图服务不稳定，未据无法查看的PDF页码补造定位。",
+      "exact_locators": [
+        "Section 3.4, Proposition 17",
+        "Section 3.5, Definition 18, Eqs.(29)–(30); Remark 19 Eq.(31) is the GW extension",
+        "Section 3.5, Positivity paragraph and Figure 5",
+        "Section 4.2, paragraph before Theorem 29 and Theorems 29–30"
+      ],
+      "literature_facts": "小批量OT一般不是距离；随机梯度的无偏性针对小批量期望目标。通用自项去偏并不自动非负；文中对p>=2给出负值反例，未找到W1反例而将其正性证明留作未来工作。",
+      "short_quotes": [
+        "we have not found any counter example for W1",
+        "the proof is left as future work"
+      ],
+      "project_inference": "应比较同样本的损失分批/合批及梯度，不能只从训练曲线减掉REAL自距离。对R63含平方、开方归约的复合目标，也不能直接套用任意去偏非负结论。",
+      "not_supported": "本报告不声称W1去偏一定为负，也不将该文的未证明表述当成截至2026年所有文献的未解结论。"
+    },
+    {
+      "id": "P3",
+      "title": "Scale Dependencies and Self-Similar Models with Wavelet Scattering Spectra",
+      "authors": "Rudy Morel, Gaspar Rochette, Roberto Leonarduzzi, Jean-Philippe Bouchaud, Stephane Mallat",
+      "version": "arXiv:2204.10177v2, 2023-06-19; v1 used the title Scale Dependencies and Self-Similarity Through Wavelet Scattering Covariance",
+      "url": "https://arxiv.org/abs/2204.10177",
+      "full_text_url": "https://arxiv.org/pdf/2204.10177",
+      "publication_url": "https://www.sciencedirect.com/science/article/pii/S1063520324001015",
+      "verification": "已阅读作者v2全文，并核对出版社标题与出版记录；细节依据v2，不假称逐式核对最终出版社版本。",
+      "exact_locators": [
+        "Sections 3.2–3.2.3, Eqs.(12)–(14), Propositions 1–2",
+        "Section 4.1, Eqs.(20)–(22)",
+        "Section 4.2, Proposition 4",
+        "Section 5 introductory estimator discussion"
+      ],
+      "literature_facts": "跨尺度系数的相位/模相关可描述功率谱之外的非高斯依赖；文中给出与时间反转对称性有关的性质。估计稳定性依赖序列长度、尺度与平稳等条件。",
+      "project_inference": "100点基线可先用固定短支撑非线性多尺度描述量检查遗漏结构；不能直接照搬长时间序列的渐近精度或假设自相似。",
+      "not_supported": "没有证据表明本项目噪声具有金融/湍流机制、非高斯残差一定存在，或加入scattering就能保真。"
+    },
+    {
+      "id": "P4",
+      "title": "Kernel of CycleGAN as a principal homogeneous space",
+      "authors": "Nikita Moriakov, Jonas Adler, Jonas Teuwen",
+      "version": "ICLR 2020; arXiv:2001.09061v1 (arXiv title spells Principle)",
+      "url": "https://arxiv.org/abs/2001.09061",
+      "full_text_url": "https://arxiv.org/pdf/2001.09061",
+      "official_conference_url": "https://openreview.net/forum?id=B1eWOJHKvB",
+      "verification": "OpenReview遇到浏览器验证，改为直接读取作者arXiv全文；arXiv元数据确认Accepted at ICLR 2020。",
+      "exact_locators": [
+        "Section 2.1, Propositions 2.1–2.2",
+        "Section 2.2, Proposition 2.3 and Corollary 2.1",
+        "Section 3 and Section 4 discussion"
+      ],
+      "literature_facts": "在其CycleGAN概率空间假设下，分布保持自同构可产生不同的同损失映射；加入identity项也不一般保证预期对应。",
+      "project_inference": "R63的源秩/谷和电荷只是部分约束；同处理REAL、源扰动及事件约束具有独立证据意义。波形分布接近不能解释成逐事件物理映射被识别。",
+      "not_supported": "R63不是CycleGAN；该定理不直接覆盖现有算子，也不证明项目A–F或其受限约束集合不可行。"
+    },
+    {
+      "id": "P5",
+      "title": "Equivalence of distance-based and RKHS-based statistics in hypothesis testing",
+      "authors": "Dino Sejdinovic, Bharath Sriperumbudur, Arthur Gretton, Kenji Fukumizu",
+      "version": "The Annals of Statistics 41(5), 2263–2291, 2013; arXiv:1207.6076v3",
+      "url": "https://arxiv.org/abs/1207.6076",
+      "full_text_url": "https://arxiv.org/pdf/1207.6076v3",
+      "doi_url": "https://doi.org/10.1214/13-AOS1140",
+      "verification": "已直接阅读作者/期刊电子重印全文。",
+      "exact_locators": [
+        "Section 4.1, distance-induced kernels",
+        "Section 5.1, Theorem 22, electronic-reprint printed p.15: energy distance equals twice squared MMD",
+        "Section 6, conditions for distinguishing probability measures"
+      ],
+      "literature_facts": "负型半度量诱导的energy distance与相应核的MMD等价；总体分布判别性质需要相应条件。",
+      "project_inference": "不能把energy/Cramer改名包装成完全脱离MMD的新范式，也不能从R39的固定Gaussian核失败推出全部核分布方法无效。",
+      "not_supported": "数学可分辨性不保证有限batch梯度、神经优化、物理对应或项目验收；本报告没有提出第三个energy-distance候选。"
+    }
+  ],
+  "project_evidence": [
+    {
+      "id": "E0",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/AGENTS.md",
+      "sha256": "3195677c622a773257ea5127721164cd3e34e70890216f685c886772dd941bbd",
+      "location": "首节：等待期间主动研究，按需多智能体并行",
+      "use": "执行与隔离边界；历史root-only分工由首节覆盖。"
+    },
+    {
+      "id": "E1",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/PROJECT_ACCEPTANCE.md",
+      "sha256": "d6f68a1e902d901bcceafaa1d23f97b1a8ff5ad9f52acf46b00b82d7a6bdb04d",
+      "location": "什么才算模型目标完成；A–F表；源人口说明",
+      "use": "同一冻结方法需联合满足A–F；Q人口不一致不能暗改权重；当前开发验收不是独立采集盲测。"
+    },
+    {
+      "id": "E2",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/tasks/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001.md",
+      "sha256": "047a4319cbafd7941581197919a18846a1f509d88b45c1005b4973632ddcf290",
+      "location": "冻结目标公式；不变条件、数据访问与训练；实现检查和固定评价",
+      "use": "四视图RMS经验W1、31维基线边缘/64方向W1、B=32、七项原损失保持、唯一50000步。"
+    },
+    {
+      "id": "E3",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/R62_REPORT.md",
+      "sha256": "becfce43660a6c4293875296562cd6c355c25b8de92908a79d6067b129d061f5",
+      "use": "完整TRAIN描述与有限batch参照。",
+      "facts": {
+        "source_parents": 6593,
+        "real_parents": 21047,
+        "neural_boundary_marker": "2/3",
+        "baseline_joint_marker": "7/8",
+        "full_source_loss": 1.1964174,
+        "source_batch_mean": 1.3462647,
+        "source_batch_sd": 0.12068125,
+        "full_raw_real_self_loss": 0,
+        "raw_real_self_batch_mean": 0.3044509,
+        "raw_real_self_batch_sd": 0.0061316149,
+        "same_treated_real_full_loss": 0.0074446101,
+        "same_treated_real_batch_mean": 0.30318077,
+        "above_support_fraction_of_full_loss": 0.8873,
+        "source_baseline_covariance_relative_frobenius_error": 0.373103,
+        "same_treated_real_covariance_relative_frobenius_error": 0.012193025
+      },
+      "boundary": "这些量是R61冻结权重的TRAIN诊断，不是R63结果、总体95%区间或因果归因。"
+    },
+    {
+      "id": "E4",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/R37_REPORT.md",
+      "sha256": "dfad872c3757532e872f13dc20e948c3a983d86b03de0f438f5a7f4ce6b7047c",
+      "use": "固定高斯协方差配方关闭。",
+      "facts": {
+        "shape493_ba": 0.924,
+        "u480_ba": 0.918,
+        "baseline_rms_w1_mV": 0.03111536,
+        "source_had_valley_increase_percentage_points": [
+          8.45,
+          11.6
+        ]
+      },
+      "boundary": "二阶校准和部分完整分类改善没有保住峰形/基线RMS/源组；不扫描原floor、秩、分区或叠后保护。"
+    },
+    {
+      "id": "E5",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/R39_REPORT.md",
+      "sha256": "9d4be51b341155f71a9f7eff07faa938f7a0b0c01dddfd22f8d96adfdea50d06",
+      "use": "固定Gaussian-MMD配方关闭。",
+      "facts": {
+        "shape493_ba": 0.982,
+        "u480_ba": 0.982,
+        "baseline_acf1_w1": 0.01841514,
+        "original_six_gates": [
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "fail",
+          "pass"
+        ]
+      },
+      "boundary": "PSD/ACF改善未带来完整响应和同处理REAL通过；不扫描其带宽、初始梯度定标c或末点。"
+    },
+    {
+      "id": "E6",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/tasks/R39_FULL_JOINT_KERNEL_TRANSLATION_001.md",
+      "sha256": "1174a58a7f66a1f8286c5f687b1028f56a1ecf56c91b7aea901da92ea4c4480a",
+      "location": "唯一联合核与TRAIN初始尺度；固定评价和门槛",
+      "use": "R39已采用去对角U统计、五带宽Gaussian核和一次初始梯度定标，不能误称仅需改为无偏U统计就修复R39。"
+    },
+    {
+      "id": "E7",
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/tasks/R59_DIRECT_DISTRIBUTION_RESPONSE_001.md",
+      "sha256": "cfe2a184f302ddbd2805fb2be0c55dfa2e8a07804938edeb8dd0514ec05a742a",
+      "location": "一个固定神经算子；直接分布损失",
+      "use": "完整V480/形状/差分随机投影仍保留；解析端点、约束投影和ADC直通梯度；总体与区域权重定义。"
+    }
+  ],
+  "known_artifact_paths_not_decoded": [
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/PER_PARENT_PRIVATE.npz",
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/BASELINE_JOINT_PRIVATE.npz",
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/LOSS_COVERAGE_PRIVATE.npz",
+    "E:/GAN/research/sim2real_two_papers_20261008_0305/work/R62_FROZEN_FULL_WAVEFORM_RESIDUAL_001/PATH_STATISTICS_PRIVATE.npz"
+  ],
+  "mechanism_audit": [
+    {
+      "issue": "有限batch目标与完整经验目标不同",
+      "literature": [
+        "P1",
+        "P2"
+      ],
+      "evidence": [
+        "E2",
+        "E3"
+      ],
+      "inference": "更多步可以降低对小批量期望的Monte Carlo误差，但不自动改变该期望与完整经验目标的差异。RMS在随机W1坐标后再非线性归约，也不能靠减去一个常数底噪来纠正。",
+      "unknowns": [
+        "R63固定末点实际参数梯度均值/方差",
+        "ADC直通与约束投影对偏差传播的影响",
+        "高端支持外88.73%标量贡献是否主导参数梯度；标量贡献不能证明梯度冲突"
+      ]
+    },
+    {
+      "issue": "31维统计族不唯一，整体目标覆盖仍待测",
+      "literature": [
+        "P3"
+      ],
+      "evidence": [
+        "E2",
+        "E7"
+      ],
+      "mathematical_fact": "对去均值长度100实序列b，b'=-b或b'[t]=b[99-t]使mean(b²)、各lag乘积求和以及rFFT模平方保持，因此全部31维完全相同（除实际浮点舍入）。",
+      "implication_boundary": "这仅是phi31的不唯一性。完整V480的随机投影、逐坐标项及差分视图可能检测这类改变；不宣称R63九项目标严格不可辨识。固定有限方向/批量下的增量可见性必须直接比较。",
+      "unknowns": [
+        "实际REAL基线是否含可重复的非高斯/时间非对称结构",
+        "100点窗口对跨尺度估计的有效样本数",
+        "新增特征是否仅重复已有V480切片能见的信息"
+      ]
+    },
+    {
+      "issue": "条件混合与源事件对应",
+      "literature": [
+        "P4"
+      ],
+      "evidence": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "inference": "同Q区内分别匹配PSD与噪声特征的边缘，不等于验证它们的联合条件律；完整波形理论上包含这些信息，但有限样本优化是否充分利用仍未知。保留Q和PSD秩也不等于正确逐事件真实响应。",
+      "controls": [
+        "原固定Q区和人口权重保持；连续Q只作描述，不暗中重权REAL",
+        "h只用于现有源约束/审计，不作REAL标签或网络输入",
+        "同处理REAL走相同噪声、网络、约束投影和ADC",
+        "源秩、谷比例、支持外、边界、扰动及数值门分别报告"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "name": "同样本分批与合批的分布目标/梯度诊断",
+      "priority": 1,
+      "registration_status": "proposed_not_registered_not_run",
+      "literature_supported_facts": [
+        "P1的经验Wasserstein偏差例子",
+        "P2对minibatch期望目标、抽样和梯度的区分"
+      ],
+      "project_inference": "R62已经支持测量估计器误差，但尚不支持直接扩大batch。固定同一128父/区的样本与随机量，对4个32批分别算损失后平均和先合并128再算损失进行配对，能隔离排序/非线性归约的差别。",
+      "precise_mechanism": {
+        "arm_A": "D_A=(1/4)*sum_{k=1..4} D_32(S_k,R_k;directions)",
+        "arm_B": "D_B=D_128(concat_k S_k,concat_k R_k;directions)",
+        "D": "仅R63的分布项：原全窗、PSD、原基线RMS/ACF、新全坐标RMS、新31维联合项；特征公式、标准化、总体/区域质量完全相同。",
+        "common_non_distribution_terms": "源排序、源谷、REAL保持、投影修正均按相同4个微批计算后平均，两臂逐值相同；不通过合批增加源排序父对集合。",
+        "common_randomness": "每配对使用相同父ID、重复次数、SOURCE与REAL白噪声、原七流派生规则及同一方向库。诊断固定一个事前方向库，以隔离父事件抽样；不冒充复现R63逐步fresh方向过程。",
+        "distinction_from_history": "不校准协方差，不恢复Gaussian-MMD，不换网络/核/损失几何，不续训R63。普通梯度累积平均4个W1只实现A，不等于B。"
+      },
+      "unknown_conditions": [
+        "较小batch是否形成稳定均值偏差或主要只有梯度噪声",
+        "收益是否仅来自上方支持外区域",
+        "更大有效batch的重复父率、显存与每次更新成本",
+        "更接近冻结经验梯度是否能改善原验收；目前未知"
+      ],
+      "minimum_legal_train_diagnostic": {
+        "timing": "只能在R63固定执行结束、唯一权重封存后，由根另行登记并占用单科学作业槽；本等待任务不执行。",
+        "population": "全部6593 SOURCE及21047 REAL原TRAIN、十区域、原权重；每父固定一份预登记随机量。若复用R62紧凑产物，结论只属于R61且不得代替R63末点。",
+        "fixed_reference": "固定权重、噪声及方向库，一次全TRAIN解析端点，构造精确不等样本/加权完整经验D_F。用先计算输出梯度、再小块确定性VJP的两遍过程积累g_F，避免保存全人口神经计算图。原投影与ADC直通梯度语义保留。",
+        "paired_sample_plan": "预登记32个独立宏批；每宏批每区域128 SOURCE及128 REAL参考，有放回，拆为4×32。A/B同父事件和同随机量，保留实际重复父数。REAL保持事件也使用同一集合与随机量。",
+        "gradient_outputs": [
+          "每个分布项及合计对投影前端点、规范输出和模型参数的梯度范数/夹角",
+          "bar(g_A)、bar(g_B)、各自相对g_F的均值差与Monte Carlo离散度",
+          "MSE_A/B=mean||g-g_F||²，同时分列均值差平方与抽样方差；不把MSE下降自动叫偏差消除",
+          "相同处理REAL与RAW REAL–REAL参照、各原区域及支持内外分解",
+          "与原源排序/谷、REAL保持、投影项梯度的内积；只作本次冻结状态描述"
+        ],
+        "independence_boundary": "全经验参考是同一有限TRAIN、固定噪声/方向下的算法梯度，不是总体或独立采集真梯度。ADC直通梯度也不是离散ADC映射的经典导数。",
+        "no_updates_or_model_selection": true
+      },
+      "preregistered_endpoint_and_stop_rules": {
+        "status": "下列是可供根冻结的前瞻性诊断规则，尚未成为执行协议；数值是工程筛选线，不是文献定理。",
+        "sole_diagnostic_endpoint": "完整g_F及32个配对宏批完成；不追加batch尺寸、方向库或重抽至显著。",
+        "nonzero_reference_rule": "g_F范数平方<=1e-24、非有限或必要数据/梯度缺失则该比较记不可判，不按相对误差自动通过。",
+        "mechanism_marker": "只有当B相对A的参数梯度MSE下降至少25%、32宏批至少24批更接近g_F，并且均值差范数也下降至少25%，才记录支持合批估计器的描述性标记。若仅方差下降，明确仅支持噪声解释，不宣称期望偏差已纠正。",
+        "fidelity_guard": "同处理REAL若有可判非零参考，其梯度MSE不得增加超过10%；完整十区及支持外全部保留。若改善只出现于上方支持外，不能推广成全窗共同区的机制证据。",
+        "failure_action": "任一必要标记未成立、数值语义不等价或资源不可行，即关闭这一固定合批提案；不据DEV或batch扫描补救。",
+        "possible_training_only_after_marker": "有标记后另行冻结A/B两个等数据曝光的训练臂：同初始化、每更新同128/区宏批、同非分布项、同一预定50000步末点，按单科学槽顺序执行。相对R63每步曝光/成本不同须明报，不能称同算力单因素复现。该训练目前未获本报告登记。",
+        "ultimate_stop": "无论TRAIN代理如何，固定候选原数值门或A–C任一失败即关闭；D/E仅在原A–C通过后另登记。"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "固定局部跨尺度特征与PSD的联合可见性诊断",
+      "priority": 2,
+      "registration_status": "proposed_not_registered_not_run",
+      "literature_supported_facts": [
+        "P3的跨尺度相位/模相关及时间反转性质",
+        "P4的分布匹配不自动确定事件对应"
+      ],
+      "project_inference": "若R63末点仍有超出REAL参照的局部非线性结构残差，固定短支撑Haar/模相关与PSD联合描述可能为原损失提供更直接的梯度。这是需测试的有限样本目标覆盖假说，不是新的噪声物理模型。",
+      "precise_mechanism": {
+        "feature_definition": "前100点去自身均值；固定尺度s∈{2,4,8,16}。以半样本中心t+1/2对齐，w_s(t)=[sum_{k=t-s/2+1..t} b[k]-sum_{k=t+1..t+s/2} b[k]]/sqrt(s)，只用有效支撑，无循环/反射填充。",
+        "fixed_nonlinear_features": "每尺度mean|w_s|和mean(w_s²)共8维；全部6对s<s'的mean[w_s*|w_s'|]共6维；这6对在lag∈{0,4}的Cov(|w_s(t)|,|w_s'(t+lag)|)共12维，总26维。每特征各自对有效共同t平均；均值/协方差采用明确总体分母。",
+        "joint_vector": "在原Q区内拼接signed PSD、原31维基线描述及26维局部特征，共58维；标准化只用原REAL TRAIN。连续logQ保持原网络输入，另作描述，不作为强迫源Q边缘迁移的新增目标。",
+        "candidate_loss_if_supported": "在原九项不变的基础上增加一个固定58维联合分布项：0.5×(逐坐标W1均值+64个单位方向W1均值)，原SOURCE区域质量加权、外系数预先固定1。新方向流独立，原七流消费保持；无学习critic、协方差逆映射或输出平滑。",
+        "distinction_from_history": "不同于R37的Gaussian协方差后置映射，使用非线性局部/跨尺度及PSD联合描述；不同于R39的固定Gaussian多带宽Gram损失，保留当前R63算子/九项并检验特征覆盖。不是宣称更换名称即可回避R39负结果。",
+        "limitation": "这是受P3启发的固定实Haar描述，不是论文complex-wavelet/scattering算法的完整复现；58维仍不唯一。"
+      },
+      "unknown_conditions": [
+        "100点基线能否稳定估计上述非线性结构",
+        "ADC量化是否支配细尺度特征",
+        "新增量是否只是现有V480/DU/D2U切片的冗余重加权",
+        "噪声与PSD/连续Q关联是否来自采集或预处理而非物理耦合",
+        "源秩/谷和REAL保持是否与新增梯度相容"
+      ],
+      "minimum_legal_train_diagnostic": {
+        "timing": "待R63结束并单独预登记；不读DEV/EVAL/CAL，不改当前训练。",
+        "population_and_paths": "全部原TRAIN父事件一次固定末点解析前向，SOURCE及同处理REAL同算子；优先与C1共享同一已登记端点采集。R62仅保存紧凑量且本任务未解码，不能假称已具备所需全部基线波形。",
+        "feature_binding": "在打开新TRAIN前固定尺度、有效支撑、26/58维顺序、标准化及下限规则、方向种子、ID分半规则和一次终点；实现用人工数组检查。全部REAL TRAIN标准化常数独立保存。",
+        "checks": [
+          "按原十区和同处理REAL比较58维精确经验边缘/固定切片差异，并保留原四全窗视图、31维、PSD与源约束。",
+          "以父ID为单位的32次同样本数REAL–REAL重抽参照；完整报告每区N、重复父率及最大参照，不称总体95%置信区间。",
+          "按事前固定父ID散列分成两半，检查残差方向/排序稳定性；不选择表现好的特征或Q区。",
+          "人工基线符号翻转/时间反转验证phi31不变；同时测量原V480等完整损失的响应。若原全窗项已强响应，应记录仅新统计族不唯一，不能报九项盲区。",
+          "用同一32配对宏批计算新项与原九项参数/端点梯度的夹角和正交分量，及对源排序/谷、REAL保持和投影项的内积；正交分量定义为新项梯度减去其对原九项梯度张成空间的投影，SVD相对奇异值截断固定1e-6，不能用九项合计梯度的相互抵消制造新方向；零优化器更新。"
+        ],
+        "conditional_boundary": "58维内的PSD是可观测积分描述，不是粒子标签；原源Q/h/谷约束保留。更细连续Q条件化或REAL重权将是另一个设计，不能暗加。",
+        "no_training_or_density_fit": true
+      },
+      "preregistered_endpoint_and_stop_rules": {
+        "status": "这是前瞻性提案；所有门线须在新TRAIN分析前由根一次冻结，不是已注册或已运行。",
+        "sole_diagnostic_endpoint": "全TRAIN固定末点特征统计、32个父级参照及32个冻结梯度宏批各完成一次。",
+        "residual_marker": "原共同Q1–7中至少4区的SOURCE新增联合距离超过全部32个同N RAW REAL–REAL参照且超过同处理REAL距离；在预固定两半中均存在。全部十区继续报告，不删失败/小样本区。",
+        "incremental_visibility_marker": "新增项残差成立且在32宏批至少24批具有非零的独立梯度分量，正交分量范数/新项梯度范数>=0.5；仅作新增有限特征有不同训练信号的描述性标记，不能证明原总体目标严格看不见。",
+        "conflict_stop": "若新增下降方向与源排序/谷或REAL保持合计梯度显著反向的预设描述标记达到24/32，先关闭该新增目标训练提案并保留冲突；不把历史R60未触发结论改判，也不放宽源约束。",
+        "other_stop_rules": [
+          "新增残差未超过REAL参照、分半不稳定或所有增量仅来自量化边缘，则停止该固定特征方案，不扩展小波/lag/尺度扫描。",
+          "人工非唯一性反例本身不足以启动训练。",
+          "必要梯度为零/非有限、有效支撑不足或标准化无法按预案定义则记不可判，不静默删除。"
+        ],
+        "possible_training_only_after_markers": "通过上述诊断后另登记从同初始化训练到唯一50000步的一臂，保留原九项和全部人口；新增标准化、系数、方向流与末点先冻结。不与C1合批改动同轮混用，以免无法区分机制。",
+        "ultimate_stop": "原数值门、完整A–C和4000输出独立重放仍是必要条件；任何失败关闭固定配方，不能以58维改善替代验收。"
+      }
+    }
+  ],
+  "decision_order": {
+    "immediate": "只等待当前R63按原协议取得唯一末点、数值门和固定评价；不得按本报告更改正在运行的配方。",
+    "next": "根综合R63的合法TRAIN证据，优先登记C1冻结诊断；C2仅在存在独立局部联合残差证据时作为另一问题。",
+    "exclusion": "不把两个候选同时并入一次训练，不扫描batch/小波/核/权重，不选DEV赢家；若候选的预设标记都不成立，就保留未定位结论。",
+    "shared_efficiency": "未来合法诊断可在一次全TRAIN端点采集中同时导出必要紧凑特征，随后离线归约；文献/代码审阅可并行，科学前向/梯度作业仍单槽顺序。",
+    "evidence_boundary": "全部候选未测试；没有模型有效性、正确物理因果、独立采集泛化或A–F通过的新增声明。"
+  },
+  "memory_use": {
+    "purpose": "仅复用联合响应验收及负结果边界的历史提醒，当前事实均重新核对项目协议/报告。",
+    "citation": "MEMORY.md:139-142",
+    "rollout_ids": [
+      "01a11e76-476a-7de2-bda9-fd9f3bb4ac19",
+      "01a12338-496c-7683-8245-b3d34a88bfd1"
+    ],
+    "old_status_used_as_current": false
+  }
+}

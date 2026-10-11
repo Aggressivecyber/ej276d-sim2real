@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "scope": "Entirely artificial constants. No scientific arrays or frozen response model.",
+  "immutable_text_inputs": [
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/../report.json",
+      "sha256": "20891a32bca4b0d2eabcec295b9219eb7c863289d063ede925646cc314019e2f"
+    },
+    {
+      "path": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/../C1_IMPLEMENTATION_NOTES.json",
+      "sha256": "4b593215183c1c4893e243338a859582fd981cdde22bece76f1af9056688953f"
+    }
+  ],
+  "tolerances": {
+    "scalar_f64_absolute": 2e-13,
+    "endpoint_gradient_f64_absolute": 2e-13,
+    "parameter_gradient_f64_absolute": 2e-12,
+    "equal_weight_f32_absolute": 0.000002,
+    "finite_difference_absolute": 2e-8,
+    "finite_difference_step": 9.5367431640625e-7,
+    "negative_control_minimum_difference": 0.0001
+  },
+  "analytic_unequal": {
+    "source": [
+      0,
+      4
+    ],
+    "source_mass": [
+      0.25,
+      0.75
+    ],
+    "real": [
+      -1,
+      1,
+      5
+    ],
+    "real_mass": [
+      0.5,
+      0.25,
+      0.25
+    ],
+    "W1": 2.5,
+    "source_gradient": [
+      0.25,
+      0.25
+    ],
+    "real_gradient": [
+      -0.5,
+      -0.25,
+      0.25
+    ]
+  },
+  "ties": {
+    "source": [
+      0,
+      0
+    ],
+    "source_mass": [
+      0.25,
+      0.75
+    ],
+    "real": [
+      -1,
+      1
+    ],
+    "real_mass": [
+      0.5,
+      0.5
+    ],
+    "source_permutation": [
+      1,
+      0
+    ],
+    "expected_original_gradient": [
+      0.25,
+      -0.25
+    ],
+    "expected_permuted_gradient_in_original_order": [
+      -0.25,
+      0.25
+    ],
+    "distinct_parent_jacobians": [
+      1,
+      2
+    ]
+  },
+  "global_mass_convention": {
+    "original_source_region_counts": [
+      3,
+      1
+    ],
+    "original_real_region_counts": [
+      2,
+      6
+    ],
+    "source_draw_counts": [
+      2,
+      1
+    ],
+    "real_draw_counts": [
+      1,
+      3
+    ],
+    "region_coordinate": [
+      0,
+      10
+    ],
+    "expected_correct_W1": 5,
+    "expected_wrong_common_mass_W1": 0
+  },
+  "seeded_scalar_cases": {
+    "seed": 63011011,
+    "count": 20,
+    "maximum_atoms_per_domain": 9,
+    "coordinate_grid_step": 0.25
+  },
+  "tiny_model": {
+    "definition": "f_theta(u,v,e) = theta[0]*tanh(theta[1]*u+theta[2]*v+e) + theta[3]*u^2 + sin(theta[4]*v+theta[5]) + 0.1*theta[2]*u*v",
+    "theta": [
+      0.7,
+      -0.55,
+      0.35,
+      0.12,
+      0.4,
+      -0.2
+    ],
+    "source_inputs": [
+      [
+        -1.2,
+        0.3
+      ],
+      [
+        -0.4,
+        -0.6
+      ],
+      [
+        0.5,
+        0.1
+      ],
+      [
+        0.9,
+        -0.8
+      ],
+      [
+        1.4,
+        0.7
+      ]
+    ],
+    "real_inputs": [
+      [
+        -1.1,
+        -0.4
+      ],
+      [
+        -0.7,
+        0.6
+      ],
+      [
+        -0.2,
+        0.3
+      ],
+      [
+        0.2,
+        -0.6
+      ],
+      [
+        0.6,
+        0.8
+      ],
+      [
+        1.1,
+        -0.2
+      ],
+      [
+        1.6,
+        0.5
+      ]
+    ],
+    "source_parent_epsilon": [
+      0.02,
+      -0.04,
+      0.01,
+      0.03,
+      -0.02
+    ],
+    "real_parent_epsilon_generic_case_only": [
+      0.03,
+      -0.01,
+      0.02,
+      -0.03,
+      0.01,
+      0,
+      -0.02
+    ],
+    "fixed_real_reference": [
+      -0.9,
+      -0.55,
+      -0.15,
+      0.15,
+      0.35,
+      0.65,
+      1
+    ],
+    "source_original_region_counts": [
+      3,
+      2
+    ],
+    "real_original_region_counts": [
+      2,
+      5
+    ],
+    "source_draws": [
+      0,
+      1,
+      0,
+      2,
+      3,
+      4,
+      3
+    ],
+    "real_draws": [
+      0,
+      1,
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      2
+    ],
+    "source_draw_region_counts": [
+      4,
+      3
+    ],
+    "real_draw_region_counts": [
+      3,
+      6
+    ],
+    "chunk_size": 2,
+    "source_noise_policy": "One fixed artificial epsilon per parent. Repeated draws reuse exactly the same endpoint and Jacobian.",
+    "real_roles": {
+      "source_only_fixed_reference": "Directly relevant generic shape: REAL reference is a constant vector with zero network Jacobian. This is not canonical R63 ADC data.",
+      "two_sided_shared_theta": "Generic chain-rule guard only: both artificial endpoint laws depend on the SAME theta. This does not imply any scientific REAL-reference transformation."
+    }
+  },
+  "limitations": [
+    "This is code preparation, not an adopted scientific protocol or a reproduction of the exact R63 nine-term objective.",
+    "No R63 BoxChargeProjection, canonical ADC, full waveform network, or training/validation arrays are imported or executed.",
+    "The fixed-parent-noise finite empirical objective differs from current R63 independent per-occurrence noise.",
+    "The exact rational mass partition is not a claim of arbitrary-precision endpoint distances, global differentiability, or population-gradient accuracy.",
+    "CPU first-order implementation; GPU behavior, higher derivatives, scientific-size performance, and complete objective integration are untested."
+  ]
+}

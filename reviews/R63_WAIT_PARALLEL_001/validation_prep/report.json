@@ -1,0 +1,1298 @@
+{
+  "schema_version": 1,
+  "prepared_UTC": "2026-10-11T01:10:00Z",
+  "status": "conditional_static_preparation_only",
+  "output": "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/validation_prep/report.json",
+  "purpose": "为一个通过原 A-C 的冻结候选准备 D 前缀重建效用与 E 固定 q3 FULL/GAP 范围研究；不注册、不实现、不执行新的科学作业。",
+  "scope_and_authority": {
+    "delegation": "根代理分配的等待期协议和既有代码静态分析；不派生代理。",
+    "current_candidate": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001 / COVERAGE_RESPONSE",
+    "current_job_observation": "按委托时状态，R63 是唯一远端科学作业，固定 50000 更新；本报告未查询远端实时进度，未取得本轮新 A-C 结果。",
+    "start_D_E_condition": "R63 唯一末点的原数值门、全部六项阶段门、A/B/C、4000 条 SOURCE+REAL 独立重放均有通过回执，且根代理另行冻结和登记 D/E 协议。任何一项失败或未定义均不得由本准备报告启动 D/E。",
+    "current_frozen_files_changed": false,
+    "old_acceptance_reduced": false,
+    "scientific_computation_performed": false,
+    "training_generation_fitting_performed": false,
+    "DEV_EVAL_waveform_or_numeric_arrays_opened": false,
+    "TRAIN_numeric_arrays_or_identity_binaries_opened": false,
+    "imports_of_project_scientific_modules": 0,
+    "Git_actions": 0,
+    "new_method_registration": 0,
+    "files_created_by_this_subtask": [
+      "E:/GAN/research/sim2real_two_papers_20261008_0305/reviews/R63_WAIT_PARALLEL_001/validation_prep/report.json"
+    ],
+    "resource_scope": "仅小文本/元数据读取和此 JSON 写入；全队本机辅助 CPU4/RSS4GiB、单远端科学作业约束保持。无逐进程资源实测声明。",
+    "authority_evidence": [
+      {
+        "path": "AGENTS.md",
+        "lines": [
+          1,
+          11
+        ]
+      },
+      {
+        "path": "PROJECT_ACCEPTANCE.md",
+        "lines": [
+          15,
+          36
+        ]
+      },
+      {
+        "path": "PROJECT_ACCEPTANCE.json",
+        "keys": [
+          "utility",
+          "scope",
+          "frozen_validation",
+          "numerical_precision"
+        ]
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/PROTOCOL.md",
+        "lines": [
+          21,
+          35
+        ]
+      }
+    ]
+  },
+  "decisive_static_findings": [
+    {
+      "id": "D_REAL_POOL_IS_STALE",
+      "finding": "旧 D 固定 2592 拟合/599 验证及 7583 EVAL；当前 R63 目标 TRAIN 是旧 2592 加 R14 新增 18455，共 21047。当前全量 REAL 对照不能直接写成旧 2592。",
+      "status": "confirmed_in_code_and_existing_metadata_not_new_array_validation",
+      "evidence": [
+        {
+          "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+          "lines": [
+            157,
+            179
+          ]
+        },
+        {
+          "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/data_support.py",
+          "lines": [
+            41,
+            55
+          ]
+        },
+        {
+          "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/PREPARATION_RECEIPT.json",
+          "lines": [
+            5,
+            10
+          ]
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/config.json",
+          "lines": [
+            86,
+            87
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TARGET_IDENTITIES_NOT_EMBEDDED",
+      "finding": "R23 TRAIN_PRIVATE.npz 写入 source_ids/source_val_ids，但未写 target_ids、target_original_index 或 target_groups。仅知道 target 长度 21047 不能证明其与当前任务身份的对应关系。",
+      "recovery_basis": "R14 保存的 expanded_fit_original_index.bin 精确顺序为旧 QC fit 的缓存顺序，随后新增 QC 有效 original_index 升序；R23 data_support.inputs 显式重建相同 fitidx 并断言与该文件一致，再以相同顺序写 target。",
+      "evidence": [
+        {
+          "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/prepare_data.py",
+          "lines": [
+            11,
+            17
+          ]
+        },
+        {
+          "path": "work/R14_TRAIN_POOL_EXPANSION_001/numeric_worker.py",
+          "lines": [
+            114,
+            120
+          ]
+        },
+        {
+          "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/data_support.py",
+          "lines": [
+            48,
+            50
+          ]
+        }
+      ],
+      "pending": "登记后恢复并保存行级身份侧表、输入版本/顺序绑定和零交叠检查。本次未读取这些二进制身份文件，未验证实际交集。"
+    },
+    {
+      "id": "D_MISSING_ACCEPTANCE_COMPARISONS",
+      "finding": "旧 bootstrap_differences 仅做混合臂减对应 REAL-only 的绝对 MAE/RMSE 配对差；没有相对 MAE 差 bootstrap CI、候选对原 SIM 的配对 CI，也没有当前全量 REAL 和 logQ 非劣门的机器判定。",
+      "evidence": [
+        {
+          "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+          "lines": [
+            88,
+            104
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D_INVALID_SYNTHETIC_CAN_SILENTLY_SHRINK",
+      "finding": "旧代码按每臂 valid 独立删合成行，并按剩余行重新赋总权重 0.5。不能因此声称新 D 仍使用同一组完整 2000 个有效合成父事件。",
+      "evidence": [
+        {
+          "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+          "lines": [
+            173,
+            187
+          ]
+        }
+      ],
+      "required_handling": "保存所有父事件和失败原因；开评前冻结 QC 失败处理。主验收所需 2000 同父合成输入若不成立，标 D 输入条件失败/未定义，不补样、不换父、不隐含缩小样本数。"
+    },
+    {
+      "id": "E_OLD_TRAINER_IS_DIFFERENT_METHOD",
+      "finding": "旧 E 两臂固定 R2 1600 -> R3 2000 -> R3B 2000，并按 TRAIN 内部验证选择阶段 checkpoint；当前 R63 是完整波形网络、九项目标和唯一 50000 更新末点。原 E 设计原则可继承，旧训练入口不可直接当当前模型的 E。",
+      "evidence": [
+        {
+          "path": "tasks/R6_CHARGE_GAP_GENERALIZATION_001.md",
+          "lines": [
+            11,
+            16
+          ]
+        },
+        {
+          "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/training.py",
+          "lines": [
+            38,
+            65
+          ]
+        },
+        {
+          "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/training.py",
+          "lines": [
+            69,
+            96
+          ]
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/PROTOCOL.md",
+          "lines": [
+            5,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E_GAP_FORCES_EMPTY_NARROW_Q6",
+      "finding": "原 CAL q3=[3703.7782948464155,6711.804904974998) mV ns 完整包含当前 narrow Q6=[4849.099755034099,6435.572286403609) mV ns。按同一原始名义 100:400 电荷划分删除 q3 后，训练 narrow Q6 必为空；Q5/Q7 还会部分删行。这是固定边界的包含关系，无需读取科学数组。",
+      "boundary_representation_condition": "结论针对原 R6 名义清洁 SOURCE/REAL 保存窗电荷与 R63 raw-input bin 定义的同一口径；若协议另选规范 ADC 排除口径，边界迁移必须先冻结并显式核查，不能悄悄改变 q3 定义。",
+      "incompatible_code": [
+        {
+          "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/DIAGNOSTIC_DEFINITION.json",
+          "lines": [
+            62,
+            72
+          ]
+        },
+        {
+          "path": "tasks/R6_CHARGE_GAP_GENERALIZATION_001.md",
+          "lines": [
+            5,
+            12
+          ]
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            67,
+            78
+          ],
+          "issue": "十个 groupsS/groupsR 全非空断言"
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+          "lines": [
+            35,
+            47
+          ],
+          "issue": "每类统计要求正样本数"
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+          "lines": [
+            72,
+            103
+          ],
+          "issue": "固定 n=10*B、reshape(10,B,...) 和条件均值"
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+          "lines": [
+            22,
+            35
+          ],
+          "issue": "时序统计每类要求 len>0"
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+          "lines": [
+            58,
+            75
+          ],
+          "issue": "新增损失固定十类 reshape"
+        },
+        {
+          "path": "work/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001/train_server.py",
+          "lines": [
+            28,
+            33
+          ],
+          "issue": "单位电荷坐标逐 bin 均值/SD，无空 bin 规则"
+        },
+        {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/network.py",
+          "lines": [
+            34,
+            37
+          ],
+          "issue": "GAP 的 Q6 one-hot 条件训练无支持，推理行为须披露"
+        }
+      ],
+      "consequence": "不能只加 GAP mask 或删除断言。须前瞻冻结空区统计/坐标外推、损失质量、采样、RNG及无支持推理的语义；本报告不选择具体新规则、不修改 R63。评价必需 Q2-Q7，尤其 Q6，仍保留。"
+    },
+    {
+      "id": "E_NOMINAL_RESULT_IS_INCOMPLETE",
+      "finding": "旧 E 的输出自身区有完整域描述、窄区宽度和两个 C2ST 视图；源名义 q3 补充只有特征摘要/距离和迁移，没有完整五视图、宽度、同处理 REAL、边界与源扰动评价。现 E 要求双口径完整结果，不能用旧 supplement 代替。",
+      "evidence": [
+        {
+          "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/gap_evaluation.py",
+          "lines": [
+            68,
+            83
+          ]
+        },
+        {
+          "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/config.json",
+          "keys": [
+            "C2ST.views",
+            "q3_C2ST_support"
+          ]
+        },
+        {
+          "path": "PROJECT_ACCEPTANCE.md",
+          "lines": [
+            19,
+            23
+          ]
+        }
+      ]
+    }
+  ],
+  "identity_and_data_cost_plan": {
+    "authoritative_sources": [
+      {
+        "path": "CURRENT_ROLE_INDEX.json",
+        "purpose": "角色索引入口及 payload manifest 绑定"
+      },
+      {
+        "path": "work/P1J_CURRENT_ROLE_INDEX_001/run_001/ARTIFACT_MANIFEST.json",
+        "purpose": "role.bin/group.bin/source_id_sha256.bin 的既有绑定"
+      },
+      {
+        "path": "work/P1J_CURRENT_ROLE_INDEX_001/run_001/role.bin",
+        "purpose": "全采集身份的 TRAIN/CAL/DEV/EVAL 角色"
+      },
+      {
+        "path": "work/P1J_CURRENT_ROLE_INDEX_001/run_001/group.bin",
+        "purpose": "原 artificial group=original_index//50"
+      },
+      {
+        "path": "work/P1J_CURRENT_ROLE_INDEX_001/run_001/source_id_sha256.bin",
+        "purpose": "按原 original_index 读取 32 字节身份摘要；构造 data:source:<hex>，沿用 R5 full SHA256(source_id UTF8) 排序"
+      },
+      {
+        "path": "work/P1K_REAL_REFERENCE_AND_REPEATABILITY_001/selection_original_index.bin",
+        "purpose": "旧 6800 行选择顺序，旧 TRAIN 位于 2000:5200"
+      },
+      {
+        "path": "work/P1K_REAL_REFERENCE_AND_REPEATABILITY_001/selection_group.bin",
+        "purpose": "旧选择的组身份"
+      },
+      {
+        "path": "work/P1K_REAL_REFERENCE_AND_REPEATABILITY_001/selection_role.bin",
+        "purpose": "旧选择的用途角色"
+      },
+      {
+        "path": "work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/results/DATA_ROLES.json",
+        "purpose": "原 TRAIN 内部验证组列表，不重新分组"
+      },
+      {
+        "path": "work/R14_TRAIN_POOL_EXPANSION_001/expanded_fit_original_index.bin",
+        "purpose": "当前 21047 target 的候选身份顺序侧表"
+      },
+      {
+        "path": "work/R14_TRAIN_POOL_EXPANSION_001/expanded_fit_group.bin",
+        "purpose": "扩充 TRAIN 组侧表"
+      },
+      {
+        "path": "work/R14_TRAIN_POOL_EXPANSION_001/TRAIN_ADDITION.npz",
+        "purpose": "登记后才允许读取的新增 TRAIN 波形、QC、原索引；本次未读"
+      },
+      {
+        "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/TRAIN_PRIVATE.npz",
+        "purpose": "R63 使用的 TRAIN 本机来源；source/target 数组和 source_ids，缺 target 身份"
+      },
+      {
+        "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/REAL_DEV_AND_REFERENCE_PRIVATE.npz",
+        "purpose": "DEV 与 TRAIN_REFERENCE 的既有身份及波形；本次未读，后续须解析引用到实际 R63 输入版本"
+      },
+      {
+        "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/EVAL_IDENTITIES.json",
+        "purpose": "冻结 7600 个 EVAL 候选身份；不得据标签/结果更换"
+      },
+      {
+        "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/EVAL_EXTRACT.npz",
+        "purpose": "历史 EVAL 缓存，旧 receipt 为 7583 QC；本次未读，最终协议冻结后才允许用于 D/E 评价"
+      },
+      {
+        "path": "work/R2_SMOOTH_STOCHASTIC_RESPONSE_001/data/G4_TRAIN_CACHE.npz",
+        "purpose": "8192 个 G4 TRAIN 父事件，6593 fit/1599 内部 val；旧 D 从整个 8192 选 2000"
+      }
+    ],
+    "restore_order_steps": [
+      "从 R63 config/input receipt 固定 TRAIN 容器的实际路径/版本；不能因本机路径同名就认定与远端当前输入完全等同。",
+      "按旧 P1K 选择 2000:5200 的 QC 和原验证组恢复 2592 顺序；按 R14 新增 TRAIN QC 恢复新增 18455 的 original_index 升序；拼接并与 expanded_fit_original_index.bin 逐项比对。",
+      "再与 R23 target 行序建立可验证绑定；若需要波形逐行摘要，仅在登记后对合法 TRAIN 进行，不为此次准备读取数组。",
+      "将每行映射到原角色、source_id、original_index、人工组，保存行号及版本摘要；source_id 排序是原身份字符串再 SHA256，不可直接按原 original_index 或已存 digest 排序替代。",
+      "登记后核查 fit/内部 val/DEV/CAL/EVAL 的事件身份与人工组零交叠；不同域 source_id 命名空间分开。TRAIN_REFERENCE 是 TRAIN 子集，须明确这一预期重叠，不能把它算作独立 REAL 采集。",
+      "冻结 D 的 nested256/nested1024/full_REAL 身份；依据现有记录 full_REAL 候选为合法 21047 fit，599 内部 val 保持隔离，不能默默合并成 21646。",
+      "E 对 FULL/GAP 在相同基础角色上生成独立 allowed/excluded 行表，记录 q3 区间内 fit、val、统计/噪声/常数贡献的零使用；删除只发生在 GAP TRAIN，最终 2000 SOURCE 不删除。"
+    ],
+    "evidence_for_identity_recovery": [
+      {
+        "path": "work/R14_TRAIN_POOL_EXPANSION_001/prepare.py",
+        "lines": [
+          8,
+          21
+        ]
+      },
+      {
+        "path": "work/R14_TRAIN_POOL_EXPANSION_001/numeric_worker.py",
+        "lines": [
+          114,
+          120
+        ]
+      },
+      {
+        "path": "work/R23_ONLINE_STANDARDIZED_CRITIC_001/data_support.py",
+        "lines": [
+          41,
+          57
+        ]
+      },
+      {
+        "path": "work/R4_FROZEN_HELDOUT_RESPONSE_001/prepare.py",
+        "lines": [
+          20,
+          31
+        ]
+      },
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+        "lines": [
+          26,
+          27
+        ]
+      }
+    ],
+    "costs_to_disclose_without_adding_overlapping_counts": [
+      {
+        "category": "current_response_REAL_fit",
+        "count_from_existing_metadata": 21047,
+        "scope": "R63 原 target 全量，实际训练访问次数由其最终 PARENT_EXPOSURES/TRAINING_RECEIPT 绑定"
+      },
+      {
+        "category": "historical_internal_validation",
+        "count_from_existing_metadata": 599,
+        "scope": "R63 本次不读取 target_val 不抹掉历史接触；与当前 fit 的身份互斥尚待验证"
+      },
+      {
+        "category": "legacy_R2_R3_R3B_REAL_training_including_validation",
+        "count_from_existing_metadata": 3191,
+        "scope": "其中旧 2592 已包含在当前 21047，不可再次计作新增采集"
+      },
+      {
+        "category": "CAL_reference",
+        "count_from_existing_metadata": 1594,
+        "scope": "旧 QC 参考数；列实际 CAL 身份及更早接触，不推定全部 CAL_POOL 已读取"
+      },
+      {
+        "category": "historical_REAL_DEV",
+        "count_from_existing_metadata": 2000,
+        "scope": "多轮方法选择/开发已暴露，同一采集"
+      },
+      {
+        "category": "historical_EVAL",
+        "selected_count_from_receipt": 7600,
+        "QC_count_from_receipt": 7583,
+        "scope": "R4/R5/R6 已经评价过；本轮冻结后使用也不能称从未见过的盲测"
+      },
+      {
+        "category": "R48_noise_calibration",
+        "count_from_existing_report": 18739,
+        "scope": "旧 94400 流中的 unique matched_target，不等于全 21047；须恢复 actual unique index 与 GAP mask"
+      },
+      {
+        "category": "original_SIM_noise_prior",
+        "count_from_R5_recipe": 79793,
+        "scope": "历史噪声先验贡献；与 TRAIN/CAL/DEV/EVAL 的交集未恢复时记 unknown，不做简单求和"
+      }
+    ],
+    "required_cost_outputs": [
+      "各用途候选/QC/实际使用/唯一身份/组数",
+      "身份交集矩阵与 union，不能只累加重复用途",
+      "波形读取、统计拟合、方法开发和任务训练四类接触",
+      "响应模型/历史先验总成本与小任务 REAL 预算并列"
+    ],
+    "verification_state": "all_actual_identity_intersections_and_new_statistic_reconstruction_pending_registration"
+  },
+  "D_utility": {
+    "purpose": "冻结 0:150 已对齐保存窗前缀预测全窗 signed PSD/logQ，检验当前冻结候选的合成样本是否在两个固定估计器上提供收益。",
+    "retained_design": {
+      "REAL_budgets": {
+        "primary": 1024,
+        "secondary_descriptive": 256,
+        "full_control": "所有当前合法 REAL TRAIN fit；现元数据为 21047，执行前按身份冻结"
+      },
+      "synthetic_parents": 2000,
+      "nested_order": "full SHA256(source_id UTF8) ascending；256 是 1024 的前缀，两者均为已冻结全量 fit 顺序前缀",
+      "prefix_features": {
+        "saved_samples_only": [
+          0,
+          150
+        ],
+        "baseline": [
+          0,
+          100
+        ],
+        "pulse_samples": [
+          100,
+          150
+        ],
+        "dimension": 52,
+        "formula": "前 100 均值扣基线；50 个脉冲点除以前缀正峰；追加 log 前缀峰和 log 前 100 样本 RMS(ddof=1)",
+        "peak_floor_V": 1e-8,
+        "RMS_floor_V": 1e-12,
+        "floor_counts_required": true,
+        "no_input_use_after_sample149": true
+      },
+      "targets": [
+        "signed PSD=1-Qfast/Qtotal，Qfast=100:150、Qtotal=100:400，均扣前100均值",
+        "log(Qtotal[mV ns])"
+      ],
+      "real_scaling": "同一预算仅用其 REAL 子集的 X/Y 均值及总体 SD；零 SD -> 1；所有合成臂共享这组尺度。全量 REAL-only 单独用全量 REAL 的尺度。",
+      "weights": {
+        "REAL_only": "每条 1/n，REAL 总权重1",
+        "mixture_REAL": "每条0.5/n",
+        "mixture_synthetic": "每条0.5/2000；主条件必须确有完整同父2000条"
+      },
+      "Ridge": {
+        "alpha": 0.001
+      },
+      "HGB": {
+        "loss": "squared_error",
+        "max_iter": 150,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 20,
+        "l2_regularization": 1,
+        "early_stopping": false,
+        "random_state": 202610085
+      },
+      "bootstrap": {
+        "unit": "整个人工 original_index//50 组",
+        "repeats": 1000,
+        "seed": 2026100853,
+        "CI": "双侧 type7/linear percentile [0.025,0.975]；相同组重采样计数用于所有配对项",
+        "interpretation": "条件于固定已训练任务估计器；不代表跨采集或响应重训不确定性"
+      },
+      "retained_original_outputs": [
+        "PSD/Q MAE、RMSE、中位和95%绝对误差",
+        "logQ RMSE",
+        "原 CAL 分区与样本/组数",
+        "CAL cut 翻侧与 margin 分层",
+        "完整容许误差-覆盖率曲线",
+        "必要的固定输入重放"
+      ],
+      "claim_boundary": "全波形曾参与 CFD 对齐；不是在线触发、FPGA性能或粒子标签节省验证。"
+    },
+    "exact_new_primary_checks_each_of_Ridge_HGB": [
+      {
+        "id": "D1_point_gain",
+        "formula": "r0=(MAE_candidate- MAE_REAL1024)/MAE_REAL1024",
+        "pass": "r0 <= -0.05",
+        "input": "同一冻结 EVAL QC 事件上 1024+candidate 与 1024 REAL-only 的 PSD 预测",
+        "missing_or_zero_denominator": "不加事后分母下限；标 undefined 并不通过"
+      },
+      {
+        "id": "D2_paired_relative_CI",
+        "formula": "每个组 bootstrap 复制 b 先算相同权重下的 MAE_C[b] 和 MAE_R[b]，再 r[b]=(MAE_C[b]-MAE_R[b])/MAE_R[b]；不得平均逐事件相对误差，也不得仅把原绝对差 CI 除以一个点估计",
+        "pass": "quantile(r,0.975) < 0 严格成立",
+        "output": "点相对差、完整CI、有效复制数、分母失败数及共享 draw 绑定",
+        "invalid_replicates": "任何基线分母不可定义必须显式失败/未定义，不能静默丢弃后仍宣称1000次"
+      },
+      {
+        "id": "D3_versus_original_SIM",
+        "formula": "d[b]=MAE_candidate[b]-MAE_REALplusOriginalSIM[b]，同 REAL1024、同2000父事件、同EVAL行/组/抽样",
+        "pass": "quantile(d,0.975) < 0 严格成立",
+        "output": "绝对配对 MAE 点差与95%CI；可额外列相对差，但不能替代原绝对差要求"
+      },
+      {
+        "id": "D4_full_REAL_control",
+        "formula": "rfull=(MAE_candidate-MAE_REAL_FULL)/MAE_REAL_FULL",
+        "pass": "rfull <= 0.05",
+        "output": "当前实际全量 REAL_N、组数、点差/相对差与完整预测；绝不能引用旧2592分数作当前全量对照",
+        "CI_requirement": "原验收只要求点非劣界；可以描述配对CI，不额外把它改成新的通过线"
+      },
+      {
+        "id": "D5_logQ_non_degradation",
+        "formula": "rq=(RMSE_logQ_candidate-RMSE_logQ_REAL1024)/RMSE_logQ_REAL1024",
+        "pass": "rq <= 0.05",
+        "output": "两臂原始 logQ RMSE、差和相对差；缺失或零分母不通过"
+      },
+      {
+        "id": "D6_joint_decision",
+        "formula": "D_pass = all(D1..D5 for Ridge and HGB) AND frozen_input_design_valid",
+        "pass": "两个估计器所有主门同时通过；256预算、旧模型或一个估计器的收益不可代替1024主门",
+        "no_new_threshold_or_task_search": true
+      }
+    ],
+    "original_SIM_control": {
+      "reuse": "R5 run.py:46-54 与 SIM_RECIPE.json：来源绑定 pulse_rate、历史谱噪声、14bit digitizer、CFD/保存窗；seed2026100852",
+      "must_not_substitute": "无噪声 clean_expectation_V/G4_TRAIN_CACHE 不得冒充原SIM",
+      "current_candidate_adapter": "使用冻结 R63 完整 SOURCE 波形推理 Pipeline/solve、原常数和原噪声规则；不能再调用旧 SmoothResponse(condition,q,z,white)，也不能未经声明把带噪 SIM 输出改成 R63 的输入。",
+      "RNG_note": "旧 R5 z(2000,8)/white(2000,512) 与当前 solve 的480点 epsilon并非同一接口；固定种子、算法、数组形状/生成顺序及字节绑定须在任何生成前冻结。相同父事件不等于声称不同方法共享完全相同随机机制。"
+    },
+    "arm_inventory": {
+      "required_primary": [
+        "REAL",
+        "REAL+original_SIM",
+        "REAL+current_frozen_candidate",
+        "REAL_FULL"
+      ],
+      "preserve_original_R5_descriptive_arms": [
+        "REAL+R2",
+        "REAL+R3",
+        "REAL+R3B"
+      ],
+      "proposed_complete_inventory": "保留原五个臂，加当前候选；两预算*六臂*两估计器*两目标，加全量REAL两估计器*两目标=52个固定小拟合。只是完整保留计划，尚未登记/执行。",
+      "exceptions": "仅可按原任务在打开EVAL前记录某历史候选没有有效完成冻结权重时省略，并注明原因；不能根据新结果删弱臂，不能重训替代。",
+      "old_hardcoded_44": "必须改为由预先冻结臂清单推导，不能继续 assert44 或 replay receipt 写44。"
+    },
+    "implementation_reuse": [
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+        "lines": [
+          26,
+          35
+        ],
+        "functions": [
+          "order",
+          "prefix_features",
+          "targets"
+        ],
+        "action": "保留数值/前缀语义；targets 所调用的共同ADC/QC口径先冻结"
+      },
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+        "lines": [
+          69,
+          87
+        ],
+        "functions": [
+          "error_summary",
+          "evaluate"
+        ],
+        "action": "保留误差/切点/margin逻辑，解除固定区域/预算键"
+      },
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+        "lines": [
+          88,
+          104
+        ],
+        "functions": [
+          "bootstrap_differences"
+        ],
+        "action": "保留整组重采样，扩展基准对、每复制比值和全量/非劣判定，复用同draw"
+      },
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/run.py",
+        "lines": [
+          178,
+          207
+        ],
+        "functions": [
+          "main fit/scaler/freeze block"
+        ],
+        "action": "保留尺度和混合权重；用当前身份清单替换硬编码；在EVAL前保存全部模型/身份"
+      },
+      {
+        "path": "work/R5_PREFIX_RECONSTRUCTION_UTILITY_001/replay.py",
+        "lines": [
+          6,
+          13
+        ],
+        "functions": [
+          "saved estimator replay"
+        ],
+        "action": "保留first64固定52维输入、rtol=atol=1e-12；模型数量来自冻结清单"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/flow_runtime.py",
+        "lines": [
+          7,
+          23
+        ],
+        "functions": [
+          "Pipeline",
+          "infer"
+        ],
+        "action": "作为当前冻结候选推理适配的依据；仅登记后加载权重运行"
+      }
+    ],
+    "must_replace": [
+      "prepare.py:12-14、run.py:55-66 的旧模型类/旧FROZEN_METHOD依赖，改为新候选有版本绑定的外部依赖；旧模型仅作保留历史描述臂。",
+      "run.py:157-172 的固定3200片段、2592/599断言和源码内G4路径/SHA必须由冻结身份manifest生成；历史原件不覆盖。",
+      "run.py:179-207、209-227 的2592/7583/44和历史成本常量，改为实际冻结群体与回执。",
+      "plots:105-151 的固定colors/2592键及legend，改为完整冻结臂名、真实full_N与点差/相对CI双列。",
+      "新增逐项D1-D6的机器可读 pass/failed/undefined；旧metrics只列差值不能替代验收。"
+    ]
+  },
+  "E_scope": {
+    "retained_design": {
+      "gap_CAL_q3_mVns": {
+        "low_inclusive": 3703.7782948464155,
+        "high_exclusive": 6711.804904974998
+      },
+      "arms": [
+        "FULL",
+        "GAP"
+      ],
+      "pairing": "同网络架构、相同初始 trainable tensors、相同已冻结优化/更新设计；GAP 从初始参数开始，不能加载含q3信息的FULL或其他已训权重。",
+      "REAL_GAP_exclusion": "q3 REAL TRAIN 既不进入拟合，也不进入内部val、噪声、输入/输出坐标、损失尺度、CDF/密度/时序目标或其他数据驱动统计。",
+      "SOURCE_GAP_exclusion": "用现有分析响应无噪声、共同CFD对齐480保存窗的signed Qtotal(100:400)判q3；所有区间内SOURCE fit/val/统计父事件排除，不用学习增益后Q或整512积分代替。",
+      "two_sided_training_support": "保留区间两侧；实际父数/组成/统计支持在登记后核实。",
+      "final_SOURCE": "同一原始DEV2000父事件、身份/顺序/组成/等权；TRAIN留出不授权删除最终2000中的q3或原支持外417。",
+      "generation": "FULL/GAP在同一父顺序上各一个主实现、固定配对随机数组；原seed2026100862语义与当前480点epsilon接口须预先绑定。",
+      "own_region_primary": "输出自身q3的全部QC有效输出对同一REAL EVAL q3；所有不在q3的输出仍保留在全量/外区表。",
+      "source_nominal_region_required": "源名义q3的所有父输出，不按输出是否落回q3再次筛选；同样输出完整响应/五视图/峰宽/噪声及源关联和失败表。",
+      "external_regions": [
+        "CAL q1",
+        "CAL q2",
+        "CAL q4"
+      ],
+      "old_reference_models": [
+        "R2",
+        "R3",
+        "R3B"
+      ],
+      "RR_reference": "保留原64次整组二分、每候选同N和共同可行N；不足不放回补样，实际事件/组数及所有失败列出。",
+      "q4_reference": "原CAL q4参考失败保持undefined，不能重新拟合后冒充原参考有效。",
+      "interpretation": "当前一次采集、架构已在全区DEV研发的回顾性当前拟合留区测试；不是入射中子物理能区、粒子真值或新采集推广。"
+    },
+    "five_statistic_prior_dependency_families": [
+      {
+        "family": "unit_charge_coordinates",
+        "current_consumption": {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            62,
+            70
+          ]
+        },
+        "source": "R63 config.constants_path -> R43 UNIT_CHARGE_CONSTANTS.npz -> R42冻结逐窄区REAL统计",
+        "origin_evidence": [
+          {
+            "path": "work/R43_SCALAR_TIME_NEURAL_FLOW_001/train_server.py",
+            "lines": [
+              22,
+              24
+            ]
+          },
+          {
+            "path": "work/R42_SOURCE_INITIALIZED_NEURAL_FLOW_001/train_server.py",
+            "lines": [
+              21,
+              34
+            ]
+          }
+        ],
+        "fields": [
+          "mu_unit_q",
+          "scale_unit_q",
+          "raw_SD_unit_q",
+          "edges_logQ"
+        ],
+        "required_disposition": "坐标均值/SD/数据floor须由本臂允许TRAIN导出，或逐字段证明既有贡献身份完全允许；固定评价edges与训练统计分开登记。GAP Q6 无数据，不能偷借FULL该区mu/scale；推理该区坐标构造需事前冻结。",
+        "status": "reconstruction_and_empty_bin_rule_pending"
+      },
+      {
+        "family": "noise_calibration",
+        "current_consumption": {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            63,
+            63
+          ]
+        },
+        "source": "R48 NOISE_CALIBRATION.npz",
+        "origin_evidence": [
+          {
+            "path": "work/R48_GUIDED_NOISE_COMPLETION_FLOW_001/calibrate.py",
+            "lines": [
+              12,
+              45
+            ]
+          }
+        ],
+        "fields": [
+          "tau2",
+          "p100",
+          "p480",
+          "kappa2",
+          "unique matched_target identity subset"
+        ],
+        "required_disposition": "旧校准并非全21047均匀REAL：它取历史94400流unique matched_target，再算tau2与谱；需恢复该身份集合。GAP所有q3贡献排除，tau/谱重建人口规则预冻结；kappa2还依赖本臂mu，必须联动重建。不能直接把全区历史校准称为GAP隔离。",
+        "status": "actual_unique_identity_mask_and_arm_calibration_rule_pending"
+      },
+      {
+        "family": "original_seven_loss_statistics",
+        "current_consumption": {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            74,
+            86
+          ]
+        },
+        "source": "R61 TRAIN_DISTRIBUTION_CONSTANTS.npz",
+        "origin_evidence": [
+          {
+            "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+            "lines": [
+              35,
+              63
+            ]
+          }
+        ],
+        "fields": [
+          "V480/U480/DU479/D2U478 center and scale",
+          "noise_mean/noise_scale",
+          "SOURCE/REAL_counts and regional masses",
+          "source_h_one_fraction",
+          "source_raw_valley_fraction"
+        ],
+        "required_disposition": "每臂仅用允许TRAIN统计；GAP重算真实人口质量并保持其剩余父事件等权。十类支持、全局/条件PSD损失、source-order分母与空区的归一规则需显式冻结；不能删区后无记录地重归一平均，不能改最终2000人口。",
+        "status": "not_recomputed; fixed-ten-category_loss_adapter_unresolved"
+      },
+      {
+        "family": "R63_temporal_statistics",
+        "current_consumption": {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            77,
+            85
+          ]
+        },
+        "source": "R63 TRAIN_TEMPORAL_CONSTANTS.npz",
+        "origin_evidence": [
+          {
+            "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+            "lines": [
+              11,
+              35
+            ]
+          }
+        ],
+        "fields": [
+          "31-feature temporal_center",
+          "temporal_scale",
+          "zero_power_counts",
+          "temporal_REAL_counts"
+        ],
+        "required_disposition": "每臂用允许REAL、相同canonical ADC和既有31维公式/floor；GAP不能复用q3观测均值/SD。空Q6的常数/目标处理不能以补全FULL数值蒙混。",
+        "status": "not_recomputed; empty_bin_semantics_unresolved"
+      },
+      {
+        "family": "frozen_boundaries_valley_and_historical_priors",
+        "current_consumption": {
+          "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/train_final.py",
+          "lines": [
+            64,
+            66
+          ]
+        },
+        "source": "旧 CAL q3/分区/cut、R3B DIAGNOSTIC_DEFINITION/WIDTH_PRETRAIN/VALLEY_DEFINITION、分析闪烁常数、历史源标度/噪声先验",
+        "origin_evidence": [
+          {
+            "path": "tasks/R6_CHARGE_GAP_GENERALIZATION_001.md",
+            "lines": [
+              14,
+              16
+            ]
+          },
+          {
+            "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+            "lines": [
+              49,
+              55
+            ]
+          },
+          {
+            "path": "work/R3B_ENERGY_CONDITIONAL_WIDTH_001/results/DIAGNOSTIC_DEFINITION.json",
+            "lines": [
+              62,
+              72
+            ]
+          }
+        ],
+        "required_disposition": "将明确允许的旧CAL边界/评价参考和分析常数列为已暴露先验；与直接参与GAP训练的目标/尺度分表。逐字段追回实际事件贡献，不能只按文件名笼统判定泄漏或清白。",
+        "valley_nuance": "现source_valley使用窄Q3/Q4，对应电荷区低于3653.718331149693，而CAL q3从3703.7782948464155开始；这些局部拟合可能完全来自允许区。必须验证实际拟合身份/边界依赖后才复用，不宣称本次已证明零交叠。含q3的其他窄区密度参数或全局尺度不得作为GAP训练目标。",
+        "status": "allowed-prior_manifest_and_field-level_provenance_pending"
+      }
+    ],
+    "FULL_reuse_or_retrain": {
+      "decision_status": "unresolved_not_defaulted",
+      "reuse_is_only_possible_if": [
+        "FULL就是已通过A-C的同一冻结R63权重、常数、输入表示与末点；有真实最终/初始hash及随机流回执。",
+        "后续配对设计的FULL初始网络等于R63原初始SHA 4a51097e257d4b35976452982aa9a84f48e321d425e0ba3859e8afe8a7bd239b；不能按旧R6改成GAP数据初始化而还称复用。",
+        "E对FULL的统计人口/算法、九项损失、50000更新、采样、RNG与原R63完全一致，研究设计没有额外要求新的配对重训。",
+        "GAP的空区规则只改变已冻结的留出操作所必需语义，且根代理明确登记这仍如何对应同一方法；若无法满足，不得默默引用R63作FULL替代。"
+      ],
+      "retrain_option": "若正式协议需要新配对FULL/GAP，须在同初始/同算法/同预算下顺序训练两臂，冻结sole50000末点与臂内统计；不得沿用旧1600/2000/2000课程。重新训练FULL与原已通过候选的关联和F交付权重归属必须明确，不能据两次FULL结果挑优。",
+      "no_silent_change": "本报告既不授权只训练GAP，也不默认额外训练FULL。FULL生成是否可复用同样取决于父ID、epsilon和当前冻结输出口径完全相同。"
+    },
+    "complete_evaluation_requirements": {
+      "global_original_A_C": "原2000 SOURCE、2000同处理REAL及全部探针/重放/BASE/RAW RR口径仍单独完整保留。已有A-C通过是进入E的前提，不能代替E自身范围结果。",
+      "five_views": [
+        "shape493/full_historical_shape",
+        "u480/normalized_u480",
+        "V480/full_voltage",
+        "Q_PSD_2D",
+        "baseline/baseline_local"
+      ],
+      "A": "每个可宣称区域、两种区间口径均列SOURCE/FULL/GAP和相同处理REAL的五视图BA双侧95%分组CI；CI须完整位于[0.40,0.60]。原固定HGB/共同ADC及训练内imputer/scaler保持；RAW REAL-REAL并列。",
+      "B": "保留全人口总体PSD W1<=0.010、原共同Q1-Q7等权均值<=0.010，原必需Q2-Q7两侧峰位置MAE<=0.010及raw SD平均相对误差<=0.10，RMS/ACF1相对BASE不恶化>10%，以及原八项不恶化门。区域表全部距离/支持/峰宽均列；不得以只剩支持区的平均通过替代这些全局门。",
+      "C": "全2000的身份/顺序/组成/等权、原支持外父数、无新增无效/裁剪、raw source Q/PSD秩与pure_had谷、源扰动、9时间边界、同处理REAL、128/256精度和每臂4000 SOURCE+REAL独立重放。区域支持不足的源秩/峰宽/C2ST不能打勾。",
+      "numerical_thresholds": {
+        "median_LSB_max": 0.25,
+        "p95_LSB_max": 1,
+        "preADC_relative_q_max": 0.00001
+      },
+      "C2ST_original_R6_support": "原q3公共比较族R2/R3/R3B/FULL/GAP与REAL，按原父ID/人工组hash，固定200 TRAIN/100 HOLDOUT每域、原1000组bootstrap；任何一域不足则公共比较undefined，不补样/增生成/改阈值。当前五视图及同处理REAL的新增比较族也须预先列定，不依结果决定参与者。",
+      "fixed_evaluator_selection_warning": "当前evaluate_saved.py:35-47加载全人口既有R26位置；不能直接给子区域数组使用。需按冻结身份映射生成区域选择，同组不可跨fit/holdout，所有视图共用同一选择，并保存共同支持表。",
+      "nominal_and_own_outputs_each": [
+        "全部事件数/QC/人工组/组成",
+        "PSD W1/KS/FoM/低高密度峰位/raw及去趋势宽度",
+        "均值/10-90%全波形",
+        "rise/peak/Q/RMS/谱/ACF",
+        "五视图与同处理REAL/RAW RR",
+        "源秩/谷与扰动/边界引用或区域量",
+        "失败/无支持原因及可声明状态"
+      ],
+      "migration": "源名义q1-q4到输出自身q1-q4并加invalid列；另保留原8窄区及低/高支持外映射。计数逐行回到全部2000父数，不丢非法输出。",
+      "paired_FULL_GAP": "固定名义父集合的逐父差和组配对不确定性可直接配对；输出自身区的成员会不同，须显式使用所有原父事件的共同重采样再重算成员/指标，不能硬把不同样本按行凑成配对。",
+      "regional_claim_mapping": "原A-C含全人口及跨Q1-Q7/Q2-Q7条件，原E含CAL四区；必须在开评前冻结全局门与局部门如何共同产生validated/excluded/undefined。任何局部映射都不能删除全局必需bins2-7或把undefined当通过。该映射当前未决，本报告不自创更宽松区域验收。",
+      "valid_negative_finish": "GAP失败可形成范围研究的完成回执与明确排除区；不等于缺口推广成功，更不等于整个A-F模型目标完成。"
+    },
+    "reusable_functions": [
+      {
+        "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/training.py",
+        "lines": [
+          10,
+          13
+        ],
+        "functions": [
+          "parameter_digest"
+        ],
+        "action": "复用参数字节一致性思想；把trainable tensors和统计buffer分别列示"
+      },
+      {
+        "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/run.py",
+        "lines": [
+          51,
+          62
+        ],
+        "functions": [
+          "gap masks/exclusion and source coverage block"
+        ],
+        "action": "保留半开区间和排除清单结构，改接当前身份/数据源；零使用必须由真实交集与消费记录计算"
+      },
+      {
+        "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/gap_evaluation.py",
+        "lines": [
+          11,
+          43
+        ],
+        "functions": [
+          "take",
+          "select_q3",
+          "assigned",
+          "c2st_family"
+        ],
+        "action": "保留按身份/组选择与公共支持失败原则；扩成当前五视图、同REAL控制及名义/自身两口径"
+      },
+      {
+        "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/gap_evaluation.py",
+        "lines": [
+          44,
+          67
+        ],
+        "functions": [
+          "rr_q3",
+          "feature_summary"
+        ],
+        "action": "保留64整组重复和undefined；仍如实区分同采集参考与物理等效"
+      },
+      {
+        "path": "work/R6_CHARGE_GAP_GENERALIZATION_001/gap_evaluation.py",
+        "lines": [
+          68,
+          83
+        ],
+        "functions": [
+          "evaluate migration/nominal supplement"
+        ],
+        "action": "保留迁移计数基础；名义supplement升级为全量指标，加invalid列及全部外区"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/assessment.py",
+        "lines": [
+          10,
+          32
+        ],
+        "functions": [
+          "data",
+          "paired_bootstrap"
+        ],
+        "action": "复用canonical ADC/身份和匹配标签/cluster断言"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+        "lines": [
+          14,
+          28
+        ],
+        "functions": [
+          "matrix"
+        ],
+        "action": "当前视图定义；u480特例沿用evaluate_saved.py:65-68"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+        "lines": [
+          107,
+          124
+        ],
+        "functions": [
+          "fit_one"
+        ],
+        "action": "当前固定HGB、TRAIN内imputer/standardizer和组CI；不得绕过公共支持"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluate_saved.py",
+        "lines": [
+          113,
+          138
+        ],
+        "functions": [
+          "widths"
+        ],
+        "action": "保留固定Q2-Q7缺失即失败；不能用assessment.widths旧交集平均"
+      },
+      {
+        "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/summarize_and_plot.py",
+        "lines": [
+          38,
+          133
+        ],
+        "functions": [
+          "six gate and A-C aggregation"
+        ],
+        "action": "保留阈值逻辑为规范；路径、臂名和生命周期事实须由新真实回执供给，不照抄硬编码True/计数"
+      }
+    ],
+    "mandatory_replacements": [
+      "旧R6 run.py:41-63旧2592/599载入与train_arms调用。",
+      "旧training.py:14-67和89-94的课程、墙钟停训和best checkpoint选择。",
+      "旧run.py:71-83的旧latent/white512模型调用，改接注册后当前Pipeline的480点epsilon。",
+      "旧gap_evaluation.py中仅两view、仅输出自身q3和不完整名义supplement。",
+      "不能直接调用带模块顶层run()/写文件的旧run.py、evaluate_saved.py；后续把可复用纯函数置于独立新目录，冻结R63与历史文件不动。"
+    ]
+  },
+  "decisions_that_must_be_frozen_before_final_evaluation": [
+    {
+      "id": "D_identity_pool",
+      "status": "pending_identity_binding",
+      "decide": "当前完整REAL fit身份/顺序、599隔离角色、实际EVAL身份和共同QC；现元数据21047只是候选期望值。"
+    },
+    {
+      "id": "D_source_2000_pool",
+      "status": "unresolved",
+      "decide": "旧R5从整个8192 G4 TRAIN缓存按SHA选择2000，可能含1599内部val；当前响应fit6593和A-C的固定DEV2000是不同池。必须明示采用哪一个、保留何种R5规则及为什么，不混淆为同一个2000。所有SIM/候选/保留历史臂同父同序；不得看输出后选池。"
+    },
+    {
+      "id": "D_arm_inventory_and_counts",
+      "status": "needs_freeze",
+      "decide": "完整保留原五臂并加当前候选的52拟合计划、缺失历史冻结权重的预先例外、full_N及全部输出键。"
+    },
+    {
+      "id": "D_QC_and_representation",
+      "status": "needs_freeze",
+      "decide": "原common QC、2000同父条件不成立时失败处理、当前规范ADC对所有域一致施用方式、标签/区域电荷的精确算术；0:150特征公式和原阈值不得改。"
+    },
+    {
+      "id": "D_paired_statistics",
+      "status": "needs_freeze",
+      "decide": "共享bootstrap draws、比值是在每复制聚合MAE后计算、零分母失败规则、SIM配对差与全量/LOGQ门及浮点边界比较规则。"
+    },
+    {
+      "id": "E_FULL_reuse_or_retrain",
+      "status": "unresolved",
+      "decide": "FULL复用既有R63还是两臂配对重训；保持同一方法、初始化、唯一末点和F权重归属，不选择表现较优的FULL。"
+    },
+    {
+      "id": "E_gap_empty_bin_semantics",
+      "status": "unresolved_blocker_for_implementation",
+      "decide": "narrow Q6空区统计/单位电荷坐标/损失/采样质量和RNG规则、未训练one-hot推理的解释；不改评价Q2-Q7，不填回FULL q3统计。"
+    },
+    {
+      "id": "E_statistic_and_prior_ledger",
+      "status": "pending_provenance_then_freeze",
+      "decide": "五类逐字段依赖；FULL/GAP各自允许事件、需要重建统计及真正允许的历史先验。valley按实际局部父事件判断。"
+    },
+    {
+      "id": "E_nominal_charge_representation",
+      "status": "needs_freeze",
+      "decide": "原clean saved480 nominal 100:400作为source q3排除依据；REAL排除/输出自身区canonical/raw边界关系、half-open边界及迁移归类。原历史全512 Qsource不能替代。"
+    },
+    {
+      "id": "E_pairing_and_rng",
+      "status": "needs_freeze",
+      "decide": "共有网络初始hash、臂内统计差异、50000更新的配对负载/空区抽样映射、七条训练流以及生成seed2026100862在新接口中的状态/字节。"
+    },
+    {
+      "id": "E_evaluator_and_region_claims",
+      "status": "unresolved",
+      "decide": "原R6公共200/100支持族、当前五view和same-treated-REAL族、全局A-C与CAL四区/两种口径的通过映射、BASE/RAW RR引用和分组bootstrap；支持失败不能删后再评。"
+    },
+    {
+      "id": "one_shot_stop_rules",
+      "status": "needs_freeze",
+      "decide": "注册后一次D/E执行；数值/输入/QC/支持失败如实结束相应问题，无结果驱动调参、额外训练/生成、改区间或重选末点。机器资源政策覆盖旧时间/体积预算，固定科学比较设计不变。"
+    }
+  ],
+  "conditional_execution_sequence": [
+    {
+      "order": 0,
+      "phase": "等待现有R63按原冻结协议结束",
+      "inputs": [
+        "R63 sole50000权重与TRAINING_FROZEN_AUDIT",
+        "TRAIN_SOLVER_CHECK",
+        "ACCEPTANCE_A_C",
+        "原六门",
+        "4000条独立REPLAY",
+        "真实退出回执"
+      ],
+      "action": "根代理核实同一候选原A-C均通过；未通过则保留本报告为准备，不执行下列科学阶段。",
+      "outputs": [
+        "候选身份/权重/协议与通过回执绑定"
+      ],
+      "allowed_now": false
+    },
+    {
+      "order": 1,
+      "phase": "正式D/E协议决策和登记",
+      "inputs": [
+        "本报告的未决项",
+        "PROJECT_ACCEPTANCE",
+        "R5/R6任务",
+        "通过候选的完整依赖"
+      ],
+      "action": "先解决会改变实验语义的D父池、E FULL复用、空区及统计先验问题；冻结所有定义/阈值/样本/估计器/RNG/缺失规则，再注册科学读取与单作业顺序。",
+      "outputs": [
+        "正式D协议/config/输入manifest",
+        "正式E协议/config/输入manifest",
+        "pre_eval_decisions.json"
+      ],
+      "allowed_now": false
+    },
+    {
+      "order": 2,
+      "phase": "身份与合法TRAIN依赖验证",
+      "inputs": [
+        "角色身份索引",
+        "expanded_fit侧表",
+        "TRAIN容器",
+        "冻结EVAL身份元数据",
+        "所选G4父清单"
+      ],
+      "action": "恢复target行序、验证事件及组交叠、冻结nested256/1024/full_REAL；按协议恢复每种先验贡献和数据成本union。实际失败即保留错误，不顺手换数据。",
+      "outputs": [
+        "IDENTITIES_AND_ROLES_PRIVATE",
+        "IDENTITY_CHECK_RECEIPT",
+        "DATA_EXPOSURE_LEDGER",
+        "D_SOURCE_PARENT_SELECTION"
+      ],
+      "EVAL_waveforms_read_in_this_phase": false,
+      "allowed_now": false
+    },
+    {
+      "order": 3,
+      "phase": "D生成与任务模型冻结",
+      "inputs": [
+        "冻结候选",
+        "同2000源父",
+        "原SIM配方",
+        "合法REAL fit/内部val",
+        "固定52维特征/RNG"
+      ],
+      "action": "顺序生成SIM/当前候选/保留历史臂，不重训响应；检查2000同父和QC条件；按固定预算/模型/两目标拟合全部任务模型。内部val仅预检查。保存模型、scaler、身份、生成和随机状态后出具EVAL未开回执。",
+      "outputs": [
+        "GENERATION_INPUTS_AND_RANDOM_STATE",
+        "SYNTHETIC_ALL_PARENTS",
+        "TASK_TRAIN_IDENTITIES",
+        "task_models",
+        "MODELS_FROZEN_BEFORE_EVAL"
+      ],
+      "EVAL_waveforms_read_in_this_phase": false,
+      "allowed_now": false
+    },
+    {
+      "order": 4,
+      "phase": "D一次评价、配对统计、固定重放",
+      "inputs": [
+        "全部冻结任务模型",
+        "既有EVAL身份/波形",
+        "共享组bootstrap draws",
+        "CAL固定cut/区域"
+      ],
+      "action": "一次预测全部QC有效EVAL；完成所有原指标及D1-D6；保存逐事件配对预测与组；独立进程重载模型在固定first64前缀输入重放，不重拟合。渲染并逐张打开图。",
+      "outputs": [
+        "predictions_PRIVATE",
+        "PAIRED_DIFFERENCES_ABSOLUTE_AND_RELATIVE",
+        "D_ACCEPTANCE",
+        "REPLAY_CHECK",
+        "FIGURE_QA",
+        "D_REPORT"
+      ],
+      "EVAL_waveforms_read_in_this_phase": true,
+      "allowed_now": false
+    },
+    {
+      "order": 5,
+      "phase": "E臂内统计和配对训练/复用",
+      "inputs": [
+        "冻结FULL政策",
+        "合法TRAIN角色",
+        "source/REAL q3排除表",
+        "五类统计依赖ledger",
+        "预冻结空区语义",
+        "共同初始化"
+      ],
+      "action": "逐臂生成排除与真实零使用证明；只从本臂允许TRAIN导出统计。按已登记选择复用FULL或顺序训练FULL/GAP；GAP不得从已训FULL权重开始。保存真实初始化/训练RNG/曝光/最终权重/唯一步数回执。",
+      "outputs": [
+        "GAP_EXCLUSIONS_PRIVATE",
+        "STATISTICS_PROVENANCE_PER_ARM",
+        "INITIAL_PARAMETER_EQUALITY",
+        "FULL_and_GAP_FINAL_WEIGHTS",
+        "ARM_TRAINING_RECEIPTS"
+      ],
+      "EVAL_waveforms_read_in_this_phase": false,
+      "allowed_now": false,
+      "dependency_note": "D和E相关协议均应先冻结；D打开EVAL后不得据其结果改变E。已完成D的评价暴露要追加历史接触账。"
+    },
+    {
+      "order": 6,
+      "phase": "E数值门与主生成冻结",
+      "inputs": [
+        "两臂末点/推理依赖",
+        "固定TRAIN数值检查输入",
+        "原DEV2000 SOURCE父",
+        "固定REAL控制与全部探针",
+        "配对生成epsilon"
+      ],
+      "action": "先每臂Heun128/256、0.25/1LSB/1e-5门；失败保留，禁止扫描步数。通过后各生成全部主SOURCE/同处理REAL和探针，所有父事件留存，冻结生成回执再评价。",
+      "outputs": [
+        "TRAIN_SOLVER_CHECK_PER_ARM",
+        "GENERATION_INPUT_BINDINGS",
+        "FULL/GAP_ALL_OUTPUTS",
+        "MODELS_AND_GENERATION_FROZEN_BEFORE_EVAL"
+      ],
+      "EVAL_waveforms_read_in_this_phase": false,
+      "allowed_now": false
+    },
+    {
+      "order": 7,
+      "phase": "E一次双口径完整范围评价",
+      "inputs": [
+        "两臂全部固定输出",
+        "相同EVAL REAL q3/外区",
+        "原R2/R3/R3B参考",
+        "冻结区域/HGB/支持映射",
+        "BASE与RAW_RR控制"
+      ],
+      "action": "对名义源区和输出自身区完整列指标、5视图、REAL控制；报告迁移、所有invalid和支持失败、q1/q2/q4、64组RR；保留原全人口A-C和所有必需窄区。配对FULL/GAP差异按实际成员关系处理；每臂4000独立重放与图像QA。",
+      "outputs": [
+        "E_OWN_REGION_RESULTS",
+        "E_NOMINAL_REGION_RESULTS",
+        "MIGRATION_AND_SUPPORT",
+        "PAIRED_FULL_GAP",
+        "GLOBAL_AND_REGION_ACCEPTANCE",
+        "E_REPLAY",
+        "E_REPORT"
+      ],
+      "EVAL_waveforms_read_in_this_phase": true,
+      "allowed_now": false
+    },
+    {
+      "order": 8,
+      "phase": "由根代理汇总F与科学结论",
+      "inputs": [
+        "D所有门",
+        "E明确范围/失败表",
+        "同一候选A-C",
+        "完整模型/代码/输入/随机流/图/失败账本"
+      ],
+      "action": "可复现实交付及私有Git/D备份由根代理负责；本报告不执行Git。A-F同时成立才称当前开发范围内模型目标完成；负结果或范围研究完成分别表述。",
+      "outputs": [
+        "A-F final decision",
+        "实际推送/备份回执"
+      ],
+      "allowed_now": false
+    }
+  ],
+  "proposed_artifacts_not_created": {
+    "private_E_or_D_only": [
+      "身份映射/分组/预测/波形/权重/随机流及重放输入",
+      "臂内排除及统计贡献事件清单"
+    ],
+    "compact_reviewable": [
+      "正式协议/config",
+      "输入和冻结决策manifest",
+      "D逐门判定",
+      "E双口径完整结果和迁移/支持失败",
+      "各原A-C门与区域声明映射",
+      "数据暴露成本账",
+      "原生退出/资源/重放/图像QA回执"
+    ],
+    "current_delivery": "只有本 report.json；上述名字是所需输出约定，未创建任何科学执行脚本或结果。"
+  },
+  "limitations": [
+    "这是代码和既有元数据的静态准备；实际当前输入SHA/行顺序、身份零交叠、GAP统计重建、FULL配对训练条件尚未验证。",
+    "R63新A-C未取得；D/E未实施、未完成、未通过，不能把此计划当作注册或运行状态。",
+    "q3包含整个narrow Q6是固定边界的确定性兼容性问题；如何处理空区尚需前瞻决定，不由本报告改变当前方法。",
+    "历史EVAL、DEV及噪声先验接触保留；任何后续结果仍需限定于历史暴露的同一次采集。",
+    "不得以旧R5局部收益或旧R6研究已完成替代当前D/E；不得以D/E文件齐全替代原A-F联合目标。"
+  ]
+}
+

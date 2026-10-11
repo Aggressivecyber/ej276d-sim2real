@@ -1,0 +1,1 @@
+from coverage_artificial_check import check, integration_check

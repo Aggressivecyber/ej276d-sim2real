@@ -1,0 +1,52 @@
+{
+  "UTC": "2026-10-11T01:26:10.038902+00:00",
+  "status": "source_review_accepted_as_unwired_code_preparation",
+  "reviewer": "root",
+  "scope": "D statistics adapter source, artificial selftest source, and existing native test receipt",
+  "independent_test_rerun": false,
+  "reason_not_rerun": "The recorded native tests passed and their source/output hashes match; review found no code change or unresolved test failure.",
+  "reviewed_contracts": [
+    "D1/D4/D5 point gates use inclusive metric bounds without a tolerance; D2/D3 CI upper bounds are strictly below zero.",
+    "D2 forms the relative MAE difference separately in every paired resample, not by scaling a CI using the point estimate.",
+    "All 8 packets use the same whole-group bootstrap draws; group repetitions preserve event weights for unequal group sizes.",
+    "The independent test expands all 1000 resamples into repeated event indices and checks each arm and both estimators.",
+    "A zero reference or any invalid required CI replicate is undefined and cannot pass; no replicate filtering or denominator floor.",
+    "Both Ridge and HGB must satisfy every gate; row order, group binding, missing packets, nonfinite values and derived overflows are rejected.",
+    "The caller must explicitly provide a bool design declaration, with no default; this declaration alone proves neither data lineage nor study freezing."
+  ],
+  "verified_files": [
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R63_WAIT_PARALLEL_001\\validation_prep\\d_statistics_adapter.py",
+      "sha256": "02a2f1fb88c1bb3c74121357bb38087f03c184f2a873b04f7f673fe343eb77fb",
+      "receipt_match": true
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R63_WAIT_PARALLEL_001\\validation_prep\\test_d_statistics_adapter.py",
+      "sha256": "ed3291288a73e411bab842c9b5094d7eb435af8af4fa45c18354cd5fdb7b3dc0",
+      "receipt_match": true
+    },
+    {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R63_WAIT_PARALLEL_001\\validation_prep\\ARTIFICIAL_SELFTEST.json",
+      "sha256": "011d05d303af5ba6ba7e8da023ffd40506007eefb0325a666f338b30efaffcfc",
+      "receipt_match": true
+    }
+  ],
+  "immutable_readiness_report_sha256": "e1eafdc353f90b4c56eb0ec2d4cbd125cd26707035d92a446130279e02640c7b",
+  "preparation_receipt_sha256": "37e9d8995377a1fdb036eb8ae027cc0579cb6509f8e94702ec8d338f6316c98b",
+  "original_acceptance_json_sha256": "b0e4c13302dc67b0eec0799e77fdbab603e29a293cb32bbc26fa0734f025ac9e",
+  "original_acceptance_md_sha256": "d6f68a1e902d901bcceafaa1d23f97b1a8ff5ad9f52acf46b00b82d7a6bdb04d",
+  "observed_artificial_test_count": 20,
+  "observed_artificial_peak_working_set_bytes": 44613632,
+  "scope_boundaries": {
+    "actual_sample_identities_verified": false,
+    "actual_prediction_packets_available": false,
+    "wired_into_frozen_D_protocol": false,
+    "D_or_E_science_registered_or_run": false,
+    "scientific_arrays_read": false,
+    "new_model_forwards_gradients_fits_updates": 0,
+    "R63_frozen_science_changed": false,
+    "actual_D_acceptance_established": false
+  },
+  "remaining_before_use": "Register and verify the frozen D population, row identities/groups, source-parent selection, same candidate weight, target definitions, estimators, and REAL consumption; then bind actual predictions to this adapter.",
+  "model_goal_complete": false
+}

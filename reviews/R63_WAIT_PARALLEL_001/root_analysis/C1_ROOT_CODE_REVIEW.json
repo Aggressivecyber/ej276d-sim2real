@@ -1,0 +1,120 @@
+{
+  "UTC": "2026-10-11T01:43:28.220277+00:00",
+  "owner": "/root",
+  "status": "code_preparation_accepted_for_future_registered_integration",
+  "pass": true,
+  "receipt": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/CODE_PREPARATION_RECEIPT.json",
+  "receipt_SHA256": "26682374b35a7f7cf4312c43cf763002aa86ac1610fe51ca1bfea13f1d6a8a0a",
+  "source_review": "Root reviewed the weighted CDF partition, fixed tie branch, analytic and independent Fraction oracle tests, duplicate-parent VJP accumulation and separate fixed-REAL versus shared-parameter REAL roles before this audit.",
+  "binding_checks": [
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/report.json",
+      "bytes": 30171,
+      "SHA256": "20891a32bca4b0d2eabcec295b9219eb7c863289d063ede925646cc314019e2f",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/C1_IMPLEMENTATION_NOTES.json",
+      "bytes": 18951,
+      "SHA256": "4b593215183c1c4893e243338a859582fd981cdde22bece76f1af9056688953f",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/weighted_empirical_w1.py",
+      "bytes": 13328,
+      "SHA256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/artificial_vjp_proof.py",
+      "bytes": 32828,
+      "SHA256": "e2ab4b6fb48955754f8e31847f96b98f90d06fd33343dd7ecfc531c5b6f93cc0",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/resource_guard.py",
+      "bytes": 9086,
+      "SHA256": "adac345ed0643b42e972a78856978140e9a44152f57d758092d09dbc53589592",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/run_artificial.ps1",
+      "bytes": 8617,
+      "SHA256": "e7329bd80cd2da408524df968424316d477f5009837c39c745f3d78908ac57a1",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/artificial_fixture.json",
+      "bytes": 5163,
+      "SHA256": "12098ed7fb77918845ba0ce6bcefb7965a397ae3cfb08f508221e68bb9c7ccd2",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/attempt_001/ARTIFICIAL_TEST_RESULTS.json",
+      "bytes": 25149,
+      "SHA256": "4a9985c750606031ca4efc10b91a1fd6505e8ca1808f0154a402e673d0138f80",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/attempt_001/RESOURCE_EVIDENCE.json",
+      "bytes": 385070,
+      "SHA256": "af7dde0bc9e59a47e3051814c984c2d8a8b6a6bfcde883a5f9a3968d1ee7e770",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/attempt_001/stdout.txt",
+      "bytes": 377,
+      "SHA256": "b54f69a9f7ee4f29bace01dd404f530d0a12760054c30db53436806a15f07ede",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/attempt_001/stderr.txt",
+      "bytes": 0,
+      "SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "match": true
+    },
+    {
+      "path": "reviews/R63_WAIT_PARALLEL_001/literature/c1_preparation/attempt_001/PROOF_ATTEMPT_RECEIPT.json",
+      "bytes": 394356,
+      "SHA256": "fde2757af81f34a3aaae066729fa856802324bd4c7f8568fe16e3810d544f32a",
+      "match": true
+    }
+  ],
+  "native_exit_code": 0,
+  "test_group_count": 9,
+  "passed_groups": 9,
+  "groups": [
+    "analytic_unequal_counts_and_both_endpoint_gradients",
+    "repeated_values_and_tie_gradient_ambiguity",
+    "zero_masses_and_sub_ULP_CDF_segment",
+    "separate_SOURCE_REAL_global_mass_conventions",
+    "equal_count_equal_mass_special_case_f64_f32",
+    "independent_seeded_coordinate_CDF_oracle",
+    "frozen_mass_and_input_validation_contract",
+    "SOURCE_parameterized_REAL_fixed_reference_two_pass_VJP",
+    "generic_both_endpoint_laws_share_theta_two_pass_VJP"
+  ],
+  "original_runtime": {
+    "python_executable": "E:\\GAN\\runtime_envs\\fresh_noise_cpu_20261007_103015\\venv\\Scripts\\python.exe",
+    "python_version": "3.12.14",
+    "numpy_version": "2.3.5",
+    "numpy_file": "E:\\GAN\\runtime_envs\\fresh_noise_cpu_20261007_103015\\venv\\Lib\\site-packages\\numpy\\__init__.py",
+    "torch_version": "2.6.0+cpu",
+    "torch_file": "E:\\GAN\\runtime_envs\\fresh_noise_cpu_20261007_103015\\venv\\Lib\\site-packages\\torch\\__init__.py",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "original_peak_RSS_bytes": 242147328,
+  "original_elapsed_seconds": 33.6699858,
+  "tests_rerun_by_this_audit": false,
+  "original_reports_unchanged": true,
+  "scientific_data_or_weights_loaded": 0,
+  "scientific_forwards_gradients_or_updates": 0,
+  "limitations": [
+    "These are artificial scalar/vector objectives, not the integrated R63 five-term distribution objective.",
+    "No original network, scientific endpoint, CUDA replay or scientific gradient was exercised.",
+    "Stable tie-selected gradients are conditional algorithmic choices, not unique gradients at ties.",
+    "Parent-fixed-noise finite reference and fixed directions differ from the original stochastic training law.",
+    "Exact integer mass partition does not make floating-point distances, objectives or VJPs exact arithmetic.",
+    "Future scientific use requires a distinct registered protocol and objective-level artificial compatibility checks."
+  ]
+}

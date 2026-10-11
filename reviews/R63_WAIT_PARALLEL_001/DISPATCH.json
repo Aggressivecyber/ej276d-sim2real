@@ -1,0 +1,49 @@
+{
+  "UTC": "2026-10-11T01:06:12.338Z",
+  "parent_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+  "authorization_receipt": "reviews/PROJECT_GOAL_PARALLEL_20261011_001/APP_GOAL_RECEIPT.json",
+  "scientific_jobs_started": 0,
+  "current_scientific_job_retained": {
+    "worker_PID": 218063,
+    "local_pipeline_PID": 9852,
+    "session_id": 67043
+  },
+  "shared_local_auxiliary_limits": {
+    "CPU": 4,
+    "RSS_GiB": 4,
+    "storage": [
+      "E",
+      "D"
+    ]
+  },
+  "tasks": [
+    {
+      "agent": "/root/r63_wait_literature_20261011",
+      "scope": "Primary literature and at most two evidence-backed conditional methods",
+      "output": "reviews/R63_WAIT_PARALLEL_001/literature/report.json"
+    },
+    {
+      "agent": "/root/r63_wait_train_evidence_20261011",
+      "scope": "Saved TRAIN evidence and R63 objective coverage; conditional diagnostic",
+      "output": "reviews/R63_WAIT_PARALLEL_001/train_evidence/report.json"
+    },
+    {
+      "agent": "/root/r63_wait_validation_prep_20261011",
+      "scope": "D/E original acceptance and current-method implementation readiness",
+      "output": "reviews/R63_WAIT_PARALLEL_001/validation_prep/report.json"
+    }
+  ],
+  "constraints": [
+    "no new scientific run",
+    "no current frozen source/config change",
+    "no new DEV/EVAL data access",
+    "no Git mutation by agents",
+    "no source population or acceptance modification"
+  ],
+  "application_goal_verification": {
+    "status": "active",
+    "objective_matches_saved_receipt": true,
+    "threadId": "01a0ffc1-e68d-7123-b09b-0c86a7253724",
+    "verified_UTC": "2026-10-11T01:06:12.317Z"
+  }
+}

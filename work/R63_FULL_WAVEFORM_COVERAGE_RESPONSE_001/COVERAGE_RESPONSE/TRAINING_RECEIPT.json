@@ -1,0 +1,120 @@
+{
+  "PID": 218063,
+  "UTC": "2026-10-11T01:31:40.860310+00:00",
+  "arm": "COVERAGE_RESPONSE",
+  "updates": 50000,
+  "elapsed_s": 5156.831054483002,
+  "counter": {
+    "response_fit_attempts": 1,
+    "new_response_updates": 50000,
+    "SOURCE_training_rows": 16000000,
+    "REAL_reference_rows": 16000000,
+    "REAL_identity_rows": 3200000,
+    "teacher_waveforms_constructed": 0,
+    "new_HGB_fits": 0,
+    "new_density_fits": 0,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0
+  },
+  "selection": "sole final50000",
+  "source_parents": 6593,
+  "REAL_parents": 21047,
+  "actual_unique_SOURCE_REAL_reference_REAL_identity": [
+    6593,
+    21047,
+    21047
+  ],
+  "SOURCE_parent_exposure_min_max": [
+    724,
+    14086
+  ],
+  "REAL_reference_exposure_min_max": [
+    511,
+    1668
+  ],
+  "REAL_identity_exposure_min_max": [
+    102,
+    202
+  ],
+  "source_global_measure": "original equal parent weights through frozen region importance correction",
+  "realized_exposure_counts_are_not_uniform_claim": true,
+  "model_seed": 20261010590,
+  "initial_state_SHA": "4a51097e257d4b35976452982aa9a84f48e321d425e0ba3859e8afe8a7bd239b",
+  "final_state_SHA": "626206f9c25281e18a2d58c82c70c9d4f32df7fb1d73788e588f59009ec924f3",
+  "stream_hashes": {
+    "source_rows": "0f5567fa9a5cbb9d5113a760130b6c159faa9e8d5e09027d9a0cb0332f6ca5b2",
+    "REAL_reference_rows": "1e3e083641aa649ca1c498abc06a4079dbe0aec440e9f0c6f753702181ebb0c0",
+    "REAL_identity_rows": "c89bf701cca4b50cb20d62f04a1a1a5ff11349874f038c35638432e7208a5b29",
+    "source_epsilon": "6a3e813c23c1d68d5c87c3b6089ca1faf990229127fbea1e347d762194e7b58b",
+    "identity_epsilon": "2321010053240d2c150d12206ebde2fde63e601456f90dae0481139d248855c7",
+    "projection_directions": "27eb00f64c04582769e39bd9e3cb2139cd111a43fa4a7fc94be922fc7fde272b",
+    "baseline_projection_directions": "655656e6e88a99137a43ae085c0fac95817c6025acafa49ea7e8d4e984ae9ba6"
+  },
+  "stream_hash_algorithm": "SHA256(previous32byte_digest + actual_consumed_little_endian_array_bytes); initial32 zero bytes; four directions sequentially per update in V,U,DU,D2U order",
+  "PCG64_seeds": {
+    "source_rows": 20261010591,
+    "REAL_reference_rows": 20261010592,
+    "REAL_identity_rows": 20261010593,
+    "source_epsilon": 20261010594,
+    "identity_epsilon": 20261010595,
+    "projection_directions": 20261010596,
+    "baseline_projection_directions": 20261011631
+  },
+  "stream_reconstruction": {
+    "SOURCE": "ten category-order integer draws,32 each; source index bytes uint16",
+    "REAL_reference": "ten category-order integer draws,32 each; REAL index bytes uint16",
+    "REAL_identity": "64 uniform integer draws from full REAL; uint16",
+    "SOURCE_white": "standard_normal(320,480) defaultfloat64 thenfloat32",
+    "REAL_white": "standard_normal(64,480) defaultfloat64 thenfloat32",
+    "directions": "standard_normal((d,64)) float64; unit columns normalized float64; castfloat32; d=480,480,479,478",
+    "baseline_directions": "independent seventh stream; standard_normal((31,64)) float64; normalize columns float64; castfloat32"
+  },
+  "new_response_training_runs": 1,
+  "teacher_waveforms_constructed": 0,
+  "R58_law_or_atoms_training_target": false,
+  "h_PDG_network_inputs": false,
+  "network_parameter_count": 1369889,
+  "max_output_relative_q_error_f64": 1.235651040393397e-15,
+  "max_output_relative_q_error_f32": 7.896298034974279e-08,
+  "GPU_allocated_peak_bytes": 2970884096,
+  "GPU_reserved_peak_bytes": 3477078016,
+  "CPU_threads": 12,
+  "source_val_target_val_decoded": false,
+  "DEV_read": 0,
+  "EVAL_read": 0,
+  "CAL_decode": 0,
+  "compute_budget_enforced": false,
+  "model_goal_complete": false,
+  "objective_extension_integrity": {
+    "same_R61_initial_state": true,
+    "all_six_consumed_stream_hashes_equal_R61": true,
+    "all_parent_exposures_equal_R61": true,
+    "original_six_final_random_states_equal_R61": true,
+    "seventh_direction_stream_recorded_independently": true,
+    "frozen_R61_distribution_statistics_reused": true,
+    "sole_change": "Add nonnegative full-coordinate RMS empirical-W1 and 31-feature baseline temporal marginal/sliced distribution losses to the unchanged original seven losses."
+  },
+  "source_order_rule": "float32_PSD_interval_disjoint_only_original_nonzero_denominator",
+  "precision_order_columns": [
+    "original_order_loss",
+    "omitted_order_loss",
+    "original_nonzero_pair_mass",
+    "resolved_pair_fraction"
+  ],
+  "precision_order_trace_rows": 50000,
+  "coverage_columns": [
+    "original_seven_total",
+    "coordinate_RMS",
+    "temporal_joint",
+    "temporal_marginal",
+    "temporal_sliced",
+    "V480_coordinate_RMS",
+    "U480_coordinate_RMS",
+    "DU479_coordinate_RMS",
+    "D2U478_coordinate_RMS"
+  ],
+  "coverage_trace_rows": 50000,
+  "temporal_direction_calls": 50000,
+  "new_temporal_statistics_saved": true
+}

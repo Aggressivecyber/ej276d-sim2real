@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "static_mathematical_preparation_not_a_registered_diagnostic",
+  "prepared_UTC": "2026-10-11T01:15:00Z",
+  "author": "/root",
+  "purpose": "Distinguish a charge-mean contribution to the V480 coordinate losses from shape residuals, finite-batch effects, and gradient competition without changing the live R63 recipe.",
+  "actual_work": {
+    "source_text_reads": true,
+    "new_scientific_array_decodes": 0,
+    "model_forwards": 0,
+    "gradient_computations": 0,
+    "training_updates": 0,
+    "scientific_jobs_started": 0,
+    "numeric_lower_bound_computed": false,
+    "current_R63_method_changed": false
+  },
+  "verified_implementation": [
+    {
+      "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/source_flow_core.py",
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+      "facts": [
+        "q(v)=sum(v[100:400])-3*sum(v[0:100]); this is in code voltage-sample units, not the 1000*q mV ns reporting unit.",
+        "BoxChargeProjection enforces charge before canonical ADC within floating-point error.",
+        "canonical_adc_torch includes float32 conversion, clamp/round, and a second canonical-code reconstruction; ideal one-step rounding cannot silently replace this path."
+      ]
+    },
+    {
+      "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/R61_distribution_loss.py",
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+      "facts": [
+        "The candidate is canonical_adc_torch(output, True) before feature extraction.",
+        "V480 is raw canonical voltage; U480 is baseline-subtracted own-peak normalized voltage with floor 0.0025, not a unit-charge waveform.",
+        "Each region shares the same REAL TRAIN coordinate center and positive scale between SOURCE and REAL.",
+        "Standardized coordinates are cast to float32 before empirical W1.",
+        "The V480 coordinate-mean part has coefficient 1/8 in full_window after averaging the four views and marginal/sliced terms."
+      ]
+    },
+    {
+      "path": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/distribution_loss.py",
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+      "facts": [
+        "coordinate_RMS is the Euclidean norm of the coordinate W1 vector divided by sqrt(dimension).",
+        "The V480 coordinate_RMS part has coefficient 1/4 before the original SOURCE regional mass.",
+        "config.json currently gives both full_window and coordinate_RMS outer weight 1."
+      ]
+    }
+  ],
+  "mathematical_definition": {
+    "scope": "One fixed raw-input region and its actual normalized empirical SOURCE and REAL laws. Equal batch sizes are not necessary for the bound; each coordinate W1 must use the same within-law weights as the means.",
+    "dimension": 480,
+    "charge_coefficients_a": "a_j=-3 for j=0..99, +1 for j=100..399, 0 for j=400..479",
+    "Y_R": "Y is canonical SOURCE output and R is canonical REAL reference. Values are interpreted as real numbers for this proof.",
+    "mu_s": "The shared frozen regional V480 center mu_j and positive scale s_j.",
+    "z": "zY_j=(Y_j-mu_j)/s_j and zR_j=(R_j-mu_j)/s_j in exact arithmetic.",
+    "represented_z": "zbar is the actual float32 standardized coordinate. Its deviation from exact z includes all subtraction, division, and cast rounding, not only the final cast.",
+    "d_j": "Exact empirical W1 between the represented zbarY_j and zbarR_j laws, before any floating-point error in sorting/subtraction/reduction is interpreted as an exact certificate.",
+    "c_j": "abs(a_j)*s_j",
+    "Erep": "sum_j c_j * (E_Y abs(zbarY_j-zY_j) + E_R abs(zbarR_j-zR_j))",
+    "Dout": "abs(E_Y q(Y)-E_R q(R))",
+    "Lmean": "sum_j d_j/480",
+    "LRMS": "sqrt(sum_j d_j^2/480)"
+  },
+  "proof": [
+    "For any two scalar laws with finite first moments, abs(mean(A)-mean(B)) <= W1(A,B): take expectations under any coupling and apply abs(E(A-B)) <= E(abs(A-B)), then take the infimum.",
+    "The shared center cancels: E q(Y)-E q(R)=sum_j a_j*s_j*(E zY_j-E zR_j).",
+    "Insert represented zbar values, apply the triangle inequality and the previous scalar bound: Dout <= sum_j c_j*d_j + Erep.",
+    "Since d_j>=0, sum_j c_j*d_j <= max_j(c_j)*sum_j d_j = 480*max_j(c_j)*Lmean.",
+    "Cauchy-Schwarz gives sum_j c_j*d_j <= norm2(c)*norm2(d) = sqrt(480)*norm2(c)*LRMS."
+  ],
+  "result": {
+    "positive_part": "[x]_+=max(x,0)",
+    "coordinate_mean_lower_bound": "Lmean >= [Dout-Erep]_+/(480*max(c))",
+    "coordinate_RMS_lower_bound": "LRMS >= [Dout-Erep]_+/(sqrt(480)*norm2(c))",
+    "optional_source_charge_form": "Let Dsrc=abs(E_SOURCE q_source-E_REAL q(R)) and epsq=E_SOURCE abs(q(Y)-q_source), with the exact same SOURCE weights/parents. Then replace Dout-Erep by Dsrc-epsq-Erep in both lower bounds.",
+    "combined_R63_contribution": "With original regional masses m_r and the verified unit outer weights, the two V480 terms alone are at least sum_r m_r*(LBmean_r/8 + LBRMS_r/4). Other nonnegative losses and views are retained, not subtracted or renormalized.",
+    "unit_consistency": "If reported charge is 1000*q, all charge coefficients, gaps and charge errors must be scaled consistently. Mixing mV ns gaps with the unscaled code coefficients is invalid."
+  },
+  "limits": [
+    "No actual Dsrc, Dout, Erep, epsq or numerical bound was computed here. No positive unavoidable residual has been established for this project.",
+    "An output-specific bound is descriptive, not a uniform bound over all allowed neural outputs. A model-independent irreducibility claim would additionally require a valid uniform post-ADC charge-error and representation-error bound.",
+    "For a certified numerical result, all errors in means, empirical W1 reductions and the bound arithmetic need conservative treatment; a nominal float64 value is not automatically a mathematical certificate.",
+    "This only bounds the V480 coordinate contributions. It does not explain U480, DU479, D2U478, temporal structure, or all sliced losses.",
+    "A large loss contribution does not imply a large parameter gradient, gradient conflict, or ineffective training.",
+    "The bound depends only on a charge-mean difference and can be zero when charge laws differ substantially; zero does not establish compatibility.",
+    "No bound on the original A-F classifier/PSD/width acceptance follows from this training-objective bound.",
+    "No parent deletion, REAL reweighting, changed region boundary, loss subtraction or changed acceptance is authorized by this derivation."
+  ],
+  "conditional_future_use": "If the fixed R63 result warrants another TRAIN-only diagnostic, its preregistered shared endpoint collection may include these scalar quantities and per-region counts alongside gradient and shape diagnostics. Freeze numerical treatment and output definitions before new scientific data processing; do not run the diagnostic during the live R63 job."
+}
