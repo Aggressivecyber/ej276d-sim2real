@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "review_scope": "Independent text/AST review of root trainer snapshot and its input/adapter/suite interfaces; no model or scientific data execution.",
+  "verdict": "NO_UNRESOLVED_STATIC_BLOCKER_FOUND_IN_REVIEWED_SNAPSHOT",
+  "reviewed_driver_SHA256": "54834b0fd73ee08a420096e791be6038c2193acfb22c91c81563e059b64c67f3",
+  "reviewed_audit_SHA256": "88c26b435621e8454254447ec03e0c6a2ae391f1463c601ea13c7e06861d88ad",
+  "initial_driver_SHA256": "332e8070fe6eb7362d1c02c2fc4dc83e6cbdb33fe726e807e94f3e34d4451f03",
+  "intermediate_driver_SHA256": "51ec83a45cd2f216a462565109fe59f9859824971099a6a211bd128c44e34d36",
+  "findings": [
+    {
+      "id": "R65_DRV_001",
+      "severity_before_fix": "P1",
+      "original_location": "train_final.332e8070fe6e.py:703 and audit v1:295",
+      "problem": "The final stream_hash_algorithm prose differed from R63 while the then-current saved-record audit required literal equality, causing a deterministic endpoint audit failure.",
+      "fix": "Final driver copies the bound historical description. Revised audit requires nonempty wording while keeping all original seven actual chains and final states exact.",
+      "fixed_location": [
+        "driver_final:772",
+        "current_audit:338"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    },
+    {
+      "id": "R65_DRV_002",
+      "severity_before_fix": "P1",
+      "original_location": "train_final.332e8070fe6e.py:238 and :677",
+      "problem": "Recovery rejected a committed step 50000 and rejected an existing partial FINAL_FLOW output, so a failure after the last checkpoint could not finish the same endpoint.",
+      "fix": "Accept committed_update <= 50000. The loop is empty at 50000; logs/model can be restored for finalization. Existing finalization outputs require byte-identical native_attempts archives before replacement; NPZ and torch outputs use fsync temporary-file/atomic replacement.",
+      "fixed_location": [
+        "driver_final:276",
+        "driver_final:292",
+        "driver_final:500",
+        "driver_final:745"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    },
+    {
+      "id": "R65_DRV_003",
+      "severity_before_fix": "P1",
+      "original_location": "train_final.332e8070fe6e.py:239",
+      "problem": "Checkpoint creator was required to equal the immediately preceding attempt. A second crash before a new checkpoint would prevent another resume from the earlier valid creator.",
+      "fix": "Checkpoint creator and immediately previous physical attempt are checked separately; creator must occur in preserved attempts. A recovery edge uses the actual current OWNED_SCIENCE_NONCE.",
+      "fixed_location": [
+        "driver_final:277",
+        "driver_final:280",
+        "driver_final:284"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    },
+    {
+      "id": "R65_DRV_004",
+      "severity_before_fix": "P1",
+      "original_location": "train_final.332e8070fe6e.py:548 and :619; audit v1:130",
+      "problem": "A completed Adam call can precede logical log commit. Old audit equality would reject honest preserved crash work or induce undercounting.",
+      "fix": "Physical new_response_updates means known Adam calls and records their nonnegative difference from the committed interval as known_uncommitted_optimizer_steps. Revised audit accepts that explicit difference, verifies prior operation lower bounds, and retains exact uninterrupted totals.",
+      "fixed_location": [
+        "driver_final:180",
+        "driver_final:753",
+        "driver_final:822",
+        "current_audit:130",
+        "current_audit:159"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    },
+    {
+      "id": "R65_DRV_005",
+      "severity_before_fix": "P1",
+      "original_location": "train_final.332e8070fe6e.py:425 and :430",
+      "problem": "Checkpoint metadata had no digest published at creation. A recovery request hashing the post-crash cache could not establish equality to the originally committed bytes.",
+      "fix": "Write/fsync temporary checkpoint, compute its digest, durably publish PENDING receipt, atomically replace/fsync cache directory, then durably publish COMMITTED receipt. Recovery verifies a named published receipt/hash plus cache/hash, step, creator, and frozen bindings before deserialization.",
+      "fixed_location": [
+        "driver_final:54",
+        "driver_final:264",
+        "driver_final:478",
+        "driver_final:494"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    },
+    {
+      "id": "R65_DRV_006",
+      "severity_before_fix": "P2",
+      "original_location": "train_final.51ec83a45cd2.py recovery restore block",
+      "problem": "The intermediate repair set restored updates before attempt_start_update. A later restore-validation failure could record negative known_uncommitted_optimizer_steps with zero new Adam calls.",
+      "fix": "Immediately after setting restored updates, initialize attempt_start_update, last_checkpoint_update, and current_update to that boundary before later assertions.",
+      "fixed_location": [
+        "driver_final:411",
+        "driver_final:412"
+      ],
+      "status": "FIX_VERIFIED_STATIC"
+    }
+  ],
+  "unresolved_blockers": [],
+  "static_semantic_checks": [
+    {
+      "name": "full_source_real_finite_parent_D",
+      "evidence": "Complete 6593 SOURCE and 21047 REAL populations in original archive order; raw regions including -1/8 retained; frozen statistics reused; no new REAL feature cache."
+    },
+    {
+      "name": "original_seven_streams_plus_eighth",
+      "evidence": "Original seven draw APIs/seeds/shapes and chain byte ordering preserved. The separate seeded full_SOURCE_epsilon draws default-float64 standard_normal((6593,480)).astype(<f4) once per update; its completed nD is reused in both D passes."
+    },
+    {
+      "name": "joint_D_endpoint_gradient_once",
+      "evidence": "One newly direction-bound FrozenDistributionObjective per update; joint_total_D returns one total-scalar GY already containing original reductions and STE; no extra N average."
+    },
+    {
+      "name": "unchanged_chunk_replay_and_all_parameters",
+      "evidence": "104 original-order 64-row chunks including last 1 row; bitwise endpoint/canonical code/free-mask checks; frozen parameter versions/buffers; every parameter VJP accumulated on CPU in float64."
+    },
+    {
+      "name": "original_C_and_single_combined_update",
+      "evidence": "One 384-row C forward and original nine-piece call, retaining four live C pieces. Five discarded D pieces are diagnostics. D+C parameter gradients combine before one native cast, clip 5, and Adam."
+    },
+    {
+      "name": "original_training_and_constraint_settings",
+      "evidence": "Original seed/initial hash, model mode, frozen config keys, learning-rate schedule, source-order denominator/interval branch, h-only constraint role, charge/range bounds, and sole step 50000 endpoint preserved."
+    },
+    {
+      "name": "failure_and_receipt_separation",
+      "evidence": "Nonfinite checks and replay mismatches fail closed; physical known operation lower bounds and uncommitted Adam calls remain distinct from logical committed updates. Runtime guard/native-exit truth remains the owning worker's responsibility."
+    },
+    {
+      "name": "artificial_suite_signatures_and_fields",
+      "evidence": "Eight CPU/CUDA calls match bound function signatures and success schemas: legacy objective 69 checks, joint objective 86 CPU/85 CUDA, legacy network check, joint network 2 synthetic optimizer steps/device. Failure is written and re-raised before scientific TRAIN decode."
+    }
+  ],
+  "frozen_config_keys_equal_R63": [
+    "model_seed",
+    "updates",
+    "batch_per_region",
+    "identity_batch",
+    "region_categories",
+    "lr",
+    "lr_initial",
+    "lr_final",
+    "warmup_updates",
+    "betas",
+    "gradient_clip",
+    "projection_directions",
+    "box_projection_iterations",
+    "solver_steps",
+    "solver_check_steps",
+    "generation_chunk",
+    "SOURCE_N",
+    "REAL_N",
+    "PSD_loss_scale",
+    "valley_delta",
+    "valley_smoothing",
+    "feature_names",
+    "feature_scale_floor",
+    "noise_scale_floor",
+    "loss_weights",
+    "source_order_rule",
+    "temporal_feature_count",
+    "temporal_lags",
+    "temporal_band_bin_count",
+    "temporal_band_count",
+    "temporal_projection_directions",
+    "temporal_scale_floor",
+    "temporal_power_floor",
+    "coordinate_RMS_pooling"
+  ],
+  "schema_matches_current_audit_literals": true,
+  "expected_completed_counts_recomputed_from_registered_population_chunk_batch_sizes": {
+    "new_response_updates": 50000,
+    "SOURCE_training_rows": 16000000,
+    "REAL_reference_rows": 16000000,
+    "REAL_identity_rows": 3200000,
+    "full_D_SOURCE_law_rows": 329650000,
+    "full_D_REAL_law_rows": 1052350000,
+    "scientific_neural_forward_rows": 678500000,
+    "scientific_neural_forward_calls": 10450000,
+    "D_parameter_VJP_calls": 5200000,
+    "C_parameter_reverse_calls": 50000,
+    "full_D_endpoint_reverse_calls": 50000,
+    "full_D_objective_calls": 50000,
+    "replay_chunks_checked": 5200000
+  },
+  "chunks_per_D_pass": 104,
+  "final_chunk_rows": 1,
+  "copies_byte_identical": {
+    "objective_adapter_source_to_runtime": true,
+    "network_helper_source_to_runtime": true,
+    "registered_protocol_to_runtime": true
+  },
+  "scientific_arrays_opened": 0,
+  "scientific_weights_loaded": 0,
+  "ResponseNetwork_executed": false,
+  "Torch_or_Numpy_imported": false,
+  "scientific_training_updates": 0,
+  "synthetic_model_updates_in_this_review": 0,
+  "server_artificial_suite_executed_in_this_review": false,
+  "recovery_fault_injection_executed": false,
+  "original_numerical_or_A_F_thresholds_modified": false,
+  "original_or_root_source_files_modified_by_reviewer": false,
+  "limitations": [
+    "Static review cannot establish actual CUDA replay, full objective/parameter/Adam equivalence, resource use, runtime success, or scientific acceptance.",
+    "The guarded server artificial suite is still required before scientific TRAIN decode; existing numerical and A-F gates remain required afterward.",
+    "Recovery fixes were checked by code-path reasoning only. No native checkpoint was loaded and no crash/fault injection was performed.",
+    "The root worker owns recovery-request creation, preserved attempt evidence, PID-death proof, native exit receipts, deployment binding, and actual resource enforcement.",
+    "Verdict is limited to the bound snapshots. Subsequent source/config edits require renewed review of the changed paths."
+  ],
+  "UTC": "2026-10-11T03:21:03.073228+00:00"
+}

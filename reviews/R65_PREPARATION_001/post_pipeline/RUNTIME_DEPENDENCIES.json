@@ -1,0 +1,111 @@
+{
+  "root_owned_source_modules": [
+    "network.py",
+    "source_flow_core.py",
+    "noise_core.py",
+    "post_audit.py",
+    "r65_training_audit.py"
+  ],
+  "other_agent_modules_never_copied_or_modified": [
+    "post_audit.py",
+    "r65_training_audit.py"
+  ],
+  "runtime_only_assets_not_opened_in_preparation": [
+    {
+      "target": "HISTORICAL_R63_TRAIN_SOLVER_CHECK.json",
+      "source": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC/TRAIN_SOLVER_CHECK.json",
+      "purpose": "Frozen prior numerical gate; assert both_pass as before"
+    },
+    {
+      "target": "FULL_EMPIRICAL_RESPONSE/FINAL_FLOW.pt",
+      "source": "Unique completed R65 update50000",
+      "purpose": "Same weight for SOURCE and REAL; root-owned training output"
+    },
+    {
+      "target": "NOISE_CALIBRATION.npz",
+      "source": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R48_REMOTE_20261010_073406_UTC/NOISE_CALIBRATION.npz",
+      "purpose": "Original calibration; root copies unchanged"
+    },
+    {
+      "target": "UNIT_CHARGE_CONSTANTS.npz",
+      "source": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R43_REMOTE_20261009_233131_UTC/UNIT_CHARGE_CONSTANTS.npz",
+      "purpose": "Portable inference package; root copies unchanged"
+    }
+  ],
+  "historical_evaluation_reference": {
+    "root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R63_ROOT_20261011_000133_UTC",
+    "metrics": "metrics.json",
+    "predictions": "results/C2ST_PRIVATE.npz",
+    "SOURCE_arm": "COVERAGE_RESPONSE",
+    "REAL_control_arm": "COVERAGE_REAL_CONTROL",
+    "new_reference_fits": 0
+  },
+  "old_BASE_R49_C2ST_references_unchanged": true,
+  "audit_interface": {
+    "imports": [
+      "constraint_description(d)",
+      "training_audit(root,cfg,receipt)"
+    ],
+    "required_top_level_keys": [
+      "pass",
+      "checks",
+      "constraint_loss_trace_summary"
+    ],
+    "constraint_summary_fields": [
+      "SOURCE_global_range_projection_fraction",
+      "REAL_range_projection_fraction",
+      "full_D_SOURCE_range_projection_fraction"
+    ],
+    "summary_statistic": "mean, supplied by original ev.summary"
+  },
+  "training_trace_inputs": {
+    "LOSS_BY_UPDATE_PRIVATE.npz": [
+      "total_loss",
+      "full_window",
+      "PSD",
+      "source_order",
+      "source_valley",
+      "noise",
+      "REAL_identity",
+      "box_correction",
+      "coordinate_RMS",
+      "temporal_joint",
+      "learning_rate",
+      "gradient_norm",
+      "max_relative_q_f64",
+      "max_relative_q_f32",
+      "SOURCE_global_range_projection_fraction",
+      "REAL_range_projection_fraction",
+      "SOURCE_global_projection_RMS_V",
+      "REAL_projection_RMS_V",
+      "overall_PSD_W1",
+      "Q1_Q7_mean_PSD_W1",
+      "Q3_h_one_soft_valley",
+      "Q4_h_one_soft_valley",
+      "D_total",
+      "C_total",
+      "full_D_SOURCE_range_projection_fraction",
+      "full_D_SOURCE_projection_RMS_V",
+      "full_D_max_relative_q_f64",
+      "full_D_max_relative_q_f32",
+      "C_max_relative_q_f64",
+      "C_max_relative_q_f32",
+      "D_parameter_gradient_L2",
+      "C_parameter_gradient_L2"
+    ],
+    "PRECISION_ORDER_BY_UPDATE_PRIVATE.npz": [
+      "original_order_loss",
+      "omitted_order_loss",
+      "original_nonzero_pair_mass",
+      "resolved_pair_fraction"
+    ]
+  },
+  "source_projection_semantics": {
+    "SOURCE_global_*": "original C microbatch using original masses",
+    "REAL_*": "original C REAL identity microbatch",
+    "full_D_SOURCE_*": "all original SOURCE parents in current full D law"
+  },
+  "no_COVERAGE_trace_required": true,
+  "execution_and_controllers": "Root owns copying/deployment/supervisors/native receipts/launch/Git; none executed here",
+  "config_reporting_supervisor": "Root may adapt its own R65 supervisor to config_reporting.json; no supervisor/controller source copied by this task"
+}

@@ -1,0 +1,558 @@
+{
+  "files": [
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\canonical.py",
+      "name": "canonical.py",
+      "sha256": "22c7d147085de64b311ad80a025915ab2b655d5d2a9e25e91d34f783de8ee17c",
+      "bytes": 233,
+      "imports": [
+        "numpy"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_runtime.py",
+      "name": "flow_runtime.py",
+      "sha256": "c7bcad9f5157b67857f3bb70ac31d0f1196597bf413b074632a9ff789959099d",
+      "bytes": 1767,
+      "imports": [
+        "__future__",
+        "noise_core",
+        "numpy",
+        "pathlib",
+        "source_flow_core",
+        "torch"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\numerical_check.py",
+      "name": "numerical_check.py",
+      "sha256": "00695d5998dfb4056977f89036403d1948f0d9b2ce7a184e3679eb80e39ad764",
+      "bytes": 4743,
+      "imports": [
+        "datetime",
+        "json",
+        "numpy",
+        "os",
+        "pathlib",
+        "post_audit",
+        "source_flow_core",
+        "sys",
+        "time",
+        "torch"
+      ],
+      "tag_lines": [
+        {
+          "line": 16,
+          "text": "historical=json.loads((R/'HISTORICAL_R61_TRAIN_SOLVER_CHECK.json').read_text());assert historical['both_pass']"
+        },
+        {
+          "line": 20,
+          "text": "    audit=training_audit(R,C,training);write('TRAINING_FROZEN_AUDIT.json',audit)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\generate_all.py",
+      "name": "generate_all.py",
+      "sha256": "29d9a6c246f643ea382f8d7ec0c400c73d25b8c3b1df36920e6ec2f31e561d00",
+      "bytes": 11543,
+      "imports": [
+        "__future__",
+        "canonical",
+        "datetime",
+        "evaluation",
+        "flow_diagnostics",
+        "flow_runtime",
+        "hashlib",
+        "json",
+        "model",
+        "numpy",
+        "os",
+        "pathlib",
+        "post_audit",
+        "time",
+        "torch",
+        "traceback"
+      ],
+      "tag_lines": [
+        {
+          "line": 40,
+          "text": " for arm,control in zip(CFG['arms'],['COVERAGE_REAL_CONTROL']):"
+        }
+      ]
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\evaluate_saved.py",
+      "name": "evaluate_saved.py",
+      "sha256": "8428d0b3ffed980e4a7a43bdf1f296997a77149b0681b1b08af3d2377a57b521",
+      "bytes": 19402,
+      "imports": [
+        "__future__",
+        "assessment",
+        "data_support",
+        "datetime",
+        "diagnostic_core",
+        "endpoint_common",
+        "energy_width",
+        "evaluation",
+        "flow_diagnostics",
+        "hashlib",
+        "json",
+        "model",
+        "numpy",
+        "os",
+        "pathlib",
+        "platform",
+        "scipy.stats",
+        "sklearn",
+        "sklearn.metrics",
+        "time",
+        "torch",
+        "traceback"
+      ],
+      "tag_lines": [
+        {
+          "line": 44,
+          "text": "    r61root=pathlib.Path(CFG['historical_R61_root'])"
+        },
+        {
+          "line": 45,
+          "text": "    r61metrics=json.loads((r61root/'metrics.json').read_text('utf8'))"
+        },
+        {
+          "line": 46,
+          "text": "    r61pred=load(r61root/'results/C2ST_PRIVATE.npz')"
+        },
+        {
+          "line": 47,
+          "text": "    assert all(np.array_equal(saved[f'phase{p}_{j}'],r61pred[f'phase{p}_{j}']) for p in [0,1] for j in range(3))"
+        },
+        {
+          "line": 48,
+          "text": "    r61names={'R61_SOURCE':'PRECISION_RESOLVED_RESPONSE','R61_REAL_CONTROL':'PRECISION_RESOLVED_REAL_CONTROL'}"
+        },
+        {
+          "line": 49,
+          "text": "    def r61_prediction(name,view):"
+        },
+        {
+          "line": 50,
+          "text": "        tag=r61names[name]+'__'+view+'__'"
+        },
+        {
+          "line": 51,
+          "text": "        return {k:r61pred[tag+k] for k in ['probability','label','cluster']}"
+        },
+        {
+          "line": 52,
+          "text": "    for name,oldname in r61names.items():"
+        },
+        {
+          "line": 53,
+          "text": "        result[name]={v:dict(r61metrics['C2ST']['results'][oldname][v],reused_from=str(r61root/'metrics.json'),new_fit=False) for v in views}"
+        },
+        {
+          "line": 91,
+          "text": "    same_treated={};historical_delta={};r61_delta={}"
+        },
+        {
+          "line": 95,
+          "text": "        r61_delta[name]={}"
+        },
+        {
+          "line": 100,
+          "text": "            previous_name='R61_REAL_CONTROL' if name in REAL_ARMS else 'R61_SOURCE'"
+        },
+        {
+          "line": 101,
+          "text": "            r61_delta[name][view]=dict(aa.paired_bootstrap(pp,r61_prediction(previous_name,view),CFG),reference=previous_name)"
+        },
+        {
+          "line": 105,
+          "text": "    write('PAIRED_R63_MINUS_R61.json',{'results':r61_delta,'same_fixed_selection':True,'same_GPU_platform':True,'single_factor_ablation':False,'frozen_objective_extension_integrity':json.loads((ROOT/'TRAINING_FROZEN_AUDIT.json').read_text())['pass'],'single_training_seed':True,'training_seed_variability_not_estimated':True,'no_new_control_fits':True,'conditional_on_fitted_classifiers':True})"
+        },
+        {
+          "line": 108,
+          "text": "        'R63_minus_frozen_R49_completion':historical_delta,'R63_minus_frozen_R61':r61_delta,'original_fixed_selection_no_resplit':True,"
+        },
+        {
+          "line": 192,
+          "text": "    metrics={'covariance_description':cv,'status':'complete','training_scope':'R63 sole final50000 coverage extension; original seven losses, same R61 initialization, original six consumed streams and parents; new TRAIN temporal constants and independent seventh direction stream','new_training_runs':1,'new_response_updates':50000,'training':{a:json.loads((pathlib.Path(CFG['historical_training_root'])/a/'TRAINING_RECEIPT.json').read_text('utf8'))for a in SOURCE_ARMS},"
+        },
+        {
+          "line": 202,
+          "text": "    metrics['paired_R63_minus_historical_R49_completion']=cs['R63_minus_frozen_R49_completion']"
+        },
+        {
+          "line": 203,
+          "text": "    metrics['paired_R63_minus_frozen_R61']=cs['R63_minus_frozen_R61']"
+        },
+        {
+          "line": 207,
+          "text": "    log('R63 saved evaluation complete '+json.dumps(COUNTER))"
+        }
+      ]
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\replay_all.py",
+      "name": "replay_all.py",
+      "sha256": "1e4dfa9926800ae9c04db1a586b7046955e763365d7940b47d43df442fbcfaa4",
+      "bytes": 3167,
+      "imports": [
+        "__future__",
+        "datetime",
+        "flow_runtime",
+        "hashlib",
+        "infer_saved",
+        "json",
+        "model",
+        "numpy",
+        "os",
+        "pathlib",
+        "time",
+        "torch",
+        "traceback"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\evaluation.py",
+      "name": "evaluation.py",
+      "sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa",
+      "bytes": 17874,
+      "imports": [
+        "__future__",
+        "common_math",
+        "datetime",
+        "hashlib",
+        "json",
+        "matplotlib",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pathlib",
+        "scipy.stats",
+        "sklearn.ensemble",
+        "sklearn.impute",
+        "sklearn.metrics",
+        "time",
+        "torch"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\diagnostic_core.py",
+      "name": "diagnostic_core.py",
+      "sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566",
+      "bytes": 10401,
+      "imports": [
+        "__future__",
+        "common_math",
+        "evaluation",
+        "hashlib",
+        "numpy",
+        "scipy.ndimage",
+        "sklearn.ensemble",
+        "sklearn.impute",
+        "sklearn.metrics",
+        "sklearn.preprocessing",
+        "time"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\assessment.py",
+      "name": "assessment.py",
+      "sha256": "3c7aadeaace6d6763e382fa822bd4826390882607cf29ca5868099026257f32f",
+      "bytes": 7334,
+      "imports": [
+        "__future__",
+        "canonical",
+        "common_math",
+        "diagnostic_core",
+        "energy_width",
+        "evaluation",
+        "numpy",
+        "scipy.stats"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\common_math.py",
+      "name": "common_math.py",
+      "sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79",
+      "bytes": 1943,
+      "imports": [
+        "math",
+        "numpy"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\energy_width.py",
+      "name": "energy_width.py",
+      "sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0",
+      "bytes": 15046,
+      "imports": [
+        "__future__",
+        "collections",
+        "common_math",
+        "math",
+        "matplotlib.pyplot",
+        "model",
+        "numpy",
+        "torch"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\data_support.py",
+      "name": "data_support.py",
+      "sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77",
+      "bytes": 7689,
+      "imports": [
+        "__future__",
+        "assessment",
+        "datetime",
+        "evaluation",
+        "io",
+        "json",
+        "numpy",
+        "pathlib",
+        "scipy.stats"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\model.py",
+      "name": "model.py",
+      "sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b",
+      "bytes": 2019,
+      "imports": [
+        "__future__",
+        "legacy_model",
+        "numpy"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\legacy_model.py",
+      "name": "legacy_model.py",
+      "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04",
+      "bytes": 5808,
+      "imports": [
+        "__future__",
+        "numpy",
+        "torch",
+        "torch.nn.functional"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_core.py",
+      "name": "flow_core.py",
+      "sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0",
+      "bytes": 4365,
+      "imports": [
+        "__future__",
+        "itertools",
+        "math",
+        "numpy",
+        "scipy.optimize",
+        "torch"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\endpoint_common.py",
+      "name": "endpoint_common.py",
+      "sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb",
+      "bytes": 7743,
+      "imports": [],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_diagnostics.py",
+      "name": "flow_diagnostics.py",
+      "sha256": "1b9defc18b8fb2a9f3f6bb3021c352a2cc30273d49eb8db203eec93323f8dab1",
+      "bytes": 9463,
+      "imports": [
+        "__future__",
+        "canonical",
+        "evaluation",
+        "flow_core",
+        "flow_runtime",
+        "model",
+        "numpy",
+        "pathlib",
+        "scipy.stats"
+      ],
+      "tag_lines": []
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\infer_saved.py",
+      "name": "infer_saved.py",
+      "sha256": "903ce37bdeadd4ec3a0480dd47e6fcd6897033950787847cb8a7c2b9ade22dc6",
+      "bytes": 3516,
+      "imports": [
+        "argparse",
+        "datetime",
+        "flow_runtime",
+        "json",
+        "model",
+        "numpy",
+        "os",
+        "pathlib",
+        "sys",
+        "time",
+        "torch"
+      ],
+      "tag_lines": [
+        {
+          "line": 18,
+          "text": "def build_pipeline(root,device='cuda:0',endpoint='COVERAGE_RESPONSE'):"
+        },
+        {
+          "line": 20,
+          "text": "    names=['COVERAGE_RESPONSE','COVERAGE_REAL_CONTROL']"
+        },
+        {
+          "line": 22,
+          "text": "    cfg={'endpoint_weight_paths':{n:str(root/'COVERAGE_RESPONSE/FINAL_FLOW.pt')for n in names},"
+        },
+        {
+          "line": 30,
+          "text": "    p=argparse.ArgumentParser(description='Frozen R63 full480 response; explicit white input for reproducibility')"
+        }
+      ]
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\summarize_and_plot.py",
+      "name": "summarize_and_plot.py",
+      "sha256": "6d9410a567d15c84580318ac43b5448220a1cae3cf4497b0bfb28b9f1f129242",
+      "bytes": 15062,
+      "imports": [
+        "__future__",
+        "datetime",
+        "evaluation",
+        "json",
+        "numpy",
+        "os",
+        "pathlib",
+        "post_audit",
+        "render_R63_figures",
+        "time"
+      ],
+      "tag_lines": [
+        {
+          "line": 8,
+          "text": "L=C['arms'][0];A=[L];RC=['COVERAGE_REAL_CONTROL']"
+        },
+        {
+          "line": 15,
+          "text": "train_audit=training_audit(R,C,training[L]);write('TRAINING_FROZEN_AUDIT.json',train_audit)"
+        },
+        {
+          "line": 88,
+          "text": " g6={'fixed_final50000_models_loaded':True,'new_R63_updates_per_arm':50000,'new_training_updates_per_arm':50000,'old_TRAIN_coordinate_constants_refit':False,'noise_calibration_unique_matched_REAL':True,"
+        },
+        {
+          "line": 102,
+          "text": "gate={'recipe':'R63 full-coordinate RMS and temporal joint distribution coverage; original full480 network, parent weights, seven losses and same-REAL operator',"
+        },
+        {
+          "line": 104,
+          "text": " 'decision':'retain_primary_pending_A_C'if gates[L]['retain']else'close_fixed_R63_coverage_extension',"
+        },
+        {
+          "line": 105,
+          "text": " 'prespecified_rules_changed_after_data':False,'paired_R63_minus_historical_R49_completion':M['paired_R63_minus_historical_R49_completion']}"
+        },
+        {
+          "line": 132,
+          "text": "gate['decision']='primary_pending_separately_registered_D_E'if gate['primary_A_C_pass']else'close_fixed_R63_coverage_extension'"
+        },
+        {
+          "line": 136,
+          "text": "compact={'status':M['status'],'gate':gate,'acceptance_A_C':acceptance,'counters':M['counters'],'R63_training':training,'training_audit':train_audit,'explicit_constraint_projection':M['explicit_constraint_projection'],'new_training_runs':1,"
+        },
+        {
+          "line": 144,
+          "text": " 'paired_R63_minus_historical_R49_completion':M['paired_R63_minus_historical_R49_completion'],"
+        },
+        {
+          "line": 145,
+          "text": " 'paired_R63_minus_frozen_R61':M['paired_R63_minus_frozen_R61'],"
+        },
+        {
+          "line": 151,
+          "text": "import render_R63_figures"
+        },
+        {
+          "line": 152,
+          "text": "render_R63_figures.run(R,C,M,gate,acceptance)"
+        }
+      ]
+    },
+    {
+      "source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\render_R63_figures.py",
+      "name": "render_R63_figures.py",
+      "sha256": "6290e61cf6b02bd235165dbd8eb284077849efc4a6abe73ce6975276c5b421d4",
+      "bytes": 12803,
+      "imports": [
+        "json",
+        "matplotlib",
+        "matplotlib.pyplot",
+        "numpy",
+        "pathlib"
+      ],
+      "tag_lines": [
+        {
+          "line": 9,
+          "text": "    arm=C['arms'][0];ctrl='COVERAGE_REAL_CONTROL';F=R/'figures';F.mkdir(exist_ok=True)"
+        },
+        {
+          "line": 15,
+          "text": "    names={'BASE':'BASE','REAL':'REAL','R49_COMPLETION_SOURCE':'R49 source','R61_SOURCE':'R61 source',arm:'R63 source',ctrl:'R63 on REAL'}"
+        },
+        {
+          "line": 16,
+          "text": "    colors={'BASE':'#888888','REAL':'#111111','R49_COMPLETION_SOURCE':'#aa67b1','R61_SOURCE':'#55976e',arm:'#136bc2',ctrl:'#d77715'}"
+        },
+        {
+          "line": 24,
+          "text": "    tr=M['training'][arm];audit=json.loads((R/'TRAINING_FROZEN_AUDIT.json').read_text())"
+        },
+        {
+          "line": 35,
+          "text": "    for j,n in enumerate(['BASE','R49_COMPLETION_SOURCE','R61_SOURCE',arm,ctrl]):"
+        },
+        {
+          "line": 88,
+          "text": "        a.set(xlabel='Original SOURCE '+label,ylabel='R63 output '+label)"
+        },
+        {
+          "line": 154,
+          "text": "    coverage=load(R/arm/'COVERAGE_BY_UPDATE_PRIVATE.npz');cv=coverage['values'];cn=coverage['columns'].tolist()"
+        }
+      ]
+    }
+  ],
+  "source_count": 20,
+  "excluded_other_agent_files": [
+    "post_audit.py",
+    "r65_training_audit.py",
+    "coverage_audit.py"
+  ],
+  "external_runtime_modules": [
+    "network.py",
+    "source_flow_core.py",
+    "noise_core.py",
+    "post_audit.py",
+    "r65_training_audit.py"
+  ],
+  "all_AST_compiled_without_import": true,
+  "scientific_execution": 0
+}

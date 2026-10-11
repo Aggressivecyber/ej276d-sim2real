@@ -1,0 +1,52 @@
+{
+  "version": "R65_objective_adapter_before_first_artificial_execution_001",
+  "frozen_R64_tolerance_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+  "exact": {
+    "atol": 0,
+    "rtol": 0
+  },
+  "equal_R63_f32_vs_f64_value": {
+    "atol": 0.000005,
+    "rtol": 0.000003
+  },
+  "equal_R63_f32_vs_f64_endpoint_gradient": {
+    "atol": 0.000002,
+    "rtol": 0.00005
+  },
+  "unequal_oracle_value": {
+    "atol": 1e-10,
+    "rtol": 1e-10
+  },
+  "unequal_oracle_endpoint_gradient": {
+    "atol": 1e-9,
+    "rtol": 1e-8
+  },
+  "same_schedule_two_pass_endpoint": {
+    "atol": 0,
+    "rtol": 0
+  },
+  "same_schedule_two_pass_parameter_gradient": {
+    "atol": 1e-7,
+    "rtol": 0.000001
+  },
+  "duplicate_scatter_gradient": {
+    "atol": 1e-9,
+    "rtol": 1e-9
+  },
+  "minimum_nonzero_gradient_norm": 1e-7,
+  "negative_wrong_mass_min_value_difference": 0.00001,
+  "negative_wrong_mass_min_gradient_difference": 0.000001,
+  "RSS_limit_bytes": 1073741824,
+  "CPU_affinity_count": 1,
+  "torch_threads": 1,
+  "rule_mapping": {
+    "joint_vs_five_D_GY": "equal_R63_f32_vs_f64_endpoint_gradient; joint shared float32 feature graph changes where first-order contributions meet before the float32 cast",
+    "joint_vs_five_D_values": "unequal_oracle_value",
+    "joint_vs_direct_joint_GY": "exact",
+    "C_wrapper_vs_original_values_and_partials": "exact",
+    "C_independent_denominator_oracle": "unequal_oracle_value",
+    "new_tolerances_after_first_execution": "forbidden; preserve all failures",
+    "CUDA_vs_CPU_bitwise": "not a gate; each side compared on the same selected device"
+  }
+}
+

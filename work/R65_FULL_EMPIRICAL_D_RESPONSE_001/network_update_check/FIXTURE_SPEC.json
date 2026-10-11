@@ -1,0 +1,55 @@
+{
+  "kind": "synthetic_only_actual_ResponseNetwork_combined_D_C_update",
+  "frozen_before_any_network_execution": true,
+  "scientific_data_or_weights": false,
+  "cpu": {
+    "source_counts": [2,1,1,2,2,1,1,1,1,1],
+    "REAL_counts": [3,2,2,3,3,2,2,2,2,2],
+    "SOURCE_N": 13,
+    "REAL_N": 23,
+    "chunk": 4,
+    "schedule": [[0,4],[4,8],[8,12],[12,13]]
+  },
+  "cuda": {
+    "source_counts": [2,3,4,5,6,7,8,9,10,11],
+    "REAL_counts": [3,4,5,6,7,8,9,10,11,12],
+    "SOURCE_N": 65,
+    "REAL_N": 75,
+    "chunk": 64,
+    "schedule": [[0,64],[64,65]]
+  },
+  "region_categories": [-1,0,1,2,3,4,5,6,7,8],
+  "C_batch_per_region": 32,
+  "C_identity_batch": 64,
+  "C_neural_rows": 384,
+  "model_parameter_count": 1369889,
+  "model_seed": 20261011643,
+  "nonzero_head_weight_SD": 0.0002,
+  "nonzero_head_bias_SD": 0.00005,
+  "seeds": {
+    "head": 20261011661,
+    "D_parent_epsilon": 20261011662,
+    "C_SOURCE_occurrence_epsilon": 20261011663,
+    "C_identity_occurrence_epsilon": 20261011664,
+    "C_SOURCE_rows": 20261011665,
+    "C_REAL_reference_rows": 20261011666,
+    "C_REAL_identity_rows": 20261011667,
+    "full_window_directions": 20261011668,
+    "temporal_directions": 20261011669,
+    "original_parent_permutations": 20261011670
+  },
+  "waveforms": "Deterministic float32 positive-charge exponential pulses plus small sine baseline. Original raw charge regions are verified by original bins_for. First two SOURCE parents before permutation differ by one float32 ULP at sample220 to exercise nonzero PSD differences with overlapping storage intervals.",
+  "noise": "Original innovation with completion=True, flat synthetic spectrum, synthetic positive calibration constants. All SOURCE/identity epsilon streams are distinct PCG64 streams; first D, first C SOURCE and first identity epsilon are multiplied by110 as a declared active-Box stress fixture. Replay reuses the exact stored D innovation.",
+  "calibration": {
+    "mu": "zero baseline/tail, 1/300 in100:400; eight copies",
+    "unit_charge_scale": 0.2,
+    "q_edges": [2,3,4,5,6,7,8,9,10],
+    "noise_tau2": 0.000049,
+    "noise_spectrum": "ones[241]",
+    "noise_kappa2": "ones[8]"
+  },
+  "statistics": "All synthetic centers are zero. V480/U480/DU479/D2U478 scales .05/.25/.03/.03. Temporal scales .007 for RMS, .2 for20ACF, .1 for10bands. Global noise scales .007/.2. Counts and h fractions come from the synthetic parent population. Each Q3/Q4 valley lies from max(raw SOURCE h=1 PSD)+.003 to that value+.038, so its original raw fraction is exactly0; retain original delta .02 and smoothing .002.",
+  "C_formula": "Call unchanged original R63 DistributionLoss on one320+64 graph; select its four C pieces. No extracted C implementation.",
+  "comparison": "Direct single scalar joint D+C graph uses the same D chunk schedule and C384 graph. Replayed branch uses R65 joint_total_D and original_C_microbatch, accumulates D VJPs in CPUfloat64, adds one CPUfloat64 C gradient, casts once, clips once, performs one original artificial Adam step.",
+  "root_execution_required": "Actual CPU384 and CUDA checks are intentionally unexecuted locally; server supervisor owns48GiB tree RSS and10GiB GPU guards."
+}

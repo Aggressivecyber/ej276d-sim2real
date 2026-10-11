@@ -1,0 +1,240 @@
+{
+  "scientific_execution": {
+    "Git_operations": 0,
+    "new_scientific_training_runs": 0,
+    "neural_forward_or_loss_calls": 0,
+    "real_scientific_array_or_weight_reads": 0,
+    "spawned_agents": 0,
+    "DEV_EVAL_CAL_reads": 0,
+    "actual_optimizer_steps": 0
+  },
+  "runtime_source_files": [
+    "post_audit.py",
+    "r65_training_audit.py"
+  ],
+  "owner": "/root/r63_wait_literature_20261011",
+  "synthetic_test_matrix": [
+    {
+      "case": "valid_contract",
+      "expected_pass": true,
+      "actual_pass": true,
+      "expected_failed_checks": [],
+      "actual_failed_checks": [],
+      "test_pass": true,
+      "audit_check_count": 45,
+      "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\base",
+      "audit_error": null,
+      "logical_updates": 50000,
+      "physical_optimizer_calls": 50000,
+      "known_uncommitted_optimizer_steps": 0
+    },
+    {
+      "case": "bad_replay",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expected_failed_checks": [
+        "all104_chunk_replays_and_single_reverse_counts_every_update"
+      ],
+      "actual_failed_checks": [
+        "all104_chunk_replays_and_single_reverse_counts_every_update"
+      ],
+      "test_pass": true,
+      "audit_check_count": 45,
+      "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_replay",
+      "audit_error": null,
+      "logical_updates": 50000,
+      "physical_optimizer_calls": 50000,
+      "known_uncommitted_optimizer_steps": 0
+    },
+    {
+      "case": "bad_D_plus_C_total",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expected_failed_checks": [
+        "total_is_D_plus_C",
+        "total_loss_ordered_component_sum"
+      ],
+      "actual_failed_checks": [
+        "total_is_D_plus_C",
+        "total_loss_ordered_component_sum"
+      ],
+      "test_pass": true,
+      "audit_check_count": 45,
+      "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_D_plus_C_total",
+      "audit_error": null,
+      "logical_updates": 50000,
+      "physical_optimizer_calls": 50000,
+      "known_uncommitted_optimizer_steps": 0
+    },
+    {
+      "case": "bad_original_seven_stream",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expected_failed_checks": [
+        "original_seven_seed_chain_and_final_states_equal_bound_R63"
+      ],
+      "actual_failed_checks": [
+        "original_seven_seed_chain_and_final_states_equal_bound_R63"
+      ],
+      "test_pass": true,
+      "audit_check_count": 45,
+      "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_original_seven_stream",
+      "audit_error": null,
+      "logical_updates": 50000,
+      "physical_optimizer_calls": 50000,
+      "known_uncommitted_optimizer_steps": 0
+    },
+    {
+      "case": "valid_partial_extra_Adam_recovery",
+      "expected_pass": true,
+      "actual_pass": true,
+      "expected_failed_checks": [],
+      "actual_failed_checks": [],
+      "test_pass": true,
+      "audit_check_count": 45,
+      "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\valid_partial_extra_Adam_recovery",
+      "audit_error": null,
+      "logical_updates": 50000,
+      "physical_optimizer_calls": 50001,
+      "known_uncommitted_optimizer_steps": 1
+    }
+  ],
+  "synthetic_cases_total": 5,
+  "resource": {
+    "RSS_limit_flags": 6,
+    "CPU_affinity_count": 1,
+    "synthetic_elapsed_s": 2.8589999999385327,
+    "conservative_wrapper_plus_child_peak_RSS_upper_bound_bytes": 243277824,
+    "RSS_native_hard_max_bytes": 1073741824,
+    "synthetic_child_peak_RSS_bytes": 88788992,
+    "native_wrapper_elapsed_s": 3.1563692,
+    "wrapper_peak_RSS_bytes": 154488832,
+    "final_receipt_writer_peak_RSS_bytes": 155176960
+  },
+  "artifacts": [
+    {
+      "name": "post_audit.py",
+      "sha256": "8a92aef6c15892ccbf97409c8f121b02b1b08bfe85b1d6f6286948fc9807e4e2",
+      "bytes": 1431
+    },
+    {
+      "name": "r65_training_audit.py",
+      "sha256": "88c26b435621e8454254447ec03e0c6a2ae391f1463c601ea13c7e06861d88ad",
+      "bytes": 32618
+    },
+    {
+      "name": "TRAINING_RECEIPT_CONTRACT.json",
+      "sha256": "08b67554d169eeaace53c6e3270de412cf4d61897215315aedf70a08643cd27c",
+      "bytes": 12171
+    },
+    {
+      "name": "COPY_AND_INTEGRATION.json",
+      "sha256": "a862e0001ecdc2863ba66413e3489667c299d80ff92ff195013c8abbb0d93880",
+      "bytes": 3199
+    },
+    {
+      "name": "local_resource_guard.py",
+      "sha256": "01caa0405c4e24a555cdd701a3435ebc3917339db9cd900a3a4f3e415c855d41",
+      "bytes": 3833
+    },
+    {
+      "name": "validate_static.py",
+      "sha256": "a01c0a384ea2adc440a381e8568f570e0600bec08311370c485f283754697cc9",
+      "bytes": 8405
+    },
+    {
+      "name": "synthetic_saved_record_check.py",
+      "sha256": "6be63a9119c2e05f0dc5aaa6a5b39faf683ead5d2b6ba50e30f1fe19aa6358a0",
+      "bytes": 21691
+    },
+    {
+      "name": "CODE_SEAL_BEFORE_SYNTHETIC.json",
+      "sha256": "f44d12cceca9a611275a13b80e5970a6b4f448f12d031b686b157f8aac880ade",
+      "bytes": 1090
+    },
+    {
+      "name": "STATIC_VALIDATION.json",
+      "sha256": "ef9b6afd16753650321967dcb3ee21bc5f4393299ecd645d23e949dc48dfc362",
+      "bytes": 6530
+    },
+    {
+      "name": "static_validation\\attempt_001\\NATIVE_EXIT.json",
+      "sha256": "f6bd54a3a84af361ba3a8b4420d9c7bf9fdeb3c6721afe0f2aad536f7f36e118",
+      "bytes": 293
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\FROZEN_TEST_DEFINITION.json",
+      "sha256": "4b243e816620a38015d57ca7656f428534018eaa6fd78c9407b7f0e5172e7be3",
+      "bytes": 880
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\RESULT.json",
+      "sha256": "31557b50e396a055df57dbce7855d00bb72e9440f32ab580720d01ac621119cf",
+      "bytes": 4588
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\TEST_MATRIX.json",
+      "sha256": "d6030909adc65613cecd6e136aa709279a25f077896a74a3eca4e0fee2b6ff7b",
+      "bytes": 3301
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\FIXTURE_PROVENANCE.json",
+      "sha256": "f51e96b2838ab1dc7648040108329702fb882a8e42398ff7d5d01f60a29d405f",
+      "bytes": 1027
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\NATIVE_EXIT.json",
+      "sha256": "a7427273f71a386b756c78941852870ef874dc517cc07adcf8d3e3187aab144f",
+      "bytes": 293
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\stdout.log",
+      "sha256": "ea6f75b04ffd274d88d11c560eb48e05c61e4888a5355292fe90f6e9c2a125e8",
+      "bytes": 3859
+    },
+    {
+      "name": "synthetic_saved_record_check\\attempt_001\\stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "revisions\\v1_pre_synthetic_review\\SNAPSHOT.json",
+      "sha256": "070498c1341448081170e25dd770a8400653011b53668c94cccf27032683fe68",
+      "bytes": 742
+    }
+  ],
+  "source_bindings_sha256": "20b2f25cdb40ce636eb275cae43f68780f180b7b138399e860a6efa74ec9c3c7",
+  "candidate_source_seal_preserved": true,
+  "original_constraint_description_AST_preserved": true,
+  "static_validation_pass": true,
+  "status": "complete_static_and_synthetic_saved_record_adapter_preparation",
+  "synthetic_cases_passed": 5,
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "native_exit_code": 0,
+  "limitations": [
+    "No real training audit has run; all runtime audit calls in this preparation used artificial records.",
+    "Original7 are compared to bound actual R63 receipts at production audit; eighth state/chain not independently regenerated.",
+    "Tensor state not deserialized; final weight file bytes bound.",
+    "Native science exits and tree RSS remain root worker evidence.",
+    "Static trainer source binding is a read snapshot; root owns later integration edits."
+  ],
+  "original_revision_snapshot": "revisions/v1_pre_synthetic_review/SNAPSHOT.json",
+  "mechanical_revision": "Previous draft preserved; physical Adam-before-log-commit counts are distinct from logical committed updates. No numerical/scientific threshold loosened.",
+  "original_A_F_thresholds_modified": false,
+  "synthetic_audit_checks_per_case": 45,
+  "synthetic_dependency_boundary": {
+    "full_production_evaluation_module_imported": false,
+    "explanation": "Exact original summary function executed; unrelated matplotlib/sklearn imports omitted from synthetic-only dependency. Runtime audit still imports inherited evaluation module.",
+    "original_evaluation_summary_AST_preserved": true
+  },
+  "UTC": "2026-10-11T11:20:38.396962+08:00",
+  "partial_recovery_evidence": {
+    "logical_committed_updates": 50000,
+    "accepted": true,
+    "known_physical_Adam_calls": 50001,
+    "all_are_artificial_records": true,
+    "known_uncommitted_Adam_calls": 1
+  },
+  "original_numerical_gate_source_unchanged": true,
+  "static_checks_passed": 17
+}

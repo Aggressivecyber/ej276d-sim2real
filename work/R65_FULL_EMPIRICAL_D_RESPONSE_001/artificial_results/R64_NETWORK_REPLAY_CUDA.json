@@ -1,0 +1,51 @@
+{
+  "pass": true,
+  "device": "cuda:0",
+  "torch": "2.12.0+cu130",
+  "numpy": "1.26.4",
+  "architecture": "original R63 ResponseNetwork",
+  "state_origin": "fixed artificial nonzero head; no checkpoint read",
+  "artificial_state_SHA256": "2b734c96c71accfa703dd630cfa36b5c748edca7f7a872ccbf8d2e298b9dad7a",
+  "state_unchanged": true,
+  "training_mode": true,
+  "attention_dropout": 0.0,
+  "MHA_fastpath": false,
+  "chunk": 64,
+  "rows_per_pass": 65,
+  "passes": 3,
+  "neural_rows": 195,
+  "chunk_checks": [
+    {
+      "start": 0,
+      "stop": 64,
+      "bitwise_endpoint": true,
+      "canonical_codes": true,
+      "Box_free_mask": true
+    },
+    {
+      "start": 64,
+      "stop": 65,
+      "bitwise_endpoint": true,
+      "canonical_codes": true,
+      "Box_free_mask": true
+    }
+  ],
+  "loss": 0.008485381916857776,
+  "reference_parameter_gradient_L2": 1.359014002053544,
+  "relative_parameter_gradient_L2_error": 2.6260636622238595e-08,
+  "max_absolute_parameter_gradient_error": 6.05359673500061e-09,
+  "max_absolute_reference_parameter_gradient": 0.1354113072156906,
+  "canonical_leaf_gradient_bitwise": true,
+  "active_Box_rail_samples": 254,
+  "max_preADC_charge_absolute_error": 1.3322676295501878e-15,
+  "tolerances_frozen_before_execution": {
+    "gradient_relative_L2": 2e-05,
+    "gradient_max_absolute": 2e-06,
+    "gradient_max_relative_to_reference_max": 2e-05,
+    "nonzero_reference_gradient_norm_above": 1e-09
+  },
+  "scientific_arrays_or_checkpoints_read": 0,
+  "scientific_updates": 0,
+  "elapsed_s": 0.23352344099839684,
+  "limitations": "Architecture replay test with a scalar artificial STE loss. Integrated five-term and unequal-mass objective tests are recorded separately."
+}

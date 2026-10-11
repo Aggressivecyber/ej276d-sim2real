@@ -1,0 +1,119 @@
+{
+  "bound_original_loss": "1: \"\"\"Preregistered R63 coverage extension; frozen R61 seven-term loss is retained.\"\"\"\n2: import math\n3: import numpy as np\n4: import torch\n5: from R61_distribution_loss import (DistributionLoss as R61DistributionLoss, NAMES,\n6:     CATEGORIES, feature_vectors, fit_statistics, weighted_w1, psd)\n7: from source_flow_core import canonical_adc_torch, canonical_REAL_torch\n8: \n9: TEMPORAL_NAMES=['RMS_V']+[f'ACF_lag{k}' for k in range(1,21)]+[f'rFFT_power_bin{1+5*k}_{5+5*k}_fraction' for k in range(10)]\n10: \n11: def temporal_features(v,power_floor=1e-20):\n12:     b=v[...,:100]-v[...,:100].mean(-1,keepdim=True)\n13:     power=b.square().mean(-1);safe=power.clamp_min(power_floor)\n14:     acf=torch.stack([(b[...,k:]*b[...,:-k]).mean(-1)/safe for k in range(1,21)],-1)\n15:     spectrum=torch.fft.rfft(b,dim=-1)[...,1:]\n16:     frequency_power=(spectrum.real.square()+spectrum.imag.square())/10000\n17:     multiplicity=frequency_power.new_full((50,),2.);multiplicity[-1]=1.\n18:     bands=(frequency_power*multiplicity).reshape(*b.shape[:-1],10,5).sum(-1)/safe[...,None]\n19:     return torch.cat((safe.sqrt()[...,None],acf,bands),-1)\n20: \n21: @torch.no_grad()\n22: def fit_temporal_statistics(real,REAL_bins,cfg):\n23:     v=canonical_REAL_torch(torch.as_tensor(real,dtype=torch.float64,device='cpu'))\n24:     f=temporal_features(v,cfg['temporal_power_floor'])\n25:     floor=torch.as_tensor(cfg['temporal_scale_floor'],dtype=torch.float64)\n26:     assert f.shape==(len(real),31) and len(floor)==31 and torch.isfinite(f).all()\n27:     means=[];scales=[];counts=[];zeros=[]\n28:     power=(v[:,:100]-v[:,:100].mean(1,keepdim=True)).square().mean(1)\n29:     for region in CATEGORIES:\n30:         mask=torch.from_numpy(np.asarray(REAL_bins)==region);selected=f[mask]\n31:         assert len(selected)>0\n32:         means.append(selected.mean(0).numpy());scales.append(torch.maximum(selected.std(0,unbiased=False),floor).numpy())\n33:         counts.append(len(selected));zeros.append(int((power[mask]==0).sum()))\n34:     return {'temporal_center':np.stack(means),'temporal_scale':np.stack(scales),\n35:             'temporal_REAL_counts':np.asarray(counts,dtype='i8'),'temporal_zero_power_counts':np.asarray(zeros,dtype='i8')}\n36: \n37: def coordinate_w1_rms(a,b):\n38:     \"\"\"Equal-size empirical coordinate W1, pooled over all coordinates by RMS.\"\"\"\n39:     assert a.shape==b.shape and a.ndim==3\n40:     w=(torch.sort(a,dim=1,stable=True).values-torch.sort(b,dim=1,stable=True).values).abs().mean(1)\n41:     return torch.linalg.vector_norm(w,dim=-1)/math.sqrt(w.shape[-1])\n42: \n43: def temporal_distribution_terms(a,b,direction):\n44:     marginal=(torch.sort(a,dim=1,stable=True).values-torch.sort(b,dim=1,stable=True).values).abs().mean((1,2))\n45:     sliced=(torch.sort(a@direction,dim=1,stable=True).values-torch.sort(b@direction,dim=1,stable=True).values).abs().mean((1,2))\n46:     return marginal,sliced\n47: \n48: class DistributionLoss(R61DistributionLoss):\n49:     def __init__(self,statistics,cfg,device):\n50:         super().__init__(statistics,cfg,device)\n51:         assert cfg['temporal_feature_count']==31 and cfg['temporal_projection_directions']==64\n52:         self.temporal_direction_calls=0\n53:     def draw_temporal_directions(self,rng):\n54:         p=rng.standard_normal((31,self.cfg['temporal_projection_directions']))\n55:         p/=np.linalg.norm(p,axis=0,keepdims=True)\n56:         self.temporal_direction_calls+=1\n57:         return p.astype('<f4')\n58:     def __call__(self,output,raw,reference,identity_input,identity_bins,source_psd,source_h,directions,source_interval_low,source_interval_high,temporal_directions):\n59:         old_total,pieces,diagnostics=super().__call__(output,raw,reference,identity_input,identity_bins,source_psd,source_h,directions,source_interval_low,source_interval_high)\n60:         n=10*self.B;candidate=canonical_adc_torch(output[:n],True);ref=canonical_REAL_torch(reference)\n61:         by_feature=[];by_region=[]\n62:         for name,fy,fr in zip(NAMES,feature_vectors(candidate),feature_vectors(ref)):\n63:             dim=fy.shape[-1];center=self.stats[name+'_center'][:,None,:];scale=self.stats[name+'_scale'][:,None,:]\n64:             a=((fy.reshape(10,self.B,dim)-center)/scale).to(torch.float32)\n65:             b=((fr.reshape(10,self.B,dim)-center)/scale).to(torch.float32)\n66:             regional=coordinate_w1_rms(a,b)\n67:             by_region.append(regional.detach());by_feature.append((regional*self.source_mass).sum())\n68:         pieces['coordinate_RMS']=torch.stack(by_feature).mean()\n69:         center=self.stats['temporal_center'][:,None,:];scale=self.stats['temporal_scale'][:,None,:]\n70:         a=((temporal_features(candidate,self.cfg['temporal_power_floor']).reshape(10,self.B,31)-center)/scale).to(torch.float32)\n71:         b=((temporal_features(ref,self.cfg['temporal_power_floor']).reshape(10,self.B,31)-center)/scale).to(torch.float32)\n72:         p=torch.as_tensor(temporal_directions,device=self.device,dtype=torch.float32)\n73:         marginal,sliced=temporal_distribution_terms(a,b,p)\n74:         m=(marginal*self.source_mass).sum();s=(sliced*self.source_mass).sum()\n75:         pieces['temporal_joint']=.5*(m+s)\n76:         total=old_total+self.cfg['loss_weights']['coordinate_RMS']*pieces['coordinate_RMS']+self.cfg['loss_weights']['temporal_joint']*pieces['temporal_joint']\n77:         diagnostics.update(original_seven_total=old_total.detach(),coordinate_RMS=pieces['coordinate_RMS'].detach(),temporal_joint=pieces['temporal_joint'].detach(),\n78:             temporal_marginal=m.detach(),temporal_sliced=s.detach(),coordinate_RMS_by_region=torch.stack(by_region),temporal_marginal_by_region=marginal.detach(),temporal_sliced_by_region=sliced.detach())\n79:         diagnostics.update({name+'_coordinate_RMS':value.detach() for name,value in zip(NAMES,by_feature)})\n80:         return total,pieces,diagnostics",
+  "bound_base_loss": "1: \"\"\"Direct distribution objectives, with explicit original-parent global mass.\"\"\"\n2: import numpy as np\n3: import torch\n4: from precision_order import precision_order_loss\n5: from source_flow_core import q_torch,canonical_REAL_torch,canonical_adc_torch\n6: \n7: NAMES=['V480','U480','DU479','D2U478']\n8: CATEGORIES=[-1,*range(8),8]\n9: \n10: def feature_vectors(v):\n11:     s=v-v[:,:100].mean(1,keepdim=True);u=s/s.amax(1,keepdim=True).clamp_min(.0025)\n12:     return [v,u,torch.diff(u,dim=1),torch.diff(u,n=2,dim=1)]\n13: \n14: def psd(v):\n15:     q=q_torch(v);s=v[:,100:150].sum(1)-.5*v[:,:100].sum(1)\n16:     return 1-s/q\n17: \n18: def noise_features(v):\n19:     b=v[:,:100]-v[:,:100].mean(1,keepdim=True);power=b.square().mean(1)\n20:     return torch.stack((power.clamp_min(1e-20).sqrt(),(b[:,1:]*b[:,:-1]).mean(1)/power.clamp_min(1e-20)),1)\n21: \n22: def weighted_w1(x,wx,y,wy):\n23:     \"\"\"Exact quantile-axis integral for two finite nonnegative weighted laws.\"\"\"\n24:     sx,ix=torch.sort(x,stable=True);sy,iy=torch.sort(y,stable=True)\n25:     a=wx[ix]/wx.sum();b=wy[iy]/wy.sum();ca=torch.cumsum(a,0);cb=torch.cumsum(b,0)\n26:     # All masses are fixed data, so the quantile partitions have no parameter gradient.\n27:     ca=ca.detach();cb=cb.detach();ca[-1]=1.;cb[-1]=1.\n28:     edges=torch.sort(torch.cat((ca.new_zeros(1),ca,cb)),stable=True).values\n29:     length=edges[1:]-edges[:-1];middle=(edges[1:]+edges[:-1])*.5\n30:     ia=torch.searchsorted(ca.contiguous(),middle.contiguous()).clamp_max(len(ca)-1)\n31:     ib=torch.searchsorted(cb.contiguous(),middle.contiguous()).clamp_max(len(cb)-1)\n32:     return (length*(sx[ia]-sy[ib]).abs()).sum()\n33: \n34: @torch.no_grad()\n35: def fit_statistics(real,source_psd,source_h,source_bins,REAL_bins,valley,cfg):\n36:     \"\"\"TRAIN-only coordinates, not a response fit or a cross-domain teacher.\"\"\"\n37:     v=canonical_REAL_torch(torch.as_tensor(real,dtype=torch.float64))\n38:     if not (q_torch(v)>0).all():raise ValueError('nonpositive canonical REAL charge; no row deletion')\n39:     answer={'source_counts':np.asarray([(source_bins==b).sum() for b in CATEGORIES],dtype='i8'),\n40:         'REAL_counts':np.asarray([(REAL_bins==b).sum() for b in CATEGORIES],dtype='i8')}\n41:     assert np.all(answer['source_counts']>0) and np.all(answer['REAL_counts']>0)\n42:     for name,features in zip(NAMES,feature_vectors(v)):\n43:         centers=[];scales=[]\n44:         for b in CATEGORIES:\n45:             selected=features[torch.from_numpy(REAL_bins==b)]\n46:             centers.append(selected.mean(0).numpy());scales.append(selected.std(0,unbiased=False).clamp_min(cfg['feature_scale_floor'][name]).numpy())\n47:         answer[name+'_center']=np.stack(centers);answer[name+'_scale']=np.stack(scales)\n48:     nf=noise_features(v);answer['noise_mean']=nf.mean(0).numpy();answer['noise_scale']=np.maximum(nf.std(0,unbiased=False).numpy(),np.asarray(cfg['noise_scale_floor']))\n49:     bounds=[];hfractions=[];rawfractions=[]\n50:     for b in [2,3]:\n51:         ix=(source_bins==b)&(source_h==1);de=valley['bins'][b]\n52:         assert de['valid'] and ix.any()\n53:         bounds.append([de['low'],de['high']]);hfractions.append(float(ix.sum()/np.sum(source_bins==b)))\n54:         rawfractions.append(float(np.mean((source_psd[ix]>=de['low'])&(source_psd[ix]<=de['high']))))\n55:     answer['valley_bounds']=np.asarray(bounds);answer['source_h_one_fraction']=np.asarray(hfractions);answer['source_raw_valley_fraction']=np.asarray(rawfractions)\n56:     return answer\n57: \n58: class DistributionLoss:\n59:     def __init__(self,statistics,cfg,device):\n60:         self.cfg=cfg;self.B=cfg['batch_per_region'];self.device=device\n61:         self.stats={k:torch.as_tensor(v,device=device,dtype=torch.float64) for k,v in statistics.items()}\n62:         self.source_mass=self.stats['source_counts']/self.stats['source_counts'].sum();self.REAL_mass=self.stats['REAL_counts']/self.stats['REAL_counts'].sum()\n63:         self.sw=torch.repeat_interleave(self.source_mass/self.B,self.B);self.rw=torch.repeat_interleave(self.REAL_mass/self.B,self.B)\n64:         self.direction_calls=0\n65:     def draw_directions(self,rng):\n66:         result=[]\n67:         for dim in [480,480,479,478]:\n68:             p=rng.standard_normal((dim,self.cfg['projection_directions']));p/=np.linalg.norm(p,axis=0,keepdims=True)\n69:             result.append(p.astype('<f4'))\n70:         self.direction_calls+=1\n71:         return result\n72:     def __call__(self,output,raw,reference,identity_input,identity_bins,source_psd,source_h,directions,source_interval_low,source_interval_high):\n73:         n=10*self.B;candidate=canonical_adc_torch(output[:n],True);ref=canonical_REAL_torch(reference)\n74:         ident=canonical_adc_torch(output[n:],True);ident_ref=canonical_REAL_torch(identity_input)\n75:         pieces={};per_feature=[];feature_bin=[]\n76:         for name,fy,fr,p in zip(NAMES,feature_vectors(candidate),feature_vectors(ref),directions):\n77:             dim=fy.shape[1];center=self.stats[name+'_center'][:,None,:];scale=self.stats[name+'_scale'][:,None,:]\n78:             a=((fy.reshape(10,self.B,dim)-center)/scale).to(torch.float32)\n79:             b=((fr.reshape(10,self.B,dim)-center)/scale).to(torch.float32)\n80:             direction=torch.as_tensor(p,device=self.device)\n81:             marginal=(torch.sort(a,dim=1,stable=True).values-torch.sort(b,dim=1,stable=True).values).abs().mean((1,2))\n82:             sliced=(torch.sort(a@direction,dim=1,stable=True).values-torch.sort(b@direction,dim=1,stable=True).values).abs().mean((1,2))\n83:             loss=.5*(marginal+sliced);feature_bin.append(loss.detach());per_feature.append((loss*self.source_mass).sum())\n84:         pieces['full_window']=torch.stack(per_feature).mean()\n85:         yp=psd(candidate);rp=psd(ref)\n86:         overall=weighted_w1(yp,self.sw,rp,self.rw)\n87:         bybin=(torch.sort(yp.reshape(10,self.B),dim=1,stable=True).values-torch.sort(rp.reshape(10,self.B),dim=1,stable=True).values).abs().mean(1)\n88:         conditional=bybin[1:8].mean();pieces['PSD']=.5*(overall+conditional)/self.cfg['PSD_loss_scale']\n89:         pieces['source_order'],order_diagnostic=precision_order_loss(yp,source_psd,source_interval_low,source_interval_high,self.sw,self.cfg['PSD_loss_scale'])\n90:         valleys=[];probabilities=[]\n91:         for j,b in enumerate([2,3]):\n92:             ix=slice((b+1)*self.B,(b+2)*self.B);low,high=self.stats['valley_bounds'][j]\n93:             smooth=torch.sigmoid((yp[ix]-low)/self.cfg['valley_smoothing'])*torch.sigmoid((high-yp[ix])/self.cfg['valley_smoothing'])\n94:             probability=(smooth*(source_h[ix]==1)).mean()/self.stats['source_h_one_fraction'][j]\n95:             excess=torch.relu(probability-self.stats['source_raw_valley_fraction'][j]-self.cfg['valley_delta'])/self.cfg['valley_delta']\n96:             valleys.append(excess.square());probabilities.append(probability.detach())\n97:         pieces['source_valley']=torch.stack(valleys).mean()\n98:         yn=noise_features(candidate);rn=noise_features(ref)\n99:         pieces['noise']=torch.stack([weighted_w1(yn[:,j],self.sw,rn[:,j],self.rw)/self.stats['noise_scale'][j] for j in range(2)]).mean()\n100:         scale=self.stats['V480_scale'][identity_bins+1]\n101:         pieces['REAL_identity']=((ident-ident_ref)/scale).square().mean()\n102:         correction=(output-raw).square().mean(1)\n103:         pieces['box_correction']=.5*((correction[:n]*self.sw).sum()+correction[n:].mean())/(.5**2)\n104:         total=sum(self.cfg['loss_weights'][k]*v for k,v in pieces.items())\n105:         diagnostics={'overall_PSD_W1':overall.detach(),'Q1_Q7_mean_PSD_W1':conditional.detach(),\n106:             'Q3_h_one_soft_valley':probabilities[0],'Q4_h_one_soft_valley':probabilities[1],\n107:             'feature_components':torch.stack(per_feature).detach(),'feature_by_region':torch.stack(feature_bin),\n108:             'PSD_by_region':bybin.detach(),**order_diagnostic}\n109:         return total,pieces,diagnostics",
+  "bound_precision": "1: \"\"\"Float32 storage-interval order ablation; no fitted uncertainty or row removal.\"\"\"\n2: import numpy as np\n3: import torch\n4: from noise_core import q_np\n5: \n6: \n7: def psd_np(v):\n8:     x=np.asarray(v,dtype='f8');return 1-(x[:,100:150].sum(1)-.5*x[:,:100].sum(1))/q_np(x)\n9: \n10: \n11: def rounding_psd_interval(source):\n12:     x=np.asarray(source,dtype='f4');v=x.astype('f8')\n13:     prev=np.nextafter(x,np.float32(-np.inf)).astype('f8');nxt=np.nextafter(x,np.float32(np.inf)).astype('f8')\n14:     low=.5*(prev+v);high=.5*(v+nxt)\n15:     qlo=low[:,100:400].sum(1)-3*high[:,:100].sum(1);qhi=high[:,100:400].sum(1)-3*low[:,:100].sum(1)\n16:     flo=low[:,100:150].sum(1)-.5*high[:,:100].sum(1);fhi=high[:,100:150].sum(1)-.5*low[:,:100].sum(1)\n17:     assert np.isfinite(qlo).all()and(qlo>0).all()\n18:     corners=np.stack([flo/qlo,flo/qhi,fhi/qlo,fhi/qhi])\n19:     lo=np.nextafter(1-corners.max(0),-np.inf);hi=np.nextafter(1-corners.min(0),np.inf)\n20:     actual=psd_np(v)\n21:     assert np.all(lo<=actual)and np.all(actual<=hi)\n22:     return lo,hi\n23: \n24: \n25: def precision_order_loss(output_psd, source_psd, low, high, row_weight, scale):\n26:     ds=source_psd[:,None]-source_psd[None,:]\n27:     dy=output_psd[:,None]-output_psd[None,:]\n28:     weight=(row_weight[:,None]*row_weight[None,:])*(ds!=0)\n29:     denominator=weight.sum().clamp_min(1e-30)\n30:     resolved=(low[:,None]>high[None,:])|(high[:,None]<low[None,:])\n31:     penalty=torch.relu(-torch.sign(ds)*dy)\n32:     loss=(weight*resolved*penalty).sum()/denominator/scale\n33:     diagnostic={\n34:         'original_order_loss':((weight*penalty).sum()/denominator/scale).detach(),\n35:         'omitted_order_loss':((weight*(~resolved)*penalty).sum()/denominator/scale).detach(),\n36:         'original_nonzero_pair_mass':weight.sum().detach(),\n37:         'resolved_pair_fraction':((weight*resolved).sum()/denominator).detach()}\n38:     return loss,diagnostic\n39: \n40: \n41: def artificial_precision_check(device='cpu'):\n42:     device=torch.device(device)\n43:     rng=np.random.Generator(np.random.PCG64(6101))\n44:     ideal=rng.normal(0, .0001, (8, 480))\n45:     ideal[:,100:400]+=.04*np.exp(-np.arange(300)/45)[None,:]\n46:     low,high=rounding_psd_interval(ideal.astype('f4'))\n47:     true_psd=psd_np(ideal)\n48:     assert np.all(low<=true_psd)and np.all(true_psd<=high)\n49:     t=lambda a:torch.tensor(a,dtype=torch.float64,device=device)\n50:     p=t([.1,.100000001,.2,.3,.3]);w=t([.1,.15,.2,.25,.3])\n51:     y=t([.35,.12,.25,.08,.09]).requires_grad_(True)\n52:     lo=t([.09,.09,.19,.29,.29]);hi=t([.11,.11,.21,.31,.31])\n53:     value,details=precision_order_loss(y,p,lo,hi,w,.01)\n54:     pnp=p.cpu().numpy();ynp=y.detach().cpu().numpy();wnp=w.cpu().numpy()\n55:     lonp=lo.cpu().numpy();hinp=hi.cpu().numpy()\n56:     den=sum(wnp[i]*wnp[j]for i in range(5)for j in range(5)if pnp[i]!=pnp[j])\n57:     numerator=sum(wnp[i]*wnp[j]*max(-np.sign(pnp[i]-pnp[j])*(ynp[i]-ynp[j]),0)\n58:                   for i in range(5)for j in range(5)if pnp[i]!=pnp[j]and(lonp[i]>hinp[j]or hinp[i]<lonp[j]))\n59:     assert abs(float(value.detach())-numerator/den/.01)<1e-12\n60:     value.backward();gradient=y.grad.detach().cpu().numpy()\n61:     finite=[]\n62:     for k in range(5):\n63:         shift=torch.zeros_like(y);shift[k]=1e-7\n64:         a=precision_order_loss(y.detach()+shift,p,lo,hi,w,.01)[0]\n65:         b=precision_order_loss(y.detach()-shift,p,lo,hi,w,.01)[0]\n66:         finite.append(float((a-b)/(2e-7)))\n67:     error=float(np.max(np.abs(np.asarray(finite)-gradient)))\n68:     assert error<1e-7\n69:     old_weight=(w[:,None]*w[None,:])*(p[:,None]!=p[None,:])\n70:     old=(old_weight*torch.relu(-torch.sign(p[:,None]-p[None,:])*(y[:,None]-y[None,:]))).sum()/old_weight.sum().clamp_min(1e-30)/.01\n71:     fully_resolved=precision_order_loss(y,p,p,p,w,.01)[0]\n72:     assert torch.equal(fully_resolved,old)\n73:     zero,zd=precision_order_loss(y,p,torch.zeros_like(p),torch.ones_like(p),w,.01)\n74:     assert float(zero.detach())==0 and float(zd['resolved_pair_fraction'])==0\n75:     touching=precision_order_loss(t([.5,.1]),t([.1,.2]),t([0.,.15]),t([.15,.3]),t([.5,.5]),.01)[0]\n76:     assert float(touching)==0\n77:     equal=precision_order_loss(t([.5,.1]),t([.2,.2]),t([.1,.1]),t([.3,.3]),t([.5,.5]),.01)[0]\n78:     assert float(equal)==0\n79:     assert abs(float(details['original_order_loss'])-float(value.detach())-float(details['omitted_order_loss']))<1e-12\n80:     return {'artificial_only':True,'device':str(device),'latent_float64_PSD_inside_float32_envelope':True,\n81:             'unchanged_original_nonzero_pair_denominator':True,'mixed_nonuniform_pair_sum_matches':True,\n82:             'fully_resolved_matches_original_exactly':True,'all_overlap_zero':True,'touching_endpoints_overlap':True,\n83:             'equal_PSD_and_duplicate_parent_handling':True,'gradient_finite_difference_max_error':error,\n84:             'original_equals_resolved_plus_omitted':True,'new_scientific_data_read':0,'new_optimizer_updates':0}",
+  "bound_core": [
+    {
+      "name": "q_torch",
+      "start": 7,
+      "stop": 7
+    },
+    {
+      "name": "project",
+      "start": 8,
+      "stop": 8
+    },
+    {
+      "name": "charge_vector",
+      "start": 9,
+      "stop": 11
+    },
+    {
+      "name": "BoxChargeProjection",
+      "start": 13,
+      "stop": 37
+    },
+    {
+      "name": "bounded_charge",
+      "start": 39,
+      "stop": 39
+    },
+    {
+      "name": "canonical_adc_torch",
+      "start": 41,
+      "stop": 45
+    },
+    {
+      "name": "canonical_REAL_torch",
+      "start": 47,
+      "stop": 47
+    },
+    {
+      "name": "constant_heun",
+      "start": 49,
+      "stop": 55
+    },
+    {
+      "name": "displacement",
+      "start": 57,
+      "stop": 62
+    },
+    {
+      "name": "endpoint",
+      "start": 64,
+      "stop": 67
+    },
+    {
+      "name": "solve",
+      "start": 70,
+      "stop": 99
+    },
+    {
+      "name": "forward",
+      "start": 15,
+      "stop": 30
+    },
+    {
+      "name": "backward",
+      "start": 32,
+      "stop": 37
+    }
+  ],
+  "bound_network": [
+    {
+      "name": "ResidualBlock",
+      "start": 5,
+      "stop": 13
+    },
+    {
+      "name": "Attention",
+      "start": 15,
+      "stop": 20
+    },
+    {
+      "name": "ResponseNetwork",
+      "start": 22,
+      "stop": 47
+    },
+    {
+      "name": "__init__",
+      "start": 6,
+      "stop": 9
+    },
+    {
+      "name": "forward",
+      "start": 10,
+      "stop": 13
+    },
+    {
+      "name": "__init__",
+      "start": 16,
+      "stop": 17
+    },
+    {
+      "name": "forward",
+      "start": 18,
+      "stop": 20
+    },
+    {
+      "name": "__init__",
+      "start": 23,
+      "stop": 33
+    },
+    {
+      "name": "forward",
+      "start": 34,
+      "stop": 47
+    }
+  ]
+}

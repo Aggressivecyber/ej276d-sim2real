@@ -1,0 +1,63 @@
+{
+  "status": "ready_for_root_integration_after_static_and_synthetic_saved_record_checks",
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "copy_to_registered_runtime": [
+    {
+      "source": "post_audit.py",
+      "destination": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/post_audit.py",
+      "sha256": "8a92aef6c15892ccbf97409c8f121b02b1b08bfe85b1d6f6286948fc9807e4e2"
+    },
+    {
+      "source": "r65_training_audit.py",
+      "destination": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/r65_training_audit.py",
+      "sha256": "88c26b435621e8454254447ec03e0c6a2ae391f1463c601ea13c7e06861d88ad"
+    }
+  ],
+  "runtime_dependencies": [
+    "Python standard library",
+    "numpy",
+    "inherited evaluation.py and its existing dependencies; summary function unchanged"
+  ],
+  "copy_R63_artifacts_byte_identically_to_training_root": [
+    "SOURCE_PSD_PRECISION_PRIVATE.npz",
+    "SOURCE_ORDER_PRECISION_DEFINITION.json",
+    "TRAIN_TEMPORAL_CONSTANTS.json"
+  ],
+  "required_existing_bound_copies": [
+    "UNIT_CHARGE_CONSTANTS.npz",
+    "NOISE_CALIBRATION.npz",
+    "TRAIN_DISTRIBUTION_CONSTANTS.npz",
+    "TRAIN_TEMPORAL_CONSTANTS.npz"
+  ],
+  "preserved_interfaces": {
+    "constraint_description(d)": "identical AST/body to R63 function",
+    "training_audit(root,cfg,receipt)": "returns pass/checks and original constraint_loss_trace_summary keys; malformed records fail closed",
+    "training_root": "cfg.historical_training_root when supplied, otherwise root; canonical training config.json loaded there",
+    "summary_additions": [
+      "D_C_loss_trace_summary",
+      "precision_trace_summary",
+      "physical_compute",
+      "full_D_SOURCE_range_projection_fraction and full_D_SOURCE_projection_RMS_V inside constraint_loss_trace_summary"
+    ]
+  },
+  "pipeline_rule": "inherited numerical_check writes TRAINING_FROZEN_AUDIT and asserts pass before loading unique final model; all original128/256, A-C, independent replay and D/E continuation order/thresholds stay in inherited root-owned pipeline",
+  "original_numeric_thresholds": {
+    "charge_relative_max": 0.00001,
+    "TRAIN_solver_median_LSB": 0.25,
+    "TRAIN_solver_p95_LSB": 1,
+    "record_sums_rtol": 1e-12,
+    "record_sums_atol": 1e-12,
+    "source_order_decomposition_rtol": 1e-10,
+    "source_order_decomposition_atol": 1e-10
+  },
+  "physical_compute_semantics": "counter is final logical50000 path; physical_attempt_compute counts each actual attempt from zero. Known physical Adam calls may exceed last_completed-resumed_from and the difference must be explicit. Unknown crash intervals remain lower bounds.",
+  "synthetic_only_test_support": [
+    "local_resource_guard.py",
+    "validate_static.py",
+    "synthetic_saved_record_check.py",
+    "synthetic_saved_record_check/"
+  ],
+  "review_boundary": "Saved-record auditing and synthetic interface tests do not establish real network execution or scientific A-F acceptance.",
+  "subagent_did_not_modify": "registered trainer, protocol, shared metadata, original R63/R64 sources, or Git",
+  "peer_coordination": "post_pipeline agent preserves original numerical gate and uses pass/checks plus original constraint_loss_trace_summary keys; no old COVERAGE trace fabricated"
+}

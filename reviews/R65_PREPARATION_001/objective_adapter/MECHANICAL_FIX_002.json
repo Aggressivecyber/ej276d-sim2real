@@ -1,0 +1,14 @@
+{
+  "version": "R65_objective_artificial_mechanical_fix_002",
+  "created_utc": "2026-10-11T03:03:00Z",
+  "prior_attempt": "runs/001",
+  "prior_native_exit": 1,
+  "prior_failure": "all_tied_zero_value_full_window: expected exact zero, observed 9.912726359049739e-9",
+  "cause_scope": "The extra all-five-zero fixture used different SOURCE and REAL matrix row shapes while retaining original float32 sliced-feature matmul. It incorrectly required all sliced terms to be bitwise identical across shapes. The original requirement is an exact zero coordinate-RMS selected branch, not this additional all-five-zero assertion.",
+  "repair": "Keep unchanged full unequal-parent data and exact-zero coordinate_RMS value/gradient test. Evaluate the additional all-five-zero joint test using the already frozen equal32 layout, where both matrix row schedules match. Also record the full-layout directional nonzero values without reclassifying the prior failure.",
+  "original_source_or_API_changed": false,
+  "tolerances_changed": false,
+  "failed_receipts_and_input_snapshot_preserved": true,
+  "scientific_data_or_weights_used": false
+}
+

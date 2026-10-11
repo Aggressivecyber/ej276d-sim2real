@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "title": "R65 prospective protocol review",
+  "created_utc": "2026-10-11T02:55:20Z",
+  "reviewed_protocol_sha256": "69d6eb093237a9120b3f815840fcd8211bb60ca8dd8ea44180dc1bdc309d11ea",
+  "reviewed_root_direction_sha256": "0de4a7f5ee5cd7cc006f9209be85daa7033a30b4ef0401a8757cc0f1eb86d5e1",
+  "status": "static_preparation_review_complete",
+  "verdict": {
+    "preserves_original_acceptance_at_protocol_level": true,
+    "explanation": "草案保持原父人口/两域质量/支持外覆盖、TRAIN与DEV/EVAL/CAL分离、原128/256数值门、完整SOURCE及same-treated REAL A–C、独立4000行重放和通过后才继续D/E；并未把本阶段交付当作原A–F完成。",
+    "implementation_readiness": "可继续当前既定方向的实现准备。不得把旧R63训练审计原样当成R65审计；下列字段与依赖需要在实现绑定中落实。此审查不确认登记、执行或未来训练成功。",
+    "future_training_success": null,
+    "new_scientific_direction_selected_by_reviewer": false
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "priority": "required_integration_fix",
+      "title": "继承数值门之前的训练审计仍带有R63专用假设",
+      "evidence": [
+        "numerical_check.py:19-21在原128/256求解前调用training_audit并assert其pass。",
+        "post_audit.py:44-50固定旧损失表形状、1600万SOURCE/参考和320万identity计数、原流/暴露字段；58-59又调用coverage_extension_audit。",
+        "coverage_audit.py:30-47要求R63 objective_extension_integrity及原暴露等价声明；54-58使用旧original_seven_total和coverage分解。"
+      ],
+      "consequence": "R65的完整D与微批C需要不同暴露含义和第八噪声流。若把新总暴露直接塞进旧字段会失败；若只保留C字段使旧检查通过，又不能证明完整D被正确计入。更不能把原微批诊断original_seven_total作为R65完整D+C总量，或伪填R63的sole_change声明。",
+      "minimal_action": "准备R65专用training receipt与post_audit适配，验证下面的完整D/单C/随机流/合并梯度字段，并使原数值门调用该审计。保留原数值阈值、DEV入口顺序、评价数学、失败密度槽和独立重放规则；不修改已封存R63/R64文件。",
+      "owner_response": "Root已明确接受并将准备R65专用审计；本审查未修改任何实现。",
+      "resolved_by_review": false
+    }
+  ],
+  "required_implementation_bindings": [
+    {
+      "id": "I1",
+      "topic": "新噪声与每步方向必须进入实际D对象",
+      "source": "distribution_gradient.py:175及235-236会clone/detach并在构造器保存方向；__call__:273/282/319使用保存值。",
+      "action": "显式把第八PCG64对象只初始化一次，之后每步推进；冻结确切normal API、原序、dtype/转换和字节链规则。建议按原式明确standard_normal((6593,480))默认float64后转<f4，而不是只写float32epsilon。七个原流按R63原调用顺序消耗一次；同一步已生成的方向同时给C调用和本步新绑定的D对象，不能让旧FrozenDistributionObjective实例继续持有第1步方向。",
+      "minimum_receipt_fields": [
+        "full_D_noise_seed_and_API",
+        "full_D_noise_initial_state",
+        "full_D_noise_final_state",
+        "full_D_noise_consumed_bytes_chain",
+        "seven_original_stream_hashes_equal_R63",
+        "seven_original_final_states_equal_R63",
+        "direction_calls",
+        "temporal_direction_calls",
+        "per_step_direction_binding_rule"
+      ],
+      "check": "人工至少用两套不同方向验证每步D实际绑定改变且七个流不被重复消耗；固定原七流的最终哈希/状态应对照R63，不只对照R61的原六流。"
+    },
+    {
+      "id": "I2",
+      "topic": "联合D、原C及梯度合并的接口必须固定",
+      "source": "distribution_gradient.py:252-325提供联合__call__；327-348的endpoint_gradients便利函数却逐项建图求五次梯度。R63 train_final.py:134-144为SOURCE320与identity64拼接的一次384行前向。",
+      "action": "使用本步联合DResult.total对一个投影后ADC前leaf求一次GY，按104个原64/末1行chunk注入。固定REAL参数传入原始float64REAL波形，由适配器内部canonical_REAL_torch负责规范化，不另加网络或噪声。C仍调用原DistributionLoss，只对四个pieces的加权和反传；原九项返回total不可直接反传，否则微批D会额外计入。",
+      "minimum_receipt_fields": [
+        "D_total_and_five_terms",
+        "C_total_and_four_terms",
+        "reported_total_equals_D_plus_C",
+        "D_endpoint_reverse_passes",
+        "D_parameter_VJPs",
+        "C_reverse_passes",
+        "named_parameter_order",
+        "D_accumulation_dtype_float64",
+        "C_gradient_addition_dtype",
+        "single_final_parameter_dtype_cast",
+        "combined_gradient_clip_order",
+        "discarded_micro_D_not_in_backward"
+      ],
+      "check": "联合D的GY与五项和、非零C四项、raw/out两路、完整D+C单图与两遍参数梯度按预冻容差核对。保留原Box backward/ADC STE正确的一次路径，不能额外平均；C微批384行批形状和原模式需绑定。"
+    },
+    {
+      "id": "I3",
+      "topic": "恢复点和实际计算账必须区分",
+      "source": "R63 train_final.py:179-185使用单个原子替换的post-step恢复缓存，但只有原流/暴露与原日志结构；R65增加完整D和第八流。",
+      "action": "明确缓存只在一个optimizer.step完整提交后保存；快照中的theta/Adam、全局已提交step、学习率位置、八个PCG64状态和链、Torch CPU/CUDA RNG、方向调用计数、全部暴露/回放计数及日志长度必须属于同一提交点。采用同目录临时文件+原子替换，校验配置/输入/代码绑定；恢复从committed_step+1继续，不重置warmup或复用旧GY。",
+      "minimum_receipt_fields": [
+        "logical_run_id",
+        "native_attempt_id",
+        "committed_update",
+        "checkpoint_transaction_version",
+        "model_and_optimizer_state",
+        "all_eight_PCG64_states_and_chains",
+        "torch_CPU_and_CUDA_rng",
+        "direction_call_counters",
+        "effective_D_and_C_exposures",
+        "log_commit_lengths",
+        "input_code_environment_binding",
+        "physical_attempt_compute",
+        "replayed_compute",
+        "unknown_after_crash_fields"
+      ],
+      "check": "有效50000更新与实际物理前向/VJP要分别记账。中断后重算不能从实际消耗中扣除；若最后未落盘的消耗无法确认，记未知边界而不伪填精确数。损坏或绑定不符的缓存不能静默变成新的从零训练。"
+    },
+    {
+      "id": "I4",
+      "topic": "训练专用审计与原验收入口的字段依赖",
+      "action": "新审计对全D和C分开记录，再验证总九项与一次clip/Adam。保留原C的parent曝光、precision-order分母/遗漏项、valley/identity和投影诊断，另列全D的parent暴露及投影/charge检查；不把C微批诊断冒称全D总体统计。数值门成功前DEV解码计数仍为0。",
+      "minimum_receipt_fields": [
+        "full_D_SOURCE_occurrences",
+        "full_D_REAL_reference_occurrences",
+        "C_SOURCE_occurrences",
+        "C_REAL_identity_occurrences",
+        "discarded_micro_D_REAL_reference_occurrences",
+        "original_C_parent_exposure_parity_R63",
+        "original_C_precision_order_trace",
+        "full_D_projection_and_charge_trace",
+        "C_projection_and_charge_trace",
+        "all_frozen_constants_reused_no_refit",
+        "DEV_EVAL_CAL_training_decode_zero",
+        "sole_final_weight_step_50000"
+      ],
+      "dependency_order": "人工检查及冻结绑定 -> 注册后的TRAIN训练 -> R65训练审计 -> 原128/256 TRAIN数值门 -> 原完整DEV A–C与same-treated REAL -> 独立4000行重放 -> 只有按原要求通过才继续D/E。R63/R64顶层训练/诊断脚本不可为取函数而import，它们有数据读取/运行副作用。"
+    }
+  ],
+  "objective_and_noise_review": {
+    "disclosed_changes": "草案已正确披露：完整父经验D替代小批D；每父每步一份新噪声且独立于C；D与C原共享端点的耦合改变；同50000更新并非同曝光/同算力。R64的B128阴性结果未被改判，R60阴性标记未重开。",
+    "remaining_interpretation": "完整父D仍是每父一份噪声和有限方向下的随机经验函数。非线性W1/RMS中，对噪声的损失期望不等于噪声积分后的分布距离；不能把R65叫作原R63总体目标的无偏梯度，也不能由R64某一冻结theta的误差推断整条训练轨迹会改善。",
+    "numeric_semantics": "D按原chunk数值回放、float64 CPU累积后一次转换的舍入路径与R63单次float32 backward不同。草案已定义新路径；报告应继续避免完全相同联合随机更新或仅改变梯度估计器的说法。",
+    "no_literature_prohibition": "现有原始论文没有给出禁止该受约束有限目标试验的结论，也没有保证其成功。没有根据文献重开已封存路线或选择新替代。"
+  },
+  "counter_consistency": {
+    "checked_by_static_source_and_integer_bookkeeping": true,
+    "per_update": {
+      "D_first_collection_calls": 104,
+      "D_replay_calls": 104,
+      "C_concat_forward_calls": 1,
+      "total_neural_forward_calls": 209,
+      "total_neural_forward_rows": 13570,
+      "D_parameter_VJPs": 104,
+      "C_reverse_passes": 1,
+      "D_endpoint_reverse_passes": 1,
+      "full_D_SOURCE_occurrences": 6593,
+      "full_D_REAL_occurrences": 21047,
+      "C_SOURCE_occurrences": 320,
+      "C_REAL_identity_occurrences": 64,
+      "discarded_micro_D_REAL_reference_occurrences": 320
+    },
+    "draft_uninterrupted_totals_consistent": true,
+    "distinction": "参考REAL特征行不是神经前向行；D的重放神经行不是新的D父抽样。草案的678500000神经行、10450000前向调用及D/C曝光总数相容。人工、后续推理、失败和恢复重算必须独立附加；不能用这些无中断理论值代替实际回执。"
+  },
+  "endpoint_and_acceptance": {
+    "fixed_50000_is_endpoint_not_budget": true,
+    "reason": "草案把50000绑定原优化器更新日程和唯一最终权重，不按墙钟或中间损失停止、延长或择模；这与无计算配额要求一致。",
+    "acceptance_preserved": true,
+    "caveat": "这里只确认草案的验收口径。R65专用训练审计需要适配的是记录语义与依赖，不是原数值阈值或A–F本身。实现与最终结果均未执行核验。",
+    "actual_DEV_EVAL_CAL_reads_by_this_review": 0
+  },
+  "optional_optimization": {
+    "required_algorithmic_optimization": false,
+    "comment": "没有发现必须先换算法或缓存方案才能解释协议的理由；也未测得R65科学规模的性能/显存。新REAL特征缓存、抽取C改写、随机参数VJP或自动缩小科学人口均不属于当前选择，本审查不建议借性能优化引入这些变化。",
+    "nonblocking_recording": "重复成功回放可以汇总计数并保留失败细节；实际资源记录足以区分合规和未知状态，不需要保存每步端点库。这不改变已选计算路径。"
+  },
+  "actions_performed": {
+    "scientific_arrays_or_weights_opened": 0,
+    "model_loss_or_VJP_executed": 0,
+    "training_started": 0,
+    "protocol_or_root_metadata_changed": 0,
+    "code_changed": 0,
+    "Git_operations": 0,
+    "alternate_methods_selected": 0,
+    "closed_routes_reopened": 0,
+    "new_agents": 0
+  }
+}

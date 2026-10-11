@@ -1,0 +1,86 @@
+[
+  {
+    "case": "valid_contract",
+    "expected_pass": true,
+    "actual_pass": true,
+    "expected_failed_checks": [],
+    "actual_failed_checks": [],
+    "test_pass": true,
+    "audit_check_count": 45,
+    "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\base",
+    "audit_error": null,
+    "logical_updates": 50000,
+    "physical_optimizer_calls": 50000,
+    "known_uncommitted_optimizer_steps": 0
+  },
+  {
+    "case": "bad_replay",
+    "expected_pass": false,
+    "actual_pass": false,
+    "expected_failed_checks": [
+      "all104_chunk_replays_and_single_reverse_counts_every_update"
+    ],
+    "actual_failed_checks": [
+      "all104_chunk_replays_and_single_reverse_counts_every_update"
+    ],
+    "test_pass": true,
+    "audit_check_count": 45,
+    "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_replay",
+    "audit_error": null,
+    "logical_updates": 50000,
+    "physical_optimizer_calls": 50000,
+    "known_uncommitted_optimizer_steps": 0
+  },
+  {
+    "case": "bad_D_plus_C_total",
+    "expected_pass": false,
+    "actual_pass": false,
+    "expected_failed_checks": [
+      "total_is_D_plus_C",
+      "total_loss_ordered_component_sum"
+    ],
+    "actual_failed_checks": [
+      "total_is_D_plus_C",
+      "total_loss_ordered_component_sum"
+    ],
+    "test_pass": true,
+    "audit_check_count": 45,
+    "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_D_plus_C_total",
+    "audit_error": null,
+    "logical_updates": 50000,
+    "physical_optimizer_calls": 50000,
+    "known_uncommitted_optimizer_steps": 0
+  },
+  {
+    "case": "bad_original_seven_stream",
+    "expected_pass": false,
+    "actual_pass": false,
+    "expected_failed_checks": [
+      "original_seven_seed_chain_and_final_states_equal_bound_R63"
+    ],
+    "actual_failed_checks": [
+      "original_seven_seed_chain_and_final_states_equal_bound_R63"
+    ],
+    "test_pass": true,
+    "audit_check_count": 45,
+    "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\bad_original_seven_stream",
+    "audit_error": null,
+    "logical_updates": 50000,
+    "physical_optimizer_calls": 50000,
+    "known_uncommitted_optimizer_steps": 0
+  },
+  {
+    "case": "valid_partial_extra_Adam_recovery",
+    "expected_pass": true,
+    "actual_pass": true,
+    "expected_failed_checks": [],
+    "actual_failed_checks": [],
+    "test_pass": true,
+    "audit_check_count": 45,
+    "record_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\synthetic_saved_record_check\\attempt_001\\fixtures\\valid_partial_extra_Adam_recovery",
+    "audit_error": null,
+    "logical_updates": 50000,
+    "physical_optimizer_calls": 50001,
+    "known_uncommitted_optimizer_steps": 1
+  }
+]

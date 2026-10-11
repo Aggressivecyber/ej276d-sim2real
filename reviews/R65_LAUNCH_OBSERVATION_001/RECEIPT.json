@@ -1,0 +1,161 @@
+{
+  "UTC": "2026-10-11T03:25:43.958363+00:00",
+  "root_PID": 63960,
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "server_artificial_suite_passed": true,
+  "artificial_results": [
+    {
+      "name": "R64_OBJECTIVE_CPU",
+      "receipt_SHA256": "2ba7c6a7b0b348257f3fa571310bb7def0876a490780576b1afcdcce63536515",
+      "status": "ARTIFICIAL_PREPARATION_PASSED_NOT_SCIENTIFIC_REGISTRATION_OR_PASS",
+      "passed": true,
+      "checks": 69,
+      "device": "cpu",
+      "fixture_arrays_sha256": "8358df412f174e62fad3d848e38e50a6d39f906b6099b9c36696c5c56d2c3f1e",
+      "tolerance_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+      "caller_state_preserved": true,
+      "elapsed_seconds": 11.889493823000521
+    },
+    {
+      "name": "R65_JOINT_OBJECTIVE_CPU",
+      "receipt_SHA256": "b4839d3a113660b02d6cff1bd30b593dbf7f82521cd81f3640e2dfb450af490b",
+      "checks": 86
+    },
+    {
+      "name": "R64_NETWORK_REPLAY_CPU",
+      "receipt_SHA256": "2af0f91f0b0ad0f0a494dc61440f7db34a08761e8112ffb72686c046b6f2bc56",
+      "pass": true,
+      "state_unchanged": true
+    },
+    {
+      "name": "R65_JOINT_NETWORK_ADAM_CPU",
+      "receipt_SHA256": "05d6f3bb75caee98bdda63c4d7bca57cde550b0dc332f1c2bd8e5dde6cb7adc2",
+      "checks": 25,
+      "reference_clip_norm": 791539.5625,
+      "replay_clip_norm": 791539.5625,
+      "all_parameter_count": 1369889,
+      "synthetic_optimizer_steps": 2
+    },
+    {
+      "name": "R64_OBJECTIVE_CUDA",
+      "receipt_SHA256": "46c27c7b672c00c49f25af4565ea78b2d5bd0056bdbd8b7ee1fe46e0bca9f9d7",
+      "status": "ARTIFICIAL_PREPARATION_PASSED_NOT_SCIENTIFIC_REGISTRATION_OR_PASS",
+      "passed": true,
+      "checks": 69,
+      "device": "cuda:0",
+      "fixture_arrays_sha256": "ba4928e1124d40f4ef738915d2c6670c60a3bf28c03e7017730803cb25a308df",
+      "tolerance_sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+      "caller_state_preserved": true,
+      "elapsed_seconds": 13.023935459998029
+    },
+    {
+      "name": "R65_JOINT_OBJECTIVE_CUDA",
+      "receipt_SHA256": "dcf51c60a99a668cb0ecdd98549d837ec52cd7004379bfa83c944b9a7cd6e1ff",
+      "checks": 85
+    },
+    {
+      "name": "R64_NETWORK_REPLAY_CUDA",
+      "receipt_SHA256": "cdc89053a85740768e8069ffda8a5a767b7cbaed766da3ad3543abed759ef0b2",
+      "pass": true,
+      "state_unchanged": true
+    },
+    {
+      "name": "R65_JOINT_NETWORK_ADAM_CUDA",
+      "receipt_SHA256": "2f8860c141f5e37889dcf39df290059fe96e32188c8c26cb55cd60595b677c57",
+      "checks": 21,
+      "reference_clip_norm": 1147092.25,
+      "replay_clip_norm": 1147092.375,
+      "all_parameter_count": 1369889,
+      "synthetic_optimizer_steps": 2
+    }
+  ],
+  "suite_SHA256": "5614682d5176ddf0e57f13bc2736c5abb80e0c9766e19d07fdc4799dc5db5fe2",
+  "suite_elapsed_s": 34.30188236899994,
+  "suite_GPU_allocated_peak_bytes": 3553733120,
+  "suite_GPU_reserved_peak_bytes": 3963617280,
+  "TRAIN_started_receipt": {
+    "UTC": "2026-10-11T03:24:43.960442+00:00",
+    "PID": 291399,
+    "counter": {
+      "new_response_updates": 0,
+      "SOURCE_training_rows": 0,
+      "REAL_reference_rows": 0,
+      "REAL_identity_rows": 0,
+      "full_D_SOURCE_law_rows": 0,
+      "full_D_REAL_law_rows": 0,
+      "scientific_neural_forward_rows": 0,
+      "scientific_neural_forward_calls": 0,
+      "D_parameter_VJP_calls": 0,
+      "C_parameter_reverse_calls": 0,
+      "full_D_endpoint_reverse_calls": 0,
+      "full_D_objective_calls": 0,
+      "replay_chunks_checked": 0,
+      "response_fit_attempts": 1,
+      "teacher_waveforms_constructed": 0,
+      "new_HGB_fits": 0,
+      "new_density_fits": 0,
+      "DEV_read": 0,
+      "EVAL_read": 0,
+      "CAL_decode": 0
+    },
+    "sole_terminal_update": 50000,
+    "logical_run_id": "R65_FULL_EMPIRICAL_D_RESPONSE_001@/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+    "native_attempt_id": "37c43e76bb064c44937ebe888d58d0da",
+    "teacher_waveforms_constructed": 0,
+    "selection": "sole final50000",
+    "progress_log_every_updates": 100,
+    "recovery_cache_every_updates": 500,
+    "frozen_binding": {
+      "protocol_SHA": "324b8e925cbc1b65578b3e36614693ae6cfb5561d0b3e379293ceab7aa4e256b",
+      "config_SHA": "1aacb74b0cd443d0ea74fe898fd4f7aabe40f2082fa52e0bbb6579d54e1d2caf",
+      "input_binding_SHA": "b5db5dd9efa348ecc7a8a7fff651ae5acb7a7a57b2d779d19abd28b2cda0910e",
+      "implementation_review_SHA": "e0a4b101886f5cb10b205364fe8414ca2db1fa211cbb058de7d4113f85ba24f5",
+      "environment": {
+        "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "numpy": "1.26.4",
+        "torch": "2.12.0+cu130",
+        "scipy": "1.11.4",
+        "device": "cuda:0",
+        "GPU": "NVIDIA GeForce RTX 5070",
+        "CPU_threads": 12,
+        "CPU_affinity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "model_training_mode": true,
+        "MHA_fastpath": false,
+        "TF32": false,
+        "deterministic_algorithms": true
+      }
+    }
+  },
+  "job": {
+    "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+    "status": "full_empirical_training_running",
+    "UTC": "2026-10-11T03:25:43.958363+00:00",
+    "active_scientific_jobs": 1,
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+    "actual_worker_PID": 291399,
+    "native_attempt_id": "37c43e76bb064c44937ebe888d58d0da",
+    "new_training_runs_started": 1,
+    "artificial_checks_passed": 8,
+    "scientific_terminal_update": 50000,
+    "current_observation": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/LATEST_REMOTE_OBSERVATION.json",
+    "launch_receipt": "work/R65_FULL_EMPIRICAL_D_RESPONSE_001/LAUNCH_RECEIPT.json",
+    "new_response_updates_at_observation": 0,
+    "model_goal_complete": false
+  },
+  "original_A_F_unchanged": true,
+  "no_scientific_outcome_claimed": true,
+  "native_training_exit": null
+}

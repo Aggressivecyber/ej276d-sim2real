@@ -1,0 +1,529 @@
+{
+  "created_UTC": "2026-10-11T03:15:43.815631+00:00",
+  "owner": "/root/r64_endpoint_geometry_prep",
+  "source_directory": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+  "destination_directory": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\post_pipeline\\prepared",
+  "source_records": [
+    {
+      "source_name": "canonical.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\canonical.py",
+      "source_sha256": "22c7d147085de64b311ad80a025915ab2b655d5d2a9e25e91d34f783de8ee17c",
+      "destination": "prepared/canonical.py",
+      "prepared_sha256": "22c7d147085de64b311ad80a025915ab2b655d5d2a9e25e91d34f783de8ee17c",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "flow_runtime.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_runtime.py",
+      "source_sha256": "c7bcad9f5157b67857f3bb70ac31d0f1196597bf413b074632a9ff789959099d",
+      "destination": "prepared/flow_runtime.py",
+      "prepared_sha256": "c7bcad9f5157b67857f3bb70ac31d0f1196597bf413b074632a9ff789959099d",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "numerical_check.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\numerical_check.py",
+      "source_sha256": "00695d5998dfb4056977f89036403d1948f0d9b2ce7a184e3679eb80e39ad764",
+      "destination": "prepared/numerical_check.py",
+      "prepared_sha256": "bec7c6854debb8a683d0902e7afcacbf1f985991f708c1eef56a6877cf39a0be",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "R61": "R63"
+          },
+          "counts": {
+            "R61": 1
+          }
+        }
+      ]
+    },
+    {
+      "source_name": "generate_all.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\generate_all.py",
+      "source_sha256": "29d9a6c246f643ea382f8d7ec0c400c73d25b8c3b1df36920e6ec2f31e561d00",
+      "destination": "prepared/generate_all.py",
+      "prepared_sha256": "e3cf1651853e7d5a408db9ddcd6c19249fec4c4d2548d286486395d34f111f49",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "COVERAGE_REAL_CONTROL": "FULL_EMPIRICAL_REAL_CONTROL"
+          },
+          "counts": {
+            "COVERAGE_REAL_CONTROL": 1
+          }
+        }
+      ]
+    },
+    {
+      "source_name": "evaluate_saved.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\evaluate_saved.py",
+      "source_sha256": "8428d0b3ffed980e4a7a43bdf1f296997a77149b0681b1b08af3d2377a57b521",
+      "destination": "prepared/evaluate_saved.py",
+      "prepared_sha256": "2a77942cf9d60ada29478ae1aa63efcb17ef6ce68fc415d61089121e6321e0df",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "PRECISION_RESOLVED_RESPONSE": "COVERAGE_RESPONSE",
+            "PRECISION_RESOLVED_REAL_CONTROL": "COVERAGE_REAL_CONTROL",
+            "R63": "R65",
+            "R61": "R63",
+            "r61": "r63"
+          },
+          "counts": {
+            "PRECISION_RESOLVED_RESPONSE": 1,
+            "PRECISION_RESOLVED_REAL_CONTROL": 1,
+            "R63": 9,
+            "R61": 10,
+            "r61": 19
+          }
+        },
+        {
+          "kind": "explicit_text",
+          "label": "training-integrity metadata label",
+          "old": "frozen_objective_extension_integrity",
+          "new": "complete_empirical_D_original_C_integrity",
+          "count": 1
+        },
+        {
+          "kind": "explicit_text",
+          "label": "training scope disclosure",
+          "old": "R65 sole final50000 coverage extension; original seven losses, same R63 initialization, original six consumed streams and parents; new TRAIN temporal constants and independent seventh direction stream",
+          "new": "R65 sole final50000 complete finite-parent D and original occurrence-noise C; original R63 initialization, seven C/direction streams and constants retained; independent eighth full-parent noise stream; D-C coupling and compute change",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "source_name": "replay_all.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\replay_all.py",
+      "source_sha256": "1e4dfa9926800ae9c04db1a586b7046955e763365d7940b47d43df442fbcfaa4",
+      "destination": "prepared/replay_all.py",
+      "prepared_sha256": "1e4dfa9926800ae9c04db1a586b7046955e763365d7940b47d43df442fbcfaa4",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "evaluation.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\evaluation.py",
+      "source_sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa",
+      "destination": "prepared/evaluation.py",
+      "prepared_sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "diagnostic_core.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\diagnostic_core.py",
+      "source_sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566",
+      "destination": "prepared/diagnostic_core.py",
+      "prepared_sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "assessment.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\assessment.py",
+      "source_sha256": "3c7aadeaace6d6763e382fa822bd4826390882607cf29ca5868099026257f32f",
+      "destination": "prepared/assessment.py",
+      "prepared_sha256": "3c7aadeaace6d6763e382fa822bd4826390882607cf29ca5868099026257f32f",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "common_math.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\common_math.py",
+      "source_sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79",
+      "destination": "prepared/common_math.py",
+      "prepared_sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "energy_width.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\energy_width.py",
+      "source_sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0",
+      "destination": "prepared/energy_width.py",
+      "prepared_sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "data_support.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\data_support.py",
+      "source_sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77",
+      "destination": "prepared/data_support.py",
+      "prepared_sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "model.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\model.py",
+      "source_sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b",
+      "destination": "prepared/model.py",
+      "prepared_sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "legacy_model.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\legacy_model.py",
+      "source_sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04",
+      "destination": "prepared/legacy_model.py",
+      "prepared_sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "flow_core.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_core.py",
+      "source_sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0",
+      "destination": "prepared/flow_core.py",
+      "prepared_sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "endpoint_common.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\endpoint_common.py",
+      "source_sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb",
+      "destination": "prepared/endpoint_common.py",
+      "prepared_sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "flow_diagnostics.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\flow_diagnostics.py",
+      "source_sha256": "1b9defc18b8fb2a9f3f6bb3021c352a2cc30273d49eb8db203eec93323f8dab1",
+      "destination": "prepared/flow_diagnostics.py",
+      "prepared_sha256": "1b9defc18b8fb2a9f3f6bb3021c352a2cc30273d49eb8db203eec93323f8dab1",
+      "byte_identical": true,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": []
+    },
+    {
+      "source_name": "infer_saved.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\infer_saved.py",
+      "source_sha256": "903ce37bdeadd4ec3a0480dd47e6fcd6897033950787847cb8a7c2b9ade22dc6",
+      "destination": "prepared/infer_saved.py",
+      "prepared_sha256": "dd51f4592f77d8794ef40f7ad01595586a9a84857f01e502ff4f6b6c3367e9e1",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "COVERAGE_RESPONSE": "FULL_EMPIRICAL_RESPONSE",
+            "COVERAGE_REAL_CONTROL": "FULL_EMPIRICAL_REAL_CONTROL",
+            "R63": "R65"
+          },
+          "counts": {
+            "COVERAGE_RESPONSE": 3,
+            "COVERAGE_REAL_CONTROL": 1,
+            "R63": 1
+          }
+        }
+      ]
+    },
+    {
+      "source_name": "summarize_and_plot.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\summarize_and_plot.py",
+      "source_sha256": "6d9410a567d15c84580318ac43b5448220a1cae3cf4497b0bfb28b9f1f129242",
+      "destination": "prepared/summarize_and_plot.py",
+      "prepared_sha256": "b509be8a17940f8b6683e498d1f85659bcc25e4cc1699249b2ee251504fcabf3",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": true,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "COVERAGE_REAL_CONTROL": "FULL_EMPIRICAL_REAL_CONTROL",
+            "R63": "R65",
+            "R61": "R63"
+          },
+          "counts": {
+            "COVERAGE_REAL_CONTROL": 1,
+            "R63": 13,
+            "R61": 2
+          }
+        },
+        {
+          "kind": "explicit_text",
+          "label": "method recipe disclosure",
+          "old": "R65 full-coordinate RMS and temporal joint distribution coverage; original full480 network, parent weights, seven losses and same-REAL operator",
+          "new": "R65 complete finite-parent five-term D plus one original four-term C microbatch; original full480 network, source population and same-REAL operator; D-C noise coupling and compute change",
+          "count": 1
+        },
+        {
+          "kind": "explicit_text",
+          "label": "fixed candidate closing label",
+          "old": "close_fixed_R65_coverage_extension",
+          "new": "close_fixed_R65_full_empirical_D_response",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "source_name": "render_R63_figures.py",
+      "source_path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\render_R63_figures.py",
+      "source_sha256": "6290e61cf6b02bd235165dbd8eb284077849efc4a6abe73ce6975276c5b421d4",
+      "destination": "prepared/render_R65_figures.py",
+      "prepared_sha256": "ecd31bc83c67676fbecc93548f8ecfcbb8482bbabd17ffb511c75660c3abb0b8",
+      "byte_identical": false,
+      "AST_arithmetic_controlflow_unchanged_after_label_normalization": false,
+      "changes": [
+        {
+          "kind": "simultaneous_role_label_mapping",
+          "mapping": {
+            "COVERAGE_REAL_CONTROL": "FULL_EMPIRICAL_REAL_CONTROL",
+            "R63": "R65",
+            "R61": "R63"
+          },
+          "counts": {
+            "COVERAGE_REAL_CONTROL": 1,
+            "R63": 3,
+            "R61": 4
+          }
+        },
+        {
+          "kind": "plot_record_semantics",
+          "label": "separate complete D and original C loss/exposure panels",
+          "old": "    fig,ax=plt.subplots(1,2,figsize=(12,4.6))\n    for label in ['full_window','PSD','source_order','source_valley','noise','REAL_identity','box_correction']:\n        block=loss[:,cols.index(label)].reshape(-1,1000).mean(1)\n        ax[0].plot(np.arange(1,51)*1000,np.maximum(block,1e-12),label=label)\n    ax[0].set(yscale='log',xlabel='Update (sole final 50,000)',ylabel='Mean loss per 1,000 updates',title='Original seven loss terms');ax[0].legend(fontsize=7,ncol=2)\n    tr=M['training'][arm];audit=json.loads((R/'TRAINING_FROZEN_AUDIT.json').read_text())\n    txt='Teacher waveforms: 0\\nAll source parents: '+str(tr['actual_unique_SOURCE_REAL_reference_REAL_identity'][0])+' / 6593\\n'\n    txt+='All REAL reference parents: '+str(tr['actual_unique_SOURCE_REAL_reference_REAL_identity'][1])+' / 21047\\n'\n    txt+='Training updates: '+str(tr['updates'])+'\\nTraining receipt audit: '+('PASS' if audit['pass']else'FAIL')+'\\n'\n    txt+='A / B / C: '+' / '.join('PASS' if acceptance[arm][k]['pass']else'FAIL' for k in ['A','B','C'])+'\\n\\n'\n    txt+='Losses are training surrogates.\\nResponse acceptance remains unchanged.'\n    ax[1].axis('off');ax[1].text(.02,.94,txt,va='top',linespacing=1.7)\n    save(fig,'training_and_checks.png')\n",
+          "new": "    steps=np.arange(1,51)*1000\n    fig,ax=plt.subplots(1,3,figsize=(16,4.8))\n    D_names=['full_window','PSD','noise','coordinate_RMS','temporal_joint']\n    C_names=['source_order','source_valley','REAL_identity','box_correction']\n    for j,(keys,title) in enumerate([(D_names,'Five complete-parent D terms'),(C_names,'Four original C terms')]):\n        for label in keys:\n            block=loss[:,cols.index(label)].reshape(-1,1000).mean(1)\n            ax[j].plot(steps,np.maximum(block,1e-12),label=label)\n        ax[j].set(yscale='log',xlabel='Update (sole final 50,000)',ylabel='Mean loss per 1,000 updates',title=title)\n        ax[j].legend(fontsize=7)\n    tr=M['training'][arm];audit=json.loads((R/'TRAINING_FROZEN_AUDIT.json').read_text())\n    counter=tr['counter']\n    txt='Committed effective exposures\\nComplete D SOURCE: '+format(counter['full_D_SOURCE_law_rows'],',')+'\\n'\n    txt+='Complete D REAL: '+format(counter['full_D_REAL_law_rows'],',')+'\\n'\n    txt+='Original C SOURCE: '+format(counter['SOURCE_training_rows'],',')+'\\n'\n    txt+='Original C REAL identity: '+format(counter['REAL_identity_rows'],',')+'\\n'\n    txt+='Discarded micro-D references: '+format(counter['REAL_reference_rows'],',')+'\\n\\n'\n    txt+='Completed updates: '+str(tr['updates'])+'\\nTraining audit: '+('PASS' if audit['pass']else'FAIL')+'\\n'\n    txt+='A / B / C: '+' / '.join('PASS' if acceptance[arm][k]['pass']else'FAIL' for k in ['A','B','C'])+'\\n\\n'\n    txt+='D/C use different parent/noise laws.\\nRecovery compute is reported separately.\\nLosses do not replace response acceptance.'\n    ax[2].axis('off');ax[2].text(.02,.97,txt,va='top',linespacing=1.5,fontsize=9)\n    save(fig,'training_and_checks.png')\n",
+          "count": 1
+        },
+        {
+          "kind": "explicit_text",
+          "label": "separate D/C projection summary keys",
+          "old": "    frac=M['training_audit']['constraint_loss_trace_summary']['SOURCE_global_range_projection_fraction']['mean'] if 'training_audit' in M else audit['constraint_loss_trace_summary']['SOURCE_global_range_projection_fraction']['mean']",
+          "new": "    trace=audit['constraint_loss_trace_summary']\n    frac=trace['SOURCE_global_range_projection_fraction']['mean']\n    full_frac=trace['full_D_SOURCE_range_projection_fraction']['mean']\n    identity_frac=trace['REAL_range_projection_fraction']['mean']",
+          "count": 1
+        },
+        {
+          "kind": "explicit_text",
+          "label": "D/C projection caption",
+          "old": "    info+=f'TRAIN update-mean range activation: {100*frac:.2f}%.\\nWeighted minibatch trace; not exhaustive\\nfrozen-TRAIN inference.'",
+          "new": "    info+=f'TRAIN update-mean range activation:\\ncomplete D SOURCE: {100*full_frac:.2f}%.\\noriginal C SOURCE: {100*frac:.2f}%.\\noriginal C REAL identity: {100*identity_frac:.2f}%.\\nDifferent populations/noise laws; not pooled.'",
+          "count": 1
+        },
+        {
+          "kind": "plot_record_semantics",
+          "label": "replace absent old coverage trace with committed 32-column D/C traces",
+          "old": "    coverage=load(R/arm/'COVERAGE_BY_UPDATE_PRIVATE.npz');cv=coverage['values'];cn=coverage['columns'].tolist()\n    fig,ax=plt.subplots(1,2,figsize=(12.5,4.7))\n    for key in ['coordinate_RMS','temporal_joint','temporal_marginal','temporal_sliced']:\n        ax[0].plot(steps,cv[:,cn.index(key)].reshape(-1,1000).mean(1),label=key)\n    for key in ['V480_coordinate_RMS','U480_coordinate_RMS','DU479_coordinate_RMS','D2U478_coordinate_RMS']:\n        ax[1].plot(steps,cv[:,cn.index(key)].reshape(-1,1000).mean(1),label=key.removesuffix('_coordinate_RMS'))\n    for a in ax:a.set(xlabel='Update (sole final 50,000)',ylabel='Mean loss per 1,000 updates',ylim=(0,None));a.legend(fontsize=8)\n    ax[0].set_title('Preregistered coverage losses');ax[1].set_title('All-coordinate RMS residual by full-window view')\n    fig.suptitle('Training surrogate traces; original A-F acceptance remains separate')\n    save(fig,'coverage_loss_decomposition.png')\n",
+          "new": "    fig,ax=plt.subplots(2,2,figsize=(13.2,9.2))\n    for key,label in [('D_total','Complete D'),('C_total','Original C'),('total_loss','Joint D+C')]:\n        block=loss[:,cols.index(key)].reshape(-1,1000).mean(1)\n        ax[0,0].plot(steps,np.maximum(block,1e-12),label=label)\n    ax[0,0].set(yscale='log',ylabel='Mean loss per 1,000 updates',title='Complete D and original C totals')\n    for key,label in [('D_parameter_gradient_L2','Complete D'),('C_parameter_gradient_L2','Original C'),('gradient_norm','Joint D+C before clipping')]:\n        block=loss[:,cols.index(key)].reshape(-1,1000).mean(1)\n        ax[0,1].plot(steps,np.maximum(block,1e-12),label=label)\n    ax[0,1].set(yscale='log',ylabel='Mean parameter-gradient L2',title='Gradient magnitudes; no directional claim')\n    for key,label in [('full_D_SOURCE_range_projection_fraction','Complete D SOURCE'),('SOURCE_global_range_projection_fraction','Original C SOURCE'),('REAL_range_projection_fraction','Original C REAL identity')]:\n        block=loss[:,cols.index(key)].reshape(-1,1000).mean(1)\n        ax[1,0].plot(steps,100*block,label=label)\n    ax[1,0].set(ylabel='Mean range-active fraction (%)',ylim=(0,None),title='D and C range activation kept separate')\n    for key,label in [('full_D_SOURCE_projection_RMS_V','Complete D SOURCE'),('SOURCE_global_projection_RMS_V','Original C SOURCE'),('REAL_projection_RMS_V','Original C REAL identity')]:\n        block=loss[:,cols.index(key)].reshape(-1,1000).mean(1)\n        ax[1,1].plot(steps,1000*block,label=label)\n    ax[1,1].set(ylabel='Mean projection RMS (mV)',ylim=(0,None),title='D and C correction magnitudes kept separate')\n    for axis in ax.flat:\n        axis.set(xlabel='Update (sole final 50,000)');axis.legend(fontsize=8)\n    fig.suptitle('Committed training traces; complete D and original C have different parent/noise laws')\n    save(fig,'full_D_original_C_training.png')\n",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "additional_source_bindings": {
+    "preparer": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\prepare_R63_post_root.py",
+      "sha256": "86fdf1e1448f55f701ceb8bc64efce7252c9f71e3da841f50cacafb626fbabaf"
+    },
+    "R63_config_post": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\config_post.json",
+      "sha256": "0eab794208b69a83e7fa14f9f75a9e6a3b45983ad4d0a12e5b298d51404fc8d8"
+    },
+    "R63_config_reporting": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001\\config_reporting.json",
+      "sha256": "8e5b1c38f6d48dc6360e359be77adeb0f9601633f8b27987c4ce22a06ad3007a"
+    },
+    "R65_config": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\config.json",
+      "sha256": "1aacb74b0cd443d0ea74fe898fd4f7aabe40f2082fa52e0bbb6579d54e1d2caf"
+    },
+    "R65_protocol": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\tasks\\R65_FULL_EMPIRICAL_D_RESPONSE_001.md",
+      "sha256": "324b8e925cbc1b65578b3e36614693ae6cfb5561d0b3e379293ceab7aa4e256b"
+    },
+    "audit_contract": {
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\training_audit_adapter\\TRAINING_RECEIPT_CONTRACT.json",
+      "sha256": "08b67554d169eeaace53c6e3270de412cf4d61897215315aedf70a08643cd27c"
+    }
+  },
+  "all_prepared_files": [
+    {
+      "name": "canonical.py",
+      "sha256": "22c7d147085de64b311ad80a025915ab2b655d5d2a9e25e91d34f783de8ee17c",
+      "bytes": 233
+    },
+    {
+      "name": "flow_runtime.py",
+      "sha256": "c7bcad9f5157b67857f3bb70ac31d0f1196597bf413b074632a9ff789959099d",
+      "bytes": 1767
+    },
+    {
+      "name": "numerical_check.py",
+      "sha256": "bec7c6854debb8a683d0902e7afcacbf1f985991f708c1eef56a6877cf39a0be",
+      "bytes": 4743
+    },
+    {
+      "name": "generate_all.py",
+      "sha256": "e3cf1651853e7d5a408db9ddcd6c19249fec4c4d2548d286486395d34f111f49",
+      "bytes": 11549
+    },
+    {
+      "name": "evaluate_saved.py",
+      "sha256": "2a77942cf9d60ada29478ae1aa63efcb17ef6ce68fc415d61089121e6321e0df",
+      "bytes": 19420
+    },
+    {
+      "name": "replay_all.py",
+      "sha256": "1e4dfa9926800ae9c04db1a586b7046955e763365d7940b47d43df442fbcfaa4",
+      "bytes": 3167
+    },
+    {
+      "name": "evaluation.py",
+      "sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa",
+      "bytes": 17874
+    },
+    {
+      "name": "diagnostic_core.py",
+      "sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566",
+      "bytes": 10401
+    },
+    {
+      "name": "assessment.py",
+      "sha256": "3c7aadeaace6d6763e382fa822bd4826390882607cf29ca5868099026257f32f",
+      "bytes": 7334
+    },
+    {
+      "name": "common_math.py",
+      "sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79",
+      "bytes": 1943
+    },
+    {
+      "name": "energy_width.py",
+      "sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0",
+      "bytes": 15046
+    },
+    {
+      "name": "data_support.py",
+      "sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77",
+      "bytes": 7689
+    },
+    {
+      "name": "model.py",
+      "sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b",
+      "bytes": 2019
+    },
+    {
+      "name": "legacy_model.py",
+      "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04",
+      "bytes": 5808
+    },
+    {
+      "name": "flow_core.py",
+      "sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0",
+      "bytes": 4365
+    },
+    {
+      "name": "endpoint_common.py",
+      "sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb",
+      "bytes": 7743
+    },
+    {
+      "name": "flow_diagnostics.py",
+      "sha256": "1b9defc18b8fb2a9f3f6bb3021c352a2cc30273d49eb8db203eec93323f8dab1",
+      "bytes": 9463
+    },
+    {
+      "name": "infer_saved.py",
+      "sha256": "dd51f4592f77d8794ef40f7ad01595586a9a84857f01e502ff4f6b6c3367e9e1",
+      "bytes": 3540
+    },
+    {
+      "name": "summarize_and_plot.py",
+      "sha256": "b509be8a17940f8b6683e498d1f85659bcc25e4cc1699249b2ee251504fcabf3",
+      "bytes": 15125
+    },
+    {
+      "name": "render_R65_figures.py",
+      "sha256": "ecd31bc83c67676fbecc93548f8ecfcbb8482bbabd17ffb511c75660c3abb0b8",
+      "bytes": 14354
+    },
+    {
+      "name": "config_post.json",
+      "sha256": "0b375b51a707e49fe2d15bcb70d384ac84eb8748e9816cb6d49261e381fd6ed6",
+      "bytes": 16152
+    },
+    {
+      "name": "config_reporting.json",
+      "sha256": "7908339d18e4895c0d82922035a42c38a69790c66875840447777d56f6633758",
+      "bytes": 11924
+    }
+  ],
+  "configuration_fixed_evaluation_keys_unchanged": [
+    "C2ST",
+    "train_each_domain",
+    "holdout_each_domain",
+    "bootstrap_repeats",
+    "bootstrap_seed",
+    "C2ST_views",
+    "HGB_max_fits",
+    "HGB_cap",
+    "HGB_plan",
+    "density_EM_max",
+    "width_slots",
+    "main_generation_rows",
+    "replay_rows",
+    "solver_steps",
+    "solver_check_steps",
+    "generation_chunk",
+    "preADC_charge_relative_error_limit",
+    "R32_root",
+    "R33_root",
+    "R39_root",
+    "R26_root",
+    "old_BASE_REAL_generated",
+    "old_BASE_REAL_metrics",
+    "frozen_eval_input_root",
+    "canonical_R51_root",
+    "local_input_paths",
+    "constants_path",
+    "noise_calibration_path",
+    "train_solver_input"
+  ],
+  "removed_stale_R63_metadata_keys": [
+    "expected_R61_initial_state_SHA",
+    "expected_R61_stream_hashes",
+    "fixed_endpoint_objective_extension",
+    "new_temporal_statistics_TRAIN_only"
+  ],
+  "prepared_source_count": 20,
+  "byte_identical_source_count": 14,
+  "nonplot_AST_invariance_count": 19,
+  "plot_only_non_label_changes": "Separate complete D and original C loss/exposure/gradient/projection displays from32-column logs; no acceptance calculations",
+  "root_confirmed_labels_and_history": true,
+  "scientific_runner_imports": 0,
+  "scientific_array_or_weight_reads": 0,
+  "scientific_calculations_or_updates": 0,
+  "post_runtime_execution_status": "UNEXECUTED",
+  "root_metadata_or_Git_writes": 0
+}

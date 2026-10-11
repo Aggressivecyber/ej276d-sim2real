@@ -1,0 +1,77 @@
+{
+  "UTC": "2026-10-11T03:24:09.613247+00:00",
+  "control_PID": 53576,
+  "CPU_affinity": [
+    3
+  ],
+  "native_RSS_hard_max_bytes": 1073741824,
+  "events": [
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "scp",
+        "-q",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\cache\\local_deployment\\R65_FROZEN_SOURCE_BUNDLE.tar",
+        "rylan@100.82.231.102:/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC/R65_FROZEN_SOURCE_BUNDLE.tar"
+      ],
+      "native_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "{\"files_extracted\": 113, \"scientific_arrays_decoded\": false}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "ForwardX11=no",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "rylan@100.82.231.102",
+        "/usr/bin/python3 -B -"
+      ],
+      "native_exit": 0,
+      "stdout": "{\n  \"entry\": \"train_final.py\",\n  \"supervisor_PID\": 291394,\n  \"launch_time_unix\": 1791689048.0120082,\n  \"stage\": \"/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC\",\n  \"inherited_CPU_affinity\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ],\n  \"actual_job\": {\n    \"entry\": \"train_final.py\",\n    \"supervisor_PID\": 291394,\n    \"start_UTC\": \"2026-10-11T03:24:08.088763+00:00\",\n    \"python\": \"/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python\",\n    \"limit_s\": null,\n    \"compute_budget_enforced\": false,\n    \"wall_deadline_UTC\": null,\n    \"stage_output_limit_bytes\": null,\n    \"actual_worker_PID\": 291399,\n    \"actual_worker_RSS_peak_bytes\": 12906496,\n    \"memory_probe_failures\": 0,\n    \"memory_probe_failure_events\": [],\n    \"handshake_before_imports\": true,\n    \"job_tree_RSS_peak_bytes\": 0,\n    \"execution_device\": \"cuda:0\",\n    \"GPU_admission_applied\": true,\n    \"GPU_process_memory_peak_bytes\": 0,\n    \"GPU_query_failures\": [],\n    \"RSS_limit_bytes\": 51539607552,\n    \"start_resource\": {\n      \"UTC\": \"2026-10-11T03:24:08.046513+00:00\",\n      \"MemAvailable_bytes\": 61550473216,\n      \"RSS_quota_bytes\": 51539607552,\n      \"CPU_threads\": 12,\n      \"disk_free_bytes\": 20534972416,\n      \"other_own_project_jobs\": [],\n      \"execution_device\": \"cuda:0\",\n      \"GPU_admission_applied\": true,\n      \"GPU_allocated_reserved_safety_limits_bytes\": 10737418240,\n      \"compute_budget_enforced\": false,\n      \"limit_s\": null,\n      \"stage_output_limit_bytes\": null,\n      \"GPU_free_bytes\": 12168724480,\n      \"other_GPU_compute_jobs\": \"\"\n    },\n    \"launcher_PID\": 291399,\n    \"last_disk_free_bytes\": 20534956032,\n    \"actual_worker_parent_PID\": 291394\n  },\n  \"immediate_supervisor_exit\": null,\n  \"actual_CPU_affinity\": [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}\n",
+      "stderr": ""
+    }
+  ],
+  "normal_transfer_no_separate_migration_consistency_test": true
+}

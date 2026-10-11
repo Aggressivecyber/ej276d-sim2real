@@ -1,0 +1,101 @@
+{
+  "R64_noise": "1: from __future__ import annotations\n2: import numpy as np\n3: \n4: def q_np(x):\n5:     a=np.asarray(x,dtype='f8')\n6:     return a[...,100:400].sum(-1)-3.*a[...,:100].sum(-1)\n7: \n8: def variance100(x):\n9:     a=np.asarray(x,dtype='f8')[...,:100]\n10:     e=a-a.mean(-1,keepdims=True)\n11:     return (e*e).sum(-1)/99.\n12: \n13: def bins_for(x,edges):\n14:     q=q_np(x)\n15:     if not np.isfinite(x).all() or not np.isfinite(q).all() or not (q>0).all():\n16:         raise ValueError('nonfinite input or nonpositive original q; no deletion')\n17:     logq=np.log(1000.*q)\n18:     raw=np.searchsorted(edges,logq,side='right')-1\n19:     raw[logq==edges[-1]]=7\n20:     return np.clip(raw,0,7).astype('i8'),raw.astype('i8'),q\n21: \n22: def continuous_logq(q,b,edges):\n23:     q=np.asarray(q,dtype='f8');b=np.asarray(b,dtype='i8');edges=np.asarray(edges,dtype='f8')\n24:     halfwidth=.5*(edges[b+1]-edges[b]);center=.5*(edges[b+1]+edges[b])\n25:     if not np.isfinite(q).all() or not (q>0).all() or not (halfwidth>0).all():\n26:         raise ValueError('invalid continuous charge condition; no deletion or clipping')\n27:     value=(np.log(1000.*q)-center)/halfwidth\n28:     if not np.isfinite(value).all():raise FloatingPointError('nonfinite continuous charge condition')\n29:     return value\n30: \n31: def kernel(epsilon,spectrum):\n32:     e=np.asarray(epsilon,dtype='f8')\n33:     return np.fft.irfft(np.sqrt(spectrum)*np.fft.rfft(e,axis=-1,norm='ortho'),n=480,axis=-1,norm='ortho')\n34: \n35: def innovation(x,epsilon,mu,edges,p,kappa2,tau2,completion):\n36:     x=np.asarray(x,dtype='f8');b,raw,q=bins_for(x,edges)\n37:     v=variance100(x)\n38:     amp2=np.maximum(tau2-v,0.) if completion else np.full(len(x),tau2,dtype='f8')\n39:     n=kernel(epsilon,p)\n40:     n=n-mu[b]*q_np(n)[...,None]\n41:     n=n*np.sqrt(amp2/kappa2[b])[:,None]\n42:     if not np.isfinite(n).all():raise FloatingPointError('nonfinite projected colored innovation')\n43:     return n,{'conditioning_Qbin':b,'source_Qbin_actual_preADC':raw,'source_q_Vns':q,\n44:               'input_variance100_V2':v,'innovation_amplitude_squared_V2':amp2,\n45:               'inside_TRAIN_support':(raw>=0)&(raw<8),'noise_completion_triggered':amp2>0}\n46: \n47: def summary(x):\n48:     a=np.asarray(x,dtype='f8')\n49:     if not np.isfinite(a).all():raise ValueError('nonfinite summary')\n50:     return {'n':int(a.size),'min':float(a.min()),'q05':float(np.quantile(a,.05)),\n51:             'median':float(np.median(a)),'q95':float(np.quantile(a,.95)),'max':float(a.max()),'mean':float(a.mean())}",
+  "R64_portable_fixture": [
+    {
+      "name": "ArtificialCheckFailure",
+      "start": 34,
+      "stop": 38
+    },
+    {
+      "name": "_verified_inputs",
+      "start": 41,
+      "stop": 53
+    },
+    {
+      "name": "_adapter_modules",
+      "start": 57,
+      "stop": 89
+    },
+    {
+      "name": "_state_fingerprint",
+      "start": 92,
+      "stop": 115
+    },
+    {
+      "name": "run_check",
+      "start": 118,
+      "stop": 206
+    },
+    {
+      "name": "_run_fixture",
+      "start": 210,
+      "stop": 531
+    },
+    {
+      "name": "__init__",
+      "start": 36,
+      "stop": 38
+    },
+    {
+      "name": "stage",
+      "start": 213,
+      "stop": 214
+    },
+    {
+      "name": "compare",
+      "start": 219,
+      "stop": 229
+    },
+    {
+      "name": "waveform",
+      "start": 236,
+      "stop": 247
+    },
+    {
+      "name": "ToyNetwork",
+      "start": 262,
+      "stop": 274
+    },
+    {
+      "name": "endpoint_chunk",
+      "start": 278,
+      "stop": 279
+    },
+    {
+      "name": "endpoint_all",
+      "start": 281,
+      "stop": 283
+    },
+    {
+      "name": "dense_oracle_columns",
+      "start": 338,
+      "stop": 363
+    },
+    {
+      "name": "oracle_full",
+      "start": 365,
+      "stop": 406
+    },
+    {
+      "name": "WrongMass",
+      "start": 480,
+      "stop": 486
+    },
+    {
+      "name": "__init__",
+      "start": 264,
+      "stop": 269
+    },
+    {
+      "name": "forward",
+      "start": 271,
+      "stop": 274
+    },
+    {
+      "name": "_mass",
+      "start": 482,
+      "stop": 486
+    }
+  ],
+  "R64_distribution_adapter": "178:     if positive and not bool((result > 0).all()):\n179:         raise ValueError(name + ': positive frozen scale required')\n180:     return result\n181: \n182: \n183: @dataclass\n184: class DResult:\n185:     pieces: dict[str, torch.Tensor]\n186:     total: torch.Tensor\n187:     diagnostics: dict\n188: \n189: \n190: class FrozenDistributionObjective:\n191:     \"\"\"No fitted constants: callers must supply frozen original statistics.\n192: \n193:     statistics keys: source_counts, REAL_counts, {V480,U480,DU479,D2U478}_{center,scale}\n194:     (10xd), temporal_center/scale (10x31), noise_scale (2). cfg requires\n195:     PSD_loss_scale, temporal_power_floor, projection_directions=64,\n196:     temporal_projection_directions=64 and all five D loss_weights=1.\n197:     directions is four f32 d-by-64 arrays; temporal_directions is f32 31-by-64.\n198:     Explicit parent region vectors use [-1,0,...,8], independent of network bins.\n199:     \"\"\"\n200:     def __init__(self, statistics: Mapping, cfg: Mapping, directions, temporal_directions,\n201:                  source_regions, real_regions, *, feature_chunk=64, device='cpu', uniform_fastpath=True):\n202:         self.device = torch.device(device)\n203:         if self.device.type not in ('cpu', 'cuda'):\n204:             raise ValueError('Only explicit CPU/CUDA numerical paths are supported')\n205:         if self.device.type == 'cuda' and self.device.index is None:\n206:             self.device = torch.device('cuda', torch.cuda.current_device())\n207:         self.uniform_fastpath = bool(uniform_fastpath)\n208:         self.source_regions, self.real_regions = np.asarray(source_regions).copy(), np.asarray(real_regions).copy()\n209:         ParentLayout.full_reference(self.source_regions, self.real_regions)\n210:         self.source_counts = np.asarray(statistics['source_counts']).copy()\n211:         self.real_counts = np.asarray(statistics['REAL_counts']).copy()\n212:         for counts, regions, name in ((self.source_counts, self.source_regions, 'SOURCE'), (self.real_counts, self.real_regions, 'REAL')):\n213:             actual = np.array([np.sum(regions == b) for b in CATEGORIES], dtype=np.int64)\n214:             if counts.shape != (10,) or not np.array_equal(counts, actual) or not (counts > 0).all():\n215:                 raise ValueError(name + ': masses must bind exactly to all original parent counts')\n216:         self.source_mass = self.source_counts.astype(np.float64) / int(sum(self.source_counts))\n217:         self.real_mass = self.real_counts.astype(np.float64) / int(sum(self.real_counts))\n218:         self.stats = {}\n219:         dims = (480, 480, 479, 478)\n220:         for name, dim in zip(NAMES + ('temporal',), dims + (31,)):\n221:             for kind in ('center', 'scale'):\n222:                 key = name + '_' + kind\n223:                 self.stats[key] = _frozen_tensor(statistics[key], (10, dim), dtype=torch.float64,\n224:                                                  name=key, positive=kind == 'scale', device=self.device)\n225:         self.stats['noise_scale'] = _frozen_tensor(statistics['noise_scale'], (2,), dtype=torch.float64, name='noise_scale', positive=True, device=self.device)\n226:         if cfg['projection_directions'] != 64 or cfg['temporal_projection_directions'] != 64:\n227:             raise ValueError('Frozen R63 requires 64 full-window and 64 temporal directions')\n228:         if cfg['PSD_loss_scale'] != .01 or cfg['temporal_power_floor'] != 1e-20:\n229:             raise ValueError('Original R63 PSD scale and temporal floor must be preserved')\n230:         if any(cfg['loss_weights'][k] != 1 for k in D_NAMES):\n231:             raise ValueError('Frozen R63 D coefficients must all remain one')\n232:         self.cfg = dict(cfg)\n233:         if len(directions) != 4:\n234:             raise ValueError('Four original full-window direction matrices required')\n235:         self.directions = tuple(_frozen_tensor(p, (d, 64), dtype=torch.float32, name='directions', device=self.device) for p, d in zip(directions, dims))\n236:         self.temporal_directions = _frozen_tensor(temporal_directions, (31, 64), dtype=torch.float32, name='temporal_directions', device=self.device)\n237:         self.feature_chunk = int(feature_chunk)\n238:         if self.feature_chunk < 1:\n239:             raise ValueError('feature_chunk must be positive')\n240: \n241:     def _w1(self, *args):\n242:         return column_w1(*args, feature_chunk=self.feature_chunk, use_uniform_fastpath=self.uniform_fastpath)"
+}

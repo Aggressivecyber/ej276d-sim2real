@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "status": "prospective_saved_record_contract_no_training_claim",
+  "based_on": {
+    "ROOT_TRAINING_SCHEMA_SHA256": "b1cd035807523ec7a2a23fd0b24ffe7e23af8ee51c127635c40bf5f0ac59f02a",
+    "protocol_SHA256": "324b8e925cbc1b65578b3e36614693ae6cfb5561d0b3e379293ceab7aa4e256b"
+  },
+  "audit_entry": "post_audit.training_audit(root, cfg, receipt); reads training_root/config.json using cfg.historical_training_root when supplied, so config_post does not need duplicated training keys",
+  "required_receipt_fields": {
+    "arm": "FULL_EMPIRICAL_RESPONSE",
+    "updates": 50000,
+    "selection": "sole final50000",
+    "new_response_training_runs": 1,
+    "model_seed": 20261010590,
+    "initial_state_SHA": "4a51097e257d4b35976452982aa9a84f48e321d425e0ba3859e8afe8a7bd239b",
+    "final_state_SHA": "actual tensor hash; final file bound separately without model deserialization in audit",
+    "counter": {
+      "new_response_updates": 50000,
+      "SOURCE_training_rows": 16000000,
+      "REAL_reference_rows": 16000000,
+      "REAL_identity_rows": 3200000,
+      "full_D_SOURCE_law_rows": 329650000,
+      "full_D_REAL_law_rows": 1052350000,
+      "scientific_neural_forward_rows": 678500000,
+      "scientific_neural_forward_calls": 10450000,
+      "D_parameter_VJP_calls": 5200000,
+      "C_parameter_reverse_calls": 50000,
+      "full_D_endpoint_reverse_calls": 50000,
+      "full_D_objective_calls": 50000,
+      "replay_chunks_checked": 5200000
+    },
+    "actual_unique_SOURCE_REAL_reference_REAL_identity": [
+      6593,
+      21047,
+      21047
+    ],
+    "PCG64_seeds": "same eight-name dictionary as frozen config",
+    "stream_hashes": "all eight actual-consumption 64-hex SHA256 chains; original seven must exactly equal bound R63 receipt/config",
+    "stream_hash_algorithm": "nonempty description of original chain algorithm; wording is not a gate, actual seven hashes/states are",
+    "projection_direction_calls": 50000,
+    "temporal_direction_calls": 50000,
+    "full_SOURCE_epsilon_calls": 50000,
+    "source_order_rule": "float32_PSD_interval_disjoint_only_original_nonzero_denominator",
+    "precision_order_trace_rows": 50000,
+    "precision_order_columns": [
+      "original_order_loss",
+      "omitted_order_loss",
+      "original_nonzero_pair_mass",
+      "resolved_pair_fraction"
+    ],
+    "teacher_waveforms_constructed": 0,
+    "R58_law_or_atoms_training_target": false,
+    "h_PDG_network_inputs": false,
+    "source_val_target_val_decoded": false,
+    "DEV_read": 0,
+    "EVAL_read": 0,
+    "CAL_decode": 0,
+    "max_output_relative_q_error_f32": "max over all full_D and C committed update rows",
+    "max_output_relative_q_error_f64": "same; both <= original 1e-5",
+    "GPU_allocated_peak_bytes": "actual nonnegative integer <= frozen cap",
+    "GPU_reserved_peak_bytes": "actual nonnegative integer <= frozen cap",
+    "CPU_threads": "actual integer 1..12",
+    "compute_budget_enforced": false,
+    "model_goal_complete": false,
+    "full_empirical_D_integrity": {
+      "seven_original_stream_hashes_equal_R63": true,
+      "seven_original_final_states_equal_R63": true,
+      "C_parent_exposures_equal_R63": true,
+      "frozen_distribution_and_temporal_statistics_reused": true,
+      "new_statistics_fit": false,
+      "joint_D_C_noise_coupling_preserved": false,
+      "discarded_micro_D_not_in_backward": true,
+      "cast_clip_Adam_once_per_update": true,
+      "new_normalization_fit": false,
+      "new_noise_calibration_fit": false,
+      "new_valley_fit": false
+    },
+    "gradient_execution_counts": {
+      "combined_gradient_cast_events": 50000,
+      "combined_clip_calls": 50000,
+      "optimizer_step_calls": 50000,
+      "separate_D_or_C_clip_calls": 0,
+      "parameter_updates_between_D_passes": 0,
+      "discarded_micro_D_backward_calls": 0,
+      "endpoint_mismatch_chunks": 0,
+      "canonical_code_mismatch_chunks": 0,
+      "Box_free_mask_mismatch_chunks": 0
+    },
+    "artifact_sha256": {
+      "FINAL_FLOW.pt": "SHA256 of final saved bytes",
+      "INITIALIZATION.json": "SHA256 of final saved bytes",
+      "INITIAL_RANDOM_STATES.json": "SHA256 of final saved bytes",
+      "FINAL_RANDOM_STATES.json": "SHA256 of final saved bytes",
+      "LOSS_BY_UPDATE_PRIVATE.npz": "SHA256 of final saved bytes",
+      "PRECISION_ORDER_BY_UPDATE_PRIVATE.npz": "SHA256 of final saved bytes",
+      "REPLAY_BY_UPDATE_PRIVATE.npz": "SHA256 of final saved bytes",
+      "PARENT_EXPOSURES_PRIVATE.npz": "SHA256 of final saved bytes",
+      "DISCARDED_MICRO_D_BY_UPDATE_PRIVATE.npz": "SHA256 of final saved bytes"
+    },
+    "physical_attempt_compute": [
+      {
+        "attempt_id": "unique string",
+        "resumed_from_update": "0 for first attempt; checkpoint update for later attempts",
+        "last_completed_update": "last persisted known completed update for this attempt",
+        "counter": "all schema counter keys, physical operation counts from ZERO per attempt; new_response_updates means known physical Adam calls including explicitly uncommitted calls; lower bounds when incomplete",
+        "counters_complete": "boolean; false iff unknown_intervals is nonempty",
+        "unknown_intervals": [
+          {
+            "first_unpersisted_update": "positive integer <=50000",
+            "last_possible_update": "integer >= first_unpersisted_update and <=50000",
+            "reason": "nonempty explanation"
+          }
+        ],
+        "known_uncommitted_optimizer_steps": "physical counter.new_response_updates - (last_completed_update-resumed_from_update), nonnegative; known physical Adam calls may precede log commit"
+      }
+    ],
+    "recovery_history": [
+      {
+        "from_attempt_id": "prior array entry attempt_id",
+        "to_attempt_id": "next array entry attempt_id",
+        "checkpoint_update": "equals next resumed_from_update; 0 or multiple of500; <= previous last_completed_update",
+        "checkpoint_sha256": "actual recovered snapshot SHA256",
+        "bindings_verified": true,
+        "previous_PID_confirmed_dead": true
+      }
+    ],
+    "frozen_binding": {
+      "protocol_SHA": "SHA256 of training_root/PROTOCOL.md",
+      "config_SHA": "SHA256 of config.json",
+      "input_binding_SHA": "SHA256 of INPUT_BINDING.json",
+      "implementation_review_SHA": "SHA256 of ROOT_IMPLEMENTATION_REVIEW.json",
+      "environment": "existing trainer environment object: exact frozen Python/numpy/torch/scipy/device/GPU plus mode, CPU_threads, MHA_fastpath,TF32,deterministic_algorithms"
+    },
+    "artificial_suite_SHA256": "SHA256 of ARTIFICIAL_SUITE_RECEIPT.json; audit binds receipt, root trainer checks pass before TRAIN",
+    "discarded_D_columns": "five unique D names in saved order, then original_nine_total,discarded_D_total",
+    "discarded_D_trace_rows": 50000
+  },
+  "required_counter_zero_fields": [
+    "teacher_waveforms_constructed",
+    "new_HGB_fits",
+    "new_density_fits",
+    "DEV_read",
+    "EVAL_read",
+    "CAL_decode"
+  ],
+  "records": {
+    "loss_columns": [
+      "total_loss",
+      "full_window",
+      "PSD",
+      "source_order",
+      "source_valley",
+      "noise",
+      "REAL_identity",
+      "box_correction",
+      "coordinate_RMS",
+      "temporal_joint",
+      "learning_rate",
+      "gradient_norm",
+      "max_relative_q_f64",
+      "max_relative_q_f32",
+      "SOURCE_global_range_projection_fraction",
+      "REAL_range_projection_fraction",
+      "SOURCE_global_projection_RMS_V",
+      "REAL_projection_RMS_V",
+      "overall_PSD_W1",
+      "Q1_Q7_mean_PSD_W1",
+      "Q3_h_one_soft_valley",
+      "Q4_h_one_soft_valley",
+      "D_total",
+      "C_total",
+      "full_D_SOURCE_range_projection_fraction",
+      "full_D_SOURCE_projection_RMS_V",
+      "full_D_max_relative_q_f64",
+      "full_D_max_relative_q_f32",
+      "C_max_relative_q_f64",
+      "C_max_relative_q_f32",
+      "D_parameter_gradient_L2",
+      "C_parameter_gradient_L2"
+    ],
+    "precision_columns": [
+      "original_order_loss",
+      "omitted_order_loss",
+      "original_nonzero_pair_mass",
+      "resolved_pair_fraction"
+    ],
+    "replay_columns": [
+      "full_SOURCE_firstpass_rows",
+      "full_SOURCE_replay_rows",
+      "replay_chunks",
+      "endpoint_bitwise_pass_chunks",
+      "canonical_code_pass_chunks",
+      "Box_free_mask_pass_chunks",
+      "full_D_objective_calls",
+      "full_D_endpoint_reverse_calls",
+      "D_parameter_VJP_calls",
+      "C_microbatch_forward_calls",
+      "C_parameter_reverse_calls",
+      "optimizer_updates_completed"
+    ],
+    "expected_replay_row": [
+      6593,
+      6593,
+      104,
+      104,
+      104,
+      104,
+      1,
+      1,
+      104,
+      1,
+      1,
+      1
+    ],
+    "parent_exposure_fields": [
+      "source_counts",
+      "REAL_reference_counts",
+      "REAL_identity_counts",
+      "source_bin0",
+      "REAL_bin0",
+      "source_ids",
+      "full_D_source_counts",
+      "full_D_REAL_counts"
+    ],
+    "loss_dtype_shape": "float64 [50000,32]",
+    "precision_dtype_shape": "float64 [50000,4]",
+    "replay_dtype_shape": "int64 [50000,12]",
+    "full_D_exposure_semantics": "each SOURCE and each REAL original parent count exactly50000",
+    "discarded_micro_D": "float64 [50000,7]; discarded_D_total=sum5 D, original_nine_total=discarded_D_total+C_total, original scalar sum tolerances unchanged"
+  },
+  "checks": {
+    "scalar_sum_rtol": 1e-12,
+    "scalar_sum_atol": 1e-12,
+    "source_order_decomposition_rtol": 1e-10,
+    "source_order_decomposition_atol": 1e-10,
+    "charge_limit": 0.00001,
+    "full_D_vs_C_q": "two legacy max_relative_q fields equal rowwise maxima of full_D_* and C_*; receipt maxima equal dense trace maxima",
+    "D_C_sum": "D_total matches ordered sum of five D; C_total matches ordered sum of four C; total=D+C and nine columns; all outer weights remain1",
+    "physical_vs_logical": "one uninterrupted complete attempt exactly frozen totals and zero uncommitted steps; recovery allows physical Adam counts >= committed interval with explicit difference, all known prior operation counters cover those Adam calls; final logical endpoint remains50000",
+    "constant_provenance": "byte-check current copies of UNIT_CHARGE, NOISE_CALIBRATION, TRAIN_DISTRIBUTION, TRAIN_TEMPORAL against bound originals; preserve original source-order interval NPZ and metadata by byte copy",
+    "old_R63_coverage_trace": "not fabricated or called; its old original_seven_total/extension assertions are not R65 record semantics; unchanged loss implementations and frozen pre-TRAIN artificial checks establish inner D definitions"
+  },
+  "copy_requirements": {
+    "adapter_files": [
+      "post_audit.py",
+      "r65_training_audit.py"
+    ],
+    "copy_R63_byte_identical_to_training_root": [
+      "SOURCE_PSD_PRECISION_PRIVATE.npz",
+      "SOURCE_ORDER_PRECISION_DEFINITION.json",
+      "TRAIN_TEMPORAL_CONSTANTS.json"
+    ],
+    "original_public_interfaces": [
+      "constraint_description(d)",
+      "training_audit(root,cfg,receipt)"
+    ],
+    "original_numerical_gate": "numerical_check.py must call/write/assert training audit before loading final model and before DEV entry; thresholds .25 LSB median,1 LSB p95,1e-5 charge unchanged",
+    "root_owned_labels_and_paths": "root owns config_post and arm/control label substitutions in generation/summary orchestration; no numerical or A-F threshold changes"
+  },
+  "limitations": [
+    "Only text/AST checks will be executed in this preparation task.",
+    "A passing saved-record audit is not a scientific acceptance result or an independent rerun of all8 streams.",
+    "Eighth chain/state recorded and checked structurally plus initial seed; no claim of independent50000-update regeneration.",
+    "Native exit/resource supervision receipts remain root/worker evidence; this audit does not invent the current process exit code.",
+    "Physical unknown intervals remain explicit lower bounds; recovery snapshot booleans are recorded provenance, not a new deserialization of old snapshots."
+  ],
+  "revision_notes": [
+    "v1 draft preserved before correcting physical Adam-before-log-commit accounting; no scientific threshold changed."
+  ]
+}

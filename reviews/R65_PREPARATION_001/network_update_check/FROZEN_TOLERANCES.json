@@ -1,0 +1,53 @@
+{
+  "frozen_before_any_network_execution": true,
+  "gradient": {
+    "relative_L2": 0.00002,
+    "max_absolute": 0.000002,
+    "max_relative_to_reference_max": 0.00002,
+    "reference_norm_strictly_above": 0.000000001,
+    "rationale": "Exact R64 actual-network norm and max-error thresholds, unchanged. Apply to all named parameters, separately to D, C, combined pre-clip gradient, once-cast gradient and once-clipped gradient. No dimension averaging."
+  },
+  "endpoint_replay": {
+    "projected_bitwise": true,
+    "raw_bitwise": true,
+    "canonical_codes_exact": true,
+    "strict_Box_free_mask_exact": true,
+    "joint_endpoint_gradient_bitwise": true,
+    "scalar_and_piece_values_absolute": 0.0,
+    "rationale": "Both sides use identical inputs, theta, selected device, mode, operation chain and chunk schedule. Joint leaf derivative order is identical; parameter accumulation order may differ and uses the R64 gradient tolerance."
+  },
+  "signal": {
+    "positive_piece_value_strictly_above": 0.0,
+    "nonzero_C_piece_endpoint_gradient_norm_strictly_above": 1e-12,
+    "nonzero_box_raw_gradient_norm_strictly_above": 1e-12,
+    "nonzero_box_output_gradient_norm_strictly_above": 1e-12,
+    "minimum_active_Box_samples": 1,
+    "charge_relative_error_max": 0.00001,
+    "source_order_decomposition_atol": 1e-10,
+    "source_order_decomposition_rtol": 1e-10,
+    "require_clipping_active": true,
+    "require_each_parameter_tensor_nonzero_gradient": true
+  },
+  "optimizer": {
+    "learning_rate": 0.000001,
+    "betas": [0.9, 0.999],
+    "epsilon": 0.00000001,
+    "weight_decay": 0.0,
+    "gradient_clip": 5.0,
+    "synthetic_steps_per_arm": 1,
+    "rationale": "Original R63 Adam settings at update 1, original clip threshold, one artificial step per arm. No scientific model or optimizer is constructed."
+  },
+  "Adam_formula_and_state": {
+    "float32_epsilon_multiplier": 16.0,
+    "float32_tiny_multiplier": 16.0,
+    "parameter_ulp_multiplier": 4.0,
+    "moment_expected": "exp_avg=(1-beta1)*g_clipped and exp_avg_sq=(1-beta2)*g_clipped^2 at step 1, evaluated in float64 from each arm's actual clipped gradient",
+    "moment_elementwise_tolerance": "16*eps32*abs(expected)+16*tiny32",
+    "parameter_expected": "theta0-lr*g_clipped/(abs(g_clipped)+epsilon), with first-step bias corrections, evaluated in float64",
+    "parameter_elementwise_tolerance": "4*max(upward_float32_ULP,downward_float32_ULP) at rounded expected theta +16*eps32*abs(expected_update)+16*tiny32",
+    "paired_state_and_parameter_comparison": "Observed candidate-minus-reference difference must equal the float64 formula's predicted candidate-minus-reference difference within the sum of the two frozen elementwise rounding allowances; report raw difference and envelope as well",
+    "step_counter": 1,
+    "rationale": "The original first Adam step is sensitive to gradients near zero; a fixed parameter atol near 2*lr would hide an entire sign change. Instead use the already-required tight full-gradient comparison and an independently evaluated first-step formula with a fixed arithmetic-rounding allowance. This is a sensitivity-aware state/update check, not bitwise equality or a claim that near-zero-gradient parameter steps are identical. Coefficients are frozen before any network run."
+  },
+  "forbidden_tolerance_adaptation": "No relaxation after CPU/CUDA result inspection. Preserve any failed receipts; mechanical fixes must keep this file byte identical."
+}

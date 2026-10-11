@@ -1,0 +1,63 @@
+{
+  "status": "STATIC_PREPARATION_PASSED_RUNTIME_UNEXECUTED",
+  "helper_sha256": "db8976450aec139e61b7a39b5d6f2c8234028b676fb578eea1819cda8ee77945",
+  "source_binding_sha256": "7e3a60f76968da95d96fd20953d0cd34459a8591406bad99aaa52ef137587afb",
+  "tolerances_sha256": "c54ff5e7fcae1f28f7c588bcce931de4663ebe55d7072a12e744664a7777bec8",
+  "fixture_spec_sha256": "dc188288b5e0b0e8ce08f857fbb6e0dadaf386fd677af133f21a02a64d09b113",
+  "static_checker_sha256": "8185d92a11d1d649509d365956a50f0860581565930ea228dff36be416fa164c",
+  "API": {
+    "parameter_vjp_cpu_f64": "output, parameters, gradient",
+    "scalar_parameter_gradient_cpu_f64": "scalar, parameters, *, retain_graph=False",
+    "install_cpu_f64_clip_step": "parameters, gradient_cpu_f64, optimizer, *, clip=5.0, capture=False",
+    "run_check": "device='cpu', *, objective_adapter_root=None"
+  },
+  "public_update_metadata": [
+    "pre_clip_norm",
+    "did_clip",
+    "cast_calls",
+    "parameter_tensor_cast_calls",
+    "clip_calls",
+    "optimizer_calls",
+    "optimizer_step_calls"
+  ],
+  "AST_parse_compile_pass": true,
+  "static_checker_imports_helper": false,
+  "top_level_imports": [
+    "__future__",
+    "contextlib",
+    "copy",
+    "gc",
+    "hashlib",
+    "importlib.util",
+    "json",
+    "pathlib",
+    "sys",
+    "time",
+    "traceback"
+  ],
+  "helper_file_writes_found": false,
+  "helper_backend_or_thread_setters_found": false,
+  "R64_network_gradient_tolerances_exact": true,
+  "frozen_inputs_unchanged_since_first_static_review": true,
+  "objective_definition_bindings_verified": 15,
+  "reviewed_sources_unchanged": true,
+  "CPU_runtime_status": "UNEXECUTED_REQUIRE_ROOT_SERVER",
+  "CUDA_runtime_status": "UNEXECUTED_REQUIRE_ROOT_SERVER",
+  "artificial_network_executions": 0,
+  "synthetic_optimizer_steps_executed": 0,
+  "scientific_array_or_weight_files_read": 0,
+  "scientific_updates": 0,
+  "root_metadata_or_Git_writes": 0,
+  "resource": {
+    "RSS_bytes": 24055808,
+    "peak_RSS_bytes": 26324992,
+    "private_bytes": 15826944,
+    "peak_commit_bytes": 18366464
+  },
+  "CPU_affinity_count": 1,
+  "process_commit_limit_bytes": 1073741824,
+  "RSS_watchdog_limit_bytes": 1073741824,
+  "python_B": true,
+  "TEMP": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_PREPARATION_001\\network_update_check\\_tmp",
+  "limitations": "AST checks cannot establish runtime correctness or resource fit; actual CPU384/CUDA checks remain for the root-owned supervised server"
+}

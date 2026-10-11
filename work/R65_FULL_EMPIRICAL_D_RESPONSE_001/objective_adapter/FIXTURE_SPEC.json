@@ -1,0 +1,93 @@
+{
+  "version": "R65_objective_adapter_artificial_spec_001",
+  "origin": "Bound unmodified R64 portable fixture; deterministic extra C leaf cases only",
+  "R64_portable_fixture_sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+  "source_counts": [
+    3,
+    4,
+    5,
+    2,
+    6,
+    3,
+    4,
+    5,
+    2,
+    4
+  ],
+  "REAL_counts": [
+    2,
+    5,
+    3,
+    6,
+    4,
+    2,
+    5,
+    3,
+    6,
+    4
+  ],
+  "waveform_dimension": 480,
+  "regions": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "fixture_PCG64_seed": 640032128,
+  "toy_coefficients": [
+    0.08,
+    0.035,
+    0.4,
+    0.018
+  ],
+  "toy_chunk": 7,
+  "full_window_directions": 64,
+  "temporal_directions": 64,
+  "C_extra_case": {
+    "source_occurrences": 320,
+    "identity_occurrences": 64,
+    "source_candidate_charge": 6,
+    "source_candidate_PSD": "0.45 - 0.20*normalized(original sampled source PSD), with Q3/Q4 near original low valley boundary: 0.2005 + 0.0005*(slot mod4)",
+    "SOURCE_h": "alternating 1/0 per slot",
+    "population_h_one_fraction": [
+      0.625,
+      0.875
+    ],
+    "source_raw_valley_fraction": [
+      0,
+      0.05
+    ],
+    "valley_bounds": [
+      [
+        0.2,
+        0.7
+      ],
+      [
+        0.2,
+        0.7
+      ]
+    ],
+    "out_rails": {
+      "450": 0.5,
+      "451": -0.5
+    },
+    "raw_rails": {
+      "450": 0.75,
+      "451": -0.73
+    },
+    "identity_extra_shift_at_coordinate_420": 0.005,
+    "source_interval": "source PSD +-1e-8; every third occurrence wide [0,1] overlap",
+    "note": "All are declared synthetic diagnostic inputs, never training constants."
+  },
+  "full_zero_D_case": "same canonical code waveform across all artificial parents in all regions, preserving unequal counts",
+  "scientific_arrays_or_weights_allowed": false,
+  "scientific_optimizer_updates": 0,
+  "actual_ResponseNetwork_local_execution": false
+}
+

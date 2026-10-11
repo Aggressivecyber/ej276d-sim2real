@@ -1,0 +1,4070 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "direct_nonzero_C_signals",
+      "pieces": {
+        "source_order": {
+          "value": 0.3675693201141739,
+          "endpoint_gradient_L2": 7.003275299748135,
+          "passed": true
+        },
+        "source_valley": {
+          "value": 167.85208666613323,
+          "endpoint_gradient_L2": 37112.407909352616,
+          "passed": true
+        },
+        "REAL_identity": {
+          "value": 1.068491267906659,
+          "endpoint_gradient_L2": 0.23590376612114203,
+          "passed": true
+        },
+        "box_correction": {
+          "value": 0.007266767421378803,
+          "endpoint_gradient_L2": 0.001343713116961153,
+          "passed": true
+        }
+      },
+      "box_output_gradient_L2": 0.001343713116961153,
+      "box_raw_gradient_L2": 0.001343713116961153,
+      "source_order_original_nonzero_pair_mass": 0.9804040310650889,
+      "source_order_resolved_pair_fraction": 0.9995190516830834,
+      "source_order_decomposition_residual": 5.551115123125783e-17,
+      "passed": true
+    },
+    {
+      "name": "direct_one_clipped_artificial_Adam_step",
+      "pre_clip_norm": 1147092.25,
+      "clip_threshold": 5.0,
+      "parameter_state_count": 174,
+      "step_counters_all_one": true,
+      "did_clip": true,
+      "cast_calls": 1,
+      "parameter_tensor_cast_calls": 174,
+      "clip_calls": 1,
+      "optimizer_calls": 1,
+      "optimizer_step_calls": 1,
+      "passed": true
+    },
+    {
+      "name": "collection_vs_direct",
+      "start": 0,
+      "stop": 64,
+      "output": true,
+      "raw": true,
+      "codes": true,
+      "free": true,
+      "passed": true
+    },
+    {
+      "name": "collection_vs_direct",
+      "start": 64,
+      "stop": 65,
+      "output": true,
+      "raw": true,
+      "codes": true,
+      "free": true,
+      "passed": true
+    },
+    {
+      "name": "replay_vs_direct",
+      "start": 0,
+      "stop": 64,
+      "output": true,
+      "raw": true,
+      "codes": true,
+      "free": true,
+      "passed": true
+    },
+    {
+      "name": "replay_vs_direct",
+      "start": 64,
+      "stop": 65,
+      "output": true,
+      "raw": true,
+      "codes": true,
+      "free": true,
+      "passed": true
+    },
+    {
+      "name": "original_C384_replay",
+      "start": null,
+      "stop": null,
+      "output": true,
+      "raw": true,
+      "codes": true,
+      "free": true,
+      "passed": true
+    },
+    {
+      "name": "replay_nonzero_C_signals",
+      "pieces": {
+        "source_order": {
+          "value": 0.3675693201141739,
+          "endpoint_gradient_L2": 7.003275299748135,
+          "passed": true
+        },
+        "source_valley": {
+          "value": 167.85208666613323,
+          "endpoint_gradient_L2": 37112.407909352616,
+          "passed": true
+        },
+        "REAL_identity": {
+          "value": 1.068491267906659,
+          "endpoint_gradient_L2": 0.23590376612114203,
+          "passed": true
+        },
+        "box_correction": {
+          "value": 0.007266767421378803,
+          "endpoint_gradient_L2": 0.001343713116961153,
+          "passed": true
+        }
+      },
+      "box_output_gradient_L2": 0.001343713116961153,
+      "box_raw_gradient_L2": 0.001343713116961153,
+      "source_order_original_nonzero_pair_mass": 0.9804040310650889,
+      "source_order_resolved_pair_fraction": 0.9995190516830834,
+      "source_order_decomposition_residual": 5.551115123125783e-17,
+      "passed": true
+    },
+    {
+      "name": "D_full_VJP_cpu64_accumulation",
+      "reference_L2": 2542.378696159278,
+      "error_L2": 6.40279274727515e-05,
+      "relative_L2_error": 2.5184260538950093e-08,
+      "max_absolute_error": 2.86102294921875e-05,
+      "reference_max_absolute": 578.1895141601562,
+      "allowed_max_absolute_error": 0.011565790283203127,
+      "passed": true
+    },
+    {
+      "name": "original_C_full_raw_output_graph",
+      "reference_L2": 1149477.2536791267,
+      "error_L2": 0.0,
+      "relative_L2_error": 0.0,
+      "max_absolute_error": 0.0,
+      "reference_max_absolute": 297760.21875,
+      "allowed_max_absolute_error": 5.955206375,
+      "passed": true
+    },
+    {
+      "name": "combined_D_C_before_single_cast",
+      "reference_L2": 1147092.311141373,
+      "error_L2": 0.05073968431057571,
+      "relative_L2_error": 4.423330521681295e-08,
+      "max_absolute_error": 0.026602745056152344,
+      "reference_max_absolute": 297182.03125,
+      "allowed_max_absolute_error": 5.943642625000001,
+      "passed": true
+    },
+    {
+      "name": "replay_one_clipped_artificial_Adam_step",
+      "pre_clip_norm": 1147092.375,
+      "clip_threshold": 5.0,
+      "parameter_state_count": 174,
+      "step_counters_all_one": true,
+      "did_clip": true,
+      "cast_calls": 1,
+      "parameter_tensor_cast_calls": 174,
+      "clip_calls": 1,
+      "optimizer_calls": 1,
+      "optimizer_step_calls": 1,
+      "passed": true
+    },
+    {
+      "name": "combined_D_C_after_single_cast",
+      "reference_L2": 1147092.311141373,
+      "error_L2": 0.06148279285839409,
+      "relative_L2_error": 5.359881873605957e-08,
+      "max_absolute_error": 0.03125,
+      "reference_max_absolute": 297182.03125,
+      "allowed_max_absolute_error": 5.943642625000001,
+      "passed": true
+    },
+    {
+      "name": "combined_D_C_after_one_clip",
+      "reference_L2": 5.000000442229483,
+      "error_L2": 6.019857419888877e-07,
+      "relative_L2_error": 1.2039713774914475e-07,
+      "max_absolute_error": 2.384185791015625e-07,
+      "reference_max_absolute": 1.295371174812317,
+      "allowed_max_absolute_error": 2.790742349624634e-05,
+      "passed": true
+    },
+    {
+      "name": "direct_all_parameter_Adam_formula",
+      "parameter_tensors": 174,
+      "parameter_elements": 1369889,
+      "changed_parameter_elements": 1369861,
+      "every_named_parameter_included": true,
+      "passed": true
+    },
+    {
+      "name": "replay_all_parameter_Adam_formula",
+      "parameter_tensors": 174,
+      "parameter_elements": 1369889,
+      "changed_parameter_elements": 1369861,
+      "every_named_parameter_included": true,
+      "passed": true
+    },
+    {
+      "name": "paired_Adam_parameters",
+      "raw_difference_L2": 1.2312342762332582e-08,
+      "raw_difference_max_absolute": 7.450580596923828e-09,
+      "formula_difference_residual_max": 7.45058292839218e-09,
+      "max_rounding_allowance": 9.536781310553075e-07,
+      "passed": true,
+      "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+    },
+    {
+      "name": "paired_Adam_exp_avg",
+      "raw_difference_L2": 5.991424888401058e-08,
+      "raw_difference_max_absolute": 2.2351741790771484e-08,
+      "formula_difference_residual_max": 1.192092893842478e-08,
+      "max_rounding_allowance": 4.941448651152313e-07,
+      "passed": true,
+      "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+    },
+    {
+      "name": "paired_Adam_exp_avg_sq",
+      "raw_difference_L2": 1.1562894671580186e-09,
+      "raw_difference_max_absolute": 6.984919309616089e-10,
+      "formula_difference_residual_max": 9.407341398925961e-11,
+      "max_rounding_allowance": 6.401009849984639e-09,
+      "passed": true,
+      "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+    },
+    {
+      "name": "D_active_Box_and_charge",
+      "active_rail_samples": 243,
+      "max_relative_charge_f64": 4.1768785675160656e-16,
+      "max_relative_charge_f32": 2.61327978082984e-08,
+      "passed": true
+    },
+    {
+      "name": "C_active_Box_and_charge",
+      "active_rail_samples": 488,
+      "max_relative_charge_f64": 3.547983034574884e-16,
+      "max_relative_charge_f32": 4.1787510933856616e-08,
+      "passed": true
+    }
+  ],
+  "artificial_only": true,
+  "scientific_data_or_weight_files_read": 0,
+  "scientific_updates": 0,
+  "synthetic_optimizer_steps": 2,
+  "device": "cuda:0",
+  "torch": "2.12.0+cu130",
+  "numpy": "1.26.4",
+  "source_binding_sha256": "7e3a60f76968da95d96fd20953d0cd34459a8591406bad99aaa52ef137587afb",
+  "definition_sources": [
+    {
+      "file": "objective_adapter.py",
+      "sha256": "1b8f38324b96212ca3cc6d83f603c89d8b18f731ab7227998a8da718122dfaec"
+    },
+    {
+      "file": "BOUND_SOURCES.json",
+      "sha256": "6116059ca68f737e1a2b303fe941eda31b9c286c609c75ebc3b69df3e603f475"
+    },
+    {
+      "file": "bound_r64/original_bindings.py",
+      "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f"
+    },
+    {
+      "file": "bound_r64/weighted_empirical_w1.py",
+      "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3"
+    },
+    {
+      "file": "bound_r64/distribution_gradient.py",
+      "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965"
+    },
+    {
+      "file": "bound_r64/SOURCE_BINDINGS.json",
+      "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d"
+    },
+    {
+      "file": "bound_r64/FROZEN_TOLERANCES.json",
+      "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c"
+    },
+    {
+      "file": "bound_r64/r63_original/network.py",
+      "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7"
+    },
+    {
+      "file": "bound_r64/r63_original/noise_core.py",
+      "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10"
+    },
+    {
+      "file": "bound_r64/r63_original/source_flow_core.py",
+      "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d"
+    },
+    {
+      "file": "bound_r64/r63_original/precision_order.py",
+      "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2"
+    },
+    {
+      "file": "bound_r64/r63_original/R61_distribution_loss.py",
+      "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a"
+    },
+    {
+      "file": "bound_r64/r63_original/distribution_loss.py",
+      "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26"
+    },
+    {
+      "file": "bound_r64/r63_original/config.json",
+      "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5"
+    },
+    {
+      "file": "bound_r64/portable_fixture.py",
+      "sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753"
+    }
+  ],
+  "tolerances_sha256": "c54ff5e7fcae1f28f7c588bcce931de4663ebe55d7072a12e744664a7777bec8",
+  "fixture_spec_sha256": "dc188288b5e0b0e8ce08f857fbb6e0dadaf386fd677af133f21a02a64d09b113",
+  "fixture_arrays_sha256": "c49b07037370f1253d69073ff5c4112acfda4e8930dd5eb17974ef6bdccc855d",
+  "synthetic_config_sha256": "2685c5d69f3fd0fec700b94749525f1c85b96c94247f83c4f6d882bbffec9c5d",
+  "initial_synthetic_state_sha256": "a25a46e88b1ddc2e1ba7549bd77e7a1d4dd9328e88cc6378df8eb4451d6764d7",
+  "fixture": {
+    "source_counts": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "REAL_counts": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "SOURCE_N": 65,
+    "REAL_N": 75,
+    "chunk": 64,
+    "schedule": [
+      [
+        0,
+        64
+      ],
+      [
+        64,
+        65
+      ]
+    ]
+  },
+  "all_parameter_count": 1369889,
+  "C_neural_rows": 384,
+  "D_epsilon_sha256": "5dd0058440b666b48bc5ddf2ff1bb9ac307a5c10f017a9f81523cd1bd64cd884",
+  "C_SOURCE_epsilon_sha256": "279f31e8062e3e01af314f625bff6433a355611512d3496c61f5d096cf0f1218",
+  "C_identity_epsilon_sha256": "13372f58a444d0a95863599a48482dfb554caaf08e9cb05686cb4d9fd543c920",
+  "C_source_duplicate_occurrences": 256,
+  "frozen_tolerances": {
+    "frozen_before_any_network_execution": true,
+    "gradient": {
+      "relative_L2": 2e-05,
+      "max_absolute": 2e-06,
+      "max_relative_to_reference_max": 2e-05,
+      "reference_norm_strictly_above": 1e-09,
+      "rationale": "Exact R64 actual-network norm and max-error thresholds, unchanged. Apply to all named parameters, separately to D, C, combined pre-clip gradient, once-cast gradient and once-clipped gradient. No dimension averaging."
+    },
+    "endpoint_replay": {
+      "projected_bitwise": true,
+      "raw_bitwise": true,
+      "canonical_codes_exact": true,
+      "strict_Box_free_mask_exact": true,
+      "joint_endpoint_gradient_bitwise": true,
+      "scalar_and_piece_values_absolute": 0.0,
+      "rationale": "Both sides use identical inputs, theta, selected device, mode, operation chain and chunk schedule. Joint leaf derivative order is identical; parameter accumulation order may differ and uses the R64 gradient tolerance."
+    },
+    "signal": {
+      "positive_piece_value_strictly_above": 0.0,
+      "nonzero_C_piece_endpoint_gradient_norm_strictly_above": 1e-12,
+      "nonzero_box_raw_gradient_norm_strictly_above": 1e-12,
+      "nonzero_box_output_gradient_norm_strictly_above": 1e-12,
+      "minimum_active_Box_samples": 1,
+      "charge_relative_error_max": 1e-05,
+      "source_order_decomposition_atol": 1e-10,
+      "source_order_decomposition_rtol": 1e-10,
+      "require_clipping_active": true,
+      "require_each_parameter_tensor_nonzero_gradient": true
+    },
+    "optimizer": {
+      "learning_rate": 1e-06,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "epsilon": 1e-08,
+      "weight_decay": 0.0,
+      "gradient_clip": 5.0,
+      "synthetic_steps_per_arm": 1,
+      "rationale": "Original R63 Adam settings at update 1, original clip threshold, one artificial step per arm. No scientific model or optimizer is constructed."
+    },
+    "Adam_formula_and_state": {
+      "float32_epsilon_multiplier": 16.0,
+      "float32_tiny_multiplier": 16.0,
+      "parameter_ulp_multiplier": 4.0,
+      "moment_expected": "exp_avg=(1-beta1)*g_clipped and exp_avg_sq=(1-beta2)*g_clipped^2 at step 1, evaluated in float64 from each arm's actual clipped gradient",
+      "moment_elementwise_tolerance": "16*eps32*abs(expected)+16*tiny32",
+      "parameter_expected": "theta0-lr*g_clipped/(abs(g_clipped)+epsilon), with first-step bias corrections, evaluated in float64",
+      "parameter_elementwise_tolerance": "4*max(upward_float32_ULP,downward_float32_ULP) at rounded expected theta +16*eps32*abs(expected_update)+16*tiny32",
+      "paired_state_and_parameter_comparison": "Observed candidate-minus-reference difference must equal the float64 formula's predicted candidate-minus-reference difference within the sum of the two frozen elementwise rounding allowances; report raw difference and envelope as well",
+      "step_counter": 1,
+      "rationale": "The original first Adam step is sensitive to gradients near zero; a fixed parameter atol near 2*lr would hide an entire sign change. Instead use the already-required tight full-gradient comparison and an independently evaluated first-step formula with a fixed arithmetic-rounding allowance. This is a sensitivity-aware state/update check, not bitwise equality or a claim that near-zero-gradient parameter steps are identical. Coefficients are frozen before any network run."
+    },
+    "forbidden_tolerance_adaptation": "No relaxation after CPU/CUDA result inspection. Preserve any failed receipts; mechanical fixes must keep this file byte identical."
+  },
+  "training_mode": true,
+  "MHA_fastpath": false,
+  "synthetic_update_attempts": [
+    {
+      "arm": "direct",
+      "status": "ONE_OPTIMIZER_STEP_RETURNED",
+      "pre_clip_norm": 1147092.25,
+      "clip_threshold": 5.0,
+      "did_clip": true,
+      "clip_coefficient": 4.358847490948392e-06,
+      "one_parameter_dtype_cast": true,
+      "cast_calls": 1,
+      "parameter_tensor_cast_calls": 174,
+      "clip_calls": 1,
+      "optimizer_calls": 1,
+      "optimizer_step_calls": 1
+    },
+    {
+      "arm": "replay",
+      "status": "ONE_OPTIMIZER_STEP_RETURNED",
+      "pre_clip_norm": 1147092.375,
+      "clip_threshold": 5.0,
+      "did_clip": true,
+      "clip_coefficient": 4.358847036201041e-06,
+      "one_parameter_dtype_cast": true,
+      "cast_calls": 1,
+      "parameter_tensor_cast_calls": 174,
+      "clip_calls": 1,
+      "optimizer_calls": 1,
+      "optimizer_step_calls": 1
+    }
+  ],
+  "status": "SYNTHETIC_JOINT_D_C_NETWORK_UPDATE_PASSED",
+  "values": {
+    "D": 12.392937780288278,
+    "C": 169.29541402157545,
+    "D_plus_C": 181.68835180186375,
+    "D_pieces": {
+      "full_window": 2.0186655353252725,
+      "coordinate_RMS": 2.168392995288984,
+      "PSD": 2.5522692576269326,
+      "noise": 3.3158763596554506,
+      "temporal_joint": 2.3377336323916396
+    },
+    "C_pieces": {
+      "source_order": 0.3675693201141739,
+      "source_valley": 167.85208666613323,
+      "REAL_identity": 1.068491267906659,
+      "box_correction": 0.007266767421378803
+    },
+    "discarded_micro_D": {
+      "full_window": 1.739497050556999,
+      "PSD": 2.1899303702826725,
+      "noise": 2.9284736456656653,
+      "coordinate_RMS": 1.7564299327822832,
+      "temporal_joint": 2.3016715233142557
+    },
+    "original_micro_nine_total": 180.21141654417735
+  },
+  "Adam_comparison": {
+    "direct_all_parameter_rows": [
+      {
+        "name": "embedding.0.weight",
+        "elements": 1152,
+        "parameters_max_formula_error": 1.4881202659022819e-08,
+        "parameters_max_allowed_error": 1.1921119647090317e-07,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 8.487908986776202e-12,
+        "exp_avg_sq_max_formula_error": 1.2633727889622434e-19,
+        "exp_avg_sq_max_allowed_error": 3.7772118703628e-18
+      },
+      {
+        "name": "embedding.0.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.4817847671100282e-08,
+        "parameters_max_allowed_error": 1.1921119660732092e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3323775416296255e-11,
+        "exp_avg_sq_max_formula_error": 3.321444326474463e-19,
+        "exp_avg_sq_max_allowed_error": 9.3073174085711e-18
+      },
+      {
+        "name": "embedding.2.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.723950148248889e-09,
+        "parameters_max_allowed_error": 2.9804229496637225e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.571461016869335e-11,
+        "exp_avg_sq_max_formula_error": 3.606833520448627e-19,
+        "exp_avg_sq_max_allowed_error": 1.2947238302724958e-17
+      },
+      {
+        "name": "embedding.2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8429756609705805e-09,
+        "parameters_max_allowed_error": 2.980422962349082e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.7169212979980544e-11,
+        "exp_avg_sq_max_formula_error": 5.45277454625077e-18,
+        "exp_avg_sq_max_allowed_error": 1.16650653943111e-16
+      },
+      {
+        "name": "input.weight",
+        "elements": 288,
+        "parameters_max_formula_error": 1.4666290570897189e-08,
+        "parameters_max_allowed_error": 1.1921119688859002e-07,
+        "exp_avg_max_formula_error": 8.731149158704155e-12,
+        "exp_avg_max_allowed_error": 4.751977034089804e-10,
+        "exp_avg_sq_max_formula_error": 5.003050329364319e-16,
+        "exp_avg_sq_max_allowed_error": 1.1839097134129851e-14
+      },
+      {
+        "name": "input.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.3583712987763619e-08,
+        "parameters_max_allowed_error": 1.1921119689097817e-07,
+        "exp_avg_max_formula_error": 8.731149158704155e-12,
+        "exp_avg_max_allowed_error": 4.3124774862235415e-10,
+        "exp_avg_sq_max_formula_error": 2.3880116158990384e-16,
+        "exp_avg_sq_max_allowed_error": 9.750426193328835e-15
+      },
+      {
+        "name": "enc.0.0.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6305774104027364e-08,
+        "parameters_max_allowed_error": 4.768390655137835e-07,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 2.1142345651981026e-10,
+        "exp_avg_sq_max_formula_error": 2.917105473125032e-17,
+        "exp_avg_sq_max_allowed_error": 2.3435609619449334e-15
+      },
+      {
+        "name": "enc.0.0.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0505975478877939e-13,
+        "parameters_max_allowed_error": 2.362069763242665e-12,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.3874391635582124e-10,
+        "exp_avg_sq_max_formula_error": 3.328878753108981e-17,
+        "exp_avg_sq_max_allowed_error": 1.0092478110499419e-15
+      },
+      {
+        "name": "enc.0.0.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.326165370909351e-09,
+        "parameters_max_allowed_error": 2.980422973232153e-08,
+        "exp_avg_max_formula_error": 1.7462298371618418e-11,
+        "exp_avg_max_allowed_error": 9.079949236934224e-10,
+        "exp_avg_sq_max_formula_error": 1.5676964800074702e-15,
+        "exp_avg_sq_max_allowed_error": 4.322517484584436e-14
+      },
+      {
+        "name": "enc.0.0.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6148420378669925e-09,
+        "parameters_max_allowed_error": 2.980422972229391e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 3.354223787610521e-10,
+        "exp_avg_sq_max_formula_error": 1.0547118560231058e-16,
+        "exp_avg_sq_max_allowed_error": 5.89866845726168e-15
+      },
+      {
+        "name": "enc.0.0.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6308629819691305e-08,
+        "parameters_max_allowed_error": 4.768390655192301e-07,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.118405923428156e-10,
+        "exp_avg_sq_max_formula_error": 2.1213008138228758e-17,
+        "exp_avg_sq_max_allowed_error": 6.557961077701675e-16
+      },
+      {
+        "name": "enc.0.0.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.3906348503345564e-13,
+        "parameters_max_allowed_error": 2.3620564603757102e-12,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.204447204425035e-11,
+        "exp_avg_sq_max_formula_error": 1.598675653743654e-17,
+        "exp_avg_sq_max_allowed_error": 4.441864842198278e-16
+      },
+      {
+        "name": "enc.0.0.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7249734130551104e-09,
+        "parameters_max_allowed_error": 2.980422942279812e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3907061613416258e-11,
+        "exp_avg_sq_max_formula_error": 4.268357676717729e-19,
+        "exp_avg_sq_max_allowed_error": 1.0140063509740585e-17
+      },
+      {
+        "name": "enc.0.0.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.612148511382806e-09,
+        "parameters_max_allowed_error": 2.980422970109617e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.032560148495065e-10,
+        "exp_avg_sq_max_formula_error": 3.2005563169983424e-17,
+        "exp_avg_sq_max_allowed_error": 5.589856211488747e-16
+      },
+      {
+        "name": "enc.0.0.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.584228649988752e-09,
+        "parameters_max_allowed_error": 2.980422972832587e-08,
+        "exp_avg_max_formula_error": 8.731149185809209e-12,
+        "exp_avg_max_allowed_error": 4.5921169089524475e-10,
+        "exp_avg_sq_max_formula_error": 3.749556504174069e-16,
+        "exp_avg_sq_max_allowed_error": 1.1055942968534371e-14
+      },
+      {
+        "name": "enc.0.0.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6049149093033677e-09,
+        "parameters_max_allowed_error": 2.980422970335941e-08,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.256233117530314e-10,
+        "exp_avg_sq_max_formula_error": 1.781003220537838e-17,
+        "exp_avg_sq_max_allowed_error": 8.273902413178123e-16
+      },
+      {
+        "name": "enc.0.1.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.631304606483866e-08,
+        "parameters_max_allowed_error": 4.768390655276537e-07,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.5092601612920472e-10,
+        "exp_avg_sq_max_formula_error": 4.0905426183025653e-17,
+        "exp_avg_sq_max_allowed_error": 1.1942579323342942e-15
+      },
+      {
+        "name": "enc.0.1.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6656342256648029e-13,
+        "parameters_max_allowed_error": 2.3620382110622386e-12,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 6.29687135766943e-11,
+        "exp_avg_sq_max_formula_error": 1.0381892156440069e-17,
+        "exp_avg_sq_max_allowed_error": 2.0788327950601527e-16
+      },
+      {
+        "name": "enc.0.1.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.7168552818878098e-09,
+        "parameters_max_allowed_error": 2.9804229722889724e-08,
+        "exp_avg_max_formula_error": 8.731149158704155e-12,
+        "exp_avg_max_allowed_error": 2.708838486853437e-10,
+        "exp_avg_sq_max_formula_error": 2.2634406103364258e-16,
+        "exp_avg_sq_max_allowed_error": 3.8471236047908e-15
+      },
+      {
+        "name": "enc.0.1.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.5975813311142062e-09,
+        "parameters_max_allowed_error": 2.9804229689371704e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.006373206990929e-10,
+        "exp_avg_sq_max_formula_error": 1.2969726844983884e-17,
+        "exp_avg_sq_max_allowed_error": 5.309920873017291e-16
+      },
+      {
+        "name": "enc.0.1.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629093908192772e-08,
+        "parameters_max_allowed_error": 4.76839065485488e-07,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.1793257481684801e-10,
+        "exp_avg_sq_max_formula_error": 1.758411902127825e-17,
+        "exp_avg_sq_max_allowed_error": 7.291845844890537e-16
+      },
+      {
+        "name": "enc.0.1.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.152517422540878e-13,
+        "parameters_max_allowed_error": 2.361997563535082e-12,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 3.696184747159491e-11,
+        "exp_avg_sq_max_formula_error": 4.87165045851605e-18,
+        "exp_avg_sq_max_allowed_error": 7.162708196135792e-17
+      },
+      {
+        "name": "enc.0.1.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7247997602962712e-09,
+        "parameters_max_allowed_error": 2.980422948502182e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 1.6275164549384154e-11,
+        "exp_avg_sq_max_formula_error": 5.487680763538115e-19,
+        "exp_avg_sq_max_allowed_error": 1.3887391982395382e-17
+      },
+      {
+        "name": "enc.0.1.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.417842120960856e-09,
+        "parameters_max_allowed_error": 2.980422964112072e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 1.219068179736382e-10,
+        "exp_avg_sq_max_formula_error": 2.274080137213352e-17,
+        "exp_avg_sq_max_allowed_error": 7.791586715085192e-16
+      },
+      {
+        "name": "enc.0.1.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.635657094824829e-09,
+        "parameters_max_allowed_error": 2.980422971733729e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.157375833533592e-10,
+        "exp_avg_sq_max_formula_error": 1.577263562463933e-16,
+        "exp_avg_sq_max_allowed_error": 2.440178165148427e-15
+      },
+      {
+        "name": "enc.0.1.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.604587705761329e-09,
+        "parameters_max_allowed_error": 2.980422967737457e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 1.0829442897986039e-10,
+        "exp_avg_sq_max_formula_error": 1.2722268707854045e-17,
+        "exp_avg_sq_max_allowed_error": 6.148683647195043e-16
+      },
+      {
+        "name": "enc.1.0.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 5.0753400371306157e-08,
+        "parameters_max_allowed_error": 4.768390654471535e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 3.908226797744162e-11,
+        "exp_avg_sq_max_formula_error": 1.8089148560803367e-18,
+        "exp_avg_sq_max_allowed_error": 8.00809901233569e-17
+      },
+      {
+        "name": "enc.1.0.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.374429413870105e-13,
+        "parameters_max_allowed_error": 2.36194844220559e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.46554193727988e-11,
+        "exp_avg_sq_max_formula_error": 1.9793887153165433e-18,
+        "exp_avg_sq_max_allowed_error": 3.1870927736593875e-17
+      },
+      {
+        "name": "enc.1.0.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.704547016369908e-09,
+        "parameters_max_allowed_error": 2.98042297148856e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.0122239430264693e-10,
+        "exp_avg_sq_max_formula_error": 8.640103247467776e-17,
+        "exp_avg_sq_max_allowed_error": 2.1228658081865386e-15
+      },
+      {
+        "name": "enc.1.0.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5727729119063838e-09,
+        "parameters_max_allowed_error": 2.9804229642053406e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 7.915261779345426e-11,
+        "exp_avg_sq_max_formula_error": 6.829358931536292e-18,
+        "exp_avg_sq_max_allowed_error": 3.284736096891915e-16
+      },
+      {
+        "name": "enc.1.0.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6294291955462086e-08,
+        "parameters_max_allowed_error": 4.768390654918829e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.075774328095916e-11,
+        "exp_avg_sq_max_formula_error": 3.882660025096713e-18,
+        "exp_avg_sq_max_allowed_error": 1.9354109181139056e-16
+      },
+      {
+        "name": "enc.1.0.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.702476776483652e-13,
+        "parameters_max_allowed_error": 2.3619791153123e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.112694546558713e-11,
+        "exp_avg_sq_max_formula_error": 1.7533105377647776e-18,
+        "exp_avg_sq_max_allowed_error": 5.0797568800463877e-17
+      },
+      {
+        "name": "enc.1.0.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.724676164718055e-09,
+        "parameters_max_allowed_error": 2.980422920261762e-08,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 8.168713622191957e-12,
+        "exp_avg_sq_max_formula_error": 1.2059017360499634e-19,
+        "exp_avg_sq_max_allowed_error": 3.498462792457101e-18
+      },
+      {
+        "name": "enc.1.0.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.8049123579343416e-09,
+        "parameters_max_allowed_error": 2.980422967509113e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.009444608601199e-11,
+        "exp_avg_sq_max_formula_error": 4.665110949423512e-18,
+        "exp_avg_sq_max_allowed_error": 1.8933835106272443e-16
+      },
+      {
+        "name": "enc.1.0.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.720213262448091e-09,
+        "parameters_max_allowed_error": 2.980422971880907e-08,
+        "exp_avg_max_formula_error": 8.731149158704155e-12,
+        "exp_avg_max_allowed_error": 2.5151432048176044e-10,
+        "exp_avg_sq_max_formula_error": 1.184279309591044e-16,
+        "exp_avg_sq_max_allowed_error": 3.3166172308059862e-15
+      },
+      {
+        "name": "enc.1.0.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.5303586587144267e-09,
+        "parameters_max_allowed_error": 2.980422966895923e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 1.1036169755840317e-10,
+        "exp_avg_sq_max_formula_error": 1.3359402661817848e-17,
+        "exp_avg_sq_max_allowed_error": 6.38567280173251e-16
+      },
+      {
+        "name": "enc.1.1.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6279189369613505e-08,
+        "parameters_max_allowed_error": 4.768390654630772e-07,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.102149453455438e-11,
+        "exp_avg_sq_max_formula_error": 2.9371711945749493e-18,
+        "exp_avg_sq_max_allowed_error": 8.822524550045905e-17
+      },
+      {
+        "name": "enc.1.1.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.0358136952890486e-13,
+        "parameters_max_allowed_error": 2.361957174431454e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.6206564696096273e-11,
+        "exp_avg_sq_max_formula_error": 1.0435233977452756e-18,
+        "exp_avg_sq_max_allowed_error": 3.6007262718298975e-17
+      },
+      {
+        "name": "enc.1.1.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.65673928637289e-09,
+        "parameters_max_allowed_error": 2.9804229701704464e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.491910484041625e-10,
+        "exp_avg_sq_max_formula_error": 4.317293017750054e-17,
+        "exp_avg_sq_max_allowed_error": 1.1669586011191082e-15
+      },
+      {
+        "name": "enc.1.1.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5961965291189095e-09,
+        "parameters_max_allowed_error": 2.980422965736448e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 7.334782226031676e-11,
+        "exp_avg_sq_max_formula_error": 6.580916527025697e-18,
+        "exp_avg_sq_max_allowed_error": 2.820618599966193e-16
+      },
+      {
+        "name": "enc.1.1.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.628621375069031e-08,
+        "parameters_max_allowed_error": 4.768390654764752e-07,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 4.832235722673771e-11,
+        "exp_avg_sq_max_formula_error": 3.686233147959456e-18,
+        "exp_avg_sq_max_allowed_error": 1.2242388034248787e-16
+      },
+      {
+        "name": "enc.1.1.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.4476986298987904e-13,
+        "parameters_max_allowed_error": 2.3619816854294362e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.182691055148012e-11,
+        "exp_avg_sq_max_formula_error": 1.9728225071464833e-18,
+        "exp_avg_sq_max_allowed_error": 5.310787015157575e-17
+      },
+      {
+        "name": "enc.1.1.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7246790929312823e-09,
+        "parameters_max_allowed_error": 2.9804229130459965e-08,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 6.002664337811935e-12,
+        "exp_avg_sq_max_formula_error": 6.735722074886179e-20,
+        "exp_avg_sq_max_allowed_error": 1.8891134285874065e-18
+      },
+      {
+        "name": "enc.1.1.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 3.6248680446160364e-09,
+        "parameters_max_allowed_error": 2.980422961289265e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.441360335061261e-11,
+        "exp_avg_sq_max_formula_error": 4.195560614549821e-18,
+        "exp_avg_sq_max_allowed_error": 1.034193816825653e-16
+      },
+      {
+        "name": "enc.1.1.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.703193501847224e-09,
+        "parameters_max_allowed_error": 2.980422970638564e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 1.5216609083879002e-10,
+        "exp_avg_sq_max_formula_error": 6.556452034854103e-17,
+        "exp_avg_sq_max_allowed_error": 1.2139636562937215e-15
+      },
+      {
+        "name": "enc.1.1.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.598701115934631e-09,
+        "parameters_max_allowed_error": 2.9804229683168445e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 8.116567973281972e-11,
+        "exp_avg_sq_max_formula_error": 1.3121318626527948e-17,
+        "exp_avg_sq_max_allowed_error": 3.4539399107002607e-16
+      },
+      {
+        "name": "enc.2.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.623463789599214e-08,
+        "parameters_max_allowed_error": 4.768390653781019e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 2.094744377956203e-11,
+        "exp_avg_sq_max_formula_error": 1.0189128115834554e-18,
+        "exp_avg_sq_max_allowed_error": 2.3005516314596482e-17
+      },
+      {
+        "name": "enc.2.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.581140990267456e-13,
+        "parameters_max_allowed_error": 2.361776703594903e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.139240993208723e-11,
+        "exp_avg_sq_max_formula_error": 1.698580426572065e-19,
+        "exp_avg_sq_max_allowed_error": 6.804576878498674e-18
+      },
+      {
+        "name": "enc.2.0.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8623396505490497e-09,
+        "parameters_max_allowed_error": 1.4903068507652845e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0445480036480601e-10,
+        "exp_avg_sq_max_formula_error": 2.850951600238527e-17,
+        "exp_avg_sq_max_allowed_error": 5.720404299219726e-16
+      },
+      {
+        "name": "enc.2.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.750567225899946e-09,
+        "parameters_max_allowed_error": 1.490306844365171e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.680902527225526e-11,
+        "exp_avg_sq_max_formula_error": 2.9979034672328403e-18,
+        "exp_avg_sq_max_allowed_error": 7.103600873929589e-17
+      },
+      {
+        "name": "enc.2.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.2125635363609035e-08,
+        "parameters_max_allowed_error": 4.768390654562013e-07,
+        "exp_avg_max_formula_error": 3.637978759657868e-13,
+        "exp_avg_max_allowed_error": 3.806958637220247e-11,
+        "exp_avg_sq_max_formula_error": 2.2395135725639834e-18,
+        "exp_avg_sq_max_allowed_error": 7.598471415335937e-17
+      },
+      {
+        "name": "enc.2.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.0395576910301957e-13,
+        "parameters_max_allowed_error": 2.361913086654411e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 1.988894882121172e-11,
+        "exp_avg_sq_max_formula_error": 2.3571147853691207e-19,
+        "exp_avg_sq_max_allowed_error": 2.0739275369363784e-17
+      },
+      {
+        "name": "enc.2.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7252771284412844e-09,
+        "parameters_max_allowed_error": 2.980422871641619e-08,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 5.4663374521313185e-12,
+        "exp_avg_sq_max_formula_error": 4.2812191376889656e-20,
+        "exp_avg_sq_max_allowed_error": 1.566616853706103e-18
+      },
+      {
+        "name": "enc.2.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.5900256101228933e-09,
+        "parameters_max_allowed_error": 2.980422959108013e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.032436329293175e-11,
+        "exp_avg_sq_max_formula_error": 2.6523377351098627e-18,
+        "exp_avg_sq_max_allowed_error": 8.525207437208946e-17
+      },
+      {
+        "name": "enc.2.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8622053760131152e-09,
+        "parameters_max_allowed_error": 1.4903068501808864e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.888631025134485e-11,
+        "exp_avg_sq_max_formula_error": 2.0816681504926532e-17,
+        "exp_avg_sq_max_allowed_error": 5.126751442763903e-16
+      },
+      {
+        "name": "enc.2.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.70462801513116e-09,
+        "parameters_max_allowed_error": 1.490306843863963e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.572486556053689e-11,
+        "exp_avg_sq_max_formula_error": 4.534556736076235e-18,
+        "exp_avg_sq_max_allowed_error": 1.0961621250364802e-16
+      },
+      {
+        "name": "enc.2.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6126062080986685e-08,
+        "parameters_max_allowed_error": 4.7683906517101e-07,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.153716358559542e-11,
+        "exp_avg_sq_max_formula_error": 2.293011345394912e-19,
+        "exp_avg_sq_max_allowed_error": 6.978595381617054e-18
+      },
+      {
+        "name": "enc.2.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.574205685665663e-13,
+        "parameters_max_allowed_error": 2.3618257362589276e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.3459751369016002e-11,
+        "exp_avg_sq_max_formula_error": 3.688018995359041e-19,
+        "exp_avg_sq_max_allowed_error": 9.498258671703339e-18
+      },
+      {
+        "name": "enc.2.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.861718258722167e-09,
+        "parameters_max_allowed_error": 1.4903068495712883e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 8.176485599697968e-11,
+        "exp_avg_sq_max_formula_error": 2.0466171681970582e-17,
+        "exp_avg_sq_max_allowed_error": 3.5051230599351275e-16
+      },
+      {
+        "name": "enc.2.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.571401557487473e-09,
+        "parameters_max_allowed_error": 1.4903068431889295e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.2893834878144896e-11,
+        "exp_avg_sq_max_formula_error": 1.7850946038353068e-18,
+        "exp_avg_sq_max_allowed_error": 5.672819087065287e-17
+      },
+      {
+        "name": "enc.2.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.2971204311802467e-08,
+        "parameters_max_allowed_error": 4.768390651785105e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 9.744925005827907e-12,
+        "exp_avg_sq_max_formula_error": 2.579362342818529e-19,
+        "exp_avg_sq_max_allowed_error": 4.978825671171645e-18
+      },
+      {
+        "name": "enc.2.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.3774351547526664e-13,
+        "parameters_max_allowed_error": 2.361779324904961e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.1486732398591213e-11,
+        "exp_avg_sq_max_formula_error": 1.1661308942178978e-19,
+        "exp_avg_sq_max_allowed_error": 6.917719127325158e-18
+      },
+      {
+        "name": "enc.2.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7245212053393928e-09,
+        "parameters_max_allowed_error": 2.9804227187638904e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 1.4644358642401653e-12,
+        "exp_avg_sq_max_formula_error": 5.6228395669253836e-21,
+        "exp_avg_sq_max_allowed_error": 1.1243735746991058e-19
+      },
+      {
+        "name": "enc.2.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.690237310172151e-09,
+        "parameters_max_allowed_error": 2.980422933601654e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.0802769095930029e-11,
+        "exp_avg_sq_max_formula_error": 2.6723506793670835e-19,
+        "exp_avg_sq_max_allowed_error": 6.118431530155039e-18
+      },
+      {
+        "name": "enc.2.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8620391201151776e-09,
+        "parameters_max_allowed_error": 1.4903068454456575e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.421247534747151e-11,
+        "exp_avg_sq_max_formula_error": 4.227540554404464e-18,
+        "exp_avg_sq_max_allowed_error": 1.0248482855849972e-16
+      },
+      {
+        "name": "enc.2.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5972955180743043e-09,
+        "parameters_max_allowed_error": 1.490306843119767e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.268938730816017e-11,
+        "exp_avg_sq_max_formula_error": 3.1489192855013235e-18,
+        "exp_avg_sq_max_allowed_error": 5.602520819737059e-17
+      },
+      {
+        "name": "enc.3.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6184407853644416e-08,
+        "parameters_max_allowed_error": 4.768390652822959e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.3498993589600158e-11,
+        "exp_avg_sq_max_formula_error": 4.943231292149279e-19,
+        "exp_avg_sq_max_allowed_error": 9.553724201084724e-18
+      },
+      {
+        "name": "enc.3.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.7189940883617003e-13,
+        "parameters_max_allowed_error": 2.3616887801800824e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 8.93214807673459e-12,
+        "exp_avg_sq_max_formula_error": 1.138132215848945e-19,
+        "exp_avg_sq_max_allowed_error": 4.182941067625813e-18
+      },
+      {
+        "name": "enc.3.0.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8624419437229811e-09,
+        "parameters_max_allowed_error": 1.490306848074157e-08,
+        "exp_avg_max_formula_error": 1.455191537744465e-12,
+        "exp_avg_max_allowed_error": 1.0746527001614933e-10,
+        "exp_avg_sq_max_formula_error": 2.90860235111108e-17,
+        "exp_avg_sq_max_allowed_error": 6.054889001920182e-16
+      },
+      {
+        "name": "enc.3.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5342505946258633e-09,
+        "parameters_max_allowed_error": 1.4903068374730267e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 3.797494263491074e-11,
+        "exp_avg_sq_max_formula_error": 9.516667080903852e-19,
+        "exp_avg_sq_max_allowed_error": 7.560737682225958e-17
+      },
+      {
+        "name": "enc.3.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.613499049455072e-08,
+        "parameters_max_allowed_error": 4.768390651880398e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.3207376858836992e-11,
+        "exp_avg_sq_max_formula_error": 1.986950673652913e-19,
+        "exp_avg_sq_max_allowed_error": 9.145407425286929e-18
+      },
+      {
+        "name": "enc.3.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.4749081233733244e-13,
+        "parameters_max_allowed_error": 2.3617881094202425e-12,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.1814535461063255e-11,
+        "exp_avg_sq_max_formula_error": 2.534269601467159e-19,
+        "exp_avg_sq_max_allowed_error": 7.318182201168827e-18
+      },
+      {
+        "name": "enc.3.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.725350944394634e-09,
+        "parameters_max_allowed_error": 2.980422733928578e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 1.746502768795732e-12,
+        "exp_avg_sq_max_formula_error": 7.436842497690368e-21,
+        "exp_avg_sq_max_allowed_error": 1.5992209651328154e-19
+      },
+      {
+        "name": "enc.3.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.416610647177798e-09,
+        "parameters_max_allowed_error": 2.980422945113981e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.27604662947256e-11,
+        "exp_avg_sq_max_formula_error": 1.7975261639364598e-19,
+        "exp_avg_sq_max_allowed_error": 8.536955292684298e-18
+      },
+      {
+        "name": "enc.3.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.862633311477957e-09,
+        "parameters_max_allowed_error": 1.4903068450041767e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.271978049086299e-11,
+        "exp_avg_sq_max_formula_error": 3.613001853128462e-18,
+        "exp_avg_sq_max_allowed_error": 9.568149282160748e-17
+      },
+      {
+        "name": "enc.3.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8494569070659495e-09,
+        "parameters_max_allowed_error": 1.490306841818381e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 2.9266608581046675e-11,
+        "exp_avg_sq_max_formula_error": 1.7741848153387683e-18,
+        "exp_avg_sq_max_allowed_error": 4.4907069588698355e-17
+      },
+      {
+        "name": "enc.3.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.591724422908783e-08,
+        "parameters_max_allowed_error": 4.768390647727218e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.0189602633881021e-11,
+        "exp_avg_sq_max_formula_error": 9.364711461867093e-20,
+        "exp_avg_sq_max_allowed_error": 5.443577542679995e-18
+      },
+      {
+        "name": "enc.3.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.2030412543666143e-13,
+        "parameters_max_allowed_error": 2.3616122585121867e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 7.518848044174573e-12,
+        "exp_avg_sq_max_formula_error": 1.6020563977758253e-19,
+        "exp_avg_sq_max_allowed_error": 2.963961330342973e-18
+      },
+      {
+        "name": "enc.3.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8626501591123557e-09,
+        "parameters_max_allowed_error": 1.490306845295381e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.305083789457597e-11,
+        "exp_avg_sq_max_formula_error": 4.354469067105859e-18,
+        "exp_avg_sq_max_allowed_error": 9.717020850520382e-17
+      },
+      {
+        "name": "enc.3.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8081133604241906e-09,
+        "parameters_max_allowed_error": 1.4903068341155886e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.8068309348695517e-11,
+        "exp_avg_sq_max_formula_error": 5.168628881002673e-19,
+        "exp_avg_sq_max_allowed_error": 1.7116105420054633e-17
+      },
+      {
+        "name": "enc.3.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.5794421588141176e-08,
+        "parameters_max_allowed_error": 4.768390645384561e-07,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.1865682048028955e-11,
+        "exp_avg_sq_max_formula_error": 1.2562079508291136e-19,
+        "exp_avg_sq_max_allowed_error": 7.38168198738303e-18
+      },
+      {
+        "name": "enc.3.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.1496090502131856e-13,
+        "parameters_max_allowed_error": 2.361417892319592e-12,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 5.363120017531918e-12,
+        "exp_avg_sq_max_formula_error": 5.468254063345202e-20,
+        "exp_avg_sq_max_allowed_error": 1.5080125273185506e-18
+      },
+      {
+        "name": "enc.3.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7250499351770827e-09,
+        "parameters_max_allowed_error": 2.9804226557922675e-08,
+        "exp_avg_max_formula_error": 3.4106051401188104e-14,
+        "exp_avg_max_allowed_error": 1.5423991944762958e-12,
+        "exp_avg_sq_max_formula_error": 4.587315311453361e-21,
+        "exp_avg_sq_max_allowed_error": 1.2472786748027066e-19
+      },
+      {
+        "name": "enc.3.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.663519168584095e-09,
+        "parameters_max_allowed_error": 2.980422941500214e-08,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.13198624085431e-11,
+        "exp_avg_sq_max_formula_error": 1.8480033825552808e-19,
+        "exp_avg_sq_max_allowed_error": 6.7181889426999135e-18
+      },
+      {
+        "name": "enc.3.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8622574038396067e-09,
+        "parameters_max_allowed_error": 1.490306842767236e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.168556528265753e-11,
+        "exp_avg_sq_max_formula_error": 2.521840681235383e-18,
+        "exp_avg_sq_max_allowed_error": 5.2637206958915104e-17
+      },
+      {
+        "name": "enc.3.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8213920094378722e-09,
+        "parameters_max_allowed_error": 1.4903068244148108e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.219247480754859e-11,
+        "exp_avg_sq_max_formula_error": 2.6359580241735356e-19,
+        "exp_avg_sq_max_allowed_error": 7.79387886280152e-18
+      },
+      {
+        "name": "down.0.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.7226189075756366e-09,
+        "parameters_max_allowed_error": 2.980422971904462e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.1609609657247116e-10,
+        "exp_avg_sq_max_formula_error": 1.0937093956033495e-16,
+        "exp_avg_sq_max_allowed_error": 2.4482950914432743e-15
+      },
+      {
+        "name": "down.0.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.6030298199964932e-09,
+        "parameters_max_allowed_error": 2.980422969976389e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 9.949365775696604e-11,
+        "exp_avg_sq_max_formula_error": 3.3046265154825684e-17,
+        "exp_avg_sq_max_allowed_error": 5.189920585867749e-16
+      },
+      {
+        "name": "down.1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 3.709885093572396e-09,
+        "parameters_max_allowed_error": 2.9804229696423194e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.313548821054949e-11,
+        "exp_avg_sq_max_formula_error": 2.2697009939366474e-17,
+        "exp_avg_sq_max_allowed_error": 4.54778901716922e-16
+      },
+      {
+        "name": "down.1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.0479260787187314e-09,
+        "parameters_max_allowed_error": 2.980422962433116e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.369173439184748e-11,
+        "exp_avg_sq_max_formula_error": 5.518384877464297e-18,
+        "exp_avg_sq_max_allowed_error": 1.5114186742849608e-16
+      },
+      {
+        "name": "down.2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8625921707760007e-09,
+        "parameters_max_allowed_error": 1.4903068467637367e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.9784082412074316e-11,
+        "exp_avg_sq_max_formula_error": 6.41364871644617e-18,
+        "exp_avg_sq_max_allowed_error": 1.2994241424849425e-16
+      },
+      {
+        "name": "down.2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5547645532132393e-09,
+        "parameters_max_allowed_error": 1.490306841385754e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.060739799971457e-11,
+        "exp_avg_sq_max_formula_error": 2.7589029481359747e-18,
+        "exp_avg_sq_max_allowed_error": 8.645303453914104e-17
+      },
+      {
+        "name": "attention.norm.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6073340254082495e-08,
+        "parameters_max_allowed_error": 4.768390650704511e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 8.61615848113395e-12,
+        "exp_avg_sq_max_formula_error": 1.1369870028701175e-19,
+        "exp_avg_sq_max_allowed_error": 3.892219057118463e-18
+      },
+      {
+        "name": "attention.norm.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 3.1395295692914253e-13,
+        "parameters_max_allowed_error": 2.3615988717540735e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 7.316321160022453e-12,
+        "exp_avg_sq_max_formula_error": 9.264887301505226e-20,
+        "exp_avg_sq_max_allowed_error": 2.8064379209825575e-18
+      },
+      {
+        "name": "attention.attn.in_proj_weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 3.7253954088267704e-09,
+        "parameters_max_allowed_error": 2.9804229521526196e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.6934527391487817e-11,
+        "exp_avg_sq_max_formula_error": 6.290572711821622e-19,
+        "exp_avg_sq_max_allowed_error": 1.5035437834465522e-17
+      },
+      {
+        "name": "attention.attn.in_proj_bias",
+        "elements": 384,
+        "parameters_max_formula_error": 2.462055645654755e-13,
+        "parameters_max_allowed_error": 2.3616457366929885e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 8.078054891669237e-12,
+        "exp_avg_sq_max_formula_error": 1.173656777705258e-19,
+        "exp_avg_sq_max_allowed_error": 3.421239814799826e-18
+      },
+      {
+        "name": "attention.attn.out_proj.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7249920231685607e-09,
+        "parameters_max_allowed_error": 2.9804229540423237e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 1.989960002335422e-11,
+        "exp_avg_sq_max_formula_error": 1.2072656740812228e-18,
+        "exp_avg_sq_max_allowed_error": 2.0761494478624118e-17
+      },
+      {
+        "name": "attention.attn.out_proj.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.3173791910681917e-13,
+        "parameters_max_allowed_error": 2.3618657438988857e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.5798917729625824e-11,
+        "exp_avg_sq_max_formula_error": 5.115294908512282e-19,
+        "exp_avg_sq_max_allowed_error": 1.3086532641881354e-17
+      },
+      {
+        "name": "up.0.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.862210233238848e-09,
+        "parameters_max_allowed_error": 1.4903068452039818e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.022313315754643e-11,
+        "exp_avg_sq_max_formula_error": 2.729965989266239e-18,
+        "exp_avg_sq_max_allowed_error": 8.482457864161006e-17
+      },
+      {
+        "name": "up.0.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5057583374611383e-09,
+        "parameters_max_allowed_error": 1.49030683203856e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 2.1239712766352165e-11,
+        "exp_avg_sq_max_formula_error": 5.728651061398585e-19,
+        "exp_avg_sq_max_allowed_error": 2.365196328748417e-17
+      },
+      {
+        "name": "up.1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 1.8624835076974655e-09,
+        "parameters_max_allowed_error": 1.4903068500573052e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.75992278714932e-11,
+        "exp_avg_sq_max_formula_error": 1.822711884900779e-17,
+        "exp_avg_sq_max_allowed_error": 4.0231893591296834e-16
+      },
+      {
+        "name": "up.1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5809745804173936e-09,
+        "parameters_max_allowed_error": 1.4903068463849194e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.626440064381398e-11,
+        "exp_avg_sq_max_formula_error": 3.8274367106949394e-18,
+        "exp_avg_sq_max_allowed_error": 1.1221832915648973e-16
+      },
+      {
+        "name": "up.2.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.6301077144251792e-09,
+        "parameters_max_allowed_error": 2.980422971664603e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.06605355046463e-10,
+        "exp_avg_sq_max_formula_error": 7.568961326276294e-17,
+        "exp_avg_sq_max_allowed_error": 2.2379638415097905e-15
+      },
+      {
+        "name": "up.2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6023084178917735e-09,
+        "parameters_max_allowed_error": 2.9804229691257484e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.588525529125034e-11,
+        "exp_avg_sq_max_formula_error": 1.2587342315056845e-17,
+        "exp_avg_sq_max_allowed_error": 4.820294530377063e-16
+      },
+      {
+        "name": "dec.0.0.n1.weight",
+        "elements": 256,
+        "parameters_max_formula_error": 4.822402277504523e-08,
+        "parameters_max_allowed_error": 4.768390652216652e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.2185701059319595e-11,
+        "exp_avg_sq_max_formula_error": 2.1156964973133258e-19,
+        "exp_avg_sq_max_allowed_error": 7.785221209829036e-18
+      },
+      {
+        "name": "dec.0.0.n1.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 2.726450227170013e-13,
+        "parameters_max_allowed_error": 2.3616168159011417e-12,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 7.590378325872392e-12,
+        "exp_avg_sq_max_formula_error": 1.5558216322107336e-19,
+        "exp_avg_sq_max_allowed_error": 3.0206246586875092e-18
+      },
+      {
+        "name": "dec.0.0.c1.weight",
+        "elements": 98304,
+        "parameters_max_formula_error": 1.861565818161992e-09,
+        "parameters_max_allowed_error": 1.490306849752248e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.320210631573842e-11,
+        "exp_avg_sq_max_formula_error": 2.010235412562109e-17,
+        "exp_avg_sq_max_allowed_error": 3.6294311256394025e-16
+      },
+      {
+        "name": "dec.0.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5084326496217493e-09,
+        "parameters_max_allowed_error": 1.4903068325486445e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.2992500958718403e-11,
+        "exp_avg_sq_max_formula_error": 9.702418710791146e-19,
+        "exp_avg_sq_max_allowed_error": 2.771675252453107e-17
+      },
+      {
+        "name": "dec.0.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.8923545598332794e-08,
+        "parameters_max_allowed_error": 4.768390652389455e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.573381841479815e-11,
+        "exp_avg_sq_max_formula_error": 3.867276562735326e-19,
+        "exp_avg_sq_max_allowed_error": 1.2978908923682704e-17
+      },
+      {
+        "name": "dec.0.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 3.0045761508492523e-13,
+        "parameters_max_allowed_error": 2.3617181190940923e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 9.625823749193072e-12,
+        "exp_avg_sq_max_formula_error": 1.3809642557379954e-19,
+        "exp_avg_sq_max_allowed_error": 4.857868208073841e-18
+      },
+      {
+        "name": "dec.0.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7249537759853624e-09,
+        "parameters_max_allowed_error": 2.980422705978637e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 2.1210613126987348e-12,
+        "exp_avg_sq_max_formula_error": 7.157266179155756e-21,
+        "exp_avg_sq_max_allowed_error": 2.3587198558416595e-19
+      },
+      {
+        "name": "dec.0.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.5844401197193676e-09,
+        "parameters_max_allowed_error": 2.9804229391738435e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.555381240470055e-11,
+        "exp_avg_sq_max_formula_error": 3.7564804210424077e-19,
+        "exp_avg_sq_max_allowed_error": 1.2683631935913562e-17
+      },
+      {
+        "name": "dec.0.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8621075861813274e-09,
+        "parameters_max_allowed_error": 1.4903068485952453e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.435518784542181e-11,
+        "exp_avg_sq_max_formula_error": 8.394838449525485e-18,
+        "exp_avg_sq_max_allowed_error": 2.1713860441509895e-16
+      },
+      {
+        "name": "dec.0.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5618492957281127e-09,
+        "parameters_max_allowed_error": 1.4903068427370615e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.160250117151264e-11,
+        "exp_avg_sq_max_formula_error": 2.299694215919704e-18,
+        "exp_avg_sq_max_allowed_error": 5.236159048819455e-17
+      },
+      {
+        "name": "dec.0.0.skip.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 1.8619900898908526e-09,
+        "parameters_max_allowed_error": 2.9804224736626867e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.0677106955276926e-11,
+        "exp_avg_sq_max_formula_error": 5.291413929693516e-18,
+        "exp_avg_sq_max_allowed_error": 1.346460277463623e-16
+      },
+      {
+        "name": "dec.0.0.skip.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5388672766625255e-09,
+        "parameters_max_allowed_error": 1.4903068383535886e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.160250117151264e-11,
+        "exp_avg_sq_max_formula_error": 2.299694215919704e-18,
+        "exp_avg_sq_max_allowed_error": 5.236159048819455e-17
+      },
+      {
+        "name": "dec.0.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.619675331163364e-08,
+        "parameters_max_allowed_error": 4.768390653058427e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.578706054772283e-11,
+        "exp_avg_sq_max_formula_error": 3.7681445885640717e-19,
+        "exp_avg_sq_max_allowed_error": 1.3066896971528505e-17
+      },
+      {
+        "name": "dec.0.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.586436466611936e-13,
+        "parameters_max_allowed_error": 2.361658058592907e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 8.305400811536854e-12,
+        "exp_avg_sq_max_formula_error": 1.617112807544072e-19,
+        "exp_avg_sq_max_allowed_error": 3.616521985210561e-18
+      },
+      {
+        "name": "dec.0.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8623068920309294e-09,
+        "parameters_max_allowed_error": 1.4903068466840187e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.809387887938498e-11,
+        "exp_avg_sq_max_formula_error": 5.198749377001433e-18,
+        "exp_avg_sq_max_allowed_error": 1.2126892513899083e-16
+      },
+      {
+        "name": "dec.0.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5107795708901861e-09,
+        "parameters_max_allowed_error": 1.490306832996285e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 2.4135021758908687e-11,
+        "exp_avg_sq_max_formula_error": 9.547407939743807e-19,
+        "exp_avg_sq_max_allowed_error": 3.053973800500575e-17
+      },
+      {
+        "name": "dec.0.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6219666982594276e-08,
+        "parameters_max_allowed_error": 4.768390653495474e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.798914350814584e-11,
+        "exp_avg_sq_max_formula_error": 3.621099647594975e-19,
+        "exp_avg_sq_max_allowed_error": 1.6966446437193014e-17
+      },
+      {
+        "name": "dec.0.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.1923258725377033e-13,
+        "parameters_max_allowed_error": 2.3616023538530744e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 7.367944448999351e-12,
+        "exp_avg_sq_max_formula_error": 1.2141534260961928e-19,
+        "exp_avg_sq_max_allowed_error": 2.8461815773811405e-18
+      },
+      {
+        "name": "dec.0.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7247425699327152e-09,
+        "parameters_max_allowed_error": 2.98042278082437e-08,
+        "exp_avg_max_formula_error": 6.821210280237621e-14,
+        "exp_avg_max_allowed_error": 2.259544808203006e-12,
+        "exp_avg_sq_max_formula_error": 1.0041865843559851e-20,
+        "exp_avg_sq_max_allowed_error": 2.676774792214435e-19
+      },
+      {
+        "name": "dec.0.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.7232565225364667e-09,
+        "parameters_max_allowed_error": 2.980422936142266e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.6709159056382814e-11,
+        "exp_avg_sq_max_formula_error": 5.988774855589691e-19,
+        "exp_avg_sq_max_allowed_error": 1.4637911054562107e-17
+      },
+      {
+        "name": "dec.0.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8626137091026784e-09,
+        "parameters_max_allowed_error": 1.4903068475720583e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.44915779165933e-11,
+        "exp_avg_sq_max_formula_error": 8.062424598336417e-18,
+        "exp_avg_sq_max_allowed_error": 1.5567851690866313e-16
+      },
+      {
+        "name": "dec.0.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.601757053382169e-09,
+        "parameters_max_allowed_error": 1.4903068296917688e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 2.0838000769352046e-11,
+        "exp_avg_sq_max_formula_error": 7.149148019405627e-19,
+        "exp_avg_sq_max_allowed_error": 2.276575286727892e-17
+      },
+      {
+        "name": "dec.1.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6280197896209074e-08,
+        "parameters_max_allowed_error": 4.768390654650008e-07,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.1931050298593663e-11,
+        "exp_avg_sq_max_formula_error": 4.128258763607109e-18,
+        "exp_avg_sq_max_allowed_error": 9.218099664090271e-17
+      },
+      {
+        "name": "dec.1.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.6108773418423274e-13,
+        "parameters_max_allowed_error": 2.361964684172572e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.770557117059979e-11,
+        "exp_avg_sq_max_formula_error": 8.740837727687017e-19,
+        "exp_avg_sq_max_allowed_error": 4.024427735360058e-17
+      },
+      {
+        "name": "dec.1.0.c1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 1.8594141573680112e-09,
+        "parameters_max_allowed_error": 1.4903068517527294e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.4579031315520293e-10,
+        "exp_avg_sq_max_formula_error": 5.811535020188084e-17,
+        "exp_avg_sq_max_allowed_error": 1.1143644661621544e-15
+      },
+      {
+        "name": "dec.1.0.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.587378818668217e-09,
+        "parameters_max_allowed_error": 1.4903068476064313e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.867741847964679e-11,
+        "exp_avg_sq_max_formula_error": 8.862688611585301e-18,
+        "exp_avg_sq_max_allowed_error": 1.8051442616228115e-16
+      },
+      {
+        "name": "dec.1.0.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6291511512919215e-08,
+        "parameters_max_allowed_error": 4.768390654865797e-07,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 5.5814119992447776e-11,
+        "exp_avg_sq_max_formula_error": 8.895333268610312e-18,
+        "exp_avg_sq_max_allowed_error": 1.633270361243707e-16
+      },
+      {
+        "name": "dec.1.0.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.28267212616873e-13,
+        "parameters_max_allowed_error": 2.361992900224886e-12,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 3.528967396082549e-11,
+        "exp_avg_sq_max_formula_error": 3.230154819379081e-18,
+        "exp_avg_sq_max_allowed_error": 6.529278742423752e-17
+      },
+      {
+        "name": "dec.1.0.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.725030131573881e-09,
+        "parameters_max_allowed_error": 2.9804229275941176e-08,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 7.9000951613839e-12,
+        "exp_avg_sq_max_formula_error": 1.095561795773978e-19,
+        "exp_avg_sq_max_allowed_error": 3.272160237789978e-18
+      },
+      {
+        "name": "dec.1.0.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.813115622917305e-09,
+        "parameters_max_allowed_error": 2.980422962572895e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 5.908142308719276e-11,
+        "exp_avg_sq_max_formula_error": 7.924358202084572e-18,
+        "exp_avg_sq_max_allowed_error": 1.8300873232916827e-16
+      },
+      {
+        "name": "dec.1.0.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.7248388123911624e-09,
+        "parameters_max_allowed_error": 2.980422970223396e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0760610180682303e-10,
+        "exp_avg_sq_max_formula_error": 2.774361866817567e-17,
+        "exp_avg_sq_max_allowed_error": 6.070769101601705e-16
+      },
+      {
+        "name": "dec.1.0.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5901550423635946e-09,
+        "parameters_max_allowed_error": 2.980422966352993e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.263578544718483e-11,
+        "exp_avg_sq_max_formula_error": 7.853929976780275e-18,
+        "exp_avg_sq_max_allowed_error": 2.0569085017250994e-16
+      },
+      {
+        "name": "dec.1.0.skip.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7003046321482103e-09,
+        "parameters_max_allowed_error": 2.9804229703564787e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.2379283154118067e-10,
+        "exp_avg_sq_max_formula_error": 3.742635720769288e-17,
+        "exp_avg_sq_max_allowed_error": 8.034538037435778e-16
+      },
+      {
+        "name": "dec.1.0.skip.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5917495238548796e-09,
+        "parameters_max_allowed_error": 2.980422967824842e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.263578544718483e-11,
+        "exp_avg_sq_max_formula_error": 7.853929976780275e-18,
+        "exp_avg_sq_max_allowed_error": 2.0569085017250994e-16
+      },
+      {
+        "name": "dec.1.1.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.627423466629921e-08,
+        "parameters_max_allowed_error": 4.768390654536269e-07,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.707080475923163e-11,
+        "exp_avg_sq_max_formula_error": 1.3834332759675733e-18,
+        "exp_avg_sq_max_allowed_error": 7.204999347553289e-17
+      },
+      {
+        "name": "dec.1.1.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.4162686211228075e-13,
+        "parameters_max_allowed_error": 2.3619589590064273e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.6547897213902156e-11,
+        "exp_avg_sq_max_formula_error": 1.077420600088148e-18,
+        "exp_avg_sq_max_allowed_error": 3.6951338331926154e-17
+      },
+      {
+        "name": "dec.1.1.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.692024061474619e-09,
+        "parameters_max_allowed_error": 2.980422970730758e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.2659913117829545e-10,
+        "exp_avg_sq_max_formula_error": 3.8190041988860266e-17,
+        "exp_avg_sq_max_allowed_error": 8.40294204183637e-16
+      },
+      {
+        "name": "dec.1.1.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.6014239240247363e-09,
+        "parameters_max_allowed_error": 2.980422969670088e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.180308180312122e-11,
+        "exp_avg_sq_max_formula_error": 1.3489710233170916e-17,
+        "exp_avg_sq_max_allowed_error": 4.4185974622391256e-16
+      },
+      {
+        "name": "dec.1.1.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.624779470496776e-08,
+        "parameters_max_allowed_error": 4.768390654031965e-07,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.853136893410379e-11,
+        "exp_avg_sq_max_formula_error": 1.6531793811123474e-18,
+        "exp_avg_sq_max_allowed_error": 4.2679088618088376e-17
+      },
+      {
+        "name": "dec.1.1.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.08315655629126e-13,
+        "parameters_max_allowed_error": 2.3619706364961774e-12,
+        "exp_avg_max_formula_error": 3.6379788443611626e-13,
+        "exp_avg_max_allowed_error": 2.902130757931331e-11,
+        "exp_avg_sq_max_formula_error": 1.137983449354482e-18,
+        "exp_avg_sq_max_allowed_error": 4.4157438190582985e-17
+      },
+      {
+        "name": "dec.1.1.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7252374102125785e-09,
+        "parameters_max_allowed_error": 2.980422885973164e-08,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 4.148210594467904e-12,
+        "exp_avg_sq_max_formula_error": 3.969312497224461e-20,
+        "exp_avg_sq_max_allowed_error": 9.021764998820414e-19
+      },
+      {
+        "name": "dec.1.1.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.349873587381701e-09,
+        "parameters_max_allowed_error": 2.9804229616765635e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.042551766085921e-11,
+        "exp_avg_sq_max_formula_error": 2.280630895200533e-18,
+        "exp_avg_sq_max_allowed_error": 4.853397585559587e-17
+      },
+      {
+        "name": "dec.1.1.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.7134983976727653e-09,
+        "parameters_max_allowed_error": 2.980422968099835e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 7.741698393459727e-11,
+        "exp_avg_sq_max_formula_error": 1.7486621543072704e-17,
+        "exp_avg_sq_max_allowed_error": 3.142262142549203e-16
+      },
+      {
+        "name": "dec.1.1.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.592150841722706e-09,
+        "parameters_max_allowed_error": 2.980422967384261e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.347233849623989e-11,
+        "exp_avg_sq_max_formula_error": 9.629829405050721e-18,
+        "exp_avg_sq_max_allowed_error": 2.112218859664185e-16
+      },
+      {
+        "name": "dec.2.0.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.628172600718017e-08,
+        "parameters_max_allowed_error": 4.768390654679155e-07,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.684573284841064e-11,
+        "exp_avg_sq_max_formula_error": 2.073993794951585e-18,
+        "exp_avg_sq_max_allowed_error": 1.1505619100524413e-16
+      },
+      {
+        "name": "dec.2.0.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.3984202562604554e-13,
+        "parameters_max_allowed_error": 2.3620281927454095e-12,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 5.366275757090476e-11,
+        "exp_avg_sq_max_formula_error": 3.4266471536446544e-18,
+        "exp_avg_sq_max_allowed_error": 1.5097877234260116e-16
+      },
+      {
+        "name": "dec.2.0.c1.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.6322740232241912e-09,
+        "parameters_max_allowed_error": 2.980422972641279e-08,
+        "exp_avg_max_formula_error": 8.731149185809209e-12,
+        "exp_avg_max_allowed_error": 4.5528807390837744e-10,
+        "exp_avg_sq_max_formula_error": 5.901680462308544e-16,
+        "exp_avg_sq_max_allowed_error": 1.0867820736974707e-14
+      },
+      {
+        "name": "dec.2.0.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6053049514686002e-09,
+        "parameters_max_allowed_error": 2.980422963871209e-08,
+        "exp_avg_max_formula_error": 1.4551915445207286e-12,
+        "exp_avg_max_allowed_error": 2.000996701667645e-10,
+        "exp_avg_sq_max_formula_error": 4.1181467003384985e-17,
+        "exp_avg_sq_max_allowed_error": 2.0992427557308596e-15
+      },
+      {
+        "name": "dec.2.0.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.631061067961184e-08,
+        "parameters_max_allowed_error": 4.768390655230085e-07,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.265395233041033e-10,
+        "exp_avg_sq_max_formula_error": 2.042742225107917e-17,
+        "exp_avg_sq_max_allowed_error": 8.395031030283489e-16
+      },
+      {
+        "name": "dec.2.0.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.410122806284997e-13,
+        "parameters_max_allowed_error": 2.3620353029624924e-12,
+        "exp_avg_max_formula_error": 7.275957519315736e-13,
+        "exp_avg_max_allowed_error": 5.995087204446746e-11,
+        "exp_avg_sq_max_formula_error": 2.3191050332755036e-18,
+        "exp_avg_sq_max_allowed_error": 1.884347201692429e-16
+      },
+      {
+        "name": "dec.2.0.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7206495800967687e-09,
+        "parameters_max_allowed_error": 2.980422931570328e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.7462294110703875e-11,
+        "exp_avg_sq_max_formula_error": 1.033894708453603e-18,
+        "exp_avg_sq_max_allowed_error": 1.598720393130665e-17
+      },
+      {
+        "name": "dec.2.0.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.8366961701543616e-09,
+        "parameters_max_allowed_error": 2.980422970820078e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.2933768500644758e-10,
+        "exp_avg_sq_max_formula_error": 2.05313701095508e-17,
+        "exp_avg_sq_max_allowed_error": 8.770413795909082e-16
+      },
+      {
+        "name": "dec.2.0.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.641132298448646e-09,
+        "parameters_max_allowed_error": 2.9804229718114146e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.039628022032502e-10,
+        "exp_avg_sq_max_formula_error": 1.1394421271762628e-16,
+        "exp_avg_sq_max_allowed_error": 2.1810813171192154e-15
+      },
+      {
+        "name": "dec.2.0.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6081581621918417e-09,
+        "parameters_max_allowed_error": 2.980422970954542e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.3583123514848691e-10,
+        "exp_avg_sq_max_formula_error": 4.9371517182109935e-17,
+        "exp_avg_sq_max_allowed_error": 9.673178843428196e-16
+      },
+      {
+        "name": "dec.2.0.skip.weight",
+        "elements": 2048,
+        "parameters_max_formula_error": 3.6007266612791966e-09,
+        "parameters_max_allowed_error": 5.960654984014971e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 3.002076587321766e-10,
+        "exp_avg_sq_max_formula_error": 9.531707705335669e-17,
+        "exp_avg_sq_max_allowed_error": 4.725126639725059e-15
+      },
+      {
+        "name": "dec.2.0.skip.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6081581621918417e-09,
+        "parameters_max_allowed_error": 2.980422970954542e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.3583123514848691e-10,
+        "exp_avg_sq_max_formula_error": 4.9371517182109935e-17,
+        "exp_avg_sq_max_allowed_error": 9.673178843428196e-16
+      },
+      {
+        "name": "dec.2.1.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629100369690775e-08,
+        "parameters_max_allowed_error": 4.768390654856112e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 5.499674604614312e-11,
+        "exp_avg_sq_max_formula_error": 3.1518019323878884e-18,
+        "exp_avg_sq_max_allowed_error": 1.5857835445657076e-16
+      },
+      {
+        "name": "dec.2.1.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0471940911551785e-13,
+        "parameters_max_allowed_error": 2.362023510968666e-12,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.0195991807555615e-11,
+        "exp_avg_sq_max_formula_error": 3.3372411432664044e-18,
+        "exp_avg_sq_max_allowed_error": 1.3210157546440984e-16
+      },
+      {
+        "name": "dec.2.1.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.5978331286434795e-09,
+        "parameters_max_allowed_error": 2.980422972861532e-08,
+        "exp_avg_max_formula_error": 1.746229831740831e-11,
+        "exp_avg_max_allowed_error": 4.719717949797085e-10,
+        "exp_avg_sq_max_formula_error": 2.44971084408144e-16,
+        "exp_avg_sq_max_allowed_error": 1.1678901875841084e-14
+      },
+      {
+        "name": "dec.2.1.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.601960536445901e-09,
+        "parameters_max_allowed_error": 2.980422969465035e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0718748111315787e-10,
+        "exp_avg_sq_max_formula_error": 2.773388792224475e-17,
+        "exp_avg_sq_max_allowed_error": 6.023626677227929e-16
+      },
+      {
+        "name": "dec.2.1.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629444783077474e-08,
+        "parameters_max_allowed_error": 4.768390654921805e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.763907212103957e-11,
+        "exp_avg_sq_max_formula_error": 8.439849728126803e-18,
+        "exp_avg_sq_max_allowed_error": 2.398640709249374e-16
+      },
+      {
+        "name": "dec.2.1.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.9231833685388064e-13,
+        "parameters_max_allowed_error": 2.362007086509693e-12,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.0921532828974695e-11,
+        "exp_avg_sq_max_formula_error": 3.2612258816109836e-18,
+        "exp_avg_sq_max_allowed_error": 8.779579256067096e-17
+      },
+      {
+        "name": "dec.2.1.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.722347152734784e-09,
+        "parameters_max_allowed_error": 2.980422930282542e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 8.609294527284203e-12,
+        "exp_avg_sq_max_formula_error": 1.7416319382032465e-19,
+        "exp_avg_sq_max_allowed_error": 3.886020152919371e-18
+      },
+      {
+        "name": "dec.2.1.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.7977280913905602e-09,
+        "parameters_max_allowed_error": 2.980422967952419e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 6.404257679726298e-11,
+        "exp_avg_sq_max_formula_error": 7.87467463256734e-18,
+        "exp_avg_sq_max_allowed_error": 2.150341878917802e-16
+      },
+      {
+        "name": "dec.2.1.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.6756826332640102e-09,
+        "parameters_max_allowed_error": 2.98042297141573e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 1.717715747417969e-10,
+        "exp_avg_sq_max_formula_error": 6.426010636017681e-17,
+        "exp_avg_sq_max_allowed_error": 1.5469365894461134e-15
+      },
+      {
+        "name": "dec.2.1.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6042556311157696e-09,
+        "parameters_max_allowed_error": 2.980422970210194e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0629035429587927e-10,
+        "exp_avg_sq_max_formula_error": 9.725669420103865e-18,
+        "exp_avg_sq_max_allowed_error": 5.923216774315931e-16
+      },
+      {
+        "name": "final_norm.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6304190259860434e-08,
+        "parameters_max_allowed_error": 4.768390655107624e-07,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.873928258879002e-11,
+        "exp_avg_sq_max_formula_error": 9.211164759306501e-18,
+        "exp_avg_sq_max_allowed_error": 4.1285898859305465e-16
+      },
+      {
+        "name": "final_norm.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0828324116054224e-13,
+        "parameters_max_allowed_error": 2.362039735785311e-12,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.467567037482523e-11,
+        "exp_avg_sq_max_formula_error": 4.468410262578803e-18,
+        "exp_avg_sq_max_allowed_error": 2.1930664727323877e-16
+      },
+      {
+        "name": "final.weight",
+        "elements": 96,
+        "parameters_max_formula_error": 7.923681621859607e-12,
+        "parameters_max_allowed_error": 1.183226704373399e-10,
+        "exp_avg_max_formula_error": 8.940696738513054e-09,
+        "exp_avg_max_allowed_error": 2.470724439262994e-07,
+        "exp_avg_sq_max_formula_error": 1.327587128771568e-10,
+        "exp_avg_sq_max_allowed_error": 3.200505219525611e-09
+      },
+      {
+        "name": "final.bias",
+        "elements": 1,
+        "parameters_max_formula_error": 1.7286651575248654e-12,
+        "parameters_max_allowed_error": 1.6458560036873983e-11,
+        "exp_avg_max_formula_error": 4.547473576627277e-14,
+        "exp_avg_max_allowed_error": 5.166966160485841e-12,
+        "exp_avg_sq_max_formula_error": 1.6852130121781072e-20,
+        "exp_avg_sq_max_allowed_error": 1.3997199486408891e-18
+      }
+    ],
+    "replay_all_parameter_rows": [
+      {
+        "name": "embedding.0.weight",
+        "elements": 1152,
+        "parameters_max_formula_error": 1.4881202770045121e-08,
+        "parameters_max_allowed_error": 1.1921119647090314e-07,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 8.487908292886813e-12,
+        "exp_avg_sq_max_formula_error": 1.4144920690268843e-19,
+        "exp_avg_sq_max_allowed_error": 3.777211252786165e-18
+      },
+      {
+        "name": "embedding.0.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.4817847893144886e-08,
+        "parameters_max_allowed_error": 1.192111966073209e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3323774028517473e-11,
+        "exp_avg_sq_max_formula_error": 4.412151700944264e-19,
+        "exp_avg_sq_max_allowed_error": 9.307315469706696e-18
+      },
+      {
+        "name": "embedding.2.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7239478167805373e-09,
+        "parameters_max_allowed_error": 2.9804229496637225e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.571460878091457e-11,
+        "exp_avg_sq_max_formula_error": 6.371792049438362e-19,
+        "exp_avg_sq_max_allowed_error": 1.2947236015948308e-17
+      },
+      {
+        "name": "embedding.2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8429756609705805e-09,
+        "parameters_max_allowed_error": 2.98042296234908e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.716920742886542e-11,
+        "exp_avg_sq_max_formula_error": 5.969887307519514e-18,
+        "exp_avg_sq_max_allowed_error": 1.1665062648701707e-16
+      },
+      {
+        "name": "input.weight",
+        "elements": 288,
+        "parameters_max_formula_error": 1.4666290681919492e-08,
+        "parameters_max_allowed_error": 1.1921119688859002e-07,
+        "exp_avg_max_formula_error": 1.746229831740831e-11,
+        "exp_avg_max_allowed_error": 4.751976590000594e-10,
+        "exp_avg_sq_max_formula_error": 4.0930799968995233e-16,
+        "exp_avg_sq_max_allowed_error": 1.1839094921318212e-14
+      },
+      {
+        "name": "input.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.3583712987763619e-08,
+        "parameters_max_allowed_error": 1.1921119689097817e-07,
+        "exp_avg_max_formula_error": 5.82076615097786e-12,
+        "exp_avg_max_allowed_error": 4.3124774862235415e-10,
+        "exp_avg_sq_max_formula_error": 2.3880116158990384e-16,
+        "exp_avg_sq_max_allowed_error": 9.750426193328835e-15
+      },
+      {
+        "name": "enc.0.0.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6305774104027364e-08,
+        "parameters_max_allowed_error": 4.768390655137835e-07,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 2.1142343431534977e-10,
+        "exp_avg_sq_max_formula_error": 6.521171023969915e-17,
+        "exp_avg_sq_max_allowed_error": 2.3435604696863648e-15
+      },
+      {
+        "name": "enc.0.0.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0505555308184453e-13,
+        "parameters_max_allowed_error": 2.362069763242665e-12,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.3874391635582124e-10,
+        "exp_avg_sq_max_formula_error": 2.4206083739967038e-17,
+        "exp_avg_sq_max_allowed_error": 1.0092478110499419e-15
+      },
+      {
+        "name": "enc.0.0.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.3261629422964845e-09,
+        "parameters_max_allowed_error": 2.980422973232153e-08,
+        "exp_avg_max_formula_error": 1.164153230195572e-11,
+        "exp_avg_max_allowed_error": 9.079947460577384e-10,
+        "exp_avg_sq_max_formula_error": 2.1049689556727257e-15,
+        "exp_avg_sq_max_allowed_error": 4.3225157933122616e-14
+      },
+      {
+        "name": "enc.0.0.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6148420378669925e-09,
+        "parameters_max_allowed_error": 2.980422972229391e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 3.3542235655659164e-10,
+        "exp_avg_sq_max_formula_error": 1.6341094862460115e-16,
+        "exp_avg_sq_max_allowed_error": 5.898667676295623e-15
+      },
+      {
+        "name": "enc.0.0.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6308629819691305e-08,
+        "parameters_max_allowed_error": 4.768390655192301e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 1.118405923428156e-10,
+        "exp_avg_sq_max_formula_error": 2.1213008138228758e-17,
+        "exp_avg_sq_max_allowed_error": 6.557961077701675e-16
+      },
+      {
+        "name": "enc.0.0.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.3901243795761465e-13,
+        "parameters_max_allowed_error": 2.362056460370943e-12,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 9.20444609420201e-11,
+        "exp_avg_sq_max_formula_error": 1.598675653743654e-17,
+        "exp_avg_sq_max_allowed_error": 4.441863770659659e-16
+      },
+      {
+        "name": "enc.0.0.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7249727607990835e-09,
+        "parameters_max_allowed_error": 2.980422942279809e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3907060225637477e-11,
+        "exp_avg_sq_max_formula_error": 4.445890483659549e-19,
+        "exp_avg_sq_max_allowed_error": 1.014006148599687e-17
+      },
+      {
+        "name": "enc.0.0.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.612148511382806e-09,
+        "parameters_max_allowed_error": 2.980422970109616e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0325600374727626e-10,
+        "exp_avg_sq_max_formula_error": 2.1452192582227294e-17,
+        "exp_avg_sq_max_allowed_error": 5.589855009430591e-16
+      },
+      {
+        "name": "enc.0.0.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.5842292606114157e-09,
+        "parameters_max_allowed_error": 2.980422972832587e-08,
+        "exp_avg_max_formula_error": 8.731149185809209e-12,
+        "exp_avg_max_allowed_error": 4.592116464863237e-10,
+        "exp_avg_sq_max_formula_error": 4.896352376597359e-16,
+        "exp_avg_sq_max_allowed_error": 1.1055940830163404e-14
+      },
+      {
+        "name": "enc.0.0.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6049149093033677e-09,
+        "parameters_max_allowed_error": 2.980422970335941e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.2562330065080117e-10,
+        "exp_avg_sq_max_formula_error": 2.5326931978142597e-17,
+        "exp_avg_sq_max_allowed_error": 8.273900950730362e-16
+      },
+      {
+        "name": "enc.0.1.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.631304606483866e-08,
+        "parameters_max_allowed_error": 4.768390655276537e-07,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.5092601612920472e-10,
+        "exp_avg_sq_max_formula_error": 4.0905426183025653e-17,
+        "exp_avg_sq_max_allowed_error": 1.1942579323342942e-15
+      },
+      {
+        "name": "enc.0.1.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.7174579121338133e-13,
+        "parameters_max_allowed_error": 2.3620382110622386e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 6.29687135766943e-11,
+        "exp_avg_sq_max_formula_error": 1.0381892156440069e-17,
+        "exp_avg_sq_max_allowed_error": 2.0788327950601527e-16
+      },
+      {
+        "name": "enc.0.1.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.7168559341438367e-09,
+        "parameters_max_allowed_error": 2.980422972288972e-08,
+        "exp_avg_max_formula_error": 8.731149158704155e-12,
+        "exp_avg_max_allowed_error": 2.7088382648088323e-10,
+        "exp_avg_sq_max_formula_error": 1.8410607862685e-16,
+        "exp_avg_sq_max_allowed_error": 3.847122974090217e-15
+      },
+      {
+        "name": "enc.0.1.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.5975813172364184e-09,
+        "parameters_max_allowed_error": 2.98042296893717e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 1.0063730959686266e-10,
+        "exp_avg_sq_max_formula_error": 1.072896301477342e-17,
+        "exp_avg_sq_max_allowed_error": 5.309919701444748e-16
+      },
+      {
+        "name": "enc.0.1.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629093908192772e-08,
+        "parameters_max_allowed_error": 4.76839065485488e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 1.1793256371461778e-10,
+        "exp_avg_sq_max_formula_error": 3.4053295718858206e-17,
+        "exp_avg_sq_max_allowed_error": 7.291844471974737e-16
+      },
+      {
+        "name": "enc.0.1.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.1398274883273046e-13,
+        "parameters_max_allowed_error": 2.3619975635129118e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.696183914492223e-11,
+        "exp_avg_sq_max_formula_error": 1.5824243451490846e-18,
+        "exp_avg_sq_max_allowed_error": 7.162704968942129e-17
+      },
+      {
+        "name": "enc.0.1.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7248032713765866e-09,
+        "parameters_max_allowed_error": 2.9804229485021796e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.627516038604781e-11,
+        "exp_avg_sq_max_formula_error": 5.953243433546511e-19,
+        "exp_avg_sq_max_allowed_error": 1.3887384877351846e-17
+      },
+      {
+        "name": "enc.0.1.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.4178416213604947e-09,
+        "parameters_max_allowed_error": 2.98042296411207e-08,
+        "exp_avg_max_formula_error": 1.4551915038631472e-12,
+        "exp_avg_max_allowed_error": 1.2190680687140794e-10,
+        "exp_avg_sq_max_formula_error": 1.3880087990302814e-17,
+        "exp_avg_sq_max_allowed_error": 7.791585295903111e-16
+      },
+      {
+        "name": "enc.0.1.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.63567088934591e-09,
+        "parameters_max_allowed_error": 2.980422971733729e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.157375611488987e-10,
+        "exp_avg_sq_max_formula_error": 1.166449195740989e-16,
+        "exp_avg_sq_max_allowed_error": 2.4401776628452487e-15
+      },
+      {
+        "name": "enc.0.1.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.604587698822435e-09,
+        "parameters_max_allowed_error": 2.980422967737457e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0829441787763014e-10,
+        "exp_avg_sq_max_formula_error": 9.817328424901465e-18,
+        "exp_avg_sq_max_allowed_error": 6.148682386482027e-16
+      },
+      {
+        "name": "enc.1.0.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 5.0753400371306157e-08,
+        "parameters_max_allowed_error": 4.768390654471535e-07,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.9082265201884063e-11,
+        "exp_avg_sq_max_formula_error": 3.3286488757393437e-18,
+        "exp_avg_sq_max_allowed_error": 8.008097874892029e-17
+      },
+      {
+        "name": "enc.1.0.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.505075021795285e-13,
+        "parameters_max_allowed_error": 2.361948442188982e-12,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 2.4655416597241236e-11,
+        "exp_avg_sq_max_formula_error": 9.452040574400207e-19,
+        "exp_avg_sq_max_allowed_error": 3.1870920560922827e-17
+      },
+      {
+        "name": "enc.1.0.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.704547668625935e-09,
+        "parameters_max_allowed_error": 2.98042297148856e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.0122237209818645e-10,
+        "exp_avg_sq_max_formula_error": 1.0543627506494324e-16,
+        "exp_avg_sq_max_allowed_error": 2.122865339679169e-15
+      },
+      {
+        "name": "enc.1.0.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.572772898028596e-09,
+        "parameters_max_allowed_error": 2.980422964205339e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 7.915260669122402e-11,
+        "exp_avg_sq_max_formula_error": 1.3097162135057438e-17,
+        "exp_avg_sq_max_allowed_error": 3.284735175434232e-16
+      },
+      {
+        "name": "enc.1.0.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6294291955462086e-08,
+        "parameters_max_allowed_error": 4.768390654918829e-07,
+        "exp_avg_max_formula_error": 7.275957688722325e-13,
+        "exp_avg_max_allowed_error": 6.075772662761379e-11,
+        "exp_avg_sq_max_formula_error": 4.2190507474134344e-18,
+        "exp_avg_sq_max_allowed_error": 1.9354098571442153e-16
+      },
+      {
+        "name": "enc.1.0.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.701773059393491e-13,
+        "parameters_max_allowed_error": 2.36197911530188e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.1126942690029575e-11,
+        "exp_avg_sq_max_formula_error": 2.292368445920993e-18,
+        "exp_avg_sq_max_allowed_error": 5.079755974133084e-17
+      },
+      {
+        "name": "enc.1.0.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.724676164718055e-09,
+        "parameters_max_allowed_error": 2.980422920261756e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 8.168711540523785e-12,
+        "exp_avg_sq_max_formula_error": 1.4102239483325653e-19,
+        "exp_avg_sq_max_allowed_error": 3.498461009400906e-18
+      },
+      {
+        "name": "enc.1.0.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.8049112893446804e-09,
+        "parameters_max_allowed_error": 2.9804229675091126e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.009444053489686e-11,
+        "exp_avg_sq_max_formula_error": 9.12669182145697e-18,
+        "exp_avg_sq_max_allowed_error": 1.8933831608315465e-16
+      },
+      {
+        "name": "enc.1.0.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.7202067260100335e-09,
+        "parameters_max_allowed_error": 2.980422971880907e-08,
+        "exp_avg_max_formula_error": 5.820766123872806e-12,
+        "exp_avg_max_allowed_error": 2.515142982772999e-10,
+        "exp_avg_sq_max_formula_error": 1.5748166505426184e-16,
+        "exp_avg_sq_max_allowed_error": 3.3166166452036007e-15
+      },
+      {
+        "name": "enc.1.0.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.5303594497483317e-09,
+        "parameters_max_allowed_error": 2.9804229668959216e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.1036169755840317e-10,
+        "exp_avg_sq_max_formula_error": 8.528439246616977e-18,
+        "exp_avg_sq_max_allowed_error": 6.38567280173251e-16
+      },
+      {
+        "name": "enc.1.1.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6279189369613505e-08,
+        "parameters_max_allowed_error": 4.768390654630772e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.102148898343926e-11,
+        "exp_avg_sq_max_formula_error": 5.047596136891341e-18,
+        "exp_avg_sq_max_allowed_error": 8.822522162280822e-17
+      },
+      {
+        "name": "enc.1.1.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.4475701604116803e-13,
+        "parameters_max_allowed_error": 2.3619571744167534e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.6206561920538712e-11,
+        "exp_avg_sq_max_formula_error": 1.5728806615900489e-18,
+        "exp_avg_sq_max_allowed_error": 3.600725509118522e-17
+      },
+      {
+        "name": "enc.1.1.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.656738620239075e-09,
+        "parameters_max_allowed_error": 2.9804229701704464e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.4919103730193225e-10,
+        "exp_avg_sq_max_formula_error": 7.0539697094222e-17,
+        "exp_avg_sq_max_allowed_error": 1.1669584274378756e-15
+      },
+      {
+        "name": "enc.1.1.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5961965221800156e-09,
+        "parameters_max_allowed_error": 2.980422965736447e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 7.334781115808651e-11,
+        "exp_avg_sq_max_formula_error": 6.049603194289738e-18,
+        "exp_avg_sq_max_allowed_error": 2.820617746085224e-16
+      },
+      {
+        "name": "enc.1.1.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.628621375069031e-08,
+        "parameters_max_allowed_error": 4.768390654764752e-07,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.832235722673771e-11,
+        "exp_avg_sq_max_formula_error": 3.5489814018263535e-18,
+        "exp_avg_sq_max_allowed_error": 1.2242388034248787e-16
+      },
+      {
+        "name": "enc.1.1.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.343289568935698e-13,
+        "parameters_max_allowed_error": 2.3619816854294362e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.182691055148012e-11,
+        "exp_avg_sq_max_formula_error": 1.9728225071464833e-18,
+        "exp_avg_sq_max_allowed_error": 5.310787015157575e-17
+      },
+      {
+        "name": "enc.1.1.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7246797313095215e-09,
+        "parameters_max_allowed_error": 2.980422913045989e-08,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 6.002663643922544e-12,
+        "exp_avg_sq_max_formula_error": 7.159413597379287e-20,
+        "exp_avg_sq_max_allowed_error": 1.8891129918361186e-18
+      },
+      {
+        "name": "enc.1.1.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 3.6248686691164878e-09,
+        "parameters_max_allowed_error": 2.9804229612892636e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.4413600575055046e-11,
+        "exp_avg_sq_max_formula_error": 3.320429253078238e-18,
+        "exp_avg_sq_max_allowed_error": 1.0341936875650587e-16
+      },
+      {
+        "name": "enc.1.1.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.703194154103251e-09,
+        "parameters_max_allowed_error": 2.980422970638563e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.5216606863432954e-10,
+        "exp_avg_sq_max_formula_error": 4.60616646997835e-17,
+        "exp_avg_sq_max_allowed_error": 1.2139633020044586e-15
+      },
+      {
+        "name": "enc.1.1.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.598701115934631e-09,
+        "parameters_max_allowed_error": 2.980422968316843e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.116567418170459e-11,
+        "exp_avg_sq_max_formula_error": 1.0135541885569077e-17,
+        "exp_avg_sq_max_allowed_error": 3.4539394382538405e-16
+      },
+      {
+        "name": "enc.2.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.623463789599214e-08,
+        "parameters_max_allowed_error": 4.768390653781019e-07,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.094744239178325e-11,
+        "exp_avg_sq_max_formula_error": 7.023461592710988e-19,
+        "exp_avg_sq_max_allowed_error": 2.3005513266342323e-17
+      },
+      {
+        "name": "enc.2.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.3982389933273254e-13,
+        "parameters_max_allowed_error": 2.361776703556016e-12,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.139240854430845e-11,
+        "exp_avg_sq_max_formula_error": 3.149013838546128e-19,
+        "exp_avg_sq_max_allowed_error": 6.804575220684939e-18
+      },
+      {
+        "name": "enc.2.0.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8623365002912173e-09,
+        "parameters_max_allowed_error": 1.490306850765284e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0445478926257576e-10,
+        "exp_avg_sq_max_formula_error": 3.2321662331155956e-17,
+        "exp_avg_sq_max_allowed_error": 5.720403083205871e-16
+      },
+      {
+        "name": "enc.2.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.750567225899946e-09,
+        "parameters_max_allowed_error": 1.49030684436517e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.68090224966977e-11,
+        "exp_avg_sq_max_formula_error": 1.6756208719102677e-18,
+        "exp_avg_sq_max_allowed_error": 7.103599802645999e-17
+      },
+      {
+        "name": "enc.2.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.212564224699179e-08,
+        "parameters_max_allowed_error": 4.768390654562013e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 3.806958082108735e-11,
+        "exp_avg_sq_max_formula_error": 1.1526320457521461e-18,
+        "exp_avg_sq_max_allowed_error": 7.598469199394523e-17
+      },
+      {
+        "name": "enc.2.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.069800780065762e-13,
+        "parameters_max_allowed_error": 2.361913086616129e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.988894465787538e-11,
+        "exp_avg_sq_max_formula_error": 4.434733545874442e-19,
+        "exp_avg_sq_max_allowed_error": 2.0739266686695776e-17
+      },
+      {
+        "name": "enc.2.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.725275268817718e-09,
+        "parameters_max_allowed_error": 2.980422871641609e-08,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 5.466336758241928e-12,
+        "exp_avg_sq_max_formula_error": 5.006882838265751e-20,
+        "exp_avg_sq_max_allowed_error": 1.5666164559777322e-18
+      },
+      {
+        "name": "enc.2.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.590026220745557e-09,
+        "parameters_max_allowed_error": 2.980422959108013e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.0324360517374195e-11,
+        "exp_avg_sq_max_formula_error": 1.866453151748613e-18,
+        "exp_avg_sq_max_allowed_error": 8.525206263615555e-17
+      },
+      {
+        "name": "enc.2.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8622041547677881e-09,
+        "parameters_max_allowed_error": 1.490306850180886e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.88862991491146e-11,
+        "exp_avg_sq_max_formula_error": 2.1575619613546358e-17,
+        "exp_avg_sq_max_allowed_error": 5.126750291575804e-16
+      },
+      {
+        "name": "enc.2.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.704628514731521e-09,
+        "parameters_max_allowed_error": 1.490306843863963e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.572486000942177e-11,
+        "exp_avg_sq_max_formula_error": 4.6108896544739216e-18,
+        "exp_avg_sq_max_allowed_error": 1.0961618588827493e-16
+      },
+      {
+        "name": "enc.2.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6126062080986685e-08,
+        "parameters_max_allowed_error": 4.7683906517101e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.1537162197816639e-11,
+        "exp_avg_sq_max_formula_error": 2.594330070989512e-19,
+        "exp_avg_sq_max_allowed_error": 6.97859370273889e-18
+      },
+      {
+        "name": "enc.2.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.526548725788368e-13,
+        "parameters_max_allowed_error": 2.3618257362310676e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.3459749981237221e-11,
+        "exp_avg_sq_max_formula_error": 1.8188410977479812e-19,
+        "exp_avg_sq_max_allowed_error": 9.498256713051831e-18
+      },
+      {
+        "name": "enc.2.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8617194383341307e-09,
+        "parameters_max_allowed_error": 1.4903068495712877e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.176485599697968e-11,
+        "exp_avg_sq_max_formula_error": 2.0466171681970582e-17,
+        "exp_avg_sq_max_allowed_error": 3.5051230599351275e-16
+      },
+      {
+        "name": "enc.2.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5714002737921007e-09,
+        "parameters_max_allowed_error": 1.4903068431889285e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.289383210258733e-11,
+        "exp_avg_sq_max_formula_error": 2.1380161655712085e-18,
+        "exp_avg_sq_max_allowed_error": 5.672818129728734e-17
+      },
+      {
+        "name": "enc.2.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.2971221409237046e-08,
+        "parameters_max_allowed_error": 4.768390651785105e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 9.744922924159736e-12,
+        "exp_avg_sq_max_formula_error": 2.88952105633881e-19,
+        "exp_avg_sq_max_allowed_error": 4.978823544062034e-18
+      },
+      {
+        "name": "enc.2.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.37583696663504e-13,
+        "parameters_max_allowed_error": 2.3617793248858354e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.1486731704701821e-11,
+        "exp_avg_sq_max_formula_error": 1.8892937305349026e-19,
+        "exp_avg_sq_max_allowed_error": 6.917718291555403e-18
+      },
+      {
+        "name": "enc.2.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.724518873871041e-09,
+        "parameters_max_allowed_error": 2.980422718763844e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 1.4644356907678177e-12,
+        "exp_avg_sq_max_formula_error": 6.036260299661711e-21,
+        "exp_avg_sq_max_allowed_error": 1.1243733083197897e-19
+      },
+      {
+        "name": "enc.2.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.69023794855039e-09,
+        "parameters_max_allowed_error": 2.9804229336016505e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.080276840204064e-11,
+        "exp_avg_sq_max_formula_error": 1.784757160997412e-19,
+        "exp_avg_sq_max_allowed_error": 6.118430744150163e-18
+      },
+      {
+        "name": "enc.2.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8620391201151776e-09,
+        "parameters_max_allowed_error": 1.490306845445657e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.4212472571913956e-11,
+        "exp_avg_sq_max_formula_error": 5.656861846105652e-18,
+        "exp_avg_sq_max_allowed_error": 1.0248481569097626e-16
+      },
+      {
+        "name": "enc.2.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.597294879696065e-09,
+        "parameters_max_allowed_error": 1.490306843119766e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.268938453260261e-11,
+        "exp_avg_sq_max_formula_error": 1.949564043015522e-18,
+        "exp_avg_sq_max_allowed_error": 5.602519868350713e-17
+      },
+      {
+        "name": "enc.3.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6184407853644416e-08,
+        "parameters_max_allowed_error": 4.768390652822958e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3498992201821377e-11,
+        "exp_avg_sq_max_formula_error": 2.2317194874760096e-19,
+        "exp_avg_sq_max_allowed_error": 9.55372223672272e-18
+      },
+      {
+        "name": "enc.3.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.418445851551089e-13,
+        "parameters_max_allowed_error": 2.361688780148456e-12,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 8.932147382845199e-12,
+        "exp_avg_sq_max_formula_error": 1.4185735692123995e-19,
+        "exp_avg_sq_max_allowed_error": 4.1829404177265305e-18
+      },
+      {
+        "name": "enc.3.0.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8624419437229811e-09,
+        "parameters_max_allowed_error": 1.4903068480741563e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.0746525891391909e-10,
+        "exp_avg_sq_max_formula_error": 3.227937846090468e-17,
+        "exp_avg_sq_max_allowed_error": 6.054887750859847e-16
+      },
+      {
+        "name": "enc.3.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5342505807480755e-09,
+        "parameters_max_allowed_error": 1.4903068374730248e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.7974939859353176e-11,
+        "exp_avg_sq_max_formula_error": 3.1951361410713457e-18,
+        "exp_avg_sq_max_allowed_error": 7.560736577009708e-17
+      },
+      {
+        "name": "enc.3.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.613499049455072e-08,
+        "parameters_max_allowed_error": 4.768390651880398e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.3207375471058211e-11,
+        "exp_avg_sq_max_formula_error": 2.3579542888725375e-19,
+        "exp_avg_sq_max_allowed_error": 9.145405503360746e-18
+      },
+      {
+        "name": "enc.3.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.2337755505137875e-13,
+        "parameters_max_allowed_error": 2.361788109384084e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.1814534073284474e-11,
+        "exp_avg_sq_max_formula_error": 2.8744269165525353e-19,
+        "exp_avg_sq_max_allowed_error": 7.318180481927743e-18
+      },
+      {
+        "name": "enc.3.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7252319839975456e-09,
+        "parameters_max_allowed_error": 2.980422733928578e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 1.7465025953233843e-12,
+        "exp_avg_sq_max_formula_error": 6.195912771694275e-21,
+        "exp_avg_sq_max_allowed_error": 1.5992206474458283e-19
+      },
+      {
+        "name": "enc.3.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.416611230044886e-09,
+        "parameters_max_allowed_error": 2.980422945113978e-08,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.276046490694682e-11,
+        "exp_avg_sq_max_formula_error": 2.854820748862854e-19,
+        "exp_avg_sq_max_allowed_error": 8.53695343579216e-18
+      },
+      {
+        "name": "enc.3.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8626327633053386e-09,
+        "parameters_max_allowed_error": 1.490306845004176e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.271977493974787e-11,
+        "exp_avg_sq_max_formula_error": 3.8662545455456e-18,
+        "exp_avg_sq_max_allowed_error": 9.568146795542413e-17
+      },
+      {
+        "name": "enc.3.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8494571776828117e-09,
+        "parameters_max_allowed_error": 1.4903068418183795e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.926660580548912e-11,
+        "exp_avg_sq_max_formula_error": 1.6490680995975028e-18,
+        "exp_avg_sq_max_allowed_error": 4.490706107099462e-17
+      },
+      {
+        "name": "enc.3.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.591724422908783e-08,
+        "parameters_max_allowed_error": 4.768390647727217e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.018960055221285e-11,
+        "exp_avg_sq_max_formula_error": 1.0687644417444969e-19,
+        "exp_avg_sq_max_allowed_error": 5.4435753185067165e-18
+      },
+      {
+        "name": "enc.3.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.2609729801215703e-13,
+        "parameters_max_allowed_error": 2.3616122584229263e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 7.518846656395793e-12,
+        "exp_avg_sq_max_formula_error": 3.7953133741535703e-20,
+        "exp_avg_sq_max_allowed_error": 2.9639602362066807e-18
+      },
+      {
+        "name": "enc.3.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.862760605486624e-09,
+        "parameters_max_allowed_error": 1.4903068452953803e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.3050835119018404e-11,
+        "exp_avg_sq_max_formula_error": 3.984611496084642e-18,
+        "exp_avg_sq_max_allowed_error": 9.717019597576135e-17
+      },
+      {
+        "name": "enc.3.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8081139432912785e-09,
+        "parameters_max_allowed_error": 1.4903068341155857e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 1.8068306573137956e-11,
+        "exp_avg_sq_max_formula_error": 6.573796720152751e-19,
+        "exp_avg_sq_max_allowed_error": 1.711610016148492e-17
+      },
+      {
+        "name": "enc.3.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.5794421588141176e-08,
+        "parameters_max_allowed_error": 4.768390645384561e-07,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.1865682048028955e-11,
+        "exp_avg_sq_max_formula_error": 5.921785924487768e-20,
+        "exp_avg_sq_max_allowed_error": 7.38168198738303e-18
+      },
+      {
+        "name": "enc.3.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.1543416414004793e-13,
+        "parameters_max_allowed_error": 2.3614178922318906e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 5.363119323642528e-12,
+        "exp_avg_sq_max_formula_error": 5.137242867733057e-20,
+        "exp_avg_sq_max_allowed_error": 1.5080121371002364e-18
+      },
+      {
+        "name": "enc.3.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7249955897600273e-09,
+        "parameters_max_allowed_error": 2.9804226557921954e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 1.5423991944762958e-12,
+        "exp_avg_sq_max_formula_error": 4.587315311453361e-21,
+        "exp_avg_sq_max_allowed_error": 1.2472786748027066e-19
+      },
+      {
+        "name": "enc.3.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.6635185024502803e-09,
+        "parameters_max_allowed_error": 2.98042294150021e-08,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 1.1319861020764319e-11,
+        "exp_avg_sq_max_formula_error": 1.8107551083766556e-19,
+        "exp_avg_sq_max_allowed_error": 6.718187295443233e-18
+      },
+      {
+        "name": "enc.3.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8622567238280041e-09,
+        "parameters_max_allowed_error": 1.490306842767234e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.168555973154241e-11,
+        "exp_avg_sq_max_formula_error": 2.525404146233693e-18,
+        "exp_avg_sq_max_allowed_error": 5.2637188515490325e-17
+      },
+      {
+        "name": "enc.3.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.821391724943222e-09,
+        "parameters_max_allowed_error": 1.4903068244148075e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.2192473419769809e-11,
+        "exp_avg_sq_max_formula_error": 3.2644601771931116e-19,
+        "exp_avg_sq_max_allowed_error": 7.793877088563023e-18
+      },
+      {
+        "name": "down.0.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.722620767199203e-09,
+        "parameters_max_allowed_error": 2.980422971904462e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.1609607436801067e-10,
+        "exp_avg_sq_max_formula_error": 1.258854123063668e-16,
+        "exp_avg_sq_max_allowed_error": 2.4482945883053676e-15
+      },
+      {
+        "name": "down.0.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.6030298199964932e-09,
+        "parameters_max_allowed_error": 2.980422969976389e-08,
+        "exp_avg_max_formula_error": 1.455191537744465e-12,
+        "exp_avg_max_allowed_error": 9.949364665473578e-11,
+        "exp_avg_sq_max_formula_error": 3.8261220001691053e-17,
+        "exp_avg_sq_max_allowed_error": 5.189919427609195e-16
+      },
+      {
+        "name": "down.1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 3.709884441316369e-09,
+        "parameters_max_allowed_error": 2.9804229696423194e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.313547710831924e-11,
+        "exp_avg_sq_max_formula_error": 1.743222247537725e-17,
+        "exp_avg_sq_max_allowed_error": 4.5477879329295015e-16
+      },
+      {
+        "name": "down.1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.0479236362280773e-09,
+        "parameters_max_allowed_error": 2.980422962433115e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 5.369172884073236e-11,
+        "exp_avg_sq_max_formula_error": 5.127459662476208e-18,
+        "exp_avg_sq_max_allowed_error": 1.51141836175795e-16
+      },
+      {
+        "name": "down.2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8625918932202445e-09,
+        "parameters_max_allowed_error": 1.4903068467637357e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.9784076860959194e-11,
+        "exp_avg_sq_max_formula_error": 6.671905670623494e-18,
+        "exp_avg_sq_max_allowed_error": 1.29942385270346e-16
+      },
+      {
+        "name": "down.2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5547645462743453e-09,
+        "parameters_max_allowed_error": 1.4903068413857528e-08,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.060739244859945e-11,
+        "exp_avg_sq_max_formula_error": 4.742955656712913e-18,
+        "exp_avg_sq_max_allowed_error": 8.645301090252612e-17
+      },
+      {
+        "name": "attention.norm.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6073340254082495e-08,
+        "parameters_max_allowed_error": 4.76839065070451e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 8.616157093355168e-12,
+        "exp_avg_sq_max_formula_error": 7.670089664020559e-20,
+        "exp_avg_sq_max_allowed_error": 3.892217803302486e-18
+      },
+      {
+        "name": "attention.norm.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 3.1395295692914253e-13,
+        "parameters_max_allowed_error": 2.361598871706939e-12,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 7.316320466133062e-12,
+        "exp_avg_sq_max_formula_error": 1.5345821543963007e-19,
+        "exp_avg_sq_max_allowed_error": 2.806437388650156e-18
+      },
+      {
+        "name": "attention.attn.in_proj_weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 3.7253947565707435e-09,
+        "parameters_max_allowed_error": 2.980422952152616e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.6934524615930252e-11,
+        "exp_avg_sq_max_formula_error": 6.290572711821622e-19,
+        "exp_avg_sq_max_allowed_error": 1.5035432905869786e-17
+      },
+      {
+        "name": "attention.attn.in_proj_bias",
+        "elements": 384,
+        "parameters_max_formula_error": 2.461355068939246e-13,
+        "parameters_max_allowed_error": 2.3616457366929885e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 8.078054891669237e-12,
+        "exp_avg_sq_max_formula_error": 1.2571324039235144e-19,
+        "exp_avg_sq_max_allowed_error": 3.421239814799826e-18
+      },
+      {
+        "name": "attention.attn.out_proj.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.724989691700209e-09,
+        "parameters_max_allowed_error": 2.9804229540423223e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.989959586001788e-11,
+        "exp_avg_sq_max_formula_error": 1.0335177774349816e-18,
+        "exp_avg_sq_max_allowed_error": 2.076148579130625e-17
+      },
+      {
+        "name": "attention.attn.out_proj.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.3401700164711787e-13,
+        "parameters_max_allowed_error": 2.3618657438988857e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.5798917729625824e-11,
+        "exp_avg_sq_max_formula_error": 3.6485414209619714e-19,
+        "exp_avg_sq_max_allowed_error": 1.3086532641881354e-17
+      },
+      {
+        "name": "up.0.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8622096850662295e-09,
+        "parameters_max_allowed_error": 1.490306845203981e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.0223130381988874e-11,
+        "exp_avg_sq_max_formula_error": 2.990005087917438e-18,
+        "exp_avg_sq_max_allowed_error": 8.482456693513799e-17
+      },
+      {
+        "name": "up.0.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5057583166444566e-09,
+        "parameters_max_allowed_error": 1.4903068320385563e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 2.1239712766352165e-11,
+        "exp_avg_sq_max_formula_error": 4.891562287213528e-19,
+        "exp_avg_sq_max_allowed_error": 2.365196328748417e-17
+      },
+      {
+        "name": "up.1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 1.8624823280855018e-09,
+        "parameters_max_allowed_error": 1.490306850057305e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.759922232037807e-11,
+        "exp_avg_sq_max_formula_error": 1.5994661876701315e-17,
+        "exp_avg_sq_max_allowed_error": 4.0231888492350845e-16
+      },
+      {
+        "name": "up.1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5809745734784997e-09,
+        "parameters_max_allowed_error": 1.4903068463849185e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.626439509269885e-11,
+        "exp_avg_sq_max_formula_error": 4.977822011118769e-18,
+        "exp_avg_sq_max_allowed_error": 1.122183022270659e-16
+      },
+      {
+        "name": "up.2.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.6301070482913644e-09,
+        "parameters_max_allowed_error": 2.980422971664603e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.06605310637542e-10,
+        "exp_avg_sq_max_formula_error": 7.549429730857539e-17,
+        "exp_avg_sq_max_allowed_error": 2.2379628794287378e-15
+      },
+      {
+        "name": "up.2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6023084178917735e-09,
+        "parameters_max_allowed_error": 2.980422969125748e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 9.588524418902009e-11,
+        "exp_avg_sq_max_formula_error": 9.641598944396432e-18,
+        "exp_avg_sq_max_allowed_error": 4.820293414125842e-16
+      },
+      {
+        "name": "dec.0.0.n1.weight",
+        "elements": 256,
+        "parameters_max_formula_error": 4.822401300508261e-08,
+        "parameters_max_allowed_error": 4.768390652216651e-07,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 1.2185699671540815e-11,
+        "exp_avg_sq_max_formula_error": 2.0496079571549283e-19,
+        "exp_avg_sq_max_allowed_error": 7.78521943657625e-18
+      },
+      {
+        "name": "dec.0.0.n1.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 2.567741318677049e-13,
+        "parameters_max_allowed_error": 2.3616168158573484e-12,
+        "exp_avg_max_formula_error": 1.8189894137102518e-13,
+        "exp_avg_max_allowed_error": 7.590377631983001e-12,
+        "exp_avg_sq_max_formula_error": 1.198714528093481e-19,
+        "exp_avg_sq_max_allowed_error": 3.0206241064148245e-18
+      },
+      {
+        "name": "dec.0.0.c1.weight",
+        "elements": 98304,
+        "parameters_max_formula_error": 1.8615670047128496e-09,
+        "parameters_max_allowed_error": 1.4903068497522473e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 8.320210076462329e-11,
+        "exp_avg_sq_max_formula_error": 2.010235412562109e-17,
+        "exp_avg_sq_max_allowed_error": 3.6294306413394193e-16
+      },
+      {
+        "name": "dec.0.0.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5084326426828554e-09,
+        "parameters_max_allowed_error": 1.490306832548643e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.2992498183160843e-11,
+        "exp_avg_sq_max_formula_error": 1.2094241243414975e-18,
+        "exp_avg_sq_max_allowed_error": 2.7716745832832978e-17
+      },
+      {
+        "name": "dec.0.0.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 5.8923529389076634e-08,
+        "parameters_max_allowed_error": 4.768390652389455e-07,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 1.5733817027019367e-11,
+        "exp_avg_sq_max_formula_error": 3.2876095940392967e-19,
+        "exp_avg_sq_max_allowed_error": 1.2978906634110887e-17
+      },
+      {
+        "name": "dec.0.0.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.3487015017225135e-13,
+        "parameters_max_allowed_error": 2.3617181190668587e-12,
+        "exp_avg_max_formula_error": 2.728484120565378e-13,
+        "exp_avg_max_allowed_error": 9.625823055303681e-12,
+        "exp_avg_sq_max_formula_error": 1.1583339576186326e-19,
+        "exp_avg_sq_max_allowed_error": 4.85786750770301e-18
+      },
+      {
+        "name": "dec.0.0.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.7249477807810294e-09,
+        "parameters_max_allowed_error": 2.9804227059786024e-08,
+        "exp_avg_max_formula_error": 3.410605150706722e-14,
+        "exp_avg_max_allowed_error": 2.1210611392263874e-12,
+        "exp_avg_sq_max_formula_error": 6.616252849554898e-21,
+        "exp_avg_sq_max_allowed_error": 2.35871947002287e-19
+      },
+      {
+        "name": "dec.0.0.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.5844397727746724e-09,
+        "parameters_max_allowed_error": 2.980422939173839e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 1.5553811016921766e-11,
+        "exp_avg_sq_max_formula_error": 2.612670951225607e-19,
+        "exp_avg_sq_max_allowed_error": 1.2683629672536067e-17
+      },
+      {
+        "name": "dec.0.0.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8621069963753456e-09,
+        "parameters_max_allowed_error": 1.490306848595245e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 6.435518229430668e-11,
+        "exp_avg_sq_max_formula_error": 8.782917575132675e-18,
+        "exp_avg_sq_max_allowed_error": 2.1713856695545104e-16
+      },
+      {
+        "name": "dec.0.0.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5618492887892188e-09,
+        "parameters_max_allowed_error": 1.4903068427370596e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.160249562039751e-11,
+        "exp_avg_sq_max_formula_error": 1.535670497496325e-18,
+        "exp_avg_sq_max_allowed_error": 5.2361572093119445e-17
+      },
+      {
+        "name": "dec.0.0.skip.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 1.861989264162478e-09,
+        "parameters_max_allowed_error": 2.980422473662657e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.067709585304668e-11,
+        "exp_avg_sq_max_formula_error": 4.757357110284357e-18,
+        "exp_avg_sq_max_allowed_error": 1.3464596875045161e-16
+      },
+      {
+        "name": "dec.0.0.skip.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5388672697236316e-09,
+        "parameters_max_allowed_error": 1.4903068383535876e-08,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.160249562039751e-11,
+        "exp_avg_sq_max_formula_error": 1.535670497496325e-18,
+        "exp_avg_sq_max_allowed_error": 5.2361572093119445e-17
+      },
+      {
+        "name": "dec.0.1.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.619675331163364e-08,
+        "parameters_max_allowed_error": 4.768390653058427e-07,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 1.5787059159944047e-11,
+        "exp_avg_sq_max_formula_error": 2.8022893273591597e-19,
+        "exp_avg_sq_max_allowed_error": 1.3066894674208939e-17
+      },
+      {
+        "name": "dec.0.1.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.586436466611936e-13,
+        "parameters_max_allowed_error": 2.361658058592907e-12,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 8.305400811536854e-12,
+        "exp_avg_sq_max_formula_error": 1.07864562307139e-19,
+        "exp_avg_sq_max_allowed_error": 3.616521985210561e-18
+      },
+      {
+        "name": "dec.0.1.c1.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8623071695866855e-09,
+        "parameters_max_allowed_error": 1.4903068466840177e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 4.8093873328269856e-11,
+        "exp_avg_sq_max_formula_error": 5.3310980617524156e-18,
+        "exp_avg_sq_max_allowed_error": 1.212688971446705e-16
+      },
+      {
+        "name": "dec.0.1.c1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.5107795639512922e-09,
+        "parameters_max_allowed_error": 1.4903068329962832e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 2.4135016207793565e-11,
+        "exp_avg_sq_max_formula_error": 1.3812701663540044e-18,
+        "exp_avg_sq_max_allowed_error": 3.053972395657573e-17
+      },
+      {
+        "name": "dec.0.1.n2.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6219666982594276e-08,
+        "parameters_max_allowed_error": 4.768390653495473e-07,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.798914212036706e-11,
+        "exp_avg_sq_max_formula_error": 8.672109051579962e-19,
+        "exp_avg_sq_max_allowed_error": 1.69664438194282e-17
+      },
+      {
+        "name": "dec.0.1.n2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.251621869791572e-13,
+        "parameters_max_allowed_error": 2.3616023538065984e-12,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 7.367943755109961e-12,
+        "exp_avg_sq_max_formula_error": 1.2141534260961928e-19,
+        "exp_avg_sq_max_allowed_error": 2.84618104129265e-18
+      },
+      {
+        "name": "dec.0.1.film.weight",
+        "elements": 32768,
+        "parameters_max_formula_error": 3.724744901401067e-09,
+        "parameters_max_allowed_error": 2.980422780824335e-08,
+        "exp_avg_max_formula_error": 4.5474735342756296e-14,
+        "exp_avg_max_allowed_error": 2.259544461258311e-12,
+        "exp_avg_sq_max_formula_error": 6.329916018306091e-21,
+        "exp_avg_sq_max_allowed_error": 2.676773970196886e-19
+      },
+      {
+        "name": "dec.0.1.film.bias",
+        "elements": 256,
+        "parameters_max_formula_error": 3.7232571747924936e-09,
+        "parameters_max_allowed_error": 2.9804229361422636e-08,
+        "exp_avg_max_formula_error": 3.6379788274205037e-13,
+        "exp_avg_max_allowed_error": 1.6709157668604032e-11,
+        "exp_avg_sq_max_formula_error": 1.3896162377889055e-19,
+        "exp_avg_sq_max_allowed_error": 1.4637908623059547e-17
+      },
+      {
+        "name": "dec.0.1.c2.weight",
+        "elements": 49152,
+        "parameters_max_formula_error": 1.8626131539911661e-09,
+        "parameters_max_allowed_error": 1.4903068475720576e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.449157236547818e-11,
+        "exp_avg_sq_max_formula_error": 8.54127602989864e-18,
+        "exp_avg_sq_max_allowed_error": 1.5567848519039185e-16
+      },
+      {
+        "name": "dec.0.1.c2.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.6017567341930494e-09,
+        "parameters_max_allowed_error": 1.4903068296917665e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 2.0837999381573264e-11,
+        "exp_avg_sq_max_formula_error": 1.237243599362178e-18,
+        "exp_avg_sq_max_allowed_error": 2.2765749834950814e-17
+      },
+      {
+        "name": "dec.1.0.n1.weight",
+        "elements": 128,
+        "parameters_max_formula_error": 4.6280197896209074e-08,
+        "parameters_max_allowed_error": 4.768390654650007e-07,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.193104474747854e-11,
+        "exp_avg_sq_max_formula_error": 2.79633502927841e-18,
+        "exp_avg_sq_max_allowed_error": 9.218097223382074e-17
+      },
+      {
+        "name": "dec.1.0.n1.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.4593030172750745e-13,
+        "parameters_max_allowed_error": 2.361964684146267e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.7705565619484666e-11,
+        "exp_avg_sq_max_formula_error": 7.64761476288071e-19,
+        "exp_avg_sq_max_allowed_error": 4.0244261226837274e-17
+      },
+      {
+        "name": "dec.1.0.c1.weight",
+        "elements": 24576,
+        "parameters_max_formula_error": 1.859410854454513e-09,
+        "parameters_max_allowed_error": 1.490306851752729e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.457903020529727e-10,
+        "exp_avg_sq_max_formula_error": 5.586817520493521e-17,
+        "exp_avg_sq_max_allowed_error": 1.1143642964398986e-15
+      },
+      {
+        "name": "dec.1.0.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.587378811729323e-09,
+        "parameters_max_allowed_error": 1.4903068476064306e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.867741847964679e-11,
+        "exp_avg_sq_max_formula_error": 5.481284799477876e-18,
+        "exp_avg_sq_max_allowed_error": 1.8051442616228115e-16
+      },
+      {
+        "name": "dec.1.0.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.6291511512919215e-08,
+        "parameters_max_allowed_error": 4.768390654865797e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 5.581411444133265e-11,
+        "exp_avg_sq_max_formula_error": 8.895333268610312e-18,
+        "exp_avg_sq_max_allowed_error": 1.633270036362786e-16
+      },
+      {
+        "name": "dec.1.0.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.3267597040293716e-13,
+        "parameters_max_allowed_error": 2.361992900216779e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 3.5289671185267926e-11,
+        "exp_avg_sq_max_formula_error": 1.6760376158426296e-18,
+        "exp_avg_sq_max_allowed_error": 6.529277715359104e-17
+      },
+      {
+        "name": "dec.1.0.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7250304507630005e-09,
+        "parameters_max_allowed_error": 2.9804229275941136e-08,
+        "exp_avg_max_formula_error": 1.364242060282689e-13,
+        "exp_avg_max_allowed_error": 7.90009446749451e-12,
+        "exp_avg_sq_max_formula_error": 1.4327137350883695e-19,
+        "exp_avg_sq_max_allowed_error": 3.272159662982428e-18
+      },
+      {
+        "name": "dec.1.0.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 1.8131158935341674e-09,
+        "parameters_max_allowed_error": 2.9804229625728944e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 5.908142308719276e-11,
+        "exp_avg_sq_max_formula_error": 8.650373889014631e-18,
+        "exp_avg_sq_max_allowed_error": 1.8300873232916827e-16
+      },
+      {
+        "name": "dec.1.0.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.7248381601351355e-09,
+        "parameters_max_allowed_error": 2.980422970223396e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0760607960236255e-10,
+        "exp_avg_sq_max_formula_error": 3.172153271548502e-17,
+        "exp_avg_sq_max_allowed_error": 6.070766596202168e-16
+      },
+      {
+        "name": "dec.1.0.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5901550423635946e-09,
+        "parameters_max_allowed_error": 2.9804229663529927e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.263576879383946e-11,
+        "exp_avg_sq_max_formula_error": 7.853929976780275e-18,
+        "exp_avg_sq_max_allowed_error": 2.0569074079604766e-16
+      },
+      {
+        "name": "dec.1.0.skip.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7003052705264494e-09,
+        "parameters_max_allowed_error": 2.980422970356478e-08,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.2379282043895044e-10,
+        "exp_avg_sq_max_formula_error": 3.054826325015741e-17,
+        "exp_avg_sq_max_allowed_error": 8.03453659629761e-16
+      },
+      {
+        "name": "dec.1.0.skip.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.5917495099770917e-09,
+        "parameters_max_allowed_error": 2.98042296782484e-08,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.263576879383946e-11,
+        "exp_avg_sq_max_formula_error": 7.853929976780275e-18,
+        "exp_avg_sq_max_allowed_error": 2.0569074079604766e-16
+      },
+      {
+        "name": "dec.1.1.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.627423466629921e-08,
+        "parameters_max_allowed_error": 4.768390654536269e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 3.707080475923163e-11,
+        "exp_avg_sq_max_formula_error": 1.8576937905066425e-18,
+        "exp_avg_sq_max_allowed_error": 7.204999347553289e-17
+      },
+      {
+        "name": "dec.1.1.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.4800230758209205e-13,
+        "parameters_max_allowed_error": 2.3619589589921023e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.6547894438344595e-11,
+        "exp_avg_sq_max_formula_error": 1.3796396253456005e-18,
+        "exp_avg_sq_max_allowed_error": 3.6951330605471566e-17
+      },
+      {
+        "name": "dec.1.1.c1.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.692025019041978e-09,
+        "parameters_max_allowed_error": 2.9804229707307574e-08,
+        "exp_avg_max_formula_error": 4.365574579352077e-12,
+        "exp_avg_max_allowed_error": 1.265991200760652e-10,
+        "exp_avg_sq_max_formula_error": 3.774073857322708e-17,
+        "exp_avg_sq_max_allowed_error": 8.402940568028574e-16
+      },
+      {
+        "name": "dec.1.1.c1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.6014239240247363e-09,
+        "parameters_max_allowed_error": 2.9804229696700875e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 9.180306514977585e-11,
+        "exp_avg_sq_max_formula_error": 1.1251223140048323e-17,
+        "exp_avg_sq_max_allowed_error": 4.418595859146474e-16
+      },
+      {
+        "name": "dec.1.1.n2.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.624779470496776e-08,
+        "parameters_max_allowed_error": 4.768390654031964e-07,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.853136615854623e-11,
+        "exp_avg_sq_max_formula_error": 1.7125970537505642e-18,
+        "exp_avg_sq_max_allowed_error": 4.267908031436753e-17
+      },
+      {
+        "name": "dec.1.1.n2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.08315655629126e-13,
+        "parameters_max_allowed_error": 2.361970636472203e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 2.9021302028198185e-11,
+        "exp_avg_sq_max_formula_error": 2.0421887908718005e-18,
+        "exp_avg_sq_max_allowed_error": 4.415742129796029e-17
+      },
+      {
+        "name": "dec.1.1.film.weight",
+        "elements": 16384,
+        "parameters_max_formula_error": 3.7252367579565515e-09,
+        "parameters_max_allowed_error": 2.980422885973149e-08,
+        "exp_avg_max_formula_error": 1.3642420560475241e-13,
+        "exp_avg_max_allowed_error": 4.148209900578513e-12,
+        "exp_avg_sq_max_formula_error": 4.567941445503565e-20,
+        "exp_avg_sq_max_allowed_error": 9.02176198060022e-19
+      },
+      {
+        "name": "dec.1.1.film.bias",
+        "elements": 128,
+        "parameters_max_formula_error": 2.349873948204184e-09,
+        "parameters_max_allowed_error": 2.980422961676562e-08,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 3.0425514885301644e-11,
+        "exp_avg_sq_max_formula_error": 2.7896926138632444e-18,
+        "exp_avg_sq_max_allowed_error": 4.8533967000605204e-17
+      },
+      {
+        "name": "dec.1.1.c2.weight",
+        "elements": 12288,
+        "parameters_max_formula_error": 3.7134987307396727e-09,
+        "parameters_max_allowed_error": 2.980422968099834e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 7.741697283236702e-11,
+        "exp_avg_sq_max_formula_error": 1.3647381145982392e-17,
+        "exp_avg_sq_max_allowed_error": 3.1422612412969575e-16
+      },
+      {
+        "name": "dec.1.1.c2.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.592150834783812e-09,
+        "parameters_max_allowed_error": 2.9804229673842606e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 6.347233294512476e-11,
+        "exp_avg_sq_max_formula_error": 1.0469567704976858e-17,
+        "exp_avg_sq_max_allowed_error": 2.1122184902065655e-16
+      },
+      {
+        "name": "dec.2.0.n1.weight",
+        "elements": 64,
+        "parameters_max_formula_error": 4.628172600718017e-08,
+        "parameters_max_allowed_error": 4.768390654679155e-07,
+        "exp_avg_max_formula_error": 7.275957654841007e-13,
+        "exp_avg_max_allowed_error": 4.684572729729552e-11,
+        "exp_avg_sq_max_formula_error": 4.9068700770891506e-18,
+        "exp_avg_sq_max_allowed_error": 1.1505616373744041e-16
+      },
+      {
+        "name": "dec.2.0.n1.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 2.782078728463366e-13,
+        "parameters_max_allowed_error": 2.362028192738397e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 5.366275201978964e-11,
+        "exp_avg_sq_max_formula_error": 5.925432462976503e-18,
+        "exp_avg_sq_max_allowed_error": 1.5097874110676682e-16
+      },
+      {
+        "name": "dec.2.0.c1.weight",
+        "elements": 6144,
+        "parameters_max_formula_error": 3.6322631569163377e-09,
+        "parameters_max_allowed_error": 2.9804229726412786e-08,
+        "exp_avg_max_formula_error": 8.731149185809209e-12,
+        "exp_avg_max_allowed_error": 4.5528802949945647e-10,
+        "exp_avg_sq_max_formula_error": 4.84251903219849e-16,
+        "exp_avg_sq_max_allowed_error": 1.0867818616874505e-14
+      },
+      {
+        "name": "dec.2.0.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6053049445297063e-09,
+        "parameters_max_allowed_error": 2.980422963871207e-08,
+        "exp_avg_max_formula_error": 1.4551915038631472e-12,
+        "exp_avg_max_allowed_error": 2.0009964796230403e-10,
+        "exp_avg_sq_max_formula_error": 6.339914120986528e-17,
+        "exp_avg_sq_max_allowed_error": 2.0992422898375354e-15
+      },
+      {
+        "name": "dec.2.0.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.631061067961184e-08,
+        "parameters_max_allowed_error": 4.768390655230085e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 1.2653951220187308e-10,
+        "exp_avg_sq_max_formula_error": 1.439428775749627e-17,
+        "exp_avg_sq_max_allowed_error": 8.395029557169621e-16
+      },
+      {
+        "name": "dec.2.0.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.4100764884058587e-13,
+        "parameters_max_allowed_error": 2.3620353029512556e-12,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 5.995086094223721e-11,
+        "exp_avg_sq_max_formula_error": 2.9834456425951204e-18,
+        "exp_avg_sq_max_allowed_error": 1.8843465037724875e-16
+      },
+      {
+        "name": "dec.2.0.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.7206718400684125e-09,
+        "parameters_max_allowed_error": 2.980422931570318e-08,
+        "exp_avg_max_formula_error": 5.456968224190097e-13,
+        "exp_avg_max_allowed_error": 1.7462292722925096e-11,
+        "exp_avg_sq_max_formula_error": 6.314384907133615e-19,
+        "exp_avg_sq_max_allowed_error": 1.5987201390208517e-17
+      },
+      {
+        "name": "dec.2.0.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.8366961701543616e-09,
+        "parameters_max_allowed_error": 2.980422970820078e-08,
+        "exp_avg_max_formula_error": 2.910383061936403e-12,
+        "exp_avg_max_allowed_error": 1.2933767390421732e-10,
+        "exp_avg_sq_max_formula_error": 1.6206098004214483e-17,
+        "exp_avg_sq_max_allowed_error": 8.770412290220324e-16
+      },
+      {
+        "name": "dec.2.0.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.6411326176377656e-09,
+        "parameters_max_allowed_error": 2.9804229718114146e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 2.0396277999878972e-10,
+        "exp_avg_sq_max_formula_error": 1.0371899372615788e-16,
+        "exp_avg_sq_max_allowed_error": 2.181080842231336e-15
+      },
+      {
+        "name": "dec.2.0.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6081581621918417e-09,
+        "parameters_max_allowed_error": 2.980422970954542e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.3583122404625666e-10,
+        "exp_avg_sq_max_formula_error": 2.125401789184276e-17,
+        "exp_avg_sq_max_allowed_error": 9.673177262144566e-16
+      },
+      {
+        "name": "dec.2.0.skip.weight",
+        "elements": 2048,
+        "parameters_max_formula_error": 3.6007266612791966e-09,
+        "parameters_max_allowed_error": 5.960654984014946e-08,
+        "exp_avg_max_formula_error": 5.820766123872806e-12,
+        "exp_avg_max_allowed_error": 3.0020761432325564e-10,
+        "exp_avg_sq_max_formula_error": 1.2280312000228826e-16,
+        "exp_avg_sq_max_allowed_error": 4.725125241774315e-15
+      },
+      {
+        "name": "dec.2.0.skip.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6081581621918417e-09,
+        "parameters_max_allowed_error": 2.980422970954542e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.3583122404625666e-10,
+        "exp_avg_sq_max_formula_error": 2.125401789184276e-17,
+        "exp_avg_sq_max_allowed_error": 9.673177262144566e-16
+      },
+      {
+        "name": "dec.2.1.n1.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629100369690775e-08,
+        "parameters_max_allowed_error": 4.768390654856112e-07,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 5.4996740495028e-11,
+        "exp_avg_sq_max_formula_error": 5.01593930153878e-18,
+        "exp_avg_sq_max_allowed_error": 1.5857832244425294e-16
+      },
+      {
+        "name": "dec.2.1.n1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0471520719682476e-13,
+        "parameters_max_allowed_error": 2.3620235109606513e-12,
+        "exp_avg_max_formula_error": 5.456968241130756e-13,
+        "exp_avg_max_allowed_error": 5.019598625644049e-11,
+        "exp_avg_sq_max_formula_error": 3.794653345820961e-18,
+        "exp_avg_sq_max_allowed_error": 1.3210154624649875e-16
+      },
+      {
+        "name": "dec.2.1.c1.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.597833753143931e-09,
+        "parameters_max_allowed_error": 2.980422972861532e-08,
+        "exp_avg_max_formula_error": 1.746229831740831e-11,
+        "exp_avg_max_allowed_error": 4.719717505707875e-10,
+        "exp_avg_sq_max_formula_error": 5.083518186383876e-16,
+        "exp_avg_sq_max_allowed_error": 1.1678899678051251e-14
+      },
+      {
+        "name": "dec.2.1.c1.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.601960536445901e-09,
+        "parameters_max_allowed_error": 2.980422969465034e-08,
+        "exp_avg_max_formula_error": 2.1827872896760386e-12,
+        "exp_avg_max_allowed_error": 1.0718744780646714e-10,
+        "exp_avg_sq_max_formula_error": 1.8107446623133652e-17,
+        "exp_avg_sq_max_allowed_error": 6.023622933748977e-16
+      },
+      {
+        "name": "dec.2.1.n2.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.629444783077474e-08,
+        "parameters_max_allowed_error": 4.768390654921805e-07,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 6.763906101880933e-11,
+        "exp_avg_sq_max_formula_error": 6.2231298023506626e-18,
+        "exp_avg_sq_max_allowed_error": 2.398639921827004e-16
+      },
+      {
+        "name": "dec.2.1.n2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0846381926753444e-13,
+        "parameters_max_allowed_error": 2.3620070864976343e-12,
+        "exp_avg_max_formula_error": 1.0913936448380193e-12,
+        "exp_avg_max_allowed_error": 4.092152727785957e-11,
+        "exp_avg_sq_max_formula_error": 2.4741745309151596e-18,
+        "exp_avg_sq_max_allowed_error": 8.77957687412055e-17
+      },
+      {
+        "name": "dec.2.1.film.weight",
+        "elements": 8192,
+        "parameters_max_formula_error": 3.722348082546567e-09,
+        "parameters_max_allowed_error": 2.9804229302825386e-08,
+        "exp_avg_max_formula_error": 2.7284841120950483e-13,
+        "exp_avg_max_allowed_error": 8.609293833394814e-12,
+        "exp_avg_sq_max_formula_error": 2.696538765259584e-19,
+        "exp_avg_sq_max_allowed_error": 3.886019526510775e-18
+      },
+      {
+        "name": "dec.2.1.film.bias",
+        "elements": 64,
+        "parameters_max_formula_error": 1.7977283550685286e-09,
+        "parameters_max_allowed_error": 2.9804229679524185e-08,
+        "exp_avg_max_formula_error": 1.0913936482261511e-12,
+        "exp_avg_max_allowed_error": 6.404257124614785e-11,
+        "exp_avg_sq_max_formula_error": 6.6022354788024206e-18,
+        "exp_avg_sq_max_allowed_error": 2.1503415061409588e-16
+      },
+      {
+        "name": "dec.2.1.c2.weight",
+        "elements": 3072,
+        "parameters_max_formula_error": 3.675680759762656e-09,
+        "parameters_max_allowed_error": 2.98042297141573e-08,
+        "exp_avg_max_formula_error": 4.3655745929046044e-12,
+        "exp_avg_max_allowed_error": 1.717715525373364e-10,
+        "exp_avg_sq_max_formula_error": 7.421377022835017e-17,
+        "exp_avg_sq_max_allowed_error": 1.546936189509276e-15
+      },
+      {
+        "name": "dec.2.1.c2.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 1.6042556311157696e-09,
+        "parameters_max_allowed_error": 2.9804229702101934e-08,
+        "exp_avg_max_formula_error": 2.1827872964523022e-12,
+        "exp_avg_max_allowed_error": 1.0629034319364903e-10,
+        "exp_avg_sq_max_formula_error": 1.2940491361154721e-17,
+        "exp_avg_sq_max_allowed_error": 5.923215536933415e-16
+      },
+      {
+        "name": "final_norm.weight",
+        "elements": 32,
+        "parameters_max_formula_error": 4.6304190259860434e-08,
+        "parameters_max_allowed_error": 4.768390655107624e-07,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 8.873927148655978e-11,
+        "exp_avg_sq_max_formula_error": 5.567438206440597e-18,
+        "exp_avg_sq_max_allowed_error": 4.128588852869397e-16
+      },
+      {
+        "name": "final_norm.bias",
+        "elements": 32,
+        "parameters_max_formula_error": 2.0824616165800148e-13,
+        "parameters_max_allowed_error": 2.362039735780483e-12,
+        "exp_avg_max_formula_error": 1.4551915309682015e-12,
+        "exp_avg_max_allowed_error": 6.46756648237101e-11,
+        "exp_avg_sq_max_formula_error": 7.463525685245291e-18,
+        "exp_avg_sq_max_allowed_error": 2.1930660962704547e-16
+      },
+      {
+        "name": "final.weight",
+        "elements": 96,
+        "parameters_max_formula_error": 7.923681676069716e-12,
+        "parameters_max_allowed_error": 1.183226704373399e-10,
+        "exp_avg_max_formula_error": 8.940696738513054e-09,
+        "exp_avg_max_allowed_error": 2.4707242118893186e-07,
+        "exp_avg_sq_max_formula_error": 1.483464145794755e-10,
+        "exp_avg_sq_max_allowed_error": 3.2005046304590278e-09
+      },
+      {
+        "name": "final.bias",
+        "elements": 1,
+        "parameters_max_formula_error": 1.7286156162618464e-12,
+        "parameters_max_allowed_error": 1.64585600367795e-11,
+        "exp_avg_max_formula_error": 4.547473449572335e-14,
+        "exp_avg_max_allowed_error": 5.16696546659645e-12,
+        "exp_avg_sq_max_formula_error": 5.132590784581013e-20,
+        "exp_avg_sq_max_allowed_error": 1.3997195726946466e-18
+      }
+    ],
+    "paired": [
+      {
+        "name": "paired_Adam_parameters",
+        "raw_difference_L2": 1.2312342762332582e-08,
+        "raw_difference_max_absolute": 7.450580596923828e-09,
+        "formula_difference_residual_max": 7.45058292839218e-09,
+        "max_rounding_allowance": 9.536781310553075e-07,
+        "passed": true,
+        "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+      },
+      {
+        "name": "paired_Adam_exp_avg",
+        "raw_difference_L2": 5.991424888401058e-08,
+        "raw_difference_max_absolute": 2.2351741790771484e-08,
+        "formula_difference_residual_max": 1.192092893842478e-08,
+        "max_rounding_allowance": 4.941448651152313e-07,
+        "passed": true,
+        "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+      },
+      {
+        "name": "paired_Adam_exp_avg_sq",
+        "raw_difference_L2": 1.1562894671580186e-09,
+        "raw_difference_max_absolute": 6.984919309616089e-10,
+        "formula_difference_residual_max": 9.407341398925961e-11,
+        "max_rounding_allowance": 6.401009849984639e-09,
+        "passed": true,
+        "interpretation": "Sensitivity-aware first-step formula check after tight full-gradient comparison; not bitwise equality"
+      }
+    ]
+  },
+  "reference_post_update_sha256": "cfba28389336696d5ba024de2c10ad23f1fa1cae9ac9b79e7dfc1165654bb04a",
+  "replay_post_update_sha256": "f6b8bbb3b7fb185b66a1e78596cc58b587543151f42e4d5e881c5a4efff0ca60",
+  "reference_clip_norm": 1147092.25,
+  "replay_clip_norm": 1147092.375,
+  "two_pass_D_parameter_VJPs": 2,
+  "two_pass_C_scalar_reverse_passes": 1,
+  "reference_single_scalar": "joint full D scalar + sum of four original C pieces",
+  "comparison_boundary": "Same inputs/state/device/chunks; reordered float32 parameter gradients use frozen R64 tolerance. No R64 separately differentiated five-piece bitwise claim.",
+  "scientific_training_updates": 0,
+  "caller_state_before": {
+    "torch_threads": 12,
+    "torch_interop_threads": 12,
+    "torch_default_dtype": "torch.float32",
+    "torch_grad_enabled": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": false,
+    "cuda_matmul_allow_tf32": false,
+    "float32_matmul_precision": "highest",
+    "mha_fastpath_enabled": false,
+    "torch_CPU_rng_sha256": "84b32e266323352ef60bb2b1e338ec8f8c06f44d130ac6bd0f778634bac0e628",
+    "numpy_legacy_rng": [
+      "MT19937",
+      "f4dd0193adf44fea40fc2c06836120001d50fada457a012bbea8fe4154c51e31",
+      623,
+      0,
+      0.0
+    ],
+    "torch_selected_CUDA_rng_sha256": "e6565c5948fdb4252ca73de4faaf2dbdf918aa45809fcfef90e634450361007a",
+    "CUDA_current_device": 0
+  },
+  "caller_state_after": {
+    "torch_threads": 12,
+    "torch_interop_threads": 12,
+    "torch_default_dtype": "torch.float32",
+    "torch_grad_enabled": true,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "cudnn_allow_tf32": false,
+    "cuda_matmul_allow_tf32": false,
+    "float32_matmul_precision": "highest",
+    "mha_fastpath_enabled": false,
+    "torch_CPU_rng_sha256": "84b32e266323352ef60bb2b1e338ec8f8c06f44d130ac6bd0f778634bac0e628",
+    "numpy_legacy_rng": [
+      "MT19937",
+      "f4dd0193adf44fea40fc2c06836120001d50fada457a012bbea8fe4154c51e31",
+      623,
+      0,
+      0.0
+    ],
+    "torch_selected_CUDA_rng_sha256": "e6565c5948fdb4252ca73de4faaf2dbdf918aa45809fcfef90e634450361007a",
+    "CUDA_current_device": 0
+  },
+  "caller_state_preserved": true,
+  "elapsed_seconds": 1.2654374179983279,
+  "definition_sources_unchanged": true,
+  "compact": {
+    "passed": true,
+    "device": "cuda:0",
+    "checks": 21,
+    "synthetic_optimizer_steps": 2,
+    "scientific_updates": 0,
+    "all_parameters": 1369889
+  }
+}
