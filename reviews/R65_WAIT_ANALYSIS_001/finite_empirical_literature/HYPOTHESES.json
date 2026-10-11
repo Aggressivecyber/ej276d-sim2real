@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSED_ONLY_NOT_REGISTERED_NOT_EXECUTED",
+  "applies_to_active_R65": false,
+  "original_A_F_changed": false,
+  "common": {
+    "future_separate_registration_required": true,
+    "new_jobs_started": 0,
+    "scientific_array_reads": 0,
+    "weight_reads": 0,
+    "parameter_updates": 0,
+    "unique_theta": "one future compliant unique endpoint with original provenance; never choose from intermediate losses",
+    "frozen_inputs": "original TRAIN populations, metadata, noise law, feature scales, region masses, directions and model numerical mode",
+    "macro_groups": 32,
+    "bootstrap": "1000 paired macro-group resamples, 95 percent interval; no adaptive extension",
+    "tolerance_status": "tau_D and tau_q must be registered from independent artificial checks before any new scientific results; not selected by this memo",
+    "forbidden_inference": "A-F success, gradient bias improvement, new acquisition generalization or physical mapping identification"
+  },
+  "H1": {
+    "hypothesis": "A mean of one-noise-per-parent complete D values has a numerically resolved positive Jensen gap relative to pooling K independent noise occurrences per parent.",
+    "priority": "first diagnostic to consider after original R65 resolution; no automatic activation",
+    "K": 4,
+    "primary_statistic": "Delta_m=(1/K) sum_k D(mu_epsilon_mk,nu)-D((1/K)sum_k mu_epsilon_mk,nu)",
+    "measure": "every pooled SOURCE occurrence has global mass 1/(K*6593); within-region mass 1/(K*N_SOURCE_region); original outer masses fixed",
+    "use_cached_feature_values": true,
+    "no_waveform_averaging": true,
+    "C_included": false,
+    "mathematical_property": "Delta_m >= 0 in exact arithmetic for fixed directions, scales, REAL and these five D definitions, including monotone RMS of nonnegative coordinate W1",
+    "pass": [
+      "all Delta_m >= -tau_D",
+      "95 percent interval lower endpoint for mean Delta > tau_D"
+    ],
+    "stop": [
+      "any Delta_m < -tau_D: retain implementation/numerical failure, do not interpret science",
+      "otherwise unresolved interval: report not resolved and do not loosen tolerance or extend sampling"
+    ],
+    "does_not_estimate": "true integrated-noise gradient, population uncertainty or independent-acquisition response"
+  },
+  "H2": {
+    "hypothesis": "A change of D-C coupling with preserved D and C marginals changes the raw combined-gradient second-moment trace by a numerically resolvable amount.",
+    "pairing": "same fixed theta, directions, all C IDs and per-occurrence noise, unchanged identity noise; independent D field shared for untouched parents",
+    "independent_arm": "original R65 independent full SOURCE epsilon",
+    "coupled_arm": "for each distinct SOURCE parent in C, replace only its one D white-noise row by the first occurrence's original independent C white-noise row; retain every C occurrence untouched",
+    "marginal_proof": "Conditional on C parent IDs, distinct parents choose distinct first occurrence slots; selected C noises and all unselected D noises are independent with the same original distribution. Therefore the D full-field marginal remains iid under the registered independent-stream model, and C is unchanged.",
+    "primary_statistic": "q_m=2*dot(g_C,g_D_coupled-g_D_independent)",
+    "primary_interpretation": "E[q] equals change in E[||g_D+g_C||^2] because D and C marginal second moments are preserved",
+    "pass": [
+      "artificial marginal/duplicate-parent construction checks passed",
+      "C parameter gradient bitwise equal and original full D replay checks passed",
+      "paired 95 percent q interval excludes [-tau_q,+tau_q]"
+    ],
+    "stop": [
+      "any mechanical/marginal/replay failure: stop and retain failure",
+      "unresolved interval: report not resolved; no claim of equality of all coordinate covariances or updates"
+    ],
+    "descriptive_secondary": [
+      "combined clip rate",
+      "clipped gradient norm",
+      "one shadow Adam update from an identical hash-bound theta-synchronous optimizer state, if available"
+    ],
+    "synthetic_or_scientific_optimizer_steps_committed": 0,
+    "limitation": "neither sign is automatically beneficial; this is not a reconstruction of original R63 coupling or an isolation of entire R63-R65 trajectory effects"
+  }
+}

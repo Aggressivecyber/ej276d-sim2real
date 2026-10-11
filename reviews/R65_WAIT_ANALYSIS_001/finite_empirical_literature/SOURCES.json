@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "primary_sources_only": true,
+  "scope": "five narrow original sources; no broad review or external code execution",
+  "sources": [
+    {
+      "id": "FATRAS_2021",
+      "relation_to_existing_review": "reused, narrowed theorem boundary",
+      "title": "Minibatch optimal transport distances; analysis and applications",
+      "authors": "Kilian Fatras et al.",
+      "version": "arXiv:2101.01792v1 (2021)",
+      "url": "https://arxiv.org/html/2101.01792v1",
+      "locator": "Theorems 29-30; Appendix 7.6",
+      "verified_claim": "The stated OT gradient/expectation interchange uses C1 sample maps, finite moments and an additional integrability assumption.",
+      "project_limit": "The hard ADC/STE and all original piecewise model operations have not been proved to satisfy these hypotheses; no unbiased classical R65 gradient claim.",
+      "primary_source": true,
+      "accessed_UTC_date": "2026-10-11"
+    },
+    {
+      "id": "RAINFORTH_2018",
+      "relation_to_existing_review": "new narrow source",
+      "title": "On Nesting Monte Carlo Estimators",
+      "authors": "Tom Rainforth, Rob Cornish, Hongseok Yang, Andrew Warrington, Frank Wood",
+      "version": "ICML 2018, PMLR 80:4267-4276",
+      "url": "https://proceedings.mlr.press/v80/rainforth18a/rainforth18a.pdf",
+      "landing_url": "https://proceedings.mlr.press/v80/rainforth18a.html",
+      "locator": "Section 3, fixed-M limiting argument and Theorem 1",
+      "verified_claim": "For fixed inner sample count the outer Monte Carlo average tends to the expectation of the finite inner estimator's transformed value; Theorem 1 adds Lipschitz and L2 hypotheses for its rate.",
+      "project_limit": "The project's empirical-measure-valued stratification and ADC surrogate gradients are not directly covered by the rate statement. The convexity/Jensen argument in this memo is independently derived from original D.",
+      "primary_source": true,
+      "accessed_UTC_date": "2026-10-11"
+    },
+    {
+      "id": "FOURNIER_GUILLIN_2013_2015",
+      "relation_to_existing_review": "new narrow source",
+      "title": "On the rate of convergence in Wasserstein distance of the empirical measure",
+      "authors": "Nicolas Fournier and Arnaud Guillin",
+      "version": "arXiv:1312.2128v1 (2013); later published 2015",
+      "url": "https://arxiv.org/pdf/1312.2128v1",
+      "locator": "Section 1.1 (iid empirical measure); Section 1.2, Theorem 1",
+      "verified_claim": "Expected empirical transport error is bounded under finite q>p moment assumptions, with dependence on dimension, transport order and moments.",
+      "project_limit": "Parent independence, acquisition dependence and a fitted-theta uniform generalization argument have not been verified; no numerical project bound or effective sample size is imported.",
+      "primary_source": true,
+      "accessed_UTC_date": "2026-10-11"
+    },
+    {
+      "id": "ADAM_2014",
+      "relation_to_existing_review": "new narrow source",
+      "title": "Adam: A Method for Stochastic Optimization",
+      "authors": "Diederik P. Kingma and Jimmy Ba",
+      "version": "arXiv:1412.6980v9; paper originally 2014",
+      "url": "https://arxiv.org/pdf/1412.6980v9",
+      "locator": "Algorithm 1, page 2",
+      "verified_claim": "The algorithm accumulates first and coordinatewise second raw moments of the supplied stochastic gradient and applies a nonlinear normalized update.",
+      "project_limit": "The D/C covariance expansion and the preceding combined clip are project-specific analysis, not a convergence guarantee for this constrained neural response.",
+      "primary_source": true,
+      "accessed_UTC_date": "2026-10-11"
+    },
+    {
+      "id": "MORIAKOV_2020",
+      "relation_to_existing_review": "reused, narrow identifiability analogy",
+      "title": "Kernel of CycleGAN as a Principal Homogeneous Space",
+      "authors": "Nikita Moriakov, Jonas Adler, Jonas Teuwen",
+      "version": "arXiv:2001.09061v1; ICLR 2020",
+      "url": "https://arxiv.org/pdf/2001.09061v1",
+      "locator": "Propositions 2.1-2.2",
+      "verified_claim": "Under the paper's pure CycleGAN assumptions, probability-space automorphisms act on exact solutions.",
+      "project_limit": "R65 has neither the paper's reverse map nor CycleGAN loss. This is not a proof of non-identifiability for R65 after all its constraints.",
+      "primary_source": true,
+      "accessed_UTC_date": "2026-10-11"
+    }
+  ],
+  "quotations_used": false,
+  "external_code_downloaded_or_executed": false,
+  "web_access_failures_not_used_as_evidence": [
+    "publisher DOI 10.1007/s00440-014-0583-7 returned internal error; author manuscript arXiv v1 was read instead"
+  ]
+}

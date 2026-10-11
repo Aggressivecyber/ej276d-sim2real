@@ -53,10 +53,16 @@ receipt={'UTC':datetime.now(timezone.utc).isoformat(),'control_PID':os.getpid(),
 active=observed.get('REMOTE_ACTIVE_JOB.json',{})
 compact={'actual_PID_present':observed['actual_PID_present'],'entry':active.get('entry'),
     'PID':active.get('actual_worker_PID'),'native_exit':active.get('actual_worker_native_exit'),
-    'termination_reason':active.get('termination_reason'),'tree_RSS_peak_bytes':active.get('job_tree_RSS_peak_bytes'),
-    'GPU_process_peak_bytes':active.get('GPU_process_memory_peak_bytes')}
-for name in ('actual_PID_memory_now','GPU_process_query_now','TRAIN_PROGRESS.json','TRAINING_FAILURE.json'):
+    'termination_reason':active.get('termination_reason')}
+for name in ('actual_PID_memory_now','GPU_process_query_now','TRAINING_FAILURE.json'):
     if name in observed:compact[name]=observed[name]
+if 'TRAIN_PROGRESS.json' in observed:
+    progress=observed['TRAIN_PROGRESS.json']
+    compact['training_log']={k:progress[k] for k in ('UTC','global_step','elapsed_s_this_attempt',
+       'GPU_allocated_peak_bytes','GPU_reserved_peak_bytes','max_output_relative_q_error_f32') if k in progress}
+    means=progress.get('last_up_to100_mean',{})
+    compact['training_log']['last_up_to100_mean']={k:means[k] for k in ('total_loss','D_total','C_total',
+        'overall_PSD_W1','Q1_Q7_mean_PSD_W1','D_parameter_gradient_L2','C_parameter_gradient_L2') if k in means}
 if 'ARTIFICIAL_SUITE_PROGRESS.json' in observed:
     suite=observed['ARTIFICIAL_SUITE_PROGRESS.json']
     compact['artificial_suite']={k:suite[k] for k in ('current_check','completed_checks','status','pass','elapsed_s') if k in suite}

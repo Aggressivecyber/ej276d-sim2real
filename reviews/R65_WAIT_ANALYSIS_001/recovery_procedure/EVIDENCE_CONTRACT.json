@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "constructor": "build_recovery_request.py",
+  "scope": "root-supplied saved JSON evidence; strict structural/provenance consistency",
+  "manifest": {
+    "schema_version": 1,
+    "evidence_kind": [
+      "root_saved_evidence",
+      "artificial_saved_record"
+    ],
+    "logical_run_id": "fixed R65 stage@remote_root",
+    "frozen_binding": "exact protocol_SHA/config_SHA/input_binding_SHA/implementation_review_SHA and nonempty environment object; frozen hashes are embedded in constructor",
+    "attempts": "chronological descriptors {attempt_id,resumed_from_update,physical_source_kind}; first start0; later >=500 and divisible500; unique IDs",
+    "references": "mapping role -> {path,sha256}; relative slash path inside evidence-bundle directory, .json only, no symlink traversal; raw bytes hash checked; max16MiB/document"
+  },
+  "required_global_roles": {
+    "frozen_verification": "saved root verification after latest death; exact run/binding/trainer SHA and four true revalidation flags, scope saved_root_observation_no_training_advance, UTC",
+    "artificial_suite": "original saved suite receipt; pass=true and implementation_review_SHA equals frozen review hash",
+    "checkpoint_observation": "saved root byte-hash observation after old processes died; exact published target, bytes, SHA256, regular non-symlink file, no tmp promotion, no deserialization for this hash observation",
+    "publication_committed": "required iff inventory says RECOVERY_CHECKPOINT.json exists; untouched original JSON bytes",
+    "publication_pending": "required iff inventory says RECOVERY_CHECKPOINT_PENDING.json exists; untouched original JSON bytes"
+  },
+  "per_attempt_roles_under": "attempt/<attempt_id>/",
+  "per_attempt_roles": {
+    "science_pid": "raw saved train_final.py.SCIENCE_PID.json",
+    "rss_ack": "raw saved train_final.py.RSS_ACK.json",
+    "native_receipt": "raw saved train_final.py.NATIVE_RECEIPT.json with actual wait returncode; integer zero or nonzero retained, never inferred from absence",
+    "death_confirmation": "root-saved independent observation matching nonce/PIDs/run/native receipt SHA and same host/process namespace; actual worker/supervisor/owned descendant absence; collector and UTC after stop",
+    "archive_inventory": "closed full stage snapshot except native_attempts, independent byte copies, full existing/missing mutable-path inventory, original/archive bytes and SHA equality, UTC after death",
+    "physical_snapshot": "raw PHYSICAL_PROGRESS or TRAINING_FAILURE; alternatively root-provided CHECKPOINT_METADATA with exact archived checkpoint SHA and saved physical_this_attempt",
+    "previous_recovery_request": "for each resumed attempt only, exact request JSON used by that attempt; constructor v1 exact13 fields",
+    "prior_selected_publication": "for each resumed attempt only, exact saved publication JSON selected by its incoming request; connects predecessor archive and request SHA"
+  },
+  "archive_record": {
+    "absent": {
+      "exists": false
+    },
+    "present": {
+      "exists": true,
+      "archive_relative_path": "native_attempts/<id>/stage/<original_relative_path>",
+      "source_sha256": "64 lower hex",
+      "archive_sha256": "same",
+      "source_bytes": "nonnegative integer",
+      "archive_bytes": "same",
+      "regular_file": true,
+      "source_symlink": false
+    },
+    "constraints": "full closed inventory includes all required mutable paths, native/used/log files, initialization/suite/start files, both journal paths and formal/tmp checkpoint paths, and all nine possible finalization outputs"
+  },
+  "physical_sources": {
+    "PHYSICAL_PROGRESS": "native_attempt_id/PID/logical_run_id/UTC, phase, current_update, last_completed_update, attempt_start_committed_update, known_completed_physical_operations_this_attempt, physical_schema_counter_lower_bound",
+    "TRAINING_FAILURE": "same as failure source fields; updates is logical completed lower bound; resumed baseline comes from immutable incoming request",
+    "CHECKPOINT_METADATA": "scope root_saved_checkpoint_metadata_no_training_advance; bound checkpoint SHA, native_attempt_id/run/transaction_version1/attempt_start_update/committed_update/publication_UTC, all_fields_after_completed_optimizer_and_log_commit=true, physical_this_attempt exact saved counters. Constructor does not open checkpoint."
+  },
+  "outputs": [
+    {
+      "name": "RECOVERY_REQUEST.DRAFT.json",
+      "meaning": "exact13-field interface, no live-stage installation"
+    },
+    {
+      "name": "EVIDENCE_VALIDATION.json",
+      "meaning": "saved evidence hashes, selected transaction, prior chain, physical lower bounds/unknown intervals, explicit no-native-validation/no-process-access facts"
+    }
+  ],
+  "request_fields": [
+    "logical_run_id",
+    "prior_actual_PID_gone",
+    "prior_native_attempt_preserved",
+    "frozen_binding",
+    "checkpoint_publication_receipt_path",
+    "checkpoint_publication_receipt_SHA256",
+    "committed_update",
+    "checkpoint_creator_attempt_id",
+    "checkpoint_SHA256",
+    "preserved_physical_attempt_compute",
+    "previous_native_attempt_id",
+    "prior_recovery_history",
+    "preserved_finalization_outputs"
+  ],
+  "local_usage_example": "E:\\GAN\\runtime_envs\\fresh_noise_cpu_20261007_103015\\venv\\Scripts\\python.exe -B build_recovery_request.py --evidence E:\\<saved-evidence>\\EVIDENCE_BUNDLE.json --output E:\\<new-draft-dir>",
+  "usage_boundary": "This is a local Windows preparation utility using native one-CPU/1GiB limits. No Linux-server execution or remote deployment is needed to generate a draft.",
+  "artifact_example": "selfcheck_saved_records/attempt_001/fixtures/committed_target/EVIDENCE_BUNDLE.json is a complete ARTIFICIAL format example; it must not be used as actual recovery evidence.",
+  "trust_boundary": "The constructor verifies raw saved JSON byte hashes and consistency. It cannot authenticate whether externally supplied native/PID/archive/hash observations were truthfully collected; root must retain their actual collection evidence. It does not deserialize or validate checkpoint tensors.",
+  "invalid_inputs": "Missing required evidence and inconsistent hashes/PIDs/nonces/native exits/history/counters fail with EvidenceError before output directory creation. Existing output directory is never overwritten. Unexpected keys in prior request are rejected to avoid silently changing its interface."
+}

@@ -1,0 +1,569 @@
+{
+  "R65_supervisor": "1: from pathlib import Path\n2: from datetime import datetime, timezone\n3: import os, sys, json, time, uuid, subprocess, signal, shutil\n4: \n5: ROOT=Path(__file__).resolve().parent\n6: os.chdir(ROOT)\n7: cfg=json.loads((ROOT/'config.json').read_text('utf8'))\n8: os.sched_setaffinity(0,sorted(os.sched_getaffinity(0))[:cfg['CPU_threads']])\n9: entry=sys.argv[1]\n10: use_gpu=entry in cfg['GPU_scientific_entries']\n11: if entry not in cfg['allowed_scientific_entries']:raise ValueError('unregistered scientific entry')\n12: if any(cfg[k] is not None for k in ['science_budget','deadline_UTC','output_limit_bytes']):\n13:     raise ValueError('R61 requires explicit null budget fields')\n14: for k in ['OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS','NUMEXPR_NUM_THREADS','BLIS_NUM_THREADS']:\n15:     os.environ[k]=str(cfg['CPU_threads'])\n16: for n in ['tmp','torch','cuda','matplotlib','joblib']:(ROOT/'cache'/n).mkdir(exist_ok=True,parents=True)\n17: os.environ.update(PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1',TMPDIR=str(ROOT/'cache/tmp'),\n18:     TEMP=str(ROOT/'cache/tmp'),TMP=str(ROOT/'cache/tmp'),TORCH_HOME=str(ROOT/'cache/torch'),\n19:     CUDA_CACHE_PATH=str(ROOT/'cache/cuda'),MPLCONFIGDIR=str(ROOT/'cache/matplotlib'),\n20:     JOBLIB_TEMP_FOLDER=str(ROOT/'cache/joblib'),CUBLAS_WORKSPACE_CONFIG=':4096:8',\n21:     OWNED_SCIENCE_NONCE=uuid.uuid4().hex)\n22: def utc():return datetime.now(timezone.utc).isoformat()\n23: def write(n,v):(ROOT/n).write_bytes((json.dumps(v,indent=2,allow_nan=False)+'\\n').encode())\n24: history=json.loads((ROOT/'REMOTE_RUN_HISTORY.json').read_text())if(ROOT/'REMOTE_RUN_HISTORY.json').exists()else[]\n25: if(ROOT/(entry+'.used')).exists():raise RuntimeError('already submitted; resolve existing identity and native receipt')\n26: meminfo={l.split(':')[0]:int(l.split()[1])*1024 for l in Path('/proc/meminfo').read_text().splitlines()}\n27: own=[]\n28: base='/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305'\n29: for d in Path('/proc').iterdir():\n30:     if not d.name.isdigit()or int(d.name)==os.getpid():continue\n31:     try:\n32:         a=(d/'cmdline').read_bytes().replace(b'\\0',b' ').decode('utf8','replace');c=str((d/'cwd').resolve())\n33:         if 'python' in a and(base in a or c.startswith(base)):own.append({'PID':int(d.name),'argv':a,'cwd':c})\n34:     except(OSError,PermissionError):pass\n35: resource={'UTC':utc(),'MemAvailable_bytes':meminfo['MemAvailable'],\n36:           'RSS_quota_bytes':cfg['RSS_limit_bytes'],'CPU_threads':cfg['CPU_threads'],\n37:           'disk_free_bytes':shutil.disk_usage(ROOT).free,'other_own_project_jobs':own,\n38:           'execution_device':'cpu','GPU_admission_applied':False,\n39:           'GPU_allocated_reserved_safety_limits_bytes':cfg['GPU_limit_bytes'],\n40:           'compute_budget_enforced':False,'limit_s':None,'stage_output_limit_bytes':None}\n41: if use_gpu:\n42:     free_gpu=subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True,timeout=5).strip().splitlines()\n43:     other_gpu=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,used_gpu_memory','--format=csv,noheader,nounits'],text=True,timeout=5).strip()\n44:     resource.update(execution_device='cuda:0',GPU_admission_applied=True,GPU_free_bytes=int(free_gpu[0])*1048576,other_GPU_compute_jobs=other_gpu)\n45:     if resource['GPU_free_bytes']<11811160064 or other_gpu:raise RuntimeError(('GPU admission unavailable',resource))\n46: write(entry+'.START_RESOURCE.json',resource)\n47: if meminfo['MemAvailable']<cfg['MemAvailable_min_bytes']:raise RuntimeError('registered machine memory admission unavailable')\n48: if resource['disk_free_bytes']<=0:raise RuntimeError('filesystem full')\n49: if own:raise RuntimeError(('other project job must be resolved',own))\n50: (ROOT/(entry+'.used')).write_bytes((utc()+'\\n').encode())\n51: def memory(pid):\n52:     vals={}\n53:     for line in Path('/proc/'+str(pid)+'/status').read_text().splitlines():\n54:         if line.startswith(('VmRSS:','VmHWM:')):vals[line.split(':',1)[0]]=int(line.split()[1])*1024\n55:     if 'VmRSS'not in vals:raise OSError('actual PID RSS unavailable')\n56:     return max(vals.values())\n57: def process_tree(pid):\n58:     links={}\n59:     for d in Path('/proc').iterdir():\n60:         if not d.name.isdigit():continue\n61:         try:links[int(d.name)]=int((d/'stat').read_text().rsplit(')',1)[1].split()[1])\n62:         except(OSError,ValueError,IndexError):pass\n63:     seen={pid}\n64:     while True:\n65:         new={p for p,parent in links.items()if parent in seen}\n66:         if new.issubset(seen):return seen\n67:         seen.update(new)\n68: def tree_rss(pid):\n69:     total=0;members=[]\n70:     for p0 in process_tree(pid):\n71:         try:\n72:             value=next(int(l.split()[1])*1024 for l in Path('/proc/'+str(p0)+'/status').read_text().splitlines()if l.startswith('VmRSS:'))\n73:             total+=value;members.append(p0)\n74:         except(OSError,StopIteration):\n75:             if p0==pid:raise OSError('owned tree root RSS unavailable')\n76:     return total,members\n77: start=time.monotonic()\n78: row={'entry':entry,'supervisor_PID':os.getpid(),'start_UTC':utc(),'python':sys.executable,\n79:      'limit_s':None,'compute_budget_enforced':False,'wall_deadline_UTC':None,\n80:      'stage_output_limit_bytes':None,'actual_worker_PID':None,'actual_worker_RSS_peak_bytes':None,\n81:      'memory_probe_failures':0,'memory_probe_failure_events':[],'handshake_before_imports':False,\n82:      'job_tree_RSS_peak_bytes':0,'execution_device':'cuda:0' if use_gpu else 'cpu','GPU_admission_applied':use_gpu,\n83:      'GPU_process_memory_peak_bytes':0 if use_gpu else None,'GPU_query_failures':[],'RSS_limit_bytes':cfg['RSS_limit_bytes'],'start_resource':resource}\n84: reason=None\n85: with(ROOT/(entry+'.stdout.log')).open('wb')as out,(ROOT/(entry+'.stderr.log')).open('wb')as err:\n86:     p=subprocess.Popen([sys.executable,'-B',str(ROOT/'linux_owned_worker.py'),entry],cwd=ROOT,\n87:         stdout=out,stderr=err,env=os.environ.copy(),start_new_session=True)\n88:     row['launcher_PID']=p.pid;write('REMOTE_ACTIVE_JOB.json',row);print(json.dumps({'started':row}),flush=True)\n89:     def stop_owned():\n90:         if p.poll()is None:\n91:             if os.getpgid(p.pid)==p.pid:os.killpg(p.pid,signal.SIGTERM)\n92:             else:p.terminate()\n93:             try:p.wait(timeout=2)\n94:             except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()\n95:     last_disk=0.;last_progress=0.;last_gpu=0.\n96:     try:\n97:         while p.poll()is None:\n98:             if row['actual_worker_PID']is None:\n99:                 hp=ROOT/(entry+'.SCIENCE_PID.json')\n100:                 if hp.exists():\n101:                     try:hs=json.loads(hp.read_text())\n102:                     except json.JSONDecodeError:hs=None\n103:                     if hs and hs['nonce']==os.environ['OWNED_SCIENCE_NONCE']:\n104:                         if hs['PID']!=p.pid or hs['parent_PID']!=os.getpid()or hs['cwd']!=str(ROOT):\n105:                             raise RuntimeError('owned science identity mismatch')\n106:                         peak=memory(p.pid);row.update(actual_worker_PID=p.pid,actual_worker_parent_PID=hs['parent_PID'],\n107:                             actual_worker_RSS_peak_bytes=peak,handshake_before_imports=hs['before_scientific_imports'])\n108:                         write(entry+'.RSS_ACK.json',{'actual_PID':p.pid,'nonce':hs['nonce'],\n109:                             'actual_PID_memory_query_success':True,'supervisor_PID':os.getpid(),\n110:                             'RSS_limit_bytes':cfg['RSS_limit_bytes'],'UTC':utc()})\n111:                         write('REMOTE_ACTIVE_JOB.json',row);print(json.dumps({'bound_actual_science':row}),flush=True)\n112:                 if time.monotonic()-start>20 and row['actual_worker_PID']is None:\n113:                     reason='startup_identity_handshake_failed_before_imports'\n114:             else:\n115:                 try:\n116:                     row['actual_worker_RSS_peak_bytes']=max(row['actual_worker_RSS_peak_bytes'],memory(p.pid))\n117:                     total,members=tree_rss(p.pid)\n118:                     row['job_tree_RSS_peak_bytes']=max(row['job_tree_RSS_peak_bytes'],total)\n119:                     row['last_job_tree_PIDs']=members\n120:                     if total>cfg['RSS_limit_bytes']:reason='machine_job_tree_RSS_limit'\n121:                 except OSError as exc:\n122:                     if p.poll()is None:\n123:                         row['memory_probe_failures']+=1\n124:                         row['memory_probe_failure_events'].append({'UTC':utc(),'PID':p.pid,'poll':p.poll(),\n125:                             'context':'actual_PID_query','error':repr(exc),'cause':'unknown'})\n126:                         if row['memory_probe_failures']>5:reason='machine_RSS_monitor_unavailable'\n127:             if use_gpu and row['actual_worker_PID'] is not None and time.monotonic()-last_gpu>=2:\n128:                 last_gpu=time.monotonic()\n129:                 try:\n130:                     output=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,used_gpu_memory','--format=csv,noheader,nounits'],text=True,timeout=3)\n131:                     members=process_tree(p.pid);used=0\n132:                     for line in output.splitlines():\n133:                         if line.strip():\n134:                             parts=line.split(',')\n135:                             if int(parts[0]) in members:used+=int(parts[1])*1048576\n136:                     row['GPU_process_memory_peak_bytes']=max(row['GPU_process_memory_peak_bytes'],used)\n137:                     if used>cfg['GPU_limit_bytes']:reason='machine_GPU_process_memory_limit'\n138:                 except BaseException as exc:\n139:                     row['GPU_query_failures'].append({'UTC':utc(),'error':repr(exc)})\n140:                     if len(row['GPU_query_failures'])>5:reason='machine_GPU_monitor_unavailable'\n141:             if time.monotonic()-last_disk>20:\n142:                 last_disk=time.monotonic()\n143:                 row['last_disk_free_bytes']=shutil.disk_usage(ROOT).free\n144:                 if row['last_disk_free_bytes']<=0:reason='filesystem_full'\n145:             if time.monotonic()-last_progress>30:\n146:                 last_progress=time.monotonic()\n147:                 print(json.dumps({'running':{'entry':entry,'actual_PID':row['actual_worker_PID'],\n148:                     'elapsed_s':time.monotonic()-start,'job_tree_RSS_peak_bytes':row['job_tree_RSS_peak_bytes'],\n149:                     'limit_s':None}}),flush=True)\n150:             if reason:stop_owned();break\n151:             time.sleep(.1)\n152:         p.wait()\n153:     except BaseException as exc:reason=repr(exc);stop_owned()\n154: row.update(actual_worker_native_exit=p.returncode,launcher_native_exit=p.returncode,\n155:     termination_reason=reason,elapsed_s=time.monotonic()-start,stop_UTC=utc())\n156: wp=ROOT/(entry+'.WORKER_RECEIPT.json')\n157: if wp.exists():\n158:     row['worker_self_receipt']=json.loads(wp.read_text())\n159:     row['actual_worker_RSS_peak_bytes']=max(row['actual_worker_RSS_peak_bytes']or 0,row['worker_self_receipt']['self_peak_RSS_bytes'])\n160: history.append(row)\n161: write('REMOTE_RUN_HISTORY.json',history);write(entry+'.NATIVE_RECEIPT.json',row);write('REMOTE_ACTIVE_JOB.json',row)\n162: print(json.dumps({'finished':row}),flush=True)\n163: raise SystemExit(0 if p.returncode==0 and reason is None and row['handshake_before_imports']else 1)",
+  "R65_reporting_supervisor": "1: from pathlib import Path\n2: from datetime import datetime, timezone\n3: import os, sys, json, time, uuid, subprocess, signal, shutil\n4: \n5: ROOT=Path(__file__).resolve().parent\n6: os.chdir(ROOT)\n7: cfg=json.loads((ROOT/'config_reporting.json').read_text('utf8'))\n8: os.sched_setaffinity(0,sorted(os.sched_getaffinity(0))[:cfg['CPU_threads']])\n9: entry=sys.argv[1]\n10: use_gpu=entry in cfg['GPU_scientific_entries']\n11: if entry not in cfg['allowed_scientific_entries']:raise ValueError('unregistered scientific entry')\n12: if any(cfg[k] is not None for k in ['science_budget','deadline_UTC','output_limit_bytes']):\n13:     raise ValueError('R61 requires explicit null budget fields')\n14: for k in ['OMP_NUM_THREADS','MKL_NUM_THREADS','OPENBLAS_NUM_THREADS','NUMEXPR_NUM_THREADS','BLIS_NUM_THREADS']:\n15:     os.environ[k]=str(cfg['CPU_threads'])\n16: for n in ['tmp','torch','cuda','matplotlib','joblib']:(ROOT/'cache'/n).mkdir(exist_ok=True,parents=True)\n17: os.environ.update(PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1',TMPDIR=str(ROOT/'cache/tmp'),\n18:     TEMP=str(ROOT/'cache/tmp'),TMP=str(ROOT/'cache/tmp'),TORCH_HOME=str(ROOT/'cache/torch'),\n19:     CUDA_CACHE_PATH=str(ROOT/'cache/cuda'),MPLCONFIGDIR=str(ROOT/'cache/matplotlib'),\n20:     JOBLIB_TEMP_FOLDER=str(ROOT/'cache/joblib'),CUBLAS_WORKSPACE_CONFIG=':4096:8',\n21:     OWNED_SCIENCE_NONCE=uuid.uuid4().hex)\n22: def utc():return datetime.now(timezone.utc).isoformat()\n23: def write(n,v):(ROOT/n).write_bytes((json.dumps(v,indent=2,allow_nan=False)+'\\n').encode())\n24: history=json.loads((ROOT/'REMOTE_RUN_HISTORY.json').read_text())if(ROOT/'REMOTE_RUN_HISTORY.json').exists()else[]\n25: if(ROOT/(entry+'.used')).exists():raise RuntimeError('already submitted; resolve existing identity and native receipt')\n26: meminfo={l.split(':')[0]:int(l.split()[1])*1024 for l in Path('/proc/meminfo').read_text().splitlines()}\n27: own=[]\n28: base='/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305'\n29: for d in Path('/proc').iterdir():\n30:     if not d.name.isdigit()or int(d.name)==os.getpid():continue\n31:     try:\n32:         a=(d/'cmdline').read_bytes().replace(b'\\0',b' ').decode('utf8','replace');c=str((d/'cwd').resolve())\n33:         if 'python' in a and(base in a or c.startswith(base)):own.append({'PID':int(d.name),'argv':a,'cwd':c})\n34:     except(OSError,PermissionError):pass\n35: resource={'UTC':utc(),'MemAvailable_bytes':meminfo['MemAvailable'],\n36:           'RSS_quota_bytes':cfg['RSS_limit_bytes'],'CPU_threads':cfg['CPU_threads'],\n37:           'disk_free_bytes':shutil.disk_usage(ROOT).free,'other_own_project_jobs':own,\n38:           'execution_device':'cpu','GPU_admission_applied':False,\n39:           'GPU_allocated_reserved_safety_limits_bytes':cfg['GPU_limit_bytes'],\n40:           'compute_budget_enforced':False,'limit_s':None,'stage_output_limit_bytes':None}\n41: if use_gpu:\n42:     free_gpu=subprocess.check_output(['nvidia-smi','--query-gpu=memory.free','--format=csv,noheader,nounits'],text=True,timeout=5).strip().splitlines()\n43:     other_gpu=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,used_gpu_memory','--format=csv,noheader,nounits'],text=True,timeout=5).strip()\n44:     resource.update(execution_device='cuda:0',GPU_admission_applied=True,GPU_free_bytes=int(free_gpu[0])*1048576,other_GPU_compute_jobs=other_gpu)\n45:     if resource['GPU_free_bytes']<11811160064 or other_gpu:raise RuntimeError(('GPU admission unavailable',resource))\n46: write(entry+'.START_RESOURCE.json',resource)\n47: if meminfo['MemAvailable']<cfg['MemAvailable_min_bytes']:raise RuntimeError('registered machine memory admission unavailable')\n48: if resource['disk_free_bytes']<=0:raise RuntimeError('filesystem full')\n49: if own:raise RuntimeError(('other project job must be resolved',own))\n50: (ROOT/(entry+'.used')).write_bytes((utc()+'\\n').encode())\n51: def memory(pid):\n52:     vals={}\n53:     for line in Path('/proc/'+str(pid)+'/status').read_text().splitlines():\n54:         if line.startswith(('VmRSS:','VmHWM:')):vals[line.split(':',1)[0]]=int(line.split()[1])*1024\n55:     if 'VmRSS'not in vals:raise OSError('actual PID RSS unavailable')\n56:     return max(vals.values())\n57: def process_tree(pid):\n58:     links={}\n59:     for d in Path('/proc').iterdir():\n60:         if not d.name.isdigit():continue\n61:         try:links[int(d.name)]=int((d/'stat').read_text().rsplit(')',1)[1].split()[1])\n62:         except(OSError,ValueError,IndexError):pass\n63:     seen={pid}\n64:     while True:\n65:         new={p for p,parent in links.items()if parent in seen}\n66:         if new.issubset(seen):return seen\n67:         seen.update(new)\n68: def tree_rss(pid):\n69:     total=0;members=[]\n70:     for p0 in process_tree(pid):\n71:         try:\n72:             value=next(int(l.split()[1])*1024 for l in Path('/proc/'+str(p0)+'/status').read_text().splitlines()if l.startswith('VmRSS:'))\n73:             total+=value;members.append(p0)\n74:         except(OSError,StopIteration):\n75:             if p0==pid:raise OSError('owned tree root RSS unavailable')\n76:     return total,members\n77: start=time.monotonic()\n78: row={'entry':entry,'supervisor_PID':os.getpid(),'start_UTC':utc(),'python':sys.executable,\n79:      'limit_s':None,'compute_budget_enforced':False,'wall_deadline_UTC':None,\n80:      'stage_output_limit_bytes':None,'actual_worker_PID':None,'actual_worker_RSS_peak_bytes':None,\n81:      'memory_probe_failures':0,'memory_probe_failure_events':[],'handshake_before_imports':False,\n82:      'job_tree_RSS_peak_bytes':0,'execution_device':'cuda:0' if use_gpu else 'cpu','GPU_admission_applied':use_gpu,\n83:      'GPU_process_memory_peak_bytes':0 if use_gpu else None,'GPU_query_failures':[],'RSS_limit_bytes':cfg['RSS_limit_bytes'],'start_resource':resource}\n84: reason=None\n85: with(ROOT/(entry+'.stdout.log')).open('wb')as out,(ROOT/(entry+'.stderr.log')).open('wb')as err:\n86:     p=subprocess.Popen([sys.executable,'-B',str(ROOT/'linux_owned_worker.py'),entry],cwd=ROOT,\n87:         stdout=out,stderr=err,env=os.environ.copy(),start_new_session=True)\n88:     row['launcher_PID']=p.pid;write('REMOTE_ACTIVE_JOB.json',row);print(json.dumps({'started':row}),flush=True)\n89:     def stop_owned():\n90:         if p.poll()is None:\n91:             if os.getpgid(p.pid)==p.pid:os.killpg(p.pid,signal.SIGTERM)\n92:             else:p.terminate()\n93:             try:p.wait(timeout=2)\n94:             except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()\n95:     last_disk=0.;last_progress=0.;last_gpu=0.\n96:     try:\n97:         while p.poll()is None:\n98:             if row['actual_worker_PID']is None:\n99:                 hp=ROOT/(entry+'.SCIENCE_PID.json')\n100:                 if hp.exists():\n101:                     try:hs=json.loads(hp.read_text())\n102:                     except json.JSONDecodeError:hs=None\n103:                     if hs and hs['nonce']==os.environ['OWNED_SCIENCE_NONCE']:\n104:                         if hs['PID']!=p.pid or hs['parent_PID']!=os.getpid()or hs['cwd']!=str(ROOT):\n105:                             raise RuntimeError('owned science identity mismatch')\n106:                         peak=memory(p.pid);row.update(actual_worker_PID=p.pid,actual_worker_parent_PID=hs['parent_PID'],\n107:                             actual_worker_RSS_peak_bytes=peak,handshake_before_imports=hs['before_scientific_imports'])\n108:                         write(entry+'.RSS_ACK.json',{'actual_PID':p.pid,'nonce':hs['nonce'],\n109:                             'actual_PID_memory_query_success':True,'supervisor_PID':os.getpid(),\n110:                             'RSS_limit_bytes':cfg['RSS_limit_bytes'],'UTC':utc()})\n111:                         write('REMOTE_ACTIVE_JOB.json',row);print(json.dumps({'bound_actual_science':row}),flush=True)\n112:                 if time.monotonic()-start>20 and row['actual_worker_PID']is None:\n113:                     reason='startup_identity_handshake_failed_before_imports'\n114:             else:\n115:                 try:\n116:                     row['actual_worker_RSS_peak_bytes']=max(row['actual_worker_RSS_peak_bytes'],memory(p.pid))\n117:                     total,members=tree_rss(p.pid)\n118:                     row['job_tree_RSS_peak_bytes']=max(row['job_tree_RSS_peak_bytes'],total)\n119:                     row['last_job_tree_PIDs']=members\n120:                     if total>cfg['RSS_limit_bytes']:reason='machine_job_tree_RSS_limit'\n121:                 except OSError as exc:\n122:                     if p.poll()is None:\n123:                         row['memory_probe_failures']+=1\n124:                         row['memory_probe_failure_events'].append({'UTC':utc(),'PID':p.pid,'poll':p.poll(),\n125:                             'context':'actual_PID_query','error':repr(exc),'cause':'unknown'})\n126:                         if row['memory_probe_failures']>5:reason='machine_RSS_monitor_unavailable'\n127:             if use_gpu and row['actual_worker_PID'] is not None and time.monotonic()-last_gpu>=2:\n128:                 last_gpu=time.monotonic()\n129:                 try:\n130:                     output=subprocess.check_output(['nvidia-smi','--query-compute-apps=pid,used_gpu_memory','--format=csv,noheader,nounits'],text=True,timeout=3)\n131:                     members=process_tree(p.pid);used=0\n132:                     for line in output.splitlines():\n133:                         if line.strip():\n134:                             parts=line.split(',')\n135:                             if int(parts[0]) in members:used+=int(parts[1])*1048576\n136:                     row['GPU_process_memory_peak_bytes']=max(row['GPU_process_memory_peak_bytes'],used)\n137:                     if used>cfg['GPU_limit_bytes']:reason='machine_GPU_process_memory_limit'\n138:                 except BaseException as exc:\n139:                     row['GPU_query_failures'].append({'UTC':utc(),'error':repr(exc)})\n140:                     if len(row['GPU_query_failures'])>5:reason='machine_GPU_monitor_unavailable'\n141:             if time.monotonic()-last_disk>20:\n142:                 last_disk=time.monotonic()\n143:                 row['last_disk_free_bytes']=shutil.disk_usage(ROOT).free\n144:                 if row['last_disk_free_bytes']<=0:reason='filesystem_full'\n145:             if time.monotonic()-last_progress>30:\n146:                 last_progress=time.monotonic()\n147:                 print(json.dumps({'running':{'entry':entry,'actual_PID':row['actual_worker_PID'],\n148:                     'elapsed_s':time.monotonic()-start,'job_tree_RSS_peak_bytes':row['job_tree_RSS_peak_bytes'],\n149:                     'limit_s':None}}),flush=True)\n150:             if reason:stop_owned();break\n151:             time.sleep(.1)\n152:         p.wait()\n153:     except BaseException as exc:reason=repr(exc);stop_owned()\n154: row.update(actual_worker_native_exit=p.returncode,launcher_native_exit=p.returncode,\n155:     termination_reason=reason,elapsed_s=time.monotonic()-start,stop_UTC=utc())\n156: wp=ROOT/(entry+'.WORKER_RECEIPT.json')\n157: if wp.exists():\n158:     row['worker_self_receipt']=json.loads(wp.read_text())\n159:     row['actual_worker_RSS_peak_bytes']=max(row['actual_worker_RSS_peak_bytes']or 0,row['worker_self_receipt']['self_peak_RSS_bytes'])\n160: history.append(row)\n161: write('REMOTE_RUN_HISTORY.json',history);write(entry+'.NATIVE_RECEIPT.json',row);write('REMOTE_ACTIVE_JOB.json',row)\n162: print(json.dumps({'finished':row}),flush=True)\n163: raise SystemExit(0 if p.returncode==0 and reason is None and row['handshake_before_imports']else 1)",
+  "R65_worker": "1: from pathlib import Path\n2: from datetime import datetime, timezone\n3: import os,sys,json,time,runpy,resource\n4: ROOT=Path(__file__).resolve().parent;entry=sys.argv[1];nonce=os.environ['OWNED_SCIENCE_NONCE'];start=time.monotonic()\n5: def write(n,v):(ROOT/n).write_text(json.dumps(v,indent=2,allow_nan=False)+'\\n','utf8')\n6: write(entry+'.SCIENCE_PID.json',{'PID':os.getpid(),'parent_PID':os.getppid(),'nonce':nonce,'entry':entry,\n7:     'UTC':datetime.now(timezone.utc).isoformat(),'cwd':str(ROOT),'argv':sys.argv,'before_scientific_imports':True,'python':sys.executable})\n8: while True:\n9:     p=ROOT/(entry+'.RSS_ACK.json')\n10:     if p.exists():\n11:         ack=json.loads(p.read_text('utf8'))\n12:         if ack['nonce']==nonce and ack['actual_PID']==os.getpid() and ack['actual_PID_memory_query_success']:break\n13:     if time.monotonic()-start>15:raise RuntimeError('actual Linux science PID was not acknowledged')\n14:     time.sleep(.03)\n15: exit_code=0;error=None\n16: try:runpy.run_path(str(ROOT/entry),run_name='__main__')\n17: except SystemExit as e:\n18:     exit_code=e.code if isinstance(e.code,int)else(0 if e.code is None else 1)\n19:     raise\n20: except BaseException as e:exit_code=1;error=repr(e);raise\n21: finally:\n22:     write(entry+'.WORKER_RECEIPT.json',{'PID':os.getpid(),'parent_PID':os.getppid(),'nonce':nonce,'entry':entry,\n23:         'native_exit':exit_code,'error':error,'elapsed_s':time.monotonic()-start,\n24:         'self_peak_RSS_bytes':int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)*1024,\n25:         'supervisor_bound_real_PID':True,'UTC':datetime.now(timezone.utc).isoformat()})",
+  "R65_implementation_review": {
+    "files": [
+      {
+        "name": "artificial_suite.py",
+        "sha256": "b1076d484d19044202c76a3f1781f21c96a52fd31eb879eba2103e58640b921a",
+        "bytes": 4100
+      },
+      {
+        "name": "assessment.py",
+        "sha256": "3c7aadeaace6d6763e382fa822bd4826390882607cf29ca5868099026257f32f",
+        "bytes": 7334
+      },
+      {
+        "name": "canonical.py",
+        "sha256": "22c7d147085de64b311ad80a025915ab2b655d5d2a9e25e91d34f783de8ee17c",
+        "bytes": 233
+      },
+      {
+        "name": "common_math.py",
+        "sha256": "5535a8c01b72a2df85eebbbfd90e560258ad76ed1bcdaeb3bd92014a4d908a79",
+        "bytes": 1943
+      },
+      {
+        "name": "config.json",
+        "sha256": "1aacb74b0cd443d0ea74fe898fd4f7aabe40f2082fa52e0bbb6579d54e1d2caf",
+        "bytes": 12036
+      },
+      {
+        "name": "config_post.json",
+        "sha256": "0b375b51a707e49fe2d15bcb70d384ac84eb8748e9816cb6d49261e381fd6ed6",
+        "bytes": 16152
+      },
+      {
+        "name": "config_reporting.json",
+        "sha256": "7908339d18e4895c0d82922035a42c38a69790c66875840447777d56f6633758",
+        "bytes": 11924
+      },
+      {
+        "name": "data_support.py",
+        "sha256": "3933bdcd55da9965a8bf6620780789d05d6620b9064a701df2dd47bb4261db77",
+        "bytes": 7689
+      },
+      {
+        "name": "diagnostic_core.py",
+        "sha256": "af5bae14b581f45c0791119ddbd1ac217dae8af5565d74c8c85cd11392b69566",
+        "bytes": 10401
+      },
+      {
+        "name": "distribution_adapter/distribution_gradient.py",
+        "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "bytes": 21466
+      },
+      {
+        "name": "distribution_adapter/FROZEN_TOLERANCES.json",
+        "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+        "bytes": 876
+      },
+      {
+        "name": "distribution_adapter/original_bindings.py",
+        "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "bytes": 1743
+      },
+      {
+        "name": "distribution_adapter/r63_original/config.json",
+        "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+        "bytes": 7756
+      },
+      {
+        "name": "distribution_adapter/r63_original/distribution_loss.py",
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "bytes": 5577
+      },
+      {
+        "name": "distribution_adapter/r63_original/network.py",
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "bytes": 2916
+      },
+      {
+        "name": "distribution_adapter/r63_original/noise_core.py",
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "bytes": 2338
+      },
+      {
+        "name": "distribution_adapter/r63_original/precision_order.py",
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "bytes": 4669
+      },
+      {
+        "name": "distribution_adapter/r63_original/R61_distribution_loss.py",
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "bytes": 7555
+      },
+      {
+        "name": "distribution_adapter/r63_original/source_flow_core.py",
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "bytes": 6725
+      },
+      {
+        "name": "distribution_adapter/SOURCE_BINDINGS.json",
+        "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+        "bytes": 3236
+      },
+      {
+        "name": "distribution_adapter/weighted_empirical_w1.py",
+        "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "bytes": 13328
+      },
+      {
+        "name": "distribution_loss.py",
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "bytes": 5577
+      },
+      {
+        "name": "endpoint_common.py",
+        "sha256": "0d74589a05c7e5487e65bbffbb0053cd7b6bbdc434813b923206e6d0e13003bb",
+        "bytes": 7743
+      },
+      {
+        "name": "energy_width.py",
+        "sha256": "3d2e7280281c83f2b3fb82919227ca81cf187788449ed6c8009e370f321250e0",
+        "bytes": 15046
+      },
+      {
+        "name": "evaluate_saved.py",
+        "sha256": "2a77942cf9d60ada29478ae1aa63efcb17ef6ce68fc415d61089121e6321e0df",
+        "bytes": 19420
+      },
+      {
+        "name": "evaluation.py",
+        "sha256": "0bdbf485865f208bec2def5f04f7a8862ebd5f73b1b234f4139ecdb07d0078fa",
+        "bytes": 17874
+      },
+      {
+        "name": "flow_core.py",
+        "sha256": "5ac310a8f0977718ad563ed8dd7b1a43f78220a51f5ce0ead53e918c27ff01a0",
+        "bytes": 4365
+      },
+      {
+        "name": "flow_diagnostics.py",
+        "sha256": "1b9defc18b8fb2a9f3f6bb3021c352a2cc30273d49eb8db203eec93323f8dab1",
+        "bytes": 9463
+      },
+      {
+        "name": "flow_runtime.py",
+        "sha256": "c7bcad9f5157b67857f3bb70ac31d0f1196597bf413b074632a9ff789959099d",
+        "bytes": 1767
+      },
+      {
+        "name": "generate_all.py",
+        "sha256": "e3cf1651853e7d5a408db9ddcd6c19249fec4c4d2548d286486395d34f111f49",
+        "bytes": 11549
+      },
+      {
+        "name": "HELPER_INTEGRATION.json",
+        "sha256": "3d0e0cc7cdf3a810ea8e25c77bfd50008ef6572198eccab5458f715941bea160",
+        "bytes": 6202
+      },
+      {
+        "name": "HISTORICAL_R63_TRAIN_SOLVER_CHECK.json",
+        "sha256": "1064e016e7af0d40f15f90b52b01b0bb870a54952f8630d4f82e1b67ac4c6784",
+        "bytes": 88227
+      },
+      {
+        "name": "IMPLEMENTATION_NOTES.md",
+        "sha256": "27ba41a0ceca008f90219ce74835590f69a3089fe73bc3cb7fef1669a95d8f51",
+        "bytes": 2914
+      },
+      {
+        "name": "infer_saved.py",
+        "sha256": "dd51f4592f77d8794ef40f7ad01595586a9a84857f01e502ff4f6b6c3367e9e1",
+        "bytes": 3540
+      },
+      {
+        "name": "INPUT_BINDING.json",
+        "sha256": "b5db5dd9efa348ecc7a8a7fff651ae5acb7a7a57b2d779d19abd28b2cda0910e",
+        "bytes": 12531
+      },
+      {
+        "name": "legacy_model.py",
+        "sha256": "540614c8798058d074fc8191eef4de6d5a1bab7f162cb0b0cbf71009a91efd04",
+        "bytes": 5808
+      },
+      {
+        "name": "linux_owned_worker.py",
+        "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a",
+        "bytes": 1535
+      },
+      {
+        "name": "linux_supervise.py",
+        "sha256": "b9e9f45276b6f4b20c5bbfddafc96714d2ac0f845acedab3c6c0c75af32176a8",
+        "bytes": 10823
+      },
+      {
+        "name": "linux_supervise_reporting.py",
+        "sha256": "f947f6adc14582e524ef4b1a26cb5ceb0e72c51f498f78585e69a2076e8dd0b1",
+        "bytes": 10833
+      },
+      {
+        "name": "model.py",
+        "sha256": "7cfde671b325d68844dc88f97521c436192c61327499e2353c72f2d11816975b",
+        "bytes": 2019
+      },
+      {
+        "name": "network.py",
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "bytes": 2916
+      },
+      {
+        "name": "network_replay_artificial.py",
+        "sha256": "fb55e9697a3aa909ae459ee4be71e3df0d184672579d2c266058af36f5bbe4bf",
+        "bytes": 11372
+      },
+      {
+        "name": "network_update_check/FIXTURE_SPEC.json",
+        "sha256": "dc188288b5e0b0e8ce08f857fbb6e0dadaf386fd677af133f21a02a64d09b113",
+        "bytes": 3172
+      },
+      {
+        "name": "network_update_check/FROZEN_TOLERANCES.json",
+        "sha256": "c54ff5e7fcae1f28f7c588bcce931de4663ebe55d7072a12e744664a7777bec8",
+        "bytes": 3462
+      },
+      {
+        "name": "network_update_check/network_update_check.py",
+        "sha256": "db8976450aec139e61b7a39b5d6f2c8234028b676fb578eea1819cda8ee77945",
+        "bytes": 43270
+      },
+      {
+        "name": "network_update_check/PREPARATION_RECEIPT.json",
+        "sha256": "f58845dcda8cd29d98acb304010539d36a220d7c43481357563335bac58e31ae",
+        "bytes": 1757
+      },
+      {
+        "name": "network_update_check/README.md",
+        "sha256": "f103b3da0ba36fb89ba6f93188705d87fd2e1ec188f462fe6f0ffa49e806f091",
+        "bytes": 6692
+      },
+      {
+        "name": "network_update_check/SOURCE_BINDING.json",
+        "sha256": "7e3a60f76968da95d96fd20953d0cd34459a8591406bad99aaa52ef137587afb",
+        "bytes": 7207
+      },
+      {
+        "name": "network_update_check/STATIC_RECEIPT.json",
+        "sha256": "fed739b80e6dc1e2d538221d631323169ecb7e4aa7e04938a6a2be046f647d02",
+        "bytes": 2526
+      },
+      {
+        "name": "NOISE_CALIBRATION.json",
+        "sha256": "cbf0bd42893ca1436f581ea74f1f0e36294fec11b85b8bad0fc1fc94129d05f9",
+        "bytes": 2151
+      },
+      {
+        "name": "NOISE_CALIBRATION.npz",
+        "sha256": "08b7c967ad35957565085b21822f83401e21d9a769caa0d2174c5c6ef98a9dbc",
+        "bytes": 3394
+      },
+      {
+        "name": "noise_core.py",
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "bytes": 2338
+      },
+      {
+        "name": "numerical_check.py",
+        "sha256": "bec7c6854debb8a683d0902e7afcacbf1f985991f708c1eef56a6877cf39a0be",
+        "bytes": 4743
+      },
+      {
+        "name": "objective_adapter/bound_r64/distribution_gradient.py",
+        "sha256": "ed627502a736aa3f8fcab63ad2c98d18c5750b5c3d8f4f331ef072880343c965",
+        "bytes": 21466
+      },
+      {
+        "name": "objective_adapter/bound_r64/FROZEN_TOLERANCES.json",
+        "sha256": "24c3c78dad18846fd56180fccfff19a1e0f835908f649ab2eecae50fe43c266c",
+        "bytes": 876
+      },
+      {
+        "name": "objective_adapter/bound_r64/original_bindings.py",
+        "sha256": "1d2e66275f1a52e5079775928046cd19791980049deda285daee3dacaf60907f",
+        "bytes": 1743
+      },
+      {
+        "name": "objective_adapter/bound_r64/portable_fixture.py",
+        "sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "bytes": 40547
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/config.json",
+        "sha256": "9e5fcfa7330e400b2f159e30ad0500fe2ab7fd05c41c9ecb57e34a5cd67134c5",
+        "bytes": 7756
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/distribution_loss.py",
+        "sha256": "9aa98106beae30993860c77fb23c97b9d60790150578b7a34d8ad8715efb2e26",
+        "bytes": 5577
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/network.py",
+        "sha256": "f7cce14e3f91c1682265d8559c2fc85cc5d604941f1637fc89372a3e3e255cd7",
+        "bytes": 2916
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/noise_core.py",
+        "sha256": "5242214124d9f493c9cd25ff958ac26933a5115d76153caa70970ae721c9dc10",
+        "bytes": 2338
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/precision_order.py",
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "bytes": 4669
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/R61_distribution_loss.py",
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "bytes": 7555
+      },
+      {
+        "name": "objective_adapter/bound_r64/r63_original/source_flow_core.py",
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "bytes": 6725
+      },
+      {
+        "name": "objective_adapter/bound_r64/SOURCE_BINDINGS.json",
+        "sha256": "971cfb7ad6c092740c98cb7be508e4077a02507e626bcc074f80bf6abe1b733d",
+        "bytes": 3236
+      },
+      {
+        "name": "objective_adapter/bound_r64/weighted_empirical_w1.py",
+        "sha256": "c30c6e3d766879ffe0e0396238f843d4c22473a2083f6496ccfe4ba9525474b3",
+        "bytes": 13328
+      },
+      {
+        "name": "objective_adapter/BOUND_SOURCES.json",
+        "sha256": "6116059ca68f737e1a2b303fe941eda31b9c286c609c75ebc3b69df3e603f475",
+        "bytes": 5448
+      },
+      {
+        "name": "objective_adapter/DELIVERY_RECEIPT.json",
+        "sha256": "5b4effb685e121d41571898d93eebb5b77ff9e9a8a96b36fa1eb195de3fffb30",
+        "bytes": 3964
+      },
+      {
+        "name": "objective_adapter/DIRECTION_REFRESH_SPEC.json",
+        "sha256": "93581ca5e2854a5ba0402417f94c430a4e962dd45bea02b0c7e1baa464fc8772",
+        "bytes": 506
+      },
+      {
+        "name": "objective_adapter/fixture_factory.py",
+        "sha256": "f46f05153f03cdb3b6e0b59ee6cbfd43ae5d2c643d05e5f1d41d7f1a73f23982",
+        "bytes": 5830
+      },
+      {
+        "name": "objective_adapter/FIXTURE_SPEC.json",
+        "sha256": "4f01f27e00c895de6ad6c9662304c0dd8f8e7cea236489f67bc049bd93afb683",
+        "bytes": 1927
+      },
+      {
+        "name": "objective_adapter/FROZEN_TOLERANCES.json",
+        "sha256": "0875588c423a23561e1d45dc326906ef93b136197475b5e113a458edd91ec6d6",
+        "bytes": 1613
+      },
+      {
+        "name": "objective_adapter/local_runner.py",
+        "sha256": "35a15c03b976be9cfc241a7fa69941f923e0bdebf5dddabb2f2bcb4813333df8",
+        "bytes": 6550
+      },
+      {
+        "name": "objective_adapter/MECHANICAL_FIX_002.json",
+        "sha256": "c5b7908a3b1e9239042469f8ccd79c7fc68399c19e752018b2d990f5e22aaa8b",
+        "bytes": 1129
+      },
+      {
+        "name": "objective_adapter/objective_adapter.py",
+        "sha256": "1b8f38324b96212ca3cc6d83f603c89d8b18f731ab7227998a8da718122dfaec",
+        "bytes": 3384
+      },
+      {
+        "name": "objective_adapter/portable_objective_checks.py",
+        "sha256": "a929b6c1d7948a01123ab2828ed65fa867df90d11c33ce8fdcc7d531802ff2bb",
+        "bytes": 28481
+      },
+      {
+        "name": "objective_adapter/PREEXECUTION_BINDING.json",
+        "sha256": "8e1385d97163054770872694531db79639ba5c8fd5c008a0a3cef5de7c3326e9",
+        "bytes": 4489
+      },
+      {
+        "name": "objective_adapter/README.md",
+        "sha256": "bd325498cc02acdfe66d7148d5fa4a335d8d0055626ac7354959bcfca049428b",
+        "bytes": 9090
+      },
+      {
+        "name": "portable_fixture.py",
+        "sha256": "c19a1ffadcbfd41c10e76aab1bd3c300b9fb102c5a7a3b5b1000a6dfe006c753",
+        "bytes": 40547
+      },
+      {
+        "name": "post_audit.py",
+        "sha256": "8a92aef6c15892ccbf97409c8f121b02b1b08bfe85b1d6f6286948fc9807e4e2",
+        "bytes": 1431
+      },
+      {
+        "name": "POSTPROCESS_FILE_BINDING.json",
+        "sha256": "91d12fcf5bca96f60f510280843f46782cd885daf0bef4242d8d06658f13e123",
+        "bytes": 2758
+      },
+      {
+        "name": "precision_order.py",
+        "sha256": "f92fea23d677405475679b53b984c1b3c75f3a21da84079c899931b629369eb2",
+        "bytes": 4669
+      },
+      {
+        "name": "preparation_receipts/driver_review/BINDING_RECEIPT.json",
+        "sha256": "9cc7aadf430b3fa246cdeb76537f384c9f8edfbda67e2fd7a2daccc171c433df",
+        "bytes": 6143
+      },
+      {
+        "name": "preparation_receipts/driver_review/NATIVE_EXIT_RECEIPT.json",
+        "sha256": "de2147e15f28ab43f993db99fe722c8857a1b9973e91bac26045a6fdbde1a745",
+        "bytes": 370
+      },
+      {
+        "name": "preparation_receipts/driver_review/REVIEW.json",
+        "sha256": "5ae0105634299574ac58d04552cebd4c16f19c0684b88b7aa93be60237911b6b",
+        "bytes": 10622
+      },
+      {
+        "name": "preparation_receipts/driver_review/SOURCE_BINDINGS.json",
+        "sha256": "b7e50d94810c3f6f9f92d43c378a00f82efd7805c1be808c4ff8592db62fc956",
+        "bytes": 9969
+      },
+      {
+        "name": "preparation_receipts/post_pipeline/PREPARATION_RECEIPT.json",
+        "sha256": "b1ad66093735aac88b4a7369e463b7dc379e1f6c17957308bcff472e280f6445",
+        "bytes": 5350
+      },
+      {
+        "name": "preparation_receipts/post_pipeline/SOURCE_BINDING.json",
+        "sha256": "e76e474effb66673600bd2c23f758eec93beee72e7e7181b4432a776be851d1b",
+        "bytes": 29468
+      },
+      {
+        "name": "preparation_receipts/post_pipeline/STATIC_VERIFICATION.json",
+        "sha256": "6f606a1e042cffb6d8666a40ebbb70c9e793e625a98ced555e0dea714b15cfc3",
+        "bytes": 3488
+      },
+      {
+        "name": "preparation_receipts/post_pipeline/VERIFY_NATIVE_EXIT_RECEIPT.json",
+        "sha256": "4b0c4e7ee17b04238aa5f87a1e9b082d63d9abba65da6d539dd32e9c291a7c6d",
+        "bytes": 377
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/RECEIPT.json",
+        "sha256": "5de1aa2e8030a5ddd0a17903af500656d75ed7f0245e4781c2f224fc9f3dd1eb",
+        "bytes": 9640
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/SOURCE_BINDINGS.json",
+        "sha256": "20b2f25cdb40ce636eb275cae43f68780f180b7b138399e860a6efa74ec9c3c7",
+        "bytes": 7583
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/STATIC_VALIDATION.json",
+        "sha256": "ef9b6afd16753650321967dcb3ee21bc5f4393299ecd645d23e949dc48dfc362",
+        "bytes": 6530
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/synthetic_saved_record_check/attempt_001/NATIVE_EXIT.json",
+        "sha256": "a7427273f71a386b756c78941852870ef874dc517cc07adcf8d3e3187aab144f",
+        "bytes": 293
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/synthetic_saved_record_check/attempt_001/RESULT.json",
+        "sha256": "31557b50e396a055df57dbce7855d00bb72e9440f32ab580720d01ac621119cf",
+        "bytes": 4588
+      },
+      {
+        "name": "preparation_receipts/training_audit_adapter/TRAINING_RECEIPT_CONTRACT.json",
+        "sha256": "08b67554d169eeaace53c6e3270de412cf4d61897215315aedf70a08643cd27c",
+        "bytes": 12171
+      },
+      {
+        "name": "PROTOCOL.md",
+        "sha256": "324b8e925cbc1b65578b3e36614693ae6cfb5561d0b3e379293ceab7aa4e256b",
+        "bytes": 12691
+      },
+      {
+        "name": "R61_distribution_loss.py",
+        "sha256": "2dc13fda9817e1e0a71520b42ad6eb611c78151885cbae730e293556101ed27a",
+        "bytes": 7555
+      },
+      {
+        "name": "r65_training_audit.py",
+        "sha256": "88c26b435621e8454254447ec03e0c6a2ae391f1463c601ea13c7e06861d88ad",
+        "bytes": 32618
+      },
+      {
+        "name": "render_R65_figures.py",
+        "sha256": "ecd31bc83c67676fbecc93548f8ecfcbb8482bbabd17ffb511c75660c3abb0b8",
+        "bytes": 14354
+      },
+      {
+        "name": "replay_all.py",
+        "sha256": "1e4dfa9926800ae9c04db1a586b7046955e763365d7940b47d43df442fbcfaa4",
+        "bytes": 3167
+      },
+      {
+        "name": "source_flow_core.py",
+        "sha256": "3a9228b0d9fa30018b6f7f747e990e6339ed2e375a3981cdf25f79b6669b407d",
+        "bytes": 6725
+      },
+      {
+        "name": "SOURCE_ORDER_PRECISION_DEFINITION.json",
+        "sha256": "14259e8e4dc08537efbf9e2b761df2c3a73fffd84d790d82bb89a3f61cb51252",
+        "bytes": 417
+      },
+      {
+        "name": "SOURCE_PSD_PRECISION_PRIVATE.npz",
+        "sha256": "81ca5a6c741d839ae4ff398fc876e25025998dbc2b61ba53cb545ddcb0b1b947",
+        "bytes": 426208
+      },
+      {
+        "name": "summarize_and_plot.py",
+        "sha256": "b509be8a17940f8b6683e498d1f85659bcc25e4cc1699249b2ee251504fcabf3",
+        "bytes": 15125
+      },
+      {
+        "name": "TRAIN_DISTRIBUTION_CONSTANTS.npz",
+        "sha256": "ad3b7020cbaf83c16d617244469809cbe889635b396bc19c774eb3bdec29111d",
+        "bytes": 293803
+      },
+      {
+        "name": "train_final.py",
+        "sha256": "54834b0fd73ee08a420096e791be6038c2193acfb22c91c81563e059b64c67f3",
+        "bytes": 52693
+      },
+      {
+        "name": "TRAIN_TEMPORAL_CONSTANTS.json",
+        "sha256": "0f028a2b01cc2954629beae805efbcd360f4a7a59918dae23962bfefc5114183",
+        "bytes": 18981
+      },
+      {
+        "name": "TRAIN_TEMPORAL_CONSTANTS.npz",
+        "sha256": "f306ccc68580af300f65787db0bb37a5f12f2f394aa9b76e198deeee65cf0936",
+        "bytes": 5686
+      },
+      {
+        "name": "TRAINING_SCHEMA.json",
+        "sha256": "b1cd035807523ec7a2a23fd0b24ffe7e23af8ee51c127635c40bf5f0ac59f02a",
+        "bytes": 5689
+      },
+      {
+        "name": "UNIT_CHARGE_CONSTANTS.json",
+        "sha256": "75dc361daa74c284c9f239e75454e167e3c2a00698c4ab0253fcb59ecce45dc5",
+        "bytes": 2583
+      },
+      {
+        "name": "UNIT_CHARGE_CONSTANTS.npz",
+        "sha256": "d7a47ec7c4b7e11ea753d1d7b70a780df8b7d097f26507ad4c120467677994bc",
+        "bytes": 87984
+      }
+    ]
+  }
+}

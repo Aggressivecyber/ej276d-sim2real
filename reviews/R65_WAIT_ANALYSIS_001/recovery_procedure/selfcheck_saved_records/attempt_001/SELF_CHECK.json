@@ -1,0 +1,244 @@
+{
+  "status": "standard_library_artificial_saved_record_selfcheck_passed",
+  "pass": true,
+  "case_count": 28,
+  "positive_cases": 8,
+  "negative_cases": 20,
+  "cases": [
+    {
+      "case": "committed_target",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "pending_after_target_replace",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT_PENDING.json",
+      "committed_update": 500
+    },
+    {
+      "case": "old_committed_before_target_replace",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "both_receipts_match_prefer_committed",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "endpoint_partial_finalization_all_nine_files_preserved",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 50000
+    },
+    {
+      "case": "known_uncommitted_adam_is_physical_only",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "saved_checkpoint_metadata_counter_provenance",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "creator_is_ancestor_failed_resume_before_restore",
+      "expected_acceptance": true,
+      "accepted": true,
+      "pass": true,
+      "selected_publication": "RECOVERY_CHECKPOINT.json",
+      "committed_update": 500
+    },
+    {
+      "case": "no_first_500_published_checkpoint",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "checkpoint observation missing: exists"
+    },
+    {
+      "case": "missing_both_transaction_receipts",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "No valid already-published checkpoint: do not promote tmp or manufacture a SHA receipt"
+    },
+    {
+      "case": "tmp_must_not_be_promoted",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "only the published checkpoint target is eligible"
+    },
+    {
+      "case": "target_matches_no_saved_receipt",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "No valid already-published checkpoint: do not promote tmp or manufacture a SHA receipt"
+    },
+    {
+      "case": "actual_worker_still_present",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "death observation missing: actual_worker_PID_absent"
+    },
+    {
+      "case": "PID_absence_is_not_native_zero",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "native wait returncode required; absence is not native zero"
+    },
+    {
+      "case": "stale_worker_receipt_nonce",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "embedded worker receipt contradicts supervisor"
+    },
+    {
+      "case": "stale_worker_receipt_PID",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "embedded worker receipt contradicts supervisor"
+    },
+    {
+      "case": "stale_worker_receipt_native_exit",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "embedded worker receipt contradicts supervisor"
+    },
+    {
+      "case": "used_marker_inventory_gap",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "mutable inventory has unchecked paths"
+    },
+    {
+      "case": "truncated_or_mismatched_log_archive",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "archive byte hash mismatch"
+    },
+    {
+      "case": "existing_endpoint_not_preserved_exactly",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "archive byte length mismatch"
+    },
+    {
+      "case": "not_a_registered_checkpoint_boundary",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "invalid publication checkpoint/creator"
+    },
+    {
+      "case": "checkpoint_ahead_of_available_physical_evidence",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "checkpoint step is unsupported by saved creator/adjacent-attempt evidence"
+    },
+    {
+      "case": "physical_counter_mapping_contradiction",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "physical schema mapping contradicts saved operations"
+    },
+    {
+      "case": "changed_frozen_driver",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "trainer changed"
+    },
+    {
+      "case": "artificial_suite_from_other_code",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "artificial suite missing or bound to another implementation"
+    },
+    {
+      "case": "old_physical_history_must_not_be_rewritten",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "immutable prior recovery chain changed"
+    },
+    {
+      "case": "old_request_must_be_archived_before_overwrite",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "used recovery request not archived"
+    },
+    {
+      "case": "saved_JSON_byte_digest_tamper",
+      "expected_acceptance": false,
+      "accepted": false,
+      "pass": true,
+      "rejection": "saved document SHA mismatch: artificial_suite"
+    }
+  ],
+  "static_checks": {
+    "frozen_driver_SHA_matches": true,
+    "exact_13_request_fields_match_driver_AST": true,
+    "checkpoint_publication_order_matches_frozen_source": true,
+    "constructor_no_scientific_or_process_network_imports": true
+  },
+  "resources": {
+    "PID": 43904,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_WAIT_ANALYSIS_001\\recovery_procedure\\selfcheck_saved_records\\attempt_001\\runtime_cache",
+    "numeric_environment_threads": 1
+  },
+  "memory": {
+    "peak_RSS_bytes": 28192768,
+    "RSS_bytes": 26382336,
+    "peak_private_commit_bytes": 19791872
+  },
+  "elapsed_s": 2.297000000020489,
+  "guard_violations": [],
+  "actual_native_recovery_validated": false,
+  "remote_process_queries": 0,
+  "checkpoint_file_reads": 0,
+  "scientific_array_reads": 0,
+  "scientific_model_invocations": 0,
+  "fake_checkpoint_files_created": 0,
+  "native_launches": 0,
+  "shared_source_edits": 0,
+  "meaning": "All native/process/archive/checkpoint facts in these fixtures are explicitly invented metadata. Only constructor refusal/acceptance and source-interface consistency were tested."
+}

@@ -1,0 +1,508 @@
+{
+  "UTC": "2026-10-11T03:47:13.434376+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "valid_completed_TRAIN_ready_numerical",
+      "pass": true,
+      "detail": {
+        "UTC": "2026-10-11T03:47:01.796746+00:00",
+        "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+        "root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_WAIT_ANALYSIS_001\\post_controllers\\synthetic_gate_checks\\attempt_001\\cases\\valid_completed_TRAIN",
+        "mode": "observe",
+        "controller_never_starts_or_recovers_training": true,
+        "frozen_file_count": 112,
+        "implementation_review_SHA256": "024282062562df2c3df7b58eadf62274b3481cec182bcd9431eb425809f4e984",
+        "active": {
+          "entry": "train_final.py",
+          "supervisor_PID": 990200,
+          "actual_worker_PID": 990100,
+          "actual_worker_parent_PID": 990200,
+          "launcher_PID": 990100,
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "handshake_before_imports": true,
+          "RSS_limit_bytes": 51539607552,
+          "actual_worker_RSS_peak_bytes": 1048576,
+          "job_tree_RSS_peak_bytes": 1048576,
+          "worker_self_receipt": {
+            "PID": 990100,
+            "parent_PID": 990200,
+            "nonce": "synthetic_nonce_0",
+            "entry": "train_final.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1.0,
+            "self_peak_RSS_bytes": 1048576,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-11T03:47:00.159432+00:00"
+          },
+          "start_UTC": "2026-10-11T03:47:00.159432+00:00",
+          "stop_UTC": "2026-10-11T03:47:00.159432+00:00",
+          "elapsed_s": 1.0
+        },
+        "processes": {
+          "worker": {
+            "PID": 990100,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          },
+          "launcher": {
+            "PID": 990100,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          },
+          "supervisor": {
+            "PID": 990200,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          }
+        },
+        "completed_chain": {
+          "train_final.py": {
+            "updates": 50000,
+            "artifact_count": 9,
+            "training_receipt_SHA256": "f13b641f74c2889b7ef356afce78b0c2573b627ea89af73c4d6b314c66315e30",
+            "worker_PID": 990100,
+            "full_saved_array_audit_deferred_to_owned_numerical_entry": true
+          }
+        },
+        "state": "READY",
+        "ready_entry": "numerical_check.py"
+      }
+    },
+    {
+      "name": "valid_numerical_check.py_next_generate_all.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "generate_all.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_generate_all.py_next_evaluate_saved.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "evaluate_saved.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_evaluate_saved.py_next_replay_all.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "replay_all.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py",
+          "evaluate_saved.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_replay_all.py_next_summarize_and_plot.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "summarize_and_plot.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py",
+          "evaluate_saved.py",
+          "replay_all.py"
+        ]
+      }
+    },
+    {
+      "name": "live_actual_worker",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "live_supervisor",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "native_nonzero",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "wrong_nonce",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Handshake nonce differs"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_50000_field",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Unique final50000 is incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "only_49999_updates",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Unique final50000 is incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_eighth_stream",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Eight random-stream records incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "wrong_artifact_SHA",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Training artifact hash differs: LOSS_BY_UPDATE_PRIVATE.npz"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "mutated_artifact_bytes",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Training artifact hash differs: LOSS_BY_UPDATE_PRIVATE.npz"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_artifact_record",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Complete original R65 artifact set missing"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "frozen_file_changed",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Frozen artifact changed: network.py"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "cannot_skip_numerical",
+      "pass": true,
+      "detail": {
+        "refused": "The true predecessor has not completed successfully"
+      }
+    },
+    {
+      "name": "negative_A_C_completed_report",
+      "pass": true,
+      "detail": {
+        "state": "COMPLETE",
+        "ready_entry": null,
+        "summary": {
+          "report_complete": true,
+          "primary_A_C_pass": false,
+          "decision": "close_fixed_R65_full_empirical_D_response",
+          "scientific_model_goal_complete": false
+        }
+      }
+    },
+    {
+      "name": "forbidden_entry_train_final.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_recover_train.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_D.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_E.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_F.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    }
+  ],
+  "passed": 23,
+  "total": 23,
+  "source_bindings": [
+    {
+      "id": "R65_config",
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\config.json",
+      "sha256": "1aacb74b0cd443d0ea74fe898fd4f7aabe40f2082fa52e0bbb6579d54e1d2caf",
+      "bytes": 12036
+    },
+    {
+      "id": "R65_train_source",
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\train_final.py",
+      "sha256": "54834b0fd73ee08a420096e791be6038c2193acfb22c91c81563e059b64c67f3",
+      "bytes": 52693
+    },
+    {
+      "id": "R65_training_audit",
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\r65_training_audit.py",
+      "sha256": "88c26b435621e8454254447ec03e0c6a2ae391f1463c601ea13c7e06861d88ad",
+      "bytes": 32618
+    },
+    {
+      "id": "R65_supervisor",
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\linux_supervise.py",
+      "sha256": "b9e9f45276b6f4b20c5bbfddafc96714d2ac0f845acedab3c6c0c75af32176a8",
+      "bytes": 10823
+    },
+    {
+      "id": "R65_worker",
+      "path": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001\\linux_owned_worker.py",
+      "sha256": "d15e4a3ba3f49858036c2d7b96eb54fd46d7cd0aac1404bc513bfb1d1ed20b6a",
+      "bytes": 1535
+    }
+  ],
+  "production_controller_sources": {
+    "r65_remote_gate.py": "37cdb3a8142cd7d4df7edacf453df784f1f5324a34a92f63fb843745eca720d7",
+    "r65_controller_common.py": "9af12d1357dd340f3e3027d425b07125fe08989f91dba16afd2d9d49e81cf171"
+  },
+  "synthetic_helper_SHA256": "2e6e756a4a87c706bedb08aa2d21fc648ad964a16fbf41ba21510abf19bb90f4",
+  "synthetic_only": true,
+  "actual_training_writer_top_level_keys_checked": [
+    "CAL_decode",
+    "CPU_threads",
+    "C_max_output_relative_q_error_f32",
+    "C_max_output_relative_q_error_f64",
+    "DEV_read",
+    "EVAL_read",
+    "GPU_allocated_peak_bytes",
+    "GPU_reserved_peak_bytes",
+    "PCG64_seeds",
+    "PID",
+    "R58_law_or_atoms_training_target",
+    "REAL_identity_exposure_min_max",
+    "REAL_parents",
+    "REAL_reference_exposure_min_max",
+    "SOURCE_parent_exposure_min_max",
+    "UTC",
+    "actual_unique_SOURCE_REAL_reference_REAL_identity",
+    "all_eight_final_states_file",
+    "all_eight_initial_states_file",
+    "arm",
+    "artifact_sha256",
+    "artificial_suite_SHA256",
+    "compute_budget_enforced",
+    "counter",
+    "direction_calls",
+    "discarded_D_columns",
+    "discarded_D_trace_rows",
+    "eighth_stream_independently_regenerated_for_audit",
+    "elapsed_s",
+    "final_state_SHA",
+    "frozen_binding",
+    "full_D_REAL_parent_exposure_min_max",
+    "full_D_SOURCE_parent_exposure_min_max",
+    "full_D_max_output_relative_q_error_f32",
+    "full_D_max_output_relative_q_error_f64",
+    "full_D_noise_rule",
+    "full_SOURCE_epsilon_calls",
+    "full_empirical_D_integrity",
+    "gradient_execution_counts",
+    "h_PDG_network_inputs",
+    "initial_state_SHA",
+    "logical_run_id",
+    "loss_columns",
+    "loss_trace_rows",
+    "max_output_relative_q_error_f32",
+    "max_output_relative_q_error_f64",
+    "model_goal_complete",
+    "model_seed",
+    "named_parameter_order",
+    "native_attempt_id",
+    "network_parameter_count",
+    "new_response_training_runs",
+    "parameter_gradient_rule",
+    "physical_attempt_compute",
+    "precision_order_columns",
+    "precision_order_trace_rows",
+    "projection_direction_calls",
+    "realized_C_exposure_counts_are_not_uniform_claim",
+    "recovery_history",
+    "replay_columns",
+    "replay_trace_rows",
+    "replayed_compute",
+    "selection",
+    "source_global_measure",
+    "source_order_rule",
+    "source_parents",
+    "source_val_target_val_decoded",
+    "stream_hash_algorithm",
+    "stream_hashes",
+    "stream_reconstruction",
+    "teacher_waveforms_constructed",
+    "temporal_direction_calls",
+    "unique_final_weight_SHA256",
+    "unique_final_weight_step",
+    "updates"
+  ],
+  "fixture_keys_are_subset_of_frozen_writer_keys": true,
+  "audit_check_names_from_frozen_source": [
+    "GPU_and_CPU_training_receipt_within_original_caps",
+    "R65_integrity_flags_match_declared_algorithm",
+    "all104_chunk_replays_and_single_reverse_counts_every_update",
+    "all_eight_seed_chain_and_state_names_present",
+    "all_frozen_input_file_hashes_match",
+    "all_implementation_review_file_bytes_preserved",
+    "all_original_C_parent_arrays_and_exposures_equal_R63",
+    "all_original_constant_copies_byte_identical_no_refit_claim",
+    "completed_update_counters_equal_frozen_schema",
+    "discarded_micro_D_finite_nonnegative_and_original_nine_decomposition",
+    "eight_initial_PCG64_states_match_frozen_seeds",
+    "exact_original_C_stratified_draw_totals",
+    "fresh_full_parent_eighth_stream_and_current_directions",
+    "frozen_original_environment_and_training_mode",
+    "full_D_every_parent_once_per_committed_update",
+    "nine_losses_and_norms_nonnegative",
+    "nine_outer_weights_one",
+    "no_compute_budget_or_model_completion_claim",
+    "no_teacher_labels_or_validation_decode",
+    "numerical_gate_weight_is_bound_unique_final_file",
+    "one_combined_cast_clip_Adam_and_no_discarded_D_backward",
+    "original_C_precision_order_trace",
+    "original_full_D_PSD_half_sum_scale",
+    "original_order_rule_intervals_and_denominator_preserved",
+    "original_seven_seed_chain_and_final_states_equal_bound_R63",
+    "original_source_order_files_copied_byte_identically",
+    "original_temporal_metadata_shape_scale_and_population",
+    "physical_attempt_and_recovery_records_valid",
+    "positive_original_C_exposures_and_totals",
+    "pre_TRAIN_artificial_receipt_file_bound",
+    "registered_input_binding_keys",
+    "same_protocol_config_inputs_and_implementation_bindings",
+    "saved_artifact_bytes_bound_by_training_receipt",
+    "separate_full_D_and_original_C_projection_records_valid",
+    "sole_original_initialization_and_unique_final50000",
+    "source_REAL_bin_and_parent_lengths",
+    "total_is_D_plus_C",
+    "unchanged_original_formula_optimizer_and_numerical_parameters",
+    "unchanged_original_learning_rate_trace",
+    "unique_parent_counts_from_saved_exposures"
+  ],
+  "actual_operational_entrypoints_executed": false,
+  "remote_function_metadata_branches_executed_offline": true,
+  "mocked": [
+    "REMOTE_ROOT",
+    "REVIEW_SHA for synthetic 112-file byte manifest",
+    "process_record",
+    "subprocess.Popen forbidden sentinel"
+  ],
+  "only_static_or_unverified": [
+    "Linux /proc reader and actual PID lifecycle",
+    "SSH/SCP transport and timeouts",
+    "actual supervisor spawn/machine admission/resource handshake",
+    "local watcher timed loop and stop-file behavior",
+    "local fetch archive/publication/remote-stability behavior",
+    "real TRAIN completion and saved-array audit",
+    "original 128/256 scientific calculation",
+    "actual generation/evaluation/replay",
+    "scientific A-F values and rendered figure quality"
+  ],
+  "SSH_connections": 0,
+  "subprocess_Popen_calls": 0,
+  "uploads_or_downloads": 0,
+  "science_launches": 0,
+  "actual_scientific_array_or_weight_reads": 0,
+  "root_metadata_or_Git_writes": 0,
+  "all_real_sources_unchanged": true,
+  "all_fixture_files_within_exclusive_directory": true
+}

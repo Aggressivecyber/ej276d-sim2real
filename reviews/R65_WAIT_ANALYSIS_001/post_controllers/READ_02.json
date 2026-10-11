@@ -1,0 +1,13 @@
+[
+  {"id":"R65_config"},
+  {"id":"R65_training_audit","definitions":true},
+  {"id":"R65_training_audit","label":"audit_gates","patterns":["checks[","checks =","checks=","return","counter","TRACE","unique","50000","1000","records","integrity"],"context":3},
+  {"id":"R65_post_audit"},
+  {"id":"R65_supervisor"},
+  {"id":"R65_reporting_supervisor"},
+  {"id":"R65_worker"},
+  {"id":"R65_numerical"},
+  {"id":"R65_generate","patterns":["TRAIN_","audit","STATUS","NATIVE","json","complete"],"context":2},
+  {"id":"R65_replay","patterns":["STATUS","json","complete","4000","bitwise"],"context":2},
+  {"id":"R65_summary","patterns":["STATUS","json","complete","A-F","A_F","REPLAY","AUDIT"],"context":2}
+]

@@ -1,0 +1,320 @@
+{
+  "checks": [
+    {
+      "name": "valid_completed_TRAIN_ready_numerical",
+      "pass": true,
+      "detail": {
+        "UTC": "2026-10-11T03:47:01.796746+00:00",
+        "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+        "root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R65_WAIT_ANALYSIS_001\\post_controllers\\synthetic_gate_checks\\attempt_001\\cases\\valid_completed_TRAIN",
+        "mode": "observe",
+        "controller_never_starts_or_recovers_training": true,
+        "frozen_file_count": 112,
+        "implementation_review_SHA256": "024282062562df2c3df7b58eadf62274b3481cec182bcd9431eb425809f4e984",
+        "active": {
+          "entry": "train_final.py",
+          "supervisor_PID": 990200,
+          "actual_worker_PID": 990100,
+          "actual_worker_parent_PID": 990200,
+          "launcher_PID": 990100,
+          "actual_worker_native_exit": 0,
+          "launcher_native_exit": 0,
+          "termination_reason": null,
+          "handshake_before_imports": true,
+          "RSS_limit_bytes": 51539607552,
+          "actual_worker_RSS_peak_bytes": 1048576,
+          "job_tree_RSS_peak_bytes": 1048576,
+          "worker_self_receipt": {
+            "PID": 990100,
+            "parent_PID": 990200,
+            "nonce": "synthetic_nonce_0",
+            "entry": "train_final.py",
+            "native_exit": 0,
+            "error": null,
+            "elapsed_s": 1.0,
+            "self_peak_RSS_bytes": 1048576,
+            "supervisor_bound_real_PID": true,
+            "UTC": "2026-10-11T03:47:00.159432+00:00"
+          },
+          "start_UTC": "2026-10-11T03:47:00.159432+00:00",
+          "stop_UTC": "2026-10-11T03:47:00.159432+00:00",
+          "elapsed_s": 1.0
+        },
+        "processes": {
+          "worker": {
+            "PID": 990100,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          },
+          "launcher": {
+            "PID": 990100,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          },
+          "supervisor": {
+            "PID": 990200,
+            "valid_PID": true,
+            "exists": false,
+            "synthetic": true
+          }
+        },
+        "completed_chain": {
+          "train_final.py": {
+            "updates": 50000,
+            "artifact_count": 9,
+            "training_receipt_SHA256": "f13b641f74c2889b7ef356afce78b0c2573b627ea89af73c4d6b314c66315e30",
+            "worker_PID": 990100,
+            "full_saved_array_audit_deferred_to_owned_numerical_entry": true
+          }
+        },
+        "state": "READY",
+        "ready_entry": "numerical_check.py"
+      }
+    },
+    {
+      "name": "valid_numerical_check.py_next_generate_all.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "generate_all.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_generate_all.py_next_evaluate_saved.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "evaluate_saved.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_evaluate_saved.py_next_replay_all.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "replay_all.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py",
+          "evaluate_saved.py"
+        ]
+      }
+    },
+    {
+      "name": "valid_replay_all.py_next_summarize_and_plot.py",
+      "pass": true,
+      "detail": {
+        "state": "READY",
+        "ready_entry": "summarize_and_plot.py",
+        "completed_chain": [
+          "train_final.py",
+          "numerical_check.py",
+          "generate_all.py",
+          "evaluate_saved.py",
+          "replay_all.py"
+        ]
+      }
+    },
+    {
+      "name": "live_actual_worker",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "live_supervisor",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "native_nonzero",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "The true predecessor has not completed successfully"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "wrong_nonce",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Handshake nonce differs"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_50000_field",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Unique final50000 is incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "only_49999_updates",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Unique final50000 is incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_eighth_stream",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Eight random-stream records incomplete"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "wrong_artifact_SHA",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Training artifact hash differs: LOSS_BY_UPDATE_PRIVATE.npz"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "mutated_artifact_bytes",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Training artifact hash differs: LOSS_BY_UPDATE_PRIVATE.npz"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "missing_artifact_record",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Complete original R65 artifact set missing"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "frozen_file_changed",
+      "pass": true,
+      "detail": {
+        "refused": {
+          "type": "RuntimeError",
+          "message": "Frozen artifact changed: network.py"
+        },
+        "no_remote_spawn": true,
+        "no_launch_intent_written": true
+      }
+    },
+    {
+      "name": "cannot_skip_numerical",
+      "pass": true,
+      "detail": {
+        "refused": "The true predecessor has not completed successfully"
+      }
+    },
+    {
+      "name": "negative_A_C_completed_report",
+      "pass": true,
+      "detail": {
+        "state": "COMPLETE",
+        "ready_entry": null,
+        "summary": {
+          "report_complete": true,
+          "primary_A_C_pass": false,
+          "decision": "close_fixed_R65_full_empirical_D_response",
+          "scientific_model_goal_complete": false
+        }
+      }
+    },
+    {
+      "name": "forbidden_entry_train_final.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_recover_train.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_D.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_E.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    },
+    {
+      "name": "forbidden_entry_gate_F.py",
+      "pass": true,
+      "detail": {
+        "refused": "Only the five registered post entries may be launched"
+      }
+    }
+  ],
+  "subprocess_Popen_calls": 0
+}

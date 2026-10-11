@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "status": "static_same_run_recovery_preparation_only",
+  "stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "intended_operator": "root; no action in this document was performed against the running server",
+  "current_run_status_scope": "The parent reports normal first-attempt training. This preparation does not inspect or change that run.",
+  "frozen_trainer_SHA256": "54834b0fd73ee08a420096e791be6038c2193acfb22c91c81563e059b64c67f3",
+  "known_interface_limits": [
+    "第一个完整的500更新checkpoint发表前，冻结接口没有同一运行恢复入口。没有合法cache/RECOVERY_SAME_RUN.pt及既有SHA事务收据时拒绝构造；这不是当前运行失败的证据。",
+    "只接受正式cache/RECOVERY_SAME_RUN.pt。遗留RECOVERY_SAME_RUN.tmp.pt永不自动提升；不得在中断后补造声称中断前已存在的SHA事务收据。",
+    "构造器只核对root提供的保存JSON证据；不直接验证远程PID、不读取checkpoint/tensor、不证明native恢复成功。Frozen trainer在实际恢复时仍执行源文件/输入hash及checkpoint模型、Adam、八流、Torch RNG、日志等检查。",
+    "旧监督器会读取现存train_final.py.WORKER_RECEIPT.json而不检查nonce。只移走.used不足以阻止旧worker收据混入新native结果；必须按下述精确名单归档后清场。",
+    "已有科学/数值/重放/绑定失败不能通过恢复请求改参数、跳步或换随机流绕过。构造器的结构校验不替代原规约对失败的处理。"
+  ],
+  "transaction_state_table": [
+    {
+      "target": "old committed target",
+      "committed_receipt": "old SHA matches target",
+      "pending_receipt": "new SHA differs from target",
+      "action": "选择旧COMMITTED；保留新PENDING和tmp作为失败发表证据，不提升tmp。"
+    },
+    {
+      "target": "new target after atomic replace",
+      "committed_receipt": "old SHA no longer matches",
+      "pending_receipt": "new SHA matches target",
+      "action": "可选择既有PENDING；其publication_status须为durable_pending_atomic_checkpoint_publication。"
+    },
+    {
+      "target": "new target after COMMITTED receipt",
+      "committed_receipt": "new SHA matches target",
+      "pending_receipt": "same new SHA/step/creator also matches",
+      "action": "优先COMMITTED；两份匹配收据的step/creator/bytes须一致。"
+    },
+    {
+      "target": "missing, tmp-only, or SHA matches neither saved receipt",
+      "action": "拒绝构造；不生成新的发表收据，不重命名tmp。"
+    }
+  ],
+  "ordered_operator_steps": [
+    {
+      "n": 1,
+      "name": "确认恢复对象",
+      "instruction": "仅在真实中断后处理同一stage、remote_root、logical_run_id。正常运行时不执行恢复。保留原stage的协议、config、INPUT_BINDING和ROOT_IMPLEMENTATION_REVIEW的冻结hash；不更改科学参数、50000末点、种子、学习率或预算字段。"
+    },
+    {
+      "n": 2,
+      "name": "确认实际进程已死并保存native证据",
+      "instruction": "root在原host/进程命名空间保存SCIENCE_PID与RSS_ACK、监督器wait返回的NATIVE_RECEIPT和带UTC的独立死亡观察。绑定entry、nonce、实际worker PID、supervisor PID、cwd；确认worker、supervisor及该attempt相关子进程已结束。PID缺席不能填成native0；native返回码缺失、活进程或身份冲突均停止。若含worker_self_receipt，PID/parentPID/nonce/entry/native_exit全部须与监督器一致。"
+    },
+    {
+      "n": 3,
+      "name": "创建完整旧attempt归档",
+      "instruction": "使用旧SCIENCE_PID.nonce作为唯一目录名，将原stage中除native_attempts目录外的全部实际文件独立复制到native_attempts/<old_nonce>/stage/<原相对路径>。先验证解析后的源根和目标均为该stage及其native_attempts子目录，禁止通配删除、符号链接或硬链接归档。记录完整闭合清单，包括不存在的必查路径；逐文件比较源/归档长度与SHA256。原有native_attempts全部保留，归档不能递归复制自身。"
+    },
+    {
+      "n": 4,
+      "name": "保留发表与末点证据",
+      "instruction": "完整归档RECOVERY_REQUEST、COMMITTED与PENDING收据及其残留tmp、正式和tmp checkpoint、PHYSICAL_PROGRESS、TRAINING_FAILURE、TRAIN_PROGRESS、所有日志、.used、native/worker/PID/ACK、历史汇总、TRAINING_TRACE以及已出现的九个末点输出。二进制只由root按既有授权保存/校验；本构造器只读取其保存的hash/长度元数据。"
+    },
+    {
+      "n": 5,
+      "name": "建立无猜测物理记录",
+      "instruction": "选用绑定旧attempt的最后可信PHYSICAL_PROGRESS或TRAINING_FAILURE JSON；若最新发表点领先保存进度，可由root另行提供绑定被归档checkpoint SHA的CHECKPOINT_METADATA摘要。不得把有效更新数直接当成完整物理总数，缺少支持元数据时拒绝。保存已知完成操作下界、已知但未逻辑提交的Adam次数，未知区间保留未知。"
+    },
+    {
+      "n": 6,
+      "name": "闭合历史请求链",
+      "instruction": "按时间列出全部旧attempt。第一个从0开始，后续从原请求的合法500倍数checkpoint开始。每次恢复使用过的RECOVERY_REQUEST原字节、其选中的事务收据原字节及前一attempt归档均须存在；旧请求内的既有physical记录和历史链接不可重写。checkpoint创建者可以是更早的祖先attempt，previous_native_attempt_id必须指紧邻上一attempt。"
+    },
+    {
+      "n": 7,
+      "name": "保存当前hash与冻结复核",
+      "instruction": "所有旧进程确认已死后，root保存正式checkpoint的bytes/SHA256观察，并复核全部冻结源、输入及环境。给构造器提供已有JSON事务收据和同一实现hash的ARTIFICIAL_SUITE_RECEIPT；不读取tmp作为候选。所有JSON副本以原字节hash登记在EVIDENCE_BUNDLE.references。"
+    },
+    {
+      "n": 8,
+      "name": "仅生成离线草稿",
+      "instruction": "在E或D的独立证据目录准备合同规定JSON；运行build_recovery_request.py --evidence <EVIDENCE_BUNDLE.json> --output <新的E或D目录>。输出目录不得存在。只产生RECOVERY_REQUEST.DRAFT.json与EVIDENCE_VALIDATION.json；任何缺失、重复JSON键、SHA/身份/历史矛盾都拒绝。"
+    },
+    {
+      "n": 9,
+      "name": "root审阅具体草稿",
+      "instruction": "核对草稿确为root_saved_evidence、选中的step/creator/上一attempt、物理下界和未知区间、归档的所有已出现末点输出；不得将selfcheck中的artificial_saved_record草稿用于实际运行。将证据包、构造器hash、草稿hash和归档清单hash保存在恢复链旁。"
+    },
+    {
+      "n": 10,
+      "name": "归档校验后精确移走旧活跃名字",
+      "instruction": "再次确认没有旧进程仍活着；对move_after_archive精确清单中实际存在的文件逐一将原文件移到native_attempts/<old_nonce>/removed_live_names/<原相对路径>，不覆盖任何已有目标。每次移动前校验解析后的源/目标仍位于期望stage。保留原归档副本。暂留.used直到下一步的请求已安装并准备就绪；不清空REMOTE_RUN_HISTORY，也不移动恢复必需的live checkpoint/事务收据/初始化文件。"
+    },
+    {
+      "n": 11,
+      "name": "安装已审阅请求并最后解锁",
+      "instruction": "root显式将同一份草稿原字节通过临时文件+fsync+原子replace+目录fsync安装为stage/RECOVERY_REQUEST.json，复核其SHA以及live checkpoint/被选收据仍等于草稿绑定。最后仅移动旧train_final.py.used至已验证归档目标。构造器不会完成这些动作。"
+    },
+    {
+      "n": 12,
+      "name": "由root显式恢复同一运行",
+      "instruction": "只调用原冻结linux_supervise.py train_final.py；不直接绕过监督器调用训练器，不另建科学候选。新nonce由原监督器生成，须不同于全部旧attempt；保存新的actual PID/RSS握手和原资源限制证据。恢复从已发表step+1继续；step=50000只重建已保存末点，不执行新的Adam更新。"
+    },
+    {
+      "n": 13,
+      "name": "关闭恢复链",
+      "instruction": "保存新native返回码和新TRAINING_RECEIPT，核对新recovery_history链接、全部旧physical记录、已知下界与未知区间仍在。末点仍为唯一50000，物理累计可更大；不得将重复计算或未知计算抹成50000。原后处理和验收门按冻结顺序继续，只有实际native与验收回执支持相应完成声明。"
+    }
+  ],
+  "move_after_archive": [
+    "train_final.py.WORKER_RECEIPT.json",
+    "train_final.py.SCIENCE_PID.json",
+    "train_final.py.RSS_ACK.json",
+    "train_final.py.NATIVE_RECEIPT.json",
+    "train_final.py.START_RESOURCE.json",
+    "train_final.py.stdout.log",
+    "train_final.py.stderr.log",
+    "REMOTE_ACTIVE_JOB.json",
+    "PHYSICAL_PROGRESS.json",
+    "TRAINING_FAILURE.json",
+    "TRAIN_PROGRESS.json",
+    "REPLAY_MISMATCH.json",
+    "RECOVERY_REQUEST.json",
+    "RECOVERY_CHECKPOINT.json.tmp",
+    "RECOVERY_CHECKPOINT_PENDING.json.tmp",
+    "cache/RECOVERY_SAME_RUN.tmp.pt"
+  ],
+  "move_last_after_request_install": [
+    "train_final.py.used"
+  ],
+  "retain_live_after_archive": [
+    "REMOTE_RUN_HISTORY.json",
+    "RECOVERY_CHECKPOINT.json",
+    "RECOVERY_CHECKPOINT_PENDING.json",
+    "cache/RECOVERY_SAME_RUN.pt",
+    "ARTIFICIAL_SUITE_RECEIPT.json",
+    "TRAIN_STARTED.json",
+    "FULL_EMPIRICAL_RESPONSE/ENVIRONMENT.json",
+    "FULL_EMPIRICAL_RESPONSE/INITIALIZATION.json",
+    "FULL_EMPIRICAL_RESPONSE/INITIAL_RANDOM_STATES.json",
+    "all frozen protocol/config/source/input bindings and original scientific resources",
+    "existing finalization outputs and TRAINING_TRACE; their archived bytes remain preserved before frozen trainer overwrites any"
+  ],
+  "physical_accounting": {
+    "positive_evidence": "Actual saved per-operation counters with their source JSON SHA; schema counters must match the frozen operation mapping.",
+    "logical_vs_physical": "last_completed_update and resumed_from_update define known logical progress; known Adam calls may exceed their difference. The difference is explicitly known_uncommitted_optimizer_steps.",
+    "unknown_default": "Before 50000, unseen work after the selected snapshot through process death is kept as an unknown interval from last_completed+1 through the conservative protocol upper bound50000. Its cost is not invented.",
+    "endpoint_boundary": "A snapshot already at50000 permits exact counted training operations because the frozen loop has no later training update. This says nothing about uncounted startup/finalization I/O.",
+    "failed_resume_before_restore": "With an incoming immutable recovery request plus saved pre-restore phase/counters0, the request proves the logical baseline only. Later unseen work remains unknown; no claim of successful restore is made.",
+    "stale_snapshot_rule": "If the selected checkpoint is ahead of saved creator/adjacent-attempt evidence, refuse until root supplies a cryptographically bound saved metadata summary; never infer exact physical work from checkpoint step alone."
+  },
+  "source_locators": {
+    "request_contract": "train_final.py:256-305",
+    "restored_state": "train_final.py:408-436",
+    "publication_order": "train_final.py:452-498",
+    "finalization_overwrite_check": "train_final.py:292-303 and737-812",
+    "snapshot_lower_bound": "train_final.py:196-210 and815-825",
+    "supervisor_overwrite_and_stale_worker_risk": "linux_supervise.py:24-25,50,85-111,154-163",
+    "physical_audit_contract": "r65_training_audit.py:104-177"
+  },
+  "actual_native_recovery_validated": false,
+  "remote_process_queries": 0,
+  "scientific_array_reads": 0,
+  "checkpoint_file_reads": 0,
+  "training_launches": 0
+}
