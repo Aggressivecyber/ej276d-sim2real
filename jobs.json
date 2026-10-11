@@ -4886,10 +4886,112 @@
       "result": "work/R68_TRAIN_CHARGE_COMPATIBILITY_001/RESULT.json",
       "root_review": "reviews/R68_TRAIN_CHARGE_COMPATIBILITY_001/ROOT_RESULT_REVIEW.json",
       "delivery_receipt": "R68_DELIVERY_RECEIPT.json"
+    },
+    {
+      "stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
+      "status": "closed_negative_local_support",
+      "owner": "/root",
+      "registered_UTC": "2026-10-11T08:34:48.927919+00:00",
+      "protocol": "tasks/R69_SAMPLED_FULL_GRADIENT_PILOT_001.md",
+      "output_root": "work/R69_SAMPLED_FULL_GRADIENT_PILOT_001",
+      "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R69_ROOT_20261011_082144_UTC",
+      "active_scientific_jobs": 0,
+      "model_goal_complete": false,
+      "current_job": {
+        "stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
+        "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R69_ROOT_20261011_082144_UTC",
+        "status": "terminal",
+        "supervisor_PID": 370306,
+        "actual_worker_PID": 370317,
+        "native_exit": 0,
+        "wall_cap_s": 600
+      },
+      "updated_UTC": "2026-10-11T08:41:32.231023+00:00",
+      "native": {
+        "entry": "pilot.py",
+        "supervisor_PID": 370306,
+        "start_UTC": "2026-10-11T08:34:58.981842+00:00",
+        "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+        "limit_s": 600,
+        "compute_budget_enforced": true,
+        "wall_deadline_UTC": null,
+        "stage_output_limit_bytes": null,
+        "actual_worker_PID": 370317,
+        "actual_worker_RSS_peak_bytes": 3356614656,
+        "memory_probe_failures": 2,
+        "memory_probe_failure_events": [
+          {
+            "UTC": "2026-10-11T08:40:46.829021+00:00",
+            "PID": 370317,
+            "poll": null,
+            "context": "actual_PID_query",
+            "error": "OSError('owned tree root RSS unavailable')",
+            "cause": "unknown"
+          },
+          {
+            "UTC": "2026-10-11T08:40:46.929350+00:00",
+            "PID": 370317,
+            "poll": null,
+            "context": "actual_PID_query",
+            "error": "OSError('actual PID RSS unavailable')",
+            "cause": "unknown"
+          }
+        ],
+        "handshake_before_imports": true,
+        "job_tree_RSS_peak_bytes": 3328626688,
+        "execution_device": "cuda:0",
+        "GPU_admission_applied": true,
+        "GPU_process_memory_peak_bytes": 4534042624,
+        "GPU_query_failures": [],
+        "RSS_limit_bytes": 51539607552,
+        "start_resource": {
+          "UTC": "2026-10-11T08:34:58.923819+00:00",
+          "MemAvailable_bytes": 61651746816,
+          "RSS_quota_bytes": 51539607552,
+          "CPU_threads": 12,
+          "disk_free_bytes": 118603505664,
+          "other_own_project_jobs": [],
+          "execution_device": "cuda:0",
+          "GPU_admission_applied": true,
+          "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+          "compute_budget_enforced": true,
+          "limit_s": 600,
+          "stage_output_limit_bytes": null,
+          "GPU_free_bytes": 12168724480,
+          "other_GPU_compute_jobs": ""
+        },
+        "launcher_PID": 370317,
+        "last_disk_free_bytes": 118568005632,
+        "actual_worker_parent_PID": 370306,
+        "last_job_tree_PIDs": [
+          370317
+        ],
+        "actual_worker_native_exit": 0,
+        "launcher_native_exit": 0,
+        "termination_reason": null,
+        "elapsed_s": 348.0477822019966,
+        "stop_UTC": "2026-10-11T08:40:47.029611+00:00",
+        "worker_self_receipt": {
+          "PID": 370317,
+          "parent_PID": 370306,
+          "nonce": "bd9f4a6811aa470989f2d4d1e21305bb",
+          "entry": "pilot.py",
+          "native_exit": 0,
+          "error": null,
+          "elapsed_s": 347.4352522439949,
+          "self_peak_RSS_bytes": 3356614656,
+          "supervisor_bound_real_PID": true,
+          "UTC": "2026-10-11T08:40:46.433776+00:00"
+        }
+      },
+      "result_status": "NEGATIVE_LOCAL_SUPPORT",
+      "root_review": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/ROOT_RESULT_REVIEW.json",
+      "result": "work/R69_SAMPLED_FULL_GRADIENT_PILOT_001/RESULT.json",
+      "delivery_receipt": "R69_DELIVERY_RECEIPT.json"
     }
   ],
   "active_scientific_jobs": 0,
   "active_remote_scientific_jobs": 0,
   "active_local_scientific_jobs": 0,
-  "updated_UTC": "2026-10-11T07:38:00.698370+00:00"
+  "updated_UTC": "2026-10-11T08:42:23.858535+00:00"
 }

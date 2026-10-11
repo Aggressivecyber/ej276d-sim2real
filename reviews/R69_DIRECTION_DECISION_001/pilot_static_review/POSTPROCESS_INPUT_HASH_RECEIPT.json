@@ -1,0 +1,33 @@
+{
+  "audit_id": "R69_POSTPROCESS_STATIC_REVIEW",
+  "UTC": "2026-10-11T08:44:45.898377+00:00",
+  "scope": "Read-only source review; no postprocessor or pilot execution",
+  "result": "NO_BLOCKER_FOR_CURRENT_COMPLETED_COMPARISON_PATH",
+  "inputs": [
+    {
+      "relative_path": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/review_and_report.py",
+      "SHA256": "52dc85fd8d5a3502c511044155ae566ff72834c004942d33bdfbfa52a79e12ca",
+      "bytes": 18681,
+      "lines": 184
+    },
+    {
+      "relative_path": "work/R69_SAMPLED_FULL_GRADIENT_PILOT_001/pilot.py",
+      "SHA256": "47bd6eb5256d7c376ad60af2ebd69e79265fd1cf64384021c97eb1da23bd31c4",
+      "bytes": 31069,
+      "lines": 410
+    },
+    {
+      "relative_path": "reviews/R65_PREPARATION_001/training_audit_adapter/local_resource_guard.py",
+      "SHA256": "01caa0405c4e24a555cdd701a3435ebc3917339db9cd900a3a4f3e415c855d41",
+      "bytes": 3833,
+      "lines": 64
+    }
+  ],
+  "initial_review_script_SHA256_before_root_fixes": "c29cde442d6916f72ea47544ac2ba8997c7280674e8e15911525dc3e4060e29b",
+  "root_fixes_statically_confirmed": [
+    "Completed/negative-admission worker time and GPU allocated/reserved rechecks",
+    "Unknown started training count for inconclusive execution with separate completed receipt count"
+  ],
+  "scientific_arrays_or_weights_opened": 0,
+  "scripts_executed": 0
+}

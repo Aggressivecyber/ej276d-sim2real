@@ -1,0 +1,109 @@
+{
+  "status": "PASS_ARTIFICIAL_CPU_ONLY",
+  "numpy_version": "1.26.4",
+  "helper_previously_loaded": true,
+  "checks_passed": 35,
+  "check_names": [
+    "helper_import_preserves_legacy_numpy_rng",
+    "helper_import_preserves_unrelated_pcg64_rng",
+    "fraction_exhaustive_ht_mean_equals_full_gradient",
+    "fraction_exhaustive_error_variance_equals_ht_formula",
+    "unequal_blocks_and_singleton_have_identical_inclusion_probability",
+    "float_helper_matches_exact_fraction_variance",
+    "full_sample_variance_is_zero_for_unequal_blocks",
+    "singleton_population_variance_is_zero",
+    "identical_block_gradients_have_zero_sampling_variance",
+    "original_schedule_has_104_blocks_and_final_one_parent",
+    "original_first_103_blocks_have_64_parents",
+    "original_schedule_covers_every_parent_once_without_gaps",
+    "schedule_retains_small_population",
+    "sampler_is_exactly_one_private_pcg64_choice_without_replacement",
+    "sample_indices_are_original_sorted_unique_indices_with_scale_26",
+    "private_seed_reproduces_sample",
+    "sampling_advances_only_supplied_rng",
+    "full_block_sample_retains_all_original_indices",
+    "reject_zero_population",
+    "reject_zero_chunk",
+    "reject_bool_population",
+    "reject_noninteger_population",
+    "reject_zero_sample_size",
+    "reject_sample_larger_than_population",
+    "reject_bool_sample_size",
+    "reject_non_pcg64_generator",
+    "variance_rejects_zero_sample",
+    "variance_rejects_negative_norm",
+    "variance_rejects_nan_norm",
+    "variance_rejects_infinite_norm",
+    "variance_rejects_materially_negative_centered_sum",
+    "variance_rounding_tolerance_has_no_absolute_floor",
+    "full_sample_still_rejects_inconsistent_norms",
+    "variance_rejects_overflow",
+    "only_scale_relative_negative_roundoff_is_clamped"
+  ],
+  "exact_fraction_fixture": {
+    "M": 5,
+    "k": 2,
+    "block_lengths": [
+      2,
+      3,
+      4,
+      5,
+      1
+    ],
+    "subsets_enumerated": 10,
+    "inclusion_counts": [
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "full_gradient": [
+      "95549/144144",
+      "9615043/1081080"
+    ],
+    "mean_ht_gradient": [
+      "95549/144144",
+      "9615043/1081080"
+    ],
+    "sum_block_squared_norm": "21380852184053/934987173120",
+    "total_gradient_squared_norm": "371850370132621/4674935865600",
+    "mean_squared_estimation_error": "5083466702147/389577988800",
+    "formula_variance": "5083466702147/389577988800",
+    "helper_variance_float": 13.048649688359905
+  },
+  "original_schedule": {
+    "n": 6593,
+    "chunk": 64,
+    "M": 104,
+    "last_block": [
+      6592,
+      6593
+    ],
+    "last_block_length": 1
+  },
+  "pcg64_fixture": {
+    "seed": 202610116901,
+    "indices": [
+      34,
+      62,
+      73,
+      80
+    ],
+    "scale": 26.0
+  },
+  "roundoff_policy": {
+    "relative_float_epsilon_multiplier": 32,
+    "absolute_floor": 0.0,
+    "material_negative": "raise ValueError"
+  },
+  "scope": {
+    "scientific_arrays_opened": 0,
+    "model_runs": 0,
+    "training_updates": 0,
+    "cuda_execution": 0,
+    "network_calls": 0,
+    "file_writes_by_run_checks": 0
+  },
+  "evidence_boundary": "Finite artificial expectation/variance and API checks; not scientific or CUDA validation."
+}

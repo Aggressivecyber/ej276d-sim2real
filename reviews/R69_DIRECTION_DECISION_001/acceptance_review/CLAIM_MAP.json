@@ -1,0 +1,233 @@
+{
+  "audit_id": "R69_DIRECTION_DECISION_001_acceptance_review",
+  "scope": "Static text-only protocol/source/report/JSON review",
+  "new_scientific_computations": 0,
+  "new_classifier_fits": 0,
+  "private_NPZ_PT_CSV_opened": 0,
+  "acceptance_changed": false,
+  "source_population_or_weights_changed": false,
+  "root_decision": "Do not execute a new TRAIN 1D classifier",
+  "claims": [
+    {
+      "id": "A01",
+      "status": "not_proven_universally_infeasible",
+      "claim": "原固定二维HGB及A–F没有普遍不可行证明。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "19,26"
+        },
+        {
+          "file": "work/R68_TRAIN_CHARGE_COMPATIBILITY_001/RESULT.json",
+          "lines": "85-90"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "status": "verified_static_definition",
+      "claim": "Q_PSD_2D=[Qtotal_mVns,signed PSD]，共同canonical ADC后取同一基线减除电荷窗；不移除Q。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+          "lines": "14-18"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluation.py",
+          "lines": "83-87"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/assessment.py",
+          "lines": "10-15"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/canonical.py",
+          "lines": "4-6"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "verified_static_definition_and_archived_counts",
+      "claim": "原R26固定phase0/phase1三域身份，600/250每域；SOURCE j0、REAL_DEV j1、TRAIN_REFERENCE j2。",
+      "evidence": [
+        {
+          "file": "work/R26_CONDITIONAL_BATCH_TRANSLATION_001/evaluate_endpoints.py",
+          "lines": "26-31,55-56"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluate_saved.py",
+          "lines": "35-47,69-85"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/results/C_COVERAGE_RESPONSE__Q_PSD_2D.json",
+          "lines": "7-10,30-33"
+        }
+      ],
+      "boundary": "本次未解码私有身份数组。"
+    },
+    {
+      "id": "A04",
+      "status": "verified_static_definition",
+      "claim": "median imputer/StandardScaler只在合并分类训练行拟合；固定HGB超参数和p=.5，每个新响应候选新拟合HGB。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/config_post.json",
+          "lines": "2-14"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+          "lines": "107-125"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluate_saved.py",
+          "lines": "76-85"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "verified_static_definition",
+      "claim": "500组bootstrap区间仅条件于已拟合分类器/固定记录组；不包含响应或分类器重训/独立采集不确定性。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+          "lines": "81-90,116,123"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluate_saved.py",
+          "lines": "109-111"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "verified_static_definition",
+      "claim": "同处理REAL为相同方法对原TRAIN_REFERENCE作用后与固定REAL_DEV比较，R分组命名空间一致。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/evaluate_saved.py",
+          "lines": "69-74,146-159"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "archived_relevant_non_equivalent_evidence",
+      "claim": "R47原Q-only HGB SOURCE BA=.586 CI=[.540830439,.626027758]、LONG=.590 CI=[.543916856,.626281551]，均uncertain。",
+      "evidence": [
+        {
+          "file": "R47_REPORT.md",
+          "lines": "3-15"
+        },
+        {
+          "file": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/results/CHARGE_SOURCE.json",
+          "lines": "2-24,30-42"
+        },
+        {
+          "file": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/results/CHARGE_LONG.json",
+          "lines": "2-24"
+        },
+        {
+          "file": "work/R47_POPULATION_NOISE_DIAGNOSTIC_001/numeric_worker.py",
+          "lines": "194-213"
+        }
+      ],
+      "boundary": "原评价人口、非全TRAIN、不含逐源电荷容许区间枚举；不等价于根的新诊断提案。"
+    },
+    {
+      "id": "A08",
+      "status": "archived_candidate_failure_only",
+      "claim": "R63二维SOURCE失败与REAL控制通过只约束该冻结候选。",
+      "evidence": [
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/results/C_COVERAGE_RESPONSE__Q_PSD_2D.json",
+          "lines": "2-33"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/results/C_COVERAGE_REAL_CONTROL__Q_PSD_2D.json",
+          "lines": "2-33"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "status": "missing_inference_conditions",
+      "claim": "TRAIN阈值/CDF证书到原固定门缺身份质量转移、实际输出Q绑定、固定二维学习算法检出保证、原bootstrap区间保证。",
+      "evidence": [
+        {
+          "file": "work/R68_TRAIN_CHARGE_COMPATIBILITY_001/RESULT.json",
+          "lines": "85-90"
+        },
+        {
+          "file": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/diagnostic_core.py",
+          "lines": "107-125"
+        },
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "26"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "status": "testable_hypothesis_only",
+      "claim": "保持Q/权重的合理条件响应学习可降低非电荷残差；总体A能否通过尚未知，不能用分类器盲区取得科学结论。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "19-21,26,32,36"
+        },
+        {
+          "file": "R51_REPORT.md",
+          "lines": "3,7-15"
+        },
+        {
+          "file": "reviews/R68_SOURCE_PROVENANCE_AUDIT_001/REPORT.md",
+          "lines": "21,27,31-33"
+        }
+      ]
+    },
+    {
+      "id": "A11",
+      "status": "root_decision_no_new_1D_fit",
+      "claim": "不执行新的全TRAIN1D HGB；该有限桥梁不会单独改变成本hold/新波形候选方向。",
+      "evidence": [
+        {
+          "file": "root task follow-up",
+          "lines": "direct root instruction, current turn"
+        }
+      ],
+      "boundary": "本审核0科学计算、0新拟合；不扩展根正在另行审查的优化方向。"
+    },
+    {
+      "id": "A12",
+      "status": "independent_work_can_continue_no_confirmed_blocker",
+      "claim": "原目标未完成但未证实普遍阻塞；可继续独立准备。改Q/人口/权重/验收目标须具体授权；物理或跨采集声明须外部证据，不额外强加为原A–F条件。",
+      "evidence": [
+        {
+          "file": "PROJECT_ACCEPTANCE.md",
+          "lines": "15,19-24,26,32"
+        },
+        {
+          "file": "reviews/R68_SOURCE_PROVENANCE_AUDIT_001/REPORT.md",
+          "lines": "5,17-25,31-33"
+        }
+      ]
+    }
+  ],
+  "missing_link_conditions": [
+    "TRAIN population bound transferred to original evaluation IDs, caps and masses",
+    "same original q/units, tolerances and canonical outputs tied to each candidate",
+    "finite regularized histogram boosting on mutable PSD guaranteed to discover q signal",
+    "original fitted predictions and artificial groups guaranteed to fail the original bootstrap containment gate"
+  ],
+  "independent_next_evidence": "Existing R47 and fixed-gate records plus an explicit non-charge conditional mechanism hypothesis and frozen matched comparison, under root direction",
+  "external_conditions_only_for_extended_claims_or_goal_change": [
+    "Independent detector/charge/source-spectrum calibration evidence for physical claims",
+    "Independent acquisition and response labels for cross-acquisition/particle-truth claims",
+    "Explicit prospective approval for concrete changes to q target, populations/weights or original A"
+  ],
+  "overall_blocker_proven": false,
+  "conditional_response_learning_status": "Not ruled out for fixed evaluator tolerance, not established feasible; ideal conditional matching retains q marginal mismatch"
+}

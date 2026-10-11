@@ -1,0 +1,76 @@
+{
+  "audit_id": "R69_DIRECTION_DECISION_001_pilot_static_review",
+  "UTC": "2026-10-11T08:35:56.563407+00:00",
+  "result": "CORE_STATIC_REVIEW_PASS_AFTER_PREEXECUTION_FIXES",
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "P1",
+      "status": "closed_before_execution",
+      "issue": "No-update reference changed Adam LR and violated unchanged optimizer digest",
+      "current_evidence": [
+        "P/reference_gradient.py:23-24,105",
+        "P/pilot.py:320,333-334"
+      ],
+      "changed_by": "root"
+    },
+    {
+      "id": "F02",
+      "severity": "P2",
+      "status": "closed_before_execution",
+      "issue": "mini arm lacked 200-second cap",
+      "current_evidence": [
+        "P/pilot.py:264-280"
+      ],
+      "changed_by": "root"
+    },
+    {
+      "id": "F03",
+      "severity": "P2",
+      "status": "closed_before_execution",
+      "issue": "mini neural forward counter_delta zero contradicted actual n*384 forwards",
+      "current_evidence": [
+        "P/pilot.py:273-275,288-289"
+      ],
+      "changed_by": "root"
+    }
+  ],
+  "unresolved_confirmed_core_bugs": 0,
+  "reference_optimizer_call_targets": [
+    {
+      "line": 24,
+      "name": "optimizer.zero_grad"
+    }
+  ],
+  "common_evaluation_AST_equal_to_R67": {
+    "metrics": true,
+    "noise_for": true,
+    "full_forward": true,
+    "common_C": true,
+    "evaluate": true
+  },
+  "sampled_D_scaling_source_occurrences": 1,
+  "harm_gate_schema_static_counts": {
+    "SOURCE": 59,
+    "same_treated_REAL": 43,
+    "total": 102
+  },
+  "new_scientific_computations": 0,
+  "new_synthetic_check_runs": 0,
+  "new_model_runs": 0,
+  "new_classifier_fits": 0,
+  "scientific_array_or_weight_artifacts_opened": 0,
+  "helpers_reviewed_location": "reviews/R69_DIRECTION_DECISION_001/optimization_review",
+  "work_package_missing_at_seal": [],
+  "root_scope_confirmation": "Entire preregistered conditional protocol; admission AND budget pass allows candidate100, matched mini, complete probes. No admission-only exit is required.",
+  "launch_authorized_by_this_review": false,
+  "native_scientific_checks_not_replaced_by_static_review": true,
+  "root_must_copy_reviewed_helpers_and_seal_final_binding": false,
+  "root_helper_copies_match_reviewed_SHA256": {
+    "sampled_blocks.py": "a0792963624ffa1bb609e27d17c75a047d7b46a54127b733d13d87d5aae54d58",
+    "check_sampled_blocks.py": "6f1c1fd9043b0f615507441dae603095e53b528c0cf843a198603a533b45b85e"
+  },
+  "FILE_BINDING_text_SHA256": "9d03c5498bb62965b054bb273a98ce7e9e14de80947398c31de0eda99e54805c",
+  "scientific_binding_objects_opened_or_rehashed": 0,
+  "root_registration_and_native_validation_remain_root_owned": true
+}

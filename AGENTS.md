@@ -1,3 +1,15 @@
+# Current: R69 fixed K4 gradient and equal-cost evidence closed
+
+Result: NEGATIVE_LOCAL_SUPPORT. The no-update gradient error gate passed. Root recomputed the saved evidence, original hashes and native resource receipt. No active scientific worker; no K4/seed scan or R65 restart. Original full A-F remains incomplete. See R69_REPORT.md and reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/ROOT_RESULT_REVIEW.json.
+
+## Earlier records
+
+# Current: R69 registered one bounded gradient admission
+
+The fixed K4 candidate retains all current SOURCE/REAL distribution laws and samples four of the original104 parameter-VJP blocks. First measure its exact conditional error from one complete unchanged gradient; if either predeclared relative-MSE gate fails, stop with zero training/probes. Only a pass may enter the same-start equal-time comparison, within a total600-second worker cap. No k/seed scan or R65 restart. Original population, charge and A-F remain unchanged and incomplete. See tasks/R69_SAMPLED_FULL_GRADIENT_PILOT_001.md.
+
+## Earlier records
+
 # Current: R68 finite TRAIN charge bound completed; original A-F unmet
 
 The exact preserved-charge/ADC envelope leaves aTRAIN charge KS gap of at least0.248400366, corresponding to a descriptive threshold BA lower bound0.624200183 on these same finite laws. This is not a proof against the original held-out fixed-HGB gate. R67 full-D remains negative in the joint equal-cost test; itsD5 sum is slightly lower butC4 higher, and noise/temporal D terms are individually worse. R65 remains retired on cost hold. No active scientific worker, no new training, no source-weight or A-F change. Existing input provenance has now been traced: nominal analytic source scaling, independent calibration/quench unknown, and distinct full-pulse/window charge definitions. No new training is registered; original charge/population/A-F remain unchanged. See reviews/R68_SOURCE_PROVENANCE_AUDIT_001/REPORT.md. See R68_REPORT.md and the root review.
