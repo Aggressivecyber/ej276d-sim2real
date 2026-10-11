@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "evidence": "CPU artificial only; CUDA not executed",
+  "torch_version": "2.10.0+cpu",
+  "source_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R65_FULL_EMPIRICAL_D_RESPONSE_001",
+  "checks": [
+    {
+      "check": "native dtype + signed zero + subnormal + noncontiguous",
+      "dtype": "torch.float32",
+      "byte_equal": true,
+      "sha256": "b010f5892867b3e543e044eb6d894a8192ccd288b89aa99edff6071e25a87f57"
+    },
+    {
+      "check": "native dtype + signed zero + subnormal + noncontiguous",
+      "dtype": "torch.float64",
+      "byte_equal": true,
+      "sha256": "46371c9306143d298b7b6d17837b2cb883d21f20c56531aec60b987633a4bb44"
+    },
+    {
+      "check": "mixed dtype fallback",
+      "byte_equal": true
+    },
+    {
+      "check": "metadata and NaN/Inf rejection",
+      "cases": 8,
+      "passed": true
+    },
+    {
+      "check": "3 updates: original64 chunk addition, D+C, one f64->f32/clip5/Adam, optimizer state, RNG",
+      "byte_equal": true
+    },
+    {
+      "check": "actual ResponseNetwork/endpoint artificial CPU forward+replay+VJP",
+      "batch": 1,
+      "parameter_tensors": 174,
+      "parameter_count": 1369889,
+      "all_gradient_tensors_nonzero": true,
+      "byte_equal": true,
+      "sha256": "b0db1175b73a778232ad02544fcfad7114e0a0bb620afe6bc6adad4ad51a69c3"
+    }
+  ],
+  "elapsed_seconds": 1.969299399992451,
+  "resources": {
+    "peak_RSS_bytes": 353181696,
+    "RSS_bytes": 342220800,
+    "peak_private_commit_bytes": 390672384,
+    "private_commit_cap_bytes": 1073741824,
+    "CPU_threads": 1,
+    "logical_CPU_index": 1,
+    "affinity_mask": 2
+  }
+}

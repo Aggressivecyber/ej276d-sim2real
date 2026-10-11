@@ -255,24 +255,61 @@ try:
     }
     request_path = R/'RECOVERY_REQUEST.json'
     recovery_requested = request_path.exists()
+    assert recovery_requested, 'This equivalent implementation revision only continues the existing run'
+    checkpoint_frozen_binding = frozen_binding
+    implementation_upgrade_applied = None
+    requested_binding = read('RECOVERY_REQUEST.json')['frozen_binding']
+    if requested_binding != frozen_binding:
+        upgrade = read('IMPLEMENTATION_UPGRADE.json')
+        assert upgrade['schema_version'] == 1 and upgrade['kind'] == 'equivalent_gradient_pack_only'
+        assert upgrade['prior_frozen_binding'] == requested_binding
+        assert requested_binding['implementation_review_SHA'] == 'e0a4b101886f5cb10b205364fe8414ca2db1fa211cbb058de7d4113f85ba24f5'
+        assert all(requested_binding[key] == frozen_binding[key] for key in
+                   ('protocol_SHA','config_SHA','input_binding_SHA','environment'))
+        assert upgrade['logical_run_id'] == logical_run_id and upgrade['scientific_parameters_changed'] is False
+        assert upgrade['checkpoint_SHA256'] == read('RECOVERY_REQUEST.json')['checkpoint_SHA256']
+        assert len(upgrade['changed_source_files']) == 3 and {record['name'] for record in upgrade['changed_source_files']} == {
+            'train_final.py','network_update_check/network_update_check.py','network_update_check/SOURCE_BINDING.json'}
+        for record in upgrade['changed_source_files']:
+            assert sha(R/record['name']) == record['after_SHA256'], record['name']
+            archived = (R/record['before_archive_relative_path']).resolve(strict=True)
+            assert (R/'native_attempts').resolve() in archived.parents
+            assert sha(archived) == record['before_SHA256'], record['name']
+        for kind in ('CPU','CUDA'):
+            evidence = upgrade['equivalence_evidence'][kind]
+            assert sha(R/evidence['path']) == evidence['SHA256']
+            assert read(evidence['path'])['status'] == 'passed'
+        checkpoint_frozen_binding = requested_binding
+        implementation_upgrade_applied = {
+            'declaration_path':'IMPLEMENTATION_UPGRADE.json', 'declaration_SHA256':sha(R/'IMPLEMENTATION_UPGRADE.json'),
+            'from_implementation_review_SHA':requested_binding['implementation_review_SHA'],
+            'to_implementation_review_SHA':frozen_binding['implementation_review_SHA'],
+            'same_protocol_config_inputs_environment':True, 'checkpoint_bytes_modified':False,
+            'gradient_pack_only':True, 'scientific_parameters_changed':False,
+        }
+        # Validate the new implementation before deserializing the original checkpoint.
+        from artificial_suite import run_all
+        suite = run_all(R, C, frozen_binding['implementation_review_SHA'])
+        assert suite['pass']
+        write('ARTIFICIAL_SUITE_RECEIPT.json', suite)
     recovery = None
     if recovery_requested:
         request = read('RECOVERY_REQUEST.json')
         assert request['logical_run_id'] == logical_run_id
         assert request['prior_actual_PID_gone'] and request['prior_native_attempt_preserved']
-        assert request['frozen_binding'] == frozen_binding
+        assert request['frozen_binding'] == checkpoint_frozen_binding
         publication_name = request['checkpoint_publication_receipt_path']
         assert publication_name in ('RECOVERY_CHECKPOINT.json','RECOVERY_CHECKPOINT_PENDING.json')
         assert sha(R/publication_name) == request['checkpoint_publication_receipt_SHA256']
         publication = read(publication_name)
-        assert publication['logical_run_id'] == logical_run_id and publication['frozen_binding'] == frozen_binding
+        assert publication['logical_run_id'] == logical_run_id and publication['frozen_binding'] == checkpoint_frozen_binding
         assert publication['committed_update'] == request['committed_update']
         assert publication['native_attempt_id'] == request['checkpoint_creator_attempt_id']
         assert publication['checkpoint_SHA256'] == request['checkpoint_SHA256']
         assert sha(CACHE/'RECOVERY_SAME_RUN.pt') == publication['checkpoint_SHA256']
         recovery = torch.load(CACHE/'RECOVERY_SAME_RUN.pt', map_location='cpu', weights_only=False)
         assert recovery['checkpoint_transaction_version'] == 1
-        assert recovery['logical_run_id'] == logical_run_id and recovery['frozen_binding'] == frozen_binding
+        assert recovery['logical_run_id'] == logical_run_id and recovery['frozen_binding'] == checkpoint_frozen_binding
         assert recovery['committed_update'] == request['committed_update'] <= C['updates']
         assert request['checkpoint_creator_attempt_id'] == recovery['native_attempt_id']
         previous_attempt_compute = request['preserved_physical_attempt_compute']
@@ -288,6 +325,7 @@ try:
             'checkpoint_publication_receipt_path':publication_name,
             'checkpoint_publication_receipt_SHA256':request['checkpoint_publication_receipt_SHA256'],
             'bindings_verified':True,'previous_PID_confirmed_dead':True,
+            'implementation_upgrade':implementation_upgrade_applied,
         }]
         # Partial finalization may be safely rebuilt only after preserving its bytes.
         preserved = {record['name']:record for record in request['preserved_finalization_outputs']}
@@ -434,6 +472,15 @@ try:
         torch.cuda.set_rng_state(recovery['torch_CUDA_RNG'],0)
         assert read(ARM+'/INITIAL_RANDOM_STATES.json') == initial_states
         assert np.all(countsDS == updates) and np.all(countsDR == updates)
+        write('SAME_RUN_RESTORE_RECEIPT.json', {
+            'UTC':utc(),'PID':os.getpid(),'native_attempt_id':attempt_id,'logical_run_id':logical_run_id,
+            'committed_update_restored':updates,'checkpoint_SHA256':request['checkpoint_SHA256'],
+            'model_state_SHA256_after_restore':state_hash(model.state_dict()),
+            'model_state_SHA256_in_checkpoint':state_hash(recovery['model']),
+            'implementation_upgrade':implementation_upgrade_applied,
+            'all_eight_random_states_and_original_optimizer_restored':True,
+            'current_frozen_binding':frozen_binding,
+        })
     else:
         write(ARM+'/INITIAL_RANDOM_STATES.json',initial_states)
         counter['response_fit_attempts'] = 1
@@ -758,6 +805,7 @@ try:
         'PID':os.getpid(),'UTC':utc(),'arm':ARM,'updates':updates,'elapsed_s':time.monotonic()-START,
         'counter':counter,'selection':'sole final50000','logical_run_id':logical_run_id,
         'native_attempt_id':attempt_id,'frozen_binding':frozen_binding,
+        'implementation_upgrade':implementation_upgrade_applied,
         'source_parents':6593,'REAL_parents':21047,
         'actual_unique_SOURCE_REAL_reference_REAL_identity':[int(np.count_nonzero(a)) for a in (countsS,countsR,countsI)],
         'SOURCE_parent_exposure_min_max':[int(countsS.min()),int(countsS.max())],

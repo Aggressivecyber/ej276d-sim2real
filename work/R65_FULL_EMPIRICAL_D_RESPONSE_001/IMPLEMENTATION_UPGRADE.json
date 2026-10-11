@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "kind": "equivalent_gradient_pack_only",
+  "UTC": "2026-10-11T05:01:21.023486+00:00",
+  "owner": "/root",
+  "logical_run_id": "R65_FULL_EMPIRICAL_D_RESPONSE_001@/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+  "scientific_parameters_changed": false,
+  "prior_frozen_binding": {
+    "protocol_SHA": "324b8e925cbc1b65578b3e36614693ae6cfb5561d0b3e379293ceab7aa4e256b",
+    "config_SHA": "1aacb74b0cd443d0ea74fe898fd4f7aabe40f2082fa52e0bbb6579d54e1d2caf",
+    "input_binding_SHA": "b5db5dd9efa348ecc7a8a7fff651ae5acb7a7a57b2d779d19abd28b2cda0910e",
+    "implementation_review_SHA": "e0a4b101886f5cb10b205364fe8414ca2db1fa211cbb058de7d4113f85ba24f5",
+    "environment": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "numpy": "1.26.4",
+      "torch": "2.12.0+cu130",
+      "scipy": "1.11.4",
+      "device": "cuda:0",
+      "GPU": "NVIDIA GeForce RTX 5070",
+      "CPU_threads": 12,
+      "CPU_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "model_training_mode": true,
+      "MHA_fastpath": false,
+      "TF32": false,
+      "deterministic_algorithms": true
+    }
+  },
+  "checkpoint_SHA256": "63d958bfffbb75b57362005361f4adf3ef828de201bd6b2ebd5933df34fa3b5e",
+  "checkpoint_committed_update": 500,
+  "checkpoint_bytes_modified": false,
+  "changed_source_files": [
+    {
+      "name": "train_final.py",
+      "before_SHA256": "54834b0fd73ee08a420096e791be6038c2193acfb22c91c81563e059b64c67f3",
+      "after_SHA256": "7de50ca1aab65e78c0335279354a413775a93573d804cc99b55f8682d1cf4498",
+      "before_archive_relative_path": "native_attempts/37c43e76bb064c44937ebe888d58d0da/stage/train_final.py"
+    },
+    {
+      "name": "network_update_check/network_update_check.py",
+      "before_SHA256": "db8976450aec139e61b7a39b5d6f2c8234028b676fb578eea1819cda8ee77945",
+      "after_SHA256": "cbd6c259cf9067b5ba376bc8f88a5e2f0fe40f5b55bf56b954672883c897dd69",
+      "before_archive_relative_path": "native_attempts/37c43e76bb064c44937ebe888d58d0da/stage/network_update_check/network_update_check.py"
+    },
+    {
+      "name": "network_update_check/SOURCE_BINDING.json",
+      "before_SHA256": "7e3a60f76968da95d96fd20953d0cd34459a8591406bad99aaa52ef137587afb",
+      "after_SHA256": "8c49cb9c5c528944cf5e44debdb0ac5874b93c8e9767107b8ca4e50e87fe66a4",
+      "before_archive_relative_path": "native_attempts/37c43e76bb064c44937ebe888d58d0da/stage/network_update_check/SOURCE_BINDING.json"
+    }
+  ],
+  "equivalence_evidence": {
+    "CPU": {
+      "path": "implementation_upgrade/CPU_EQUIVALENCE.json",
+      "SHA256": "e23fe26b687f25dff18c98568571d97ff11f75af295790763bff00b357db566d"
+    },
+    "CUDA": {
+      "path": "implementation_upgrade/CUDA_EQUIVALENCE.json",
+      "SHA256": "1042512f33c4d64f53e429bcca64b7fab88fb9e39fe282c1258d7c647898b6ad"
+    }
+  },
+  "original_scientific_training_loop_AST_unchanged": true,
+  "CPU_float64_chunk_add_order_unchanged": true,
+  "original_source_population_random_streams_and_50000_endpoint_unchanged": true,
+  "old_native_attempt_archive": "native_attempts/37c43e76bb064c44937ebe888d58d0da",
+  "intentional_interruption_native_exit": -15,
+  "previous_logical_completed_update_lower_bound": 787,
+  "saved_evidence_bundle_SHA256": "ff4855a214eb2fabaab61bd7dbe0a86da62bc3873b6c5f52cc8e4eacf6aa4d88",
+  "recovery_request_SHA256": "39e581256ed19e8113c64b9f685d96244bdf96ce77b0cde4734a26800e8e82e3",
+  "root_reviewed_integration_report_SHA256": "8af5910f1369e2b6b9d742798cfe74f9c8bf9774bbabfbdc29bfc0d6a9e7262c",
+  "new_artificial_suite_required_before_old_checkpoint_deserialization": true
+}

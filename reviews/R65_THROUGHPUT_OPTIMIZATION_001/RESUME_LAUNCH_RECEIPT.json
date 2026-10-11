@@ -1,0 +1,93 @@
+{
+  "supervisor_PID": 328790,
+  "launch_time_unix": 1791695037.7380655,
+  "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+  "same_logical_run": true,
+  "resume_checkpoint": 500,
+  "entry": "train_final.py",
+  "CPU_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "immediate_supervisor_exit": 1,
+  "actual_job": {
+    "entry": "train_final.py",
+    "supervisor_PID": 328790,
+    "start_UTC": "2026-10-11T05:03:57.812078+00:00",
+    "python": "/home/rylan/projects/hpge-cpunet-validation-20261003/venv/bin/python",
+    "limit_s": null,
+    "compute_budget_enforced": false,
+    "wall_deadline_UTC": null,
+    "stage_output_limit_bytes": null,
+    "actual_worker_PID": 328795,
+    "actual_worker_RSS_peak_bytes": 764882944,
+    "memory_probe_failures": 1,
+    "memory_probe_failure_events": [
+      {
+        "UTC": "2026-10-11T05:03:59.553031+00:00",
+        "PID": 328795,
+        "poll": null,
+        "context": "actual_PID_query",
+        "error": "OSError('owned tree root RSS unavailable')",
+        "cause": "unknown"
+      }
+    ],
+    "handshake_before_imports": true,
+    "job_tree_RSS_peak_bytes": 662335488,
+    "execution_device": "cuda:0",
+    "GPU_admission_applied": true,
+    "GPU_process_memory_peak_bytes": 0,
+    "GPU_query_failures": [],
+    "RSS_limit_bytes": 51539607552,
+    "start_resource": {
+      "UTC": "2026-10-11T05:03:57.772591+00:00",
+      "MemAvailable_bytes": 61584609280,
+      "RSS_quota_bytes": 51539607552,
+      "CPU_threads": 12,
+      "disk_free_bytes": 118740373504,
+      "other_own_project_jobs": [],
+      "execution_device": "cuda:0",
+      "GPU_admission_applied": true,
+      "GPU_allocated_reserved_safety_limits_bytes": 10737418240,
+      "compute_budget_enforced": false,
+      "limit_s": null,
+      "stage_output_limit_bytes": null,
+      "GPU_free_bytes": 12168724480,
+      "other_GPU_compute_jobs": ""
+    },
+    "launcher_PID": 328795,
+    "last_disk_free_bytes": 118740357120,
+    "actual_worker_parent_PID": 328790,
+    "last_job_tree_PIDs": [
+      328795
+    ],
+    "actual_worker_native_exit": 1,
+    "launcher_native_exit": 1,
+    "termination_reason": null,
+    "elapsed_s": 1.8412043930002255,
+    "stop_UTC": "2026-10-11T05:03:59.653284+00:00",
+    "worker_self_receipt": {
+      "PID": 328795,
+      "parent_PID": 328790,
+      "nonce": "c9306986025c4474b87e5e800b300a43",
+      "entry": "train_final.py",
+      "native_exit": 1,
+      "error": "FileExistsError(17, 'File exists')",
+      "elapsed_s": 1.4036472260049777,
+      "self_peak_RSS_bytes": 662138880,
+      "supervisor_bound_real_PID": true,
+      "UTC": "2026-10-11T05:03:59.232336+00:00"
+    }
+  },
+  "local_observed_UTC": "2026-10-11T05:03:59.788810+00:00"
+}

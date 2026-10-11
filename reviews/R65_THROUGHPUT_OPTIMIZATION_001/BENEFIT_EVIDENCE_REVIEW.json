@@ -1,0 +1,64 @@
+{
+  "UTC": "2026-10-11T05:27:27.530400+00:00",
+  "status": "NO_EVIDENCE_TO_JUSTIFY_FULL_R65_COST_CONTINUATION",
+  "policy": {
+    "UTC": "2026-10-11T05:27:27.530400+00:00",
+    "user_request": "你能先证明这样能带来提高吗 成本太大了",
+    "benefit_of_full_population_training_proven": false,
+    "R65_continuation": "paused_pending_low_cost_benefit_evidence",
+    "automatic_resume_authorized": false,
+    "new_scientific_pilot_registered": false,
+    "new_scientific_pilot_executed": false,
+    "root_leads_and_reviews": true,
+    "analysis_model": "gpt-6.1-sol",
+    "analysis_reasoning_effort": "max",
+    "acceptance_original_A_F_unchanged": true,
+    "new_local_files": "E/D only",
+    "old_50000_endpoint_role": "Original R65 protocol retained as an incomplete paused experiment; never relabel step613 as final scientific endpoint.",
+    "evidence_needed_before_expensive_continuation": "A preregistered, tightly capped same-start/equal-compute comparison on fixed TRAIN probes with fresh noise and common metrics; no DEV/EVAL selection and no full-run proof from one pilot."
+  },
+  "previous_R63": {
+    "updates": 50000,
+    "elapsed_seconds": 5156.831054483002,
+    "mean_seconds_per_update": 0.10313662108966004,
+    "neural_rows_per_update": 384
+  },
+  "R65": {
+    "neural_rows_per_update": 13570,
+    "neural_row_ratio": 35.338541666666664,
+    "measured_new_seconds_per_update": 5.09074384,
+    "measured_original_seconds_per_update": 6.47875671,
+    "estimated_full_50000_hours_at_current_speed": 70.70477555555556,
+    "seconds_per_update_ratio_to_R63": 49.35922649215403,
+    "old_R63_average_vs_short_R65_interval_not_controlled_benchmark": true
+  },
+  "evidence_boundaries": [
+    "R64 only compared sampled gradient estimators against one frozen finite empirical reference, excluded C and did not train either candidate.",
+    "R64 joint128 had worse total-D parameter squared error than four32 average; this does not prove full-D long-run quality or equal-cost benefit.",
+    "Artificial CPU/CUDA gradient byte equivalence and matching step600 recorded endpoint/100-update aggregate metrics only validate the speed optimization.",
+    "The current 613-update TRAIN monitoring cannot establish A-F; minibatch and full-population training loss values are different estimators and are not a fair cross-method test."
+  ],
+  "low_cost_comparison_proposal": {
+    "status": "PROPOSED_NOT_REGISTERED_OR_EXECUTED",
+    "total_server_GPU_wall_seconds_cap": 600,
+    "arms": [
+      "original_minibatch",
+      "full_empirical_D"
+    ],
+    "requirements": [
+      "same_start_and_optimizer_state",
+      "equal_measured_compute",
+      "common_fixed_TRAIN_parent_measure_and_fresh_noise_probes",
+      "report_PSD_full_waveform_noise_and_source_preservation_together",
+      "no_DEV_EVAL_or_intermediate_final_model_selection"
+    ],
+    "stop_rule": "No consistent benefit at equal compute, or material regression in source/noise/charge constraints, means do not restore the expensive run.",
+    "positive_result_limit": "A small pilot supports only a staged follow-up with a cost cap, never an automatic 70-hour commitment or a proof of A-F."
+  },
+  "native_pause_receipt_SHA256": "a45fa92cd8a8729d81ecaad5a305d420f6a2e9fed3d785280bc886a67ef2dbc7",
+  "controller_stopped": true,
+  "completion_automation_status": "PAUSED",
+  "new_scientific_computation": false,
+  "original_A_F_changed": false,
+  "model_goal_complete": false
+}

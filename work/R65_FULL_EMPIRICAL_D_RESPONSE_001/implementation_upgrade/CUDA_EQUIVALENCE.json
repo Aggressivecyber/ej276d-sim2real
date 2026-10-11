@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "evidence": "Artificial CUDA only; no scientific arrays or saved weights read",
+  "torch_version": "2.12.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "threads": 12,
+  "cudnn_deterministic": true,
+  "TF32": false,
+  "checks": [
+    {
+      "check": "original to(cpu,f64) vs native D2H then CPU cast; signed zero/subnormal/noncontiguous",
+      "dtype": "torch.float32",
+      "byte_equal": true,
+      "sha256": "480f7e8f6be9c7cb9cac578d04c4a2a2bf3375cf820622204f94f57017141a5c"
+    },
+    {
+      "check": "original to(cpu,f64) vs native D2H then CPU cast; signed zero/subnormal/noncontiguous",
+      "dtype": "torch.float64",
+      "byte_equal": true,
+      "sha256": "261ca9b3bb84c27e3931912388fb7ce2d0dbb31764944889fae8289c70befeac"
+    },
+    {
+      "check": "mixed dtype and mixed device fallback",
+      "byte_equal": true
+    },
+    {
+      "check": "actual artificial ResponseNetwork 64-row endpoint+replay+VJP",
+      "byte_equal": true,
+      "all_gradient_tensors_nonzero": true,
+      "parameter_tensors": 174,
+      "parameter_count": 1369889,
+      "sha256": "f7cc19243f443dc5c9f50e11f002bd41554a498fef832e816a553860d12913ab",
+      "projection_active_rows": 16
+    }
+  ],
+  "packing_microbenchmark": {
+    "original_seconds": [
+      0.013434680800128263,
+      0.013506822899944381,
+      0.013452001599944197,
+      0.0159540062501037,
+      0.011426043999745162,
+      0.013990542549800011,
+      0.013161199349997332
+    ],
+    "candidate_seconds": [
+      0.003072413949848851,
+      0.0019714026002475293,
+      0.0025829055000940572,
+      0.0021760599502158584,
+      0.0022366743000020507,
+      0.0031782293001015203,
+      0.002281234499969287
+    ],
+    "original_median_seconds": 0.013452001599944197,
+    "candidate_median_seconds": 0.002281234499969287,
+    "median_ratio_original_over_candidate": 5.896807890694843,
+    "candidate_fractional_time_reduction": 0.8304167240079163,
+    "repetitions_per_sample": 20
+  },
+  "actual64_forward_plus_VJP_benchmark": {
+    "original_seconds": [
+      0.041148478994728066,
+      0.03610743500030367,
+      0.0791747650000616,
+      0.03945877200021641,
+      0.0385880950052524,
+      0.03616827900259523,
+      0.07299091699678684
+    ],
+    "candidate_seconds": [
+      0.036597464997612406,
+      0.028364327001327183,
+      0.028932022003573366,
+      0.02818356899661012,
+      0.028905086997838225,
+      0.034580849998747,
+      0.028880832003778778
+    ],
+    "original_median_seconds": 0.03945877200021641,
+    "candidate_median_seconds": 0.028905086997838225,
+    "median_ratio_original_over_candidate": 1.3651151440287133,
+    "candidate_fractional_time_reduction": 0.2674610604283455,
+    "repetitions_per_sample": 1
+  },
+  "peak_cuda_allocated_bytes": 535194112,
+  "peak_cuda_reserved_bytes": 614465536,
+  "elapsed_seconds": 3.6809772130000056,
+  "limitations": "No optimizer steps, no joint full_D objective, no full scientific update timing, no 50000-step ETA inference"
+}

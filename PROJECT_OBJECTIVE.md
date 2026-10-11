@@ -1,3 +1,21 @@
+# Current user instruction: prove benefit before further full-distribution cost
+
+R65 is PAUSED at completed update613, in update614; the worker and its supervisor are stopped with their memory retained. The durable checkpoint is update500. The local post-controller has stopped and the completion heartbeat is PAUSED. The user asked for evidence that the full-population change improves results before paying its large cost. No such quality or equal-compute benefit has been established. The original R65 50000-step endpoint and original A-F remain unchanged but incomplete. Do not resume the expensive run automatically. No new pilot has been registered or executed. Any proposed pilot must first declare a small fixed compute cap, common starting state, equal-compute comparison, fixed TRAIN probes and stopping rules; TRAIN proxy improvements cannot establish final A-F success. Root leads and reviews; auxiliary analysis, when useful, uses gpt-6.1-sol/max. All new local files remain on E/D. See R65_COST_BENEFIT_REVIEW.md and reviews/R65_THROUGHPUT_OPTIMIZATION_001/BENEFIT_EVIDENCE_PAUSE_RECEIPT.json.
+
+## Earlier records
+
+# Current user instruction: optimize R65 and keep its 50000-step endpoint
+
+The latest user instruction supersedes the earlier root-only / identical-model restrictions: auxiliary analysis uses gpt-6.1-sol with max reasoning, with root leading and reviewing. Optimize throughput while preserving the computation, source population, original A-F and fixed 50000 updates. If a safe speedup is unavailable, let the original run finish. A four-hour early stop is conditional on evidence that it has little quality cost; that evidence is currently absent, so no early stop is scheduled. Arrange an estimated follow-up wake after measured throughput is available. Server CPU12/RSS48GiB/GPU10GiB, one active scientific computation, shared local CPU4/RSS4GiB, and new local files only on E/D remain in force. The steering receipt is reviews/R65_THROUGHPUT_OPTIMIZATION_001/user_steering/RECEIPT.json.
+
+## Earlier records
+
+# Current user instruction: root only; investigate R65 throughput
+
+The user explicitly stopped multi-agent work on 2026-10-11. All auxiliary agents are interrupted or already completed. Only /root continues; do not spawn, resume or delegate to agents without a new user instruction. R65 training remains active. Prioritize measured throughput and numerically equivalent implementation improvements; preserve the original A-F, source population and scientific endpoint. Earlier parallel-agent authorizations below are historical and superseded. All new local files remain on E/D.
+
+## Earlier records
+
 # 当前执行：R65 全量有限 TRAIN 分布训练运行中
 
 已绑定112份源码/配置/回执；8项CPU/CUDA人工目标、网络回放与D+C/Adam检查全部通过，随后开始唯一原初始化50000步训练。每步保留全部6593 SOURCE和21047 REAL，原C微批与A–F不变。本次人工验证不代表科学验收通过。单科学作业、服务器CPU12/RSS48GiB/GPU10GiB、本机共享CPU4/RSS4GiB和全部新增本地E/D存储保持；无计算配额。

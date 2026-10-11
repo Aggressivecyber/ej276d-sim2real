@@ -1,0 +1,82 @@
+{
+  "registered_UTC": "2026-10-11T04:48:02.977387+00:00",
+  "owner": "/root",
+  "root_reviewed": true,
+  "purpose": "Measure an exactly comparable implementation candidate with artificial data on the registered GPU.",
+  "remote_directory": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC/engineering_benchmarks/attempt_001",
+  "entry": "benchmark_cuda_artificial.py",
+  "arguments": [
+    "--source-root",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC",
+    "--output",
+    "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R65_ROOT_20261011_030107_UTC/engineering_benchmarks/attempt_001/CUDA_ARTIFICIAL_RECEIPT.json",
+    "--threads",
+    "12",
+    "--samples",
+    "7",
+    "--pack-repetitions",
+    "20",
+    "--max-seconds",
+    "150"
+  ],
+  "maximum_benchmark_seconds": 180,
+  "maximum_artificial_compute_seconds": 150,
+  "scientific_data_reads": 0,
+  "scientific_updates": 0,
+  "saved_weight_reads": 0,
+  "frozen_training_file_changes": 0,
+  "original_A_F_changes": 0,
+  "training_isolation": "SIGSTOP verified owned PID291399; always SIGCONT in finally; same process and optimizer retained.",
+  "combined_GPU_limit_bytes": 10737418240,
+  "combined_RSS_limit_bytes": 51539607552,
+  "benchmark_CPU_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "root_local_CPU_affinity": [
+    3
+  ],
+  "files": [
+    {
+      "name": "gradient_pack_candidate.py",
+      "sha256": "657994d1ff5ecf40729b0ce05c7f69faeac98f71b2adf260a1ab7cf3df71c82a"
+    },
+    {
+      "name": "artificial_common.py",
+      "sha256": "633d21e8c2db4589c7e29761887d99fac9a7d1f99fb5ef6a8b19494246a54f79"
+    },
+    {
+      "name": "benchmark_cuda_artificial.py",
+      "sha256": "68aea374314eff2418a029d244509b3b3992f5b9db90915c689c2a5b4d2fdd89"
+    },
+    {
+      "name": "remote_artificial_benchmark_guard.py",
+      "sha256": "abf4546dbe48780993970466632dea7645afcbb0ee609a50c5009a7c937655bf"
+    }
+  ],
+  "root_review_scope": [
+    "Candidate parameter order and float64 CPU accumulation unchanged",
+    "Finite checks and mixed dtype/device fallback preserve failure behavior",
+    "Signed zero/subnormal byte comparisons, actual 64-row native artificial endpoint+VJP",
+    "TF32 disabled, deterministic algorithms, MHA fastpath disabled, intra/inter threads12",
+    "Alternating old/new timing order; microbenchmark and forward+VJP reported separately",
+    "No inference of scientific quality or full-run speed from a microbenchmark"
+  ],
+  "result_files": [
+    "GUARD_STARTED.json",
+    "GUARD_RECEIPT.json",
+    "CUDA_ARTIFICIAL_RECEIPT.json",
+    "BENCHMARK.stdout.log",
+    "BENCHMARK.stderr.log"
+  ]
+}
