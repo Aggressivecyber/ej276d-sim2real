@@ -56,4 +56,4 @@ SOURCE 的 Q1、Q2、Q8 密度拟合不满足有效性条件；其中 Q2 位于�
 
 正式门判定见 `work/R78_FULL_RESPONSE_EVALUATION_001/ACCEPTANCE_A_C.json`、`GATE_METRICS.json`；紧凑交付汇总见 `R78_RESULT_SUMMARY.json`。原始完整指标、逐事件输出和权重保存在 E/D，Git 仅保存代码、配置、汇总与关键图。
 
-当前固定模型关闭为未通过，D/E 任务效用、REAL-only 缺区补全和独立采集泛化未执行，真实缺区事件率仍未知。应用长期目标保持 paused，本次直接授权的评价完成；没有启动后续训练。实际版本推送和 D 盘校验状态以 `R78_DELIVERY_RECEIPT.json` 为准。
+当前固定模型关闭为未通过，D/E 任务效用、REAL-only 缺区补全和独立采集泛化未执行，真实缺区事件率仍未知。最近一次应用查询返回 goal:null，此前观察为 paused；本次直接授权的评价完成；没有启动后续训练。实际版本推送和 D 盘校验状态以 `R78_DELIVERY_RECEIPT.json` 为准。
