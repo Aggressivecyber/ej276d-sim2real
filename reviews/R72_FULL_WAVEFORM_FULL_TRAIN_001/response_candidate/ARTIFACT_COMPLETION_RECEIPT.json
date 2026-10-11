@@ -1,0 +1,35 @@
+{
+  "status": "CANDIDATE_PREPARED_AND_ARTIFICIAL_CPU_CHECKED",
+  "created_UTC": "2026-10-11T10:40:17.270496+00:00",
+  "manifest_sha256": "6a77361e78281611049c4ee0a3488c08637d1f2c3f62f3d58ddc6edcadceab21",
+  "input_manifest_sha256": "9c647835fabe990c09ce8c8de027f436ba206e84b3291b57721c6b6e3067d0a7",
+  "response_module_sha256": "e72566445355e95aab08bdd75d7dab90c8df6f2587f80cb757504f6ccfdcc0b5",
+  "reference_module_sha256": "58a42133632447cf243c8bd393af54b88a1ad088a6733412b37dec76520ecc44",
+  "artificial_checker_sha256": "dcb678d245ec9c0e505d0e648fc7604e895f705ecf2b1fda8ce21ab03c39b652",
+  "native_CPU": {
+    "exit_code": 0,
+    "checks": 38,
+    "CPU_affinity_mask": 2,
+    "threads": 1,
+    "peak_RSS_bytes": 230481920,
+    "receipt": "NATIVE_RESOURCE_RECEIPT.json"
+  },
+  "initial_byte_permutation_failure_preserved": true,
+  "numerical_permutation_assertion_is_fixture_engineering_only": true,
+  "CUDA_execution": false,
+  "scientific_execution": false,
+  "science_arrays_weights_read": false,
+  "existing_frozen_or_root_files_modified": false,
+  "entry_points": {
+    "fixture_and_checks": "check_waveform_response.py:make_fixture/run_artificial",
+    "response": "waveform_response.py",
+    "reference": "waveform_numpy_reference.py:reference_numpy"
+  },
+  "not_proven": [
+    "full_population_CUDA_memory_or_latency",
+    "complete_objective_VJP_correctness",
+    "scientific_quality_or_same_treated_REAL_preservation",
+    "universal_bitwise_permutation_equivariance",
+    "final_A_F_acceptance"
+  ]
+}

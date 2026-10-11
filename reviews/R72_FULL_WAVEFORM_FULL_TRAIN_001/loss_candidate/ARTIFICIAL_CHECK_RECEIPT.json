@@ -1,0 +1,65 @@
+{
+  "status": "PASS_ARTIFICIAL_ONLY",
+  "checks": [
+    {
+      "device": "cpu",
+      "case": "uniform_W1_unequal_repeats_values_gradients_scipy_LRU",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "order_vs_old_NxN_full_denominator_mask_touching_ties_and_pure_compiled",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "nine_term_direct_vs_iter_six_leaf_gradients_dynamic_bins_outside_mass_empty_fail_identity",
+      "pass": true
+    },
+    {
+      "device": "cpu",
+      "case": "complete_leaf_plus_all_parent_VJP_matches_direct_value_gradient_stats_serializable",
+      "pass": true
+    },
+    {
+      "case": "artificial6593_full_order_gradient_no_pair_matrix",
+      "pass": true
+    }
+  ],
+  "CPU": "passed",
+  "CUDA": "unknown_no_local_CUDA_available",
+  "numba_available": true,
+  "order_backend": "numba",
+  "compiled_first_call_seconds_included_in_setup": 2.3062103000702336,
+  "artificial6593_order_backend_seconds": 0.0010999999940395355,
+  "artificial6593_order_python_seconds": 0.039713900070637465,
+  "order_timing_scope": "artificial scalar order only; no full-training forecast",
+  "max_W1_dense_value_abs_error": 4.440892098500626e-16,
+  "max_W1_dense_gradient_abs_error": 1.3877787807814457e-16,
+  "max_W1_scipy_abs_error": 0.0,
+  "max_order_old_dense_value_abs_error": 5.329070518200751e-15,
+  "max_order_old_dense_gradient_abs_error": 3.552713678800501e-15,
+  "elapsed_checks_seconds_including_first_JIT": 2.92669970006682,
+  "scientific_array_reads": 0,
+  "actual_scientific_model_fit_or_inference": 0,
+  "torch_version": "2.10.0+cpu",
+  "numpy_version": "2.2.6",
+  "resource_limits": {
+    "PID": 66040,
+    "CPU_affinity_mask": 4,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\loss_candidate\\runtime_cache",
+    "numeric_environment_threads": 1
+  },
+  "resource_memory": {
+    "peak_RSS_bytes": 462725120,
+    "RSS_bytes": 446894080,
+    "peak_private_commit_bytes": 415117312
+  },
+  "source_SHA256": {
+    "full_waveform_loss.py": "aa9c713fc40ed1a9c63c5d5a3bd75d094855e1480967ea0d596389e8041ce59d",
+    "check_full_waveform_loss.py": "4d7416cde2c2a5c660c0e0f405ed5d19df770b3e9a960e034b13e546f31eac86"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "UTC": "2026-10-11T10:36:04.473695+00:00",
+  "attempt": 1,
+  "scientific_arrays_read": false,
+  "scientific_updates": 0,
+  "source_SHA256": {
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\artificial_checks.py": "84b50d6a923877cfa00832a5bd926ed97c3efe6c0f6dff594bd1b78d4e8123d2",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\check_full_waveform_loss.py": "4d7416cde2c2a5c660c0e0f405ed5d19df770b3e9a960e034b13e546f31eac86",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\check_waveform_response.py": "dcb678d245ec9c0e505d0e648fc7604e895f705ecf2b1fda8ce21ab03c39b652",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\common_response.py": "3405804729a4b3a1b3dd9dad972fb5933d63a7415991577bee7c3b247c505ba9",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\full_waveform_loss.py": "aa9c713fc40ed1a9c63c5d5a3bd75d094855e1480967ea0d596389e8041ce59d",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\linux_owned_worker.py": "90282672e4009734728dc82708a9542bb098dfb619f2f62c1c457b9fca2b25b8",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\linux_supervise.py": "fa05d8991f3f9a54577b5d0a272927bba262b6efd37e8afb08245de99ace2339",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\numpy_reference.py": "50a32f7e293ab643d37fe64d5e08e0d05901128b18b216d787dd9e85834c34bd",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\physical_operators.py": "9db9afb65c32c2ec18f7c4e7a54319bd949fc67c15414bb17fbf26a3d8d98d71",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\postcheck.py": "ecdf9f40457fcd686cb9dde35b788aaeb37eb15e8a1fc86b9488ae6c2932e275",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\precision_order_reference.py": "bd1eb9283017a869736b4c5abe08bf31b06ba65fb38195e9c3fb7287c617d71c",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\public_charge_head.py": "e8578162c2528dd43aeeeb1e910e9b758122a2a34b7007c4cdf501e29b5f908b",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\train_full.py": "26dab713dc4c64f6d8d7314f1c52a8340ccec494b0a30115a646fbefc146bacb",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\train_metrics.py": "1af30664c4ba06e204feb55242c1d9553d90ec710321eacdb2b92ff6482041a4",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\waveform_numpy_reference.py": "58a42133632447cf243c8bd393af54b88a1ad088a6733412b37dec76520ecc44",
+    "work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\waveform_response.py": "e72566445355e95aab08bdd75d7dab90c8df6f2587f80cb757504f6ccfdcc0b5"
+  },
+  "error": "TypeError('template bank must be a floating-point Tensor')",
+  "traceback": "Traceback (most recent call last):\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\assemble_and_check.py\", line 26, in <module>\n    receipt.update(result=joint_check('cpu',20261011723),native_exit=0,pass_all=True)\n                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\artificial_checks.py\", line 44, in joint_check\n    shape,prepared,eps,nS,obj,dirs,temporal=fixture(device,seed);N=len(eps);chunk=13\n                                            ~~~~~~~^^^^^^^^^^^^^\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\artificial_checks.py\", line 24, in fixture\n    prepared=prepare_static(head,x,mu,scale,edges,p,tau2);feature=prepared['features482'][nS:]\n  File \"C:\\Users\\10629\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\torch\\utils\\_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\waveform_response.py\", line 94, in prepare_static\n    coordinates = common_charge_coordinates(head, x, mu, scale, edges)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\public_charge_head.py\", line 300, in common_charge_coordinates\n    stats = interpolate_charge_statistics(result[\"q_target\"], mu, scale, log_edges)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\public_charge_head.py\", line 230, in interpolate_charge_statistics\n    mu = normalized_template_bank(mu)\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\public_charge_head.py\", line 207, in normalized_template_bank\n    mu = _waveform(mu, \"template bank\")\n  File \"E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\public_charge_head.py\", line 27, in _waveform\n    raise TypeError(f\"{name} must be a floating-point Tensor\")\nTypeError: template bank must be a floating-point Tensor\n",
+  "native_exit": 1,
+  "pass_all": false,
+  "elapsed_s": 4.959404599969275,
+  "guard": {
+    "PID": 51224,
+    "CPU_affinity_mask": 1,
+    "CPU_affinity_count": 1,
+    "RSS_hard_max_bytes": 1073741824,
+    "RSS_limit_flags": 6,
+    "cache_root": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\reviews\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\joint_artificial_runtime\\runtime_cache",
+    "numeric_environment_threads": 1,
+    "peak_RSS_bytes": 299569152,
+    "RSS_bytes": 299569152,
+    "peak_private_commit_bytes": 300687360
+  }
+}
