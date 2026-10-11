@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "result": {
+    "pass_all": true,
+    "evidence_level": "artificial_cpu_float64_first_order_only",
+    "device": "cpu",
+    "original_source": "E:\\GAN\\research\\sim2real_two_papers_20261008_0305\\work\\R72_FULL_WAVEFORM_FULL_TRAIN_001\\full_waveform_loss.py",
+    "original_source_SHA256": "7e0432c0ddc795221cbe829cdb2803a080b3dc5da349d825ee88e74bfc8f0bb3",
+    "checks": [
+      "1521 exhaustive Fraction cases: unequal counts, stable duplicates, zero abs ties, both gradients",
+      "multiple columns, noncontiguous rows, arbitrary upstream, all requires_grad combinations, b_sorted both",
+      "artificial 6593/21047 counts only; no scientific endpoints",
+      "large translations, large/small positive scales, identical laws, signed zero equality",
+      "external sorted-b graph and shared-a-b leaf",
+      "exact ia/ib/mass plans and LRU caps/hits/misses preserved",
+      "validation failure types match original"
+    ],
+    "measurements": {
+      "forward_bitwise_cases": 1599,
+      "gradient_sides_compared": 3134,
+      "max_gradient_absolute_difference": 1.3642420526593924e-12,
+      "max_gradient_error_to_roundoff_bound": 0.013381322224934896,
+      "rational_formula_cases": 1521,
+      "comparison_cases": 1599
+    },
+    "forward_bitwise_expected": true,
+    "gradient_bitwise_equivalence_claimed": false,
+    "higher_order_derivatives_validated": false,
+    "scientific_arrays_or_weights_read": false,
+    "scientific_training_or_probe_run": false,
+    "real_CUDA_speedup_claimed": false,
+    "caller_CPU_RNG_unchanged": true
+  },
+  "error": null
+}
