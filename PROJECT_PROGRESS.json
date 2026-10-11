@@ -1,15 +1,17 @@
 {
-  "updated_UTC": "2026-10-11T08:47:42.835068+00:00",
-  "project_status": "R69_fixed_candidate_closed",
+  "updated_UTC": "2026-10-11T09:10:58.386121+00:00",
+  "project_status": "incomplete_user_target_corrected",
   "project_objective": "PROJECT_OBJECTIVE.md",
-  "application_goal_status": "active",
-  "latest_completed_stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
-  "current_stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
-  "current_task": "tasks/R69_SAMPLED_FULL_GRADIENT_PILOT_001.md",
+  "application_goal_status": "paused",
+  "latest_completed_stage": "R70_REAL_CHARGE_TARGET_RECONCILIATION_001",
+  "current_stage": "R70_REAL_CHARGE_TARGET_RECONCILIATION_001",
+  "current_task": "tasks/R70_REAL_CHARGE_TARGET_RECONCILIATION_001.md",
   "requirements": [
     {
       "id": "source_roles_interface",
-      "status": "established_reuse_existing_evidence"
+      "status": "established_reuse_existing_evidence",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "target_distribution_learning",
@@ -37,7 +39,9 @@
           ]
         }
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "G4_conditioned_full_response",
@@ -65,7 +69,9 @@
           ]
         }
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "charge_conditional_width_noise_waveform",
@@ -93,7 +99,9 @@
           ]
         }
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "task_utility",
@@ -115,7 +123,9 @@
         "PROJECT_ACCEPTANCE.json",
         "reviews/FROZEN_A_F_VALIDATION_PREPARATION_001.md"
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "charge_gap_generalization",
@@ -137,7 +147,9 @@
         "PROJECT_ACCEPTANCE.json",
         "reviews/FROZEN_A_F_VALIDATION_PREPARATION_001.md"
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "reproducible_final_model",
@@ -162,7 +174,9 @@
           ]
         }
       ],
-      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001"
+      "candidate_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     },
     {
       "id": "final_research_delivery",
@@ -190,16 +204,18 @@
           ]
         }
       ],
-      "candidate_stage": "R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001"
+      "candidate_stage": "R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001",
+      "evidence_acceptance_version": 4,
+      "current_v5_status": "not_evaluated_no_v5_candidate"
     }
   ],
   "external_generalization": "single historically exposed acquisition; no independent acquisition claim",
-  "current_direction": "Complete artificial joint D/C and real-network update proofs, run the single full empirical D candidate from original initialization to update50000, then original numeric/A-C/replay; original D/E only after passing.",
+  "current_direction": "One common conditional charge-response head, then conditional waveform response if supported",
   "next_round_policy": "User-authorized no compute budgets; retain original A-F and register any distinct next scientific protocol.",
-  "current_activity": "R69_fixed_candidate_evidence_closed",
-  "latest_user_steering": "你能先证明这样能带来提高吗 成本太大了",
-  "current_priority": "unpaired_source_waveform_translation_with_content_and_PSD_preservation",
-  "latest_user_steering_receipt": "reviews/R49_LOCAL_REGISTRATION_001/RECEIPT.json",
+  "current_activity": "R70_target_correction_and_static_preparation_complete",
+  "latest_user_steering": "保留实际数据的电荷分布 因为他是真实的 仿真的目的是为了提供一个趋势参考 真实数据可以看作是仿真数据的扭曲，在数据缺少能区通过仿真可以弥补数据不足 所以符合真实电荷分布是我们要保留的",
+  "current_priority": "REAL empirical charge is the response target; SOURCE provides conditional trend",
+  "latest_user_steering_receipt": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/USER_STEERING_RECEIPT.json",
   "execution_location": {
     "mode": "server_GPU_single_root_neural_training",
     "host": "rylan@100.82.231.102",
@@ -216,13 +232,13 @@
   "current_task_addendum": null,
   "latest_response_model_stage": "R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001",
   "goal_registration_receipt": "reviews/PROJECT_GOAL_PARALLEL_20261011_001/APP_GOAL_RECEIPT.json",
-  "current_engineering_addendum": "R69 fixed K4 gradient admission passed but joint equal-cost response gate failed; historical R65 pack optimization remains separate",
+  "current_engineering_addendum": "R70 Q-response target and conditioning migration; R65 remains retired on cost hold",
   "latest_diagnostic_stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
-  "latest_diagnostic_conclusion": "Exact finite TRAIN charge KS lower bound0.248400366 under declared preservation/ADC class; not fixed-HGB or A-F impossibility.",
+  "latest_diagnostic_conclusion": "R69 gradient admission passed; joint equal-cost benefit failed (NEGATIVE_LOCAL_SUPPORT).",
   "latest_response_conclusion": "R63_joint_A_B_C_failed_fixed_recipe_closed",
-  "acceptance_document": "PROJECT_ACCEPTANCE.md",
-  "acceptance_registry": "PROJECT_ACCEPTANCE.json",
-  "acceptance_version": 4,
+  "acceptance_document": "PROJECT_ACCEPTANCE_REAL_CHARGE_V5.md",
+  "acceptance_registry": "PROJECT_ACCEPTANCE_REAL_CHARGE_V5.json",
+  "acceptance_version": 5,
   "improvement_block_science_seconds_max": null,
   "resource_policy": "SERVER_RESOURCE_POLICY.md",
   "resource_registry": "RESOURCE_BUDGET.json",
@@ -233,17 +249,17 @@
   "current_stage_deadline_UTC": null,
   "stage_deadline_UTC": null,
   "executor_seal_deadline_UTC": null,
-  "current_stage_progress": "NEGATIVE_LOCAL_SUPPORT",
-  "status": "R69_fixed_candidate_closed",
-  "goal_status_note": "Goal resumed by subsequent goal continuation; original full A-F remains incomplete. Latest user cost objection controls R65 continuation.",
-  "latest_delivered_stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
-  "latest_stage_publication": "R69_DELIVERY_RECEIPT.json",
-  "latest_stage_backup": "R69_DELIVERY_RECEIPT.json",
+  "current_stage_progress": "completed_static_not_scientific_success",
+  "status": "R70_static_target_reconciliation_complete_model_unmet",
+  "goal_status_note": "Latest direct user REAL-charge target correction is implemented prospectively; no completed response model.",
+  "latest_delivered_stage": "R70_REAL_CHARGE_TARGET_RECONCILIATION_001",
+  "latest_stage_publication": "R70_DELIVERY_RECEIPT.json",
+  "latest_stage_backup": "R70_DELIVERY_RECEIPT.json",
   "numerical_protocol_version": 3,
   "latest_backup_mode": "incremental_with_explicit_R44_R45_R46_R47_R48_dependencies",
   "latest_backup_base_dependency": "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r44_psd_velocity_final_20261010_005904_UTC",
   "model_goal_complete": false,
-  "current_route_decision": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/ROOT_RESULT_REVIEW.json",
+  "current_route_decision": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/ROOT_RECONCILIATION_RECEIPT.json",
   "latest_backup_base_dependencies": [
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r44_psd_velocity_final_20261010_005904_UTC",
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r45_extended_budget_final_20261010_014746_UTC",
@@ -251,28 +267,20 @@
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r47_population_noise_final_20261010_060645_UTC",
     "D:\\GAN_backups\\research\\sim2real_two_papers_20261008_0305\\r48_guided_noise_final_20261010_090139_UTC"
   ],
-  "execution_plan": "PROJECT_EXECUTION_PLAN_20261010_002.md",
-  "current_stage_scope": "One no-update full-gradient admission; conditional current-law sampled-VJP equal-cost TRAIN pilot",
+  "execution_plan": "tasks/R70_REAL_CHARGE_TARGET_RECONCILIATION_001.md",
+  "current_stage_scope": "Static user-target and acceptance reconciliation only",
   "current_executor_ack": null,
   "original_fixed_charge_flow_family_closed": true,
-  "current_route_research_closed": true,
+  "current_route_research_closed": false,
   "active_scientific_jobs": 0,
-  "delivery_completion_receipt": "R69_DELIVERY_RECEIPT.json",
+  "delivery_completion_receipt": "R70_DELIVERY_RECEIPT.json",
   "goal_activation_receipt": "reviews/PROJECT_GOAL_ACTIVATION_20261010_001/RECEIPT.json",
-  "next_action": "Deliver preserved R69 evidence, then choose the next independent mechanism from joint results; no K4 scan/retry or R65 restart",
-  "current_stage_registration": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/REGISTRATION.json",
-  "next_prepared_task": null,
+  "next_action": "Preregister one bounded TRAIN-only common-Q-head compatibility experiment before any new scientific execution",
+  "current_stage_registration": null,
+  "next_prepared_task": "common_conditional_Q_head_compatibility_not_registered",
   "executor_start_observation": null,
   "last_native_observation": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/COLLECTION_RECEIPT.json",
-  "current_job": {
-    "stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
-    "status": "terminal",
-    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R69_ROOT_20261011_082144_UTC",
-    "actual_worker_PID": 370317,
-    "supervisor_PID": 370306,
-    "native_exit": 0,
-    "wall_cap_s": 600
-  },
+  "current_job": null,
   "latest_training_progress": [
     {
       "UTC": "2026-10-11T05:20:36.346350+00:00",
@@ -411,35 +419,35 @@
       }
     }
   ],
-  "updated_at_utc": "2026-10-11T07:03:46.680069+00:00",
-  "latest_scientific_decision": "联合局部收益门未通过，关闭固定K4候选；不恢复R65、不改k或随机种子重试。",
+  "updated_at_utc": "2026-10-11T09:06:18.578765+00:00",
+  "latest_scientific_decision": "No new scientific result; explicit user target correction supersedes original SOURCE-Q hard preservation.",
   "improvement_block_closed": false,
   "further_scientific_execution_authorized": true,
   "queued_stage_registration": null,
-  "latest_permission_status": "User asks proof before high cost; one capped comparison, expensive R65 remains on cost hold.",
+  "latest_permission_status": "Explicit target correction; current task is static and launches no science",
   "latest_acceptance_observation": "work/R63_FULL_WAVEFORM_COVERAGE_RESPONSE_001/ACCEPTANCE_A_C.json",
-  "delivery_status": "see_R69_DELIVERY_RECEIPT_for_actual_private_Git_D_delivery",
+  "delivery_status": "see_R70_DELIVERY_RECEIPT_for_actual_private_Git_D_delivery",
   "compute_budget_enforced": true,
   "deadlines_enforced": true,
-  "execution_policy": "User-requested benefit-first pilot capped600 seconds",
-  "current_stage_response_training_runs_started": 2,
+  "execution_policy": "No scientific execution in R70; register one fixed bounded benefit test before future launch",
+  "current_stage_response_training_runs_started": 0,
   "latest_training_progress_stage": "R65_FULL_EMPIRICAL_D_RESPONSE_001",
   "latest_training_progress_role": "TRAIN monitoring only; no DEV/EVAL checkpoint selection or acceptance conclusion",
-  "current_policy_reconciliation": "reviews/R50_ROOT_REGISTRATION_001/RECEIPT.json",
+  "current_policy_reconciliation": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/ROOT_RECONCILIATION_RECEIPT.json",
   "active_local_scientific_jobs": 0,
   "active_remote_scientific_jobs": 0,
   "remote_job_state": "terminal_native_receipt_verified",
   "unknown_remote_job_receipt": "reviews/R49_REMOTE_INTERRUPTION_001.json",
-  "numeric_execution_released": true,
+  "numeric_execution_released": false,
   "remote_previous_replay_terminal": "unknown",
   "global_single_physical_job_confirmed": true,
   "execution_owner": "/root",
   "subagents_allowed": true,
-  "latest_completed_report": "R69_REPORT.md",
-  "latest_completed_review": "reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/ROOT_RESULT_REVIEW.json",
+  "latest_completed_report": "R70_REPORT.md",
+  "latest_completed_review": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/ROOT_STATIC_VERIFICATION.json",
   "latest_numeric_receipt": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/RESOURCE_RECEIPT.json",
-  "latest_completed_backup": "R69_DELIVERY_RECEIPT.json",
-  "latest_user_revision": "reviews/R65_THROUGHPUT_OPTIMIZATION_001/BENEFIT_EVIDENCE_REVIEW.json",
+  "latest_completed_backup": "R70_DELIVERY_RECEIPT.json",
+  "latest_user_revision": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/USER_STEERING_RECEIPT.json",
   "goal_status_receipt": "reviews/PROJECT_GOAL_PARALLEL_20261011_001/APP_GOAL_RECEIPT.json",
   "reproduction_guide": "work/R64_FROZEN_REFERENCE_GRADIENT_DIAGNOSTIC_001/REPRODUCTION.md",
   "delivery_index": "R64_DELIVERY_COMPLETION_RECEIPT.json",
@@ -449,10 +457,10 @@
   "full_A_F_proven": false,
   "executor_agent": "/root",
   "root_role": "scientific_direction_evidence_synthesis_job_coordination_review_delivery",
-  "execution_coordination": "Root controls science and delivery; two scoped auxiliary static/synthetic reviews completed",
-  "latest_user_agent_policy": "Scoped auxiliary analysis uses gpt-6.1-sol/max with root leading and reviewing.",
-  "latest_user_agent_policy_receipt": "reviews/R65_SINGLE_AGENT_STEERING_001/RECEIPT.json",
-  "latest_response_model_stage_role": "latest completed frozen response candidate; active training is separately R65",
+  "execution_coordination": "Root target synthesis and delivery; two scoped static audits",
+  "latest_user_agent_policy": "Auxiliary analysis uses gpt-6.1-sol/max with root leading and reviewing.",
+  "latest_user_agent_policy_receipt": "reviews/R65_THROUGHPUT_OPTIMIZATION_001/user_steering/RECEIPT.json",
+  "latest_response_model_stage_role": "Historical R63 frozen response under v4; no v5 candidate yet",
   "latest_preparation_snapshots": [
     "R65_RUNNING_SNAPSHOT_RECEIPT.json",
     "R65_WAIT_PREPARATION_SNAPSHOT_RECEIPT.json"
@@ -478,8 +486,8 @@
     "cumulative_benefit_test_cap_s": 600,
     "prior_invalid_attempt_actual_wall_s": 201.55318473800435
   },
-  "application_goal_status_observed_UTC": "2026-10-11T08:34:48.927919+00:00",
-  "application_goal_status_note": "Active full original A-F goal; R65 retired on user cost hold",
+  "application_goal_status_observed_UTC": "2026-10-11T09:01:55.393Z",
+  "application_goal_status_note": "Fresh tool returns paused; no state change by this R70 turn.",
   "paused_remote_scientific_jobs": 0,
   "scheduled_wakeup": {
     "automation_id": "r65",
@@ -502,7 +510,7 @@
     "original_terminal_updates": 50000
   },
   "project_model_goal_complete": false,
-  "latest_delivery_status": "see_R69_DELIVERY_RECEIPT_for_actual_private_Git_D_delivery",
+  "latest_delivery_status": "see_R70_DELIVERY_RECEIPT_for_actual_private_Git_D_delivery",
   "cost_benefit_assessment": {
     "R66": "invalid_execution",
     "R67": "NEGATIVE_LOCAL_SUPPORT",
@@ -513,5 +521,38 @@
     "automatic_resume": false
   },
   "latest_static_provenance_review": "reviews/R68_SOURCE_PROVENANCE_AUDIT_001/REPORT.md",
-  "original_A_F_complete": false
+  "original_A_F_complete": false,
+  "last_completed_scientific_job": {
+    "stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
+    "status": "terminal",
+    "remote_root": "/home/rylan/projects/ej276d-sim2real-two-papers-20261008-0305/R69_ROOT_20261011_082144_UTC",
+    "actual_worker_PID": 370317,
+    "supervisor_PID": 370306,
+    "native_exit": 0,
+    "wall_cap_s": 600
+  },
+  "latest_completed_scientific_stage": "R69_SAMPLED_FULL_GRADIENT_PILOT_001",
+  "historical_frozen_method_reference": {
+    "path": null,
+    "sha256": null
+  },
+  "acceptance_pointer": "CURRENT_ACCEPTANCE.json",
+  "original_acceptance_version": 4,
+  "original_acceptance_bytes_unchanged": true,
+  "complete_response_joint_scientific_acceptance": false,
+  "current_model_fit_role": "No v5 model fit or inference performed",
+  "frozen_method": null,
+  "frozen_method_sha256": null,
+  "latest_target_reconciliation": {
+    "stage": "R70_REAL_CHARGE_TARGET_RECONCILIATION_001",
+    "science_runs": 0,
+    "old_SOURCE_Q_hard_preservation_replaced": true,
+    "REAL_reference_changed": false,
+    "SOURCE_parent_weights_changed": false,
+    "historical_results_changed": false,
+    "new_model_acceptance_evaluated": false
+  },
+  "current_plan": "PLAN.md",
+  "numerical_protocol_status": "v5_candidate_specific_reference_not_registered",
+  "latest_acceptance_observation_role": "historical_v4_result_no_v5_model_evaluation"
 }

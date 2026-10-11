@@ -1,3 +1,13 @@
+# 当前目标修正：实测电荷谱为准，仿真提供条件趋势
+
+2026-10-11 用户明确指定保留实测电荷分布。后续新方法按 [验收 v5](PROJECT_ACCEPTANCE_REAL_CHARGE_V5.md) 与 `CURRENT_ACCEPTANCE.json` 执行：允许仿真事件经响应改变 Q，保留原父事件/组成/权重；输出条件按 canonical Q 归区，原名义条件另作来源审计。缺口验证只隐藏 REAL，保留该区仿真。原 A/B/D 等数字保持，原 SOURCE 逐事件 Q 守恒门明确替换；v4 和所有旧失败不改。
+
+R70 完成静态目标协调，下一方向为一个公共条件 Q-head 小试验，尚未预登记或运行。R65 保持停止，R69 固定 K4 负结果已交付。原模型目标及 v5 模型目标均未完成。应用目标本轮实际读取为 paused，本轮未改变状态或启动科学作业。当前源码/数据/日志/cache/temp 只写 E/D。主助手负责方向、审查和 Git；既有辅助静态审计按用户最新模型政策使用 gpt-6.1-sol/max，覆盖下文旧同模型/单助手条款。
+
+证据：`R70_REPORT.md` 与 `reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/ROOT_RECONCILIATION_RECEIPT.json`；实际交付见 `R70_DELIVERY_RECEIPT.json`。新科学工作须在一次性明确输入、方法、端点和资源后登记；无需逐步骤重新请求确认。
+
+## 以下为历史记录
+
 # Current: R69 fixed K4 gradient and equal-cost evidence closed
 
 Result: NEGATIVE_LOCAL_SUPPORT. The no-update gradient error gate passed. Root recomputed the saved evidence, original hashes and native resource receipt. No active scientific worker; no K4/seed scan or R65 restart. Original full A-F remains incomplete. See R69_REPORT.md and reviews/R69_SAMPLED_FULL_GRADIENT_PILOT_001/ROOT_RESULT_REVIEW.json.
