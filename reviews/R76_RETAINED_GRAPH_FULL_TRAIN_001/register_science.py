@@ -1,0 +1,74 @@
+"""Bind R76 once, before any scientific arrays or remote execution."""
+from pathlib import Path
+from datetime import datetime,timezone
+import ast,hashlib,json,shutil,sys
+P=Path(__file__).resolve().parent;R=P.parents[1];S=R/'work'/P.name
+O=R/'work/R74_EXACT_LOSS_FULL_TRAIN_001';W=R/'reviews/R75_CONDITIONAL_VJP_OPTIMIZATION_001/conditional_candidate'
+sys.path.insert(0,str(R/'reviews/R65_PREPARATION_001/training_audit_adapter'))
+from local_resource_guard import apply,memory
+guard=apply(P/'registration_runtime')
+def read(p):return json.loads(p.read_text('utf8'))
+def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n','utf8')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+assert not(P/'REGISTRATION.json').exists()
+assert read(R/'jobs.json')['active_scientific_jobs']==0
+assert read(R/'R75_DELIVERY_RECEIPT.json')['remote_main_SHA']==read(R/'R75_DELIVERY_RECEIPT.json')['local_commit']
+assert read(P/'ROOT_RETAINED_GRAPH_ARTIFICIAL.json')['pass_all']
+assert read(W/'ATTEMPT_002_ARTIFICIAL_CHECK.json')['status']=='PASS'
+assert read(W/'ATTEMPT_002_ARTIFICIAL_CHECK.json')['result']['pass_all']
+assert int((W/'ATTEMPT_002_NATIVE_EXIT_CODE.txt').read_text())==0
+C=read(S/'config.json');old=read(O/'config.json')
+allowed={'stage','remote_root','implementation','forward_schedule','loss_parameter_gradient'}
+assert {k for k in C if C[k]!=old.get(k)}.issubset(allowed)
+assert C['updates']==50000 and C['neural_replay_chunk']==27640 and C['cost_limit_seconds']==14400
+assert C['input_paths']==old['input_paths']and C['loss_weights']==old['loss_weights']and C['hidden']==128
+assert set(C['loss_weights'].values())=={1.0}and C['engineering_equivalence_updates']==[1,25,50]
+equal=[];new_names={'train_full.py','conditional_vjp_loss.py','check_conditional_vjp.py','check_retained_graph.py'}
+for f in S.glob('*.py'):
+    ast.parse(f.read_text('utf8'));compile(f.read_text('utf8'),str(f),'exec')
+    if f.name not in new_names:assert sha(f)==sha(O/f.name);equal.append(f.name)
+for name in ['conditional_vjp_loss.py','check_conditional_vjp.py']:assert sha(S/name)==sha(W/name)
+assert sha(S/'check_retained_graph.py')==sha(P/'check_retained_graph.py')
+assert sha(S/'INPUT_BINDING.json')==sha(O/'INPUT_BINDING.json')
+current=read(R/'CURRENT_ACCEPTANCE.json');assert current['version']==5
+for n,k in [('document','document_sha256'),('registry','registry_sha256')]:assert sha(R/current[n])==current[k]
+now=datetime.now(timezone.utc).isoformat();snap=P/'before_registration';snap.mkdir()
+for name in ['AGENTS.md','STATUS.md','PLAN.md','PROGRAM.json','PROJECT_PROGRESS.json','jobs.json','experiments.json']:shutil.copy2(R/name,snap/name)
+files=[dict(name=f.name,path=C['remote_root']+'/'+f.name,sha256=sha(f),bytes=f.stat().st_size)for f in sorted(S.iterdir())if f.is_file()and f.name!='FILE_BINDING.json']
+write(S/'FILE_BINDING.json',dict(UTC=now,files=files,scope='R72 unchanged complete scientific method with conditional exact gradient assembly and retained forward graph; same50k cost gate'))
+prefix='''# 当前执行：R76 条件梯度回填与保留图已登记，50000全量成本门不变
+
+R74与R75工程证据已私有Git/D盘交付。R76人工CPU检查通过后事前绑定：条件区精确局部梯度唯一回填、一次神经前向保留图并作全部27640父事件参数VJP。九项、SOURCE/REAL公共响应、精度、人口、权重、随机流、50000终点与v5均不变；候选无需神经重放但全部参数梯度保留。
+
+服务器先CPU/CUDA人工、1/25/50原R72同状态完整数值对照，再按50工程步保守耗时决定。值/梯度/Adam与CPU12/RSS48GiB/GPU10GiB通过且全终点预计<=4小时，恢复初态/空Adam/RNG直接全量；否则主训练0。无held-out或质量选参，旧R65停止。长期目标active，根/既有辅助与E/D保持。
+
+任务：tasks/R76_RETAINED_GRAPH_FULL_TRAIN_001.md；注册：reviews/R76_RETAINED_GRAPH_FULL_TRAIN_001/REGISTRATION.json。
+
+## 以下为历史记录
+
+'''
+for name in ['AGENTS.md','STATUS.md','PLAN.md']:(R/name).write_text(prefix+(R/name).read_text('utf8'),'utf8')
+entry=dict(id=P.name,stage=P.name,kind='exact_conditional_VJP_and_retained_graph_R72_same_full_endpoint',status='registered_not_started',defined_UTC=now,
+    task='tasks/'+P.name+'.md',registration='reviews/'+P.name+'/REGISTRATION.json',remote_root=C['remote_root'],SOURCE_N=6593,REAL_N=21047,
+    unique_main_updates=50000,engineering_updates=50,extra_same_start_reference_updates=3,cost_limit_seconds=14400,heldout_data_authorized=False,model_goal_complete=False)
+for name,key in [('experiments.json','experiments'),('jobs.json','jobs')]:
+    d=read(R/name);assert not any(v.get('stage',v.get('id'))==P.name for v in d[key]);d[key].append(entry.copy())
+    d.update(updated_UTC=now,active_scientific_jobs=0,active_remote_scientific_jobs=0,active_local_scientific_jobs=0);write(R/name,d)
+for name in ['PROGRAM.json','PROJECT_PROGRESS.json']:
+    d=read(R/name);d.update(updated_UTC=now,status='R76_registered_not_started',current_stage=P.name,current_task=entry['task'],
+        current_stage_registration=entry['registration'],current_job=None,current_activity='conditional_VJP_and_retained_graph_equivalence_and_cost_admission',
+        active_scientific_jobs=0,application_goal_status='active',model_goal_complete=False,next_action='Run bound R76 CPU/CUDA and three full-parent equivalence checks;50 timing updates;restored50k only if<=4h',
+        latest_completed_backup='R75_DELIVERY_RECEIPT.json',latest_delivery_status='R75_private_Git_D_backup_complete')
+    write(R/name,d)
+review=dict(UTC=now,root_static_and_artificial_review_pass=True,unchanged_R74_modules=equal,unchanged_scientific_inputs_and_seeds=True,
+    all_nine_terms_populations_and_fixed_endpoint_preserved=True,one_retained_graph_full_parameter_VJP=True,neural_replay_rows=0,
+    higher_order_and_long_trajectory_bitwise_claimed=False,ROOT_retained_CPU_artificial=read(P/'ROOT_RETAINED_GRAPH_ARTIFICIAL.json')['result'],
+    conditional_candidate_receipt='reviews/R75_CONDITIONAL_VJP_OPTIMIZATION_001/conditional_candidate/COMPLETION_RECEIPT.json',
+    conditional_candidate_receipt_SHA256=sha(W/'COMPLETION_RECEIPT.json'),representative_full_parent_checks=[1,25,50],
+    prospective_tolerances={k:v for k,v in C.items()if k.startswith('equivalence_')},scientific_arrays_decoded=False,guard={**guard,**memory()})
+write(P/'ROOT_IMPLEMENTATION_REVIEW.json',review)
+task=R/entry['task'];local=[f for f in S.iterdir()if f.is_file()]+[task,P/'prepare_stage.py',P/'register_science.py',P/'control.py',P/'collect.py',P/'ROOT_IMPLEMENTATION_REVIEW.json']
+write(P/'REGISTRATION.json',dict(UTC=now,status='REGISTERED_BEFORE_SCIENCE',stage=P.name,
+    local_files=[dict(path=f.relative_to(R).as_posix(),sha256=sha(f),bytes=f.stat().st_size)for f in local],
+    root_review='reviews/'+P.name+'/ROOT_IMPLEMENTATION_REVIEW.json',unique_main_updates=50000,engineering_updates=50,extra_reference_updates=3,current_acceptance_version=5))
+print(json.dumps(dict(stage=P.name,registered=True,files=len(files),remote_root=C['remote_root'],scientific_arrays_decoded=False)),flush=True)

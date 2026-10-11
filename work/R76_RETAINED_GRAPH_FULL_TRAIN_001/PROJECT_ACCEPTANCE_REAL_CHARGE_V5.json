@@ -1,0 +1,180 @@
+{
+  "version": 5,
+  "defined_UTC": "2026-10-11T09:06:18.578765+00:00",
+  "status": "prospective_REAL_charge_target_not_yet_model_validated",
+  "authority": "latest direct user correction recorded in USER_STEERING_RECEIPT.json",
+  "document": "PROJECT_ACCEPTANCE_REAL_CHARGE_V5.md",
+  "document_sha256": "c4e19b0209ae9d1a2e316d5fe0467c2c2164203256fe5996554d6dfeb35587fb",
+  "base_acceptance": {
+    "version": 4,
+    "registry": "PROJECT_ACCEPTANCE.json",
+    "document": "PROJECT_ACCEPTANCE.md",
+    "sha256": {
+      "PROJECT_ACCEPTANCE.json": "b0e4c13302dc67b0eec0799e77fdbab603e29a293cb32bbc26fa0734f025ac9e",
+      "PROJECT_ACCEPTANCE.md": "d6f68a1e902d901bcceafaa1d23f97b1a8ff5ad9f52acf46b00b82d7a6bdb04d"
+    },
+    "unchanged_historical_bytes": true,
+    "retroactive_reclassification": false
+  },
+  "scientific_threshold_version": 1,
+  "response_target_version": 5,
+  "user_supplied_numeric_thresholds": false,
+  "physical_equivalence_claim": false,
+  "historically_exposed_development_data": true,
+  "final_response": {
+    "C2ST_views": [
+      "shape493",
+      "u480",
+      "V480",
+      "Q_PSD_2D",
+      "baseline"
+    ],
+    "SOURCE_and_same_treated_REAL_BA_two_sided95CI_contained_in": [
+      0.4,
+      0.6
+    ],
+    "PSD_overall_and_commonQ_W1_max": 0.01,
+    "low_and_high_peak_MAE_max": 0.01,
+    "low_and_high_rawSD_mean_relative_error_max": 0.1,
+    "required_density_bins": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "noise_and_source_and_boundary_and_replay": "Original requirements remain except the explicitly replaced SOURCE-Q conservation target; see source_and_boundary and numerical_precision."
+  },
+  "utility": {
+    "task": "aligned saved-window prefix0:150 to full-window signed PSD",
+    "primary_REAL_budget": 1024,
+    "same_synthetic_parents": 2000,
+    "required_estimators": [
+      "Ridge_R5_fixed",
+      "HGB_R5_fixed"
+    ],
+    "PSD_MAE_relative_to_REAL_only_point_max": -0.05,
+    "paired95CI_relative_difference_upper_strictly_below": 0.0,
+    "candidate_minus_original_SIM_augmented_MAE_95CI_upper_strictly_below": 0.0,
+    "PSD_MAE_relative_degradation_vs_full_REAL_max": 0.05,
+    "logQ_RMSE_relative_degradation_vs_budget_REAL_max": 0.05,
+    "all_generator_REAL_consumption_and_historical_exposure_counted": true,
+    "online_or_particle_truth_claim": false
+  },
+  "charge_target": {
+    "reference": "unchanged legal REAL identity, raw canonical Q and original empirical weights",
+    "fit_reference_split": "TRAIN only; holdout and GAP-hidden REAL excluded",
+    "SOURCE_original_Q_hard_preservation": false,
+    "SOURCE_parent_identity_composition_order_and_weight_preserved": true,
+    "same_public_response_path_for_SOURCE_and_REAL": true,
+    "REAL_identity_bypass_or_domain_flag_allowed": false,
+    "target_condition_axis": "canonical output Q under unchanged REAL bin boundaries",
+    "required_row_fields": [
+      "parent_ID",
+      "input_Q",
+      "predicted_Q_target",
+      "preADC_Q",
+      "canonical_ADC_Q",
+      "original_bin",
+      "predicted_target_bin",
+      "preADC_bin",
+      "ADC_bin",
+      "input_metadata",
+      "weight",
+      "random_stream"
+    ],
+    "mandatory_Q_diagnostics": [
+      "empirical_CDF",
+      "KS",
+      "W1",
+      "counts",
+      "weights",
+      "outside_support_mass"
+    ],
+    "Q_acceptance_binding": "original fixed Q_PSD_2D BA gate plus full original five-view joint gate",
+    "new_Q_diagnostic_threshold_chosen_after_results": false,
+    "true_missing_region_event_rate": "unknown absent independent physical evidence"
+  },
+  "numerical_precision": {
+    "protocol": "new candidate-specific protocol must bind reference before scientific execution",
+    "candidate_steps": null,
+    "reference_steps": null,
+    "median_LSB_max": 0.25,
+    "p95_LSB_max": 1.0,
+    "LSB_V": 6.103888176768602e-05,
+    "preADC_relative_Q_target_error_max": 1e-05,
+    "relative_Q_target_error_definition": "abs(Q_preADC-Q_predicted)/abs(Q_predicted)",
+    "Q_predicted_independent_of_output_integral": true,
+    "nonpositive_or_nonfinite_Q_predicted_is_failure": true,
+    "old_SOURCE_Q_conservation_gate_replaced": true,
+    "old_GATE_reclassified_as_pass": false,
+    "independent_main_replay_rows_per_model": 4000,
+    "iterative_solver_reference": "preregistered N/2N, unchanged tolerances",
+    "noniterative_module_reference": "separately preregistered independent precision reference; no fictional N/2N result",
+    "science_execution_registered": false
+  },
+  "source_and_boundary": {
+    "original_source_parent_count": 2000,
+    "original_outside_support_count_retained": 417,
+    "Q_and_PSD_Spearman_max_decline": 0.05,
+    "original_purehad_valley_max_increase": 0.02,
+    "source_audit_condition": "unchanged original nominal/source-parent conditions",
+    "original_perturbation_nine_boundary_and_remaining_stage_gates_required": true,
+    "target_bin_migration_additionally_required": true
+  },
+  "scope": {
+    "comparison": "one frozen FULL versus REAL-only GAP study with complete legal SOURCE retained",
+    "gap_half_open_mV_ns": [
+      3703.7782948464155,
+      6711.804904974998
+    ],
+    "hide_GAP_REAL_TRAIN_and_all_derived_statistics": true,
+    "retain_all_legal_SOURCE_TRAIN_including_nominal_gap": true,
+    "GAP_may_borrow_FULL_weights_or_gap_REAL_statistics": false,
+    "unobserved_mask_means_zero_probability": false,
+    "query_mass_mask_and_loss_require_new_protocol_binding": true,
+    "matched_method_training_and_compute_except_REAL_availability": true,
+    "required_reporting": [
+      "all_original_nominal_gap_parents",
+      "all_self_assigned_output_gap",
+      "complete_migration",
+      "counts_and_weights",
+      "support_failures",
+      "outside_gap_controls"
+    ],
+    "validated_region_requires_A_C": true,
+    "failed_gap_can_be_reported_as_successful_completion": false,
+    "historical_R6_reclassified": false,
+    "physical_incident_energy_calibration": "unknown"
+  },
+  "frozen_validation": {
+    "utility_science_seconds_max": null,
+    "scope_science_seconds_max": null,
+    "total_science_seconds_max": null,
+    "require_separate_fixed_protocol_before_execution": true,
+    "planned_utility_studies_per_frozen_candidate": 1,
+    "planned_FULL_GAP_studies_per_frozen_candidate": 1
+  },
+  "improvement_block": {
+    "diagnostic_science_seconds_max": null,
+    "method_plans_max": null,
+    "all_response_training_runs_max": null,
+    "controls_and_repeats_count_towards_run_limit": true,
+    "total_science_seconds_max": null,
+    "no_automatic_extension_at_limit": false,
+    "first_stage": "R44_PSD_VELOCITY_FIT_DIAGNOSTIC_001",
+    "updates_per_training_run_max": null,
+    "science_seconds_per_training_stage_max": null,
+    "failure_costs_counted": true,
+    "live_usage_registry": "RESOURCE_BUDGET.json"
+  },
+  "resource_policy": "SERVER_RESOURCE_POLICY.md",
+  "resource_registry": "RESOURCE_BUDGET.json",
+  "resource_version": 3,
+  "positive_completion": "Same frozen method satisfies prospectively corrected A-F and actual delivery; report gap success separately and require evidence for any supplementation claim.",
+  "negative_closeout": "Close current route with complete negative evidence; project/model goal remains unmet.",
+  "historical_R1_R69_results_changed": false,
+  "model_goal_complete": false,
+  "steering_receipt": "reviews/R70_REAL_CHARGE_TARGET_RECONCILIATION_001/USER_STEERING_RECEIPT.json"
+}
